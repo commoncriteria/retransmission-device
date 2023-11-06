@@ -22,14 +22,11 @@ jobs:
       - name: Install Build Packages
         run: sudo apt-get update && sudo apt-get install -y libfontconfig python3-bs4 wkhtmltopdf xsltproc xvfb
 
-      - name: Convert the pp-template.xml to HTML
+      - name: Debug
+        run: echo "The trigger was " ${{ github.event_name }}
+
+      - name: Convert XML to HTML
         run: make
-
-      - name: Convert pp-template.xml to HTML with a modified transform
-        run: make -f pp-with-xsl-change.make 
-
-      - name: Covert the cpp-template.xml to HTML
-        run: make -f cPP.make 
 
       - name: Checkout commoncriteria.github.io
         uses: actions/checkout@v2
