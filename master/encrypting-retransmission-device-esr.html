@@ -1,0 +1,146 @@
+<?xml-stylesheet type="text/xsl" href="../transforms/esr2html.xsl"><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:esr="http://common-criteria.rhcloud.com/ns/esr" xmlns:fn="http://www.w3.org/2005/xpath-functions"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+					/*       { background-color: #FFFFFF; } */
+					body{
+					    margin-left:8%;
+					    margin-right:8%;
+					    foreground:black;
+					}
+					td{
+					    vertical-align:top;
+					}
+					div.section{
+					    text-align:center;
+					    margin-left:0%;
+					    margin-top:1em;
+					    margin-bottom:1em;
+					    border:2px solid #000000;
+					    width:100%;
+					    background-color:#FFFF99;
+					    font-family:arial, helvetica, sans-serif;
+					    font-weight:bold;
+					    box-shadow:2px 2px 2px #888888;
+					}
+					div.note{
+					    margin-left:10%;
+					    margin-right:10%;
+					    margin-top:1em;
+					}
+					
+					table.intro{
+					    table-layout:fixed;
+					    width:100%;
+					    margin-top:1em;
+					    border:1px solid black;
+					    box-shadow:2px 2px 2px #888888;
+					    text-align:center;
+					    vertical-align:middle;
+					    font-family:arial, helvetica, sans-serif;
+					}
+					ul,
+					ol{
+					    margin-bottom:0.5em;
+					    margin-top:0.5em;
+					}
+					li{
+					    margin-bottom:0.5em;
+					    margin-top:0.25em;
+					}</style></head><body><table class="intro"><tr><td style="width: 50%;"><img style="max-width:100%;" src="images/cclogo.png"></img></td><td style="vertical-align: middle;"><b>Common Criteria Evaluation and Validation Scheme</b><p></p>National Information
+					Assurance Partnership (NIAP) </td></tr></table><p></p><b>Title: </b><esrtitle xmlns="http://common-criteria.rhcloud.com/ns/esr">Encrypting Retransmission Device (ERD)</esrtitle><p></p><b>Maintained by: </b><maintainer xmlns="http://common-criteria.rhcloud.com/ns/esr">National Information Assurance Partnership (NIAP)</maintainer><p></p><b>Unique Identifier: </b><identifier xmlns="http://common-criteria.rhcloud.com/ns/esr">42</identifier><p></p><b>Version: </b><version xmlns="http://common-criteria.rhcloud.com/ns/esr">1.4</version><p></p><b>Status: </b><status xmlns="http://common-criteria.rhcloud.com/ns/esr">draft</status><p></p><b>Date of issue: </b><issuedate xmlns="http://common-criteria.rhcloud.com/ns/esr">06 November 2023</issuedate><p></p><b>Approved by: </b><approver xmlns="http://common-criteria.rhcloud.com/ns/esr"></approver><p></p><b>Supersedes: </b><p></p><div class="section" id="purpose">Background and Purpose</div>
+	  This document describes a core set of security requirements for ERD.  
+	  These requirements cover basic security behavior for the ERD.  Evaluation 
+	  against the resulting PP ensures that this fundamental set of 
+	  requirements is met.  These fundamental requirements must be extended to 
+	  adequately cover the functionality of many types of applications.
+	  <p xmlns="http://common-criteria.rhcloud.com/ns/esr"></p>
+	  An ERD, in the context of this document, is a boundary device that has 
+	  two functions, encrypt traffic between two endpoints and convert traffic 
+	  from one network media to another network media while maintaining 
+	  isolation from the less trusted network.  This is illustrated in 
+	  Figure 1a. The ERD must meet four security properties at the boundary: 
+	  confidentiality, isolation, separation and authentication. These will be 
+	  referred to as “security”.
+	  <div class="figure" id="figure-1a"><img id="1a" src="images/esr_figure1a.png" width="" height=""></img><p></p><span class="ctr" data-myid="figure-1a" data-counter-type="ct-figure">Figure <span class="counter">1a</span></span>:
+      ERD in the overall network</div>
+	  <p xmlns="http://common-criteria.rhcloud.com/ns/esr"></p>
+	  A more granular view of an ERD pair is in Figure 1b. An ERD consists of 
+	  at least 2 physically separate computing units whose functionality is 
+	  Encryption and Communication respectively. They will be referred to as 
+	  Encryption Unit (EU) and Communication Unit (CU). An ERD is 
+	  cryptographically bonded to another ERD and once bonded they are meant 
+	  to only work as a pair to create and manage a point to point encrypted 
+	  tunnel between 2 trusted domains over an untrusted domain as 
+	  illustrated in Figure 1b.
+	  <div class="figure" id="figure-1b"><img id="1b" src="images/esr_figure1b.png" width="" height=""></img><p></p><span class="ctr" data-myid="figure-1b" data-counter-type="ct-figure">Figure <span class="counter">1b</span></span>:
+      ERD granular view</div>
+	<div class="section" id="usecases">Use Cases</div>
+	  This technology has a number of specific use cases (e.g. mitigating 
+	  vulnerabilities inherent to commercial wireless technologies, adding a 
+	  security layer to SCADA systems, etc.). The basic principle is to 
+	  agnostically and transparently interject an encryption operation between 
+	  2 endpoints that already communicate without that encryption operation. 
+	  For example, a mobile phone and an enterprise VOIP service. Or a 
+	  satellite to a ground station. Or a Satellite to Satellite link. An IoT 
+	  edge device to a server.
+	  <p xmlns="http://common-criteria.rhcloud.com/ns/esr"></p>
+	  However, in formal Common Criteria evaluations we seek evaluation only 
+	  of solutions designed to: 1) replace commercial networking capability 
+	  internal to an End User Device (EUD) with an external device (e.g. 
+	  Ethernet, LTE, Wi-Fi, etc.) 2) provide an encrypted tunnel to protect 
+	  data in transit between EUD’s over said external interface.
+	<div class="section" id="resourcesprotected">Resources to be protected</div>
+    	  <ul xmlns="http://common-criteria.rhcloud.com/ns/esr">
+		  	<li>Sensitive data in transit</li>
+			<li>Cryptographic key material to perform secure communications</li>
+			<li>EU from unauthenticated access</li>
+		  </ul>
+	<div class="section" id="evaluationboundary">Evaluation Boundary</div> 
+	  Referencing figure 1b above, the evaluation boundary consists of the 
+	  hardware/software within the two ERD modules (ERD 1 and ERD 1’) as well 
+	  as the cryptographic link between the modules. More specifically, the 
+	  infrastructure to process data entering and leaving EU1 and EU1’ within 
+	  the blue dashed box.
+	<div class="section" id="requirements">Essential Security Requirements</div>
+      Functionality-related requirements are:
+	  <ul xmlns="http://common-criteria.rhcloud.com/ns/esr">
+	  	<li>The ERD pair must utilize Quantum resistant cryptography.</li>
+    	<li>The data pipeline between both sides of the Encryption Unit (EU) must be non-bypassable.</li>
+    	<li>The connectivity between the ERD and EUD must utilized wired technology.</li>
+    	<li>The communication between the Communication Unit (CU) and EU must be connectionless/stateless.</li>
+    	<li>There must be a protocol break between CU and EU.</li>
+    	<li>Self-managed between ERD 1 and ERD 1’. Once the initial operating data has been entered, the pair must be capable to manage the key and the link autonomously.</li>
+    	<li>The RD pair must implement logging and audit capabilities.</li>
+	  </ul>
+	<div class="section" id="assumptions">Assumptions</div>
+	  <ul xmlns="http://common-criteria.rhcloud.com/ns/esr">
+	  	<li>An attacker is assumed to attempt attacks from the following vantage points:
+        	<ul>
+				<li>The commercial/wireless network (directly attack the radio on the ERD)</li>
+        		<li>The public network the ERD pairs are communicating through</li>
+			</ul>
+		</li>
+    	<li>An attacker is assumed to have the ability to monitor/analyze traffic between ERD pairs as well as monitor wireless signals to/from an ERD.  They are also assumed to have the ability to inject attack vectors through the public network or directly to the ERD radio.</li>
+    	<li>The attacker is assumed to be able to gain control of the CU.</li>
+    	<li>One ERD of a pair could be stolen or lost.</li>
+	  </ul>
+	<div class="section" id="extensions">Optional Extensions</div> 
+	  Encryption unit consists of 2 independent computing units to perform 2 layers of encryption.
+	<div class="section" id="objective">Objective Requirements</div> 
+	  There are presently no objective requirements planned.
+	<div class="section" id="outsidescope">Outside the Scope of Evaluation</div>
+	  The following list contains items that are explicitly out-of-scope for 
+	  any evaluation against the product PP:
+	  <ul xmlns="http://common-criteria.rhcloud.com/ns/esr">
+	  	<li>Any network or device connected to interface ‘a’ of the EU (Figure 2b)</li>
+		<li>Any network or device connected to interface ‘d’ of the CU (Figure 2b)</li>
+	  </ul>
+	  <div class="figure" id="figure-2b"><img id="2b" src="images/esr_figure2b.png" width="" height=""></img><p></p><span class="ctr" data-myid="figure-2b" data-counter-type="ct-figure">Figure <span class="counter">2b</span></span>:
+      Enhanced ERD</div>
+	<div class="section" id="additionalnote">Additional Note</div>
+	  The team is exploring the possibility of making the protocol break (a 
+	  version that doesn’t utilize encryption) a selection within the 
+	  Protection Profile.  Further discussions are planned between government 
+	  stakeholders and industry after the initial formation of the technical 
+	  community.
+	</body></html>
