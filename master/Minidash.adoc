@@ -12,10 +12,8 @@ image::https://raw.githubusercontent.com/commoncriteria/encrypting-retransmissio
 a|[link=https://github.com/commoncriteria/encrypting-retransmission-device/blob/gh-pages/master/TDValidationReport.txt]
 image::https://raw.githubusercontent.com/commoncriteria/encrypting-retransmission-device/gh-pages/master/tds.svg[TDs]
 a|image::https://raw.githubusercontent.com/commoncriteria/encrypting-retransmission-device/gh-pages/master/transforms.svg[transforms,150]
-a| 
-https://commoncriteria.github.io/encrypting-retransmission-device/master/diff-v1.0.html[diff-v1.0.html] +
-https://commoncriteria.github.io/encrypting-retransmission-device/master/encrypting-retransmission-device-release-linkable.html[encrypting-retransmission-device-release-linkable.html] +
-https://commoncriteria.github.io/encrypting-retransmission-device/master/encrypting-retransmission-device-release.html[encrypting-retransmission-device-release.html] +
-https://commoncriteria.github.io/encrypting-retransmission-device/master/encrypting-retransmission-device.html[encrypting-retransmission-device.html] +
-https://commoncriteria.github.io/encrypting-retransmission-device/master/*.pdf[*.pdf] +
+a| [link=https://github.com/commoncriteria/encrypting-retransmission-device/blob/gh-pages/master/HTMLs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/encrypting-retransmission-device/gh-pages/master/html_count.svg[HTML Count]
+[link=https://github.com/commoncriteria/encrypting-retransmission-device/blob/gh-pages/master/PDFs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/encrypting-retransmission-device/gh-pages/master/pdf_count.svg[PDF Count]
 |===
