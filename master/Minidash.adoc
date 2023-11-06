@@ -1,0 +1,21 @@
+[cols="1,1,1,1,1,1,1,1"]
+|===
+8+|encrypting-retransmission-device 
+| https://github.com/commoncriteria/encrypting-retransmission-device/tree/master[master] 
+a| https://commoncriteria.github.io/encrypting-retransmission-device/master/encrypting-retransmission-device-release.html[📄]
+a|[link=https://github.com/commoncriteria/encrypting-retransmission-device/blob/gh-pages/master/ValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/encrypting-retransmission-device/gh-pages/master/validation.svg[Validation]
+a|[link=https://github.com/commoncriteria/encrypting-retransmission-device/blob/gh-pages/master/SanityChecksOutput.md]
+image::https://raw.githubusercontent.com/commoncriteria/encrypting-retransmission-device/gh-pages/master/warnings.svg[SanityChecks]
+a|[link=https://github.com/commoncriteria/encrypting-retransmission-device/blob/gh-pages/master/SpellCheckReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/encrypting-retransmission-device/gh-pages/master/spell-badge.svg[SpellCheck]
+a|[link=https://github.com/commoncriteria/encrypting-retransmission-device/blob/gh-pages/master/TDValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/encrypting-retransmission-device/gh-pages/master/tds.svg[TDs]
+a|image::https://raw.githubusercontent.com/commoncriteria/encrypting-retransmission-device/gh-pages/master/transforms.svg[transforms,150]
+a| 
+https://commoncriteria.github.io/encrypting-retransmission-device/master/diff-v1.0.html[diff-v1.0.html] +
+https://commoncriteria.github.io/encrypting-retransmission-device/master/encrypting-retransmission-device-release-linkable.html[encrypting-retransmission-device-release-linkable.html] +
+https://commoncriteria.github.io/encrypting-retransmission-device/master/encrypting-retransmission-device-release.html[encrypting-retransmission-device-release.html] +
+https://commoncriteria.github.io/encrypting-retransmission-device/master/encrypting-retransmission-device.html[encrypting-retransmission-device.html] +
+https://commoncriteria.github.io/encrypting-retransmission-device/master/*.pdf[*.pdf] +
+|===

@@ -1,0 +1,1 @@
+/home/runner/work/encrypting-retransmission-device/encrypting-retransmission-device/output/effective.xml:23:75: error: element "RevisionHistory" not allowed here; expected element "foreword", "include-pkg", "modules", "pp-preferences", "section" or "subaactivity-decl" or an element from another namespace
