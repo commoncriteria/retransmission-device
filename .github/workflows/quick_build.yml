@@ -37,6 +37,7 @@ jobs:
       
     - name: Quick Build
       run: WARN_PATH="output/SanityChecksOutput.md" make
+      run: WARN_PATH="output/SanityChecksOutput.md" make esr
 
       
     - name: Branch Test

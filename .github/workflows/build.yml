@@ -27,6 +27,7 @@ jobs:
 
       - name: Convert XML to HTML
         run: make
+        run: make esr
 
       - name: Checkout commoncriteria.github.io
         uses: actions/checkout@v2
