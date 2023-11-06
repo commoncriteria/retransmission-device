@@ -27,7 +27,7 @@ jobs:
 
       - name: Convert ESR XML to HTML
         run: make esr
-        
+
       - name: Convert XML to HTML
         run: make
 
@@ -65,7 +65,7 @@ jobs:
         run: ./ci-scripts/create_site.sh
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.0.0
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           repository-name: commoncriteria/commoncriteria.github.io
           branch: master # The branch the action should deploy to.
