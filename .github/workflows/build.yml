@@ -6,6 +6,9 @@ name: Build
 # or API.
 on: [push, workflow_dispatch]
 
+permissions:
+  contents: write
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build-project:
@@ -70,4 +73,4 @@ jobs:
           repository-name: commoncriteria/commoncriteria.github.io
           branch: master # The branch the action should deploy to.
           folder: commoncriteria.github.io # The folder the action should deploy.
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.DEPLOY_TOKEN }}
