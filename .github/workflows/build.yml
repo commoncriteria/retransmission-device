@@ -36,6 +36,7 @@ jobs:
         with:
           repository: commoncriteria/commoncriteria.github.io
           path: commoncriteria.github.io
+          token: ${{ secrets.DEPLOY_TOKEN }}
 
       - name: Checkout CI Scripts
         uses: actions/checkout@v4
