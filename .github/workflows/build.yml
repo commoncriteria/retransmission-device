@@ -73,4 +73,4 @@ jobs:
           repository-name: commoncriteria/commoncriteria.github.io
           branch: master # The branch the action should deploy to.
           folder: commoncriteria.github.io # The folder the action should deploy.
-          token: ${{ secrets.DEPLOY_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
