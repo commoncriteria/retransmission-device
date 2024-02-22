@@ -7,54 +7,81 @@
 		<esrtitle>Encrypting Retransmission Device (ERD)</esrtitle>
 		<maintainer>National Information Assurance Partnership (NIAP)</maintainer>
 		<identifier>42</identifier>
-		<version>1.4</version>
+		<version>1.5</version>
 		<status>draft</status>
-		<issuedate>06 November 2023</issuedate>
+		<issuedate>22 February 2024</issuedate>
 		<approver/>
 		<supercedes/>
 	</intro>
 
 	<section title="Background and Purpose" id="purpose">
-	  This document describes a core set of security requirements for ERD.  
-	  These requirements cover basic security behavior for the ERD.  Evaluation 
-	  against the resulting PP ensures that this fundamental set of 
-	  requirements is met.  These fundamental requirements must be extended to 
-	  adequately cover the functionality of many types of applications.
+	  This document describes a core set of security requirements for ERD. 
+	  These requirements cover basic security behavior for the ERD. Evaluation against 
+	  the resulting PP ensures that this fundamental set of requirements is met. These fundamental 
+	  requirements must be extended to adequately cover the functionality of many types of applications. 
 	  <p/>
-	  An ERD, in the context of this document, is a boundary device that has 
-	  two functions, encrypt traffic between two endpoints and convert traffic 
-	  from one network media to another network media while maintaining 
-	  isolation from the less trusted network.  This is illustrated in 
-	  Figure 1a. The ERD must meet four security properties at the boundary: 
-	  confidentiality, isolation, separation and authentication. These will be 
-	  referred to as “security”.
-	  <figure entity="images/esr_figure1a.png" title="ERD in the overall network" id="1a"/>
+	  An ERD, in the context of this document, is a boundary device that has two functions, 
+	  encrypt traffic between two endpoints and convert traffic from one network media to 
+	  another network media while maintaining isolation from the less trusted network. 
+	  This is illustrated in Figure 1. The ERD must meet four security properties at the 
+	  boundary: confidentiality, isolation, separation, and authentication. These will be 
+	  referred to as “security”. 
 	  <p/>
-	  A more granular view of an ERD pair is in Figure 1b. An ERD consists of 
-	  at least 2 physically separate computing units whose functionality is 
-	  Encryption and Communication respectively. They will be referred to as 
-	  Encryption Unit (EU) and Communication Unit (CU). An ERD is 
-	  cryptographically bonded to another ERD and once bonded they are meant 
-	  to only work as a pair to create and manage a point to point encrypted 
-	  tunnel between 2 trusted domains over an untrusted domain as 
-	  illustrated in Figure 1b.
-	  <figure entity="images/esr_figure1b.png" title="ERD granular view" id="1b"/>
+	  <center><figure entity="images/esr_figure1.png" title="ERD in the overall network" id="1"/></center>
+	  <p/>
+	  A more granular view of an ERD pair is in Figure 1b. An ERD consists of at least 2 
+	  physically separate computing units whose functionality is Encryption and Communication 
+	  respectively. They will be referred to as Encryption Unit (EU) and Communication Unit (CU). 
+	  An ERD is cryptographically bonded to another ERD and once bonded they are meant to only work 
+	  as a pair to create and manage a point-to-point encrypted tunnel between 2 trusted domains 
+	  over an untrusted domain as illustrated in Figure 2. 
+	  <p/>
+	  <center><figure entity="images/esr_figure2.png" title="ERD tunnel and domain separation view" id="2"/></center>
+	  <p/>
+	  The EU and CU are independent. They must not share any hardware such as memory, cache, or other 
+	  internal infrastructure typical of computers. They must not run from a common software image. 
+	  Examples that meet this requirement might be a pair of SoC’s, each running an Operating System, 
+	  or a microProcessor and a microController, or an FPGA and a microProcessor. A pair of virtual 
+	  machines running on a single computer does not meet this separation requirement.
+	  <p/>
+	  The CU interface at IC3 could be wireless (Bluetooth, WiFi, 5G, Microwave, etc.) or wired 
+	  media (ethernet, fiber, USB, serial, etc.) depending on specific use case. There is no restriction. 
+	  For example, where the Untrusted domain is an Ethernet:IP based network, the CU would need an RJ45 
+	  interface. That interface is then assigned an IP address and the destination IP address of its peer 
+	  CU is assigned to the function that transfers packets to and from the EU. The Untrusted domain (not the CU) 
+	  will handle the routing between ERD’s. The CU functions as a translation as well as a network interface device.
+	  <p/>
+	  The IC1 and IC2 is always wired media.
+	  <p/>
+	  The EU-to-EU association is a link layer (layer 2) tunnel and not a layer 3 or higher tunnel. However, a 
+	  layer 3 (or higher) tunnel can independently exist between CU-to-CU to transport the EU-to-EU frames. 
+	  The CU-to-CU tunnel is out of scope for this document.
+	  <p/>
+	  The CU and EU must be managed independently from the untrusted and trusted domain respectively. 
+	  The isolation boundary of IC2 in Figure 2 (intentionally) prevents them from being managed from a common 
+	  location. Managing the CU from the trusted domain, either through the EU or around the EU is not in scope 
+	  of this document. The EU can be manually managed (from the trusted domain) or it can operate autonomously 
+	  depending on the use case requirements. Because the association is only between a pair of ERD’s, they can 
+	  successfully autonomously manage themselves if that is sufficient for a use case.
+	  <p/>
+	  <center><figure entity="images/esr_figure3.png" title="ERD in a package" id="3"/></center>
 	</section>
 	<section title="Use Cases" id="usecases">
-	  This technology has a number of specific use cases (e.g. mitigating 
-	  vulnerabilities inherent to commercial wireless technologies, adding a 
-	  security layer to SCADA systems, etc.). The basic principle is to 
-	  agnostically and transparently interject an encryption operation between 
-	  2 endpoints that already communicate without that encryption operation. 
-	  For example, a mobile phone and an enterprise VOIP service. Or a 
-	  satellite to a ground station. Or a Satellite to Satellite link. An IoT 
-	  edge device to a server.
+	  This technology has many specific use cases. The basic principle is to interject an encryption operation 
+	  network agnostically and transparently between 2 endpoints that already communicate without that encryption operation. 
+	  For example, a mobile phone with an ERD in a sleeve (the phone radio is disabled) and a remote enterprise VOIP service. 
+	  Or a satellite to a ground station. Or a Satellite-to-Satellite link. An IoT edge device (e.g. thermostat) to a server. 
+	  A substation to the main power station. Factory automation between controller and robot. A UAV to its controller or 
+	  UAV to UAV. A link between an automobile and the manufacturer for updates and telemetry. Isolation of a subsystem 
+	  within a system, e.g. separate the audio ECU from the engine ECU’s running on the automobile CAN bus. A branch office 
+	  to another branch office. The EUD in the trusted domain can be one or many devices. The ERD pair can also act as an 
+	  additional authentication mechanism since there is a unique cryptographic association. For example, a service technician 
+	  can be authenticated when doing remote maintenance merely by having one end of the ERD pair while the other end is at 
+	  the ingress point to the system being maintained.
 	  <p/>
-	  However, in formal Common Criteria evaluations we seek evaluation only 
-	  of solutions designed to: 1) replace commercial networking capability 
-	  internal to an End User Device (EUD) with an external device (e.g. 
-	  Ethernet, LTE, Wi-Fi, etc.) 2) provide an encrypted tunnel to protect 
-	  data in transit between EUD’s over said external interface.
+	  However, in formal Common Criteria evaluations we seek evaluation only of solutions designed to: 1) replace commercial 
+	  networking capability internal to an End User Device (EUD) with an external device (e.g. Ethernet, LTE, Wi-Fi, etc.), 
+	  2) provide an encrypted tunnel to protect data in transit between EUD’s over said external interface.
 	</section>
 
 	<section title="Resources to be protected" id="resourcesprotected">
@@ -66,56 +93,66 @@
 	</section>
 
 	<section title="Evaluation Boundary" id="evaluationboundary"> 
-	  Referencing figure 1b above, the evaluation boundary consists of the 
-	  hardware/software within the two ERD modules (ERD 1 and ERD 1’) as well 
-	  as the cryptographic link between the modules. More specifically, the 
-	  infrastructure to process data entering and leaving EU1 and EU1’ within 
-	  the blue dashed box.
+	  Referencing Figure 2 above, the evaluation boundary consists of the hardware/software within the two ERD 
+	  modules (ERD 1 and ERD 1’) as well as the cryptographic link between the modules. More specifically, the 
+	  infrastructure to process data entering and leaving EU1 and EU1’ within the blue dashed box.
 	</section>
 	
 	<section title="Essential Security Requirements" id="requirements">
       Functionality-related requirements are:
 	  <ul>
-	  	<li>The ERD pair must utilize Quantum resistant cryptography.</li>
+	  	<li>At a minimum, the cryptography between ERD’s must be CNSA 2.0 compliant and use the Quantum Resistant key exchange finalists defined by NIST.</li>
+    	<li>The cryptography must employ anti-replay and integrity checking.</li>
+    	<li>The initial key to bond a pair of ERD’s can be pre-placed or input via a side channel at the time of provisioning.</li>
+    	<li>Once bonded/provisioned, the pair will manage the keys autonomously, with periodic rekey, recovery and zeroization upon an alarm or button event.</li>
+    	<li>Management of the EU must be careful to not introduce a new attack surface. The management actions anticipated are: start, stop, copy of log, and provision.</li>
     	<li>The data pipeline between both sides of the Encryption Unit (EU) must be non-bypassable.</li>
     	<li>The connectivity between the ERD and EUD must utilize wired technology.</li>
-    	<li>The communication between the Communication Unit (CU) and EU must be connectionless/stateless.</li>
-    	<li>There must be a protocol break between CU and EU.</li>
-    	<li>Self-managed between ERD 1 and ERD 1’. Once the initial operating data has been entered, the pair must be capable to manage the key and the link autonomously.</li>
-    	<li>The ERD pair must implement logging and audit capabilities.</li>
+		<li>There must be a protocol break between CU and EU.</li>
+		<li>The ERD pair must implement logging and audit capabilities. These must be authenticated activities, minimally with strong password. 
+		The logs of the EU will be less verbose than logs of the CU given the very specific function of the EU vs. the complex activities 
+		related to the untrusted network and the CU. This will limit the need to audit/log the EU in many cases.</li>
+		<li>All the ERD interfaces that touch IC1 and IC2 in Figure 2 must be non-addressable.</li>
+		<li>The frames that transit IC1 and IC2 are treated as stateless. The framing protocol does not require a subsequent frame to 
+		complete a protocol state nor is the internal structure examined.</li>
 	  </ul>
 	</section>
 
 	<section title="Assumptions" id="assumptions">
+	An attacker is assumed to attempt attacks from the following vantage points:
 	  <ul>
-	  	<li>An attacker is assumed to attempt attacks from the following vantage points:
-        	<ul>
-				<li>The commercial/wireless network (directly attack the radio on the ERD)</li>
-        		<li>The public network the ERD pairs are communicating through</li>
-			</ul>
-		</li>
-    	<li>An attacker is assumed to have the ability to monitor/analyze traffic between ERD pairs as well as monitor wireless signals to/from an ERD.  They are also assumed to have the ability to inject attack vectors through the public network or directly to the ERD radio.</li>
-    	<li>The attacker is assumed to be able to gain control of the CU.</li>
-    	<li>One ERD of a pair could be stolen or lost.</li>
+	  	<li>The commercial/wireless network (e.g. directly attack the radio on the CU).</li>
+    	<li>The public network the ERD pairs are communicating through. They are the man in the middle.</li>
+    	<li>Monitor/analyze traffic between ERD pairs as well as monitor any signals to/from an ERD.</li>
+    	<li>Inject attack vectors through the public network or directly to the ERD untrusted domain interface.</li>
+		<li>The attacker is assumed to be able to gain control of the CU.</li>
+		<li>One ERD of a pair could be stolen or lost and subject to physical attack.</li>
+		<li>The trusted domain could attack the EU.</li>
 	  </ul>
 	</section>
 
 
 	<section title="Optional Extensions" id="extensions"> 
-	  Encryption unit consists of 2 independent computing units to perform 2 layers of encryption.
+		<ul>
+	  		<li>Encryption unit consists of 2 independent computing units to perform 2 layers of encryption.</li>
+			<li>ERD has passive anti-tamper techniques applied to the package.</li>
+			<li>ERD has active anti-tamper techniques applied to the package.</li>
+		</ul>
 	</section>
 
 	<section title="Objective Requirements" id="objective"> 
-	  There are presently no objective requirements planned.
+	  There is an additional interface between EU and EUDA that serves as a cryptographic association between the 
+	  ERD and the EUD such that if any other EUD than EUDA were to attach at IC1:a, then the EU would not function.
+	  <p/>
+	  There is an interface to allow PIN entry to start/initialize the EU.
 	</section>
 
 	<section title="Outside the Scope of Evaluation" id="outsidescope">
 	  The following list contains items that are explicitly out-of-scope for 
 	  any evaluation against the product PP:
 	  <ul>
-	  	<li>Any network or device connected to interface ‘a’ of the EU (Figure 2b)</li>
-		<li>Any network or device connected to interface ‘d’ of the CU (Figure 2b)</li>
+	  	<li>Any network or device connected to interface ‘a’ of the EU (Figure 3)</li>
+		<li>Any network or device connected to interface ‘d’ of the CU (Figure 3)</li>
 	  </ul>
-	  <figure entity="images/esr_figure2b.png" title="Enhanced ERD" id="2b"/>
 	</section>
 </ESR>
