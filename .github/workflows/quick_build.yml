@@ -142,7 +142,7 @@ jobs:
 
 
     - name: Generate the spelling badge SVG image
-      uses: emibcn/badge-action@v2.0.2
+      uses: emibcn/badge-action@v2.0.3
       with:
         label: 'Misspellings'
         status: ${{ env.action_spellerrors }}
@@ -152,7 +152,7 @@ jobs:
 
 
     - name: Generate the validation badge SVG image
-      uses: emibcn/badge-action@v2.0.2
+      uses: emibcn/badge-action@v2.0.3
       with:
         label: 'Validation'
         status: ${{ env.action_valerrors }}
@@ -161,7 +161,7 @@ jobs:
 
 
     - name: Generate the warnings badge
-      uses: emibcn/badge-action@v2.0.2
+      uses: emibcn/badge-action@v2.0.3
       with:
         label: 'Warnings'
         status: ${{ env.action_sanitystatus }}
@@ -170,7 +170,7 @@ jobs:
 
 
     - name: Generate the transforms badge
-      uses: emibcn/badge-action@v2.0.2
+      uses: emibcn/badge-action@v2.0.3
       with:
         label: 'Transforms'
         status: ${{ env.action_tdate }}
@@ -178,7 +178,7 @@ jobs:
         path: output/transforms.svg
 
     - name: TD Badge
-      uses: emibcn/badge-action@v2.0.2
+      uses: emibcn/badge-action@v2.0.3
       with:
         label: 'TDs'
         status: ${{ env.action_tdwarns }}
@@ -234,7 +234,7 @@ jobs:
 
 
     - name: HTML Badge
-      uses: emibcn/badge-action@v2.0.2
+      uses: emibcn/badge-action@v2.0.3
       with:
         label: 'HTMLs'
         status: ${{ env.action_html_count }}
@@ -242,7 +242,7 @@ jobs:
         path: output/html_count.svg
 
     - name: PDF Badge
-      uses: emibcn/badge-action@v2.0.2
+      uses: emibcn/badge-action@v2.0.3
       with:
         label: 'PDFs'
         status: ${{ env.action_pdf_count }}
