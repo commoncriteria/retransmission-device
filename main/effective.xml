@@ -46,7 +46,7 @@
 <!-- One entry for each package -->
     <include-pkg id="tls">
       <git>
-	    <url>git@github.com:commoncriteria/commoncriteria/tls</url>  <!-- url of github repo -->
+	    <url>https://github.com/commoncriteria/tls</url>  <!-- url of github repo -->
 	    <branch>release-1.1</branch>                      <!-- github branch of published version -->
       </git>
       <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>  <!-- url of published document on NIAP site -->
@@ -55,7 +55,7 @@
 	    
 	<include-pkg id="ssh">
 	  <git>
-	    <url>git@github.com:commoncriteria/ssh</url>
+	    <url>https://github.com/commoncriteria/ssh</url>
 	    <branch>release-1.0</branch>
 	  </git>
 	  <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=389&amp;id=389</url>
