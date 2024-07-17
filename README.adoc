@@ -16,9 +16,9 @@ image::https://raw.githubusercontent.com/commoncriteria/retransmission-device/gh
 a|image::https://raw.githubusercontent.com/commoncriteria/retransmission-device/gh-pages/main/transforms.svg[transforms,150]
 a|
 https://commoncriteria.github.io/retransmission-device/main/retransmission-device-esr.html[retransmission-device-esr.html] +
-https://commoncriteria.github.io/retransmission-device/main/retransmission-device-release-linkable.html[encrypting-retransmission-release-linkable.html] +
-https://commoncriteria.github.io/retransmission-device/main/retransmission-device-release.html[encrypting-retransmission-release.html] +
-https://commoncriteria.github.io/retransmission-device/main/encrypting-retransmission.html[encrypting-retransmission.html] +
+https://commoncriteria.github.io/retransmission-device/main/retransmission-device-release-linkable.html[retransmission-release-linkable.html] +
+https://commoncriteria.github.io/retransmission-device/main/retransmission-device-release.html[retransmission-release.html] +
+https://commoncriteria.github.io/retransmission-device/main/retransmission.html[retransmission.html] +
 |===
 
 https://github.com/commoncriteria/retransmission-device/issues[image:https://img.shields.io/github/issues/commoncriteria/retransmission-device.svg?maxAge=2592000[GitHub
