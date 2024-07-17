@@ -4,7 +4,7 @@
 <ESR xmlns="http://common-criteria.rhcloud.com/ns/esr" name="Operating System Fundamentals">
   
 	<intro>
-		<esrtitle>Retransmission Device (RD)</esrtitle>
+		<esrtitle>Retransmission Device</esrtitle>
 		<maintainer>National Information Assurance Partnership (NIAP)</maintainer>
 		<identifier></identifier>
 		<version>1.6</version>
