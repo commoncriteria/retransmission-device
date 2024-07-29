@@ -67,7 +67,7 @@
 	  <p/>
 	  A more granular view of an HWS-ERD pair is in Figure 5. An HWS-ERD consists of at least 2 physically separate 
 	  computing units whose functionality is Encryption and Communication respectively. They will be referred to as 
-	  Encryption Unit (EU) and Communication Unit (CU) or NID (Network Interface Device).
+	  Encryption Unit (EU) and Communication Unit (CU).
 	  <p/>
 	  <center><figure entity="images/esr_figure5.svg" title="HWS-ERD end to end view" id="5" width="700em" height="250em"/></center>
 	  <p/>
