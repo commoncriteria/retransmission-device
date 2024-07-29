@@ -34,7 +34,7 @@
 	  <p/>
 	  Figure 2 illustrates the RD as a boundary filter implemented as a stateless firewall. FW2 is filtering untrusted 
 	  traffic on IC2 and FW1 is filtering EUD traffic on IC1. The FW could be the same application or 2 separate 
-	  applications. It may filter in one or both directions if IC1 or IC2. 
+	  applications. It may filter in one or both directions of IC1 or IC2. 
 	  <p/>
 	  <center><figure entity="images/esr_figure2.svg" title="" id="2" width="500em" height="150em"/></center>
 	  <p/>
