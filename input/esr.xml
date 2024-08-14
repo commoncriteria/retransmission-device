@@ -25,10 +25,10 @@
 	  robust isolation between the network transport and EUD on top of the encryption of the ERD.   
 	  <p/>
 		<b>RD</b><p/>
-		The basic RD is a lightweight computing device that acts as both as a retransmission device and a boundary. 
+		The basic RD is a lightweight computing device that acts as both a retransmission device and a boundary. 
 		The RD sits between a EUD (End User Device) and the untrusted transport network as illustrated in Figure 1. 
-		The interconnect IC1 between the EUD and the RD is always a wire. The connection IC2 to the transport network 
-		can be any media, wire or wireless. IC1 and IC2 may or may not be in the same network address space.
+		The interconnect IC1 between the EUD and the RD is always a wired connection. The connection IC2 to the transport network 
+		can be any media, wiredX or wireless. IC1 and IC2 may or may not be in the same network address space.
 	  <p/>
 	  <center><figure entity="images/esr_figure1.svg" title="" id="1" width="500em" height="150em"/></center>
 	  <p/>
@@ -39,7 +39,7 @@
 	  <center><figure entity="images/esr_figure2.svg" title="" id="2" width="500em" height="150em"/></center>
 	  <p/>
 	  The RD can be managed through one of the following methods: local management through a dedicated management 
-	  interface, managed through the WAN interface from a trusted management service or from the LAN interface.
+	  interface, managed through the WAN interface (IC2) from a trusted management service or from the LAN interface (IC1).
 	  <p/>
 	  <b>ERD</b>
 	  <p/>
@@ -163,35 +163,35 @@
 		<li>Network firmware updates are prohibited, only the firmware baseband processor updates directly from the admin channel.</li>
 		<li>Management of the RD must be careful to not introduce a new attack surface. The management actions anticipated: start, stop, copy of log, and provision.</li>
 		<li>The connectivity between the RD and EUD must utilize wired technology.</li>
-		<li>The ERD must implement logging and audit capabilities. These must be authenticated activities, minimally with strong password.</li>
+		<li>The RD must implement logging and audit capabilities. These must be authenticated activities, minimally with strong password.</li>
 	  </ul>
 	  <p/>
 	  <b>Encrypting Retransmission Device (ERD):</b>
 	  <ul>
-	  	<li>At a minimum, the cryptography between RD’s must be CNSA 1.0 compliant and use the Quantum Resistant key exchange finalists defined by NIST.</li>
-		<li>Formal Common Criteria evaluations seek evaluation only of solutions designed to: 1) replace commercial networking capability internal to an End User Device (EUD) with an external device (e.g. Ethernet, LTE, Wi-Fi, etc.), 2) to protect the EUD from external wireless interfaces. The RD is configured to be a Wi-Fi access point or black transport agnostic, the Wi-Fi network must implement WPA2/3 PSK.</li>
+	  	<li>At a minimum, the cryptography between ERD’s must be CNSA 1.0 compliant and use the Quantum Resistant key exchange finalists defined by NIST.</li>
+		<li>Formal Common Criteria evaluations seek evaluation only of solutions designed to: 1) replace commercial networking capability internal to an End User Device (EUD) with an external device (e.g. Ethernet, LTE, Wi-Fi, etc.), 2) to protect the EUD from external wireless interfaces. The ERD is configured to be a Wi-Fi access point or black transport agnostic, the Wi-Fi network must implement WPA2/3 PSK.</li>
 		<li>See WLAN client PP for security requirements.</li>
 		<li>See MACsec ethernet encryption module.</li>
 		<li>See VPN client PP module.</li>
 		<li>IPSec compliance if doing encryption.</li>
 		<li>The encryption must meet the highest setting of MACsec standards.</li>
-		<li>The initial key to bond a pair of RD’s can be pre-placed or input via a side channel at the time of provisioning.</li>
-		<li>Once bonded/provisioned, an RD pair will manage the keys autonomously, with periodic rekey, recovery and zeroization upon an alarm or button event. The cryptography must employ anti-replay and integrity checking.</li>
+		<li>The initial key to bond a pair of ERD’s can be pre-placed or input via a side channel at the time of provisioning.</li>
+		<li>Once bonded/provisioned, an ERD pair will manage the keys autonomously, with periodic rekey, recovery and zeroization upon an alarm or button event. The cryptography must employ anti-replay and integrity checking.</li>
 		<li>The data pipeline between both sides of the Encryption Unit (EU) must be non-bypassable.</li>
 	  </ul>
 	  <p/>
 	  <b>Hardware Separated Encrypting Retransmission Device (HWS-ERD):</b>
 	  <ul>
-	  	<li>At a minimum, the cryptography between RD’s must be CNSA 1.0 compliant.</li>
+	  	<li>At a minimum, the cryptography between HWS-ERD’s must be CNSA 1.0 compliant.</li>
 		<li>The encryption must meet the highest setting of MACsec standards.</li>
-		<li>The initial key to bond a pair of RD’s can be pre-placed or input via a side channel at the time of provisioning.</li>
-		<li>Once bonded/provisioned, an RD pair will manage the keys autonomously, with periodic rekey, recovery and zeroization upon an alarm or button event. The cryptography must employ anti-replay and integrity checking.</li>
-		<li>Management of the RD must be careful to not introduce a new attack surface. The management actions anticipated: start, stop, copy of log, and provision.</li>
+		<li>The initial key to bond a pair of HWS-ERD’s can be pre-placed or input via a side channel at the time of provisioning.</li>
+		<li>Once bonded/provisioned, an HWS-ERD pair will manage the keys autonomously, with periodic rekey, recovery and zeroization upon an alarm or button event. The cryptography must employ anti-replay and integrity checking.</li>
+		<li>Management of the HWS-ERD must be careful to not introduce a new attack surface. The management actions anticipated: start, stop, copy of log, and provision.</li>
 		<li>The data pipeline between both sides of the Encryption Unit (EU) must be non-bypassable.</li>
-		<li>The connectivity between the RD and EUD must utilize wired technology.</li>
+		<li>The connectivity between the HWS-ERD and EUD must utilize wired technology.</li>
 		<li>There must be a protocol break between CU and EU.</li>
-		<li>The ERD must implement logging and audit capabilities. These must be authenticated activities, minimally with strong password. The logs of the EU will be less verbose than logs of the CU given the very specific function of the EU vs. the complex activities related to the untrusted network and the CU. This will limit the need to audit/log the EU in many cases.</li>
-		<li>All the ERD interfaces that touch IC1 and IC2 in Figure 5 &amp; 6 must be non-addressable.</li>
+		<li>The HWS-ERD must implement logging and audit capabilities. These must be authenticated activities, minimally with strong password. The logs of the EU will be less verbose than logs of the CU given the very specific function of the EU vs. the complex activities related to the untrusted network and the CU. This will limit the need to audit/log the EU in many cases.</li>
+		<li>All the HWS-ERD interfaces that touch IC1 and IC2 in Figure 5 &amp; 6 must be non-addressable.</li>
 		<li>The frames that transit IC1 and IC2 are treated as stateless. Namely, the framing protocol does not require a subsequent frame to complete a protocol state nor is the internal structure of the frame examined.</li>
 	  </ul>
 	</section>
@@ -200,21 +200,21 @@
 	An attacker is assumed to attempt attacks from the following vantage points:
 	  <ul>
 	  	<li>The commercial/wireless network (e.g. directly attack the radio on the CU).</li>
-    	<li>The public network the ERD pairs are communicating through. They are the man in the middle.</li>
-    	<li>Monitor/analyze traffic between ERD pairs as well as monitor any signals to/from an ERD.</li>
-    	<li>Inject attack vectors through the public network or directly to the ERD untrusted domain interface.</li>
+    	<li>The public network the RD/ERD/HWS-ERD pairs are communicating through. They are the man in the middle.</li>
+    	<li>Monitor/analyze traffic between RD/ERD/HWS-ERD pairs as well as monitor any signals to/from an RD/ERD/HWS-ERD.</li>
+    	<li>Inject attack vectors through the public network or directly to the RD/ERD/HWS-ERD untrusted domain interface.</li>
 		<li>The attacker is assumed to be able to gain control of the CU.</li>
-		<li>One ERD of a pair could be stolen or lost and subject to physical attack.</li>
-		<li>The trusted domain could attack the EU.</li>
+		<li>One RD/ERD/HWS-ERD of a pair could be stolen or lost and subject to physical attack.</li>
+		<li>Compromised systems in the trusted domain could attacXk the EU.</li>
 	  </ul>
 	</section>
 
 
 	<section title="Optional Extensions" id="extensions"> 
 		<ul>
-	  		<li>Encryption unit consists of 2 independent computing units to perform 2 layers of encryption.</li>
-			<li>RD has passive anti-tamper techniques applied to the package.</li>
-			<li>RD has active anti-tamper techniques applied to the package.</li>
+	  		<li>The HWS-ERD encryption unit consists of 2 independent computing units to perform 2 layers of encryption.</li>
+			<li>RD/ERD/HWS-ERD has passive anti-tamper techniques applied to the package.</li>
+			<li>RD/ERD/HWS_ERD has active anti-tamper techniques applied to the package.</li>
 		</ul>
 	</section>
 
