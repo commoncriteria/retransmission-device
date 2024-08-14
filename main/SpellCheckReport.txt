@@ -27,14 +27,12 @@ output/retransmission-device-esr.html: UAV
 output/retransmission-device-esr.html: WPA2
 output/retransmission-device-esr.html: Wi
 output/retransmission-device-esr.html: agnostically
-output/retransmission-device-esr.html: attacXk
 output/retransmission-device-esr.html: a’
 output/retransmission-device-esr.html: bypassable
 output/retransmission-device-esr.html: d’
 output/retransmission-device-esr.html: ethernet
 output/retransmission-device-esr.html: microController
 output/retransmission-device-esr.html: microProcessor
-output/retransmission-device-esr.html: wiredX
 output/retransmission-device-release-linkable.html: 4C
 output/retransmission-device-release-linkable.html: 5C
 output/retransmission-device-release-linkable.html: 6C
