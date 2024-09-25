@@ -18,17 +18,21 @@
 	  This document describes a core set of security requirements for 3 different flavors of a Retransmission device. 
 	  They will be referred to as RD, ERD and HWS-ERD (Retransmission Device, Encrypting Retransmission Device and 
 	  Hardware Separated Encrypting Retransmission Device respectively). These are small form factor devices to 
-	  provide isolation, authentication and/or confidentiality for a EUD or set of EUD’s that must interoperate with 
-	  an Untrusted Domain. The main goal of the RD use case is to provide network transport and simple isolation of 
-	  the EUD. The ERD use case is intended to provide a layer of confidentiality and authentication through a layer 
-	  of encryption on top of the existing network transport. The HWS-ERD use case is intended to provide the most 
-	  robust isolation between the network transport and EUD on top of the encryption of the ERD.   
+	  provide isolation, authentication and/or confidentiality for a EUD (End User Device) or set of EUD’s that must 
+	  interoperate with an Untrusted Domain. The main goal of the RD use case is to provide network transport and 
+	  simple isolation of the EUD. The ERD use case is intended to provide an independent layer of encryption on top 
+	  of the existing network transport. The encryption done by an RD as a stand alone device will authenticate the 
+	  endpoint in addition to adding confidentiality of the traffic. The HWS-ERD use case is intended to provide the
+	  most robust isolation between the network transport and EUD on top of the encryption of the ERD. The functionality
+	  and requirements are intended to be inherited as the use case moves from RD to HWS-ERD, as much as reasonable. If
+	  the RD requires X, then the ERD and HWS-ERD will require X too unless unreasonable or inappropriate.
 	  <p/>
 		<b>RD</b><p/>
 		The basic RD is a lightweight computing device that acts as both a retransmission device and a boundary. 
 		The RD sits between a EUD (End User Device) and the untrusted transport network as illustrated in Figure 1. 
 		The interconnect IC1 between the EUD and the RD is always a wired connection. The connection IC2 to the transport network 
-		can be any media, wired or wireless. IC1 and IC2 may or may not be in the same network address space.
+		can be any media, wired or wireless. IC1 and IC2 may or may not be in the same network address space depending
+		on the use case.
 	  <p/>
 	  <center><figure entity="images/esr_figure1.svg" title="" id="1" width="500em" height="150em"/></center>
 	  <p/>
@@ -50,41 +54,49 @@
 	  <p/>
 	  Figure 3 illustrates the ERD as a dedicated encryption layer. The encryption can be link layer oriented 
 	  (i.e. MACsec), network layer oriented (i.e. IPsec) or may even be the Wi-Fi link itself assuming that it is 
-	  connecting to a trusted WLAN Access System.
+	  connecting to a trusted WLAN Access System. It will include firewall configurations from the RD use case.
 	  <p/>
 	  <center><figure entity="images/esr_figure3.svg" title="" id="3" width="500em" height="150em"/></center>
 	  <p/>
 	  <b>HWS-ERD</b>
 	  <p/>
-	  An HWS-ERD will encrypt traffic between two endpoints and convert traffic from one network media to another 
-	  network media while maintaining a defined physical and logical protocol break between the trusted and the 
-	  untrusted trusted domains. This forms the most complete security argument for isolation, authentication and 
+	  An HWS-ERD will encrypt traffic between two endpoints while maintaining a defined physical and logical protocol
+	  break between the trusted and the untrusted trusted domains. The protocol break will be both physically and logically
+	  enforced. This forms the most complete security argument for isolation, authentication and 
 	  confidentiality of the 3 use cases. Additionally, a HWS-ERD is cryptographically bonded to another HWS-ERD and 
-	  once bonded they are meant to only work as a pair to create and manage a point to point encrypted tunnel as 
-	  illustrated in Figure 4.
+	  once bonded they are meant to only work as a pair to create and autonomously manage a point to point encrypted 
+	  tunnel as illustrated in Figure 4. By only being a pair they will not require functionality typically needed 
+	  to handle cryptographic nets larger than 2 nodes. Simplicity.
 	  <p/>
 	  <center><figure entity="images/esr_figure4.svg" title="" id="4" width="500em" height="150em"/></center>
 	  <p/>
 	  A more granular view of an HWS-ERD pair is in Figure 5. An HWS-ERD consists of at least 2 physically separate 
 	  computing units whose functionality is Encryption and Communication respectively. They will be referred to as 
-	  Encryption Unit (EU) and Communication Unit (CU).
+	  Encryption Unit (EU) and Communication Unit (CU). The main distinction between HWS-ERD and the ERD is the
+	  protocol break between the EU and CU. It is defined and can be soundly defended. The EU interface (IC3) only needs to
+	  process a singular frame type and can accurately and safely discard any other frame, unlike the interface connected
+	  to the Untrusted Fabric (IC2) which must account for and process the extensive protocol complexity of the transport network 
+	  in addition to performing cryptography. A bug anywhere in that large stack can bypass the encryption altogether
+	  if the IC2 processing and encryption occur on the same machine. In contrast, the EU active software stack at IC3 
+	  will be vastly smaller than the software stack at IC2 on the CU thereby reducing the odds of any exploitable condition to 
+	  the minimum of one. Finally, adding to the binary frame check is a cryptographic operation that cannot be easily spoofed.
 	  <p/>
 	  <center><figure entity="images/esr_figure5.svg" title="HWS-ERD end to end view" id="5" width="700em" height="250em"/></center>
 	  <p/>
 	  The EU and CU are physically independent. They must not share any hardware such as memory, cache, or other 
-	  internal infrastructure typical of computers. They must not run from a common software image. Examples that meet 
-	  this requirement might be a pair of SoC’s, each running an Operating System, or a microProcessor and a 
-	  microController, or an FPGA and a microProcessor. A pair of virtual machines running on a single computer does 
-	  not meet this separation requirement.
+	  internal infrastructure typical of computers. Examples that meet this requirement might be a pair of 
+	  SoC’s, each running an instance of Operating System, or a microProcessor and a microController, or 
+	  an FPGA and a microProcessor. A pair of virtual machines running on a single computer does not meet 
+	  this separation requirement.
 	  <p/>
-	  The CU interface at IC3 could be wireless (Bluetooth, WiFi, 5G, Microwave, etc.) or wired 
+	  The CU interface at IC2 could be wireless (Bluetooth, WiFi, 5G, Microwave, etc.) or wired 
 	  media (ethernet, fiber, USB, serial, etc.) depending on specific use case. There is no restriction. For example, 
 	  where the Untrusted domain is an Ethernet:IP based network, the CU would need an RJ45 interface. That interface 
 	  is then assigned an IP address and the destination IP address of its peer CU is assigned to the function that 
 	  transfers packets to and from the EU. The Untrusted domain (not the CU) will handle the routing between ERD’s. 
-	  The CU functions as a translation layer between IC 3 and IC 2 as well as a network interface to IC 3.
+	  The CU functions as a translation layer between IC3 and IC2 as well as a network interface to IC2.
 	  <p/>
-	  IC1 and IC2 are always wired media.
+	  IC1 and IC3 are always wired media.
 	  <p/>
 	  The EU-to-EU association is a link layer (layer 2) tunnel and not a layer 3 or higher tunnel. However, a 
 	  layer 3 (or higher) tunnel can independently exist between CU-to-CU to transport the EU-to-EU frames. The 
@@ -92,11 +104,13 @@
 	  <p/>
 	  The CU and EU must be managed independently from the untrusted and trusted domain respectively. There is no 
 	  cryptographic bypass. Thus the network address space of IC1 is independent of the network address space of the 
-	  IC3. The isolation boundary of IC2 in Figure 5 (intentionally) prevents them from being managed from a common 
+	  IC2. The isolation boundary of IC3 in Figure 5 (intentionally) prevents them from being managed from a common 
 	  location. Managing the CU from the trusted domain, either through the EU or around the EU is not in scope of 
 	  this document. Because the association is only between a pair of HWS-ERD’s, they can autonomously 
 	  manage themselves if that is sufficient for a use case. However, the EU can be manually 
-	  managed (from the trusted domain) depending on the use case requirements.
+	  managed (from the trusted domain) by an additional virtual or physical interface on the EU, 
+	  depending on the use case requirements. Both ends of the link do not have to be managed. One managed end can
+	  be sufficient for the link. 
 	  <p/>
 	  An even more detailed view of a HWS-ERD in Figure 6 illustrates the protocol break between the black and red 
 	  networks that produces a defined, defendable boundary at interface b and a.
@@ -109,24 +123,27 @@
 	  This technology has many specific use cases. It can serve as an independent filter to restrict traffic flows in 
 	  either direction to the EUD. For encryption purposes, the basic principle is to agnostically inject an 
 	  encryption operation transparently between 2 endpoints that already communicate without that encryption 
-	  operation. For example, a mobile phone with an ERD in a sleeve (the phone radio is disabled) and a remote 
-	  enterprise VOIP service. Or a satellite to a ground station. Or a Satellite-to-Satellite link. An IoT edge 
-	  device (e.g. thermostat) to a server. A substation to the main power station. Factory automation between 
+	  operation. For example, a mobile phone (the phone radio is disabled) running a VPN with through an HWS-ERD in a sleeve 
+	  to a remote enterprise HWS-ERD + VPN + VOIP service. Or a satellite to a ground station. Or a Satellite-to-Satellite link. 
+	  An IoT edge device (e.g. thermostat) to a server. A substation to the main power station. Factory automation between 
 	  controller and robot. A UAV to its controller or UAV to UAV. A link between an automobile and the manufacturer 
 	  for updates and telemetry. Isolation of a subsystem within a system, e.g. separate the audio ECU from the engine 
 	  ECU’s running on the automobile CAN bus. A branch office to another branch office. The EUD in the trusted domain 
 	  can be one or many devices. The ERD pair can also act as an additional authentication mechanism since there is a 
-	  unique cryptographic association. For example, a service technician can be authenticated when doing remote 
-	  maintenance merely by having one end of the ERD pair while the other end is at the ingress point to the system 
-	  being maintained.
+	  unique cryptographic association with those 2 devices. For example, a service technician can be authenticated 
+	  when doing remote maintenance merely by having one end of the ERD pair while the other end is at the ingress 
+	  point to the system being maintained.
 	  <p/>
 	  It must be noted that as you move from Figure 1 to Figure 6, the level of assurance of the security 
-	  arguments (i.e. isolation, authentication and confidentiality) moves from basic to significantly enhanced and 
+	  arguments (i.e. isolation, authentication and confidentiality) moves from marginal to significantly enhanced and 
 	  preferred. Figure 2 combined with Figure 3 provides good security. Figure 2 and Figure 3 implemented as 
-	  Figure 5/6 provides better security.
+	  Figure 5/6 provides better security. With an HWS-ERD the need for patching is less critical because the
+	  software stack guarding the trust boundary is very small and very simple, thus won't have the latent risk 
+	  that fat stacks have and require oversight to compensate for the occaisional bug.
+	  With an HWS-ERD, key management is unnecessary because the pair will autonomously take care of it.
 	  <p/>
 	  However, in formal Common Criteria evaluations we seek evaluation only of solutions designed to: 1) replace 
-	  commercial networking capability internal to an End User Device (EUD) with an external 
+	  commercial networking capability internal to an EUD with an external 
 	  device (e.g. Ethernet, LTE, Wi-Fi, firewall, etc.) 2) provide an encrypted tunnel to protect data in transit 
 	  between EUD’s over said external interface.
 	</section>
@@ -154,14 +171,17 @@
 	</section>
 	
 	<section title="Essential Security Requirements" id="requirements">
+	  <p/> 
+	  Requirements of each use case are generally inherited by the subsequent use cases.
+	
       <b>Retransmission Device (RD):</b>
 	  <ul>
 	  	<li>OS must be tailored to function of RD only. Hardened but less than Network Device fundamentals.</li>
 		<li>The FW shall perform stateless traffic filtering on network packets by the RD.</li>
 		<li>The FW shall support traffic filtering rules that allow to permit or drop network packets that have predefined rules.</li>
 		<li>The FW shall dynamically define rules or establish sessions allowing network traffic to flow for the following network protocols [selection: FTP, SIP, H.323: [assignment: other supported protocols]]. The FW shall deny the flow of network packets if no matching destination, port number, and protocol is identified.</li>
-		<li>Network firmware updates are prohibited, only the firmware baseband processor updates directly from the admin channel.</li>
-		<li>Management of the RD must be careful to not introduce a new attack surface. The management actions anticipated: start, stop, copy of log, and provision.</li>
+		<li>Firmware updates from the Network operator are prohibited, the firmware baseband processor are updated directly from the admin channel.</li>
+		<li>Management must be done through an authenticated interface. The management actions anticipated: start, stop, copy of log, and provision.</li>
 		<li>The connectivity between the RD and EUD must utilize wired technology.</li>
 		<li>The RD must implement logging and audit capabilities. These must be authenticated activities, minimally with strong password.</li>
 	  </ul>
@@ -170,29 +190,25 @@
 	  <ul>
 	  	<li>At a minimum, the cryptography between ERD’s must be CNSA 1.0 compliant and use the Quantum Resistant key exchange finalists defined by NIST.</li>
 		<li>Formal Common Criteria evaluations seek evaluation only of solutions designed to: 1) replace commercial networking capability internal to an End User Device (EUD) with an external device (e.g. Ethernet, LTE, Wi-Fi, etc.), 2) to protect the EUD from external wireless interfaces. The ERD is configured to be a Wi-Fi access point or black transport agnostic, the Wi-Fi network must implement WPA2/3 PSK.</li>
-		<li>See WLAN client PP for security requirements.</li>
-		<li>See MACsec ethernet encryption module.</li>
-		<li>See VPN client PP module.</li>
-		<li>IPSec compliance if doing encryption.</li>
-		<li>The encryption must meet the highest setting of MACsec standards.</li>
-		<li>The initial key to bond a pair of ERD’s can be pre-placed or input via a side channel at the time of provisioning.</li>
+		<li>The initial key to establish a tunnel between ERD pairs can be pre-placed or input via a side channel at the time of provisioning.</li>
 		<li>Once bonded/provisioned, an ERD pair will manage the keys autonomously, with periodic rekey, recovery and zeroization upon an alarm or button event. The cryptography must employ anti-replay and integrity checking.</li>
 		<li>The data pipeline between both sides of the Encryption Unit (EU) must be non-bypassable.</li>
+		<li>The connectivity between the RD and EUD must utilize wired technology.</li>
+		<li>The ERD must implement one or more of the following encryption protocols</li>
+		<li>See WLAN client PP for security requirements.</li>
+		<li>See MACsec ethernet encryption module. The encryption must meet the highest setting of MACsec standards.</li>
+		<li>See VPN client PP module.</li>
+		<li>IPSec compliance if doing encryption.</li>
 	  </ul>
 	  <p/>
 	  <b>Hardware Separated Encrypting Retransmission Device (HWS-ERD):</b>
 	  <ul>
-	  	<li>At a minimum, the cryptography between HWS-ERD’s must be CNSA 1.0 compliant.</li>
 		<li>The encryption must meet the highest setting of MACsec standards.</li>
-		<li>The initial key to bond a pair of HWS-ERD’s can be pre-placed or input via a side channel at the time of provisioning.</li>
 		<li>Once bonded/provisioned, an HWS-ERD pair will manage the keys autonomously, with periodic rekey, recovery and zeroization upon an alarm or button event. The cryptography must employ anti-replay and integrity checking.</li>
-		<li>Management of the HWS-ERD must be careful to not introduce a new attack surface. The management actions anticipated: start, stop, copy of log, and provision.</li>
 		<li>The data pipeline between both sides of the Encryption Unit (EU) must be non-bypassable.</li>
-		<li>The connectivity between the HWS-ERD and EUD must utilize wired technology.</li>
-		<li>There must be a protocol break between CU and EU.</li>
-		<li>The HWS-ERD must implement logging and audit capabilities. These must be authenticated activities, minimally with strong password. The logs of the EU will be less verbose than logs of the CU given the very specific function of the EU vs. the complex activities related to the untrusted network and the CU. This will limit the need to audit/log the EU in many cases.</li>
-		<li>All the HWS-ERD interfaces that touch IC1 and IC2 in Figure 5 &amp; 6 must be non-addressable.</li>
-		<li>The frames that transit IC1 and IC2 are treated as stateless. Namely, the framing protocol does not require a subsequent frame to complete a protocol state nor is the internal structure of the frame examined.</li>
+		<li>There must be a logical and physical protocol break between CU and EU.</li>
+		<li>All the HWS-ERD interfaces that touch IC1 and IC3 in Figure 5 &amp; 6 must be non-addressable.</li>
+		<li>The frames that transit IC1 and IC3 are treated as stateless. Namely, the framing protocol does not require a subsequent frame to complete a protocol state nor is the internal structure of the frame examined.</li>
 	  </ul>
 	</section>
 
