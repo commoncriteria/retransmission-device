@@ -33,6 +33,7 @@ output/retransmission-device-esr.html: d’
 output/retransmission-device-esr.html: ethernet
 output/retransmission-device-esr.html: microController
 output/retransmission-device-esr.html: microProcessor
+output/retransmission-device-esr.html: occaisional
 output/retransmission-device-release-linkable.html: 4C
 output/retransmission-device-release-linkable.html: 5C
 output/retransmission-device-release-linkable.html: 6C
