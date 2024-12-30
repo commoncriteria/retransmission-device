@@ -1,33 +1,181 @@
-* Error: Detected dangling id-reference to pizza from attribute
-        on/PP[1]""/include-pkg[1]""/depends[1]""/on[1]""
-* Error: Detected dangling id-reference to sel-rot2-audit from attribute
-        on-sel/PP[1]""/section[5]""/section[1]""/section[2]""/f-component[1]""/depends[1]""/on-sel[1]""
-* Error: Detected dangling ref-id to 'soup'.
-	  /PP[1]""/section[1]""/section[3]""/usecases[1]""/usecase[1]""/config[1]""/ref-id[1]"soup"
-* Error: Detected dangling ref-id to 'ratatouille'.
-	  /PP[1]""/section[1]""/section[3]""/usecases[1]""/usecase[1]""/config[1]""/not[1]""/ref-id[1]"ratatouil"
-* Error: Detected dangling ref-id to 'pizza'.
-	  /PP[1]""/section[1]""/section[3]""/usecases[1]""/usecase[1]""/config[1]""/not[1]""/ref-id[2]"pizza"
-* Error: Detected dangling ref-id to 'table2'.
-	  /PP[1]""/section[1]""/section[3]""/usecases[1]""/usecase[1]""/config[1]""/not[2]""/ref-id[1]"table2"
-* Error: Detected dangling ref-id to 'optional-comp-example'.
-	  /PP[1]""/section[1]""/section[3]""/usecases[1]""/usecase[1]""/config[1]""/ref-id[2]"optional-"
-* Error: Detected dangling ref-id to 'a-widgets'.
-	  /PP[1]""/section[1]""/section[3]""/usecases[1]""/usecase[1]""/config[1]""/restrict[1]"Number"/ref-id[1]"a-widgets"
-* Warning: Detected an empty _p_ element./PP[1]""/section[1]""/section[4]""/choice[1]"This PP i"/h:p[1]""
- Failed to find a reference to Security_Objectives.
- Failed to find a reference to Threats.
- Failed to find a reference to SFRs.
- Failed to find a reference to SFRs.
- Failed to find a reference to SFRs.
- Failed to find a reference to SFRs.
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[20]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]"The follo"/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[20]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]"The follo"/h:div[2]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[20]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]"The follo"/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[20]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]"The follo"/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[20]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]"The follo"/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[20]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]"The follo"/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[21]""/f-element[1]""/aactivity[1]""/Tests[1]"For all c"/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[21]""/f-element[1]""/aactivity[1]""/Tests[1]"For all c"/h:div[2]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[21]""/f-element[1]""/aactivity[1]""/Tests[1]"For all c"/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[21]""/f-element[1]""/aactivity[1]""/Tests[1]"For all c"/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[21]""/f-element[1]""/aactivity[1]""/Tests[1]"For all c"/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[1]""/f-component[21]""/f-element[1]""/aactivity[1]""/Tests[1]"For all c"/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]""/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]""/h:div[2]"The Windo"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]""/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]""/h:div[4]"The Linux"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]""/h:div[5]"The Solar"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:p[3]""/h:div[6]"The macOS"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:div[2]"For Windo"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]""/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[2]""/aactivity[1]""/Tests[1]""/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[2]""/aactivity[1]""/Tests[1]""/h:div[2]"For Windo"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[2]""/aactivity[1]""/Tests[1]""/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[2]""/aactivity[1]""/Tests[1]""/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[2]""/aactivity[1]""/Tests[1]""/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[2]""/f-element[2]""/aactivity[1]""/Tests[1]""/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[3]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:div[1]"If ""/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[2]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]"If ""/h:div[1]""/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]"If ""/h:div[2]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]"If ""/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]"If ""/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]"If ""/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[2]""/f-element[1]""/aactivity[1]""/Tests[1]"If ""/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:div[2]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[2]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/aactivity[1]""/Tests[1]"The evalu"/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/h:div[1]"Applicati"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/h:div[2]""/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/h:div[3]"Applicati"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[4]""/aactivity[1]""/Tests[1]"The evalu"/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[4]""/aactivity[1]""/Tests[1]"The evalu"/h:div[2]"For Windo"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[4]""/aactivity[1]""/Tests[1]"The evalu"/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[4]""/aactivity[1]""/Tests[1]"The evalu"/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[4]""/aactivity[1]""/Tests[1]"The evalu"/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[4]""/aactivity[1]""/Tests[1]"The evalu"/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/h:div[1]"Applicati"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[8]""/f-element[3]""/aactivity[1]""/Tests[1]"Condition"/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[9]""/f-element[1]""/aactivity[1]""/Tests[1]"If a cont"/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[9]""/f-element[1]""/aactivity[1]""/Tests[1]"If a cont"/h:div[2]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[9]""/f-element[1]""/aactivity[1]""/Tests[1]"If a cont"/h:div[3]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[9]""/f-element[1]""/aactivity[1]""/Tests[1]"If a cont"/h:div[4]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[9]""/f-element[1]""/aactivity[1]""/Tests[1]"If a cont"/h:div[5]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[9]""/f-element[1]""/aactivity[1]""/Tests[1]"If a cont"/h:div[6]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[9]""/f-element[2]""/aactivity[1]""/Tests[1]""/h:div[1]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[9]""/f-element[2]""/aactivity[1]""/Tests[1]""/h:div[2]"The evalu"/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to android from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[6]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:div[1]"If ""/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to ios from attribute
+        ref/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[6]""/f-component[1]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:div[2]"If ""/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to windows from attribute
+        ref/PP[1]""/sec:req[1]""/section[1]""/section[6]"For the c"/a-component[1]""/a-element[5]""/aactivity[1]""/h:div[1]""/depends[1]""/ref[1]""
+* Error: Detected dangling id-reference to linux from attribute
+        ref/PP[1]""/sec:req[1]""/section[1]""/section[6]"For the c"/a-component[1]""/a-element[5]""/aactivity[1]""/h:div[1]""/depends[2]""/ref[1]""
+* Error: Detected dangling id-reference to mac from attribute
+        ref/PP[1]""/sec:req[1]""/section[1]""/section[6]"For the c"/a-component[1]""/a-element[5]""/aactivity[1]""/h:div[1]""/depends[3]""/ref[1]""
+* Error: Detected dangling id-reference to Solaris from attribute
+        ref/PP[1]""/sec:req[1]""/section[1]""/section[6]"For the c"/a-component[1]""/a-element[5]""/aactivity[1]""/h:div[1]""/depends[4]""/ref[1]""
+* Error: Detected multiple elements with an id of 'fel-https-who-cl'.
+* Error: Detected multiple elements with an id of 'fel-https-who-cl'.
  Failed to find a reference to bibCEM.
- Failed to find a reference to SFRs.
- Failed to find a reference to SFRs.
- Failed to find a reference to SFRs.
  Failed to find a reference to bibCEM.
- Failed to find a reference to SFRs.
  Failed to find a reference to bibCEM.
- Failed to find soup in /PP[1]""/section[1]""/section[3]""/usecases[1]""/usecase[1]""/config[1]""/ref-id[1]"soup" (use case or rule)
- Failed to find optional-comp-example in /PP[1]""/section[1]""/section[3]""/usecases[1]""/usecase[1]""/config[1]""/ref-id[2]"optional-" (use case or rule)
-Can't find assignable with ID of  a-widgets
+* Warning: Since FCS_CKM_EXT.1.1 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
+                       
+* Warning: Since FCS_RBG_EXT.1.1 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
+                       
+* Warning: Since FPT_TUD_EXT.1.3 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
+                       
+* Warning: Since FPT_TUD_EXT.1.5 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
+                       
+* Warning: Since FPT_TUD_EXT.2.3 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
+                       
