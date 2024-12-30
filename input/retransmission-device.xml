@@ -8,133 +8,28 @@
     target-product="Application Software" 
     target-products="Application Software" 
     boilerplate="yes"
-    short="App"
+    short="Retrans"
 >
 	
   <PPReference>
     <ReferenceTable>
-      <PPTitle>Protection Profile for Application Software</PPTitle>
-      <PPVersion>2.0</PPVersion>
+      <PPTitle>Protection Profile for Retransmission Device</PPTitle>
+      <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2024-09-30</PPPubDate>
-      <Keywords>application; software</Keywords>
+      <PPPubDate>2024-12-30</PPPubDate>
+      <Keywords>retransmission</Keywords>
     </ReferenceTable>
   </PPReference>
 
   <RevisionHistory>
     <entry>
     <version>v 1.0</version>
-      <date>2014-10-20</date>
+      <date>2014-12-30</date>
       <subject>Initial release</subject>
     </entry>
-    <entry>
-      <version>v 1.1</version>
-      <date>2014-11-05</date>
-      <subject>Addition to TLS cipher suite selections</subject>
-    </entry>
-    <entry>
-      <version>v 1.2</version>
-      <date>2016-04-22</date>
-      <subject>Added server-side TLS requirements (selection-based)
-      <h:br/>Multiple clarification based on NIAP TRRT inquiries
-      <h:br/>Refactored FDP_DEC_EXT.1 into separate components
-      </subject>
-    </entry>
-    <entry> 
-          <version>v 1.3</version>
-          <date>2019-03-01</date>
-          <subject>Incorporated available Technical Decisions
-            <h:br/>Refactored FPT_TUD 
-            <h:br/>Added a selection to FTP_DIT
-            <h:br/>Moved SWID Tags requirement
-            <h:br/>Leveraged TLS Package
-            <h:br/>Added equivalency section
-          </subject>
-    </entry>
-    <entry>
-          <version>v 1.4</version>
-          <date>2021-10-07</date>
-          <subject>Incorporated applicable Technical Decisions
-			<h:br/>Updated to TLS FP 1.1
-			<h:br/>Incorporated SSH FP 1.0
-		  </subject>
-    </entry>
-  	<entry>
-  		<version>v 2.0</version>
-  		<date>2024-09-30</date>
-  		<subject>CC2022 conversion
-		<h:br/>Updating for TLS FP, SSH FP, and X509 FP
-		<h:br/>TDs and GitHub Issues
-		<h:br/>CNSA 2.0 updates
-		<h:br/>ALC FLR Updates
-  		</subject>
-  	</entry>
   </RevisionHistory>
-	
 
-  <!-- TDs incorporated:
-    TD0780:  FIA_X509_EXT.1 Test 4 Clarification
-    TD0756:  Update for platform-provided full disk encryption
-    TD0747:  Configuration Storage Option for Android
-    TD0743:  FTP_DIT_EXT.1.1 Selection exclusivity
-    TD0736:  Number of elements for iterations of FCS_HTTPS_EXT.1
-    TD0719:  ECD for PP APP V1.3 and 1.4
-    TD0717:  Format changes for PP_APP_V1.4
-    TD0669:  FIA_X509_EXT.1 Test 4 Interpretation
-    TD0664:  Testing activity for FPT_TUD_EXT.2.2
-    TD0655:  Mutual authentication in FTP_DIT_EXT.1 for SW App
-	TD0650:  Conformance claim sections updated to allow for MOD_VPNC_V2.3 and 2.4
-	TD0628:  Addition of Container Image to Package Format
-	TD0624:  Addition of DataStore for Storing and Setting Configuration Options
-	XXXXXX:	 Replaced SSH EP 1.0 with SSH FP 1.0
-	TD0601:  Updating FTP_DIT_EXT.1 to conform to changes in FCS_HTTPS_EXT. Supersedes TDs 444, 473, 587.
-	TD0600:  Conformance claim sections updated to allow for MOD_VPNC_V2.3
-	TD0598:  Expanded AES Modes in FCS_COP for App PP
-	TD0587:  X.509 SFR Applicability in App PP  (superseded by TD0601)
-	TD0582:  PP-Configuration for Application Software and Virtual Private Network (VPN) Clients now allowed
-	TD0561:  Signature verification update
-	TD0554:  iOS/iPadOS/Android AppSW Virus Scan
-	TD0548:  Integrity for installation tests in AppSW PP 1.3
-	TD0544:  Alternative testing methods for FPT_AEX_EXT.1.1
-	TD0543:  FMT_MEC_EXT.1 evaluation activity update
-	TD0519:  Linux symbolic links and FMT_CFG_EXT.1
-	TD0515:  Use Android APK manifest in test
-	TD0510:  Obtaining random bytes for iOS/macOS
-	TD0498:  Application Software PP Security Objectives and Requirements Rationale
-	TD0495:  FIA_X509_EXT.1.2 Test Clarification
-	TD0473:  Support for Client or Server TOEs in FCS_HTTPS_EXT (superseded by TD0601)
-	TD0465:  Configuration Storage for .NET Apps
-	TD0445:  User Modifiable File Definition
-    TD0437:  Supported Configuration Mechanism
-	TD0435:  Alternative to SELinux for FPT_AEX_EXT.1.3 
-	TD0434:  Windows Desktop Applications Test	
-	TD0427:  Reliable Time Source 
-	TD0416:  Correction to FCS_RBG_EXT.1 Test Activity
-	
-	Also changed the names of FCS SFRs with iterations as follows:
-
-	FCS_CMK.1 is renamed FCS_CKM_EXT.1
-	FCS_CKM.1/1 (a.k.a FCS_CKM.1/ALGO) is renamed FCS_CKM.1/AK 
-	FCS_CKM.1/2 is renamed FCS_CKM.1/SK 
-	FCS_CKM.1/3 is renamed FCS_CKM_EXT.1/PBKDF (FCS_CKM_EXT.1/PBKDF subsequently renamed FCS_PBKDF_EXT
-	FCS_COP.1/1 is renamed FCS_COP.1/SKC
-	FCS_COP.1/2 is renamed FCS_COP.1/Hash
-	FCS_COP.1/3 is renamed FCS_COP.1/Sig - now SigGen and SigVer
-	FCS_COP.1/4 is renamed FCS_COP.1/KeyedHash
-	
-   -->
-  
-  
-<!--
-  <subaactivity-decl>
-     <val id="sad-android" full="Android-based Platform"></val>
-     <val id="sad-windows" full="Microsoft Windows Platform"></val>
-     <val id="sad-ios" full="Apple iOS Platform"></val>
-     <val id="sad-linux" full="Linux-based Platform"></val>
-     <val id="sad-Solaris" full="Oracle Solaris Platform"></val>
-     <val id="sad-mac" full="Apple macOS Platform"></val>
-  </subaactivity-decl> 
-  -->
+<!-- R-UPDATE Remove comment if SSH needed.
   <include-pkg id="pkg-ssh">
     <git>
       <url>https://github.com/commoncriteria/ssh</url>
@@ -143,7 +38,8 @@
     <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=459&amp;id=459</url>
     <depends on-sel="sel_all_ssh"/>
   </include-pkg>
-  
+  -->
+	
   <include-pkg id="pkg-tls">
     <git>
       <url>https://github.com/commoncriteria/tls</url>
@@ -157,16 +53,15 @@
   </include-pkg>
 
 
-	<pp-preferences>
-		<!--<using-cc2022/> -->
-	</pp-preferences>
 	
 
 	<!-- 1.0 Introdiction -->
 	<sec:Introduction>
 
 	<!-- 1.1 Overview -->
-    <sec:Overview>The scope of this Protection Profile (PP) is to
+    <sec:Overview>
+    	<!--R-UPDATE replace - Add new overview, old app pp below for example.-->
+    	The scope of this Protection Profile (PP) is to
 		describe the security functionality of application software in terms of <xref g="CC"/>
 		and to define functional and assurance requirements for such software. In recent years,
 		software attacks have shifted from targeting operating systems to targeting applications. This
@@ -179,6 +74,7 @@
 	<!-- 1.2 Terms -->
 	<!-- 1.2.1 Common Criteria Terms -->
 	<!-- 1.2.2 Technical Terms -->
+		<!--R-UPDATE replace - Add new terms delete unused terms.-->
     <tech-terms>
 		<term full="Address Space Layout Randomization" abbr="ASLR">
             An anti-exploitation feature which loads memory mappings into unpredictable
@@ -322,6 +218,7 @@
 	<!-- 1.3 Compliant Targets of Evaluation -->
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
 	<h:p>
+		<!--R-UPDATE replace - Update for retrans.-->
 		The requirements in this document apply to application software which runs on any type of 
 		platform. Some application types are covered by more specific PPs, which may be expressed as
 		PP-Modules of this PP. Such applications are subject to the requirements of both this PP and the
@@ -338,6 +235,7 @@
 
 	<!-- 1.3.1 TOE Boundary -->
 	<sec:TOE_Boundary>
+		<!--R-UPDATE replace - define boundry of TOE, probably look to network device or VPN GW for example.-->
 <h:p>
 		The application, which consists of the software provided by its vendor,
 		is installed onto the platform(s) it operates on.  It executes on the platform, which
@@ -370,6 +268,7 @@
 	</section>  <!-- 1.3 Compliant Targets of Evaluation -->
 	
 	<!-- 1.4 Use Cases -->
+		<!--R-UPDATE replace - Add new overview, look at MDF PP for example for well defined use cases.-->
     <sec:Use_Cases>
 		Requirements in this Protection Profile are designed to
 		address the security problem in the following use cases. These use cases are intentionally
@@ -395,27 +294,9 @@
 		</usecases>
 	</sec:Use_Cases>
 	
-	<!-- 1.5 Supported Platforms -->
-	<section title="Platforms with Specific EAs" id="sec-platforms">
-	    <choice prefix="Platforms:" >
-	    	<h:p>
-			This PP includes platform-specific EAs for the below-listed operating system platforms. For "bare-metal" applications, applications that run on
-			other OS platforms, and applications that run in software-based execution environments, contact the Technical Community for guidance.</h:p>  
-			<selectables linebreak="yes">
-				<selectable id="android"><h:b><snip>Android</snip></h:b>: <h:i>Mobile operating systems based on Google Android.</h:i></selectable>
-				<selectable id="windows"><h:b><snip>Microsoft Windows</snip></h:b>: <h:i>Microsoft Windows operating systems.</h:i></selectable>
-				<selectable id="ios"><h:b><snip>Apple iOS</snip></h:b>: <h:i>Apple's mobile operating system for iPhones.</h:i></selectable>
-				<selectable id="linux"><h:b><snip>Linux</snip></h:b>: <h:i>Linux-based operating systems other than Android.</h:i></selectable>
-				<selectable id="Solaris"><h:b><snip>Oracle Solaris</snip></h:b>: <h:i>Oracle's enterprise operating system.</h:i></selectable>
-				<selectable id="mac"><h:b><snip>Apple macOS</snip></h:b>: <h:i>Apple's operating system for MACs.</h:i></selectable></selectables> 
-		</choice>
-	</section>
-	
   </sec:Introduction>
   
 	<!-- 2.0 Conformance Claims -->
-	<!-- incorporates TD0600 -->
-	<!-- incorporates TD0582 -->
 	<sec:Conformance_Claims boilerplate="no">
 		<!-- The new CClaimsInfo construct -->
 		<CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
@@ -424,89 +305,21 @@
 			<cc-pt3-conf>extended</cc-pt3-conf>
 			<cc-pp-conf/>
 			<cc-pp-config-with>       
-				<!-- these will need to be replaced with updated versions of the PPs/Mods <Mod-cc-ref>Protection Profile for Mobile Device Management Version 4.0</Mod-cc-ref>  
-				<Mod-cc-ref>PP-Module for File Encryption, Version 1.0</Mod-cc-ref>
-				<Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 1.0</Mod-cc-ref>
-				<Mod-cc-ref>PP-Module for VPN Clients, Version 2.2</Mod-cc-ref>
-				<Mod-cc-ref>PP-Module for VPN Clients, Version 2.3</Mod-cc-ref>
-				<Mod-cc-ref>PP-Module for VPN Clients, Version 2.4</Mod-cc-ref>
-				<Mod-cc-ref>PP-Module for Endpoint Detection and Response, Version 1.0</Mod-cc-ref>  
-				<Mod-cc-ref>PP-Module for Host Agent, Version 1.0</Mod-cc-ref>  
-				<Mod-cc-ref>PP-Module for Voice and Video over IP (VVoIP), Version 1.0</Mod-cc-ref> --> 
-				<Mod-cc-ref>PP-Module for Email Clients, Version 1.0</Mod-cc-ref>  
-				<Mod-cc-ref>PP-Module for Web Browsers, Version 1.0</Mod-cc-ref>
-				<Mod-cc-ref>PP-Module for VPN Client, Version 2.5</Mod-cc-ref>
-				<!-- Update once complete <Mod-cc-ref>PP-Module for Redaction Tools, Version 1.0</Mod-cc-ref> --> 
+				<!--R-UPDATE If any modules will be used directly they will be here example
+					<Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 1.0</Mod-cc-ref> --> 
 			</cc-pp-config-with>
 			<cc-pkg-claim>
+				<!--R-UPDATE If any modules will be used directly they will be here example 
 				<FP-cc-ref conf="conformant">Functional Package for Secure Shell Version 1.1</FP-cc-ref>
 				<FP-cc-ref conf="conformant">Functional Package for Transport Layer Security Version 2.1</FP-cc-ref>
 				<FP-cc-ref conf="conformant">Functional Package for X.509 Version 1.0</FP-cc-ref>
+				-->
 			</cc-pkg-claim>
 		</CClaimsInfo>	
 		
 	</sec:Conformance_Claims>
 	
-	<!-- OLD CLAIMS INFO
-	<sec:Conformance_Claims  boilerplate="no">
-		<cclaims>
-			<cclaim name="Conformance Statement">
-				<description>
-					<h:p>
-					An ST must claim exact conformance to this PP.
-					</h:p><h:p>
-					The evaluation methods used for evaluating the TOE are a combination of the workunits defined in <xref to="bibCEM"/> as well as the
-					Evaluation Activities for ensuring that individual SFRs and SARs have a sufficient level of supporting evidence in the Security Target and 
-					guidance documentation and have been sufficiently tested by the laboratory as part of completing ATE_IND.1. Any functional packages 
-					this PP claims similarly contain their own Evaluation Activities that are used in this same manner.
-					</h:p>
-				</description>
-			</cclaim>
-			<cclaim name="CC Conformance Claims">
-				<description>This PP is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria CC:2022, Revision 1.</description>
-			</cclaim>
-			<cclaim name="PP Claim">
-				<description>
-					<h:p>
-					This PP does not claim conformance to any other Protection Profile.
-					</h:p><h:p>
-					The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP: 
-					updated to reflect NIAP TD0650
-					<h:div class="indent">
-						<h:li>Protection Profile for Mobile Device Management Version 4.0</h:li>
-						<h:li>PP-Module for File Encryption, Version 1.0</h:li>
-						<h:li>PP-Module for File Encryption Enterprise Management, Version 1.0</h:li>
-						<h:li>PP-Module for VPN Clients, Version 2.2</h:li>
-						<h:li>PP-Module for VPN Clients, Version 2.3</h:li>
-						<h:li>PP-Module for VPN Clients, Version 2.4</h:li>
-						<h:li>PP-Module for Endpoint Detection and Response, Version 1.0</h:li>
-						<h:li>PP-Module for Host Agent, Version 1.0</h:li>
-						<h:li>PP-Module for Voice and Video over IP (VVoIP), Version 1.0</h:li>
-						<h:li>PP-Module for Email Clients, Version 1.0</h:li>
-						<h:li>PP-Module for Web Browsers, Version 1.0</h:li>
-						<h:li>PP-Module for Redaction Tools, Version 1.0</h:li>
-					</h:div>
-					</h:p>
-				</description>
-			</cclaim>
-			<cclaim name="Package Claim">
-				<description><h:ul>
-					<h:li>This PP is Functional Package for TLS Version 1.1 Conformant.</h:li>
-					<h:li>This PP is Functional Package for TLS Version 2.0 Conformant.</h:li>
-					<h:li>This PP is Functional Package for SSH Version 1.0 Conformant.</h:li>
-					<h:li>This PP is Functional Package for X.509 Version 1.0 Conformant.</h:li>
-					<h:li>This PP does not conform to any assurance packages.</h:li>
-					</h:ul>
-					The functional packages to which the PP conforms include SFRs that are not mandatory to claim for the sake of conformance.
-					An ST that claims one or more of these functional packages may include any non-mandatory SFRs that are appropriate to claim based on the 
-					capabilities of the TSF and on any triggers for their inclusion based inherently on the SFR selections made. All security requirements
-					in these packages are intended to address T.NETWORK_ATTACK and T.NETWORK_EAVESDROP threats of this PP.
-				</description>
-			</cclaim>
-		</cclaims>
-	</sec:Conformance_Claims>
-	-->
-  
+	
 	<!-- 3.0 Security Problem Description -->
 	<sec:Security_Problem_Definition>
 		The security problem is described in terms
@@ -515,6 +328,7 @@
 		is expected to enforce.
 		
 	<!-- 3.1 Threats -->	
+		<!--R-UPDATE update with new threats, some may be applicable if so just check wording.  SFR mapping will need to updated, but kept them as they may make future mapping easier.--> 
     <sec:Threats>
 		<threats>
 			<threat name="T.NETWORK_ATTACK">
@@ -523,7 +337,6 @@
 					software or alter communications between the application software and other endpoints in
 					order to compromise it.
 					</description>
-				<!-- New mapping to build updated threat mapping table. -->
 				<addressed-by>FCS_CKM.1/SK (optional)</addressed-by><rationale>The PP includes FCS_CKM.1/SK to define the mechanism used to generate symmetric keys when the TOE performs this function.</rationale>
 				<addressed-by>FCS_CKM_EXT.1</addressed-by><rationale>The PP includes FCS_CKM_EXT.1 to specify whether the TOE or the platform is responsible for generation of any asymmetric keys that may be used for establishing trusted communications.</rationale>
 				<addressed-by>FCS_CKM.1/AK (selection-based)</addressed-by><rationale>The PP includes FCS_CKM.1/AK to define whether the TSF or the platform generates asymmetric keys that are used in support of trusted communications.</rationale>
@@ -564,7 +377,6 @@
 				<description>An attacker is positioned on a communications channel or elsewhere on the
 					network infrastructure. Attackers may monitor and gain access to data exchanged between
 					the application and other endpoints.</description>
-				<!-- New mapping to build updated threat mapping table. -->
 				<addressed-by>FCS_CKM.1/AK (selection-based)</addressed-by><rationale>The PP includes FCS_CKM.1/AK to define whether the TSF or the platform generates asymmetric keys that are used in support of trusted communications.</rationale>
 				<addressed-by>FCS_CKM.1/SK (optional)</addressed-by><rationale>The PP includes FCS_CKM.1/SK to define the mechanism used to generate symmetric keys when the TOE performs this function.</rationale>
 				<addressed-by>FCS_CKM.2 (selection-based)</addressed-by><rationale>The PP includes FCS_CKM.2 to define whether the TSF or the platform performs key establishment for trusted communications.</rationale>
@@ -605,7 +417,6 @@
 					platform on which the application executes. Attackers may provide maliciously formatted
 					input to the application in the form of files or other local
 					communications.</description>
-				<!-- New mapping to build updated threat mapping table. -->
 				<addressed-by>FCS_CKM.1/AK (selection-based)</addressed-by><rationale>The PP includes FCS_CKM.1/AK to specify that the TSF may rely on platform-provided asymmetric key generation services.</rationale>
 				<addressed-by>FCS_CKM.2 (selection-based)</addressed-by><rationale>The PP includes FCS_CKM.2 to specify that the TSF may rely on platform-provided key establishment services.</rationale>
 				<addressed-by>FCS_CKM_EXT.1</addressed-by><rationale>The PP includes FCS_CKM_EXT.1 to specify that the TSF may rely on platform-provided key generation services.</rationale>
@@ -626,7 +437,6 @@
 				</threat>
 			<threat name="T.PHYSICAL_ACCESS">
 				<description>An attacker may try to access sensitive data at rest.</description>
-				<!-- New mapping to build updated threat mapping table. -->
 				<addressed-by>FCS_CKM.1/SK (optional)</addressed-by><rationale>The PP includes FCS_CKM.1/SK to define the TOE’s capability to generate symmetric keys. These keys may subsequently be used to encrypt stored credential data based on the claims made in FCS_STO_EXT.1.</rationale>
 				<addressed-by>FCS_COP.1/KeyedHash (selection-based)</addressed-by><rationale>The PP includes FCS_COP.1/KeyedHash to define HMAC mechanisms that may be used by the TOE as part of ensuring that data at rest is protected.</rationale>
 				<addressed-by>FCS_COP.1/Hash (selection-based)</addressed-by><rationale>The PP includes FCS_COP.1/Hash to define integrity mechanisms that may be used by the TOE as part of ensuring that data at rest is protected.</rationale>
@@ -651,6 +461,7 @@
 			
 	
 	<!-- 3.2 Assumptions -->
+		<!--R-UPDATE update with relevant assumptions, these ones may still apply-->
     <sec:Assumptions>
 		<assumptions>
 			<assumption name="A.PLATFORM">
@@ -684,30 +495,13 @@
 		</assumptions>
     </sec:Assumptions>
 	
-	<!-- 3.3 Organizational Security Policies -->
-    <sec:Organizational_Security_Policies>
-  
-		<OSPs/>
-   <!--     <OSP id="P.ENTERPRISE">
-          <description>The configuration of the application software must be capable of adhering to
-            the enterprise security policy.</description>
-          <objective-refer ref="O.MANAGEMENT">
-            <rationale>The organizational security policy P.ENTERPRISE is enforced through the
-              objective O.MANAGEMENT as this objective represents how the enterprise and user assert
-              management over the TOE.</rationale>
-          </objective-refer>
-        </OSP>
-      </OSPs> -->
-    </sec:Organizational_Security_Policies>
-	
 	</sec:Security_Problem_Definition>
 	
 	<!-- 4.0 Security Objectives -->
 	<sec:Security_Objectives>
-
-	<!-- Old 4.1 Security Objectives for the TOE - Removed -->
 		
 		<!-- 4.1 Security Objctives for the Operational Environment -->
+		<!--R-UPDATE - Update with objectives for evironment, tied to assumptions. -->
     <sec:Security_Objectives_for_the_Operational_Environment>
 		The following security objectives for the operational
 		environment assist the TOE in correctly providing its security
@@ -745,7 +539,7 @@
 	<!-- 5.1.1 Cryptographic Support (FCS) -->
 	<section title="Cryptographic Support (FCS)" id="fcs">
 	  
-
+		<!--R-UPDATE - Include your SFRs, many of the cryptographic SFRs can probably stay.-->
 		<!-- FCS_CKM_EXT.1 -->
 		<ext-comp-def fam-id="FCS_CKM_EXT" title="Cryptographic Key Management">
 			<fam-behavior>This family defines requirements for management of cryptographic keys that are not addressed by FCS_CKM in CC Part 2.
@@ -1047,7 +841,7 @@
 			</f-element>
         </f-component>
 
-		<!-- FCS_CKM.1/SK (formerly FCS_CKM.1/2) -->
+		<!-- FCS_CKM.1/SK -->
 		<f-component cc-id="fcs_ckm.1" id="fcom_sym_key_gen" iteration="SK" name="Cryptographic Symmetric Key Generation" status="sel-based">
 			<depends on="sel_aes_cbc"/>
 			<depends on="sel_aes_gcm"/>
@@ -1068,19 +862,6 @@
 				<note role="application">
 					Symmetric keys may be used to generate keys along the key chain.</note>
 				<aactivity>
-					<!-- Revised <tss>The evaluator shall review the TSS to determine that it describes how the
-					functionality described by FCS_RBG_EXT.1 <cite linkend="bibAppPP"/> is invoked.<br/>
-					If the email client is relying on random from the host platform, the evaluator shall
-					verify the TSS includes the name/manufacturer of the external RBG. If different
-					external RBGs are used for different platforms, the TSS identifies each one for each
-					platform. <br/>If the email client is relying on random from the host platform, the
-					evaluator shall verify the TSS describes the function call and parameters used when
-					calling the external DRBG function. Also, the TSS includes a short description of
-					the vendor's assumption for the amount of entropy seeding the external DRBG. The
-					evaluator uses the description of the RBG functionality in FCS_RBG_EXT or
-					documentation available for the operational environment to determine that the key
-					size being requested is identical to the key size and mode to be used for the
-					encryption/decryption of the user data (<linkref linkend="FCS_COP.1(f)" />. </tss> -->
 					<TSS>
 						<h:p>
 							The evaluator shall review the TSS to determine that it describes how the functionality described by
@@ -1331,104 +1112,9 @@
 			</f-element>
         </f-component>
 
-<!-- 
 
-Commenting out: the fundamental question is how to handle requirements for more general
-functionality (such as these)
-        <f-component cc-id="fcs_cop_ext.1" name="Encryption/Decryption Services">
-          <f-element id="fel-">
-            <title>The application shall <selectables linebreak="yes">
-                <selectable>perform no encryption/decryption</selectable>
-                <selectable>invoke platform-provided encryption/decryption functionality</selectable>
-                <selectable>implement encryption/decryption functionality</selectable></selectables> .
-	    </title>
-            <note role="application">
-			  The selection <i>invoke platform-provided encryption/decryption services</i> is to be
-              chosen in cases where the application uses platform APIs to perform these operations.
-              If <i>implement encryption/decryption functionality</i> is selected, then
-              additional requirements from <linkref linkend="FCS_COP.1(1)"/> shall be included in
-              the ST.  
-            </note>
-            <aactivity>
-              If <b>perform no encryption/decryption</b> is selected, the evaluator shall inspect the 
-			  application and its developer documentation and verify that the application needs no
-              encryption/decryption services. 
-			  <br/>
-              If <b>implement encryption/decryption functionality</b> is selected, the evaluator shall ensure
-			  that additional <linkref linkend="FCS_COP.1(1)"/> elements are included in the ST.
-			  <br/>
-			  If <b>invoke platform-provided encryption/decryption functionality </b> is selected, 
-			  the evaluator shall examine the TSS of the
-              application to verify that it describes how the platform's encryption/decryption
-              functionality is invoked for each operation for which it is used by the application. 
-			</aactivity>
-          </f-element>
-        </f-component>
 
-        <f-component cc-id="fcs_cop_ext.2" name="Cryptographic Hashing Services">
-          <f-element id="fel-">
-            <title>The application shall <selectables linebreak="yes">
-                <selectable>perform no cryptographic hashing</selectable>
-                <selectable>invoke platform-provided cryptographic hashing</selectable>
-                <selectable>implement cryptographic hashing</selectable></selectables>.
-	    </title>
-            <note role="application">
-			  The selection <i>invoke platform-provided cryptographic hashing</i> is to be
-              chosen in cases where the application uses platform APIs to perform cryptographic
-              hashing. If <i>implement cryptographic hashing</i> is selected, then
-              additional requirements from <linkref linkend="FCS_COP.1(2)"/> shall be included in
-              the ST.
-            </note>
-            <aactivity>
-              If <b>perform no cryptographic hashing</b> is selected, the evaluator shall inspect the 
-			  application and its developer documentation and verify that the application needs no
-              cryptographic hashing services. 
-			  <br/>
-              If <b>implement cryptographic hashing</b> is selected, the evaluator shall ensure
-			  that additional <linkref linkend="FCS_COP.1(2)"/> elements are included in the ST.
-			  <br/>
-			  If <b>invoke platform-provided cryptographic hashing</b> is selected, 
-			  the evaluator shall examine the TSS of the
-              application to verify that it describes how the platform's hashing
-              functionality is invoked for each operation for which it is used in the application, including
-			  digest sizes used.
-			</aactivity>
-          </f-element>
-        </f-component>
-
-        <f-component cc-id="fcs_cop_ext.3" name="Cryptographic Signing Services">
-          <f-element id="fel-">
-            <title>The application shall 
-			  <selectables linebreak="yes">
-                <selectable>perform no cryptographic signing</selectable>
-                <selectable>invoke platform-provided cryptographic signing</selectable>
-                <selectable>implement cryptographic signing</selectable></selectables>.
-	        </title>
-            <note role="application">The selection <i>invoke platform-provided cryptographic signing</i> 
-			  is to be used in cases where the application uses platform APIs to perform cryptographic
-              signing. If <i>implement cryptographic signing</i> is selected, then
-              additional requirements from <linkref linkend="FCS_COP.1(3)"/> shall be included in
-              the ST.
-            </note>
-            <aactivity>
-              If <b>perform no cryptographic signing</b> is selected, the evaluator shall inspect the 
-			  application and its developer documentation and verify that the application needs no
-              cryptographic hashing services. 
-			  <br/>
-              If <b>implement cryptographic signing</b> is selected, the evaluator shall ensure
-			  that additional <linkref linkend="FCS_COP.1(3)"/> elements are included in the ST.
-			  <br/>
-			  If <b>invoke platform-provided cryptographic cryptographic signing</b> is selected, 
-			  the evaluator shall examine the TSS of the
-              application to verify that it describes how the platform's digital signature
-              functionality is invoked for each operation for which it is used in the application, 
-			  including digest sizes used.
-              </aactivity>
-          </f-element>
-        </f-component>
--->
-
-		<!-- FCS_COP.1/SKC (formerly FCS_COP.1/1) Symmetric-Key Cryptography -->
+		<!-- FCS_COP.1/SKC Symmetric-Key Cryptography -->
         <f-component cc-id="fcs_cop.1" id="fcom_crypto" iteration="SKC" name="Cryptographic Operation - Encryption/Decryption" status="sel-based">
         	<depends on="sel_all_tlsc"/>
         	<depends on="sel_all_tlss"/>
@@ -2204,7 +1890,6 @@ functionality (such as these)
         </f-component>
 
 		<!-- FCS_HTTPS_EXT.1/Server -->
-		<!-- Added by TD0601 -->
         <f-component cc-id="fcs_https_ext.1" name="HTTPS Protocol" iteration="Server" status="sel-based">
 			<depends on1="sel_all_https_sv"/>
 			<depends on1="sel_all_https_ma"/>
@@ -2256,7 +1941,6 @@ functionality (such as these)
         </f-component>
 
 	<!-- FCS_HTTPS_EXT.2 HTTPS Protocol with Mutual Authentication -->
-	<!-- Added by TD0601 -->
 	<f-component cc-id="fcs_https_ext.2" name="HTTPS Protocol with Mutual Authentication" status="sel-based">
 	  <depends on1="sel_all_https_ma"/>
 
@@ -2303,7 +1987,7 @@ functionality (such as these)
 			</f-element>
         </f-component>
 		
-		<!-- FCS_PBKDF_EXT.1 (formerly FCS_CKM.1/3, FCS_CKM.1/PBKDF, FCS_CKM_EXT.1) -->
+		<!-- FCS_PBKDF_EXT.1  -->
 		<ext-comp-def fam-id="FCS_PBKDF_EXT" title="Password Conditioning">
 			<fam-behavior>This family defines requirements for implementation of password-based key derivation functions.</fam-behavior>
 		</ext-comp-def>
@@ -2378,145 +2062,7 @@ functionality (such as these)
 			</f-element>
 		</f-component>
 
-<!--
-	<ext-comp-def fam-id="FCS_RBG_EXT" title="Random Bit Generation">
-	  <fam-behavior>Components in this family address the requirements for random bit and number generation. This is a
-	    new family defined for the FCS class.</fam-behavior>
-	</ext-comp-def>
-        
-        <f-component cc-id="fcs_rbg_ext.1" name="Random Bit Generation">
-          <comp-lev> requires random bit generation to be performed in accordance with selected standards and seeded by an entropy source.</comp-lev>
-          <management> There are no management activities foreseen.</management>
-          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP or ST:
-            <h:ul>
-              <h:li>Failure of the randomization process</h:li>
-            </h:ul>
-          </audit>
-          <dependencies>
-            <no-link>FCS_COP.1</no-link> Cryptographic Operation
-          </dependencies>
-          
-          <f-element id="fel-rbg-how">
-            <title>
-              The OS shall perform all deterministic random bit generation (DRBG) services in
-              accordance with NIST Special Publication 800-90A using
-              <selectables linebreak="yes">
-                <selectable>Hash_DRBG (any)</selectable>
-                <selectable>HMAC_DRBG (any)</selectable>
-                <selectable>CTR_DRBG (AES)</selectable>
-              </selectables>
-	      .
-            </title>
-            <note role="application">
-NIST SP 800-90A contains three different methods of generating random numbers;
-each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers).
-The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the TSS.
-While any of the identified hash functions (SHA-224, SHA-256, SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG,
-only AES-based implementations for CTR_DRBG are allowed.
-            </note>
-            <aactivity>
-	      <Tests>
-	      <h:p>
-	      The evaluator shall perform the following tests:
-	      </h:p><h:p>
-              The evaluator shall perform 15 trials for the RNG implementation. If the RNG
-              is configurable, the evaluator shall perform 15 trials for each configuration. The
-              evaluator shall also confirm that the operational guidance contains appropriate
-              instructions for configuring the RNG functionality.
-	      </h:p><h:p>
-	      If the RNG has  prediction resistance enabled, each trial consists of (1) instantiate DRBG, (2)
-              generate the first block of random bits (3) generate a second block of random bits
-              (4) uninstantiate. The evaluator verifies that the second block of random bits is
-              the expected value. The evaluator shall generate eight input values for each
-              trial. The first is a count (0 – 14). The next three are entropy input, nonce, and
-              personalization string for the instantiate operation. The next two are additional
-              input and entropy input for the first call to generate. The final two are
-              additional input and entropy input for the second call to generate. These values
-              are randomly generated. "generate one block of random bits" means to generate
-              random bits with number of returned bits equal to the Output Block Length (as
-              defined in NIST SP 800-90A).
-	      </h:p><h:p>
-	      If the RNG does not have prediction resistance,
-              each trial consists of (1) instantiate DRBG, (2) generate the first block of
-              random bits (3) reseed, (4) generate a second block of random bits (5)
-              uninstantiate. The evaluator verifies that the second block of random bits is the
-              expected value. The evaluator shall generate eight input values for each trial.
-              The first is a count (0 – 14). The next three are entropy input, nonce, and
-              personalization string for the instantiate operation. The fifth value is
-              additional input to the first call to generate. The sixth and seventh are
-              additional input and entropy input to the call to reseed. The final value is
-              additional input to the second generate call.
-	      </h:p><h:p>
-	      The following list contains more information on some of the input values to be generated/selected by the evaluator.
-	      <h:ul>
-		<h:li> <h:b>Entropy input:</h:b> The length of the entropy input value must equal the seed
-                  length.</h:li>
-		  
-                  <h:li><h:b>Nonce:</h:b> If a nonce is supported (CTR_DRBG with no Derivation Function does
-                  not use a nonce), the nonce bit length is one-half the seed length. </h:li>
-                  <h:li><h:b>Personalization string:</h:b> The length of the personalization string must be
-                  less than or equal to seed length. If the implementation only supports one
-                  personalization string length, then the same length can be used for both values.
-                  If more than one string length is support, the evaluator shall use personalization
-                  strings of two different lengths. If the implementation does not use a
-                  personalization string, no value needs to be supplied. </h:li>
-                  <h:li><h:b>Additional input:</h:b> The additional input bit lengths have the same defaults
-                  and restrictions as the personalization string lengths.</h:li>
-		</h:ul>
-	      </h:p>
-	      </Tests>
-            </aactivity>
-          </f-element>
-          
-          <f-element id="fel-rbg-seed-how">
-            <title>
-              The deterministic RBG used by the OS shall be seeded by an entropy source that
-              accumulates entropy from a
-              <selectables linebreak="yes">
-                <selectable>software-based noise source</selectable>
-                <selectable>platform-based noise source</selectable>
-              </selectables>
-              with a minimum of 256 bits
-              <selectables linebreak="yes"> 
-                 <selectable>128 bits</selectable> 
-                 <selectable>256 bits</selectable> 
-               </selectables> 
-              of entropy at least equal to the greatest security strength (according to NIST SP 800-57)
-              of the keys and hashes that it will generate.
-	    </title>
-            <note role="application">
-	      <h:p>
-		For the first
-		selection in this requirement, the ST author selects 'software-based noise source' if
-		any additional noise sources are used as input to the DRBG.
-	      </h:p><h:p>
-	      In the second selection in this requirement, the ST author selects the
-              appropriate number of bits of entropy that corresponds to the greatest security
-              strength of the algorithms included in the ST.
-	      Security strength is defined in Tables
-              2 and 3 of NIST SP 800-57A.
-	      For example, if the implementation includes 3072-bit RSA
-              (security strength of 128 bits), AES 256 (security strength 256 bits), and
-              HMAC-SHA-256 (security strength 256 bits), then the ST author would select 256 bits.
-	    </h:p>
-            </note>
-            <aactivity>
-	    <Tests>
-	      <h:p>
-		Documentation will be produced - and the evaluator shall perform the
-		activities - in accordance with <xref to="entropyappendix"/> and
-		the
-	        <h:a href="https://old.niap-ccevs.org/Documents_and_Guidance/ccevs/Entropy%20Documentation%20and%20Assessment%20Clarification.pdf"
-		     >Clarification to the Entropy Documentation and Assessment Annex</h:a>.
-	      </h:p><h:p>
-              In the future, specific statistical testing (in line with NIST SP 800-90B) will
-              be required to verify the entropy estimates.
-	    </h:p>
-	    </Tests>
-            </aactivity>
-          </f-element>
-        </f-component>
-        -->
+
         
 		<f-component cc-id="fcs_rbg.1" name="Random Bit Generation (RBG)" status="sel-based">
         	<depends on="drbg"/>
@@ -2759,8 +2305,6 @@ only AES-based implementations for CTR_DRBG are allowed.
 		
 		
 		<!-- FCS_RBG_EXT.1  -->
-		<!-- TD416 incorporated -->
-		<!-- TD510 incorporated -->
 		<f-component cc-id="fcs_rbg_ext.1" name="Random Bit Generation Services">
 			
 			<comp-lev> requires the TSF to specify whether random bit generation is implemented by the TSF, 
@@ -3082,14 +2626,14 @@ only AES-based implementations for CTR_DRBG are allowed.
 				</aactivity>
 			</f-element>
 		</f-component>
-    </section>    <!-- 5.1.1 Cryptographic Support (FCS) -->
+    </section>    
+		
+	<!-- 5.1.1 Cryptographic Support (FCS) -->
 
 	<!-- 5.1.2 User Data Protection (FDP) -->
     <section title="User Data Protection (FDP)" id="fdp">
 
-    	<!-- FDP_DAR_EXT.1 Encryption of Sensitive Application Data -->
-    	<!-- incorporates TD582 -->
-    	
+    	<!-- FDP_DAR_EXT.1 Encryption of Sensitive Application Data -->    	
     	
     	<ext-comp-def fam-id="FDP_DAR_EXT" title="Data-at-Rest Encryption">
     		<fam-behavior>This family defines requirements for implementation of data-at-rest protection. </fam-behavior>
@@ -3191,8 +2735,6 @@ only AES-based implementations for CTR_DRBG are allowed.
     		</f-element>
     	</f-component>
       <!-- FDR_DEC_EXT.1 -->
-      <!-- Incorporates TD434 -->
-      <!-- Incorporates TD515 -->
       <ext-comp-def fam-id="FDP_DEC_EXT" title="Access to Platform Resources">
 	<fam-behavior>This family defines requirements for accessing platform resources.</fam-behavior>
       </ext-comp-def>
@@ -3412,9 +2954,10 @@ only AES-based implementations for CTR_DRBG are allowed.
 		</f-component>
 		
 
-    </section>   <!-- FDP -->
+    </section>   
+		
+	<!-- FDP -->
 	    
-	<!-- Identification and Authentication (FIA) Removed due to X509 FP-->
     
 		
 	      
@@ -3429,7 +2972,6 @@ only AES-based implementations for CTR_DRBG are allowed.
       		</fam-behavior>
       	</ext-comp-def>
       	<!-- FMT_CFG_EXT.1 Secure by Default Configuration -->
-      	<!-- Incoporates TD519 -->
       	<f-component cc-id="fmt_cfg_ext.1" name="Secure by Default Configuration">
       		
       		<comp-lev> requires the application to define how to set new credentials 
@@ -3536,9 +3078,6 @@ only AES-based implementations for CTR_DRBG are allowed.
 	</ext-comp-def>
 	
 	<!-- FMT_MEC_EXT.1 -->
-	<!-- as replaced in TD437 -->
-	<!-- incorporates TD465 -->
-	<!-- incorporates TD543 -->
 	<f-component cc-id="fmt_mec_ext.1" name="Supported Configuration Mechanism">
 	  
 		<comp-lev> requires the application to store configuration data either through the use of an appropriate environmental mechanism 
@@ -3585,7 +3124,6 @@ only AES-based implementations for CTR_DRBG are allowed.
 					<Tests>
 						If "<h:b>invoke the mechanisms recommended by the platform vendor for storing and setting configuration options</h:b>" is selected,
 						the method of testing varies per platform as follows: 
-						<!-- updated to reflect NIAP TD0624 -->
 	                    <h:div><depends ref="android"/>
 	                    	<h:p>
 	                    	The evaluator shall inspect the TSS and verify that it describes what Android API is used 
@@ -3728,20 +3266,9 @@ only AES-based implementations for CTR_DRBG are allowed.
 					<Guidance><h:p>The evaluator shall verify the guidance documentation contains any instructions to configure the
 						transmission of PII and details any prompts that would approve or deny transmission of PII.</h:p></Guidance>
 					<Tests>
-					<!--<testlist>
-						<test>-->
 						If "<h:b>require user approval before executing...</h:b>" is selected, the evaluator shall run the application and exercise the functionality responsible
 						for transmitting PII and verify that user approval is required before transmission
 						of the PII.
-						<!--</test>
-						Removing this test for now. 
-						<test>
-							The evaluator shall sniff network traffic while running the application 
-							and verify that no PII is transmitted without user approval.
-							If the application communicates over TLS, the evaluator shall use
-							man-in-the-middle tools to expose encrypted traffic before sniffing.
-						</test>     
-					</testlist>-->
 					</Tests>
 				</aactivity>
 			</f-element>
@@ -3752,9 +3279,6 @@ only AES-based implementations for CTR_DRBG are allowed.
     <section title="Protection of the TSF (FPT)" id="fpt">
 
     	<!-- FPT_AEX_EXT.1 -->
-    	<!-- Incorporates TD436 -->
-    	<!-- Incorporates TD445 -->
-    	<!-- Incorporates TD544 -->
     	<ext-comp-def fam-id="FPT_AEX_EXT" title="Anti-Exploitation Capabilities">
     		<fam-behavior>
     			This family defines requirements for protecting against common types of software exploitation techniques.
@@ -4275,8 +3799,6 @@ only AES-based implementations for CTR_DRBG are allowed.
     	</f-component>
 
 	<!-- FPT_TUD_EXT.1 Integrity of Installation and Update -->
-	<!-- incorporates TD561 -->
-	<!-- incorporates TD548 -->
 	<ext-comp-def fam-id="FPT_TUD_EXT" title="Trusted Updates">
 	  <fam-behavior>
 	    This family defines requirements for applying updates to the TOE.
@@ -4415,9 +3937,6 @@ only AES-based implementations for CTR_DRBG are allowed.
 			</f-element>
         </f-component>
 		<!-- FPT_TUD_EXT.2 Integrity for Installation and Update -->
-		<!-- Incorporates TD548, which reincorporates TD178 from v1.2, back when 
-			current FPT_TUD_EXT.2.2 was FPT_TUD_EXT.1.3 -->	  
-		<!-- incorporates TD561 (adds FPT_TUD_EXT.2.3) -->
         <f-component cc-id="fpt_tud_ext.2" name="Integrity for Installation and Update" status="sel-based">
 	  <depends on-sel="sel_add_plat"/>
         	<depends on-sel="toe-update"/>
@@ -4438,8 +3957,6 @@ only AES-based implementations for CTR_DRBG are allowed.
 					<TSS><h:p>The evaluator shall verify the TSS contains a description of how the application
 						is distributed and verify that description aligns with the selections in the ST.</h:p></TSS>
 					<Guidance><h:p>None.</h:p></Guidance>
-					<!-- updated to reflect NIAP TD0628 -->
-					<!-- updated to reflect NIAP TD0664 -->
 					<Tests>
 						If a container image is claimed, the evaluator shall verify that application updates are distributed as container images.
 						If the format of the platform-supported package manager is claimed,
@@ -4496,7 +4013,7 @@ only AES-based implementations for CTR_DRBG are allowed.
 					</Tests>
 				</aactivity>
 			</f-element>        
-			<f-element id="fel-verify"> <!-- Not sure what to put for the f-element id. 2.3 is added here per TD0561 -->
+			<f-element id="fel-verify"> 
 				<title>
 					The application installation package shall be digitally signed such that 
 					<selectables>
@@ -4553,7 +4070,6 @@ only AES-based implementations for CTR_DRBG are allowed.
     <section title="Trusted Path/Channel (FTP)" id="ftp">
 	  
       <!-- FTP_DIT_EXT.1 Protection of Data in Transit -->
-      <!-- Modified by TD0609 -->
       <ext-comp-def fam-id="FTP_DIT_EXT" title="Protection of Data in Transit">
 	<fam-behavior>
 	  This family defines requirements for protecting data in transit.
@@ -4568,7 +4084,6 @@ only AES-based implementations for CTR_DRBG are allowed.
     <audit>There are no auditable events foreseen.</audit>
     <dependencies>No dependencies.</dependencies>
 	
-	<!-- updated to reflect NIAP TD0655 -->
 			<f-element id="fel-transmit">
 				<title>The application shall 
 					<selectables linebreak="yes">
@@ -4641,10 +4156,7 @@ only AES-based implementations for CTR_DRBG are allowed.
 				</title>
 				</ext-comp-def-title>
 				<note role="application">
-					<!--The X509 requirements are invoked based on the selections in FTP_DIT_EXT.1; if you select a protocol that uses certificates,
-					then you must include the SFRs that address the certificates.   
-					X509 SFRs shall be included if selections for HTTPS, TLS, or DTLS are included (FCS_HTTPS, FCS_TLSC, FCS_TLSS, FCS_DTLS).
-					-->
+					
 					<h:p>
 					Encryption is not required for applications transmitting data that is not sensitive.
 					</h:p><h:p>
@@ -4768,29 +4280,19 @@ only AES-based implementations for CTR_DRBG are allowed.
 							
 							the above Tests 1, 2, or 3, as the platform will not allow the application to perform any network 
 							communication.
-							<!-- TODO: The current wording here adds additional work when "encrypt all transmitted data"
-						   is selected. It'd be preferable if we can instead simplify evaluation in that case, to encourage
-						   app developers to select it, so this is commented out for now.
-						   If "encrypt all transmitted data" is selected, the evaluator
-						   shall ensure that the application's manifest declares usesCleartextTraffic="false". It is
-						   still necessary to perform the above tests, as this manifest entry is only enforced on
-						   a best effort basis by the platform. -->
 						</h:div>
 						<h:div><depends ref="ios"/>
 							If "<h:b>encrypt all transmitted data</h:b>" is selected, the evaluator shall ensure that the application's
 							Info.plist file does not contain the NSAllowsArbitraryLoads or 
 							NSExceptionAllowsInsecureHTTPLoads keys, as these keys disable iOS's Application 
 							Transport Security feature.
-							<!-- TODO: Check the strength of iOS's App Transport Security enforcement (if apps
-							can't easily bypass it, then we can skip performing Tests 1, 2, 3 on iOS when
-							App Transport Security isn't explicitly disabled (assuming use of iOS 9 or greater)). -->
 						</h:div>
 					</Tests>
 				</aactivity>
 			</f-element>
         </f-component>
 		
-    </section>   <!-- Trusted Path/Channel (FTP) -->
+    </section>   
 
 	<!-- 5.1.7 TOE Security Functional Requirements Rationale -->
 	<!-- auto generated -->
@@ -5507,7 +5009,6 @@ only AES-based implementations for CTR_DRBG are allowed.
         </a-component>
     </section>  <!-- Class ATE -->
 	  
-	<!-- incorporates TD 554 -->
     <section id="ava" title="Class AVA: Vulnerability Assessment">
 		For the current generation of
         this protection profile, the evaluation lab is expected to survey open sources to discover
@@ -5692,6 +5193,7 @@ only AES-based implementations for CTR_DRBG are allowed.
   
   </appendix>
 
+	<!--R-UPDATE - Defining any equivelency that may apply between models -->
   <appendix id="equiv" title="Application Software Equivalency Guidelines">
     <section id="app-intro" title="Introduction">
     	<h:p>
