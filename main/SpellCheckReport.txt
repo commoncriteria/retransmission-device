@@ -2,11 +2,9 @@ output/retransmission-device-esr.html: 1’
 output/retransmission-device-esr.html: 5G
 output/retransmission-device-esr.html: CNSA
 output/retransmission-device-esr.html: ECU’s
-output/retransmission-device-esr.html: ERD
 output/retransmission-device-esr.html: ERD’s
 output/retransmission-device-esr.html: EU1
 output/retransmission-device-esr.html: EU1’
-output/retransmission-device-esr.html: EUD
 output/retransmission-device-esr.html: EUD’s
 output/retransmission-device-esr.html: FPGA
 output/retransmission-device-esr.html: FW
@@ -51,6 +49,9 @@ output/retransmission-device-release-linkable.html: 8C
 output/retransmission-device-release-linkable.html: 90A
 output/retransmission-device-release-linkable.html: 9C
 output/retransmission-device-release-linkable.html: AAD
+output/retransmission-device-release-linkable.html: ADB
+output/retransmission-device-release-linkable.html: APK
+output/retransmission-device-release-linkable.html: APPX
 output/retransmission-device-release-linkable.html: AndroidManifest
 output/retransmission-device-release-linkable.html: AppArmor
 output/retransmission-device-release-linkable.html: AppContainer
@@ -80,6 +81,7 @@ output/retransmission-device-release-linkable.html: H10
 output/retransmission-device-release-linkable.html: H15
 output/retransmission-device-release-linkable.html: H25
 output/retransmission-device-release-linkable.html: H5
+output/retransmission-device-release-linkable.html: HWS
 output/retransmission-device-release-linkable.html: IAF
 output/retransmission-device-release-linkable.html: ISV
 output/retransmission-device-release-linkable.html: IUT
@@ -189,6 +191,9 @@ output/retransmission-device-release.html: 8C
 output/retransmission-device-release.html: 90A
 output/retransmission-device-release.html: 9C
 output/retransmission-device-release.html: AAD
+output/retransmission-device-release.html: ADB
+output/retransmission-device-release.html: APK
+output/retransmission-device-release.html: APPX
 output/retransmission-device-release.html: AndroidManifest
 output/retransmission-device-release.html: AppArmor
 output/retransmission-device-release.html: AppContainer
@@ -210,6 +215,7 @@ output/retransmission-device-release.html: DataStore
 output/retransmission-device-release.html: DoD
 output/retransmission-device-release.html: EAF
 output/retransmission-device-release.html: ECB
+output/retransmission-device-release.html: ERD’s
 output/retransmission-device-release.html: EXE
 output/retransmission-device-release.html: Electrotechnical
 output/retransmission-device-release.html: FFC
@@ -218,6 +224,7 @@ output/retransmission-device-release.html: H10
 output/retransmission-device-release.html: H15
 output/retransmission-device-release.html: H25
 output/retransmission-device-release.html: H5
+output/retransmission-device-release.html: HWS
 output/retransmission-device-release.html: IAF
 output/retransmission-device-release.html: ISV
 output/retransmission-device-release.html: IUT
@@ -324,6 +331,9 @@ output/retransmission-device.html: 6C
 output/retransmission-device.html: 7C
 output/retransmission-device.html: 90A
 output/retransmission-device.html: AAD
+output/retransmission-device.html: ADB
+output/retransmission-device.html: APK
+output/retransmission-device.html: APPX
 output/retransmission-device.html: AndroidManifest
 output/retransmission-device.html: AppArmor
 output/retransmission-device.html: AppContainer
@@ -345,6 +355,7 @@ output/retransmission-device.html: DataStore
 output/retransmission-device.html: DoD
 output/retransmission-device.html: EAF
 output/retransmission-device.html: ECB
+output/retransmission-device.html: ERD’s
 output/retransmission-device.html: EXE
 output/retransmission-device.html: Electrotechnical
 output/retransmission-device.html: FFC
@@ -353,6 +364,7 @@ output/retransmission-device.html: H10
 output/retransmission-device.html: H15
 output/retransmission-device.html: H25
 output/retransmission-device.html: H5
+output/retransmission-device.html: HWS
 output/retransmission-device.html: IAF
 output/retransmission-device.html: ISV
 output/retransmission-device.html: IUT
