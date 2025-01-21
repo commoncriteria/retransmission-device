@@ -730,6 +730,9 @@ The following sections list Common Criteria and technology terms used in this do
 			LAN interface to form an encrypted tunnel to another encryption end-point through the 
 			ERD’s WAN interface.</td></tr>
 <tr><td><div id="Hardware_Separated_Encrypting_Retransmission_Device">Hardware Separated Encrypting Retransmission Device (HWS-ERD)</div></td><td>
+			An HWS-ERD will encrypt traffic between two endpoints while maintaining a defined physical 
+			and logical protocol break between the trusted and the untrusted trusted domains. The 
+			protocol break will be both physically and logically enforced.
 			</td></tr>
 <tr><td><div id="Mobile_Code">Mobile Code</div></td><td>
 			Software transmitted from a remote system for
@@ -867,8 +870,8 @@ The following sections list Common Criteria and technology terms used in this do
 					any Protection Profile.
 				</dd><p></p><dd>The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a 
 					<abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
-					<ul></ul></dd><dt>Package Claim</dt><p></p><dd><ul><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not conform to any 
-						functional packages.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not conform to any 
+					<ul></ul></dd><dt>Package Claim</dt><p></p><dd><ul><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is 
+					    Functional Package for Secure Shell Version 2.0 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not conform to any 
 						assurance packages.</li></ul></dd><p></p><dd>
 		The functional packages to which the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> conforms may include <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that are not mandatory 
 		to claim for the sake of conformance. An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims one or more of these functional 
@@ -2643,7 +2646,7 @@ The following sections list Common Criteria and technology terms used in this do
 							[<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_216">sensitive data</span>, <span class="selectable-content" id="_s_217">data</span>] with
 							[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="sel_all_https_cl"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> as a client in accordance with <a href="#FCS_HTTPS_EXT.1/Client">FCS_HTTPS_EXT.1/Client</a></span></li><li style=""><span class="selectable-content" id="sel_all_https_sv"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> as a server in accordance with <a href="#FCS_HTTPS_EXT.1/Server">FCS_HTTPS_EXT.1/Server</a></span></li><li style=""><span class="selectable-content" id="sel_all_https_ma"><abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> as a server using mutual authentication in accordance with <a href="#FCS_HTTPS_EXT.2">FCS_HTTPS_EXT.2</a></span></li><li style=""><span class="selectable-content" id="sel_all_tlss"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> as a server as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/439"><i>Functional Package for TLS</i></a> and also supports functionality for
 									[<b>selection</b>: <span class="selectable-content" id="_s_222">mutual authentication</span>, <span class="selectable-content" id="_s_223">none</span>]</span></li><li style=""><span class="selectable-content" id="sel_all_tlsc"><abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> as a client as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/439"><i>Functional Package for TLS</i></a></span></li><li style=""><span class="selectable-content" id="sel_all_dtlss"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> as a server as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/439"><i>Functional Package for TLS</i></a> and also supports functionality for
-									[<b>selection</b>: <span class="selectable-content" id="_s_226">mutual authentication</span>, <span class="selectable-content" id="_s_227">none</span>]</span></li><li style=""><span class="selectable-content" id="sel_all_dtlsc"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> as a client as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/439"><i>Functional Package for TLS</i></a></span></li><li style=""><span class="selectable-content" id="sel_all_ssh"><abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/459"><i>Functional Package for Secure Shell</i></a></span></li><li style=""><span class="selectable-content" id="sel_all_ipsec">IPsec as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/487"><i>PP-Module for VPN Client</i></a></span></li></ul>]
+									[<b>selection</b>: <span class="selectable-content" id="_s_226">mutual authentication</span>, <span class="selectable-content" id="_s_227">none</span>]</span></li><li style=""><span class="selectable-content" id="sel_all_dtlsc"><abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr> as a client as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/439"><i>Functional Package for TLS</i></a></span></li><li style=""><span class="selectable-content" id="sel_all_ssh"><abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/515"><i>Functional Package for Secure Shell</i></a></span></li><li style=""><span class="selectable-content" id="sel_all_ipsec">IPsec as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/487"><i>PP-Module for VPN Client</i></a></span></li></ul>]
 							for [<b>assignment</b>: 
      <span class="assignable-content">function(s)</span>]
 							using certificates as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509</a>
@@ -2684,7 +2687,7 @@ The following sections list Common Criteria and technology terms used in this do
 					then <a href="#FCS_HTTPS_EXT.2">FCS_HTTPS_EXT.2</a> is also required.
 					</p><p>
 					If "<b>encrypt all transmitted</b>" is selected and "<b><abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr></b>" is selected, then the 
-						<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be validated against the  <a href="https://www.niap-ccevs.org/protectionprofiles/459">
+						<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be validated against the  <a href="https://www.niap-ccevs.org/protectionprofiles/515">
 					<i>Functional Package for Secure Shell</i></a>.
 					</p><p>
 					If "<b>encrypt all transmitted</b>" is selected and "<b>IPsec</b>" is selected, then the
