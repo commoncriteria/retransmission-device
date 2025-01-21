@@ -140,6 +140,9 @@
         <term abbr="HTTP" full="Hypertext Transfer Protocol"/>
         <term abbr="HTTPS" full="Hypertext Transfer Protocol Secure"/>
 		<term abbr="HWS-ERD" full="Hardware Separated Encrypting Retransmission Device">
+			An HWS-ERD will encrypt traffic between two endpoints while maintaining a defined physical 
+			and logical protocol break between the trusted and the untrusted trusted domains. The 
+			protocol break will be both physically and logically enforced.
 			</term>
         <term abbr="IANA" full="Internet Assigned Number Authority"/>
 		<term abbr="IC" full="Interconnect"/>
