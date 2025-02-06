@@ -248,19 +248,27 @@
         <p>
              The basic <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> is a lightweight computing device that acts as both a retransmission device and a boundary. The <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> sits between a <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> (End User Device) and the untrusted transport network as illustrated in Figure 1. The interconnect IC1 between the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> and the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> is always a wired connection. The connection IC2 to the transport network can be any media, wired or wireless. IC1 and IC2 may or may not be in the same network address space depending on the use case. 
         </p>
-        <div class="figure" id="figure-1">
-            <img id="1" src="images/esr_figure1.svg" width="500em" height="150em">
-            <br>
-            <span class="ctr" data-myid="1" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>: 
-        </div>
+         
+        <center>
+            <div class="figure" id="figure-1">
+                <img id="1" src="images/esr_figure1.svg" width="500em" height="150em">
+                <br>
+                <span class="ctr" data-myid="1" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>: 
+            </div>
+        </center>
+         
         <p>
              Figure 2 illustrates the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> as a boundary filter implemented as a stateless firewall. FW2 is filtering untrusted traffic on IC2 and FW1 is filtering <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic on IC1. The FW could be the same application or 2 separate applications. It may filter in one or both directions of IC1 or IC2. 
         </p>
-        <div class="figure" id="figure-2">
-            <img id="2" src="images/esr_figure2.svg" width="500em" height="150em">
-            <br>
-            <span class="ctr" data-myid="2" data-counter-type="ct-figure">Figure <span class="counter">2</span></span>: 
-        </div>
+         
+        <center>
+            <div class="figure" id="figure-2">
+                <img id="2" src="images/esr_figure2.svg" width="500em" height="150em">
+                <br>
+                <span class="ctr" data-myid="2" data-counter-type="ct-figure">Figure <span class="counter">2</span></span>: 
+            </div>
+        </center>
+         
         <p>
              The <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> can be managed through one of the following methods: local management through a dedicated management interface, managed through the WAN interface (IC2) from a trusted management service or from the LAN interface (IC1). 
         </p>
@@ -271,28 +279,39 @@
         <p>
              Figure 3 illustrates the <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> as a dedicated encryption layer. The encryption can be link layer oriented (i.e. MACsec), network layer oriented (i.e. IPsec) or may even be the Wi-Fi link itself assuming that it is connecting to a trusted WLAN Access System. It will include firewall configurations from the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> use case. 
         </p>
-        <div class="figure" id="figure-3">
-            <img id="3" src="images/esr_figure3.svg" width="500em" height="150em">
-            <br>
-            <span class="ctr" data-myid="3" data-counter-type="ct-figure">Figure <span class="counter">3</span></span>: 
-        </div>
+         
+        <center>
+            <div class="figure" id="figure-3">
+                <img id="3" src="images/esr_figure3.svg" width="500em" height="150em">
+                <br>
+                <span class="ctr" data-myid="3" data-counter-type="ct-figure">Figure <span class="counter">3</span></span>: 
+            </div>
+        </center>
          <b><abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr></b> 
         <p>
              An <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> will encrypt traffic between two endpoints while maintaining a defined physical and logical protocol break between the trusted and the untrusted trusted domains. The protocol break will be both physically and logically enforced. This forms the most complete security argument for isolation, authentication and confidentiality of the 3 use cases. Additionally, a <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> is cryptographically bonded to another <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> and once bonded they are meant to only work as a pair to create and autonomously manage a point to point encrypted tunnel as illustrated in Figure 4. By only being a pair they will not require functionality typically needed to handle cryptographic nets larger than 2 nodes. Simplicity. 
         </p>
-        <div class="figure" id="figure-4">
-            <img id="4" src="images/esr_figure4.svg" width="500em" height="150em">
-            <br>
-            <span class="ctr" data-myid="4" data-counter-type="ct-figure">Figure <span class="counter">4</span></span>: 
-        </div>
+         
+        <center>
+            <div class="figure" id="figure-4">
+                <img id="4" src="images/esr_figure4.svg" width="500em" height="150em">
+                <br>
+                <span class="ctr" data-myid="4" data-counter-type="ct-figure">Figure <span class="counter">4</span></span>: 
+            </div>
+        </center>
+         
         <p>
              A more granular view of an <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> pair is in Figure 5. An <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> consists of at least 2 physically separate computing units whose functionality is Encryption and Communication respectively. They will be referred to as Encryption Unit (<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>) and Communication Unit (<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>). The main distinction between <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> and the <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> is the protocol break between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>. It is defined and can be soundly defended. The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> interface (IC3) only needs to process a singular frame type and can accurately and safely discard any other frame, unlike the interface connected to the Untrusted Fabric (IC2) which must account for and process the extensive protocol complexity of the transport network in addition to performing cryptography. A bug anywhere in that large stack can bypass the encryption altogether if the IC2 processing and encryption occur on the same machine. In contrast, the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> active software stack at IC3 will be vastly smaller than the software stack at IC2 on the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> thereby reducing the odds of any exploitable condition to the minimum of one. Finally, adding to the binary frame check is a cryptographic operation that cannot be easily spoofed. 
         </p>
-        <div class="figure" id="figure-5">
-            <img id="5" src="images/esr_figure5.svg" width="700em" height="250em">
-            <br>
-            <span class="ctr" data-myid="5" data-counter-type="ct-figure">Figure <span class="counter">5</span></span>: <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> end to end view
-        </div>
+         
+        <center>
+            <div class="figure" id="figure-5">
+                <img id="5" src="images/esr_figure5.svg" width="700em" height="250em">
+                <br>
+                <span class="ctr" data-myid="5" data-counter-type="ct-figure">Figure <span class="counter">5</span></span>: <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> end to end view
+            </div>
+        </center>
+         
         <p>
              The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> are physically independent. They must not share any hardware such as memory, cache, or other internal infrastructure typical of computers. Examples that meet this requirement might be a pair of SoC&rsquo;s, each running an instance of Operating System, or a microProcessor and a microController, or an FPGA and a microProcessor. A pair of virtual machines running on a single computer does not meet this separation requirement. 
         </p>
