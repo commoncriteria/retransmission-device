@@ -234,52 +234,133 @@
 	
 	<!-- 1.3 Compliant Targets of Evaluation -->
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
-	<h:p>
-		<!--R-UPDATE replace - Update for retrans.-->
-		The requirements in this document apply to application software which runs on any type of 
-		platform. Some application types are covered by more specific PPs, which may be expressed as
-		PP-Modules of this PP. Such applications are subject to the requirements of both this PP and the
-		PP-Module that addresses their special functionality.  PPs for some 
-		particularly specialized applications may not be expressed as PP-Modules at this time,
-		though the requirements in this document should be seen as objectives for those 
-		highly specialized applications.</h:p>
+		<h:p>
+			<!--R-UPDATE replace - Update for retrans.-->
+			The requirements in this document apply to application software which runs on any type of 
+			platform. Some application types are covered by more specific PPs, which may be expressed as
+			PP-Modules of this PP. Such applications are subject to the requirements of both this PP and the
+			PP-Module that addresses their special functionality.  PPs for some 
+			particularly specialized applications may not be expressed as PP-Modules at this time,
+			though the requirements in this document should be seen as objectives for those 
+			highly specialized applications.
+		</h:p>
     	<h:p>
-		Although the requirements in this document apply to a wide range of application
-		software, consult guidance from the relevant national schemes to
-		determine when formal Common Criteria evaluation is expected for a
-		particular type of application.  This may vary depending upon the nature
-		of the security functionality of the application.</h:p>
+			Although the requirements in this document apply to a wide range of application
+			software, consult guidance from the relevant national schemes to
+			determine when formal Common Criteria evaluation is expected for a
+			particular type of application.  This may vary depending upon the nature
+			of the security functionality of the application.
+		</h:p>
 
 	<!-- 1.3.1 TOE Boundary -->
 	<sec:TOE_Boundary>
 		<!--R-UPDATE replace - define boundry of TOE, probably look to network device or VPN GW for example.-->
-<h:p>
-		The application, which consists of the software provided by its vendor,
-		is installed onto the platform(s) it operates on.  It executes on the platform, which
-		may be an operating system (<xref to="toe-as-apponos"/>), hardware environment, 
-	    a software based execution environment, or some combination of these (<xref to="toe-as-apponee"/>). 
-		Those platforms may themselves run within other environments, such as virtual machines or operating 
-		systems, that completely abstract away the underlying hardware from the application. The TOE is not 
-		accountable for security functionality that is implemented by platform layers that are abstracted 
-		away. Some evaluation activities are specific to the particular platform
-		on which the application runs, in order to provide precision and
-		repeatability. The only platforms currently recognized by the AppPP are those specified in SFR Evaluation Activities.
-		To test on a platform for which there are no EAs, a Vendor should contact NIAP with recommended EAs.
-		NIAP will determine if the proposed platform is appropriate for the PP and accept, reject,
-		or develop EAs as necessary in coordination with the technical community.
-</h:p><h:p>
-		Applications include a diverse range of software such as office suites, thin clients, PDF readers, downloadable
-		smartphone apps, and apps running in a cloud container. The TOE includes 
-		any software in the application installation package, even those pieces that may 
-		extend or modify the functionality of the underlying platform, such as kernel drivers.  
-		Many platforms come bundled with applications such as web browsers, email clients and media players and these too
-		should be considered subject to the requirements defined in this document although the expectation of formal Common Criteria evaluation
-		depends upon the national scheme.  BIOS and other firmware, the operating system kernel,
-		and other systems software (and drivers) provided as part of the platform are outside the scope
-		of this document.  
-		<figure	entity="images/toe.png" title="TOE as an Application and Kernel Module Running on an Operating System" id="toe-as-apponos"/>
-		<figure entity="images/toeruntime.png" title="TOE as an Application Running in an Execution Environment Plus Native Code" id="toe-as-apponee"/>
-</h:p>
+		<h:p>
+			This document describes a core set of security requirements for 3 different flavors of a Retransmission device. 
+			They will be referred to as RD, ERD and HWS-ERD (Retransmission Device, Encrypting Retransmission Device and 
+			Hardware Separated Encrypting Retransmission Device respectively). These are small form factor devices to provide isolation, 
+			authentication and/or confidentiality for a EUD (End User Device) or set of EUD’s that must interoperate with an 
+			Untrusted Domain. The main goal of the RD use case is to provide network transport and simple isolation of the EUD. 
+			The ERD use case is intended to provide an independent layer of encryption on top of the existing network transport. 
+			The encryption done by an RD as a stand alone device will authenticate the endpoint in addition to adding confidentiality 
+			of the traffic. The HWS-ERD use case is intended to provide the most robust isolation between the network transport and 
+			EUD on top of the encryption of the ERD. The functionality and requirements are intended to be inherited as the use case 
+			moves from RD to HWS-ERD, as much as reasonable. If the RD requires X, then the ERD and HWS-ERD will require X too unless 
+			unreasonable or inappropriate.
+		</h:p>
+		
+		<h:b>RD</h:b>
+		<h:p>
+			The basic RD is a lightweight computing device that acts as both a retransmission device and a boundary. 
+			The RD sits between a EUD (End User Device) and the untrusted transport network as illustrated in Figure 1. 
+			The interconnect IC1 between the EUD and the RD is always a wired connection. The connection IC2 to the transport network 
+			can be any media, wired or wireless. IC1 and IC2 may or may not be in the same network address space depending
+			on the use case.
+		</h:p>
+		<center><figure entity="images/esr_figure1.svg" title="" id="1" width="500em" height="150em"/></center>
+		<h:p>
+			Figure 2 illustrates the RD as a boundary filter implemented as a stateless firewall. FW2 is filtering untrusted 
+			traffic on IC2 and FW1 is filtering EUD traffic on IC1. The FW could be the same application or 2 separate 
+			applications. It may filter in one or both directions of IC1 or IC2.
+		</h:p>
+		<center><figure entity="images/esr_figure2.svg" title="" id="2" width="500em" height="150em"/></center>
+		<h:p>
+			The RD can be managed through one of the following methods: local management through a dedicated management 
+	  		interface, managed through the WAN interface (IC2) from a trusted management service or from the LAN interface (IC1).
+		</h:p>
+		
+		<h:b>ERD</h:b>
+		<h:p>
+			The ERD is an RD with the additional capability to encrypt all traffic from the EUD through the LAN interface (IC1) to 
+			form an encrypted tunnel to another encryption end-point through the ERD’s WAN interface (IC2). This ensures that all 
+			traffic from the EUD is encrypted coming from the EUD and is intended to protect this traffic over an untrusted 
+			network.
+	  	</h:p>
+		<h:p>
+			Figure 3 illustrates the ERD as a dedicated encryption layer. The encryption can be link layer oriented 
+			(i.e. MACsec), network layer oriented (i.e. IPsec) or may even be the Wi-Fi link itself assuming that it is 
+			connecting to a trusted WLAN Access System. It will include firewall configurations from the RD use case.
+	  	</h:p>
+	  	<center><figure entity="images/esr_figure3.svg" title="" id="3" width="500em" height="150em"/></center>
+
+		<h:b>HWS-ERD</h:b>
+		<h:p>
+			An HWS-ERD will encrypt traffic between two endpoints while maintaining a defined physical and logical protocol
+			break between the trusted and the untrusted trusted domains. The protocol break will be both physically and logically
+			enforced. This forms the most complete security argument for isolation, authentication and 
+			confidentiality of the 3 use cases. Additionally, a HWS-ERD is cryptographically bonded to another HWS-ERD and 
+			once bonded they are meant to only work as a pair to create and autonomously manage a point to point encrypted 
+			tunnel as illustrated in Figure 4. By only being a pair they will not require functionality typically needed 
+			to handle cryptographic nets larger than 2 nodes. Simplicity.
+	  	</h:p>
+	  	<center><figure entity="images/esr_figure4.svg" title="" id="4" width="500em" height="150em"/></center>
+	  	<h:p>
+			A more granular view of an HWS-ERD pair is in Figure 5. An HWS-ERD consists of at least 2 physically separate 
+			computing units whose functionality is Encryption and Communication respectively. They will be referred to as 
+			Encryption Unit (EU) and Communication Unit (CU). The main distinction between HWS-ERD and the ERD is the
+			protocol break between the EU and CU. It is defined and can be soundly defended. The EU interface (IC3) only needs to
+			process a singular frame type and can accurately and safely discard any other frame, unlike the interface connected
+			to the Untrusted Fabric (IC2) which must account for and process the extensive protocol complexity of the transport network 
+			in addition to performing cryptography. A bug anywhere in that large stack can bypass the encryption altogether
+			if the IC2 processing and encryption occur on the same machine. In contrast, the EU active software stack at IC3 
+			will be vastly smaller than the software stack at IC2 on the CU thereby reducing the odds of any exploitable condition to 
+			the minimum of one. Finally, adding to the binary frame check is a cryptographic operation that cannot be easily spoofed.
+	  	</h:p>
+	  	<center><figure entity="images/esr_figure5.svg" title="HWS-ERD end to end view" id="5" width="700em" height="250em"/></center>
+	  	<h:p>
+			The EU and CU are physically independent. They must not share any hardware such as memory, cache, or other 
+			internal infrastructure typical of computers. Examples that meet this requirement might be a pair of 
+			SoC’s, each running an instance of Operating System, or a microProcessor and a microController, or 
+			an FPGA and a microProcessor. A pair of virtual machines running on a single computer does not meet 
+			this separation requirement.
+	  	</h:p>
+		<h:p>
+			The CU interface at IC2 could be wireless (Bluetooth, WiFi, 5G, Microwave, etc.) or wired 
+			media (ethernet, fiber, USB, serial, etc.) depending on specific use case. There is no restriction. For example, 
+			where the Untrusted domain is an Ethernet:IP based network, the CU would need an RJ45 interface. That interface 
+			is then assigned an IP address and the destination IP address of its peer CU is assigned to the function that 
+			transfers packets to and from the EU. The Untrusted domain (not the CU) will handle the routing between ERD’s. 
+			The CU functions as a translation layer between IC3 and IC2 as well as a network interface to IC2.
+	  	</h:p>
+		<h:p>
+	  		IC1 and IC3 are always wired media.
+	  	</h:p>
+		<h:p>
+			The EU-to-EU association is a link layer (layer 2) tunnel and not a layer 3 or higher tunnel. However, a 
+			layer 3 (or higher) tunnel can independently exist between CU-to-CU to transport the EU-to-EU frames. The 
+			CU-to-CU tunnel is out of scope for this document.
+		</h:p>
+		<h:p>
+			The CU and EU must be managed independently from the untrusted and trusted domain respectively. There is no 
+			cryptographic bypass. Thus the network address space of IC1 is independent of the network address space of the 
+			IC2. The isolation boundary of IC3 in Figure 5 (intentionally) prevents them from being managed from a common 
+			location. Managing the CU from the trusted domain, either through the EU or around the EU is not in scope of 
+			this document. Because the association is only between a pair of HWS-ERD’s, they can autonomously 
+			manage themselves if that is sufficient for a use case. However, the EU can be manually 
+			managed (from the trusted domain) by an additional virtual or physical interface on the EU, 
+			depending on the use case requirements. Both ends of the link do not have to be managed. One managed end can
+			be sufficient for the link. 
+		</h:p>
 	</sec:TOE_Boundary>
 	
 	</section>  <!-- 1.3 Compliant Targets of Evaluation -->
