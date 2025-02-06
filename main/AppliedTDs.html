@@ -780,54 +780,138 @@ The following sections list Common Criteria and technology terms used in this do
 	
 	
     <h2 class="indexable" data-level="2" id="TOEdescription">1.3 Compliant Targets of Evaluation</h2>
-	<p>
-		
-		The requirements in this document apply to application software which runs on any type of 
-		platform. Some application types are covered by more specific <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr>, which may be expressed as
-		<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. Such applications are subject to the requirements of both this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> and the
-		<abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that addresses their special functionality.  <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> for some 
-		particularly specialized applications may not be expressed as <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules at this time,
-		though the requirements in this document should be seen as objectives for those 
-		highly specialized applications.</p>
+		<p>
+			
+			The requirements in this document apply to application software which runs on any type of 
+			platform. Some application types are covered by more specific <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr>, which may be expressed as
+			<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. Such applications are subject to the requirements of both this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> and the
+			<abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that addresses their special functionality.  <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> for some 
+			particularly specialized applications may not be expressed as <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules at this time,
+			though the requirements in this document should be seen as objectives for those 
+			highly specialized applications.
+		</p>
     	<p>
-		Although the requirements in this document apply to a wide range of application
-		software, consult guidance from the relevant national schemes to
-		determine when formal Common Criteria evaluation is expected for a
-		particular type of application.  This may vary depending upon the nature
-		of the security functionality of the application.</p>
+			Although the requirements in this document apply to a wide range of application
+			software, consult guidance from the relevant national schemes to
+			determine when formal Common Criteria evaluation is expected for a
+			particular type of application.  This may vary depending upon the nature
+			of the security functionality of the application.
+		</p>
 
 	
 	<h3 class="indexable" data-level="3" id="TOE_Boundary">1.3.1 TOE Boundary</h3>
 		
-<p>
-		The application, which consists of the software provided by its vendor,
-		is installed onto the platform(s) it operates on.  It executes on the platform, which
-		may be an operating system (<a onclick="showTarget('toe-as-apponos')" href="#toe-as-apponos" class="toe-as-apponos-ref">Figure  <span class="counter">1</span></a>), hardware environment, 
-	    a software based execution environment, or some combination of these (<a onclick="showTarget('toe-as-apponee')" href="#toe-as-apponee" class="toe-as-apponee-ref">Figure  <span class="counter">2</span></a>). 
-		Those platforms may themselves run within other environments, such as virtual machines or operating 
-		systems, that completely abstract away the underlying hardware from the application. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not 
-		accountable for security functionality that is implemented by platform layers that are abstracted 
-		away. Some evaluation activities are specific to the particular platform
-		on which the application runs, in order to provide precision and
-		repeatability. The only platforms currently recognized by the AppPP are those specified in <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Evaluation Activities.
-		To test on a platform for which there are no EAs, a Vendor should contact <abbr class="dyn-abbr"><a href="#abbr_NIAP">NIAP</a></abbr> with recommended EAs.
-		<abbr class="dyn-abbr"><a href="#abbr_NIAP">NIAP</a></abbr> will determine if the proposed platform is appropriate for the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> and accept, reject,
-		or develop EAs as necessary in coordination with the technical community.
-</p><p>
-		Applications include a diverse range of software such as office suites, thin clients, <abbr class="dyn-abbr"><a href="#abbr_PDF">PDF</a></abbr> readers, downloadable
-		smartphone apps, and apps running in a cloud container. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes 
-		any software in the application installation package, even those pieces that may 
-		extend or modify the functionality of the underlying platform, such as kernel drivers.  
-		Many platforms come bundled with applications such as web browsers, email clients and media players and these too
-		should be considered subject to the requirements defined in this document although the expectation of formal Common Criteria evaluation
-		depends upon the national scheme.  BIOS and other firmware, the operating system kernel,
-		and other systems software (and drivers) provided as part of the platform are outside the scope
-		of this document.  
-		<div class="figure" id="figure-toe-as-apponos"><img id="toe-as-apponos" src="images/toe.png" width="" height=""></img><br/><span class="ctr" data-myid="toe-as-apponos" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>:
-      <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as an Application and Kernel Module Running on an Operating System</div>
-		<div class="figure" id="figure-toe-as-apponee"><img id="toe-as-apponee" src="images/toeruntime.png" width="" height=""></img><br/><span class="ctr" data-myid="toe-as-apponee" data-counter-type="ct-figure">Figure <span class="counter">2</span></span>:
-      <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> as an Application Running in an Execution Environment Plus Native Code</div>
-</p>
+		<p>
+			This document describes a core set of security requirements for 3 different flavors of a Retransmission device. 
+			They will be referred to as <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> (Retransmission Device, Encrypting Retransmission Device and 
+			Hardware Separated Encrypting Retransmission Device respectively). These are small form factor devices to provide isolation, 
+			authentication and/or confidentiality for a <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> (End User Device) or set of <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>’s that must interoperate with an 
+			Untrusted Domain. The main goal of the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> use case is to provide network transport and simple isolation of the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>. 
+			The <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> use case is intended to provide an independent layer of encryption on top of the existing network transport. 
+			The encryption done by an <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> as a stand alone device will authenticate the endpoint in addition to adding confidentiality 
+			of the traffic. The <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> use case is intended to provide the most robust isolation between the network transport and 
+			<abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> on top of the encryption of the <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr>. The functionality and requirements are intended to be inherited as the use case 
+			moves from <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> to <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>, as much as reasonable. If the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> requires X, then the <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> will require X too unless 
+			unreasonable or inappropriate.
+		</p>
+		
+		<b><abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr></b>
+		<p>
+			The basic <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> is a lightweight computing device that acts as both a retransmission device and a boundary. 
+			The <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> sits between a <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> (End User Device) and the untrusted transport network as illustrated in Figure 1. 
+			The interconnect IC1 between the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> and the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> is always a wired connection. The connection IC2 to the transport network 
+			can be any media, wired or wireless. IC1 and IC2 may or may not be in the same network address space depending
+			on the use case.
+		</p>
+		<div class="figure" id="figure-1"><img id="1" src="images/esr_figure1.svg" width="500em" height="150em"></img><br/><span class="ctr" data-myid="1" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>:
+      </div>
+		<p>
+			Figure 2 illustrates the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> as a boundary filter implemented as a stateless firewall. FW2 is filtering untrusted 
+			traffic on IC2 and FW1 is filtering <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic on IC1. The FW could be the same application or 2 separate 
+			applications. It may filter in one or both directions of IC1 or IC2.
+		</p>
+		<div class="figure" id="figure-2"><img id="2" src="images/esr_figure2.svg" width="500em" height="150em"></img><br/><span class="ctr" data-myid="2" data-counter-type="ct-figure">Figure <span class="counter">2</span></span>:
+      </div>
+		<p>
+			The <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> can be managed through one of the following methods: local management through a dedicated management 
+	  		interface, managed through the WAN interface (IC2) from a trusted management service or from the LAN interface (IC1).
+		</p>
+		
+		<b><abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr></b>
+		<p>
+			The <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> is an <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> with the additional capability to encrypt all traffic from the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> through the LAN interface (IC1) to 
+			form an encrypted tunnel to another encryption end-point through the <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr>’s WAN interface (IC2). This ensures that all 
+			traffic from the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> is encrypted coming from the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> and is intended to protect this traffic over an untrusted 
+			network.
+	  	</p>
+		<p>
+			Figure 3 illustrates the <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> as a dedicated encryption layer. The encryption can be link layer oriented 
+			(i.e. MACsec), network layer oriented (i.e. IPsec) or may even be the Wi-Fi link itself assuming that it is 
+			connecting to a trusted WLAN Access System. It will include firewall configurations from the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> use case.
+	  	</p>
+	  	<div class="figure" id="figure-3"><img id="3" src="images/esr_figure3.svg" width="500em" height="150em"></img><br/><span class="ctr" data-myid="3" data-counter-type="ct-figure">Figure <span class="counter">3</span></span>:
+      </div>
+
+		<b><abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr></b>
+		<p>
+			An <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> will encrypt traffic between two endpoints while maintaining a defined physical and logical protocol
+			break between the trusted and the untrusted trusted domains. The protocol break will be both physically and logically
+			enforced. This forms the most complete security argument for isolation, authentication and 
+			confidentiality of the 3 use cases. Additionally, a <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> is cryptographically bonded to another <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> and 
+			once bonded they are meant to only work as a pair to create and autonomously manage a point to point encrypted 
+			tunnel as illustrated in Figure 4. By only being a pair they will not require functionality typically needed 
+			to handle cryptographic nets larger than 2 nodes. Simplicity.
+	  	</p>
+	  	<div class="figure" id="figure-4"><img id="4" src="images/esr_figure4.svg" width="500em" height="150em"></img><br/><span class="ctr" data-myid="4" data-counter-type="ct-figure">Figure <span class="counter">4</span></span>:
+      </div>
+	  	<p>
+			A more granular view of an <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> pair is in Figure 5. An <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> consists of at least 2 physically separate 
+			computing units whose functionality is Encryption and Communication respectively. They will be referred to as 
+			Encryption Unit (<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>) and Communication Unit (<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>). The main distinction between <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> and the <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> is the
+			protocol break between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>. It is defined and can be soundly defended. The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> interface (IC3) only needs to
+			process a singular frame type and can accurately and safely discard any other frame, unlike the interface connected
+			to the Untrusted Fabric (IC2) which must account for and process the extensive protocol complexity of the transport network 
+			in addition to performing cryptography. A bug anywhere in that large stack can bypass the encryption altogether
+			if the IC2 processing and encryption occur on the same machine. In contrast, the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> active software stack at IC3 
+			will be vastly smaller than the software stack at IC2 on the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> thereby reducing the odds of any exploitable condition to 
+			the minimum of one. Finally, adding to the binary frame check is a cryptographic operation that cannot be easily spoofed.
+	  	</p>
+	  	<div class="figure" id="figure-5"><img id="5" src="images/esr_figure5.svg" width="700em" height="250em"></img><br/><span class="ctr" data-myid="5" data-counter-type="ct-figure">Figure <span class="counter">5</span></span>:
+      <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> end to end view</div>
+	  	<p>
+			The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> are physically independent. They must not share any hardware such as memory, cache, or other 
+			internal infrastructure typical of computers. Examples that meet this requirement might be a pair of 
+			SoC’s, each running an instance of Operating System, or a microProcessor and a microController, or 
+			an FPGA and a microProcessor. A pair of virtual machines running on a single computer does not meet 
+			this separation requirement.
+	  	</p>
+		<p>
+			The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> interface at IC2 could be wireless (Bluetooth, WiFi, 5G, Microwave, etc.) or wired 
+			media (ethernet, fiber, <abbr class="dyn-abbr"><a href="#abbr_USB">USB</a></abbr>, serial, etc.) depending on specific use case. There is no restriction. For example, 
+			where the Untrusted domain is an Ethernet:<abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> based network, the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> would need an RJ45 interface. That interface 
+			is then assigned an <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address and the destination <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address of its peer <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> is assigned to the function that 
+			transfers packets to and from the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>. The Untrusted domain (not the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>) will handle the routing between <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr>’s. 
+			The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> functions as a translation layer between IC3 and IC2 as well as a network interface to IC2.
+	  	</p>
+		<p>
+	  		IC1 and IC3 are always wired media.
+	  	</p>
+		<p>
+			The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-to-EU association is a link layer (layer 2) tunnel and not a layer 3 or higher tunnel. However, a 
+			layer 3 (or higher) tunnel can independently exist between <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>-to-CU to transport the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-to-EU frames. The 
+			<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>-to-CU tunnel is out of scope for this document.
+		</p>
+		<p>
+			The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> must be managed independently from the untrusted and trusted domain respectively. There is no 
+			cryptographic bypass. Thus the network address space of IC1 is independent of the network address space of the 
+			IC2. The isolation boundary of IC3 in Figure 5 (intentionally) prevents them from being managed from a common 
+			location. Managing the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> from the trusted domain, either through the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> or around the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> is not in scope of 
+			this document. Because the association is only between a pair of <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>’s, they can autonomously 
+			manage themselves if that is sufficient for a use case. However, the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> can be manually 
+			managed (from the trusted domain) by an additional virtual or physical interface on the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>, 
+			depending on the use case requirements. Both ends of the link do not have to be managed. One managed end can
+			be sufficient for the link. 
+		</p>
 	
 	
 	  
