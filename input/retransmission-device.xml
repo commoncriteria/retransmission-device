@@ -277,13 +277,13 @@
 			can be any media, wired or wireless. IC1 and IC2 may or may not be in the same network address space depending
 			on the use case.
 		</h:p>
-		<center><figure entity="images/esr_figure1.svg" title="" id="1" width="500em" height="150em"/></center>
+		<h:center><figure entity="images/esr_figure1.svg" title="" id="1" width="500em" height="150em"/></h:center>
 		<h:p>
 			Figure 2 illustrates the RD as a boundary filter implemented as a stateless firewall. FW2 is filtering untrusted 
 			traffic on IC2 and FW1 is filtering EUD traffic on IC1. The FW could be the same application or 2 separate 
 			applications. It may filter in one or both directions of IC1 or IC2.
 		</h:p>
-		<center><figure entity="images/esr_figure2.svg" title="" id="2" width="500em" height="150em"/></center>
+		<h:center><figure entity="images/esr_figure2.svg" title="" id="2" width="500em" height="150em"/></h:center>
 		<h:p>
 			The RD can be managed through one of the following methods: local management through a dedicated management 
 	  		interface, managed through the WAN interface (IC2) from a trusted management service or from the LAN interface (IC1).
@@ -301,7 +301,7 @@
 			(i.e. MACsec), network layer oriented (i.e. IPsec) or may even be the Wi-Fi link itself assuming that it is 
 			connecting to a trusted WLAN Access System. It will include firewall configurations from the RD use case.
 	  	</h:p>
-	  	<center><figure entity="images/esr_figure3.svg" title="" id="3" width="500em" height="150em"/></center>
+	  	<h:center><figure entity="images/esr_figure3.svg" title="" id="3" width="500em" height="150em"/></h:center>
 
 		<h:b>HWS-ERD</h:b>
 		<h:p>
@@ -313,7 +313,7 @@
 			tunnel as illustrated in Figure 4. By only being a pair they will not require functionality typically needed 
 			to handle cryptographic nets larger than 2 nodes. Simplicity.
 	  	</h:p>
-	  	<center><figure entity="images/esr_figure4.svg" title="" id="4" width="500em" height="150em"/></center>
+	  	<h:center><figure entity="images/esr_figure4.svg" title="" id="4" width="500em" height="150em"/></h:center>
 	  	<h:p>
 			A more granular view of an HWS-ERD pair is in Figure 5. An HWS-ERD consists of at least 2 physically separate 
 			computing units whose functionality is Encryption and Communication respectively. They will be referred to as 
@@ -326,7 +326,7 @@
 			will be vastly smaller than the software stack at IC2 on the CU thereby reducing the odds of any exploitable condition to 
 			the minimum of one. Finally, adding to the binary frame check is a cryptographic operation that cannot be easily spoofed.
 	  	</h:p>
-	  	<center><figure entity="images/esr_figure5.svg" title="HWS-ERD end to end view" id="5" width="700em" height="250em"/></center>
+	  	<h:center><figure entity="images/esr_figure5.svg" title="HWS-ERD end to end view" id="5" width="700em" height="250em"/></h:center>
 	  	<h:p>
 			The EU and CU are physically independent. They must not share any hardware such as memory, cache, or other 
 			internal infrastructure typical of computers. Examples that meet this requirement might be a pair of 
