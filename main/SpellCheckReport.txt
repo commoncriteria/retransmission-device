@@ -116,8 +116,8 @@ output/retransmission-device-release-linkable.html: NSAllowsArbitraryLoads
 output/retransmission-device-release-linkable.html: NSExceptionAllowsInsecureHTTPLoads
 output/retransmission-device-release-linkable.html: NXCheck
 output/retransmission-device-release-linkable.html: OtherInfo
+output/retransmission-device-release-linkable.html: PBKDF
 output/retransmission-device-release-linkable.html: PBKDF2
-output/retransmission-device-release-linkable.html: PRF
 output/retransmission-device-release-linkable.html: PRT
 output/retransmission-device-release-linkable.html: PTR
 output/retransmission-device-release-linkable.html: PreferenceActivity
@@ -125,6 +125,7 @@ output/retransmission-device-release-linkable.html: ProcMon
 output/retransmission-device-release-linkable.html: ProtectData
 output/retransmission-device-release-linkable.html: QWORD
 output/retransmission-device-release-linkable.html: RBGs
+output/retransmission-device-release-linkable.html: RETRANS
 output/retransmission-device-release-linkable.html: RJ45
 output/retransmission-device-release-linkable.html: RNGCryptoServiceProvider
 output/retransmission-device-release-linkable.html: RandomNumberGenerator
@@ -189,7 +190,6 @@ output/retransmission-device-release-linkable.html: swidtag
 output/retransmission-device-release-linkable.html: syslog
 output/retransmission-device-release-linkable.html: uninstallation
 output/retransmission-device-release-linkable.html: uninstantiating
-output/retransmission-device-release-linkable.html: validator
 output/retransmission-device-release-linkable.html: virtualized
 output/retransmission-device-release-linkable.html: xml
 output/retransmission-device-release.html: 10C
@@ -277,8 +277,8 @@ output/retransmission-device-release.html: NSAllowsArbitraryLoads
 output/retransmission-device-release.html: NSExceptionAllowsInsecureHTTPLoads
 output/retransmission-device-release.html: NXCheck
 output/retransmission-device-release.html: OtherInfo
+output/retransmission-device-release.html: PBKDF
 output/retransmission-device-release.html: PBKDF2
-output/retransmission-device-release.html: PRF
 output/retransmission-device-release.html: PRT
 output/retransmission-device-release.html: PTR
 output/retransmission-device-release.html: PreferenceActivity
@@ -286,6 +286,7 @@ output/retransmission-device-release.html: ProcMon
 output/retransmission-device-release.html: ProtectData
 output/retransmission-device-release.html: QWORD
 output/retransmission-device-release.html: RBGs
+output/retransmission-device-release.html: RETRANS
 output/retransmission-device-release.html: RJ45
 output/retransmission-device-release.html: RNGCryptoServiceProvider
 output/retransmission-device-release.html: RandomNumberGenerator
@@ -351,7 +352,6 @@ output/retransmission-device-release.html: swidtag
 output/retransmission-device-release.html: syslog
 output/retransmission-device-release.html: uninstallation
 output/retransmission-device-release.html: uninstantiating
-output/retransmission-device-release.html: validator
 output/retransmission-device-release.html: virtualized
 output/retransmission-device-release.html: xml
 output/retransmission-device.html: 10x
@@ -435,8 +435,8 @@ output/retransmission-device.html: NSAllowsArbitraryLoads
 output/retransmission-device.html: NSExceptionAllowsInsecureHTTPLoads
 output/retransmission-device.html: NXCheck
 output/retransmission-device.html: OtherInfo
+output/retransmission-device.html: PBKDF
 output/retransmission-device.html: PBKDF2
-output/retransmission-device.html: PRF
 output/retransmission-device.html: PRT
 output/retransmission-device.html: PTR
 output/retransmission-device.html: PreferenceActivity
@@ -444,6 +444,7 @@ output/retransmission-device.html: ProcMon
 output/retransmission-device.html: ProtectData
 output/retransmission-device.html: QWORD
 output/retransmission-device.html: RBGs
+output/retransmission-device.html: RETRANS
 output/retransmission-device.html: RJ45
 output/retransmission-device.html: RNGCryptoServiceProvider
 output/retransmission-device.html: RandomNumberGenerator
@@ -508,6 +509,5 @@ output/retransmission-device.html: swidtag
 output/retransmission-device.html: syslog
 output/retransmission-device.html: uninstallation
 output/retransmission-device.html: uninstantiating
-output/retransmission-device.html: validator
 output/retransmission-device.html: virtualized
 output/retransmission-device.html: xml
