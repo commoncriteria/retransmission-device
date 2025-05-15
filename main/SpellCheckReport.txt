@@ -163,6 +163,7 @@ output/retransmission-device-release-linkable.html: ffdhe
 output/retransmission-device-release-linkable.html: inavertently
 output/retransmission-device-release-linkable.html: invocable
 output/retransmission-device-release-linkable.html: lifecycle
+output/retransmission-device-release-linkable.html: macsec
 output/retransmission-device-release-linkable.html: microController
 output/retransmission-device-release-linkable.html: microProcessor
 output/retransmission-device-release-linkable.html: microarchitecture
@@ -316,6 +317,7 @@ output/retransmission-device-release.html: ffdhe
 output/retransmission-device-release.html: inavertently
 output/retransmission-device-release.html: invocable
 output/retransmission-device-release.html: lifecycle
+output/retransmission-device-release.html: macsec
 output/retransmission-device-release.html: microController
 output/retransmission-device-release.html: microProcessor
 output/retransmission-device-release.html: microarchitecture
@@ -465,6 +467,7 @@ output/retransmission-device.html: ffdhe
 output/retransmission-device.html: inavertently
 output/retransmission-device.html: invocable
 output/retransmission-device.html: lifecycle
+output/retransmission-device.html: macsec
 output/retransmission-device.html: microController
 output/retransmission-device.html: microProcessor
 output/retransmission-device.html: microarchitecture
