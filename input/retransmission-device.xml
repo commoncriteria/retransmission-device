@@ -16,7 +16,7 @@
       <PPTitle>Protection Profile for Retransmission Device</PPTitle>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2024-12-30</PPPubDate>
+      <PPPubDate>2025-05-15</PPPubDate>
       <Keywords>retransmission</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -581,6 +581,30 @@
 						is realized through A.PROPER_ADMIN.</rationale>
 				</objective-refer>
 			</assumption>
+			<assumption name="A.NO_TOE_BYPASS">
+				<description>Information cannot flow onto the network to which the RD, ERD, or HWS ERD is
+					connected without passing through the TOE.</description>
+				<objective-refer ref="OE.PROPER_NETWORK">
+					<rationale>The operational environment objective OE.PROPER_NETWORK 
+						is realized through A.NO_TOE_BYPASS.</rationale>
+				</objective-refer>
+			</assumption>
+			<assumption name="A.PHYSICAL">
+				<description>Physical security, commensurate with the value of the TOE and the data it contains, is 
+					assumed to be provided by the environment.</description>
+				<objective-refer ref="OE.PROPER_SECURITY">
+					<rationale>The operational environment objective OE.SECURITY 
+						is realized through A.PHYSICAL.</rationale>
+				</objective-refer>
+			</assumption>
+			<assumption name="A.TRUSTED_CONFIG">
+				<description>Personnel configuring the TOE and its OE will follow the applicable security configuration 
+					guidance.</description>
+				<objective-refer ref="OE.PROPER_CONFIG">
+					<rationale>The operational environment objective OE.PROPER_CONFIG 
+						is realized through A.TRUSTED_CONFIG.</rationale>
+				</objective-refer>
+			</assumption>
 		</assumptions>
     </sec:Assumptions>
 	
@@ -611,6 +635,15 @@
 					negligent or hostile, and administers the software within compliance of the applied
 					enterprise security policy.</description>
 			</SOE>
+			<SOE name="OE.PROPER_NETWORK">
+				<description>The network is properly configured such that all traffic passes through the TOE.</description>
+			</SOE>
+			<SOE name="OE.PROPER_SECURITY">
+				<description>The environment properly protects the TOE.</description>
+			</SOE>
+			<SOE name="OE.PROPER_CONFIG">
+				<description>The administrator of the application software configures the TOE properly.</description>
+			</SOE>
 		</SOEs>
     </sec:Security_Objectives_for_the_Operational_Environment>
 	
@@ -628,7 +661,6 @@
 	<!-- 5.1.1 Cryptographic Support (FCS) -->
 	<section title="Cryptographic Support (FCS)" id="fcs">
 	  
-		<!--R-UPDATE - Include your SFRs, many of the cryptographic SFRs can probably stay.-->
 		<!-- FCS_CKM_EXT.1 -->
 		<ext-comp-def fam-id="FCS_CKM_EXT" title="Cryptographic Key Management">
 			<fam-behavior>This family defines requirements for management of cryptographic keys that are not addressed by FCS_CKM in CC Part 2.
