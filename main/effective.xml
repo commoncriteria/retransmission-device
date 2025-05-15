@@ -3113,54 +3113,7 @@
         </f-component>
     </section>   <!-- FMT -->
 
-    <section title="Privacy (FPR)" id="fpr">
-      <ext-comp-def fam-id="FPR_ANO_EXT" title="User Consent for Transmission of Personally Identifiable Information">
-	<fam-behavior>
-	  This family defines requirements for anonymity that are not covered by the Part 2 family FPR_ANO.
-	</fam-behavior>
-      </ext-comp-def>
-	
-      <f-component cc-id="fpr_ano_ext.1" name="User Consent for Transmission of Personally Identifiable Information">
-	<comp-lev> requires the TSF to transmit personally identifiable information only with explicit approval.</comp-lev>
-	<management>The following action could be considered for the management functions in FMT: <h:ul type="a">
-		<h:li>Enabling and disabling the transmission of any PII.</h:li>
-	</h:ul>
-	</management>
-    <audit>There are no auditable events foreseen.</audit>
-    <dependencies>No dependencies.</dependencies>  	
-      	
-	<f-element id="fel-transmit-pii">
-				<title>The application shall 
-					<selectables onlyone="yes" linebreak="yes">
-						<selectable>not transmit PII over a network</selectable>
-						<selectable>require user approval before executing
-							<assignable>list of functions that transmit PII over a network</assignable>
-						</selectable></selectables>.
-				</title>
-				<note role="application">
-					This requirement applies only to PII that is specifically requested by the application;
-					it does not apply if the user volunteers PII without prompting from the application 
-					into a general (or inappropriate) data field.
-					A dialog box that declares intent to send PII presented to the user 
-					at the time the application is started is sufficient to meet this requirement. 
-				</note>
-				<aactivity>
-					<TSS>
-						<h:p>The evaluator shall inspect the TSS documentation to verify it contains a list of functionality in the
-						application where PII can be transmitted.</h:p>
-					</TSS>
-					<Guidance><h:p>The evaluator shall verify the guidance documentation contains any instructions to configure the
-						transmission of PII and details any prompts that would approve or deny transmission of PII.</h:p></Guidance>
-					<Tests>
-						If "<h:b>require user approval before executing...</h:b>" is selected, the evaluator shall run the application and exercise the functionality responsible
-						for transmitting PII and verify that user approval is required before transmission
-						of the PII.
-					</Tests>
-				</aactivity>
-			</f-element>
-        </f-component>
-		
-    </section>  <!-- FPR -->
+  
 
     <section title="Protection of the TSF (FPT)" id="fpt">
     	<f-component cc-id="fpt_rpl.1" name="Replay Detection"> 
