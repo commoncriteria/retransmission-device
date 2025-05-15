@@ -166,7 +166,15 @@
         ref/PP[1]""/sec:req[1]""/section[1]""/section[6]"For the c"/a-component[1]""/a-element[5]""/aactivity[1]""/h:div[1]""/depends[4]""/ref[1]""
 * Error: Detected multiple elements with an id of 'fel-https-who-cl'.
 * Error: Detected multiple elements with an id of 'fel-https-who-cl'.
+* Error: Detected dangling ref-id to 'sfr-fau-gen-1'.
+	  /PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]"Requireme"/usecases[1]""/usecase[1]""/config[1]""/ref-id[1]"sfr-fau-g"
+* Error: Detected dangling ref-id to 'sfr-fau-gen-1'.
+	  /PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]"Requireme"/usecases[1]""/usecase[2]""/config[1]""/ref-id[1]"sfr-fau-g"
+* Error: Detected dangling ref-id to 'sfr-fau-gen-1'.
+	  /PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]"Requireme"/usecases[1]""/usecase[3]""/config[1]""/ref-id[1]"sfr-fau-g"
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]""/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]"Requireme"/usecases[1]""/usecase[1]""/description[1]"RD USE CA"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]"Requireme"/usecases[1]""/usecase[2]""/description[1]"ERD USE C"/h:p[1]""
  Failed to find a reference to bibCEM.
  Failed to find a reference to bibCEM.
  Failed to find a reference to bibCEM.
@@ -180,3 +188,6 @@
                        
 * Warning: Since FPT_TUD_EXT.2.3 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        
+ Failed to find sfr-fau-gen-1 in /PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]"Requireme"/usecases[1]""/usecase[1]""/config[1]""/ref-id[1]"sfr-fau-g" (use case or rule)
+ Failed to find sfr-fau-gen-1 in /PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]"Requireme"/usecases[1]""/usecase[2]""/config[1]""/ref-id[1]"sfr-fau-g" (use case or rule)
+ Failed to find sfr-fau-gen-1 in /PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]"Requireme"/usecases[1]""/usecase[3]""/config[1]""/ref-id[1]"sfr-fau-g" (use case or rule)
