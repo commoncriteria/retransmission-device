@@ -37,7 +37,6 @@ output/retransmission-device-release-linkable.html: 10x
 output/retransmission-device-release-linkable.html: 11C
 output/retransmission-device-release-linkable.html: 1AE
 output/retransmission-device-release-linkable.html: 1X
-output/retransmission-device-release-linkable.html: 1Xbx
 output/retransmission-device-release-linkable.html: 38A
 output/retransmission-device-release-linkable.html: 38D
 output/retransmission-device-release-linkable.html: 38E
@@ -99,7 +98,6 @@ output/retransmission-device-release-linkable.html: ICK
 output/retransmission-device-release-linkable.html: ICV
 output/retransmission-device-release-linkable.html: IUT
 output/retransmission-device-release-linkable.html: KYC
-output/retransmission-device-release-linkable.html: KaY
 output/retransmission-device-release-linkable.html: KeyStores
 output/retransmission-device-release-linkable.html: LMS
 output/retransmission-device-release-linkable.html: LMSOTS
@@ -111,7 +109,7 @@ output/retransmission-device-release-linkable.html: MACed
 output/retransmission-device-release-linkable.html: MACs
 output/retransmission-device-release-linkable.html: MACsec
 output/retransmission-device-release-linkable.html: MACtag
-output/retransmission-device-release-linkable.html: MKPDU
+output/retransmission-device-release-linkable.html: MKA
 output/retransmission-device-release-linkable.html: MKPDUs
 output/retransmission-device-release-linkable.html: MPDU
 output/retransmission-device-release-linkable.html: MPDUs
@@ -144,7 +142,6 @@ output/retransmission-device-release-linkable.html: SoC
 output/retransmission-device-release-linkable.html: SoftwareIdentity
 output/retransmission-device-release-linkable.html: Stateful
 output/retransmission-device-release-linkable.html: TBD
-output/retransmission-device-release-linkable.html: TODO
 output/retransmission-device-release-linkable.html: TSM
 output/retransmission-device-release-linkable.html: VLAN
 output/retransmission-device-release-linkable.html: Validator
@@ -163,8 +160,6 @@ output/retransmission-device-release-linkable.html: eXtended
 output/retransmission-device-release-linkable.html: enquiries
 output/retransmission-device-release-linkable.html: ethernet
 output/retransmission-device-release-linkable.html: ffdhe
-output/retransmission-device-release-linkable.html: ieee8021XKayCreateNewGroup
-output/retransmission-device-release-linkable.html: ieee8021XPaePortKayMkaEnable
 output/retransmission-device-release-linkable.html: inavertently
 output/retransmission-device-release-linkable.html: invocable
 output/retransmission-device-release-linkable.html: lifecycle
@@ -192,7 +187,6 @@ output/retransmission-device-release.html: 10x
 output/retransmission-device-release.html: 11C
 output/retransmission-device-release.html: 1AE
 output/retransmission-device-release.html: 1X
-output/retransmission-device-release.html: 1Xbx
 output/retransmission-device-release.html: 38A
 output/retransmission-device-release.html: 38D
 output/retransmission-device-release.html: 38E
@@ -256,7 +250,6 @@ output/retransmission-device-release.html: ICK
 output/retransmission-device-release.html: ICV
 output/retransmission-device-release.html: IUT
 output/retransmission-device-release.html: KYC
-output/retransmission-device-release.html: KaY
 output/retransmission-device-release.html: KeyStores
 output/retransmission-device-release.html: LMS
 output/retransmission-device-release.html: LMSOTS
@@ -268,7 +261,7 @@ output/retransmission-device-release.html: MACed
 output/retransmission-device-release.html: MACs
 output/retransmission-device-release.html: MACsec
 output/retransmission-device-release.html: MACtag
-output/retransmission-device-release.html: MKPDU
+output/retransmission-device-release.html: MKA
 output/retransmission-device-release.html: MKPDUs
 output/retransmission-device-release.html: MPDU
 output/retransmission-device-release.html: MPDUs
@@ -301,7 +294,6 @@ output/retransmission-device-release.html: SoC’s
 output/retransmission-device-release.html: SoftwareIdentity
 output/retransmission-device-release.html: Stateful
 output/retransmission-device-release.html: TBD
-output/retransmission-device-release.html: TODO
 output/retransmission-device-release.html: TSM
 output/retransmission-device-release.html: VLAN
 output/retransmission-device-release.html: Validator
@@ -321,8 +313,6 @@ output/retransmission-device-release.html: enquiries
 output/retransmission-device-release.html: ethernet
 output/retransmission-device-release.html: evaluator’s
 output/retransmission-device-release.html: ffdhe
-output/retransmission-device-release.html: ieee8021XKayCreateNewGroup
-output/retransmission-device-release.html: ieee8021XPaePortKayMkaEnable
 output/retransmission-device-release.html: inavertently
 output/retransmission-device-release.html: invocable
 output/retransmission-device-release.html: lifecycle
@@ -349,7 +339,6 @@ output/retransmission-device-release.html: xml
 output/retransmission-device.html: 10x
 output/retransmission-device.html: 1AE
 output/retransmission-device.html: 1X
-output/retransmission-device.html: 1Xbx
 output/retransmission-device.html: 38A
 output/retransmission-device.html: 38D
 output/retransmission-device.html: 38E
@@ -411,7 +400,6 @@ output/retransmission-device.html: ICK
 output/retransmission-device.html: ICV
 output/retransmission-device.html: IUT
 output/retransmission-device.html: KYC
-output/retransmission-device.html: KaY
 output/retransmission-device.html: KeyStores
 output/retransmission-device.html: LMS
 output/retransmission-device.html: LMSOTS
@@ -423,7 +411,7 @@ output/retransmission-device.html: MACed
 output/retransmission-device.html: MACs
 output/retransmission-device.html: MACsec
 output/retransmission-device.html: MACtag
-output/retransmission-device.html: MKPDU
+output/retransmission-device.html: MKA
 output/retransmission-device.html: MKPDUs
 output/retransmission-device.html: MPDU
 output/retransmission-device.html: MPDUs
@@ -456,7 +444,6 @@ output/retransmission-device.html: SoC’s
 output/retransmission-device.html: SoftwareIdentity
 output/retransmission-device.html: Stateful
 output/retransmission-device.html: TBD
-output/retransmission-device.html: TODO
 output/retransmission-device.html: TSM
 output/retransmission-device.html: VLAN
 output/retransmission-device.html: Validator
@@ -475,8 +462,6 @@ output/retransmission-device.html: eXtended
 output/retransmission-device.html: ethernet
 output/retransmission-device.html: evaluator’s
 output/retransmission-device.html: ffdhe
-output/retransmission-device.html: ieee8021XKayCreateNewGroup
-output/retransmission-device.html: ieee8021XPaePortKayMkaEnable
 output/retransmission-device.html: inavertently
 output/retransmission-device.html: invocable
 output/retransmission-device.html: lifecycle
