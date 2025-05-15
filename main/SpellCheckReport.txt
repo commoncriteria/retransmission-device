@@ -36,7 +36,6 @@ output/retransmission-device-release-linkable.html: 10C
 output/retransmission-device-release-linkable.html: 10x
 output/retransmission-device-release-linkable.html: 11C
 output/retransmission-device-release-linkable.html: 38A
-output/retransmission-device-release-linkable.html: 38C
 output/retransmission-device-release-linkable.html: 38D
 output/retransmission-device-release-linkable.html: 38E
 output/retransmission-device-release-linkable.html: 4C
@@ -73,7 +72,6 @@ output/retransmission-device-release-linkable.html: DRBGs
 output/retransmission-device-release-linkable.html: DataStore
 output/retransmission-device-release-linkable.html: DoD
 output/retransmission-device-release-linkable.html: EAF
-output/retransmission-device-release-linkable.html: ECB
 output/retransmission-device-release-linkable.html: ERDs
 output/retransmission-device-release-linkable.html: EXE
 output/retransmission-device-release-linkable.html: Electrotechnical
@@ -97,7 +95,6 @@ output/retransmission-device-release-linkable.html: ISV
 output/retransmission-device-release-linkable.html: IUT
 output/retransmission-device-release-linkable.html: IsolatedStorage
 output/retransmission-device-release-linkable.html: IsolatedStorageSettings
-output/retransmission-device-release-linkable.html: KATs
 output/retransmission-device-release-linkable.html: KDF
 output/retransmission-device-release-linkable.html: KeyStores
 output/retransmission-device-release-linkable.html: LMS
@@ -199,7 +196,6 @@ output/retransmission-device-release.html: 10C
 output/retransmission-device-release.html: 10x
 output/retransmission-device-release.html: 11C
 output/retransmission-device-release.html: 38A
-output/retransmission-device-release.html: 38C
 output/retransmission-device-release.html: 38D
 output/retransmission-device-release.html: 38E
 output/retransmission-device-release.html: 4C
@@ -236,7 +232,6 @@ output/retransmission-device-release.html: DRBGs
 output/retransmission-device-release.html: DataStore
 output/retransmission-device-release.html: DoD
 output/retransmission-device-release.html: EAF
-output/retransmission-device-release.html: ECB
 output/retransmission-device-release.html: ERDs
 output/retransmission-device-release.html: ERD’s
 output/retransmission-device-release.html: EXE
@@ -261,7 +256,6 @@ output/retransmission-device-release.html: ISV
 output/retransmission-device-release.html: IUT
 output/retransmission-device-release.html: IsolatedStorage
 output/retransmission-device-release.html: IsolatedStorageSettings
-output/retransmission-device-release.html: KATs
 output/retransmission-device-release.html: KDF
 output/retransmission-device-release.html: KeyStores
 output/retransmission-device-release.html: LMS
@@ -362,7 +356,6 @@ output/retransmission-device-release.html: virtualized
 output/retransmission-device-release.html: xml
 output/retransmission-device.html: 10x
 output/retransmission-device.html: 38A
-output/retransmission-device.html: 38C
 output/retransmission-device.html: 38D
 output/retransmission-device.html: 38E
 output/retransmission-device.html: 4C
@@ -397,7 +390,6 @@ output/retransmission-device.html: DRBGs
 output/retransmission-device.html: DataStore
 output/retransmission-device.html: DoD
 output/retransmission-device.html: EAF
-output/retransmission-device.html: ECB
 output/retransmission-device.html: ERDs
 output/retransmission-device.html: ERD’s
 output/retransmission-device.html: EXE
@@ -422,7 +414,6 @@ output/retransmission-device.html: ISV
 output/retransmission-device.html: IUT
 output/retransmission-device.html: IsolatedStorage
 output/retransmission-device.html: IsolatedStorageSettings
-output/retransmission-device.html: KATs
 output/retransmission-device.html: KDF
 output/retransmission-device.html: KeyStores
 output/retransmission-device.html: LMS
