@@ -1875,7 +1875,7 @@
 			
 			<f-element id="fel-erd-refuse-send">
 				<title>
-					***REMOVE STUFF COVERED BY MACSEC SEEMS LIKE THAT SHOULD COVER MOST OF KEY AGREEMENT 
+					***REMOVE STUFF COVERED BY MACSEC SEEMS LIKE THAT SHOULD COVER MOST OF KEY AGREEMENT // Align with macsec key naming?
 					The TOE shall refuse to send and data over the encrypted channel before initial provisioning completes.
 				</title>
 			</f-element>
