@@ -2811,7 +2811,8 @@
 							not directly correspond to the decompiled text and justification that the decompiled text 
 							corresponds to the associated API.
 						</h:p><h:p>
-							The following are the per-platform list of acceptable APIs:
+							***Define appropriate for retrans. The following are the per-platform list of acceptable APIs:
+							<!--
 							<h:div><depends ref="android"/> 
 								The evaluator shall verify that the application uses at least one of <h:code>javax.crypto.KeyGenerator</h:code> 
 								class or the <h:code>java.security.SecureRandom</h:code> class or <h:code>/dev/random
@@ -2844,7 +2845,9 @@
 							If invocation of platform-provided functionality is achieved in another way, the evaluator 
 							shall ensure the TSS describes how this is carried out, and how it is equivalent to the 
 							methods listed here (e.g. higher-level API invokes identical low-level API).
+						-->
 						</h:p>
+						
 					</Tests>
 				</aactivity>
 			</f-element>		

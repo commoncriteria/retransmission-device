@@ -59,7 +59,6 @@ output/retransmission-device-release-linkable.html: APPX
 output/retransmission-device-release-linkable.html: AndroidManifest
 output/retransmission-device-release-linkable.html: AppPP
 output/retransmission-device-release-linkable.html: Authenticode
-output/retransmission-device-release-linkable.html: BCryptGenRandom
 output/retransmission-device-release-linkable.html: CAK
 output/retransmission-device-release-linkable.html: CAKs
 output/retransmission-device-release-linkable.html: CAVP
@@ -68,7 +67,6 @@ output/retransmission-device-release-linkable.html: CEM
 output/retransmission-device-release-linkable.html: CKN
 output/retransmission-device-release-linkable.html: CKNs
 output/retransmission-device-release-linkable.html: CoreOS
-output/retransmission-device-release-linkable.html: CryptGenRandom
 output/retransmission-device-release-linkable.html: DEVID
 output/retransmission-device-release-linkable.html: DRBGs
 output/retransmission-device-release-linkable.html: DevIDs
@@ -133,9 +131,6 @@ output/retransmission-device-release-linkable.html: PSKs
 output/retransmission-device-release-linkable.html: RBGs
 output/retransmission-device-release-linkable.html: RETRANS
 output/retransmission-device-release-linkable.html: RJ45
-output/retransmission-device-release-linkable.html: RNGCryptoServiceProvider
-output/retransmission-device-release-linkable.html: RandomNumberGenerator
-output/retransmission-device-release-linkable.html: RtlGenRandom
 output/retransmission-device-release-linkable.html: SAK
 output/retransmission-device-release-linkable.html: SAKs
 output/retransmission-device-release-linkable.html: SCAP
@@ -219,7 +214,6 @@ output/retransmission-device-release.html: APPX
 output/retransmission-device-release.html: AndroidManifest
 output/retransmission-device-release.html: AppPP
 output/retransmission-device-release.html: Authenticode
-output/retransmission-device-release.html: BCryptGenRandom
 output/retransmission-device-release.html: CAK
 output/retransmission-device-release.html: CAKs
 output/retransmission-device-release.html: CAK’s
@@ -229,7 +223,6 @@ output/retransmission-device-release.html: CEM
 output/retransmission-device-release.html: CKN
 output/retransmission-device-release.html: CKNs
 output/retransmission-device-release.html: CoreOS
-output/retransmission-device-release.html: CryptGenRandom
 output/retransmission-device-release.html: DEVID
 output/retransmission-device-release.html: DRBGs
 output/retransmission-device-release.html: DevIDs
@@ -295,9 +288,6 @@ output/retransmission-device-release.html: PSKs
 output/retransmission-device-release.html: RBGs
 output/retransmission-device-release.html: RETRANS
 output/retransmission-device-release.html: RJ45
-output/retransmission-device-release.html: RNGCryptoServiceProvider
-output/retransmission-device-release.html: RandomNumberGenerator
-output/retransmission-device-release.html: RtlGenRandom
 output/retransmission-device-release.html: SAK
 output/retransmission-device-release.html: SAKs
 output/retransmission-device-release.html: SCAP
@@ -379,7 +369,6 @@ output/retransmission-device.html: APPX
 output/retransmission-device.html: AndroidManifest
 output/retransmission-device.html: AppPP
 output/retransmission-device.html: Authenticode
-output/retransmission-device.html: BCryptGenRandom
 output/retransmission-device.html: CAK
 output/retransmission-device.html: CAKs
 output/retransmission-device.html: CAK’s
@@ -389,7 +378,6 @@ output/retransmission-device.html: CEM
 output/retransmission-device.html: CKN
 output/retransmission-device.html: CKNs
 output/retransmission-device.html: CoreOS
-output/retransmission-device.html: CryptGenRandom
 output/retransmission-device.html: DEVID
 output/retransmission-device.html: DRBGs
 output/retransmission-device.html: DevIDs
@@ -455,9 +443,6 @@ output/retransmission-device.html: PSKs
 output/retransmission-device.html: RBGs
 output/retransmission-device.html: RETRANS
 output/retransmission-device.html: RJ45
-output/retransmission-device.html: RNGCryptoServiceProvider
-output/retransmission-device.html: RandomNumberGenerator
-output/retransmission-device.html: RtlGenRandom
 output/retransmission-device.html: SAK
 output/retransmission-device.html: SAKs
 output/retransmission-device.html: SCAP

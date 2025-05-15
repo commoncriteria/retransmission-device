@@ -2477,64 +2477,10 @@ The following sections list Common Criteria and technology terms used in this do
 							not directly correspond to the decompiled text and justification that the decompiled text 
 							corresponds to the associated <abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr>.
 						</p><p>
-							The following are the per-platform list of acceptable APIs:
-							<div class="dependent">The following content should be included if:<ul><li>
-           the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements 
-           
-             ""
-           </li></ul><div class="dependent-content"><div> 
-								The evaluator shall verify that the application uses at least one of <code>javax.crypto.KeyGenerator</code> 
-								class or the <code>java.security.SecureRandom</code> class or <code>/dev/random
-								</code> or <code>/dev/urandom</code>.
-							</div></div></div>
-							<div class="dependent">The following content should be included if:<ul><li>
-           the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements 
-           
-             ""
-           </li></ul><div class="dependent-content"><div>
-								The evaluator shall verify that rand_s, RtlGenRandom, BCryptGenRandom, or 
-								CryptGenRandom <abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr> is used for classic desktop applications. The evaluator shall 
-								verify the application uses the RNGCryptoServiceProvider class or derives a class 
-								from System.Security.Cryptography.RandomNumberGenerator <abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr> for Windows Universal
-								Applications. It is only required that the <abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr> is called/invoked, there is no 
-								requirement that the <abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr> be used directly. In future versions of this document, 
-								CryptGenRandom may be removed as an option as it is no longer the preferred <abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr> per
-								vendor documentation. </div></div></div>
-							<div class="dependent">The following content should be included if:<ul><li>
-           the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements 
-           
-             ""
-           </li></ul><div class="dependent-content"><div> 
-								The evaluator shall verify that the application invokes either
-								<code>SecRandomCopyBytes</code>, <code>CCRandomGenerateBytes</code>, or <code>CCRandomCopyBytes</code>, or uses <code>/dev/random</code> directly to acquire random.
-							</div></div></div>
-							<div class="dependent">The following content should be included if:<ul><li>
-           the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements 
-           
-             ""
-           </li></ul><div class="dependent-content"><div> 
-								The evaluator shall verify that the application collects random from <code>/dev/random</code>
-								or <code>/dev/urandom</code>.
-							</div></div></div>
-							<div class="dependent">The following content should be included if:<ul><li>
-           the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements 
-           
-             ""
-           </li></ul><div class="dependent-content"><div>
-								The evaluator shall verify that the application collects random from <code>/dev/random</code>.
-							</div></div></div>
-							<div class="dependent">The following content should be included if:<ul><li>
-           the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements 
-           
-             ""
-           </li></ul><div class="dependent-content"><div>
-								The evaluator shall verify that the application invokes either <code>CCRandomGenerateBytes</code> or <code>CCRandomCopyBytes</code>, or collects random from <code>/dev/random</code>.
-							</div></div></div>
-						</p><p>
-							If invocation of platform-provided functionality is achieved in another way, the evaluator 
-							shall ensure the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how this is carried out, and how it is equivalent to the 
-							methods listed here (e.g. higher-level <abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr> invokes identical low-level <abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr>).
+							***Define appropriate for retrans. The following are the per-platform list of acceptable APIs:
+							
 						</p>
+						
 					</div></div></div></div></div>
 		
 			
