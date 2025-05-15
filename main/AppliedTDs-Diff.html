@@ -24,7 +24,7 @@
             <br>
              Version: 1.0
             <br>
-            2024-12-30
+            2025-05-15
             <br>
             <b>National Information Assurance Partnership</b>
             <br>
@@ -463,6 +463,18 @@
             <dd>
                 <span class="description">The administrator of the application software is not careless, willfully negligent or hostile, and administers the software in compliance with the applied enterprise security policy.</span>
             </dd>
+            <dt class="assumption defined" id="A.NO_TOE_BYPASS">A.NO_TOE_BYPASS</dt>
+            <dd>
+                <span class="description">Information cannot flow onto the network to which the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr>, or HWS <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> is connected without passing through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</span>
+            </dd>
+            <dt class="assumption defined" id="A.PHYSICAL">A.PHYSICAL</dt>
+            <dd>
+                <span class="description">Physical security, commensurate with the value of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the data it contains, is assumed to be provided by the environment.</span>
+            </dd>
+            <dt class="assumption defined" id="A.TRUSTED_CONFIG">A.TRUSTED_CONFIG</dt>
+            <dd>
+                <span class="description">Personnel configuring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and its <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> will follow the applicable security configuration guidance.</span>
+            </dd>
         </dl>
          
         <h1 class="indexable" data-level="1" id="Security_Objectives">4 Security Objectives</h1>
@@ -480,6 +492,18 @@
             <dt class="SOE defined" id="OE.PROPER_ADMIN">OE.PROPER_ADMIN</dt>
             <dd>
                 <span class="description">The administrator of the application software is not careless, willfully negligent or hostile, and administers the software within compliance of the applied enterprise security policy.</span>
+            </dd>
+            <dt class="SOE defined" id="OE.PROPER_NETWORK">OE.PROPER_NETWORK</dt>
+            <dd>
+                <span class="description">The network is properly configured such that all traffic passes through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</span>
+            </dd>
+            <dt class="SOE defined" id="OE.PROPER_SECURITY">OE.PROPER_SECURITY</dt>
+            <dd>
+                <span class="description">The environment properly protects the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</span>
+            </dd>
+            <dt class="SOE defined" id="OE.PROPER_CONFIG">OE.PROPER_CONFIG</dt>
+            <dd>
+                <span class="description">The administrator of the application software configures the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> properly.</span>
             </dd>
         </dl>
          
@@ -500,6 +524,15 @@
             </tr>
             <tr class="major-row">
                 <td rowspan="1"><a href="#A.PROPER_ADMIN">A.PROPER_​ADMIN</a></td><td><a href="#OE.PROPER_ADMIN">OE.PROPER_​ADMIN</a></td><td>The operational environment objective <a href="#OE.PROPER_ADMIN">OE.PROPER_ADMIN</a> is realized through <a href="#A.PROPER_ADMIN">A.PROPER_ADMIN</a>.</td>
+            </tr>
+            <tr class="major-row">
+                <td rowspan="1"><a href="#A.NO_TOE_BYPASS">A.NO_​TOE_​BYPASS</a></td><td><a href="#OE.PROPER_NETWORK">OE.PROPER_​NETWORK</a></td><td>The operational environment objective <a href="#OE.PROPER_NETWORK">OE.PROPER_NETWORK</a> is realized through <a href="#A.NO_TOE_BYPASS">A.NO_TOE_BYPASS</a>.</td>
+            </tr>
+            <tr class="major-row">
+                <td rowspan="1"><a href="#A.PHYSICAL">A.PHYSICAL</a></td><td><a href="#OE.PROPER_SECURITY">OE.PROPER_​SECURITY</a></td><td>The operational environment objective <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.SECURITY is realized through <a href="#A.PHYSICAL">A.PHYSICAL</a>.</td>
+            </tr>
+            <tr class="major-row">
+                <td rowspan="1"><a href="#A.TRUSTED_CONFIG">A.TRUSTED_​CONFIG</a></td><td><a href="#OE.PROPER_CONFIG">OE.PROPER_​CONFIG</a></td><td>The operational environment objective <a href="#OE.PROPER_CONFIG">OE.PROPER_CONFIG</a> is realized through <a href="#A.TRUSTED_CONFIG">A.TRUSTED_CONFIG</a>.</td>
             </tr>
         </table>
         <h1 class="indexable" data-level="1" id="req">5 Security Requirements</h1>
