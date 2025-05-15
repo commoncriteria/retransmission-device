@@ -2608,6 +2608,76 @@
             </div>
         </div>
         <h3 id="fpt" class="indexable" data-level="3">5.1.5 Protection of the TSF (FPT)</h3>
+        <div class="comp" id="FPT_RPL.1">
+            <h4>FPT_RPL.1 Replay Detection</h4>
+            <div class="element">
+                <div class="reqid" id="FPT_RPL.1.1">
+                    <a href="#FPT_RPL.1.1" class="abbr">FPT_RPL.1.1</a>
+                </div>
+                <div class="reqdesc">
+                     ***UPDATE TO COVER REPLAY FOR RETRANS The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall detect replay for the following entities: [<i>MPDUs, MKA frames</i>]. 
+                </div>
+            </div>
+            <div class="element">
+                <div class="reqid" id="FPT_RPL.1.2">
+                    <a href="#FPT_RPL.1.2" class="abbr">FPT_RPL.1.2</a>
+                </div>
+                <div class="reqdesc">
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>discarding of the replayed data, logging of the detected replay attempt</i>] when replay is detected.
+                    <div class="appnote">
+                        <span class="note-header">Application Note: </span><span class="note"> As per IEEE 802.1AE-2018, replay is detected by examining the PN value that is embedded in the SecTag that is at the header of the MPDU. The PN is encoded in octets 5 through 8 of the SecTag to support replay protection. </span>
+                    </div>
+                </div>
+            </div>
+            <div class="activity_pane hide">
+                <div class="activity_pane_header">
+                    <a href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a>
+                </div>
+                <div class="activity_pane_body">
+                    <div class="component-activity-header">
+                        <a href="#FPT_RPL.1">FPT_RPL.1</a>
+                    </div>
+                    <div class="eacategory">
+                        <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
+                    </div>
+                    <div class="ea">
+                        <div class="ea">
+                            <p>
+                                 The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine that it describes how replay is detected for MPDUs and how replayed MPDUs are handled by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="eacategory">Guidance</div>
+                    <div class="ea">
+                        <div class="ea">
+                            <p> There are no guidance EAs for this component. </p>
+                        </div>
+                    </div>
+                    <div class="eacategory">Tests</div>
+                    <div class="ea">
+                        <div class="ea">
+                            <p> The evaluator shall perform the following tests: </p>
+                            <p>
+                                 Before performing each test, the evaluator shall successfully establish a MACsec channel between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a MACsec-capable peer in the operational environment sending enough traffic to see it working and verify the PN values increase for each direction. 
+                            </p>
+                             <span class="testlist-">
+                                <ul>
+                                    <li class="test-">
+                                        <a id="_t_18" class="defined" href="#_t_18">Test FPT_RPL.1:1</a>: The evaluator shall set up a MACsec connection with an entity in the operational environment. The evaluator shall then capture traffic sent from this remote entity to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall retransmit copies of this traffic to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in order to impersonate the remote entity where the PN values in the SecTag of these packets are less than the lowest acceptable PN for the SA. The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not take action in response to receiving these packets and that the audit log indicates that the replayed traffic was discarded. 
+                                        <p>
+                                             The evaluator shall establish a MACsec connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and a test system. The evaluator shall then capture traffic sent from the test system to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall retransmit copies of this traffic to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in order to impersonate the remote entity where the PN values in the SecTag of these packets are less than the lowest acceptable PN for the SA. The evaluator shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> does not take action in response to receiving these packets and that the audit log indicates that the replayed traffic was discarded. 
+                                        </p>
+                                    </li>
+                                    <li class="test-">
+                                        <a id="_t_19" class="defined" href="#_t_19">Test FPT_RPL.1:2</a>: The evaluator shall capture frames during an MKA session and record the lowest PN observed in a particular time range. The evaluator shall then send a frame with a lower PN, and then verify that this frame is dropped. The evaluator shall verify that the device logged this event. 
+                                    </li>
+                                </ul>
+                            </span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="comp" id="FPT_AEX_EXT.1">
             <h4>FPT_AEX_EXT.1 Anti-Exploitation Capabilities</h4>
             <div class="element">
@@ -3376,7 +3446,7 @@
                          <span class="testlist-">
                             <ul>
                                 <li class="test-">
-                                    <a id="_t_18" class="defined" href="#_t_18">Test FPT_TUD_EXT.1.3:1</a>: The evaluator shall install the application and then locate all of its executable files. The evaluator shall then, for each file, save off either a hash of the file or a copy of the file itself. The evaluator shall then run the application and exercise all features of the application as described in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. The evaluator shall then compare each executable file with either the saved hash or the saved copy of the files. The evaluator shall verify that these are identical. 
+                                    <a id="_t_20" class="defined" href="#_t_20">Test FPT_TUD_EXT.1.3:1</a>: The evaluator shall install the application and then locate all of its executable files. The evaluator shall then, for each file, save off either a hash of the file or a copy of the file itself. The evaluator shall then run the application and exercise all features of the application as described in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. The evaluator shall then compare each executable file with either the saved hash or the saved copy of the files. The evaluator shall verify that these are identical. 
                                 </li>
                             </ul>
                         </span> 
@@ -3571,13 +3641,13 @@
                              The evaluator shall perform the following tests. <span class="testlist-">
                                 <ul>
                                     <li class="test-">
-                                        <a id="_t_21" class="defined" href="#_t_21">Test FTP_DIT_EXT.1:1</a>: The evaluator shall exercise the application (attempting to transmit data; for example by connecting to remote systems or websites) while capturing packets from the application. The evaluator shall verify from the packet capture that the traffic is encrypted with <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr>, or IPsec in accordance with the selection in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. 
+                                        <a id="_t_23" class="defined" href="#_t_23">Test FTP_DIT_EXT.1:1</a>: The evaluator shall exercise the application (attempting to transmit data; for example by connecting to remote systems or websites) while capturing packets from the application. The evaluator shall verify from the packet capture that the traffic is encrypted with <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_DTLS">DTLS</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr>, or IPsec in accordance with the selection in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. 
                                     </li>
                                     <li class="test-">
-                                        <a id="_t_22" class="defined" href="#_t_22">Test FTP_DIT_EXT.1:2</a>: The evaluator shall exercise the application (attempting to transmit data; for example by connecting to remote systems or websites) while capturing packets from the application. The evaluator shall review the packet capture and verify that no sensitive data is transmitted in the clear. 
+                                        <a id="_t_24" class="defined" href="#_t_24">Test FTP_DIT_EXT.1:2</a>: The evaluator shall exercise the application (attempting to transmit data; for example by connecting to remote systems or websites) while capturing packets from the application. The evaluator shall review the packet capture and verify that no sensitive data is transmitted in the clear. 
                                     </li>
                                     <li class="test-">
-                                        <a id="_t_23" class="defined" href="#_t_23">Test FTP_DIT_EXT.1:3</a>: The evaluator shall inspect the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine if user credentials are transmitted. If credentials are transmitted the evaluator shall set the credential to a known value. The evaluator shall capture packets from the application while causing credentials to be transmitted as described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>. The evaluator shall perform a string search of the captured network packets and verify that the plaintext credential previously set by the evaluator is not found. 
+                                        <a id="_t_25" class="defined" href="#_t_25">Test FTP_DIT_EXT.1:3</a>: The evaluator shall inspect the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine if user credentials are transmitted. If credentials are transmitted the evaluator shall set the credential to a known value. The evaluator shall capture packets from the application while causing credentials to be transmitted as described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>. The evaluator shall perform a string search of the captured network packets and verify that the plaintext credential previously set by the evaluator is not found. 
                                     </li>
                                 </ul>
                             </span> 
@@ -5369,10 +5439,10 @@
                         Conditional: if "the application can verify them using" is selected the evaluator shall perform the following tests: <span class="testlist-">
                             <ul>
                                 <li class="test-">
-                                    <a id="_t_19" class="defined" href="#_t_19">Test FPT_TUD_EXT.2.3:1</a>: The evaluator shall ensure that the update has a digital signature belonging to the vendor prior to its installation. The evaluator shall modify the downloaded update in such a way that the digital signature is no longer valid. The evaluator will then attempt to install the modified update. The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr> does not install the modified update. 
+                                    <a id="_t_21" class="defined" href="#_t_21">Test FPT_TUD_EXT.2.3:1</a>: The evaluator shall ensure that the update has a digital signature belonging to the vendor prior to its installation. The evaluator shall modify the downloaded update in such a way that the digital signature is no longer valid. The evaluator will then attempt to install the modified update. The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr> does not install the modified update. 
                                 </li>
                                 <li class="test-">
-                                    <a id="_t_20" class="defined" href="#_t_20">Test FPT_TUD_EXT.2.3:2</a>: The evaluator shall ensure that the update has a digital signature belonging to the vendor. The evaluator shall then attempt to install the update (or permit installation to continue). The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr> successfully installs the update. 
+                                    <a id="_t_22" class="defined" href="#_t_22">Test FPT_TUD_EXT.2.3:2</a>: The evaluator shall ensure that the update has a digital signature belonging to the vendor. The evaluator shall then attempt to install the update (or permit installation to continue). The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_OS">OS</a></abbr> successfully installs the update. 
                                 </li>
                             </ul>
                         </span>

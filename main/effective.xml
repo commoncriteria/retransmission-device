@@ -3040,6 +3040,68 @@
     </section>  <!-- FPR -->
 
     <section title="Protection of the TSF (FPT)" id="fpt">
+    	<f-component cc-id="fpt_rpl.1" name="Replay Detection"> 
+    		<consistency-rationale>
+    			This SFR applies to replay detection functionality, which is beyond the original scope of the Base-PP.
+    		</consistency-rationale>
+    		
+    		<f-element>
+    			<title>
+    				***UPDATE TO COVER REPLAY FOR RETRANS The TSF shall detect replay for the following entities: [<h:i>MPDUs, MKA frames</h:i>].
+    			</title>
+    		</f-element>
+    		<f-element>
+    			<title>The TSF shall perform [<h:i>discarding of the replayed data, logging of the detected replay attempt</h:i>]
+    				when replay is detected.</title>
+    			<note role="application">
+    				As per IEEE 802.1AE-2018, replay is detected by examining the PN value that is embedded in the SecTag
+    				that is at the header of the MPDU. The PN is encoded in octets 5 through 8 of the SecTag to support replay protection.
+    			</note>
+    			<aactivity>
+    				<TSS>
+    					<h:p>
+    						The evaluator shall examine the TSS to determine that it describes how replay is detected for MPDUs and how replayed MPDUs are handled by the TSF.
+    					</h:p>
+    				</TSS>
+    				<Guidance>
+    					<h:p>
+    						There are no guidance EAs for this component.
+    					</h:p>
+    				</Guidance>
+    				<Tests>
+    					<h:p>
+    						The evaluator shall perform the following tests:
+    					</h:p><h:p>
+    						Before performing each test, the evaluator shall successfully establish a MACsec channel between the TOE and a MACsec-capable peer 
+    						in the operational environment sending enough traffic to see it working and verify the PN values increase for each direction.
+    					</h:p>
+    					<testlist>
+    						<test>
+    							The evaluator shall set up a MACsec connection with an entity in the operational environment. 
+    							The evaluator shall then capture traffic sent from this remote entity to the TOE. 
+    							The evaluator shall retransmit copies of this traffic to the TOE in order to impersonate the remote entity where the PN values 
+    							in the SecTag of these packets are less than the lowest acceptable PN for the SA. 
+    							The evaluator shall observe that the TSF does not take action in response to receiving these packets 
+    							and that the audit log indicates that the replayed traffic was discarded.
+    							<h:p>
+    								The evaluator shall establish a MACsec connection between the TOE and a test system. 
+    								The evaluator shall then capture traffic sent from the test system to the TOE. 
+    								The evaluator shall retransmit copies of this traffic to the TOE in order to impersonate the remote entity where the PN values in the SecTag 
+    								of these packets are less than the lowest acceptable PN for the SA. 
+    								The evaluator shall observe that the TSF does not take action in response to receiving these packets 
+    								and that the audit log indicates that the replayed traffic was discarded.
+    							</h:p>
+    						</test>
+    						<test>
+    							The evaluator shall capture frames during an MKA session and record the lowest PN observed in a particular time range. 
+    							The evaluator shall then send a frame with a lower PN, and then verify that this frame is dropped. 
+    							The evaluator shall verify that the device logged this event.
+    						</test>
+    					</testlist>
+    				</Tests>
+    			</aactivity>
+    		</f-element>
+    	</f-component>
 
     	<!-- FPT_AEX_EXT.1 -->
     	<ext-comp-def fam-id="FPT_AEX_EXT" title="Anti-Exploitation Capabilities">

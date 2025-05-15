@@ -35,6 +35,7 @@ output/retransmission-device-esr.html: occaisional
 output/retransmission-device-release-linkable.html: 10C
 output/retransmission-device-release-linkable.html: 10x
 output/retransmission-device-release-linkable.html: 11C
+output/retransmission-device-release-linkable.html: 1AE
 output/retransmission-device-release-linkable.html: 38A
 output/retransmission-device-release-linkable.html: 38D
 output/retransmission-device-release-linkable.html: 38E
@@ -108,6 +109,9 @@ output/retransmission-device-release-linkable.html: MACs
 output/retransmission-device-release-linkable.html: MACsec
 output/retransmission-device-release-linkable.html: MACtag
 output/retransmission-device-release-linkable.html: MEDIALIB
+output/retransmission-device-release-linkable.html: MKA
+output/retransmission-device-release-linkable.html: MPDU
+output/retransmission-device-release-linkable.html: MPDUs
 output/retransmission-device-release-linkable.html: MacKey
 output/retransmission-device-release-linkable.html: MacTag
 output/retransmission-device-release-linkable.html: Merkle
@@ -118,6 +122,7 @@ output/retransmission-device-release-linkable.html: NXCheck
 output/retransmission-device-release-linkable.html: OtherInfo
 output/retransmission-device-release-linkable.html: PBKDF
 output/retransmission-device-release-linkable.html: PBKDF2
+output/retransmission-device-release-linkable.html: PN
 output/retransmission-device-release-linkable.html: PRT
 output/retransmission-device-release-linkable.html: PTR
 output/retransmission-device-release-linkable.html: PreferenceActivity
@@ -136,6 +141,7 @@ output/retransmission-device-release-linkable.html: SECTINO
 output/retransmission-device-release-linkable.html: SELinux
 output/retransmission-device-release-linkable.html: SHAVS
 output/retransmission-device-release-linkable.html: SP800
+output/retransmission-device-release-linkable.html: SecTag
 output/retransmission-device-release-linkable.html: SharedPreferences
 output/retransmission-device-release-linkable.html: Silverlight
 output/retransmission-device-release-linkable.html: SoC
@@ -195,6 +201,7 @@ output/retransmission-device-release-linkable.html: xml
 output/retransmission-device-release.html: 10C
 output/retransmission-device-release.html: 10x
 output/retransmission-device-release.html: 11C
+output/retransmission-device-release.html: 1AE
 output/retransmission-device-release.html: 38A
 output/retransmission-device-release.html: 38D
 output/retransmission-device-release.html: 38E
@@ -269,6 +276,9 @@ output/retransmission-device-release.html: MACs
 output/retransmission-device-release.html: MACsec
 output/retransmission-device-release.html: MACtag
 output/retransmission-device-release.html: MEDIALIB
+output/retransmission-device-release.html: MKA
+output/retransmission-device-release.html: MPDU
+output/retransmission-device-release.html: MPDUs
 output/retransmission-device-release.html: MacKey
 output/retransmission-device-release.html: MacTag
 output/retransmission-device-release.html: Merkle
@@ -279,6 +289,7 @@ output/retransmission-device-release.html: NXCheck
 output/retransmission-device-release.html: OtherInfo
 output/retransmission-device-release.html: PBKDF
 output/retransmission-device-release.html: PBKDF2
+output/retransmission-device-release.html: PN
 output/retransmission-device-release.html: PRT
 output/retransmission-device-release.html: PTR
 output/retransmission-device-release.html: PreferenceActivity
@@ -297,6 +308,7 @@ output/retransmission-device-release.html: SECTINO
 output/retransmission-device-release.html: SELinux
 output/retransmission-device-release.html: SHAVS
 output/retransmission-device-release.html: SP800
+output/retransmission-device-release.html: SecTag
 output/retransmission-device-release.html: SharedPreferences
 output/retransmission-device-release.html: Silverlight
 output/retransmission-device-release.html: SoC’s
@@ -355,6 +367,7 @@ output/retransmission-device-release.html: uninstantiating
 output/retransmission-device-release.html: virtualized
 output/retransmission-device-release.html: xml
 output/retransmission-device.html: 10x
+output/retransmission-device.html: 1AE
 output/retransmission-device.html: 38A
 output/retransmission-device.html: 38D
 output/retransmission-device.html: 38E
@@ -427,6 +440,9 @@ output/retransmission-device.html: MACs
 output/retransmission-device.html: MACsec
 output/retransmission-device.html: MACtag
 output/retransmission-device.html: MEDIALIB
+output/retransmission-device.html: MKA
+output/retransmission-device.html: MPDU
+output/retransmission-device.html: MPDUs
 output/retransmission-device.html: MacKey
 output/retransmission-device.html: MacTag
 output/retransmission-device.html: Merkle
@@ -437,6 +453,7 @@ output/retransmission-device.html: NXCheck
 output/retransmission-device.html: OtherInfo
 output/retransmission-device.html: PBKDF
 output/retransmission-device.html: PBKDF2
+output/retransmission-device.html: PN
 output/retransmission-device.html: PRT
 output/retransmission-device.html: PTR
 output/retransmission-device.html: PreferenceActivity
@@ -455,6 +472,7 @@ output/retransmission-device.html: SECTINO
 output/retransmission-device.html: SELinux
 output/retransmission-device.html: SHAVS
 output/retransmission-device.html: SP800
+output/retransmission-device.html: SecTag
 output/retransmission-device.html: SharedPreferences
 output/retransmission-device.html: Silverlight
 output/retransmission-device.html: SoC’s
