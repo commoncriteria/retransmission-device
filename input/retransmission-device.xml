@@ -42,7 +42,7 @@
   <include-pkg id="pkg-tls">
     <git>
       <url>https://github.com/commoncriteria/tls</url>
-      <branch>release-2.0</branch>
+      <branch>release-2.1</branch>
     </git>
     <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>
     <depends on-sel="sel_all_tlsc"/>
@@ -517,7 +517,7 @@
 					<h:p>Even though the communication path is protected, there is a possibility that the ERD or HWS ERD peer could 
 					be tricked into thinking that a malicious third-party user or system is the TOE. For instance, a middleman could 
 					intercept a connection request to the TOE and respond to the request as if it were the TOE. In a similar manner, 
-					the TOE could aslso be tricked into thinking that it is establishing communications with a legitimate ERD or 
+					the TOE could also be tricked into thinking that it is establishing communications with a legitimate ERD or 
 					HWS ERD peer when in fact it is not. An attacker could also mount a malicious man-in-the-middle-type attack, 
 					in which an intermediate systems is compromised, and the traffic is proxied, examined, and modified by this 
 					system. This attack can even be mounted via encrypted communication channels if appropriate countermeasures are 
@@ -529,7 +529,7 @@
 				INTO OTHER THREAT DESCRIPTIONS.</description>
 			</threat>
 			<threat name="T.DATA_REUSE">
-				<description>Data traversing the TOE could inavertently be sent to a different user as a consequence of a poorly-designed TOE;
+				<description>Data traversing the TOE could inadvertently be sent to a different user as a consequence of a poorly-designed TOE;
 					since these data may be sensitive, this may cause a compromise that is unacceptable.  The specific threat that must be 
 					addressed concerns user data that is retained by the TOE in the course of processing network traffic that could be 
 					inadvertently reused in sending network traffic to a user other than that intended by the sender of the original network 
@@ -1881,12 +1881,13 @@
 			</f-element>
 			<f-element id="fel-erd-initial-rekey">
 				<title>
-					The TOE shall initiate a rekey transation and authentication transation during initial provising.
+					The TOE shall initiate a rekey transaction and authentication transaction during initial
+					provisioning.
 				</title>
 			</f-element>
 			
 			<f-element id="fel-erd-initial-keys">
-				<title>The TOE shall generate the following keys during initial provisionsing:
+				<title>The TOE shall generate the following keys during initial provisioning:
 				<h:li>***LIST</h:li></title>
 			</f-element>
 			<f-element id="fel-erd-initial-agree">
@@ -1895,7 +1896,8 @@
 			</f-element>
 			<f-element id="fel-erd-refuse-send">
 				<title>
-					The TOE shall initiate a rekey transation and authentication transation during initial provising.
+					The TOE shall initiate a rekey transaction and authentication transaction during initial
+					provisioning.
 				</title>
 				<aactivity>
 					<TSS>***TBD</TSS>
@@ -1923,7 +1925,7 @@
 					The TOE shall perform a rekey operation in accordance with FCS_CKM.2  
 					<selectables>
 						<selectable>every <assignable>Number less than 30</assignable> minutes</selectable>
-						<selectable>per a configurable time perdiod</selectable>
+						<selectable>per a configurable time period</selectable>
 					</selectables>.
 				</title>
 			
@@ -3483,7 +3485,7 @@
 						For platform-provided SSH the evaluator shall verify that the TSS lists any specific calls the product uses that specifies 
 						or allows the end users to specify the applicable RFCs, the authentication methods, the limit for dropping large packets in an SSH transport
 						connection, the SSH transport accepted algorithms, the SSH public key for public-key based authentication,
-						The diffie-hellman-group used for key exchange, and the parameters of session rekey or termination. 
+						The Diffie-Hellman group used for key exchange, and the parameters of session rekey or termination. 
 						The evaluator shall verify any calls the product specifies align with the options provided 
 						in this PP and the SSH Functional Package.
 					</h:p>
