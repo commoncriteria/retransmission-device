@@ -434,13 +434,13 @@
                         Plaintext communication over the network may allow critical data (such as passwords, configuration settings, and user data) to be read or manipulated directly by a malicious user or process on intermediate systems, leading to a compromise of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or to the secured environmental systems that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is being used to facilitate communications with ERDs and HWS ERDs can be used to provide protection for this communication.
                     </p>
                     <p>
-                        Even though the communication path is protected, there is a possibility that the <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> or HWS <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> peer could be tricked into thinking that a malicious third-party user or system is the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. For instance, a middleman could intercept a connection request to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and respond to the request as if it were the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. In a similar manner, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> could aslso be tricked into thinking that it is establishing communications with a legitimate <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> or HWS <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> peer when in fact it is not. An attacker could also mount a malicious man-in-the-middle-type attack, in which an intermediate systems is compromised, and the traffic is proxied, examined, and modified by this system. This attack can even be mounted via encrypted communication channels if appropriate countermeasures are applied. These attacks are, in part, enabled by a malicious attacker capturing network traffic (for instance, an authentication session) and "playing back" that traffic in order to fool an endpoint into thinking it was communicating with a legitimate remote entity.
+                        Even though the communication path is protected, there is a possibility that the <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> or HWS <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> peer could be tricked into thinking that a malicious third-party user or system is the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. For instance, a middleman could intercept a connection request to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and respond to the request as if it were the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. In a similar manner, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> could also be tricked into thinking that it is establishing communications with a legitimate <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> or HWS <abbr class="dyn-abbr"><a href="#abbr_ERD">ERD</a></abbr> peer when in fact it is not. An attacker could also mount a malicious man-in-the-middle-type attack, in which an intermediate systems is compromised, and the traffic is proxied, examined, and modified by this system. This attack can even be mounted via encrypted communication channels if appropriate countermeasures are applied. These attacks are, in part, enabled by a malicious attacker capturing network traffic (for instance, an authentication session) and "playing back" that traffic in order to fool an endpoint into thinking it was communicating with a legitimate remote entity.
                     </p>
                      ***UPDATE WITH CORRECT <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> MAPPING WHEN COMPLETE. THIS THREAT IS COVERING A FEW TOPICS AND SOME CONTENT SHOULD BE PUT INTO OTHER THREAT DESCRIPTIONS.</span>
             </dd>
             <dt class="threat defined" id="T.DATA_REUSE">T.DATA_REUSE</dt>
             <dd>
-                <span class="description">Data traversing the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> could inavertently be sent to a different user as a consequence of a poorly-designed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>; since these data may be sensitive, this may cause a compromise that is unacceptable. The specific threat that must be addressed concerns user data that is retained by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in the course of processing network traffic that could be inadvertently reused in sending network traffic to a user other than that intended by the sender of the original network traffic. ***UPDATE WITH CORRECT <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> MAPPING WHEN COMPLETE</span>
+                <span class="description">Data traversing the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> could inadvertently be sent to a different user as a consequence of a poorly-designed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>; since these data may be sensitive, this may cause a compromise that is unacceptable. The specific threat that must be addressed concerns user data that is retained by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in the course of processing network traffic that could be inadvertently reused in sending network traffic to a user other than that intended by the sender of the original network traffic. ***UPDATE WITH CORRECT <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> MAPPING WHEN COMPLETE</span>
             </dd>
             <dt class="threat defined" id="T.TSF_FAILURE">T.TSF_FAILURE</dt>
             <dd>
@@ -1649,7 +1649,7 @@
                     <a href="#FCS_ERD_EXT.1.2" class="abbr">FCS_ERD_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall initiate a rekey transation and authentication transation during initial provising. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall initiate a rekey transaction and authentication transaction during initial provisioning. 
                 </div>
             </div>
             <div class="element">
@@ -1657,7 +1657,7 @@
                     <a href="#FCS_ERD_EXT.1.3" class="abbr">FCS_ERD_EXT.1.3</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall generate the following keys during initial provisionsing: 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall generate the following keys during initial provisioning: 
                     <li>***LIST</li>
                 </div>
             </div>
@@ -1675,7 +1675,7 @@
                     <a href="#FCS_ERD_EXT.1.5" class="abbr">FCS_ERD_EXT.1.5</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall initiate a rekey transation and authentication transation during initial provising. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall initiate a rekey transaction and authentication transaction during initial provisioning. 
                 </div>
             </div>
             <div class="activity_pane hide">
@@ -1718,7 +1718,7 @@
                     <a href="#FCS_ERD_EXT.2.2" class="abbr">FCS_ERD_EXT.2.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall perform a rekey operation in accordance with <a href="#FCS_CKM.2">FCS_CKM.2</a> [<b>selection</b>: <span class="selectable-content" id="_s_99">every [<b>assignment</b>: <span class="assignable-content">Number less than 30</span>] minutes</span>, <span class="selectable-content" id="_s_100">per a configurable time perdiod</span>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall perform a rekey operation in accordance with <a href="#FCS_CKM.2">FCS_CKM.2</a> [<b>selection</b>: <span class="selectable-content" id="_s_99">every [<b>assignment</b>: <span class="assignable-content">Number less than 30</span>] minutes</span>, <span class="selectable-content" id="_s_100">per a configurable time period</span>]. 
                 </div>
             </div>
             <div class="activity_pane hide">
@@ -2527,7 +2527,7 @@
                                  For platform-provided <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> as a server the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> lists any specific calls the product uses that specifies or allows the end users to specify cipher suites, which protocols are denied connection requests, key establishment algorithms, support for mutual authentication, response to an invalid client certificate, and support for session renegotiation. The evaluator shall verify any calls the product specifies align with the options provided in this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> and the <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> Functional Package. 
                             </p>
                             <p>
-                                 For platform-provided <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> lists any specific calls the product uses that specifies or allows the end users to specify the applicable RFCs, the authentication methods, the limit for dropping large packets in an <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> transport connection, the <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> transport accepted algorithms, the <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> public key for public-key based authentication, The diffie-hellman-group used for key exchange, and the parameters of session rekey or termination. The evaluator shall verify any calls the product specifies align with the options provided in this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> and the <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> Functional Package. 
+                                 For platform-provided <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> lists any specific calls the product uses that specifies or allows the end users to specify the applicable RFCs, the authentication methods, the limit for dropping large packets in an <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> transport connection, the <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> transport accepted algorithms, the <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> public key for public-key based authentication, The Diffie-Hellman group used for key exchange, and the parameters of session rekey or termination. The evaluator shall verify any calls the product specifies align with the options provided in this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> and the <abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr> Functional Package. 
                             </p>
                         </div>
                     </div>
@@ -4446,15 +4446,15 @@
                         <h4 id="ext-comp-FCS_ERD_EXT.1.1">FCS_ERD_EXT.1.1</h4>
                          ***REMOVE STUFF COVERED BY MACSEC SEEMS LIKE THAT SHOULD COVER MOST OF KEY AGREEMENT // Align with macsec key naming? The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall refuse to send and data over the encrypted channel before initial provisioning completes. 
                         <h4 id="ext-comp-FCS_ERD_EXT.1.2">FCS_ERD_EXT.1.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall initiate a rekey transation and authentication transation during initial provising. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall initiate a rekey transaction and authentication transaction during initial provisioning. 
                         <h4 id="ext-comp-FCS_ERD_EXT.1.3">FCS_ERD_EXT.1.3</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall generate the following keys during initial provisionsing: 
+                        The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall generate the following keys during initial provisioning: 
                         <li>***LIST</li>
                         <h4 id="ext-comp-FCS_ERD_EXT.1.4">FCS_ERD_EXT.1.4</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall agree on the following information during initial provisioning: 
                         <li>***LIST, event timing, etc</li>
                         <h4 id="ext-comp-FCS_ERD_EXT.1.5">FCS_ERD_EXT.1.5</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall initiate a rekey transation and authentication transation during initial provising. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall initiate a rekey transaction and authentication transaction during initial provisioning. 
                     </div>
                     <h4>Management: FCS_ERD_EXT.2</h4>
                     <p>No specific management functions are identified.</p>
@@ -4473,7 +4473,7 @@
                         <h4 id="ext-comp-FCS_ERD_EXT.2.1">FCS_ERD_EXT.2.1</h4>
                          ***REMOVE STUFF COVERED BY MACSEC SEEMS LIKE THAT SHOULD COVER MOST OF KEY AGREEMENT The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall mutually authenticate with the peer device. 
                         <h4 id="ext-comp-FCS_ERD_EXT.2.2">FCS_ERD_EXT.2.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall perform a rekey operation in accordance with <a href="#FCS_CKM.2">FCS_CKM.2</a> [<b>selection</b>: <span class="selectable-content" id="_s_99">every [<b>assignment</b>: <span class="assignable-content">Number less than 30</span>] minutes</span>, <span class="selectable-content" id="_s_100">per a configurable time perdiod</span>]. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall perform a rekey operation in accordance with <a href="#FCS_CKM.2">FCS_CKM.2</a> [<b>selection</b>: <span class="selectable-content" id="_s_99">every [<b>assignment</b>: <span class="assignable-content">Number less than 30</span>] minutes</span>, <span class="selectable-content" id="_s_100">per a configurable time period</span>]. 
                     </div>
                 </div>
                 <h3 id="ext-comp-FCS_KDF_EXT" class="indexable" data-level="4">C.2.1.4 FCS_KDF_EXT Cryptographic Key Derivation Function</h3>
