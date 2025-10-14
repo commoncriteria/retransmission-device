@@ -645,7 +645,7 @@ function showTarget(id){
           }
     </style></head><body onLoad="init()"><h1 class="title" style="page-break-before:auto;">Protection Profile for Retransmission Device</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 1.0<br/>2025-05-15<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>v 1.0</td><td>2024-12-30</td><td>Initial release</td></tr>
-</table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#TOEdescription" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#req" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#SFRs" style="text-indent:10px">5.1<span>Security Functional Requirements</span></a><a href="#fcs" style="text-indent:20px">5.1.1<span>Cryptographic Support (FCS)</span></a><a href="#fmt" style="text-indent:20px">5.1.2<span>Security Management (FMT)</span></a><a href="#fpt" style="text-indent:20px">5.1.3<span>Protection of the TSF (FPT)</span></a><a href="#ftp" style="text-indent:20px">5.1.4<span>Trusted Path/Channel (FTP)</span></a><a href="#obj-req-map" style="text-indent:20px">5.1.5<span>TOE Security Functional Requirements Rationale</span></a><a href="#SARs" style="text-indent:10px">5.2<span>Security Assurance Requirements</span></a><a href="#ase" style="text-indent:20px">5.2.1<span>Class ASE: Security Target</span></a><a href="#adv" style="text-indent:20px">5.2.2<span>Class ADV: Development</span></a><a href="#agd" style="text-indent:20px">5.2.3<span>Class AGD: Guidance Documentation</span></a><a href="#alc" style="text-indent:20px">5.2.4<span>Class ALC: Life-cycle Support</span></a><a href="#ate" style="text-indent:20px">5.2.5<span>Class ATE: Tests</span></a><a href="#ava" style="text-indent:20px">5.2.6<span>Class AVA: Vulnerability Assessment</span></a><a href="#opt-app" style="text-indent:0px">Appendix A - <span>Optional Requirements</span></a><a href="#optional-reqs" style="text-indent:10px">A.1<span>Strictly Optional  Requirements
+</table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#TOEdescription" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#sec-features" style="text-indent:10px">1.5<span>Product Features Mapped to Implementation-dependent Requirements</span></a><a href="#key-agreement-support" style="text-indent:20px">1.5.1<span>Key Agreement Support</span></a><a href="#wlan-support" style="text-indent:20px">1.5.2<span>WLAN Support</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#req" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#SFRs" style="text-indent:10px">5.1<span>Security Functional Requirements</span></a><a href="#fcs" style="text-indent:20px">5.1.1<span>Cryptographic Support (FCS)</span></a><a href="#fmt" style="text-indent:20px">5.1.2<span>Security Management (FMT)</span></a><a href="#fpt" style="text-indent:20px">5.1.3<span>Protection of the TSF (FPT)</span></a><a href="#ftp" style="text-indent:20px">5.1.4<span>Trusted Path/Channel (FTP)</span></a><a href="#obj-req-map" style="text-indent:20px">5.1.5<span>TOE Security Functional Requirements Rationale</span></a><a href="#SARs" style="text-indent:10px">5.2<span>Security Assurance Requirements</span></a><a href="#ase" style="text-indent:20px">5.2.1<span>Class ASE: Security Target</span></a><a href="#adv" style="text-indent:20px">5.2.2<span>Class ADV: Development</span></a><a href="#agd" style="text-indent:20px">5.2.3<span>Class AGD: Guidance Documentation</span></a><a href="#alc" style="text-indent:20px">5.2.4<span>Class ALC: Life-cycle Support</span></a><a href="#ate" style="text-indent:20px">5.2.5<span>Class ATE: Tests</span></a><a href="#ava" style="text-indent:20px">5.2.6<span>Class AVA: Vulnerability Assessment</span></a><a href="#opt-app" style="text-indent:0px">Appendix A - <span>Optional Requirements</span></a><a href="#optional-reqs" style="text-indent:10px">A.1<span>Strictly Optional  Requirements
     </span></a><a href="#alc-optional" style="text-indent:20px">A.1.1<span>Class ALC: Life-cycle Support</span></a><a href="#objective-reqs" style="text-indent:10px">A.2<span>Objective  Requirements
     </span></a><a href="#feat-based-reqs" style="text-indent:10px">A.3<span>Implementation-dependent  Requirements
     </span></a><a href="#sel-based-reqs" style="text-indent:0px">Appendix B - <span>Selection-based  Requirements
@@ -821,15 +821,15 @@ The following sections list Common Criteria and technology terms used in this do
 			can be any media, wired or wireless. IC1 and IC2 may or may not be in the same network address space depending
 			on the use case.
 		</p>
-		<center><div class="figure" id="figure-One"><img id="One" src="images/esr_figure1.svg" width="" height=""></img><br/><span class="ctr" data-myid="One" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>:
-      </div></center>
+		<center><div class="figure" id="figure-figure-1"><img id="figure-1" src="images/esr_figure1.svg" width="" height=""></img><br/><span class="ctr" data-myid="figure-1" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>:
+      Sample Retransmission Device</div></center>
 		<p>
 			Figure 2 illustrates the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> as a boundary filter implemented as a stateless firewall. FW2 is filtering untrusted 
 			traffic on IC2 and FW1 is filtering <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic on IC1. The FW could be the same application or 2 separate 
 			applications. It may filter in one or both directions of IC1 or IC2.
 		</p>
-		<center><div class="figure" id="figure-Two"><img id="Two" src="images/esr_figure2.svg" width="" height=""></img><br/><span class="ctr" data-myid="Two" data-counter-type="ct-figure">Figure <span class="counter">2</span></span>:
-      </div></center>
+		<center><div class="figure" id="figure-figure-2"><img id="figure-2" src="images/esr_figure2.svg" width="" height=""></img><br/><span class="ctr" data-myid="figure-2" data-counter-type="ct-figure">Figure <span class="counter">2</span></span>:
+      Sample Retransmission Device as Stateless Firewall</div></center>
 		<p>
 			The <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> can be managed through one of the following methods: local management through a dedicated management 
 	  		interface, managed through the WAN interface (IC2) from a trusted management service or from the LAN interface (IC1).
@@ -847,8 +847,8 @@ The following sections list Common Criteria and technology terms used in this do
 			(i.e. MACsec), network layer oriented (i.e. IPsec) or may even be the Wi-Fi link itself assuming that it is 
 			connecting to a trusted WLAN Access System. It will include firewall configurations from the <abbr class="dyn-abbr"><a href="#abbr_RD">RD</a></abbr> use case.
 	  	</p>
-	  	<center><div class="figure" id="figure-Three"><img id="Three" src="images/esr_figure3.svg" width="" height=""></img><br/><span class="ctr" data-myid="Three" data-counter-type="ct-figure">Figure <span class="counter">3</span></span>:
-      </div></center>
+	  	<center><div class="figure" id="figure-figure-3"><img id="figure-3" src="images/esr_figure3.svg" width="" height=""></img><br/><span class="ctr" data-myid="figure-3" data-counter-type="ct-figure">Figure <span class="counter">3</span></span>:
+      Sample Encrypting Retransmission Device</div></center>
 
 		<b><abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr></b>
 		<p>
@@ -860,8 +860,8 @@ The following sections list Common Criteria and technology terms used in this do
 			tunnel as illustrated in Figure 4. By only being a pair they will not require functionality typically needed 
 			to handle cryptographic nets larger than 2 nodes. Simplicity.
 	  	</p>
-	  	<center><div class="figure" id="figure-Four"><img id="Four" src="images/esr_figure4.svg" width="" height=""></img><br/><span class="ctr" data-myid="Four" data-counter-type="ct-figure">Figure <span class="counter">4</span></span>:
-      </div></center>
+	  	<center><div class="figure" id="figure-figure-4"><img id="figure-4" src="images/esr_figure4.svg" width="" height=""></img><br/><span class="ctr" data-myid="figure-4" data-counter-type="ct-figure">Figure <span class="counter">4</span></span>:
+      Sample Hardware Separated Encrypting Retransmission Device</div></center>
 	  	<p>
 			A more granular view of an <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> pair is in Figure 5. An <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> consists of at least 2 physically separate 
 			computing units whose functionality is Encryption and Communication respectively. They will be referred to as 
@@ -874,8 +874,8 @@ The following sections list Common Criteria and technology terms used in this do
 			will be vastly smaller than the software stack at IC2 on the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> thereby reducing the odds of any exploitable condition to 
 			the minimum of one. Finally, adding to the binary frame check is a cryptographic operation that cannot be easily spoofed.
 	  	</p>
-	  	<center><div class="figure" id="figure-Five"><img id="Five" src="images/esr_figure5.svg" width="" height=""></img><br/><span class="ctr" data-myid="Five" data-counter-type="ct-figure">Figure <span class="counter">5</span></span>:
-      <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> end to end view</div></center>
+	  	<center><div class="figure" id="figure-figure-5"><img id="figure-5" src="images/esr_figure5.svg" width="" height=""></img><br/><span class="ctr" data-myid="figure-5" data-counter-type="ct-figure">Figure <span class="counter">5</span></span>:
+      End to End View of Hardware Separated Encrypting Retransmission Device</div></center>
 	  	<p>
 			The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> are physically independent. They must not share any hardware such as memory, cache, or other 
 			internal infrastructure typical of computers. Examples that meet this requirement might be a pair of 
@@ -937,6 +937,14 @@ The following sections list Common Criteria and technology terms used in this do
           </p></dd></dl>
 	
 	
+		<h2 class="indexable" data-level="2" id="sec-features">1.5 Product Features Mapped to Implementation-dependent Requirements</h2>
+			The features enumerated below, if implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, require that additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.<br/>
+			<h3 class="indexable" data-level="3" id="key-agreement-support">1.5.1 Key Agreement Support</h3><span class="description">A conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is required to implement trusted communications. Depending on the specific protocols used and the supported connection parameters for these protocols, it may be necessary to implement one or more key agreement algorithms as part of key establishment.<br/></span><br/><p>
+	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
+            <ul></ul></p><h3 class="indexable" data-level="3" id="wlan-support">1.5.2 WLAN Support</h3><span class="description">A conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may implement WLAN client functionality. If so, it is necessary to implement authenticated encryption and key wrapping in support of secure wireless communications.<br/></span><br/><p>
+	  If this feature is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the following requirements must be claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:
+            <ul></ul></p>			
+		
   <h1 class="indexable" data-level="1" id="Conformance_Claims">2 Conformance Claims</h1>
 		<dl><dt>Conformance Statement</dt><p></p><dd>An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim exact conformance 
 		 to this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.</dd><p></p><dd>The evaluation methods used for evaluating the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are a combination of the workunits 
