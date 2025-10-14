@@ -275,13 +275,13 @@
 			can be any media, wired or wireless. IC1 and IC2 may or may not be in the same network address space depending
 			on the use case.
 		</h:p>
-		<h:center><figure entity="images/esr_figure1.svg" title="" id="One"/></h:center>
+		<h:center><figure entity="images/esr_figure1.svg" title="Sample Retransmission Device" id="figure-1"/></h:center>
 		<h:p>
 			Figure 2 illustrates the RD as a boundary filter implemented as a stateless firewall. FW2 is filtering untrusted 
 			traffic on IC2 and FW1 is filtering EUD traffic on IC1. The FW could be the same application or 2 separate 
 			applications. It may filter in one or both directions of IC1 or IC2.
 		</h:p>
-		<h:center><figure entity="images/esr_figure2.svg" title="" id="Two"/></h:center>
+		<h:center><figure entity="images/esr_figure2.svg" title="Sample Retransmission Device as Stateless Firewall" id="figure-2"/></h:center>
 		<h:p>
 			The RD can be managed through one of the following methods: local management through a dedicated management 
 	  		interface, managed through the WAN interface (IC2) from a trusted management service or from the LAN interface (IC1).
@@ -299,7 +299,7 @@
 			(i.e. MACsec), network layer oriented (i.e. IPsec) or may even be the Wi-Fi link itself assuming that it is 
 			connecting to a trusted WLAN Access System. It will include firewall configurations from the RD use case.
 	  	</h:p>
-	  	<h:center><figure entity="images/esr_figure3.svg" title="" id="Three"/></h:center>
+	  	<h:center><figure entity="images/esr_figure3.svg" title="Sample Encrypting Retransmission Device" id="figure-3"/></h:center>
 
 		<h:b>HWS-ERD</h:b>
 		<h:p>
@@ -311,7 +311,7 @@
 			tunnel as illustrated in Figure 4. By only being a pair they will not require functionality typically needed 
 			to handle cryptographic nets larger than 2 nodes. Simplicity.
 	  	</h:p>
-	  	<h:center><figure entity="images/esr_figure4.svg" title="" id="Four"/></h:center>
+	  	<h:center><figure entity="images/esr_figure4.svg" title="Sample Hardware Separated Encrypting Retransmission Device" id="figure-4"/></h:center>
 	  	<h:p>
 			A more granular view of an HWS-ERD pair is in Figure 5. An HWS-ERD consists of at least 2 physically separate 
 			computing units whose functionality is Encryption and Communication respectively. They will be referred to as 
@@ -324,7 +324,7 @@
 			will be vastly smaller than the software stack at IC2 on the CU thereby reducing the odds of any exploitable condition to 
 			the minimum of one. Finally, adding to the binary frame check is a cryptographic operation that cannot be easily spoofed.
 	  	</h:p>
-	  	<h:center><figure entity="images/esr_figure5.svg" title="HWS-ERD end to end view" id="Five"/></h:center>
+	  	<h:center><figure entity="images/esr_figure5.svg" title="End to End View of Hardware Separated Encrypting Retransmission Device" id="figure-5"/></h:center>
 	  	<h:p>
 			The EU and CU are physically independent. They must not share any hardware such as memory, cache, or other 
 			internal infrastructure typical of computers. Examples that meet this requirement might be a pair of 
@@ -399,6 +399,17 @@
 		</usecases>
 	</sec:Use_Cases>
 	
+		<section title="Product Features Mapped to Implementation-dependent Requirements" id="sec-features">
+			The features enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.<h:br/>
+			<implements>
+				<feature id="key-agreement-support" title="Key Agreement Support">
+					<description>A conformant TOE is required to implement trusted communications. Depending on the specific protocols used and the supported connection parameters for these protocols, it may be necessary to implement one or more key agreement algorithms as part of key establishment.<h:br/></description>
+				</feature>
+				<feature id="wlan-support" title="WLAN Support">
+					<description>A conformant TOE may implement WLAN client functionality. If so, it is necessary to implement authenticated encryption and key wrapping in support of secure wireless communications.<h:br/></description>
+				</feature>
+			</implements>			
+		</section>
   </sec:Introduction>
   
 	<!-- 2.0 Conformance Claims -->
