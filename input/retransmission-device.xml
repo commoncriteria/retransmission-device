@@ -234,7 +234,7 @@
     <section title="Compliant Targets of Evaluation" id="TOEdescription">
 		<h:p>
 			<!--R-UPDATE replace - Update for retrans.-->
-			**THIS SECTINO NEEDS UPDATE. The requirements in this document apply to application software which runs on any type of 
+			**THIS SECTION NEEDS UPDATE. The requirements in this document apply to application software which runs on any type of 
 			platform. Some application types are covered by more specific PPs, which may be expressed as
 			PP-Modules of this PP. Such applications are subject to the requirements of both this PP and the
 			PP-Module that addresses their special functionality.  PPs for some 
@@ -334,7 +334,7 @@
 	  	</h:p>
 		<h:p>
 			The CU interface at IC2 could be wireless (Bluetooth, WiFi, 5G, Microwave, etc.) or wired 
-			media (ethernet, fiber, USB, serial, etc.) depending on specific use case. There is no restriction. For example, 
+			media (Ethernet, fiber, USB, serial, etc.) depending on specific use case. There is no restriction. For example, 
 			where the Untrusted domain is an Ethernet:IP based network, the CU would need an RJ45 interface. That interface 
 			is then assigned an IP address and the destination IP address of its peer CU is assigned to the function that 
 			transfers packets to and from the EU. The Untrusted domain (not the CU) will handle the routing between ERD’s. 
@@ -4250,7 +4250,7 @@
 					This also includes the configuration of the
 					cryptographic engine to be used. The cryptographic algorithms implemented by this
 					engine are those specified by this PP and used by the cryptographic protocols being
-					evaluated (e.g SSH). The test plan identifies high-level test objectives
+					evaluated (e.g., SSH). The test plan identifies high-level test objectives
 					as well as the test procedures to be followed to achieve those objectives. These
 					procedures include expected results. 
 				</h:p><h:p>
