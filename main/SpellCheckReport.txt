@@ -97,7 +97,6 @@ output/retransmission-device-release-linkable.html: RETRANS
 output/retransmission-device-release-linkable.html: RJ45
 output/retransmission-device-release-linkable.html: SAK
 output/retransmission-device-release-linkable.html: SAKs
-output/retransmission-device-release-linkable.html: SECTINO
 output/retransmission-device-release-linkable.html: SHAVS
 output/retransmission-device-release-linkable.html: SMC
 output/retransmission-device-release-linkable.html: SP800
@@ -121,7 +120,6 @@ output/retransmission-device-release-linkable.html: decompiled
 output/retransmission-device-release-linkable.html: decompiler
 output/retransmission-device-release-linkable.html: eXtended
 output/retransmission-device-release-linkable.html: enquiries
-output/retransmission-device-release-linkable.html: ethernet
 output/retransmission-device-release-linkable.html: ffdhe
 output/retransmission-device-release-linkable.html: invocable
 output/retransmission-device-release-linkable.html: lifecycle
@@ -241,7 +239,6 @@ output/retransmission-device-release.html: RETRANS
 output/retransmission-device-release.html: RJ45
 output/retransmission-device-release.html: SAK
 output/retransmission-device-release.html: SAKs
-output/retransmission-device-release.html: SECTINO
 output/retransmission-device-release.html: SHAVS
 output/retransmission-device-release.html: SMC
 output/retransmission-device-release.html: SP800
@@ -265,7 +262,6 @@ output/retransmission-device-release.html: decompiled
 output/retransmission-device-release.html: decompiler
 output/retransmission-device-release.html: eXtended
 output/retransmission-device-release.html: enquiries
-output/retransmission-device-release.html: ethernet
 output/retransmission-device-release.html: evaluator’s
 output/retransmission-device-release.html: ffdhe
 output/retransmission-device-release.html: invocable
@@ -383,7 +379,6 @@ output/retransmission-device.html: RETRANS
 output/retransmission-device.html: RJ45
 output/retransmission-device.html: SAK
 output/retransmission-device.html: SAKs
-output/retransmission-device.html: SECTINO
 output/retransmission-device.html: SHAVS
 output/retransmission-device.html: SMC
 output/retransmission-device.html: SP800
@@ -406,7 +401,6 @@ output/retransmission-device.html: decompile
 output/retransmission-device.html: decompiled
 output/retransmission-device.html: decompiler
 output/retransmission-device.html: eXtended
-output/retransmission-device.html: ethernet
 output/retransmission-device.html: evaluator’s
 output/retransmission-device.html: ffdhe
 output/retransmission-device.html: invocable
