@@ -28,31 +28,36 @@
       <subject>Initial release</subject>
     </entry>
   </RevisionHistory>
-
-  <include-pkg id="pkg-ssh">
-    <git>
-      <url>https://github.com/commoncriteria/ssh</url>
-      <branch>release-2.0</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/protectionprofiles/515</url>
-    <depends on-sel="sel_all_ssh"/>
-  </include-pkg>
-
 	
-  <include-pkg id="pkg-tls">
-    <git>
-      <url>https://github.com/commoncriteria/tls</url>
-      <branch>release-2.1</branch>
-    </git>
-    <url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=439&amp;id=439</url>
-    <depends on-sel="sel_all_tlsc"/>
-	  <depends on-sel="sel_all_tlss"/>
-		      <depends on-sel="sel_all_dtlsc"/>
-			       <depends on-sel="sel_all_dtlss"/>
-  </include-pkg>
-
-
+	<include-pkg id="macsec">
+		<git>
+			<url>https://github.com/commoncriteria/macsec</url>
+			<branch>master</branch>
+		</git>
+		<url>https://www.niap-ccevs.org/static_html/protection-profile/480/MACsec/index.html</url>
+		<depends on-sel="sel-itc-ssh"/>
+		<depends on-sel="sel-fia-uau-5-ssh"/>
+	</include-pkg>
 	
+	<include-pkg id="ssh">
+		<git>
+			<url>https://github.com/commoncriteria/ssh</url>
+			<branch>release-2.0</branch>
+		</git>
+		<url>https://www.niap-ccevs.org/static_html/protection-profile/459/459/pkg_ssh_v1.0.htm</url>
+		<depends on-sel="sel-itc-ssh"/>
+		<depends on-sel="sel-fia-uau-5-ssh"/>
+	</include-pkg>
+	
+	<include-pkg id="tls">
+		<git>
+			<url>https://github.com/commoncriteria/tls</url>
+			<branch>release-2.1</branch>
+		</git>
+		<url>https://www.niap-ccevs.org/static_html/protection-profile/465/Functional%20Package%20for%20Transport%20Layer%20Security/index.html</url>
+		<depends on-sel="sel-itc-tls"/>
+		<depends on-sel="sel-itc-https"/>
+	</include-pkg>	
 
 	<!-- 1.0 Introduction -->
 	<sec:Introduction>
@@ -361,6 +366,50 @@
 					<description>The TOE implements WLAN encryption in the EU.<h:br/><h:br/>
 				If this feature is implemented by the TOE, the following requirements must be claimed in the ST.
 				<comment>This section needs to be completed.</comment></description>
+				</feature>
+			</implements>
+		</section>
+		<section title="PFED Specification" id="pfedspec">
+			PFED Specification...<comment>Need to complete a description.</comment>
+			<implements>
+				<feature id="TOE-crypto-bound-over" title="TOE Cryptographic Boundary and Overview">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="crypto-alg-para" title="Cryptographic Algorithms and Parameters">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="ERD-pair-prov-crypto-bond" title="ERD Pair Provisioning and Cryptographic Bonding">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="prov-comp-key-mat-genz" title="Provisioning Completion and Key Material GenerationZ">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="key-der-key-stor" title="Key Derivation and Key Storage">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="sess-set-mut-auth" title="Session Setup and Mutual Authentication">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="rekey-op" title="Rekey Operations">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="sess-key-recov" title="Session Key Recovery">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="traff-iso-inter-filt" title="Traffic Isolation and Interface Filtering">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="dead-peer-det-pers-enforc" title="Dead Peer Detection and Persona Enforcement">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="log-audit" title="Loggin and Audit">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="plat-op-enviro-enforc" title="Platform and Operational Environment Enforcement">
+					<description><comment>Need to complete a description.</comment></description>
+				</feature>
+				<feature id="bring-up-multi-activ" title="Bring-Up and Multi-Factor Activation">
+					<description><comment>Need to complete a description.</comment></description>
 				</feature>
 			</implements>
 		</section>
@@ -2556,257 +2605,1221 @@
 		</f-component>
 
 	    <!-- FCS_COP.1/SigGen (formerly FCS_COP.1/3) -->
-        <f-component cc-id="fcs_cop.1" id="fcom_sign_gen" iteration="SigGen" name="Cryptographic Operation - Signing Generation">
-			<f-element id="fel-sign-gen">
-				<title>
-					The <h:b>TOE</h:b> shall perform [<h:i>cryptographic signature services (generation)</h:i>] 
-					in accordance with a specified cryptographic algorithm 
-					<selectables linebreak="yes">
-						<selectable><h:b>RSA schemes</h:b> using cryptographic key sizes of <selectables>
-							<selectable>3072</selectable>
-							<selectable>4096</selectable>
-						</selectables> that meet the 
-							following: [FIPS PUB 186-5, “Digital Signature Standard (DSS),” Section 5]</selectable>
-						<selectable><h:b>ECDSA schemes</h:b> using [“NIST curves”  
-							<selectables>
-							<selectable>P-384</selectable>
-							<selectable>P-521</selectable>
-							</selectables>]
-						that meet the following: [FIPS PUB 186-5, “Digital Signature Standard (DSS),” Section 6]</selectable>
-						<selectable><h:b>Module-Lattice-Based Digital Signature Standard</h:b> using the parameter set ML-DSA-87
-							that meets the following [FIPS 204, Module-Lattice-Based Digital Signature Standard]</selectable>
-					</selectables>.
-				</title>
-				<note role="application">
-					<h:p>
-					The ST author should choose the algorithm implemented to perform
-					digital signatures; if more than one algorithm is available, this requirement should be iterated
-					to specify the functionality. For the algorithm chosen, the ST author should make the
-					appropriate assignments/selections to specify the parameters that are implemented for that
-					algorithm.
-					</h:p>
-					<h:p>Note ML-DSA is not able to be used in any functions at the time of publication, it is being added for future support.</h:p>
-					
-				</note>
-				<aactivity>
-					The evaluator shall perform the following activities based on the selections in the ST.
-					<TSS><h:p>None.</h:p></TSS>
-					<Guidance><h:p>The evaluator shall verify the guidance documentation contains any information required for configuring the algorithm or size.</h:p></Guidance>
-					<Tests>
-					<h:p>The following tests require the developer to provide access to a test application
-						that provides the evaluator with tools that are typically not found in the production
-						application. 
-					</h:p><h:p>
-						ECDSA Algorithm Test
-					</h:p>
-						<testlist>
-							<test>ECDSA FIPS 186-5 Signature Generation Test. For each
-								supported NIST curve (i.e., P-384 and P-521) and SHA function pair, the
-								evaluator shall generate 10 1024-bit long messages and obtain for each message a
-								public key and the resulting signature values R and S. To determine correctness,
-								the evaluator shall use the signature verification function of a known good
-								implementation. 
-							</test>
-						</testlist>
-						RSA Signature Algorithm Test
-						<testlist>
-							<test>Signature Generation Test. The evaluator shall
-								verify the implementation of RSA Signature Generation by the TOE
-								using the Signature Generation Test. To conduct this test the evaluator must 
-								generate or obtain 10 messages from a trusted reference implementation for each 
-								modulus size/SHA combination supported by the TSF. The evaluator 
-								shall have the TOE use their private key and modulus value to 
-								sign these messages. The evaluator shall verify the correctness of the 
-								TSF’s signature using a known good implementation and the 
-								associated public keys to verify the signatures.
-							</test>
-						</testlist>
-						ML-DSA Test
-						<testlist>
-							<test>10x confirm correct signature is generated from a randomly generated message and key pair.
-							</test>
-						</testlist>
-					</Tests>
-				</aactivity>
-			</f-element>
-        </f-component>
+        <f-component cc-id="fcs_cop.1" id="fcom_sign_gen" iteration="SigGen" name="Cryptographic Operation - Signing Generation" status="sel-based">
+			<depends on-sel=""/>
+        	<depends><optional/></depends>
+        	<f-element id="fel-sign-gen">
+				<title> The TSF shall perform [<h:i>digital signature generation</h:i>] in accordance with a specified 
+					cryptographic algorithm 
+					<selectables>
+						<tabularize id="tab-fcs-cop-siggen-sels" title="Allowable choices for FCS_COP.1/SigGen">
+							<textcol>Identifier</textcol>
+							<reqtext></reqtext>
+							<selectcol>Cryptographic algorithm</selectcol>
+							<reqtext>and cryptographic key sizes</reqtext>
+							<selectcol>Cryptographic key sizes</selectcol>
+							<reqtext>that meet the following:</reqtext>
+							<selectcol>List of standards</selectcol>
+							<reqtext><h:p/><h:p/>The following table provides the allowable choices for
+										completion of the selection operations of FCS_COP.1/SigGen.</reqtext>
+						</tabularize>
+						
+						<selectable id="sel-fcs-cop-siggen-rsa-pkcs">
+							<col>RSA-PKCS</col>
+							<col>RSASSA-PKCS1-v1_5</col>
+							<col>Modulus of size <selectables>
+								<selectable>3072</selectable>
+								<selectable>4096</selectable>
+								<selectable>6144</selectable>
+								<selectable>8192</selectable>
+							</selectables> bits, hash <selectables>
+								<selectable>SHA-384</selectable>
+								<selectable>SHA-512</selectable>
+							</selectables></col>
+							<col>
+								RFC 8017 (Section 8.2) [PKCS #1 v2.2]<h:p/>
+								FIPS PUB 186-5 (Section 5.4) [RSASSA-PKCS1-v1_5]
+							</col>
+						</selectable>
 
-		<!-- FCS_COP.1/SigVer (formerly FCS_COP.1/3) -->
-		<f-component cc-id="fcs_cop.1" id="fcom_sign_ver" iteration="SigVer" name="Cryptographic Operation - Signing Verification">
-			
-			<f-element id="fel-sign-ver">
-				<title>
-					The <h:b>TOE</h:b> shall perform [<h:i>cryptographic signature services 
-						(verification)</h:i>] in accordance with a specified cryptographic algorithm 
-					<selectables linebreak="yes">
-						<selectable><h:b>RSA schemes</h:b> using cryptographic key sizes of <selectables>
-							<selectable>3072</selectable>
-							<selectable>4096</selectable>
-						</selectables> that meet the 
-							following: [FIPS PUB 186-5, “Digital Signature Standard (DSS),” Section 5]</selectable>
-						<selectable><h:b>ECDSA schemes</h:b> using [“NIST curves”  
-							<selectables>
+						<selectable id="sel-fcs-cop-siggen-rsa-pss">
+							<col>RSA-PSS</col>
+							<col>RSASSA-PSS</col>
+							<col>Modulus of size <selectables>
+								<selectable>3072</selectable>
+								<selectable>4096</selectable>
+								<selectable>6144</selectable>
+								<selectable>8192</selectable>
+							</selectables> bits, hash <selectables>
+								<selectable>SHA-384</selectable>
+								<selectable>SHA-512</selectable>
+							</selectables>, Salt Length (<h:i>sLen</h:i>)
+								such that <assignable>0 &#8804; <h:i>sLen</h:i> &#8804; <h:i>hLen</h:i> (Hash Output Length)</assignable>
+								and Mask Generation Function = MGF1</col>
+							<col>
+								RFC 8017 (Section 8.1) [PKCS#1 v2.2]<h:p/>
+								FIPS PUB 186-5 (Section 5.4) [RSASSA-PSS]
+							</col>
+						</selectable>
+
+						<selectable id="sel-fcs-cop-siggen-ecdsa">
+							<col>ECDSA</col>
+							<col>ECDSA</col> 
+							<col>Elliptic Curve <selectables>
 								<selectable>P-384</selectable>
 								<selectable>P-521</selectable>
-							</selectables>]
-							that meet the following: [FIPS PUB 186-5, “Digital Signature Standard (DSS),” Section 6]</selectable>
-						<selectable><h:b>Leighton-Micali Signature</h:b> Algorithm for verification using cryptographic key sizes of 
-						<selectables>
-							<selectable>192</selectable>
-							<selectable>256</selectable>
-						</selectables>
-							bits that meet the following[NIST SP 800-208, "Recommendation for Stateful Hash-Based Signature Schemes"]						</selectable>
-						<selectable><h:b>eXtended Merkle Signature Scheme Algorithm</h:b> for verification using cryptographic key sizes of 
-						<selectables>
-							<selectable>192</selectable>
-							<selectable>256</selectable>
-						</selectables>
-							bits that meets the following: [NIST SP 800-208, "Recommendation for Stateful Hash-Based Signature Schemes"]
+							</selectables>, per-message secret number generation <selectables>
+								<selectable>extra random bits</selectable>
+								<selectable>rejection sampling</selectable>
+								<selectable>deterministic</selectable>
+							</selectables> and hash function using<selectables>
+								<selectable>SHA-384</selectable>
+								<selectable>SHA-512</selectable>
+							</selectables></col>
+							<col><selectables>
+									<selectable>ISO/IEC 14888-3:2018 (Subclause 6.6)</selectable>
+									<selectable>FIPS PUB 186-5 (Sections 6.3.1, 6.4.1]</selectable>
+								</selectables>[ECDSA]<h:p/>
+									NIST SP-800 186 (Section 4) [NIST Curves]
+							</col>
 						</selectable>
-						<selectable><h:b>Module-Lattice-Based Digital Signature Standard</h:b> using the parameter set ML-DSA-87 
-							that meets the following [FIPS 204, Module-Lattice-Based Digital Signature Standard]</selectable>
-					</selectables>.
+
+						<!-- LMS -->
+						<selectable id="sel-fcs-cop-siggen-lms">
+							<col>LMS</col>
+							<col>LMS</col>
+							<col>Private key size = <selectables>
+								<selectable>192 bits with <selectables>
+									<selectable>SHA-256/192</selectable>
+									<selectable>SHAKE256/192</selectable>
+								</selectables></selectable>
+								<selectable>256 bits with <selectables>
+									<selectable>SHA-256</selectable>
+									<selectable>SHAKE256</selectable>
+								</selectables></selectable>
+								</selectables><h:p/>
+								Winternitz parameter = <selectables>
+									<selectable>1</selectable>
+									<selectable>2</selectable>
+									<selectable>4</selectable>
+									<selectable>8</selectable></selectables><h:p/>
+								Tree height = <selectables>
+									<selectable>5</selectable>
+									<selectable>10</selectable>
+									<selectable>15</selectable>
+									<selectable>20</selectable>
+									<selectable>25</selectable></selectables>
+							</col>
+							<col>RFC 8554 [LMS]<h:p/>
+								 NIST SP 800-208 [parameters]
+							</col>
+						</selectable>
+
+						<!-- ML-DSA Signature Generation -->
+						<selectable id="sel-fcs-cop-siggen-mldsa">
+							<col>ML-DSA</col>
+							<col>ML-DSA Signature Generation</col>
+							<col>Parameter set = ML-DSA-87</col>
+							<col>NIST FIPS 204 (Section 5.2)</col>
+						</selectable>
+						
+						<!-- XMSS -->
+						<selectable id="sel-fcs-cop-siggen-xmss">
+							<col>XMSS</col>
+							<col>XMSS</col>
+							<col>Private key size = <selectables>
+								<selectable>192 bits with <selectables>
+									<selectable>SHA-256/192</selectable>
+									<selectable>SHAKE256/192</selectable>
+								</selectables></selectable>
+								<selectable>256 bits with <selectables>
+									<selectable>SHA-256</selectable>
+									<selectable>SHAKE256</selectable>
+								</selectables></selectable>
+								</selectables><h:p/>
+								Tree height = <selectables>
+									<selectable>10</selectable>
+									<selectable>16</selectable>
+									<selectable>20</selectable>
+								</selectables>
+							</col>
+							<col>RFC 8391 [XMSS]<h:p/>
+								 NIST SP 800-208 [parameters]
+							</col>
+						</selectable>
+					</selectables>
 				</title>
-				<note role="application">
-					<h:p>
-						The ST author should choose the algorithm implemented to perform
-						digital signatures; if more than one algorithm is available, this requirement should be iterated
-						to specify the functionality. For the algorithm chosen, the ST author should make the
-						appropriate assignments/selections to specify the parameters that are implemented for that
-						algorithm.
-					</h:p>
-					<h:p>Note ML-DSA is not able to be used in any functions at the time of publication, it is being added for future support.</h:p>
+				<note role="application">			
+					This SFR must be included in the ST if digital signature generation is a service provided by the TOE to 
+					tenant software, or if digital signature generation is used by the TOE itself to support or implement 
+					PP-specified security functionality.<h:p/> 
+					Specifically, this SFR must be included if "<h:i>A digital signature of the stored key in accordance with FCS_COP.1/SigGen
+					using an asymmetric key that is protected in accordance with FCS_STG_EXT.2</h:i>" is selected in FCS_STG_EXT.3.<h:p/>
+					If this SFR is included in the ST, then FCS_COP.1/Hash and FCS_RBG.1 must also be claimed.
 				</note>
 				<aactivity>
-					The evaluator shall perform the following activities based on the selections in the ST.
-					<TSS><h:p>None.</h:p></TSS>
-					<Guidance><h:p>The evaluator shall verify the guidance documentation contains any information required for configuring the algorithm or size.</h:p></Guidance>
+					<TSS>The evaluator shall examine the TSS and verify that any hash function is the appropriate security
+						strength for the signing algorithm.<h:p/>
+						The evaluator shall examine the TSS to verify that any one-time values such as nonces or masks
+						are constructed and used in accordance with the relevant standards.<h:p/>
+						The evaluator shall examine the TSS to verify that the TOE has appropriate measures in place to
+						ensure that hash-based signature algorithms do not reuse private keys</TSS>
+					<Guidance/>
 					<Tests>
-						<h:p>The following tests require the developer to provide access to a test application
-							that provides the evaluator with tools that are typically not found in the production
-							application. 
-						</h:p><h:p>
-							ECDSA Algorithm Test
-						</h:p>
-						<testlist>
-							<test>
-								ECDSA FIPS 186-5 Signature Verification Test. For each supported
-								NIST curve (i.e., P-384 and P-521) and SHA function pair, the evaluator
-								shall generate a set of 10 1024-bit message, public key and signature tuples and
-								modify one of the values (message, public key or signature) in five of the 10
-								tuples. The evaluator shall obtain in response a set of 10 PASS/FAIL values.
-							</test>
-						</testlist>
-						RSA Signature Algorithm Test
-						<testlist>
-							
-							<test>Signature Verification Test. The 
-								evaluator shall perform the Signature Verification test to verify the ability of 
-								the TOE to recognize another party’s valid and invalid 
-								signatures. The evaluator shall inject errors into the test vectors produced 
-								during the Signature Verification Test by introducing errors in some of the public 
-								keys, e, messages, IR format, and/or signatures. The TOE attempts 
-								to verify the signatures and returns success or failure.
-							</test>
-						</testlist>
-						LMS/XMSS Signature Algorithm Test
-						<testlist>
-							
-							<test>
-								For each supported LMS/LMSOTS pair, the evaluator generates a private/public key pair.  
-								With the private key, the evaluator generates 4 messages of length 1024 bits.  The messages 
-								and public key are provided to the TOE.  The signatures for each message is generated with 
-								the following error types "none", “modify message”, “modify signature”, “modify header”.  For
-								"none" the message is unmodified and the signature is correct.  For "modify message" the signature 
-								is for a modified message where a single bit is flipped.  For "modify signature", one bit of the 
-								signature is flipped. For "modify header" the signature uses a different LMS/LMSOTS pair. Each error 
-								type is represented.  For each message, signature pair the TOE returns "true" or "false" depending 
-								on whether the signature verifies or not.
-							</test>
-						</testlist>
-						ML-DSA Test
-						<testlist>
-							
-							<test>10x given a key pair, message and signature, verify the signature
-								Tests should involve a mix of good signatures and bad signatures generated using different messages, keys, etc.
-							</test>
-						</testlist>
+						The following tests are conditional based upon the selections made in the SFR. The evaluator
+						shall perform the following test or witness respective tests executed by the developer. The tests
+						must be executed on a platform that is as close as practically possible to the operational platform
+						(but which may be instrumented in terms of, for example, use of a debug mode). Where the test
+						is not carried out on the TOE itself, the test platform shall be identified and the differences
+						between test environment and TOE execution environment shall be described.<h:p/>
+					
+						<!-- RSA-PKCS Signature Generation   -->
+						<h:br/><h:b>RSA-PKCS Signature Generation </h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">RSA-PKCS </h:td>
+								<h:td valign="top">RSASSA-PKCS1-v1_5</h:td>
+								<h:td valign="top">Modulus of size [<h:b>selection:</h:b> 3072, 4096, 6144, 8192] bits,
+									hash [<h:b>selection:</h:b> SHA-384, SHA-512]</h:td>
+								<h:td valign="top">RFC 8017 (Section 8.2) [PKCS #1 v2.2]<h:p/>
+													NIST FIPS PUB 186-5 (Section 5.4) [RSASSA-PKCS1-v1_5]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to perform RSA Digital Signature Generation using PKCS1-v1,5
+						signature type, the evaluator shall perform the Generated Data Test using the following input
+						parameters:<h:ul>
+						<h:li>Modulus size [3072, 4096, 6144, 8192] bits</h:li>
+						<h:li>Hash algorithm [SHA-384, SHA-512]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Generated Data Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall cause the TOE to
+						generate three test cases using random data. The evaluator shall compare the results against those
+						from a known-good implementation.<h:p/>
+
+						<!-- RSA-PSS Signature Generation    -->
+						<h:br/><h:b>RSA-PSS Signature Generation </h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">RSA-PSS</h:td>
+								<h:td valign="top">RSASSA-PSS</h:td>
+								<h:td valign="top">Modulus of size [<h:b>selection:</h:b> 3072, 4096, 6144, 8192] bits,
+									hash [<h:b>selection:</h:b> SHA-384, SHA-512], Salt Length (<h:i>sLen</h:i>)
+												such that [<h:b>assignment:</h:b>0 &#8804; <h:i>sLen</h:i> &#8804; <h:i>hLen</h:i> (Hash Output Length)]
+												and Mask Generation Function = MGF1
+												</h:td>
+								<h:td valign="top">RFC 8017 (Section 8.2) [PKCS #1 v2.2]<h:p/>
+													NIST FIPS PUB 186-5 (Section 5.4) [RSASSA-PSS]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to perform RSA Digital Signature Generation using PSS signature type,
+						the evaluator shall perform the Generated Data Test using the following input parameters:<h:ul>
+						<h:li>Modulus size [3072, 4096, 6144, 8192] bits</h:li>
+						<h:li>Hash algorithm [SHA-384, SHA-512]</h:li>
+						<h:li>Salt length [Fixed based on implementation]</h:li>
+						<h:li>Mask function [MGF1]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Generated Data Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall cause the TOE to
+						generate three test cases using random data. The evaluator shall compare the results against those
+						from a known-good implementation.<h:p/>
+
+						<!-- ECDSA Signature Generation  -->
+						<h:br/><h:b>ECDSA Signature Generation </h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">ECDSA</h:td>
+								<h:td valign="top">ECDSA</h:td>
+								<h:td valign="top">Elliptic Curve [<h:b>selection:</h:b> P-384, P-521], 
+									per-message secret number generation
+									[<h:b>selection:</h:b> extra random bits, rejection sampling, deterministic] 
+									and hash function using [<h:b>selection:</h:b> SHA-384, SHA-512] </h:td>
+								<h:td valign="top">[<h:b>selection:</h:b> ISO/IEC 14888-3:2018 (Subclause 6.6),
+									NIST FIPS PUB 186-5 (Sections 6.3.1, 6.4.1] [ECDSA]<h:p/>
+									NIST SP-800 186 (Section 4) [NIST Curves] </h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to perform ECDSA Digital Signature Generation using extra random
+						bits or rejection sampling for secret number generation, the evaluator shall perform the
+						Algorithm Functional Test using the following input parameters:<h:ul>
+						<h:li>Elliptic Curve [P-384, P-521]</h:li>
+						<h:li>Hash algorithm [SHA-384, SHA-512]</h:li></h:ul><h:p/>
+						To test the TOE’s ability to perform ECDSA Digital Signature Generation using deterministic
+						secret number generation, the evaluator shall perform the Algorithm Functional Test using the
+						following input parameters:	<h:ul>
+						<h:li>Elliptic Curve [P-384, P-521]</h:li>
+						<h:li>Hash algorithm [SHA-384, SHA-512]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall cause the TOE to
+						generate 10 test cases using random data. The evaluator shall compare the results against those
+						from a known-good implementation.<h:p/>
+
+						<!-- LMS Signature Genration  -->
+						<h:br/><h:b>LMS Signature Generation </h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">LMS</h:td>
+								<h:td valign="top">LMS</h:td>
+								<h:td valign="top">Private key size = [<h:b>selection:</h:b>
+									192 bits with [<h:b>selection:</h:b> SHA256/192, SHAKE256/192], 
+									256 bits with [<h:b>selection:</h:b> SHA-256, SHAKE256]] , 
+									Winternitz parameter = [<h:b>selection:</h:b> 1, 2, 4, 8], 
+									and tree height = [<h:b>selection:</h:b> 5, 10, 15, 20, 25]</h:td>
+								<h:td valign="top">RFC 8554 [LMS]<h:p/>
+										NIST SP 800-208 [parameters] </h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to generate cryptographic digital signature using LMS, the
+						evaluator shall perform the Algorithm Functional Test using the following input parameters:<h:ul>
+						<h:li>Hash algorithm [SHA-256/192, SHAKE256/192, SHA-256, SHAKE256]</h:li>
+						<h:li>Winternitz [1, 2, 4, 8]</h:li>
+						<h:li>Tree height [5, 10, 15, 20, 25]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall generate 10
+						signatures. The evaluator shall verify the correctness of the implementation by comparing values
+						generated by the TOE with those generated by a known good implementation using the same
+						input parameters.<h:p/>
+						
+						<!-- ML-DSA Signature Generation  -->
+						<h:br/><h:b>ML-DSA Signature Generation</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">ML-DSA</h:td>
+								<h:td valign="top">ML-DSA SigGen</h:td>
+								<h:td valign="top">Parameter set = ML-DSA-87</h:td>
+								<h:td valign="top">NIST FIPS PUB 204 (Section 5.2)</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to generate digital signatures using ML-DSA, the
+						evaluator shall perform the Algorithm Functional Test using the following input parameters:<h:ul>
+						<h:li>Parameter set [ML-DSA-87]</h:li>
+						<h:li>Seed [32 random bytes] (for non-deterministic signature testing), or</h:li>
+						<h:li>Seed [32 zero bytes] (for deterministic signature testing)</h:li>
+						<h:li>Message to sign [8-65535] bytes</h:li>
+						<h:li><h:i>Mu</h:i> value (if generated externally)</h:li>
+						<h:li>Previously generated private key (<h:i>sk</h:i>)</h:li>
+						<h:li>Context (for external interface testing)</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
+						For each combination of supported parameter set and capabilities, the evaluator shall require the
+						implementation under test to generate 15 signatures pairs using 15 different randomly generated
+						32-byte seed values. To determine correctness, the evaluator shall
+						compare the resulting key pairs with those generated using a known-good implementation using
+						the same inputs.<h:p/>
+						<h:br/><h:b>Known Answer Test for Rejection Cases</h:b><h:p/>
+						For each supported parameter set, the evaluator shall cause the TOE to generate signatures using
+						the data below and a deterministic seed of all 0’s. Correctness is determined by
+						comparing the hash of the resulting signature with the hash in the fourth row 
+						for each corresponding test case below.<h:p/>
+						The test values are defined as follows:<h:ul>
+						<h:li><h:i>Seed</h:i> is the seed to generate the key pair (<h:i>pk, sk</h:i>)</h:li>
+						<h:li><h:i>Hash of keys</h:i> is computed by SHA-256(<h:i>pk</h:i>||<h:i>sk</h:i>)</h:li>
+						<h:li><h:i>Message</h:i> is the message to be signed</h:li>
+						<h:li><h:i>Hash of sig</h:i> is computed by SHA-256(<h:i>sig</h:i>)</h:li></h:ul><h:p/>
+						<h:p/><h:b>ML-DSA-87 Test Cases for Rejection Cases</h:b><h:p/>
+						<h:pre>
+		Test case 87-RC-01
+		Seed: 			E4F5AFCF697E0EC3C1BDEB66FAA903221E803902F9C3F716E1056A63D77DC250
+		Hash of Keys: 	61618E8DDA6998072C8EB36974E03880D741CAF0BD523356DFC161E7C9E63934
+		Message: 		F4F1C05004D5B946F69EAFE104C4020519086ADDB9582A20FDE887D13DFC36B1
+		Hash of sig: 	B584E38FA442FC3C81A147D4BDBF058D73C822CAF5CA4C06B0110867F60A8001
+						
+		Test case 87-RC-02
+		Seed: 			8B828D871254D6C57384A8E7025AA3F7160CAD1D2C754499DF3844426062C3DD
+		Hash of Keys: 	BB64481317D6C0DBAD20C0C7EF11078AD54E5D574F4A07652115A95F77C655FA
+		Message: 		0F9409C5A4930C25B83FC5B77FDB5BB49C75372DE724D9C1A77DB700CF0CF154
+		Hash of sig: 	F86B49BE9DEB2B209BDEB4E922E5939E92D38E562C44BB09AFBD67323C345192
+						
+		Test case 87-RC-03
+		Seed: 			E693D282CACB8CE65FD4D108DA7A373F097F0AA9713550BE242AAD5BD3E2E452
+		Hash of Keys: 	B0BEAF56713A69BD4AB2CBEE006FA5001E7B41F3AE541E05F088933AA0CC78DF
+		Message: 		24DABB9D57ADEBD560ED65D9451C5106D437061708F849BA53F3543CDF9AAAE0
+		Hash of sig: 	DBF65CEFF9F96A74AAF6F3AB27B043231BE6AA04FBA2EEC987A24A00BDD6A08E
+						
+		Test case 87-RC-04
+		Seed: 			4002163EB8EED01A8E0919BA8C07D291341EDCAE25B02B9779A2CFFE50561AF0
+		Hash of Keys: 	FED1BE685C20ECB322FC40D41DEE7E0E98D0409FBF989CAE71B8AD2D58AD645E
+		Message: 		EE316BB5EBED53325B4A55571C60657B53E353B51B831F4A0BBB28107EBA4BA8
+		Hash of sig: 	3BE9B5545FDCED92547B3409C83B3312CCB5792A8EC3A4DA63BA692C79BEF17C
+						
+		Test case 87-RC-05
+		Seed: 			9C7AD524F65854C27E565BCEDF8E86D650F13A40D0448F9AE10C05F10F777120
+		Hash of Keys: 	0EA872CA5A4BEA94F4E8EF7ED31800727899A51059FDEE111E5CB15F0233B534
+		Message: 		CE09831294AA96CAF684B9E667947B021C57B24C138EC7D4DA270694C82F2E08
+		Hash of sig: 	3B9526CEE6587F2418BFE603ADB0F7DF0D69EBA31C9F9F005C60C993945EBD33
+						
+		Test case 87-RC-06
+		Seed: 			2EB7676D4A28700DA7772A7A035EB495CAA6F842352A74824EF5FD891BC38B2A
+		Hash of Keys: 	D5B73703A1DDC5BCB0D14AE39B193A25D6ADA6535827973181ADB0BE70435A5B
+		Message: 		C2B3A0AC483A5517682285C205974B2A506946448A8F7D3E1934C155EFDFE922
+		Hash of sig: 	375D598704B722C8A1FEF1626FD7738A532C06329AA4217357460E3B729660F8
+						
+		Test case 87-RC-07
+		Seed: 			E4E80CCE8B26DF1B02B99949851EE2F907FE4F0CC34790352C76D5D91634D073
+		Hash of Keys: 	84B7E61684A12698400B09EA332EA3C4FBCFA47FE37FD6AE725CBC5FA8A99D3F
+		Message: 		89E6AB43C9CB1CC59C3986D53217A558357E62102A26F666F2B64CD1DBB7A536
+		Hash of sig: 	7C4AABD163CAEF8F6EBFDA3E3EEBC0A9604675B0E991ABAFD284F1AE8BA07B2A
+						
+		Test case 87-RC-08
+		Seed: 			5787262B803499223D4E5A8C1EE572E89F7A69B359B3F8505355B0BDEAB95E5C
+		Hash of Keys: 	85AE1DE605A7B479C02730BF4B7DD6D0FD8FFE5C980893CA6DAD00BD8BD1CE68
+		Message: 		D3230C4E061964BBFB17702432D5D36FC1EB3D1068F8CCAA84044776E3B5CC55
+		Hash of sig: 	D3ABE460EE2DD9595F413CFE2780A319E4E4DFD6592995298A7AB0B82A5E2815
+						
+		Test case 87-RC-09
+		Seed: 			CE099B99330537DD153052243FC32ACAD509A126AB982410258858567D410D79
+		Hash of Keys: 	E04A9F15EDF8F078EB336CE624249EF2A8EDF2CDBF6A8276E9F5E92ED9B0BAE8
+		Message: 		0035931762665F561A1B22176567E3B10FDE2441521F77030733A8E39312EEEE
+		Hash of sig: 	3EEF413CB5EB179896ECA172D0DBFB9B251545DC561D61580BD5BBC8B6D734E1
+
+		Test case 87-RC-10
+		Seed: 			FC8F2929878CBD81E1CCC23913F290380120C043A4A8A251AEEBF09705B8E590
+		Hash of Keys: 	7E2ECCA86F532E8E8092FEBB6E0007F92E7909AD2BCBE2E02AB375DAC9969E5E
+		Message: 		D3C28875D2671C0EF23BFDC8869E8ECF8868D3F0561C3134D254F7479D0CE0E5
+		Hash of sig: 	EB69A908EDCC04320A0B61AD57E21B044465F2037698636B64229CF2DB259789
+						</h:pre>
+						
+						<h:br/><h:b>Known Answer Test for Large Number of Rejection Cases (Total Rejection Count)</h:b><h:p/>
+						For each supported parameter set, the evaluator shall cause the TOE to generate signatures using
+						the data below and a deterministic seed of all 0’s. Correctness is determined by
+						comparing the hash of the resulting signature with the hash in the fourth row
+						of the corresponding test case below.<h:p/>
+						<h:p/><h:b>ML-DSA-87 Test Cases for Total Rejection Count</h:b><h:p/>
+						<h:pre>
+		Test case 87-LN-01
+		Seed: 			98B6298051D92BF37293C93C97370747BF527B87B71F6C4264182F45155ADE4C
+		Hash of Keys: 	04A135B5C9B7020332C7B16E7108E8FF7FC1EAE1C23C5FA0B5D5CED0FEEE7424
+		Message: 		D7B0341269259083ABF3C8DC47559A19D57669B4486E0224F376DC43E577A3D8
+		Hash of sig: 	58D72D76EC0FB65BFB9893C4479366B79DD7B8B7577E4291D13514FCC76C26DD
+
+		Test case 87-LN-02
+		Seed: 			DFB5BDD90F58571DCA962426C623F13D046BBE814D183886AC90D143EAD725A7
+		Hash of Keys: 	2B6AB8CFCCCC41F759CAF01932E9413F5DC6D949BC827F739866929683FB155E
+		Message: 		21005DB2B583CC826A9684BFFD0EE00AB97E0479FE4A1D266699337540145778
+		Hash of sig: 	C93EA34E00FFFFC3ECEA072D5FB038A83B5539CAF7B831AEDCFA785E50B3CA5E
+
+		Test case 87-LN-03
+		Seed: 			5AD414E0DD0EF2FE685F342871875FDF06F503717A86C3B3466565ADD2096417
+		Hash of Keys: 	BD9C2D52F3FC78DB17E682DA2E78947ECFC0898333838D60C892700B2B0DDA9F
+		Message: 		29139C279816B25F2D6BB52C8247D163544F7BA332C3CF63359B9E23FBC56515
+		Hash of sig:	DB4BE2DE19FB40437BDB7E9B6578D665DB05B4E88C16907DF4546EBA9BE03AEA
+
+		Test case 87-LN-04
+		Seed: 			484DD2F406A4D15F49A91AD5FC3BDC1D0FF253622EB68F83D6E1C870D0E89E29
+		Hash of Keys: 	A719DC9A77C91C46295555C2353BA0CBEA513DA9A92A5C34D2E949EFF46A12D8
+		Message: 		6AD6E959F0EA60126364FB7C95FA71133F246A9265A11B4965EE78AB0CB5AF0E
+		Hash of sig: 	5050D7A665074EC63D9F3966C1F01A1BFB18F9E83AE0B09F838BC1E2342ED6F4
+
+		Test case 87-LN-05
+		Seed: 			B25C1816F82D59940D5CB829BAC364AAD013C4C16415CE1CF6DCC2F15199B391
+		Hash of Keys: 	ADBB2CD43F222640BD9FF4E61C80E63853E8DC1F759C581B7447C9C166EAA38E
+		Message: 		824E47322895BFFE37B6B4AFC41CF6115C07EEC0C24EB81076C87A1B01AE8617
+		Hash of sig: 	667ADA46073BC69D64DC47BB9A76DD0D78302E7415D87D5E816B05FB95F9E84D
+
+		Test case 87-LN-06
+		Seed: 			B2CE72B3560AF07E06465881F56ADA00262BA708D87B73F39E04E310F3B8A3E9
+		Hash of Keys: 	FD9C4AC53AE803242A62DF933B8E8BAD6CE5207AC4A73683B6D9383B5E70B17A
+		Message: 		A1501CC84C917E0D2D7C27C2AC382220BD8FFFE807DB38E37A9E429EC2781911
+		Hash of sig: 	779553B195E11558EE59EF3942F5F6B446A2144600D1F4F50B300C6C56504760
+
+		Test case 87-LN-07
+		Seed: 			AB01D0E591B7DDCD3C03395AED808FA2763C0A486D44119D621BE0FD0B022B25
+		Hash of Keys: 	93B6ADE34F78A4ADB36B2F6D2C51DB793E659E1243E80488AE1C03B65125D6D7
+		Message: 		8DE8122D89D15FE84A4C34F6B59B2C4B11F33B6A053154D199B634F557FDF5F6
+		Hash of sig: 	0483045999A79B583F403DB96A736F0F0B24E2DFBC4E5CFA9B50E3D910786F07
+
+		Test case 87-LN-08
+		Seed: 			15D60D3693762F82C9AC1DCB0576936651AC81D863842EDB91109C8EE83AE705
+		Hash of Keys: 	2DF544E2E939AA717741C2437288FAEB308DEB8FF37A2652FAE34BAE8B84D779
+		Message: 		F05946A6113905C34163AEF2246FD69016CE24A7BA40F8E7E42EDAC2D0A44605
+		Hash of sig: 	F8383917AF79C8E540D2356AB05F08B465BF32DFEC444B787CE31BF48CC6C3DD
+
+		Test case 87-LN-09
+		Seed: 			21212285BED53B3411705DAF5F3BDDB6F0618EB571B36EE11A74053407A269F5
+		Hash of Keys: 	737061155A9A03F11F9FEBBB940BED4DD54542C4A6212F89A5EB4EC2BE542782
+		Message: 		FFE38246BF3DEFD9CAD15CC17CEA511C067D582E04227B479E32F9197CF91482
+		Hash of sig: 	C4C12C58032052FB2D21F0C6A7388A63154FB85B74287D2859DE6C1C6F7F277B
+
+		Test case 87-LN-10
+		Seed: 			A2744470587C71BA43EC26DC390CE3531978F315993C653E5D3EFD2849D5D9F1
+		Hash of Keys: 	B1BF37BFFB11531B6ADD697870D7DB2E2462D0A97A63F09C1D0038457C6D795A
+		Message: 		9831A830231A160B9847203341A5F30BF3E87A2A482AEEA6886315C92B5C4E4C
+		Hash of sig: 	46C669D2FEB643A38E54FF87B790CC33F44043A1B6B31DB9474D301328CA2A7F
+						</h:pre>
+						
+						<!-- XMSS Signature Generation  -->
+						<h:br/><h:b>XMSS Signature Generation</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">XMSS</h:td>
+								<h:td valign="top">XMSS</h:td>
+								<h:td valign="top">Private key size = [<h:b>selection:</h:b>
+									192 bits with [<h:b>selection:</h:b> SHA256/192, SHAKE256/192], 
+									256 bits with [<h:b>selection:</h:b> SHA-256, SHAKE256]], 
+									and tree height = [<h:b>selection:</h:b> 10, 16, 20] </h:td>
+								<h:td valign="top">RFC 8391 [XMSS] <h:p/>
+										NIST SP 800-208 [parameters]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to generate digital signatures using XMSS, the evaluator
+						shall perform the XMSS Key Generation Test using the following input parameters:<h:ul>
+						<h:li>Hash algorithm [SHA-256/192, SHAKE256/192, SHA-256, SHAKE256]</h:li>
+						<h:li>Tree height [10, 16, 20]</h:li></h:ul><h:p/>
+						<h:br/><h:b>XMSS Key Generation Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall generate 10
+						signatures. The evaluator shall verify the correctness of the implementation by comparing values
+						generated by the TOE with those generated by a known-good implementation using the same
+						input parameters.<h:p/>
+												
 					</Tests>
 				</aactivity>
 			</f-element>
+			<audit-event/>
+        </f-component>
+		
+		<!-- FCS_COP.1/SigVer Cryptographic Operation - Signature Verification --> 
+		<f-component id="sfr-fcs-cop-1-sigver" cc-id="fcs_cop.1" iteration="SigVer" name="Cryptographic Operation - Signature Verification" status="sel-based">
+			<depends on-sel="sel-rot2-digsig"/>  <!-- FPT_ROT_EXT.2 -->
+			<depends on-sel="sel-tud1-auth-update"/>  <!-- FPT_TUD_EXT.1 (covers TUD2, which requires SigVer) -->
+			<depends on-sel="sel-tud1-unauth-update"/> <!-- FPT_TUD_EXT.1 -->
+			<depends on-sel="sel-fdp-itc-ext-1e2-sig"/>  <!-- from FDP_ITC_EXT.1 -->			
+			<depends><optional/></depends>    		<!-- May be also included optionally -->
+			<f-element id="fcs-cop-1e1-sigver">
+				<title> 
+					The TSF shall perform [<h:i>digital signature verification</h:i>] in accordance with a specified 
+					cryptographic algorithm  
+					<selectables>
+					<tabularize id="tab-fcs-cop-sigver-sels" title="Allowable choices for FCS_COP.1/SigVer">
+						<textcol>Identifier</textcol>
+						<reqtext></reqtext>
+						<selectcol>Cryptographic algorithm</selectcol>
+						<reqtext>and cryptographic key sizes</reqtext>
+						<selectcol>Cryptographic key sizes</selectcol>
+						<reqtext>that meet the following:</reqtext>
+						<selectcol>List of standards</selectcol>
+						<reqtext><h:p/><h:p/>The following table provides the allowable choices for
+										completion of the selection operations of FCS_COP.1/SigVer.</reqtext>
+					</tabularize>
+					
+					<selectable id="sel-fcs-cop-sigver-rsa-pkcs">
+						<col>RSA-PKCS</col>
+						<col>RSASSA-PKCS1-v1_5</col>
+						<col>Modulus of size <selectables>
+								<selectable>3072</selectable>
+								<selectable>4096</selectable>
+								<selectable>6144</selectable>
+								<selectable>8192</selectable>
+						</selectables> bits and hash<selectables>
+								<selectable>SHA-384</selectable>
+								<selectable>SHA-512</selectable>
+						</selectables></col>
+						<col>
+								RFC 8017 (Section 8.2) [PKCS #1 v2.2]<h:p/>
+								FIPS PUB 186-5 (Section 5.4) [RSASSA-PKCS1-v1_5]
+						</col>
+					</selectable>
+
+					<selectable id="sel-fcs-cop-sigver-rsa-pss">
+							<col>RSA-PSS</col>
+							<col>RSASSA-PSS</col>
+							<col>Modulus of size <selectables>
+								<selectable>3072</selectable>
+								<selectable>4096</selectable>
+								<selectable>6144</selectable>
+								<selectable>8192</selectable>
+							</selectables> bits and hash<selectables>
+								<selectable>SHA-384</selectable>
+								<selectable>SHA-512</selectable>
+							</selectables></col>
+							<col>
+								RFC 8017 (Section 8.1) [PKCS#1 v2.2]<h:p/>
+								FIPS PUB 186-5 (Section 5.4) [RSASSA-PSS]
+							</col>
+						</selectable>
+						
+						<selectable id="sel-fcs-cop-sigver-ecdsa">
+							<col>ECDSA</col>
+							<col>ECDSA</col> 
+							<col>Elliptic Curve <selectables>
+								<selectable>P-384</selectable>
+								<selectable>P-521</selectable>
+							</selectables> using hash <selectables>
+								<selectable>SHA-384</selectable>
+								<selectable>SHA-512</selectable>
+							</selectables></col>
+							<col><selectables>
+									<selectable>ISO/IEC 14888-3:2018 (Subclause 6.6)</selectable>
+									<selectable>FIPS PUB 186-5 (Section 6.4.2)</selectable>
+								</selectables>[ECDSA]<h:p/>
+									NIST SP-800 186 (Section 4) [NIST Curves]
+							</col>
+						</selectable>
+		
+						<!-- LMS -->
+						<selectable id="sel-fcs-cop-sigver-lms">
+							<col>LMS</col>
+							<col>LMS</col>
+							<col>Private key size = <selectables>
+								<selectable>192 bits with <selectables>
+									<selectable>SHA-256/192</selectable>
+									<selectable>SHAKE256/192</selectable>
+								</selectables></selectable>
+								<selectable>256 bits with <selectables>
+									<selectable>SHA-256</selectable>
+									<selectable>SHAKE256</selectable>
+								</selectables></selectable>
+								</selectables><h:p/>
+								Winternitz parameter = <selectables>
+									<selectable>1</selectable>
+									<selectable>2</selectable>
+									<selectable>4</selectable>
+									<selectable>8</selectable></selectables><h:p/>
+								Tree height = <selectables>
+									<selectable>5</selectable>
+									<selectable>10</selectable>
+									<selectable>15</selectable>
+									<selectable>20</selectable>
+									<selectable>25</selectable></selectables>
+							</col>
+							<col>RFC 8554 [LMS]<h:p/>
+								 NIST SP 800-208 [parameters]
+							</col>
+						</selectable>
+						
+						<!-- XMSS -->
+						<selectable id="sel-fcs-cop-sigver-xmss">
+							<col>XMSS</col>
+							<col>XMSS</col>
+							<col>Private key size = <selectables>
+								<selectable>192 bits with <selectables>
+									<selectable>SHA-256/192</selectable>
+									<selectable>SHAKE256/192</selectable>
+								</selectables></selectable>
+								<selectable>256 bits with <selectables>
+									<selectable>SHA-256</selectable>
+									<selectable>SHAKE256</selectable>
+								</selectables></selectable>
+								</selectables><h:p/>
+								Tree height = <selectables>
+									<selectable>10</selectable>
+									<selectable>16</selectable>
+									<selectable>20</selectable>
+								</selectables>
+							</col>
+							<col>RFC 8391 [XMSS]<h:p/>
+								 NIST SP 800-208 [parameters]
+							</col>
+						</selectable>
+						
+						<!-- ML-DSA Signature Verification -->
+						<selectable id="sel-fcs-cop-sigver-mldsa">
+							<col>ML-DSA</col>
+							<col>ML-DSA Signature Verification</col>
+							<col>Parameter set = ML-DSA-87</col>
+							<col>NIST FIPS 204 (Section 5.3)</col>
+						</selectable>
+					
+				
+					</selectables>
+				</title>
+				<note role="application">
+					This SFR must be included in the ST if digital signature verification is a service provided by 
+					the TOE to tenant software, or if digital signature verification is used by the TOE itself to 
+					support or implement PP-specified security functionality.<h:p/> 
+					Specifically, this SFR must be included if the ST Author chooses "<h:i>implement an authenticated platform
+					firmware update mechanism as described in FPT_TUD_EXT.2</h:i>" or "<h:i>implement a delayed-authentication platform
+					firmware update mechanism as described in FPT_TUD_EXT.3</h:i>" in FPT_TUD_EXT.1; or if the ST Author 
+					selects "<h:i>verification of a digital signature by trusted code/data</h:i>" in FPT_ROT_EXT.2.<h:p/>	
+					If this SFR is included in the ST, then FCS_COP.1/Hash must also be claimed.<h:p/>
+					The ST Author should choose the algorithm implemented to perform verification of digital signatures. 
+					For the algorithm chosen, the ST Author should make the appropriate assignments/selections to specify the 
+					parameters that are implemented for that algorithm. In particular, if ECDSA is selected as one of the signature
+					algorithms, the key size specified must match the selection for the curve used in the algorithm.<h:p/>
+					For elliptic curve-based schemes, the key size refers to the binary logarithm (log2) of the order of the
+					base point. As the preferred approach for digital signatures, elliptic curves will be required after all the
+					necessary standards and other supporting information are fully established.<h:p/>
+					The TOE may contain a public key which is integrity protected (e.g., in hardware), in which 
+					case the FDP_ITC.1 and FDP_ITC.2 dependencies do not apply.  In this case, no dependencies 
+					may be chosen.  For signature verifications, private keys are not necessary, so there are no
+					dependencies required for generating or destroying cryptographic keys.<h:p/>
+					If LMS or XMSS is claimed, then FCS_COP.1/XOF must also be claimed.
+				</note>
+				<aactivity>
+					<TSS>
+						The evaluator shall examine the TSS to verify that any one-time values such as nonces or masks
+						are constructed and used in accordance with the relevant standards.
+					</TSS>
+					<Guidance/>
+					<Tests>
+						The following tests are conditional based upon the selections made in the SFR. The evaluator
+						shall perform the following test or witness respective tests executed by the developer. The tests
+						must be executed on a platform that is as close as practically possible to the operational platform
+						(but which may be instrumented in terms of, for example, use of a debug mode). Where the test
+						is not carried out on the TOE itself, the test platform shall be identified and the differences
+						between test environment and TOE execution environment shall be described.<h:p/>
+					
+						<!-- RSA-PKCS Signature Verification   -->
+						<h:br/><h:b>RSA-PKCS Signature Verification</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">RSA-PKCS </h:td>
+								<h:td valign="top">RSASSA-PKCS1-v1_5</h:td>
+								<h:td valign="top">Modulus of size [<h:b>selection:</h:b> 3072, 4096, 6144, 8192] bits,
+									hash [<h:b>selection:</h:b> SHA-384, SHA-512]</h:td>
+								<h:td valign="top">RFC 8017 (Section 8.2) [PKCS #1 v2.2]<h:p/>
+													NIST FIPS PUB 186-5 (Section 5.4) [RSASSA-PKCS1-v1_5]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to perform RSA Digital Signature Verification using PKCS1-v1,5
+						signature type, the evaluator shall perform Generated Data Test using the following input
+						parameters:<h:ul>
+						<h:li>Modulus size [3072, 4096, 6144, 8192] bits</h:li>
+						<h:li>Hash algorithm [SHA-384, SHA-512]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Generated Data Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall cause the TOE to
+						generate six test cases using a random message and its signature such that the test cases are
+						modified as follows:<h:p/><h:ul>
+						<h:li>One test case is left unmodified</h:li>
+						<h:li>For one test case the Message is modified</h:li>
+						<h:li>For one test case the Signature is modified</h:li>
+						<h:li>For one test case the exponent (<h:i>e</h:i>) is modified</h:li>
+						<h:li>For one test case the IR is moved</h:li>
+						<h:li>For one test case the Trailer is moved</h:li></h:ul><h:p/>
+						The TOE must correctly verify the unmodified signatures and fail to verify the modified
+						signatures.<h:p/>
+
+						<!-- RSA-PSS Signature Verification    -->
+						<h:br/><h:b>RSA-PSS Signature Verification </h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">RSA-PSS</h:td>
+								<h:td valign="top">RSASSA-PSS</h:td>
+								<h:td valign="top">Modulus of size [<h:b>selection:</h:b> 3072, 4096, 6144, 8192] bits,
+									hash [<h:b>selection:</h:b> SHA-384, SHA-512]</h:td>
+								<h:td valign="top">RFC 8017 (Section 8.2) [PKCS #1 v2.2]<h:p/>
+													NIST FIPS PUB 186-5 (Section 5.4) [RSASSA-PSS]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to perform RSA Digital Signature Verification using PSS signature
+						type, the evaluator shall perform the Generated Data Test using the following input parameters:<h:ul>
+						<h:li>Modulus size [3072, 4096, 6144, 8192] bits</h:li>
+						<h:li>Hash algorithm [SHA-384, SHA-512]</h:li>
+						<h:li>Salt length [0-hash length]</h:li>
+						<h:li>Mask function [MGF1]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Generated Data Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall cause the TOE to
+						generate six test cases using random data such that the test cases are modified as follows:<h:p/><h:ul>
+						<h:li>One test case is left unmodified</h:li>
+						<h:li>For one test case the Message is modified</h:li>
+						<h:li>For one test case the Signature is modified</h:li>
+						<h:li>For one test case the exponent (<h:i>e</h:i>) is modified</h:li>
+						<h:li>For one test case the IR is moved</h:li>
+						<h:li>For one test case the Trailer is moved</h:li></h:ul><h:p/>
+						The TOE must correctly verify the unmodified signatures and fail to verify the modified
+						signatures.<h:p/>
+
+						<!-- DSA Signature Verification    -->
+						<h:br/><h:b>DSA Signature Verification </h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">DSA</h:td>
+								<h:td valign="top">DSA</h:td>
+								<h:td valign="top">Domain parameters for (L, N) = [(3072, 256)] bits</h:td>
+								<h:td valign="top">FIPS PUB 186-4 (Section 4.7) [DSA Signature Verification]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to perform DSA Digital Signature Verification, the evaluator shall
+						perform the Algorithm Functional Test using the following input parameters:<h:ul>
+						<h:li>(L, N) = (3072, 256)</h:li>
+						<h:li>Hash algorithm [SHA-384, SHA-512]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall cause the TOE to
+						generate 15 test cases consisting of messages and signatures such that the 15 test cases are
+						modified as follows:<h:p/><h:ul>
+						<h:li>Three test cases are left unmodified</h:li>
+						<h:li>For three test cases the Message is modified</h:li>
+						<h:li>For three test cases the key is modified</h:li>
+						<h:li>For three test cases the <h:i>r</h:i> value is modified</h:li>
+						<h:li>For three test cases the <h:i>s</h:i> value is modified</h:li></h:ul><h:p/>
+						The TOE must correctly verify the unmodified signatures and fail to verify the modified
+						signatures.<h:p/>
+
+						<!-- ECDSA Signature Verification  -->
+						<h:br/><h:b>ECDSA Signature Verification </h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">ECDSA</h:td>
+								<h:td valign="top">ECDSA</h:td>
+								<h:td valign="top">Elliptic Curve [<h:b>selection:</h:b> P-384, P-521] and hash function using 
+									[<h:b>selection:</h:b> SHA-384, SHA-512] </h:td>
+								<h:td valign="top">[<h:b>selection:</h:b> ISO/IEC 14888-3:2018 (Subclause 6.6),
+									NIST FIPS PUB 186-5 (Sections 6.3.1, 6.4.1] [ECDSA]<h:p/>
+									NIST SP-800 186 (Section 4) [NIST Curves] </h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to perform ECDSA Digital Signature Verification, the evaluator shall
+						perform the Algorithm Functional Test using the following input parameters:<h:ul>
+						<h:li>Elliptic Curve [P-384, P-521]</h:li>
+						<h:li>Hash algorithm [SHA-384, SHA-512]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall cause the TOE to
+						generate test cases consisting of messages and signatures such that the 21 test cases are
+						modified as follows:<h:p/><h:ul>
+						<h:li>Three test cases are left unmodified</h:li>
+						<h:li>For three test cases the Message is modified</h:li>
+						<h:li>For three test cases the key is modified</h:li>
+						<h:li>For three test cases the <h:i>r</h:i> value is modified</h:li>
+						<h:li>For three test cases the <h:i>s</h:i> value is modified</h:li>
+						<h:li>For three test cases the value <h:i>r</h:i> is zeroed</h:li>
+						<h:li>For three test cases the value <h:i>s</h:i> is zeroed</h:li></h:ul><h:p/>
+						The TOE must correctly verify the unmodified signatures and fail to verify the modified
+						signatures.<h:p/>
+
+						<!-- LMS signature Verification  -->
+						<h:br/><h:b>LMS Signature Verification </h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">LMS</h:td>
+								<h:td valign="top">LMS</h:td>
+								<h:td valign="top">Private key size = [<h:b>selection:</h:b>
+									192 bits with [<h:b>selection:</h:b> SHA256/192, SHAKE256/192], 
+									256 bits with [<h:b>selection:</h:b> SHA-256, SHAKE256]], 
+									Winternitz parameter = [<h:b>selection:</h:b> 1, 2, 4, 8], 
+									and tree height = [<h:b>selection:</h:b> 5, 10, 15, 20, 25] </h:td>
+								<h:td valign="top">RFC 8554 [LMS]<h:p/>
+										NIST SP 800-208 [parameters] </h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to verify cryptographic digital signature using LMS, the
+						evaluator shall perform the Algorithm Functional Test using the following input parameters:<h:ul>					
+						<h:li>Hash algorithm [SHA-256/192, SHAKE256/192, SHA-256, SHAKE256]</h:li>
+						<h:li>Winternitz [1, 2, 4, 8]</h:li>
+						<h:li>Tree height [5, 10, 15, 20, 25]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall generate 4 test cases
+						consisting of signed messages and keys, such that<h:ul>
+						<h:li>One test case is unmodified (i.e. correct)</h:li>
+						<h:li>For one test case modify the message, i.e. the message is different</h:li>
+						<h:li>For one test case modify the signature, i.e. signature is different</h:li>
+						<h:li>For one test case modify the signature header so that it is a valid header for a different
+								LMS parameter set.</h:li></h:ul><h:p/>
+						The TOE must correctly verify the unmodified test case and fail to verify the modified test cases.<h:p/>
+						
+						<!-- XMSS Signature Verification  -->
+						<h:br/><h:b>XMSS Signature Verification</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">XMSS</h:td>
+								<h:td valign="top">XMSS</h:td>
+								<h:td valign="top">Private key size = [<h:b>selection:</h:b>
+									192 bits with [<h:b>selection:</h:b> SHA256/192, SHAKE256/192], 
+									256 bits with [<h:b>selection:</h:b> SHA-256, SHAKE256]], 
+									and tree height = [<h:b>selection:</h:b> 10, 16, 20] </h:td>
+								<h:td valign="top">RFC 8391 [XMSS] <h:p/>
+										NIST SP 800-208 [parameters]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to verify digital signatures using XMSS or XMSS MT, the evaluator shall
+						perform the XMSS digital signature verification test using the following input parameters:<h:ul>
+						<h:li>Hash algorithm [SHA-256/192, SHAKE256/192, SHA-256, SHAKE256]</h:li>
+						<h:li>Tree height [10, 16, 20]</h:li></h:ul><h:p/>
+						<h:br/><h:b>XMSS Digital Signature Verification Test</h:b><h:p/>
+						For each supported combination of the above parameters, the evaluator shall generate four test
+						cases consisting of signed messages and keys, such that<h:ul>
+						<h:li>One test case is unmodified (i.e. correct)</h:li>
+						<h:li>For one test case modify the message, i.e. the message is different</h:li>
+						<h:li>For one test case modify the signature, i.e. signature is different</h:li>
+						<h:li>For one test case modify the signature header so that it is a valid header 
+								for a different XMSS parameter set</h:li></h:ul><h:p/>
+						The evaluator shall verify the correctness of the implementation by verifying that the TOE
+						correctly verifies the unmodified test case and fails to verify the modified test cases.<h:p/>	
+						
+						<!-- ML-DSA Signature Verification  -->
+						<h:br/><h:b>ML-DSA Signature Verification</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">ML-DSA</h:td>
+								<h:td valign="top">ML-DSA SigVer</h:td>
+								<h:td valign="top">Parameter set = ML-DSA-87</h:td>
+								<h:td valign="top">NIST FIPS PUB 204 (Section 5.2)</h:td>
+							</h:tr>
+						</h:table><h:p/>				
+						To test the TOE’s ability to validate digital signatures using ML-DSA, the
+						evaluator shall perform the Algorithm Functional Test using the following input parameters:<h:ul>
+						<h:li>Parameter set [ML-DSA-87]</h:li>
+						<h:li>Previously generated signed Message [8-65535] bytes</h:li>
+						<h:li><h:i>Mu</h:i> value (if generated externally)</h:li>
+						<h:li>Context (for external interface testing)</h:li>
+						<h:li>Previously generated Public key (<h:i>pk</h:i>)</h:li>
+						<h:li>Previously generated Signature</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
+						For each combination of supported parameter set and capabilities, the evaluator shall require the
+						implementation under test to validate 15 signatures. Each group of 15 test
+						cases is modified as follows:<h:ul>
+						<h:li>Three test cases are left unmodified</h:li>
+						<h:li>For three test cases the Signed message is modified</h:li>
+						<h:li>For three test cases the component of the signature that commits the signer to the message is
+							modified</h:li>
+						<h:li>For three test cases the component of the signature that allows the verifier to construct the vector z is
+							modified</h:li>
+						<h:li>For three test cases the component of the signature that allows the verifier to construct the hint array
+							is modified</h:li></h:ul><h:p/>
+						The TOE must correctly verify the unmodified signatures and fail to verify the modified
+						signatures.	
+					
+					</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event/>
 		</f-component>
 		
-		<!-- FCS_COP.1/SKC Symmetric-Key Cryptography -->
-		<f-component cc-id="fcs_cop.1" id="fcom_crypto" iteration="SKC" name="Cryptographic Operation - Encryption/Decryption">
-        
-			<f-element id="fel-sym-encrypt">
+		<!-- FCS_COP.1/SKC Cryptographic Operation - Symmetric Key Cryptography -->	
+		<f-component id="sfr-fcs-cop-1-skc" cc-id="fcs_cop.1" iteration="SKC" name="Cryptographic Operation - Symmetric Key Encryption/Decryption" status="sel-based">
+			<depends on-sel=""/>  
+			<depends on-sel="sel-fdp-itc-ext-1e2-sk"/>  <!-- from FDP_ITC_EXT.1 -->
+			<depends on-incl="sfr-fcs-stg-ext-2"/>	
+			<depends on="ipsec"/>
+			<depends><optional/></depends>    		<!-- May be also included optionally -->
+			<f-element id="fcs-cop-1e1-skc">
 				<title>
-					The <h:b>TOE</h:b> shall 
+					The TSF shall perform [<h:i>symmetric-key encryption/decryption</h:i>] in accordance with a 
+					specified cryptographic algorithm   
 					<selectables>
-						<selectable>perform</selectable>
-						<selectable>invoke the platform to perform</selectable>
+						<tabularize id="fcs-cop-skc-sels" title="Allowable choices for FCS_COP.1/SKC">
+							<textcol>Identifier</textcol>
+							<reqtext></reqtext>
+							<selectcol>Cryptographic Algorithm</selectcol>
+							<reqtext>and cryptographic key sizes</reqtext>
+							<selectcol>Cryptographic Key Sizes</selectcol>
+							<reqtext>that meet the following:</reqtext>
+							<selectcol>List of Standards</selectcol>
+							<reqtext><h:p/><h:p/>The following table provides the allowable choices for
+								completion of the selection operations of FCS_COP.1/SKC.</reqtext>							
+						</tabularize>
+						
+						<!-- AES-CBC -->
+						<selectable id="sel-fcs-cop-skc-aes-cbc">
+							<col>AES-CBC</col>
+							<col>AES in CBC mode with non-repeating and unpredictable IVs</col>
+							<col>256 bits</col>
+							<col><selectables>
+								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable> 
+								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/><selectables>
+									<selectable>ISO/IEC 10116:2017 (Clause 7)</selectable> 
+									<selectable>NIST SP 800-38A</selectable></selectables> [CBC]
+							</col>
+						</selectable>
+						
+						<!-- XTS-AES -->
+						<selectable id="sel-fcs-cop-skc-aes-xts">
+							<col>XTS-AES</col>
+							<col>AES in XTS mode with unique tweak values that are consecutive non-negative 
+								integers starting at an arbitrary non-negative integer</col>
+							<col>512 bits</col>
+							<col><selectables>
+								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable> 
+								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/><selectables>
+									<selectable>IEEE Std. 1619-2018</selectable> 
+									<selectable>NIST SP 800-38E</selectable></selectables> [XTS]
+							</col>
+						</selectable>
+						
+						<!-- AES-CTR -->
+						<selectable id="sel-fcs-cop-skc-aes-ctr">
+							<col>AES-CTR</col>
+							<col>AES in Counter Mode with a non-repeating initial counter and with no repeated
+								use of counter values across multiple messages with the same secret key</col>
+							<col>256 bits</col>
+							<col><selectables>
+								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable> 
+								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/><selectables>
+									<selectable>: ISO/IEC 10116:2017 (Clause 10)</selectable> 
+									<selectable>NIST SP 800-38A</selectable></selectables> [CBC]
+							</col>
+						</selectable>
 					</selectables>
-					 [<h:i>encryption and decryption</h:i>] in accordance with a specified 
-					cryptographic algorithm:  
-					<h:li>AES-GCM (as defined in NIST SP 800-38D) mode</h:li>
-					and cryptographic key size of <h:i>256-bits</h:i>.
 				</title>
 				<note role="application">
-					<h:p>
-					For the selection, the ST author should choose
-					the mode or modes in which AES operates.</h:p>
+					This SFR must be included in the ST if symmetric-key cryptography is a service provided by the TOE 
+					to tenant software, or if the TOE itself uses SKC to support or implement PP-specified security 
+					functionality.<h:p/> 
+					Specifically, this SFR must be included if the ST includes FCS_IPSEC_EXT.1 or FCS_STG_EXT.2, or includes
+					any of the following selections: <h:ul>
+						<h:li>"<h:i>CTR_DRBG (AES)</h:i>" in FCS_RBG.1</h:li>
+						<h:li>"<h:i>AES-*</h:i>" in FCS_STG_EXT.3</h:li>
+					</h:ul>	<h:p/>
 				</note>
 				<aactivity>
-					<TSS><h:p>Conditional: If AES-GCM is selected the evaluator shall verify the tag length is described and that a tag length
-					at least 128 is used unless the following "Appendix C: Requirements and Guidelines for Using Short Tags" is being followed from 
-					NIST SP 800-38D.</h:p></TSS>
-					<Guidance> 
-						<h:p>The evaluator checks the AGD documents to determine that any configuration that 
-						is required to be done to configure the functionality for the required modes
-						and key size is present.</h:p>
-					</Guidance>
+					<TSS>
+						The evaluator shall examine the TSS to ensure that it describes the construction of any IVs,
+						tweak values, and counters in conformance with the relevant specifications.<h:p/>
+						If XTS-AES is claimed then the evaluator shall examine the TSS to verify that the TOE creates
+						full-length keys by methods that ensure that the two key halves are different and independent.
+					</TSS>
+					<Guidance/>
 					<Tests>
+						The following tests require the developer to provide access to a test platform that
+						provides the evaluator with tools that are typically not found on factory products.<h:p/>
+						The following tests are conditional based upon the selections made in the SFR. The
+						evaluator shall perform the following test or witness respective tests executed by
+						the developer. The tests must be executed on a platform that is as close as practically
+						possible to the operational platform (but which may be instrumented in terms of,
+						for example, use of a debug mode). Where the test is not carried out on the TOE
+						itself, the test platform shall be identified and the differences between test
+						environment and TOE execution environment shall be described.<h:p/>
 						
-						<h:p><h:b>AES-GCM Monte Carlo Tests</h:b></h:p>
-						<h:p>
-						The evaluator shall test the authenticated encrypt
-						functionality of AES-GCM for each combination of the following
-						input parameter lengths: <h:ul>
-							<h:li>256-bit keys</h:li>
-							<h:li>Two plaintext lengths. One of the plaintext lengths shall be
-								a non-zero integer multiple of 128 bits, if
-								supported. The other plaintext length shall not be an integer
-								multiple of 128 bits, if supported.</h:li>
-							<h:li>Three AAD lengths. One AAD length shall be 0, if supported.
-								One AAD length shall be a non-zero integer
-								multiple of 128 bits, if supported. One AAD length shall not be
-								an integer multiple of 128 bits, if supported.</h:li>
-							<h:li>Two IV lengths. If 96 bit IV is supported, 96 bits shall be
-								one of the two IV lengths tested.</h:li>
-						</h:ul>The evaluator shall test the encrypt functionality using a set
-						of 10 key, plaintext, AAD, and IV tuples for each combination of
-						parameter lengths above and obtain the ciphertext value and tag
-						that results from AES-GCM authenticated encrypt. Each supported tag
-						length shall be tested at least once per set of 10. The IV value
-						may be supplied by the evaluator or the implementation being
-						tested, as long as it is known. </h:p>
-						<h:p>
-						The evaluator shall test the decrypt functionality using a
-						set of 10 key, ciphertext, tag, AAD, and IV 5-tuples for each
-						combination of parameter lengths above and obtain a Pass/Fail
-						result on authentication and the decrypted plaintext if Pass. The
-						set shall include five tuples that Pass and five that Fail.
-						</h:p><h:p>
-						The results from each test may either be obtained by the
-						evaluator directly or by supplying the inputs to the implementer
-						and receiving the results in response. To determine correctness,
-						the evaluator shall compare the resulting values to those obtained
-						by submitting the same inputs to a known good
-						implementation.</h:p>
+						<!-- AES-CBC -->
+						<h:br/><h:b>AES-CBC</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">AES-CBC</h:td>
+								<h:td valign="top">AES in CBC mode with non-repeating and unpredictable IVs</h:td>
+								<h:td valign="top">256 bits</h:td>
+								<h:td valign="top">
+									[<h:b>selection:</h:b> ISO/IEC 18033-3:2010 (Subclause 5.2),
+									FIPS PUB 197] [AES]<h:p/>
+									[<h:b>selection:</h:b>  ISO/IEC 10116:2017 (Clause 7), 
+									NIST SP 800-38A] [CBC]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						
+						To test the TOE’s ability to encrypt/decrypt data using AES in CBC mode, the evaluator 
+						shall perform Algorithm Functional Tests and Monte Carlo Tests using the following
+						input parameters:<h:ul>
+							<h:li>Key size [256] bits</h:li>
+							<h:li>Direction [encryption, decryption]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Tests</h:b><h:p/>
+						Algorithm Functional Tests are designed to verify the correct operation of the logical
+						components of the algorithm implementation under normal operation using different block sizes.
+						For AES-CBC, there are two types of AFTs:<h:p/>
+						<h:br/><h:b><h:i>Known-Answer Tests</h:i></h:b><h:p/>
+						For each combination of direction and claimed key size, the TOE must be tested using the
+						GFSBox, KeySbox, VarTxt, and VarKey test cases listed in Appendixes B through E of <h:i>The
+							Advanced Encryption Standard Algorithm Validation Suite (AESAVS)</h:i>, NIST, 15 November 2002.<h:p/>
+						<h:br/><h:b><h:i>Multi-Block Message Tests</h:i></h:b><h:p/>
+						For each combination of direction and claimed key size, the TOE must be tested against 10 test
+						cases consisting of a random IV, random key, and random plaintext/ciphertext. The
+						plaintext/ciphertext starts with a length of 16 bytes and increases by 16 bytes for each test case
+						until reaching 160 bytes.<h:p/>
+						<h:br/><h:b><h:i>Monte Carlo Tests</h:i></h:b><h:p/>
+						Monte Carlo tests are intended to test the implementation under strenuous conditions. The TOE
+						must process the test cases according to the following algorithm once for each combination of
+						direction and key size:<h:p/>
+						<h:pre>
+							Key[0] = Key
+							IV[0] = IV
+							PT[0] = PT
+							for i = 0 to 99 {
+							Output Key[i], IV[i], PT[0]
+							for j = 0 to 999 {
+							if (j == 0) {
+							CT[j] = AES-CBC-Encrypt(Key[i], IV[i], PT[j])
+							PT[j+1] = IV[i]
+							} else {
+							CT[j] = AES-CBC-Encrypt(Key[i], PT[j])
+							PT[j+1] = CT[j-1]
+							}
+							}
+							Output CT[j]
+							AES_KEY_SHUFFLE(Key, CT)
+							IV[i+1] = CT[j]
+							PT[0] = CT[j-1]
+							}
+						</h:pre><h:p/>	
+						where <h:pre>AES_KEY_SHUFFLE</h:pre> is defined as: <h:p/>
+						<h:pre>
+							If ( keylen = 128 )
+							Key[i+1] = Key[i] xor MSB(CT[j], 128)
+							If ( keylen = 192 )
+							Key[i+1] = Key[i] xor (LSB(CT[j-1], 64) || MSB(CT[j], 128))
+							If ( keylen = 256 )
+							Key[i+1] = Key[i] xor (MSB(CT[j-1], 128) || MSB(CT[j], 128))
+						</h:pre><h:p/>
+						The above pseudocode is for encryption. For decryption, swap all instances of CT and PT.<h:p/>
+						The initial IV, key, and plaintext/ciphertext should be random.<h:p/>
+						The evaluator shall test the decrypt functionality using the same test as above,
+						exchanging CT and PT, and replacing AES-CBC-Encrypt with AES-CBC-Decrypt.<h:p/>
+						
+						
+						<!-- XTS-AES -->
+						<h:br/><h:b>XTS-AES</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">XTS-AES</h:td>
+								<h:td valign="top">AES in XTS mode with unique tweak values that are consecutive
+									non-negative integers starting at an arbitrary non-negative integer</h:td>
+								<h:td valign="top">512 bits</h:td>
+								<h:td valign="top">
+									[<h:b>selection:</h:b> ISO/IEC 18033-3:2010 (Subclause 5.2),
+									FIPS PUB 197] [AES]<h:p/>
+									[<h:b>selection:</h:b> IEEE Std. 1619-2018, 
+									NIST SP 800-38E] [XTS]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to encrypt/decrypt data using AES in XTS mode, the evaluator shall
+						perform the Single Data Unit Test and the Multiple Data Unit Test using the following input
+						parameters:<h:ul>
+							<h:li>Direction [encryption, decryption]</h:li>
+							<h:li>Key size [512] bits</h:li>
+							<h:li>Tweak value format [128-bit hex string, data unit sequence number]</h:li></h:ul><h:p/>
+						<h:br/><h:b>Single Data Unit Test</h:b><h:p/>
+						For each combination of claimed key size, direction, and supported tweak value format, the
+						evaluator shall generate 50 test cases consisting of random payload data. The payload data size is
+						determined randomly for each test case from supported values within the range [128-65536] bits.
+						The payload size and data unit size must be equal.<h:p/>
+						<h:br/><h:b>Multiple Data Unit Test</h:b><h:p/>
+						For each combination of claimed key size, direction, and supported tweak value format, the
+						evaluator shall generate 50 test cases consisting of random payload data. The payload data size is
+						determined randomly for each test case from supported values within the range [128-65536] bits.
+						Likewise, the data unit size is determined randomly for each test case from supported values
+						within the range [128-65535] bits. The payload size and data unit size must not be equal.<h:p/>
+						The evaluator shall verify the correctness of the TSF’s implementation by comparing values
+						generated by the TSF with those generated by a known good implementation using the same
+						input parameters.<h:p/>
+						
+						<!-- AES-CTR -->
+						<h:br/><h:b>AES-CTR</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">AES-CTR</h:td>
+								<h:td valign="top">AES in Counter Mode with a non-repeating initial counter and
+									with no repeated use of counter values across multiple messages with the 
+									same secret key.</h:td>
+								<h:td valign="top">256 bits</h:td>
+								<h:td valign="top">
+									[<h:b>selection:</h:b> ISO/IEC 18033-3:2010 (Subclause 5.2),
+									FIPS PUB 197] [AES]<h:p/>
+									[<h:b>selection:</h:b>  ISO/IEC 10116:2017 (Clause 10), 
+									NIST SP 800-38A] [CTR]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to encrypt/decrypt data using AES in CTR mode, the evaluator shall
+						perform the Algorithm Functional Test and the Counter Test using the following input
+						parameters:<h:ul>
+							<h:li>Direction [encryption, decryption]</h:li>
+							<h:li>Key size [256] bits</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Tests</h:b><h:p/>
+						Algorithm Functional Tests are designed to verify the correct operation of the logical
+						components of the algorithm implementation under normal operation using different block sizes.
+						For AES-CTR, there are three types of AFTs:<h:p/>
+						<h:br/><h:b><h:i>Known-Answer Tests</h:i></h:b><h:p/>
+						For each combination of direction and claimed key size, the TOE must be tested using the
+						GFSBox, KeySbox, VarTxt, and VarKey test cases listed in Appendixes B through E of <h:i>The
+							Advanced Encryption Standard Algorithm Validation Suite (AESAVS)</h:i>, NIST, 15 November 2002.<h:p/>
+						<h:br/><h:b><h:i>Single Block Message Tests</h:i></h:b><h:p/>
+						For each combination of direction and claimed key, the evaluator shall generate 10 test cases
+						with a data size of 128 bits.<h:p/>
+						<h:br/><h:b><h:i>Partial Block Message Tests</h:i></h:b><h:p/>
+						Monte Carlo tests are intended to test the implementation under strenuous conditions. The TOE
+						must process the test cases according to the following algorithm once for each combination of
+						direction and key size:<h:p/>
+						For each combination of direction and claimed key, the evaluator shall generate five test cases
+						such that the data size is not a multiple of 128 bits.<h:p/>
+						The evaluator shall verify the correctness of the TSF’s implementation by comparing values
+						generated by the TSF with those generated by a known good implementation using the same
+						input parameters.
+						<h:br/><h:b><h:i>Counter Test</h:i></h:b><h:p/>
+						The evaluator shall generate a single message of 1000 blocks (128000 bits) and either encrypt or
+						decrypt it. Back-compute the IVs used. Verify that they are unique and increasing (encryption) or
+						decreasing (decryption).<h:p/>
+						
 					</Tests>
 				</aactivity>
 			</f-element>
-        </f-component> 
+			<audit-event/>
+		</f-component> 
 		
 		<!-- FCS_COP.1/KeyWrap Cryptographic Operation - Key Wrapping -->
 		<f-component id="sfr-fcs-cop-1-kw" cc-id="fcs_cop.1" iteration="KeyWrap" name="Cryptographic Operation - Key Wrapping" status="sel-based">
@@ -2987,907 +4000,515 @@
 			<audit-event/>
 		</f-component>
 		
-		<ext-comp-def title="MACsec" fam-id="FCS_MACSEC_EXT">
-          <fam-behavior>This family defines requirements for implementation of MACsec functionality.</fam-behavior> 
-        </ext-comp-def>
-        <f-component cc-id="fcs_macsec_ext.1" name="MACsec"> 
-          <consistency-rationale>
-            This SFR applies to MACsec functionality, which is beyond the original scope of the Base-PP.
-          </consistency-rationale>
-          
-          <comp-lev> requires the TSF to implement MACsec in a specified manner.
-          </comp-lev>
-          <management>No specific management functions are identified.
-          </management>
-          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST: <h:ul>
-            <h:li>Session establishment.</h:li>
-          </h:ul>
-          </audit>
-          <dependencies>No dependencies.
-          </dependencies>
-          
-          <f-element>
-            <title>
-              The TSF shall implement MACsec in accordance with IEEE Standard 802.1AE-2018. 
-            </title>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall derive a Secure Channel Identifier (SCI) from a peer’s MAC address and port to uniquely identify the originator of an MPDU.
-            </title>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall reject any MPDUs during a given session that contain an SCI other than the one used to establish that session.
-            </title>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall permit only EAPOL (Port Access Entity (PAE) EtherType 88-8E), MACsec frames (EtherType 88-E5), and MAC control frames (EtherType is 88-08) and shall discard others.
-            </title>
-            <note role="Application">
-              Depending on the Carrier Ethernet service provider a TOE might need basic VLAN tag handling abilities such as a simple add or discard to be suitable for Use Case 2.
-            </note>
-            <aactivity>
-              <TSS>
-                <h:p>
-                  The evaluator shall examine the TSS to verify that it describes the ability of the TSF to implement MACsec in accordance with IEEE 802.1AE-2018. 
-                  The evaluator shall also determine that the TSS describes the ability of the TSF to derive SCI values from peer MAC address and port data 
-                  and to reject traffic that does not have a valid SCI. 
-                  Finally, the evaluator shall check the TSS for an assertion that only EAPOL, 
-                  MACsec Ethernet frames, and MAC control frames are accepted by the MACsec interface.
-                </h:p>
-              </TSS>
-              <Guidance>
-                <h:p>
-                  There are no guidance EAs for this component.
-                </h:p>
-              </Guidance>
-              <Tests>
-                
-                The evaluator shall perform the following tests:
-                <testlist>
-                  <test>
-                    The evaluator shall successfully establish a MACsec channel between the TOE and a MACsec-capable peer in the operational 
-                    environment and verify that the TSF logs the communications. 
-                    The evaluator shall capture the traffic between the TOE and the operational environment to determine the SCI 
-                    that the TOE uses to identify the peer. The evaluator shall then configure a test system to capture traffic between the peer 
-                    and the TOE to modify the SCI that is used to identify the peer. 
-                    The evaluator then verifies that the TOE does not reply to this traffic and logs that the traffic was discarded.
-                  </test>
-                  <test>
-                    The evaluator shall send Ethernet traffic to the TOE’s MAC address that iterates through the full range of supported EtherType values 
-                    (refer to <h:a href="https://standards.ieee.org/develop/regauth/ethertype/eth.txt">List of Documented EtherTypes</h:a>) and observes that traffic for all EtherType values 
-                    is discarded by the TOE except for the traffic which has an EtherType value of 88-8E, 88-E5, or 8808. 
-                    Note that there are a large number of EtherType values so the evaluator is encouraged to execute a script that automatically iterates through each value.
-                  </test>
-                </testlist>
-              </Tests>
-            </aactivity>
-          </f-element>
-        </f-component>
-        
-        <f-component cc-id="fcs_macsec_ext.2" name="MACsec Integrity and Confidentiality"> 
-          <consistency-rationale>
-            This SFR applies to MACsec functionality, which is beyond the original scope of the Base-PP.
-          </consistency-rationale>
-          
-          <comp-lev> requires the TSF to implement MACsec with support for integrity and confidentiality protection.
-          </comp-lev>
-          <management>No specific management functions are identified.
-          </management>
-          <audit>There are no auditable events foreseen.
-          </audit>
-          <dependencies>FCS_MACSEC_EXT.1 MACsec
-          </dependencies>
-          
-          <f-element>
-            <title>
-              The TOE shall implement MACsec with support for integrity protection with a confidentiality offset of 
-              <selectables>
-                <selectable>0</selectable>
-                <selectable>30</selectable>
-                <selectable>50</selectable></selectables>.
-            </title>
-            <ext-comp-def-title>
-              <title>The TOE shall implement MACsec with support for integrity protection with a confidentiality offset of 
-                <assignable>supported confidentiality offset value(s)</assignable>.
-              </title>
-            </ext-comp-def-title>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall provide assurance of the integrity of protocol data units (MPDUs) using an Integrity Check Value (ICV) derived with the SAK.
-            </title>
-          <note role="Application">
-            The length of the ICV is dependent on the ciphersuite used but will not be less than 8 octets or more than 16 octets at the end of the MPDU. 
-            The ICV protects the destination and source MAC address parameters, as well as all the fields of the MPDU.
-          </note>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall provide the ability to derive an Integrity Check Value Key (ICK) from a Connectivity Association Key (CAK) using a KDF.
-            </title>
-
-            <aactivity>
-              <TSS>
-                <h:p>
-                The evaluator shall examine the TSS to verify that it describes the methods that the TOE implements to provide assurance of MACsec integrity.  
-                This should include any confidentiality offsets used, the use of an ICV (including the supported length), 
-                and ICV generation with the SAK, using the SCI as the most significant bits of the initialization vector (IV) and the 32 least significant bits of the PN as the IV.
-                </h:p>
-                </TSS>
-              <Guidance>
-                <h:p>
-                If any integrity verifications are configurable, such as any confidentiality offsets used or the mechanism used to derive an ICK, 
-                the evaluator shall verify that instructions for performing these functions are documented.
-                </h:p>
-              </Guidance>
-              <Tests>
-                The evaluator shall perform the following tests:
-                <testlist>
-                <test>
-                  The evaluator shall transmit MACsec traffic to the TOE from a MACsec-capable peer in the operational environment. 
-                  The evaluator shall verify via packet captures, audit logs, or both that the frame bytes after the MACsec Tag values in the received traffic 
-                  is not obviously predictable.
-                </test>
-                <test>
-                  The evaluator shall transmit valid MACsec traffic to the TOE from a MACsec-capable peer in the operational environment that is routed 
-                  through a test system set up as a man-in-the-middle. 
-                  The evaluator shall use the test system to intercept this traffic to modify one bit in a packet payload before retransmitting to the TOE. 
-                  The evaluator shall verify that the traffic is discarded due to an integrity failure.
-                </test>
-                </testlist>
-              </Tests>
-            </aactivity>
-          </f-element>
-        </f-component>
-        
-        <f-component cc-id="fcs_macsec_ext.3" name="MACsec Randomness"> 
-          <consistency-rationale>
-            This SFR applies to MACsec functionality, which is beyond the original scope of the Base-PP.
-          </consistency-rationale>
-          
-          <comp-lev> requires the TSF to generate keys and key data using sufficient randomness.
-          </comp-lev>
-          <management>No specific management functions are identified.
-          </management>
-          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST: <h:ul>
-            <h:li>Creation and update of Secure Association Key.</h:li>
-          </h:ul>
-          </audit>
-          <dependencies>FCS_MACSEC_EXT.1 MACsec<h:br/>
-            FCS_RBG_EXT.1 Random Bit Generation
-          </dependencies>
-          
-          <f-element>
-            <title>
-              The TSF shall generate unique Secure Association Keys (SAKs) using 
-              <selectables>
-                <selectable>key derivation from Connectivity Association Key (CAK) per section 9.8.1 of IEEE 802.1X-2010</selectable> 
-                <selectable>the TOE’s random bit generator as specified by FCS_RBG_EXT.1</selectable>
-              </selectables>
-              such that the likelihood of a repeating SAK is no less than 1 in 2 to the power of the size of the generated key. 
-            </title>
-            <ext-comp-def-title>
-              <title>The TSF shall generate unique Secure Association Keys (SAKs) using 
-                <assignable>key generation or derivation method</assignable>
-                such that the likelihood of a repeating SAK is no less than 1 in 2 to the power of the size of the generated key. 
-              </title>
-            </ext-comp-def-title>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall generate unique nonces for the derivation of SAKs using the TOE’s random bit generator as specified by FCS_RBG_EXT.1.
-            </title>
-            <note role="Application">
-              FCS_RBG_EXT.1 is defined in the Base-PP so a conformant MACsec TOE will include this dependency.
-            </note>            
-            <aactivity>
-              <TSS>
-              <h:p>
-                The evaluator shall examine the TSS to verify that it describes 
-                the method used to generate SAKs and nonces and that the strength of the CAK and the size of the CAK’s key space are provided.
-              </h:p>  
-              </TSS>
-              <Guidance>
-                <h:p>
-                  There are no guidance EAs for this component.
-                </h:p>
-              </Guidance>
-              <Tests>
-                Testing of the TOE’s MACsec capabilities and verification of the deterministic random bit generator is sufficient to demonstrate that this SFR has been satisfied.
-              </Tests>
-            </aactivity>
-          </f-element>
-        </f-component>
-        
-        
-        <f-component cc-id="fcs_macsec_ext.4" name="MACsec Key Usage"> 
-          <consistency-rationale>
-            This SFR applies to MACsec functionality, which is beyond the original scope of the Base-PP.
-          </consistency-rationale>
-          
-          <comp-lev> requires the TSF to specify the supported methods of MACsec peer authentication and to define the lifecycle for keys used in support of this.
-          </comp-lev>
-          <management>The following actions could be considered for the management functions in FMT:
-            <h:ul>
-              <h:li>Specify the lifetime of a CAK.</h:li>
-            </h:ul>
-          </management>
-          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST: <h:ul>
-            <h:li>Creation of CA.</h:li>
-          </h:ul>
-          </audit>
-          <dependencies>FCS_COP.1 Cryptographic Operation<h:br/>
-            FCS_MACSEC_EXT.1 MACsec<h:br/>
-            FIA_PSK_EXT.1 Pre-Shared Key Composition
-          </dependencies>
-          
-          <f-element>
-            <title>
-              The TSF shall support peer authentication using pre-shared keys (PSKs)
-              <selectables>
-                <selectable id="eap-tls-peer-auth">EAP-TLS with DevIDs</selectable>
-                <selectable>no other method</selectable></selectables>.
-            </title>
-            <note role="Application">
-              The definition of the peer’s CAK as defined by IEEE 802.1X-2010 is synonymous with the peer authentication performed here. 
-              If "EAP-TLS with DevIDs" is selected, the FCS_DEVID_EXT.1 and FCS_EAPTLS_EXT.1 SFRs must be claimed. 
-            </note>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall distribute SAKs between MACsec peers using AES key wrap as specified in FCS_COP.1<h:b>/MACSEC</h:b>.
-            </title>
-            <ext-comp-def-title>
-              <title>The TSF shall distribute SAKs between MACsec peers using AES key wrap as specified in FCS_COP.1.</title>
-            </ext-comp-def-title>
-            <note role="Application">
-              This requirement applies to the SAKs that are generated by the TOE. They must be wrapped by the AES Key Wrap method specified in NIST SP 800-38F.
-            </note>    
-          </f-element>
-          <f-element>
-            <title>The TSF shall support specifying a lifetime for CAKs.</title>
-          </f-element>
-          <f-element>
-            <title>The TSF shall associate Connectivity Association Key Names (CKNs) with SAKs that are defined 
-              by the KDF using the CAK as input data (per IEEE 802.1X-2010, Section 9.8.1).</title>
-          </f-element>
-          <f-element>
-            <title>
-              The TSF shall associate CKNs with CAKs. 
-              The length of the CKN shall be an integer number of octets, between 1 and 32 (inclusive).
-            </title>
-          <aactivity>
-              <TSS>
-                <h:p>
-                  The evaluator shall check the TSS to ensure that it describes how the SAK is wrapped prior to being distributed using the 
-                  AES implementation specified in this PP-Module.
-                </h:p>
-              </TSS>
-              <Guidance>
-                <h:p>
-                  If the method of peer authentication is configurable, the evaluator shall verify that the guidance provides instructions on how to configure this. 
-                  The evaluator shall also verify that the method of specifying a lifetime for CAKs is described.
-                </h:p>
-              </Guidance>
-              <Tests>
-                The evaluator shall perform the following tests:
-                <testlist>
-                  <test>
-                    For each supported method of peer authentication in FCS_MACSEC_EXT.4.1, the evaluator shall follow the operational guidance 
-                    to configure the supported method (if applicable). 
-                    The evaluator shall set up a packet sniffer between the TOE and a MACsec-capable peer in the operational environment. 
-                    The evaluator shall then initiate a connection between the TOE and the peer such that authentication occurs and a secure connection is established. 
-                    The evaluator shall wait one minute and then disconnect the TOE from the peer and stop the sniffer. 
-                    The evaluator shall use the packet captures to verify that the SC was established via 
-                    the selected mechanism and that the non-VLAN EtherType of the first data frame sent between the TOE and the peer is 88-E5.
-                  </test>
-                  <test>
-                    The evaluator shall capture traffic between the TOE and a MACsec-capable peer in the operational environment. 
-                    The evaluator shall then cause the TOE to distribute a SAK to that peer, 
-                    capture the MKPDUs from that operation, and verify the key is wrapped in the captured MKPDUs.
-                  </test>
-                </testlist>
-              </Tests>
-            </aactivity>
-          </f-element>
-        </f-component>
-     
-     
-        
-		
-		<ext-comp-def fam-id="FCS_ERD_EXT" title="ERD Provisioning">
-			<fam-behavior>This family defines requirements for implementation of the ERD Key Provisioning.</fam-behavior>
-		</ext-comp-def>
-		<f-component cc-id="fcs_erd_ext.1" name="ERD Provisioning">
-			
-			<comp-lev> defines the capability of the TOE to implement ERD provisioning.</comp-lev>
-			<management>No specific management functions are identified.</management>
-			<audit>There are no auditable events foreseen.</audit>
-			
-			
-			<f-element id="fel-erd-refuse-send">
+		<!-- FCS_COP.1/XOF Cryptographic Operation - Extendable-Output Function  -->
+		<f-component id="sfr-fcs-cop-1-xof" cc-id="fcs_cop.1" iteration="XOF" 
+			name="Cryptographic Operation - Extendable-Output Function" status="sel-based">
+			<depends on-sel="sel-fcs-cop-sigver-lms"/>
+			<depends on-sel="sel-fcs-cop-sigver-xmss"/>
+			<f-element id="fcs-cop-1e1-xof">
 				<title>
-					***REMOVE STUFF COVERED BY MACSEC SEEMS LIKE THAT SHOULD COVER MOST OF KEY AGREEMENT // Align with macsec key naming?
-					The TOE shall refuse to send any data over the encrypted channel before initial provisioning completes.
-				</title>
-			</f-element>
-			<f-element id="fel-erd-initial-rekey">
-				<title>
-					The TOE shall initiate a rekey transaction and authentication transaction during initial
-					provisioning.
-				</title>
-			</f-element>
-			
-			<f-element id="fel-erd-initial-keys">
-				<title>The TOE shall generate the following keys during initial provisioning:
-				<h:li>***LIST</h:li></title>
-			</f-element>
-			<f-element id="fel-erd-initial-agree">
-				<title>The TOE shall agree on the following information during initial provisioning:
-					<h:li>***LIST, event timing, etc</h:li></title>
-			</f-element>
-			<f-element id="fel-erd-refuse-send">
-				<title>
-					The TOE shall initiate a rekey transaction and authentication transaction during initial
-					provisioning.
-				</title>
-				<aactivity>
-					<TSS>***TBD</TSS>
-					<Guidance>***TBD</Guidance>
-					<Tests>***TBD</Tests>
-				</aactivity>
-			</f-element>
-		</f-component>
-		
-		<f-component cc-id="fcs_erd_ext.2" name="ERD">
-			
-			<comp-lev> defines the capability of the TOE to implement ERD.</comp-lev>
-			<management>No specific management functions are identified.</management>
-			<audit>There are no auditable events foreseen.</audit>
-			
-			
-			<f-element id="fel-erd-mutual">
-				<title>
-					***REMOVE STUFF COVERED BY MACSEC SEEMS LIKE THAT SHOULD COVER MOST OF KEY AGREEMENT 
-					The TOE shall mutually authenticate with the peer device.
-				</title>
-			</f-element>
-			<f-element id="fel-erd--rekeys">
-				<title>
-					The TOE shall perform a rekey operation in accordance with FCS_CKM.2  
+					The TSF shall perform [<h:i>extendable-output function</h:i>] in accordance with a specified cryptographic algorithm  
 					<selectables>
-						<selectable>every <assignable>Number less than 30</assignable> minutes</selectable>
-						<selectable>per a configurable time period</selectable>
-					</selectables>.
-				</title>
-			
-				<aactivity>
-					<TSS>***TBD</TSS>
-					<Guidance>***TBD</Guidance>
-					<Tests>***TBD</Tests>
-				</aactivity>
-			</f-element>
-		</f-component>
-		
-		
-		
-		<ext-comp-def fam-id="FCS_KDF_EXT" title="Cryptographic Key Derivation Function">
-			<fam-behavior>Components in this family define requirements for the implementation of cryptographic key derivation functions
-			</fam-behavior>
-		</ext-comp-def>
-		<f-component cc-id="fcs_kdf_ext.1" name="Cryptographic Key Derivation Function">
-			<consistency-rationale>This SFR defines key transport functionality. It uses random bit generation and keyed-hash message authentication functionality from the Base-PP 
-				as they are intended but is otherwise outside the scope of the original cryptographic operations defined in the Base-PP.
-			</consistency-rationale>
-			
-			
-			<comp-lev> requires the TSF to specify how it performs key derivation.</comp-lev>
-			<management>The following actions could be considered for the management functions in FMT: <h:ul>
-				<h:li>Configuration of the cryptographic functionality.</h:li>
-			</h:ul>
-			</management>
-			<audit>There are no auditable events foreseen.
-			</audit>
-			<dependencies>FCS_COP.1 Cryptographic Operation <h:br/>
-				FCS_RBG_EXT.1 Random Bit Generation Services <h:br/>
-				FCS_SMC_EXT.1 Submask Combining</dependencies>
-			
-			
-			<f-element>
-				<title>
-					The TSF shall derive keys in accordance with as defined in
-					[<h:i>
-						<selectables>
-							<selectable>NIST SP 800-108 
-								<selectables>
-									<selectable>KDF in Counter Mode</selectable>
-									<selectable>KDF in Feedback Mode</selectable>
-									<selectable>KDF in Double-Pipeline Iteration Mode</selectable>
-								</selectables>
-							</selectable>
-							<selectable>NIST SP 800-132</selectable>
-						</selectables></h:i>] using the keyed-hash functions specified in FCS_COP.1<h:b>/KeyedHash</h:b>
-					(from <xref to="bibAppPP"/>), such that the output is at least of
-					equivalent security strength (in number of bits) to the [<h:i>FEK</h:i>].
-				</title>
-				<ext-comp-def-title>
-					<title>
-						The TSF shall <assignable>intermediate key derivation function</assignable>
-						to derive an intermediate key, as defined in <assignable>applicable key standard</assignable> 
-						using the keyed-hash functions specified in FCS_COP.1, such that the output is at least of
-						equivalent security strength (in number of bits) to the <assignable>derived key</assignable>.
-					</title>
-				</ext-comp-def-title>
-				<note role="application">
-					
-					This requirement is used in the body of the ST if the ST author chooses to
-					use key derivation in the key chaining approach that is specified in FCS_KYC_EXT.1.
-					This requirement establishes acceptable methods for generating a new random key or an
-					existing submask to create a new key along the key chain.</note>
-				<aactivity>
-					<TSS>
-						The evaluator shall verify the TSS includes a description of the key derivation
-						function and shall verify the key derivation uses an approved derivation mode and
-						key expansion algorithm according to SP 800-108 and SP 800-132. <h:br/><h:br/>
+						<tabularize id="fcs-cop-xof-sels" title="Allowable choices for FCS_COP.1/XOF">
+							<selectcol>Cryptographic Algorithm</selectcol>
+							<reqtext>and parameters</reqtext>
+							<selectcol>Parameters</selectcol>
+							<reqtext>that meet the following:</reqtext>
+							<selectcol>List of Standards</selectcol>
+							<reqtext><h:p/><h:p/>The following table provides the allowable choices for
+								completion of the selection operations of FCS_COP.1/XOF.</reqtext>
+						</tabularize>
 						
-						None. <h:br/><h:br/>
-					</TSS>
-					<Guidance> None. <h:br/><h:br/>
-					</Guidance>
-					<Tests> None. 
+						<!-- SHAKE -->
+						<selectable id="sel-fcs-cop-xof-shake">
+							<col>SHAKE</col>
+							<col>Functions = [SHAKE256]
+							</col>
+							<col>NIST FIPS PUB 202 Section 6.2 [SHAKE]</col>
+						</selectable>
+						
+					</selectables>
+				</title>
+				<note role="application">
+					In accordance with CNSA 2.0, SHAKE is permitted to be used only as a component of LMS or XMSS. 
+					Therefore this component is claimed only if LMS or XMSS is claimed in FCS_COP.1/SigVer.
+				</note>
+				<aactivity>
+					<TSS/>
+					<Guidance/>
+					<Tests>
+						The following tests are conditional based on the selections made in the SFR. The evaluator
+						shall perform the following tests or witness respective tests executed by the developer. The tests
+						must be executed on a platform that is as close as practically possible to the operational platform
+						(but which may be instrumented in terms of, for example, use of a debug mode). Where the test
+						is not carried out on the TOE itself, the test platform shall be identified and the differences
+						between test environment and TOE execution environment shall be described.<h:p/>
+						
+						<!-- SHAKE -->
+						<h:br/><h:b>SHAKE</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Cryptographic Algorithm</h:td>
+								<h:td valign="top">Parameters</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">SHAKE</h:td>
+								<h:td valign="top">Function = [SHAKE256]</h:td>
+								<h:td valign="top">NIST FIPS PUB 202 Section 6.2 [SHAKE]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s implementation of the SHAKE Extendable Output Function the evaluator shall
+						perform the Algorithm Functional Test, Monte Carlo Test, and Variable Output Test using the
+						following input parameters:<h:ul>
+							<h:li>Function [SHAKE256]</h:li>
+							<h:li>Output length [16-65536] bits</h:li></h:ul><h:p/>
+						<h:br/><h:b><h:i>Algorithm Functional Test</h:i></h:b><h:p/>
+						For each supported function, generate test cases consisting of random data for every message
+						length from 0 bits (if supported) to <h:i>rate</h:i>-1 bits, where <h:i>rate</h:i> equals<h:p/> 1088.<h:p/>
+						Additionally, generate tests cases of random data for messages of every multiple of (rate+1) bits
+						starting at length rate, and continuing until 65535 is exceeded.<h:p/>
+						<h:br/><h:b><h:i>Monte Carlo Test</h:i></h:b><h:p/>
+						The Monte Carlo test takes in a single 128-bit message (SEED) and desired output length in
+						bits, and runs 100 iterations of the chained computation. MaxOutBytes and MinOutBytes are the
+						largest and smallest supported input and output sizes in bytes, respectively.<h:p/>
+						<h:pre>
+							Range = maxOutBytes - minOutBytes + 1
+							OutputLen = maxOutBytes
+							For j = 0 to 99
+							MD[0] = SEED
+							For i = 1 to 1000
+							MSG[i] = 128 leftmost bits of MD[i-1]
+							if (MSG[i] &lt; 128 bits)
+							Append 0 bits on rightmost side of MSG[i] til MSG[i] is 128 bits
+							MD[i] = SHAKE(MSG[i], OutputLen * 8)
+							
+							RightmostOutputBits = 16 rightmost bits of MD[i] as an integer
+							OutputLen = minOutBytes + (RightmostOutputBits % Range)
+							Output MD[1000], OutputLen
+							SEED = MD[1000]
+						</h:pre><h:p/>
+						<h:br/><h:b><h:i>Variable Output Test</h:i></h:b><h:p/>
+						This test measures the ability of the TOE to generate output digests of varying sizes.<h:p/>
+						The evaluator shall generate 512 test cases such that the input for each test case consists of 128-
+						bits of random data, and the output length includes the minimum supported value, the maximum
+						supported value, and 510 random values between the minimum and maximum digest sizes
+						supported by the implementation.<h:p/>
+						
 					</Tests>
 				</aactivity>
 			</f-element>
-			
 			<audit-event/>
 		</f-component>
-		<!-- HTTPS SFRs if required
-		<ext-comp-def fam-id="FCS_HTTPS_EXT" title="HTTPS Protocol">
-          <fam-behavior>This family defines requirements for implementation of the HTTPS protocol.</fam-behavior>
-        </ext-comp-def>
-		<f-component cc-id="fcs_https_ext.1" name="HTTPS Protocol" status="invisible">
-			
-			<comp-lev> defines the capability of the TOE to implement HTTPS.</comp-lev>
-			<management>No specific management functions are identified.</management>
-			<audit>There are no auditable events foreseen.</audit>
-			<dependencies>
-				FCS_TLS_EXT.1 TLS Protocol<h:br/>
-				FIA_X509_EXT.1 X.509 Certificate Validation
-			</dependencies>
 		
-			
-			<f-element id="fel-https-wath">
-				<title>
-					The application shall implement the HTTPS protocol that complies with RFC 2818.
-				</title>
-			</f-element>
-			<f-element id="fel-https-howl">
-				<title>The application shall implement HTTPS using TLS as defined in the Functional Package for TLS.</title>
-			</f-element>
-			<f-element id="fel-https-who-cl">
-				<title> The application shall 
-					<assignable>take some action in result to being presented an invalid peer certificate</assignable>.
-				</title>
-				<aactivity>
-					<no-tests></no-tests>
-				</aactivity>
-			</f-element>
-		</f-component>
-		
-	<f-component cc-id="fcs_https_ext.1" name="HTTPS Protocol" iteration="Client" status="sel-based">
-	  <depends on-se1="sel_all_https_cl"/>
-
-			<f-element id="fel-https-wath-cl">
-				<title>
-					The application shall implement the HTTPS protocol <h:b>as a client</h:b> that complies with RFC 2818.
-				</title>
-				<aactivity level="element">
-					<TSS>
-						<h:p>
-						The evaluator shall examine the TSS and determine that enough detail is provided to
-						explain how the implementation complies with RFC 2818.</h:p>
-					</TSS>
-					<Guidance>
-						<h:p>
-						The evaluator shall verify the guidance documentation contains any information necessary to configure 
-						HTTPS as a client in alignment with RFC 2818.</h:p>
-					</Guidance>
-					<Tests>
-						The evaluator shall attempt to establish an HTTPS connection with a web server, 
-						observe the traffic with a packet analyzer, and verify that the connection succeeds 
-						and that the traffic is identified as TLS or HTTPS.
-					</Tests>
-				</aactivity>
-			</f-element>
-			<f-element id="fel-https-how-cl">
-				<title>The application shall implement HTTPS using TLS as defined in the Functional Package for TLS.</title>
-				<aactivity level="element">
-					<TSS><h:p>None.</h:p></TSS>
-					<Guidance><h:p>None.</h:p></Guidance>
-					<Tests>Other tests are performed in conjunction with the TLS package.</Tests>
-				</aactivity>
-			</f-element>
-			<f-element id="fel-https-who-cl">
-				<title> The application shall 
-					<selectables onlyone="yes">
-						<selectable>not establish the application-initiated connection</selectable>
-						<selectable>notify the user and not establish the user-initiated connection</selectable>
-						<selectable>notify the user and request authorization to establish the user-initiated connection</selectable></selectables>
-					if the peer certificate is deemed invalid.
-				</title>
-				<ext-comp-def-title>
-				  <title>
-				    The application shall
-				    <assignable>take some action</assignable>
-				    if the peer certificate is deemed invalid.
-				</title>				  
-				</ext-comp-def-title>
-				<note role="application">
-					Validity is determined by the certificate path, the expiration date, and the 
-					revocation status in accordance with RFC 5280. 
-				</note>
-				<aactivity level="element">
-					<TSS><h:p>The evaluator shall verify the TSS describes the supported options for responding to invalid certificates 
-						when acting as a client and verify that description matches the selections.</h:p></TSS>
-					<Guidance><h:p>The validator shall confirm the guidance documentation contains any information required for configuring the 
-						response to an invalid certificate.</h:p></Guidance>
-					<Tests>
-						Certificate validity shall be tested in accordance with testing performed for 
-						FIA_X509_EXT.1, and the evaluator shall perform the following test:
-						<testlist>
-							<test>
-							The evaluator shall demonstrate that using a certificate without a valid 
-							certification path results in the selected action in the SFR. If "notify the user" 
-							is selected in the SFR, then the evaluator shall also determine that the user
-							is notified of the certificate validation failure. Using the administrative
-							guidance, the evaluator shall then load a certificate or certificates to the 
-							Trust Anchor Database needed to validate the certificate to be used in the
-							function, and demonstrate that the function succeeds. The evaluator then shall
-							delete one of the certificates, and show that again, using a certificate
-							without a valid certification path results in the selected action in the SFR,
-							and if "notify the user" was selected in the SFR, the user is notified of the 
-							validation failure.
-							</test>
-						</testlist>
-					</Tests>
-				</aactivity>
-			</f-element>
-        </f-component>
-
-        <f-component cc-id="fcs_https_ext.1" name="HTTPS Protocol" iteration="Server" status="sel-based">
-			<depends on1="sel_all_https_sv"/>
-			<depends on1="sel_all_https_ma"/>
-			<f-element id="fel-https-wath-sv">
-				<title>
-					The application shall implement the HTTPS protocol <h:b>as a server</h:b> that complies with RFC 2818.
-				</title>
-				<aactivity level="element">
-					<TSS>
-					<h:p>
-						The evaluator shall examine the ST and determine that enough detail is provided to
-						explain how the implementation complies with RFC 2818.</h:p>
-					</TSS>
-					<Guidance>
-					<h:p>The evaluator shall confirm the guidance documentation contains any information necessary for configuring HTTPS as a server in alignment with RFC 2818.</h:p>
-					</Guidance>
-					<Tests>
-						The evaluator shall attempt to establish an HTTPS connection to the TOE using a 
-						client, observe the traffic with a packet analyzer, and verify that the connection
-						succeeds and that the traffic is identified as TLS or HTTPS.
-					</Tests>
-				</aactivity>
-			</f-element>
-			<f-element id="fel-https-how-sv">
-				<title>The application shall implement HTTPS using TLS as defined in the Functional Package for TLS.</title>
-				<aactivity level="element">
-					<TSS><h:p>None.</h:p></TSS>
-					<Guidance><h:p>None.</h:p></Guidance>
-					<Tests>Other tests are performed in conjunction with the TLS package.</Tests>
-				</aactivity>
-			</f-element>
-        	<f-element id="fel-https-bad-cert">
-        		<title>
-        			The application shall <selectables>
-        				<selectable>not establish the connection</selectable>
-        				<selectable>establish or not establish the connection based on an administrative or user setting</selectable></selectables> 
-        			if the peer certificate is deemed invalid.
-        		</title>
-        		<aactivity level="element">
-        			<TSS>The evaluator shall confirm the ST describes how the application responds to an invalid certificate when acting as a server and verify the description matches the selection.</TSS>
-        			<Guidance>The evaluator shall verify the guidance documentation contains any information necessary to configure the response to an invalid
-        				certificates.</Guidance>
-        			<Tests>
-        				Other tests are performed in conjunction with the TLS Functional Package, 
-        				FCS_HTTPS_EXT.2 (dependent on selections in FTP_DIT_EXT.1), and FIA_X509_EXT.1.
-        			</Tests>
-        		</aactivity>
-        	</f-element>
-        </f-component>
-
-	<f-component cc-id="fcs_https_ext.2" name="HTTPS Protocol with Mutual Authentication" status="sel-based">
-	  <depends on1="sel_all_https_ma"/>
-
-
-		<comp-lev> defines HTTPS capabilities relating specifically to the case where the TOE acts as an HTTPS server 
-			that enforces mutual authentication.</comp-lev>
-		<management>No specific management functions are identified.</management>
-		<audit>There are no auditable events foreseen.</audit>
-		<dependencies>
-			FIA_X509_EXT.1 X.509 Certificate Validation
-		</dependencies>
-		
-
-			<f-element id="fel-https-wath-m">
-				<title>
-					The application shall 
-					<selectables>
-						<selectable>not establish the connection</selectable>
-						<selectable>establish or not establish the connection based on an administrative or user setting</selectable></selectables>
-					if the peer certificate is deemed invalid.
-				</title>
-				<note role="application">
-					 Validity is determined by the certificate path, the expiration date, and the 
-					 revocation status in accordance with RFC 5280.
-				</note>
-				<aactivity level="element">
-					<TSS><h:p>The evaluator shall verify the ST contains a description of how invalid peer certificates are responded to and that it matches the selections.</h:p></TSS>
-					<Guidance><h:p>The evaluator shall verify the guidance documentation contains any information necessary to configure the response to invalid peer certificates.</h:p></Guidance>
-					<Tests>
-						Certificate validity shall be tested in accordance with testing performed for 
-						FIA_X509_EXT.1, and the evaluator shall perform the following test:
-						<testlist>
-							<test> The evaluator shall demonstrate that using a certificate without a 
-							valid certification path results in the selected action in the SFR. Using the 
-							administrative guidance, the evaluator shall then load a certificate or 
-							certificates to the Trust Anchor Database needed to validate the certificate 
-							to be used in the function, and demonstrate that the function succeeds. The
-							evaluator then shall delete one of the certificates, and show that again,
-							using a certificate without a valid certification path results in the selected 
-							action in the SFR.</test>
-						</testlist>
-					</Tests>
-				</aactivity>
-			</f-element>
-        </f-component>
-		-->
-		
-		<!-- FCS_PBKDF_EXT.1  
-		<ext-comp-def fam-id="FCS_PBKDF_EXT" title="Password Conditioning">
-			<fam-behavior>This family defines requirements for implementation of password-based key derivation functions.</fam-behavior>
+		<ext-comp-def fam-id="FCS_RBG_EXT" title="Random Bit Generation">
+			<fam-behavior>This family defines requirements for the generation of random bits.</fam-behavior>
 		</ext-comp-def>
 		
-		<f-component name="Password Conditioning" cc-id="fcs_pbkdf_ext.1" id="fcom_pass" status="sel-based">
-			<depends on="sel-fcs-sto-pbkdf"/>
-			
-			<comp-lev> defines the capability of the TOE to implement PBKDF2 for key derivation.</comp-lev>
-			<management>No specific management functions are identified.</management>
-			<audit>There are no auditable events foreseen.</audit>
-			<dependencies>
-				FCS_COP.1 Cryptographic Operation<h:br/>
-				FCS_RBG_EXT.1 Random Bit Generation Services
-			</dependencies>
-			
-			<f-element id="fel-pass">
+		<f-component cc-id="fcs_rbg.1" name="Random Bit Generation (RBG)" status="feat-based">
+        	<depends on="pfedspec"/>
+			<f-element id="fcs-rbg-1e1">
 				<title>
-					A password/passphrase shall perform <assignable>Password-based Key Derivation Functions</assignable> 
-					in accordance with a specified cryptographic algorithm as specified in FCS_COP.1<h:b>/KeyedHash</h:b>, with <assignable>positive 
-						integer of 1,000 or more</assignable> iterations, and output size of <assignable>positive integer of 256 or more</assignable>
-					bits that meet the following [<h:i>NIST SP 800-132</h:i>].  
+					TSF shall perform deterministic random bit generation services using   
+					<selectables>
+						<tabularize id="fcs-rbg-1-sels" title="Allowable choices for FCS_RBG.1.1">
+							<textcol>Identifier</textcol>
+							<reqtext></reqtext>
+							<selectcol>DRBG Algorithm</selectcol>
+							<reqtext> in accordance with </reqtext>
+							<selectcol>List of standards</selectcol>
+							<reqtext>after initialization.<h:p/><h:p/>The following table provides the allowable choices for
+								completion of the selection operations of FCS_RBG.1.1.</reqtext>
+						</tabularize>
+						
+						<selectable id="sel-fcs-rbg-hash-drbg">
+							<col>HASH_DRBG</col>
+							<col>Hash_DRBG with <selectables>
+								<selectable>SHA-384</selectable>
+								<selectable>SHA-512</selectable>
+							</selectables></col>
+							<col><selectables>
+								<selectable>ISO/IEC 18031: 2011 (Section C.2.2)</selectable>
+								<selectable>NIST SP 800-90A Revision 1 Section 10.1.1</selectable></selectables>
+							</col>
+						</selectable>
+						
+						<selectable id="sel-fcs-rbg-hmac-drbg">
+							<col>HMAC_DRBG</col>
+							<col>HMAC_DRBG with  <selectables>
+								<selectable>SHA-384</selectable>
+								<selectable>SHA-512</selectable>
+							</selectables></col>
+							<col><selectables>
+								<selectable>ISO/IEC 18031: 2011 (Section C.2.3)</selectable>
+								<selectable>NIST SP 800-90A Revision 1 Section 10.1.2</selectable></selectables>
+							</col>
+						</selectable>
+						
+						<selectable id="sel-fcs-rbg-ctr-drbg">
+							<col>CTR_DRBG</col>
+							<col>CTR_DRBG with AES-CTR-256</col>
+							<col><selectables>
+								<selectable>ISO/IEC 18031: 2011 (Section C.3.2)</selectable>
+								<selectable>NIST SP800-90A Revision 1 Section 10.2.1</selectable></selectables>
+							</col>
+						</selectable>
+					</selectables>
 				</title>
-				<ext-comp-def-title>
-					<title>
-						A password/passphrase shall perform <assignable>Password-based Key Derivation Functions</assignable> 
-						in accordance with a specified cryptographic algorithm as specified in FCS_COP.1, with <assignable>positive 
-							integer of 1,000 or more</assignable> iterations, and output cryptographic key sizes <assignable>positive 
-								integer of 256 of greater</assignable> bits that meet the following <assignable>applicable standard</assignable>.
-					</title>
-				</ext-comp-def-title>
+				<note role="application">
+					CNSA 1.0 and 2.0 requires the use of 256-bit AES and SHA-384 or SHA-512. SHA-256 and all SHA3
+					hashes are not allowed. <h:p/>
+					NIST SP 800-90A contains three different methods of generating random numbers;
+					each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers).
+					The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the TSS.
+					While any of the identified hash functions (SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG,
+					only AES-based implementations for CTR_DRBG are allowed.<h:p/>
+					This SFR must be included in the ST if random bits are provided by the TOE to tenant software,
+					or if it is used by the TOE itself to support or implement PP-specified security functionality.<h:p/> 
+					This SFR is also needed if the following SFRs are included in the ST: FCS_IPSEC_EXT.1, 
+					FCS_CKM.1/AKG, FCS_CKM.1/SKG, and FCS_COP.1/SigGen.<h:p/>
+					Also, this SFR must be claimed if "<h:i>KDF-CTR</h:i>," "<h:i>KDF-FB</h:i>," or
+					"<h:i>KDF-DPI</h:i>" is selected in FCS_CKM.5.<h:p/>
+					If "HMAC_DRBG" is selected, then FCS_COP.1/KeyedHash must be claimed.<h:p/>
+					If "Hash_DRBG" is selected, then FCS_COP.1/Hash must be claimed.<h:p/>
+					If "CTR_DRBG" is selected, then FCS_COP.1/SKC must be claimed.
+				</note>
 			</f-element>
-			<f-element id="fel-gen-salts">
+			<f-element id="fcs-rbg-1e2">
 				<title>
-					The TSF shall generate salts in accordance with FCS_SNI_EXT.1 and with entropy corresponding
-					to the security strength selected for PBKDF in FCS_PBKDF_EXT.1.
+					The TSF shall use a <selectables>
+						<selectable id="sel-drbg-internal-seed">TSF entropy source <assignable>name of entropy
+							source</assignable>,</selectable>
+						<selectable id="sel-drbg-multiple-sources"><h:b>multiple TSF entropy sources <assignable>name of
+							entropy sources</assignable></h:b>,</selectable>
+						<selectable id="sel-drbg-external-seed">TSF interface for seeding</selectable>
+					</selectables>
+					for initialization and reseeding.
 				</title>
 				<note role="application">
 					<h:p>
-						This should be included if selected in FCS_STO_EXT.1.
-					</h:p><h:p>
-						Conditioning can be performed using one of the identified hash functions or the process described 
-						in NIST SP 800-132; the method used is selected by the ST Author. SP 800-132 requires the use of a pseudorandom 
-						function (PRF) consisting of HMAC with an approved hash function. The ST author selects the hash function used, 
-						including the appropriate requirements for HMAC and the hash function.
-					</h:p><h:p>
-						Appendix A of SP 800-132 recommends setting the iteration count in order to increase the computation needed to derive a 
-						key from a password and, therefore, increase the workload of performing a password recovery attack. A significantly higher 
-						value is recommended to ensure optimal security. This value is expected to increase to a minimum of 10,000 in a future 
-						iteration based on SP 800-63.
+						For the selection in this requirement, the ST author selects "TSF entropy source" if a single entropy
+						source is used as input to the DRBG. The ST author selects "multiple TSF entropy sources" if a seed is
+						formed from a combination of two or more entropy sources within the TOE boundary. If the TSF implements
+						two or more separate DRBGs that are seeded in separate manners, this SFR should be iterated for each DRBG.
+						If multiple distinct entropy sources exist such that each DRBG only uses one of them, then each iteration
+						would select "TSF entropy source"; "multiple TSF entropy sources" is only selected if a single DRBG uses
+						multiple entropy sources for its seed. The ST author selects "TSF interface for seeding" if entropy source
+						data is generated outside the TOE boundary.
+					</h:p>	
+					<h:p>
+						If "multiple TSF entropy sources" is selected, FCS_RBG.1.2, FCS_RBG.4, and FCS_RBG.5 must be claimed. 
+					</h:p>
+				</note>
+			</f-element>
+			
+			<f-element id="fcs-rbg-1e3">
+				<title>
+					The TSF shall update the DRBG state by <selectables>
+						<selectable>reseeding</selectable>
+						<selectable>uninstantiating and re-instantiating</selectable>
+					</selectables> using a <selectables>
+						<selectable>TSF entropy source <assignable>name of entropy source</assignable></selectable>
+						<selectable><h:b>multiple TSF entropy sources <assignable>name of entropy sources</assignable></h:b>,</selectable>
+						<selectable>TSF interface for obtaining entropy <assignable>name of the interface</assignable></selectable></selectables>
+					in the following situations: <selectables linebreak="yes">
+						<selectable>never</selectable>
+						<selectable>on demand</selectable>
+						<selectable>on the condition: <assignable>condition</assignable></selectable>
+						<selectable>after <assignable>time</assignable></selectable>
+					</selectables>
+					in accordance with <assignable>list of standards</assignable>.
+				</title>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>Failure of the randomization process</audit-event-descr>
+				<audit-event-info>None.</audit-event-info>
+			</audit-event>
+        </f-component>    
+		
+		<f-component cc-id="fcs_rbg.1" name="Random Bit Generation (RBG)" status="sel-based">
+			<depends on-sel=""/>
+			<depends on-incl=""/>
+			<depends on-incl=""/>
+			<depends on-incl=""/>
+			<depends on-incl=""/>
+			<depends on-incl=""/>
+			<depends><optional/></depends>
+			<f-element id="fcs-rbg-1e1">
+				<title>
+					TSF shall perform deterministic random bit generation services using   
+					<selectables>
+						<tabularize id="fcs-rbg-1-sels" title="Allowable choices for FCS_RBG.1.1">
+							<textcol>Identifier</textcol>
+							<reqtext></reqtext>
+							<selectcol>DRBG Algorithm</selectcol>
+							<reqtext> in accordance with </reqtext>
+							<selectcol>List of standards</selectcol>
+							<reqtext>after initialization.<h:p/><h:p/>The following table provides the allowable choices for
+								completion of the selection operations of FCS_RBG.1.</reqtext>
+						</tabularize>
+						
+						<selectable id="sel-fcs-rbg-hash-drbg">
+							<col>HASH_DRBG</col>
+							<col>Hash_DRBG with <selectables>
+								<selectable>SHA-384</selectable>
+								<selectable>SHA-512</selectable>
+							</selectables></col>
+							<col><selectables>
+								<selectable>ISO/IEC 18031: 2011 (Section C.2.2)</selectable>
+								<selectable>NIST SP 800-90A Revision 1 Section 10.1.1</selectable></selectables>
+							</col>
+						</selectable>
+						
+						<selectable id="sel-fcs-rbg-hmac-drbg">
+							<col>HMAC_DRBG</col>
+							<col>HMAC_DRBG with  <selectables>
+								<selectable>SHA-384</selectable>
+								<selectable>SHA-512</selectable>
+							</selectables></col>
+							<col><selectables>
+								<selectable>ISO/IEC 18031: 2011 (Section C.2.3)</selectable>
+								<selectable>NIST SP 800-90A Revision 1 Section 10.1.2</selectable></selectables>
+							</col>
+						</selectable>
+						
+						<selectable id="sel-fcs-rbg-ctr-drbg">
+							<col>CTR_DRBG</col>
+							<col>CTR_DRBG with AES-CTR-256</col>
+							<col><selectables>
+								<selectable>ISO/IEC 18031: 2011 (Section C.3.2)</selectable>
+								<selectable>NIST SP800-90A Revision 1 Section 10.2.1</selectable></selectables>
+							</col>
+						</selectable>
+					</selectables>
+				</title>
+				<note role="application">
+					CNSA 1.0 and 2.0 requires the use of 256-bit AES and SHA-384 or SHA-512. SHA-256 and all SHA3
+					hashes are not allowed. <h:p/>
+					NIST SP 800-90A contains three different methods of generating random numbers;
+					each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers).
+					The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the TSS.
+					While any of the identified hash functions (SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG,
+					only AES-based implementations for CTR_DRBG are allowed.<h:p/>
+					This SFR must be included in the ST if random bits are provided by the TOE to tenant software,
+					or if it is used by the TOE itself to support or implement PP-specified security functionality.<h:p/> 
+					This SFR is also needed if the following SFRs are included in the ST: FCS_IPSEC_EXT.1, 
+					FCS_CKM.1/AKG, FCS_CKM.1/SKG, and FCS_COP.1/SigGen.<h:p/>
+					Also, this SFR must be claimed if "<h:i>KDF-CTR</h:i>," "<h:i>KDF-FB</h:i>," or
+					"<h:i>KDF-DPI</h:i>" is selected in FCS_CKM.5.<h:p/>
+					If "HMAC_DRBG" is selected, then FCS_COP.1/KeyedHash must be claimed.<h:p/>
+					If "Hash_DRBG" is selected, then FCS_COP.1/Hash must be claimed.<h:p/>
+					If "CTR_DRBG" is selected, then FCS_COP.1/SKC must be claimed.
+				</note>
+			</f-element>
+			<f-element id="fcs-rbg-1e2">
+				<title>
+					The TSF shall use a <selectables>
+						<selectable id="sel-drbg-internal-seed">TSF entropy source <assignable>name of entropy
+							source</assignable>,</selectable>
+						<selectable id="sel-drbg-multiple-sources"><h:b>multiple TSF entropy sources <assignable>name of
+							entropy sources</assignable></h:b>,</selectable>
+						<selectable id="sel-drbg-external-seed">TSF interface for seeding</selectable>
+					</selectables>
+					for initialization and reseeding.
+				</title>
+				<note role="application">
+					<h:p>
+						For the selection in this requirement, the ST author selects "TSF entropy source" if a single entropy
+						source is used as input to the DRBG. The ST author selects "multiple TSF entropy sources" if a seed is
+						formed from a combination of two or more entropy sources within the TOE boundary. If the TSF implements
+						two or more separate DRBGs that are seeded in separate manners, this SFR should be iterated for each DRBG.
+						If multiple distinct entropy sources exist such that each DRBG only uses one of them, then each iteration
+						would select "TSF entropy source"; "multiple TSF entropy sources" is only selected if a single DRBG uses
+						multiple entropy sources for its seed. The ST author selects "TSF interface for seeding" if entropy source
+						data is generated outside the TOE boundary.
+					</h:p>	
+					<h:p>
+						If TSF entropy sources" is selected, FCS_RBG.3 must be claimed.
+					</h:p>
+					<h:p>
+						If "multiple TSF entropy sources" is selected, FCS_RBG.4 and FCS_RBG.5 must be claimed. 
+					</h:p>
+					<h:p>
+						If "TSF interface for seeding" is selected, FCS_RGB.2 must be claimed.
+					</h:p>
+					<h:p>
+						The security strength of the entropy used for seeding depends on the functions for which the TSF uses 
+						entropy. The security strength for the various functions is defined in Tables 2 and 3 of NIST SP 800-57A.
+					</h:p>
+				</note>
+			</f-element>
+			
+			<f-element id="fcs-rbg-1e3">
+				<title>
+					The TSF shall update the DRBG state by <selectables>
+						<selectable>reseeding</selectable>
+						<selectable>uninstantiating and re-instantiating</selectable>
+					</selectables> using a <selectables>
+						<selectable>TSF entropy source <assignable>name of entropy source</assignable></selectable>
+						<selectable><h:b>multiple TSF entropy sources <assignable>name of entropy sources</assignable></h:b>,</selectable>
+						<selectable>TSF interface for obtaining entropy <assignable>name of the interface</assignable></selectable></selectables>
+					in the following situations: <selectables linebreak="yes">
+						<selectable>never</selectable>
+						<selectable>on demand</selectable>
+						<selectable>on the condition: <assignable>condition</assignable></selectable>
+						<selectable>after <assignable>time</assignable></selectable>
+					</selectables>
+					in accordance with <assignable>list of standards</assignable>.
+				</title>
+				<note role="application">
+					<h:p>
+						If a reseeding is selected in the first selection and something other than “never” is selected in the third
+						selection of FCS_RBG.1.3, but reseeding is not feasible, the TSF will uninstantiate RBGs, rather than produce
+						output that is of insufficient quality. The listed standards should specify the reseed interval and procedure
+						for uninstantiating and reseeding. The remaining selection allows the PP Author to require application-specific
+						conditions for reseeding.
+					</h:p>
+					<h:p>
+						"Uninstantiate” means that the internal state of the DRBG is no longer available for use. In the second 
+						selection of FCS_RBG.1.3, “on demand” means that a TOE presents an interface to reseed as a TSFI (e.g., 
+						an API call). The interface causes the DRBG to reseed at the request of an authorized user, either with an
+						internal source, an external source, or from input provided through the TSFI (e.g., the API call).
 					</h:p>
 				</note>
 				<aactivity>
-					<TSS> 
-						<h:p>
-							Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure that 
-							the formation of all password based derived keys is described and that the key sizes match that 
-							described by the ST author. 
-							The evaluator shall check that the TSS describes the method by which the password/passphrase is first encoded and then fed to 
-							the SHA algorithm. The settings for the algorithm (padding, blocking, etc.) shall be described, and the evaluator shall verify 
-							that these are supported by the selections in this component as well as the selections concerning the hash function itself. 
-							The evaluator shall verify that the TSS contains a description of how the output of the hash function is used to form the 
-							submask that will be input into the function.
-							For the NIST SP 800-132-based conditioning of the password/passphrase, the required evaluation activities will be performed when 
-							doing the evaluation activities for the appropriate requirements (FCS_COP.1.1/KeyedHash).
-							No explicit testing of the formation of the submask from the input password is required. 
-							FCS_PBKDF_EXT.1: The evaluator shall verify the TSS describes the salt size and verify it corresponds to the security strength selected</h:p>
+					<TSS>
+						If the ST specifies more than one DRBG, the evaluator shall examine the TSS to verify that it identifies the
+						usage of each DRBG mechanism. <h:br/><h:br/>
+						The evaluator shall examine the TSS to verify that it specifies the DRBG type, identifies entropy sources
+						initializing and reseeding the DRBG, and the situations under which this may occur.
 					</TSS>
-					<Guidance><h:p>The evaluator shall confirm the guidance documentation contains any information necessary for configuring
-						the password conditioning if any configuration is supported.</h:p></Guidance>
-					<Tests>None.</Tests>
+					<Guidance>
+						The evaluator shall verify that the Guidance instructs the administrator how to configure the TOE to use the
+						selected DRBG mechanism(s), if necessary, and provides information regarding how to instantiate/call the DRBG
+						for RBG services.<h:br/><h:br/>
+						If the ST claims that the DRBG state can be updated on demand, the evaluator shall verify that the guidance
+						includes instructions for how to perform this operation.
+					</Guidance>
+					<Tests>
+						The following tests are conditional based upon the selections made in the SFR. The evaluator
+						shall perform the following test or witness respective tests executed by the developer. The tests
+						must be executed on a platform that is as close as practically possible to the operational platform
+						(but which may be instrumented in terms of, for example, use of a debug mode). Where the test
+						is not carried out on the TOE itself, the test platform shall be identified and the differences
+						between test environment and TOE execution environment shall be described. <h:p/>
+						
+						<!-- HASH_DRBG, HMAC-DRBG -->
+						<h:br/><h:b>HASH_DRBG, HMAC_DRBG</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">RBG Algorithm</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">HASH_DRBG</h:td>
+								<h:td valign="top">Hash_DRBG with [<h:b>selection:</h:b> SHA-384,
+									SHA-512]</h:td>
+								<h:td valign="top">[<h:b>selection:</h:b> ISO/IEC 18031:2011 (Section C.2.2),
+									NIST SP 800-90A Revision 1 (Section 10.1.1)]</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">HMAC_DRBG</h:td>
+								<h:td valign="top">HMAC_DRBG with [<h:b>selection:</h:b> SHA-384,
+									SHA-512]</h:td>
+								<h:td valign="top">[<h:b>selection:</h:b> ISO/IEC 18031:2011 (Section C.2.3),
+									NIST SP 800-90A Revision 1 (Section 10.1.2)]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to generate random bits using Hash_DRBG or HMAC_DRBG, the
+						evaluator shall perform
+						the Algorithm Functional Test using the following input parameters:<h:ul>
+							<h:li>Function [SHA-384, SHA-512]</h:li>
+							<h:li>Max security strength [256] bits</h:li>
+							<h:li>Entropy length [256-65536] bits</h:li>
+							<h:li>Max Personalization String size [65536] bits</h:li>
+							<h:li>Max additional string [65536] bits</h:li>
+							<h:li>Nonce length [128-65536] bits</h:li>
+							<h:li>Min returned bits length [256, 384, 512]</h:li>
+							<h:li>Prediction resistance [on, off]</h:li>
+							<h:li>Reseed [on, off]</h:li></h:ul><h:p/>
+						<h:br/><h:b><h:i>Algorithm Functional Test</h:i></h:b><h:p/>
+						The evaluator shall generate 16 test groups for each claimed function. Eight with prediction
+						resistance enabled, and eight with prediction resistance turned off. For each of the eight test
+						groups, four must have reseed enabled and four must have reseed turned off.<h:p/>
+						Each test group within the core sets of four test groups shall consist of 15 test cases each, such
+						that minimum lengths and maximum lengths for the above parameters are used at least once
+						across the four groups, and the rest are random lengths.<h:p/>
+						Correctness is determined by comparing the results from a known-good implementation using
+						the same input parameters.<h:p/>
+						
+						<!-- CTR_DRBG -->
+						<h:br/><h:b>CTR_DRBG</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">RBG Algorithm</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">CTR_DRBG</h:td>
+								<h:td valign="top">CTR_DRBG with AES-CTR-256</h:td>
+								<h:td valign="top">[<h:b>selection:</h:b> ISO/IEC 18031:2011 (Section C.3.2),
+									NIST SP 800-90A Revision 1 (Section 10.2.1)]</h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to generate random bits using CTR_DRBG, the
+						evaluator shall perform the Algorithm Functional Test using the following input parameters:<h:ul>
+							<h:li>Mode [AES-CTR-256]</h:li>
+							<h:li>Max security strength [256] bits</h:li>
+							<h:li>Entropy length [256-65536] bits</h:li>
+							<h:li>Max Personalization String size [65536] bits</h:li>
+							<h:li>Max additional string [65536] bits</h:li>
+							<h:li>Nonce length [0-65536] bits</h:li>
+							<h:li>Min returned bits length [128]</h:li>
+							<h:li>Prediction resistance [on, off]</h:li>
+							<h:li>Reseed [on, off]</h:li>
+							<h:li>Derivation Function [true, false]</h:li></h:ul><h:p/>
+						<h:br/><h:b><h:i>Algorithm Functional Test</h:i></h:b><h:p/>
+						The evaluator shall generate 16 test groups for each claimed function and supported derivation
+						function state (on or off). Eight with prediction resistance enabled, and eight with prediction
+						resistance turned off. For each of the eight test groups, four must have reseed enabled and four
+						must have reseed turned off.<h:p/>
+						Each test group within the core sets of four test groups shall consist of 15 test cases each, such
+						that minimum supported lengths and maximum supported lengths for the above parameters are
+						used at least once across the four groups, and the rest are random lengths.<h:p/>
+						Correctness is determined by comparing the results from a known-good implementation using
+						the same input parameters.
+					</Tests>
 				</aactivity>
 			</f-element>
+			<audit-event>
+				<audit-event-descr>Failure of the randomization process</audit-event-descr>
+				<audit-event-info>None.</audit-event-info>
+			</audit-event>
 		</f-component>
--->
-
-        
-		<f-component cc-id="fcs_rbg.1" name="Random Bit Generation (RBG)" status="sel-based">
-        	<depends on="drbg"/>
-          <f-element id="fel-rbg-init-seed">
-            <title>***UPDATE TO LEVERAGE APPROPRIATE RBG SFRS FOR RETRANS
-              The TSF shall perform deterministic random bit generation services using 
-              <selectables linebreak="yes">
-                <selectable>Hash_DRBG (any)</selectable>
-                <selectable>HMAC_DRBG (any)</selectable>
-                <selectable>CTR_DRBG (AES)</selectable>
-              </selectables>
-              in accordance
-              with [<h:i>NIST SP 800-90A</h:i>] after initialization with a seed.              
-            </title>
-            <note role="application">
-              NIST SP 800-90A contains three different methods of generating random numbers;
-              each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers).
-              The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the TSS.
-              While any of the identified hash functions (SHA-224, SHA-256, SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG,
-              only AES-based implementations for CTR_DRBG are allowed.
-            </note>
-            <aactivity level="element">
-              <TSS>The evaluator shall verify that the TSS identifies the DRBGs used by the TOE.</TSS>
-              <Guidance>If the DRBG functionality is configurable, the evaluator shall verify that the operational guidance includes instructions on how to configure this behavior.</Guidance>
-              <Tests>
-                <h:p>
-                  The evaluator shall perform the following tests:
-                </h:p><h:p>
-                  The evaluator shall perform 15 trials for the RNG implementation. If the RNG
-                  is configurable, the evaluator shall perform 15 trials for each configuration. The
-                  evaluator shall also confirm that the operational guidance contains appropriate
-                  instructions for configuring the RNG functionality.
-                </h:p><h:p>
-                  If the RNG has  prediction resistance enabled, each trial consists of (1) instantiate DRBG, (2)
-                  generate the first block of random bits (3) generate a second block of random bits
-                  (4) uninstantiate. The evaluator verifies that the second block of random bits is
-                  the expected value. The evaluator shall generate eight input values for each
-                  trial. The first is a count (0 – 14). The next three are entropy input, nonce, and
-                  personalization string for the instantiate operation. The next two are additional
-                  input and entropy input for the first call to generate. The final two are
-                  additional input and entropy input for the second call to generate. These values
-                  are randomly generated. "generate one block of random bits" means to generate
-                  random bits with number of returned bits equal to the Output Block Length (as
-                  defined in NIST SP 800-90A).
-                </h:p><h:p>
-                  If the RNG does not have prediction resistance,
-                  each trial consists of (1) instantiate DRBG, (2) generate the first block of
-                  random bits (3) reseed, (4) generate a second block of random bits (5)
-                  uninstantiate. The evaluator verifies that the second block of random bits is the
-                  expected value. The evaluator shall generate eight input values for each trial.
-                  The first is a count (0 – 14). The next three are entropy input, nonce, and
-                  personalization string for the instantiate operation. The fifth value is
-                  additional input to the first call to generate. The sixth and seventh are
-                  additional input and entropy input to the call to reseed. The final value is
-                  additional input to the second generate call.
-                </h:p><h:p>
-                  The following list contains more information on some of the input values to be generated/selected by the evaluator.
-                  <h:ul>
-                    <h:li> <h:b>Entropy input:</h:b> The length of the entropy input value must equal the seed
-                      length.</h:li>
-                    
-                    <h:li><h:b>Nonce:</h:b> If a nonce is supported (CTR_DRBG with no Derivation Function does
-                      not use a nonce), the nonce bit length is one-half the seed length. </h:li>
-                    <h:li><h:b>Personalization string:</h:b> The length of the personalization string must be
-                      less than or equal to seed length. If the implementation only supports one
-                      personalization string length, then the same length can be used for both values.
-                      If more than one string length is support, the evaluator shall use personalization
-                      strings of two different lengths. If the implementation does not use a
-                      personalization string, no value needs to be supplied. </h:li>
-                    <h:li><h:b>Additional input:</h:b> The additional input bit lengths have the same defaults
-                      and restrictions as the personalization string lengths.</h:li>
-                  </h:ul>
-                </h:p>
-              </Tests>
-            </aactivity>
-          </f-element>
-          <f-element id="fel-rbg-init-seed-how">
-            <title>
-              The TSF shall use a <selectables>
-                <selectable id="internal-seed">TSF noise source <assignable>name of noise source</assignable></selectable>
-                <selectable id="internal-seeds"><h:b>multiple TSF noise sources <assignable>names of noise sources</assignable></h:b></selectable>
-                <selectable id="external-seed">TSF interface for seeding</selectable>
-              </selectables>
-              for initialized seeding.
-            </title>
-            <note role="application">
-              <h:p>
-                For the 
-                selection in this requirement, the ST author selects "TSF noise source" if
-                a single noise source is used as input to the DRBG. The ST author selects "multiple TSF noise sources" if a seed is formed from a combination of two or more noise sources within the TOE boundary. If the TSF implements two or more separate DRBGs that are seeded in separate manners, this SFR should be iterated for each DRBG. It multiple distinct noise sources exist such that each DRBG only uses one of them, then each iteration would select "TSF noise source"; "multiple TSF noise sources" is only selected if a single DRBG uses multiple noise sources for its seed. The ST author selects "TSF interface for seeding" if noise source data is generated outside the TOE boundary.
-              </h:p>
-              <h:p>
-                If "TSF noise source" is selected, FCS_RBG.3 must be claimed.
-              </h:p>
-              <h:p>
-                If "multiple TSF noise sources" is selected, FCS_RBG.4 and FCS_RBG.5 must be claimed. 
-              </h:p>
-              <h:p>
-                If "TSF interface for seeding" is selected, FCS_RBG.2 must be claimed. 
-              </h:p>
-            </note>
-            <aactivity level="element">
-            	<h:p>
-            		Documentation will be produced - and the evaluator shall perform the
-            		activities - in accordance with <xref to="entropyappendix"/> and
-            		the
-            		<h:a href="https://old.niap-ccevs.org/Documents_and_Guidance/ccevs/Entropy%20Documentation%20and%20Assessment%20Clarification.pdf"
-            			>Clarification to the Entropy Documentation and Assessment Annex</h:a>.
-            	</h:p>
-              <TSS/>
-              <Guidance/>
-              <Tests/>
-              
-            </aactivity>
-          </f-element>
-          
-          <f-element id="fel-rbg-init-seed-when">
-            <title>
-              The TSF shall update the RBG state by <selectables>
-                <selectable>reseeding</selectable>
-                <selectable>uninstantiating and reinstantiating</selectable>
-              </selectables> using a <selectables>
-                <selectable>TSF noise source <assignable>name of noise source</assignable></selectable>
-                <selectable>TSF interface for seeding</selectable></selectables>
-              in the following situations: <selectables linebreak="yes">
-                <selectable>on demand</selectable>
-                <selectable>on the condition: <assignable>condition</assignable></selectable>
-                <selectable>after <assignable>time</assignable></selectable>
-              </selectables>
-              in accordance with <assignable>list of standards</assignable>.
-            </title>
-            <aactivity level="element">              
-              <TSS>
-                The evaluator shall verify that the TSS identifies how the DRBG state is updated, and the situations under which this may occur.
-              </TSS>
-              <Guidance>If the ST claims that the DRBG state can be updated on demand, the evaluator shall verify that the operational guidance has instructions for how to perform this operation.</Guidance>
-              <Tests/>
-            </aactivity>
-          </f-element>
-        </f-component>    
 		
 		<f-component cc-id="fcs_rbg.2" name="Random Bit Generation (External Seeding)"  status="sel-based">
-			<depends on="external-seed"/>
+			<depends on-sel="sel-drbg-external-seed"/>
 			<f-element id="fe1-rbg-seed">
 				<title>
 					The TSF shall be able to accept a minimum input of <assignable>minimum input length greater than zero</assignable>
 					from a TSF interface for the purpose of seeding.
 				</title>
 				<note role="application">
-					This requirement is claimed when a DRBG is seeded with entropy from one or more noise source that is outside the TOE
-					boundary. Typically the entropy produced by an environmental noise source is conditioned such that the input length has
-					full entropy and is therefore  usable as the seed. However, if this is not the case, it should be noted what the minimum
-					entropy rate of the noise source is so that the TSF can collect a sufficiently large sample of noise data to be
-					conditioned into a seed value.
+					This requirement is claimed when a DRBG is seeded with entropy from one or more noise source that is outside
+					the TOE boundary. In the case of a mobile device this would likely only occur when the entropy source is a 
+					Dedicated Security Component that is integrated with the TOE. Typically the entropy produced by an environmental
+					noise source is conditioned such that the input length has full entropy and is therefore usable as the seed. 
+					However, if this is not the case, it should be noted what the minimum entropy rate of the noise source is so 
+					that the TSF can collect a sufficiently large sample of noise data to be conditioned into a seed value.
 				</note>
 			<aactivity>
 				<h:p>
-				The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies, for each DRBG function implemented by the TOE, the TSF external interface used to seed the TOE's DRBG. The evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data such that it can be determined that sufficient entropy can be made available for the highest strength keys that the TSF can generate (e.g., 256 bits). If the seed data cannot be assumed to have full entropy (e.g., the min-entropy of the sampled bits is less than 1), the evaluator shall ensure that the entropy documentation describes the method by which the TOE estimates the amount of entropy that has been accumulated to ensure that sufficient data is collected and any conditioning that the TSF applies to the output data to create a seed of sufficient size with full entropy.
+				The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies, for each
+				DRBG function implemented by the TOE, the TSF external interface used to seed the TOE's DRBG. The evaluator shall 
+				verify that this includes the amount of sampled data and the min-entropy rate of the sampled data such that it can be
+				determined that sufficient entropy can be made available for the highest strength keys that the TSF can generate 
+				(e.g., 256 bits). If the seed data cannot be assumed to have full entropy (e.g., the min-entropy of the sampled bits
+				is less than 1), the evaluator shall ensure that the entropy documentation describes the method by which the TOE 
+				estimates the amount of entropy that has been accumulated to ensure that sufficient data is collected and any 
+				conditioning that the TSF applies to the output data to create a seed of sufficient size with full entropy.
 				</h:p>
 				<TSS/>
 				<Guidance/>
@@ -3897,7 +4518,7 @@
 		</f-component>
 
         <f-component cc-id="fcs_rbg.3" name="Random Bit Generation (Internal Seeding - Single Source)" status="sel-based">
-          <depends on="internal-seed"/>
+        	<depends on="sel-drbg-internal-seed"/>
           <f-element id="fel-rbg-seed-int-sing">
             <title>
               The TSF shall be able to seed the RBG using a <selectables onlyone="yes">
@@ -3905,45 +4526,98 @@
                 <selectable>TSF hardware-based noise source <assignable>name of noise source</assignable></selectable></selectables>
                 with a minimum of <assignable>number of bits</assignable> bits of min-entropy.
             </title>        
-            <note role="application">This requirement is claimed when a DRBG is seeded with entropy from a single noise source that is within the TOE boundary. Min-entropy should be expressed as a ratio of entropy bits to sampled bits so that the total amount of data needed to ensure full entropy is known, as well as the conditioning function by which that data is reduced in size to the seed.</note>
+          	<note role="application">The ST author claims this requirement when a TOE uses a single internal source of entropy
+          		to initialize or reseed a DRBG. Seeding a DRBG is the same as initializing a DRBG.<h:br/><h:br/>
+          		Hardware-based noise sources are entropy sources whose primary function is noise generation, such as ring 
+          		oscillators, diodes, and thermal noise. While a TOE may use software to collect the noise from these hardware
+          		sources, these are not software-based.<h:br/><h:br/>
+          		Software-based noise sources generate noise as a byproduct of their normal operation. Examples of software-based
+          		noise sources can be user or system-based events such as reading the least significant bits from an event timer,
+          		etc.<h:br/><h:br/>
+          		The TOE collects enough input from the internal noise source such that the total measured entropy of the input is
+          		sufficient to initialize or reseed a DRBG. The ST author ensures that the assignment is completed with the number
+          		of bits of the input sufficient to initialize or reseed a DRBG.
+          	</note>
 
           <aactivity>
-          <h:p>
-            The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies, for each DRBG function implemented by the TOE, the TSF noise source used to seed the TOE's DRBG. The evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data such that it can be determined that sufficient entropy can be made available for the highest strength keys that the TSF can generate (e.g., 256 bits). If the seed data cannot be assumed to have full entropy (e.g., the min-entropy of the sampled bits is less than 1), the evaluator shall ensure that the entropy documentation describes the method by which the TOE estimates the amount of entropy that has been accumulated to ensure that sufficient data is collected and any conditioning that the TSF applies to the output data to create a seed of sufficient size with full entropy.
-          </h:p>
-            <TSS/>
-            <Guidance/>
-            <Tests/>
+            <TSS>
+            	The evaluator shall verify that the TSS documents the types of entropy sources selected
+            	in FCS_RBG.3.1 and indicates the amount of entropy provided by these sources.
+            </TSS>
+            <Guidance>
+            	The evaluator shall verify that the guidance describes any settings, operational
+            	requirements, or user input necessary for the proper function of the entropy sources.
+            </Guidance>
+            <Tests>
+            	The evaluator shall exercise the interface to determine whether the interface can
+            	handle at least the number of bits claimed in the assignment.
+            </Tests>
           </aactivity>
                 </f-element>
         </f-component>
+		
+		<f-component name="Random Bit Generation (Internal Seeding - Multiple Sources)" cc-id="fcs_rbg.4" status="feat-based">
+			<depends on="pfedspec"/>
+			<f-element id="fe1-rbg-comb">
+				<title>
+					The TSF shall be able to seed the DRBG using <selectables>
+						<selectable><assignable>number</assignable> TSF software-based entropy sources</selectable>
+						<selectable><h:b><assignable>number</assignable> TSF hardware-based entorpy sources</h:b></selectable>
+					</selectables>.
+				</title>
+			</f-element>
+		</f-component>
         
         <f-component cc-id="fcs_rbg.4" name="Random Bit Generation (Internal Seeding - Multiple Sources)" status="sel-based">
-          <depends on="internal-seeds"/>
+        	<depends on="sel-drbg-multiple-sources"/>
           <f-element id="fel-rbg-seed-int-mult">
             <title>
-              The TSF shall be able to seed the RBG using <selectables>
-                <selectable><assignable>number</assignable> TSF software-based noise source(s)</selectable>
-                <selectable><assignable>number</assignable> TSF hardware-based noise source(s)</selectable>
+              The TSF shall be able to seed the DRBG using <selectables>
+                <selectable><assignable>number</assignable> TSF software-based entropy sources</selectable>
+                <selectable><assignable>number</assignable> TSF hardware-based entropy sources</selectable>
               </selectables>.
             </title>
             <note role="application">
-              This requirement is claimed when a DRBG is seeded with entropy from multiple noise sources that are within the TOE boundary. 
-              FCS_RBG.5 defines the mechanism by which these sources are combined to ensure sufficient minimum entropy.
+            	The ST author claims this requirement when a TOE uses two or more internal sources of entropy to initialize or
+            	reseed a DRBG. Seeding a DRBG is the same as initializing a DRBG. FCS_RBG.5 defines the mechanism by which these
+            	sources are combined to ensure sufficient minimum entropy.
             </note>
-          <aactivity>
-          <h:p>
-            The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies, for each DRBG function implemented by the TOE, each TSF noise source used to seed the TOE's DRBG. The evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data from each data source.
-          </h:p>
-            <TSS/>
-            <Guidance/>
+          <aactivity>          
+            <TSS>
+            	The evaluator shall verify that the TSS documents number and the types of entropy sources selected in FCS_RBG.4.1.
+            </TSS>
+            <Guidance>
+            	The evaluator shall verify that the Guidance describes any settings, operational requirements, or user input necessary
+            	for the proper function of the noise sources.
+            </Guidance>
             <Tests/>
           </aactivity>
           </f-element>
         </f-component>
           
-        <f-component cc-id="fcs_rbg.5" name="Random Bit Generation (Combining Noise Sources)" status="sel-based">
-          <depends on="internal-seeds"/>
+        <f-component name="Random Bit Generation (Combining Entropy Sources)" cc-id="fcs_rbg.5" status="feat-based">
+        <depends on="pfedspec"/>
+		<f-element id="fe1-rbg-comb">
+			<title>
+				The TSF shall <selectables>
+					<selectable>hash</selectable>
+					<selectable>concatenate and hash</selectable>
+					<selectable>XOR</selectable>
+					<selectable>input into a linear feedback shift register</selectable>
+					<selectable><assignable>combining operation</assignable></selectable></selectables>
+				<selectables>
+					<selectable>output from TSF entropy sources</selectable>
+					<selectable>input from TSF interfaces for obtaining entropy</selectable>
+				</selectables>
+				resulting in a minimum of <assignable>number of bits</assignable> bits of min-entropy to create
+				the entropy input into the derivation function as defined in [<h:i>NIST SP 800-90A Revision
+					1</h:i>].
+			</title>
+		</f-element>
+		</f-component>
+		
+		<f-component cc-id="fcs_rbg.5" name="Random Bit Generation (Combining Entropy Sources)" status="sel-based">
+        	<depends on="sel-drbg-multiple-sources"/>
           <f-element id="fel-rbg-comb">
             <title>
               The TSF shall <assignable>combining operation</assignable> <selectables>
@@ -3963,344 +4637,166 @@
             <Guidance/>
             <Tests/>
           </aactivity>
-          </f-element>
-        </f-component>  
+          </f-element>    
+		</f-component>  
 		
-		<ext-comp-def fam-id="FCS_RBG_EXT" title="Random Bit Generation">
-			<fam-behavior>This family defines requirements for the generation of random bits.</fam-behavior>
-		</ext-comp-def>
-		
-		
-		<!-- FCS_RBG_EXT.1  -->
-		<f-component cc-id="fcs_rbg_ext.1" name="Random Bit Generation Services">
-			
-			<comp-lev> requires the TSF to specify whether random bit generation is implemented by the TSF, 
-				invoked from the operational environment, or not used by the TOE.</comp-lev>
-			<management>No specific management functions are identified.</management>
-			<audit>There are no auditable events foreseen.</audit>
-			<dependencies>
-				No dependencies.
-			</dependencies>
-			
-			<f-element id="fel-rbg">
-				<title> The application shall
-					<selectables linebreak="yes">
-						<selectable exclusive="yes">use no DRBG functionality</selectable>
-						<selectable>invoke platform-provided DRBG functionality</selectable>
-						<selectable id="drbg">implement DRBG functionality</selectable></selectables> for its cryptographic operations. 
-				</title>
-				<note role="application"> 
-					<h:p>
-						The selection "<h:b>invoke platform-provided DRBG functionality</h:b>"
-						should only be chosen for direct invocations of the platform DRBG, calls to platform protocols
-						that may then call the platform's DRBG are not directly using DRBG functionality  and should
-						select "<h:b>use no DRBG functionality</h:b>." 
-					</h:p><h:p>
-						If "<h:b>implement DRBG functionality</h:b>" is selected, FCS_RBG.1 must be claimed.
-					</h:p><h:p>
-						In this requirement, cryptographic operations include all cryptographic key generation/derivation/agreement, IVs (for
-						certain modes), as well as protocol-specific random values. Cryptographic operations in this requirement refer to
-						the other cryptographic requirements in this PP, not additional functionality that is not in scope.
-					</h:p>
+		<!-- FCS_RBG.6 Random Bit Generation Service -->
+		<f-component id="sfr-fcs-rbg-6" cc-id="fcs_rbg.6" name="Random Bit Generation Service" status="sel-based">			
+			<depends><optional/></depends>
+			<f-element id="fcs-rbg-6e1">
+				<title>
+					The TSF shall provide a <selectables>
+						<selectable>hardware</selectable>
+						<selectable>software</selectable>
+						<selectable><assignable>other interface type</assignable></selectable> </selectables>
+					interface to make the DRBG output, as specified in FCS_RBG.1 Random Bit Generation (RBG), 
+					available as a service to entities outside of the TOE.
+				</title> 
+				<note role="application">
+					This SFR must be included in the ST if the TOE provides an entropy source accessible to tenant software.<h:p/>
+					This requirement ensures that the TOE makes available entropy to any tenant
+					that requires it.
 				</note>
 				<aactivity>
 					<TSS>
-						<h:p>
-							If "<h:b>use no DRBG functionality</h:b>" is selected, the evaluator shall inspect the application 
-							and its developer documentation and verify that the application needs no random bit generation services. 
-						</h:p><h:p>
-							If "<h:b>implement DRBG functionality</h:b>" is selected, the evaluator shall ensure
-							that FCS_RBG.1 is claimed.
-						</h:p><h:p>
-							If "<h:b>invoke platform-provided DRBG functionality</h:b>" is selected, the evaluator 
-							performs the following activities.  The evaluator shall examine 
-							the TSS to confirm that it identifies all functions (as described by the
-							SFRs included in the ST) that obtain random numbers from the platform RBG.  The evaluator 
-							shall determine that for each of these functions, the TSS states which 
-							platform interface (API) is used to obtain the random numbers.  The evaluator shall confirm 
-							that each of these interfaces corresponds to the acceptable interfaces listed for each platform 
-							below.
-						</h:p><h:p>
-							It should be noted that there is no expectation that the evaluators attempt to confirm 
-							that the APIs are being used correctly for the functions identified in the TSS; 
-							the activity is to list the used APIs and then do an existence check via decompilation.
-						</h:p>
+						The evaluator shall examine the TSS to verify that it describes how the DRBG output is made
+						available to entities outside the TOE.
 					</TSS>
-					<Guidance><h:p>The evaluator shall verify the guidance documentation contains any information required for configuring the DRBG.</h:p></Guidance>
+					<Guidance>
+						The evaluator shall examine the guidance to verify that it describes how to configure and use the
+						claimed interface(s) so that DRBG output is available to entities outside of the TOE.
+					</Guidance>
 					<Tests>
-						<h:p>
-							If "<h:b>invoke platform-provided DRBG functionality</h:b>" is selected, the following tests shall be performed:
-						</h:p><h:p>
-							The evaluator shall decompile the application binary using a decompiler 
-							suitable for the application (TOE).  The evaluator shall search the output of the 
-							decompiler to determine that, for each API listed in the TSS, that API 
-							appears in the output.  If the representation of the API does not correspond directly to 
-							the strings in the following list, the evaluator shall provide a mapping from the 
-							decompiled text to its corresponding API, with a description of why the API text does 
-							not directly correspond to the decompiled text and justification that the decompiled text 
-							corresponds to the associated API.
-						</h:p><h:p>
-							***Define appropriate for retrans. The following are the per-platform list of acceptable APIs:
-							<!--
-							<h:div><depends ref="android"/> 
-								The evaluator shall verify that the application uses at least one of <h:code>javax.crypto.KeyGenerator</h:code> 
-								class or the <h:code>java.security.SecureRandom</h:code> class or <h:code>/dev/random
-								</h:code> or <h:code>/dev/urandom</h:code>.
-							</h:div>
-							<h:div><depends ref="windows"/>
-								The evaluator shall verify that rand_s, RtlGenRandom, BCryptGenRandom, or 
-								CryptGenRandom API is used for classic desktop applications. The evaluator shall 
-								verify the application uses the RNGCryptoServiceProvider class or derives a class 
-								from System.Security.Cryptography.RandomNumberGenerator API for Windows Universal
-								Applications. It is only required that the API is called/invoked, there is no 
-								requirement that the API be used directly. In future versions of this document, 
-								CryptGenRandom may be removed as an option as it is no longer the preferred API per
-								vendor documentation. </h:div>
-							<h:div><depends ref="ios"/> 
-								The evaluator shall verify that the application invokes either
-								<h:code>SecRandomCopyBytes</h:code>, <h:code>CCRandomGenerateBytes</h:code>, or <h:code>CCRandomCopyBytes</h:code>, or uses <h:code>/dev/random</h:code> directly to acquire random.
-							</h:div>
-							<h:div><depends ref="linux"/> 
-								The evaluator shall verify that the application collects random from <h:code>/dev/random</h:code>
-								or <h:code>/dev/urandom</h:code>.
-							</h:div>
-							<h:div><depends ref="Solaris"/>
-								The evaluator shall verify that the application collects random from <h:code>/dev/random</h:code>.
-							</h:div>
-							<h:div><depends ref="mac"/>
-								The evaluator shall verify that the application invokes either <h:code>CCRandomGenerateBytes</h:code> or <h:code>CCRandomCopyBytes</h:code>, or collects random from <h:code>/dev/random</h:code>.
-							</h:div>
-						</h:p><h:p>
-							If invocation of platform-provided functionality is achieved in another way, the evaluator 
-							shall ensure the TSS describes how this is carried out, and how it is equivalent to the 
-							methods listed here (e.g. higher-level API invokes identical low-level API).
-						-->
-						</h:p>
-						
+						The evaluator shall perform the following test:<h:p/>
+						The evaluator shall invoke the entropy sources from tenant software.
+						The evaluator shall verify that the tenant acquires values from the interface.
 					</Tests>
 				</aactivity>
-			</f-element>		
+			</f-element>
+			<audit-event/>
 		</f-component>
 		
-			<ext-comp-def fam-id="FCS_STO_EXT" title="Storage of Credentials">
-	  <fam-behavior>This family defines requirements for the secure storage of credential data. </fam-behavior>
-	</ext-comp-def>
-	
-	<!-- FCS_STO_EXT.1 Storage of Credential -->
-	<f-component cc-id="fcs_sto_ext.1" name="Storage of Credentials">
-	  
-	  <comp-lev>requires the application to define how to store credentials to non-volatile memory.</comp-lev>
-		<management>No specific management functions are identified.</management>
-		<audit>There are no auditable events foreseen.</audit>
-		<dependencies>
-			No dependencies.
-		</dependencies>
-	  
-	  <f-element id="fel-store-creds">
-				<title>The TOE  shall 
-					<selectables linebreak="yes">
-						<selectable exclusive="yes">not store any credentials</selectable>
-						<selectable>invoke the functionality provided by the platform to securely store 
-							<assignable>list of credentials</assignable>
-						</selectable>
-						<selectable id="sel_plat_sto">
-							securely store
-							<assignable>list of credentials</assignable>
-							with platform provided
-							<selectables>
-								<selectable>
-									<selectables linebreak="yes">
-									<selectable>AES-CBC (as defined in NIST SP 800-38A) mode</selectable>
-									<selectable>AES-GCM (as defined in NIST SP 800-38D) mode</selectable>
-									<selectable>AES-XTS (as defined in NIST SP 800-38E) mode</selectable>
-									</selectables> and cryptographic key size of 256-bits.
-								</selectable>
-								<selectable>PBKDF2 function that uses <selectables linebreak="yes">
-									<selectable>HMAC-SHA256</selectable>
-									<selectable>HMAC-SHA384</selectable>
-									<selectable>HMAC-SHA512</selectable>
-								</selectables> with <assignable>positive integer of 1,000 or more</assignable> iterations 
-									and output cryptographic key size of <assignable>positive 
-										integer of 256 of greater</assignable> bits that meet the following [<h:i>NIST SP 800-132</h:i>].  
-								</selectable>
-							</selectables>
-						</selectable>
-						<selectable id="sel_impl_sto">
-							implement functionality to securely store
-							<assignable>list of credentials</assignable>
-							according to
-							<selectables>
-								<selectable id="sel-fcs-sto-skc">FCS_COP.1/SKC</selectable>
-								<selectable id="sel-fcs-sto-pbkdf">FCS_PBKDF_EXT.1</selectable>
-							</selectables>
-						</selectable>
-					</selectables>
-					to non-volatile memory.
+		<!-- FCS_STG_EXT.2 Key Storage Encryption -->
+		<f-component id="sfr-fcs-stg-ext-2" cc-id="fcs_stg_ext.2" name="Encrypted Cryptographic Key
+			Storage" status="sel-based">
+			<depends on-sel="sel-stg1-sw-based"/>  <!-- implies sel-stg2-sw-based -->
+			<consistency-rationale/>
+			<comp-lev>requires the TSF to ensure the confidentiality of stored
+				data using a specified method.</comp-lev>
+			<management/>
+			<audit/>
+			<dependencies><h:br/>FCS_COP.1 Cryptographic Operation<h:br/>
+				FCS_STG_EXT.1 Protected Storage</dependencies>
+			<f-element id="fcs-stg-ext-2e1">
+				<title>
+					The TSF shall encrypt [<h:i>AKs, SKs, KEKs, and 
+						<selectables>
+							<selectable>long-term trusted channel key material</selectable>
+							<selectable id="sel-stg2-sw-based">all software-based key storage</selectable>
+							<selectable exclusive="yes">no other keys</selectable>
+						</selectables></h:i>] using Key Wrapping as defined in FCS_COP.1/KeyWrap.
 				</title>
-
-	<ext-comp-def-title><title>The TOE shall 
-					<selectables linebreak="yes">
-						<selectable exclusive="yes">not store any credentials</selectable>
-						<selectable>invoke the functionality provided by the platform to securely store 
-							<assignable>list of credentials</assignable>
-						</selectable>
-						<selectable>implement functionality to securely store
-							<assignable>list of credentials</assignable>
-							according to
-							<assignable>cryptographic mechanisms</assignable>
-						</selectable></selectables>
-					to non-volatile memory.
-				      </title>
-				      </ext-comp-def-title>
-				
+				<ext-comp-def-title><title>
+					The TSF shall encrypt <assignable>types of key material</assignable> using 
+					<assignable>cryptographic algorithm</assignable>.
+				</title>
+				</ext-comp-def-title>
 				<note role="application">
-					This requirement ensures that persistent credentials (secret keys, PKI private keys, passwords, etc) 
-					are stored securely, and never persisted in cleartext form. 
-					Application developers are encouraged to use platform mechanisms for the secure storage of credentials. 
-					Depending on the platform that may include hardware-backed protection for credential storage. Application
-					developers must choose a selection, or multiple selections, based on all credentials that the application
-					stores. If "<h:b>not store any credentials</h:b>" is selected, then the application must not store any credentials.
-					If "<h:b>invoke the functionality provided by the platform to securely store</h:b>" is selected, then the 
-					Application developer must closely review the EA for their platform and provide documentation indicating
-					which platform mechanisms are used to store credentials. 
-					If "<h:b>implement functionality to securely store credentials</h:b>" is selected, then the following components 
-					must be included in the ST: FCS_COP.1/SKC or FCS_PBKDF_EXT.1.
-					If other cryptographic operations are used to implement the secure storage of credentials, the corresponding 
-					requirements must be included in the ST. If the OS is Linux and Java KeyStores are used to store 
-					credentials, "<h:i>implement functionality to securely store credentials</h:i>" must be selected.
-				</note>           
+					This SFR is included in the ST if "software-based" is selected in FCS_STG_EXT.1.
+				</note>
 				<aactivity>
 					<TSS>
-					<h:p>
-						The evaluator shall check the TSS to ensure that it lists all persistent 
-						credentials (secret keys, PKI private keys, or passwords) needed to meet the 
-						requirements in the ST. For each of these items, the evaluator shall 
-						confirm that the TSS lists for what purpose it is used, and how it is stored. 
-					</h:p><h:p>
-						If <h:b>securely store</h:b> is selected, the evaluator shall verify the TSS contains the platform functions utilized and verify those functions 
-						are documented by the platform to be non-deprecated functions meeting the specifications in the requirement.
-					</h:p><h:p>
-						If <h:b>invoke the functionality provided by the platform to securely store</h:b> ***Define how this makes sense for retrans.</h:p>
-					</TSS>              
-					<Guidance><h:p>None.</h:p></Guidance>
-					<Tests>
-						***TBD
-						<!--For all credentials for which the application implements functionality, the evaluator shall 
-						verify credentials are encrypted according to FCS_COP.1/SKC or conditioned according to FCS_PBKDF_EXT.1.
-						For all credentials for which the application invokes platform-provided
-						functionality, the evaluator shall perform the following actions which vary per platform.
-						<h:div><depends ref="android"/>The evaluator shall verify that the application uses
-							the Android <h:code>KeyStore</h:code> or the Android <h:code>KeyChain</h:code> to store certificates.  
-						</h:div>
-						<h:div><depends ref="windows"/>The evaluator shall verify that all certificates are
-							stored in the Windows Certificate Store. The evaluator shall verify that other
-							credentials, like passwords, are stored in the Windows Credential Manager or stored 
-							using the Data Protection API (DPAPI). For Windows Universal Applications, the evaluator shall 
-							verify that the application is using the ProtectData class and storing credentials 
-							in IsolatedStorage.
-						</h:div>
-						<h:div><depends ref="ios"/>
-							The evaluator shall verify that all credentials are stored
-							within a <h:code>Keychain</h:code>. 
-						</h:div>
-						<h:div><depends ref="linux"/>
-							The evaluator shall verify that all keys are stored using Linux keyrings.
-						</h:div>
-						<h:div><depends ref="Solaris"/>
-							The evaluator shall verify that all keys are stored using Solaris 
-							<h:code>Key Management Framework (KMF)</h:code>.
-						</h:div>
-						<h:div><depends ref="mac"/>The evaluator shall verify that all credentials are 
-							stored within <h:code>Keychain</h:code>.</h:div>-->
-					</Tests>
-				</aactivity>
-			</f-element>
-        </f-component>
-		
-		<!-- FCS_SNI_EXT.1 Salts Nonces and Initialization Vectors -->
-		<f-component cc-id="fcs_sni_ext.1" name="Cryptographic Operation (Salt, Nonce, and Initialization Vector Generation)">
-			
-			<comp-lev>requires the application to define how to generate salt, nonces, and initialization vectors</comp-lev>
-			<management>No specific management functions are identified.</management>
-			<audit>There are no auditable events foreseen.</audit>
-			<dependencies>
-				No dependencies.
-			</dependencies>
-			
-			<f-element id="fel-sni">
-				<title>The application shall 
-					<selectables>
-						<selectable>use no salts</selectable>
-						<selectable>use salts that are generated by a DRBG as specified in FCS_RBG_EXT.1</selectable>
-					</selectables>
-				</title>
-			</f-element>
-			<f-element>
-				<title>The application shall use 
-					<selectables>
-						<selectable>no nonces</selectable>
-						<selectable>unique nonces with a minimum size of [64] bits].</selectable>
-					</selectables>
-				</title>
-			</f-element>
-			<f-element>
-				<title>The application shall 
-					<selectables>
-						<selectable>use no IVs</selectable>
-						<selectable>create IVs in the following manner 
-							<selectables linebreak="yes">
-								<selectable>CBC: IVs shall be non-repeating and unpredictable;</selectable>
-								<selectable>CCM: Nonce shall be non-repeating;</selectable>
-								<selectable>CTR: "Initial Counter" shall be non-repeating. No counter value shall be repeated
-								across multiple messages with the same secret key.</selectable>
-								<selectable>XTS: No IV. Tweak values shall be non-negative integers, assigned consecutively,
-									and starting at an arbitrary non-negative integer;</selectable>
-								<selectable>GCM: IV shall be non-repeating. The number of invocations of GCM shall not exceed
-									2^32 for a given secret key]. The IV constructed using one of two allowed construction methods 
-									given in Section 8.2 of NIST SP 800-38D.</selectable>
-							</selectables>
-						</selectable>
-					</selectables>
-					
-				</title>
-				
-				<note role="application">
-					This requirement ensures that salts, nonces, and initialization vectors are properly implemented.  If the application is implementing
-					a salt, nonce, or initialization vector they must select the corresponding selection.  If the platform is performing a function that
-					uses a salt, nonce, or initialization vector the selection use no selection shall be made.
-				</note>           
-				<aactivity>
-					<TSS>
-						<h:p>
-							If salts are used the evaluator shall ensure the TSS describes how salts are generated. The evaluator
-							shall confirm that the salt is generating using an RBG described in FCS_RBG_EXT.1. 
-						</h:p><h:p>
-							If nonces are used the evaluator shall ensure the TSS describes how nonces are created verify they are a minimum of 64 bits in size.
-						</h:p><h:p>
-							If initialization vectors (IV) are used the evaluator shall ensure the TSS describes how
-							IVs and tweaks are handled based on the AES mode. The evaluator shall confirm that
-							the IVs and tweaks meet the stated requirements for each AES mode.
-						</h:p><h:p>If using a GCM IV, the evaluator shall confirm the TSS describes the GCM IV construction and that it matches 
-							one of two allowed construction methods given in Section 8.2 of SP800-38D.</h:p> 
-					</TSS>              
-					<Guidance><h:p>None.</h:p></Guidance>
-					<Tests>
-						None.
-					</Tests>
+						The evaluator shall review the TSS to determine that the TSS describes the
+						protection of symmetric keys, KEKs, long-term trusted channel key material, and
+						software-based key storage as claimed in FCS_STG_EXT.2.1.
+					</TSS>
+					<Guidance/>
+					<Tests/>
 				</aactivity>
 			</f-element>
 		</f-component>
+		
+		<!-- FCS_STG_EXT.3 Key Integrity Protection  -->
+		<f-component id="sfr-fcs-stg-ext-3" cc-id="fcs_stg_ext.3" name="Key Integrity Protection" status="sel-based">
+			<depends on-sel="sel-stg1-sw-based"/>
+			<consistency-rationale/>
+			<comp-lev>requires the TSF to ensure the integrity of stored data
+				using a specified method.
+			</comp-lev>
+			<management/>
+			<audit/>
+			<dependencies><h:br/>FCS_COP.1 Cryptographic Operation</dependencies>
+			<f-element id="fcs-stg-ext-3e1">
+				<title>
+					The TSF shall protect the integrity of any encrypted [<h:i>AKs, SKs, KEKs, and
+						<selectables>
+							<selectable>long-term trusted channel key material</selectable>
+							<selectable>all software-based key storage</selectable>
+							<selectable exclusive="yes">no other keys</selectable>
+						</selectables></h:i>] by using 
+					<selectables linebreak="yes">
+						<selectable id="sel-stg3-kw">Key wrapping accordance with FCS_COP.1/KeyWrap</selectable>
+						<!--					<selectable id="sel-stg3-hash">A hash of the stored key in accordance with FCS_COP.1/Hash</selectable>  -->
+						<selectable id="sel-stg3-hmac">A keyed hash of the stored key in accordance with FCS_COP.1/KeyedHash</selectable>
+						<selectable id="sel-stg3-digsig">A digital signature of the stored key in accordance with FCS_COP.1/SigGen
+							using an asymmetric key that is protected in accordance with FCS_STG_EXT.2</selectable>
+						<selectable>An immediate application of the key for decrypting the protected data followed 
+							by a successful verification of the decrypted data with previously known information</selectable>
+					</selectables>.
+				</title>
+				<ext-comp-def-title><title>
+					The TSF shall protect the integrity of any encrypted 
+					<assignable>types of key material</assignable> by using 
+					<assignable>integrity protection mechanism</assignable>.
+				</title></ext-comp-def-title>
+				<note role="application">
+					This SFR is included in the ST if "software-based" is selected in FCS_STG_EXT.1.
+				</note>
+			</f-element>
+			<f-element id="fcs-stg-ext-3e2">
+				<title>
+					The TSF shall verify the integrity of the 
+					<selectables>
+						<!--						<selectable>hash</selectable>   -->
+						<selectable>digital signature</selectable>
+						<selectable>MAC</selectable>
+					</selectables> of the stored key prior to use of the key.
+				</title>
+				<note role="application">
+					This requirement is not applicable to derived keys that are not stored. It is not expected that a
+					single key will be protected from corruption by multiple of these methods; however, a product may
+					use one integrity-protection method for one type of key and a different method for other types of
+					keys.
+				</note>
+				<aactivity>
+					<TSS>
+						The evaluator shall examine the TSS and ensure that it contains a description of
+						how the TOE protects the integrity of its keys.
+					</TSS>
+					<Guidance/>
+					<CustomEA name="KMD">
+						The documentation of the product’s encryption key management should be detailed enough that,
+						after reading, the evaluator will thoroughly understand the product’s key management and how it
+						meets the requirements to ensure the keys are adequately protected. This documentation should
+						include an essay and diagrams. This documentation may be marked as developer proprietary.
+					</CustomEA>
+					<Tests/>
+				</aactivity>
+			</f-element>
+		</f-component>		
     </section>    
 		
-	<!-- 5.1.1 Cryptographic Support (FCS) -->
-
-	      
-		
+		<section title="User Data Protection (FDP)" id="fdp">
+			
+			<f-component name="Information Flow Control" cc-id="fdp_ifc.2">
+				<f-element id="fel-info-flow-control">
+					<title></title>
+				</f-element>
+			</f-component>
+			
+		</section>
       <section title="Security Management (FMT)" id="fmt">
 
-
-
-      	
         <f-component cc-id="fmt_smf.1" name="Specification of Management Functions">
 			<f-element id="fel-management-funcs">
 				<title> The TOE shall be capable of performing the following management functions 
