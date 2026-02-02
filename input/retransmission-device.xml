@@ -4851,10 +4851,23 @@
 						<note role="application">
 							This SFR is included in the ST when "importing keys/secrets into the TOE" is selected in FCS_STG_EXT.1.<h:br/><h:br/>
 							The way the TSF checks the integrity of the keys depends on the method of importation. For example, the encrypted data channel
-							may provide data integrity as part of its service.
-							
+							may provide data integrity as part of its service.							
 						</note>
+						<aactivity>
+							<TSS>
+								The evaluator shall confirm the TSS contains descriptions of the supported methods the TSF uses to import keys and key 
+								material into the TOE. For each import method selected, the TSS shall describe integrity verification schemes employed.
+							</TSS>
+							<Guidance/>
+							<Tests>
+								For each supported import method selected in FDP_ITC_EXT.1.1 and for each supported integrity verification method selected 
+								in FDP_ITC_EXT.1.2, used by the selected import method, provide one key/credential with valid integrity credentials, one 
+								with invalid integrity credentials (e.g. hash). The operations with invalid integrity credentials must result in error. The
+								operations with valid integrity credentials must accept the keys/credentials.
+							</Tests>
+						</aactivity>
 					</f-element>
+					
 				</f-component>
 			
 		</section>
