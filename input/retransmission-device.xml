@@ -4788,11 +4788,74 @@
 		
 		<section title="User Data Protection (FDP)" id="fdp">
 			
-			<f-component name="Information Flow Control" cc-id="fdp_ifc.2">
-				<f-element id="fel-info-flow-control">
-					<title></title>
+			<f-component name="Complete Information Flow Control" cc-id="fdp_ifc.2">
+				<f-element id="fdp-ifc-2e1">
+					<title>The TSF shall enforce the [assignment: information flow control SFP] on [assignment: list of
+						subjects and information] and all operations that cause that information to flow to and from
+						subjects covered by the SFP.
+					</title>
+				</f-element>
+				<f-element id="fdp-ifc-2e2">
+					<title>The TSF shall ensure that all operations that cause any information in the TOE to flow
+						to and from any subject in the TOE are covered by an information flow control SFP.</title>
+				</f-element>
+				<f-element id="fdp-ifc-2e3">
+					<title>The TSF shall enforce the <assignable>additional information flow control SFP
+						rules</assignable>.</title>
+				</f-element>
+				<f-element id="fdp-ifc-2e4">
+					<title>The TSF shall explicitly authorize an information flow based on the following rules:
+						<assignable>rules, based on security attributes, that explicitly authorize information
+							flows</assignable>.</title>
+				</f-element>
+				<f-element id="fdp-ifc-2e5">
+					<title>The TSF shall explicitly deny an information flow based on the following rules:
+						<assignable>rules, based on security attributes, that explicitly deny information
+							flows</assignable>.</title>
 				</f-element>
 			</f-component>
+				
+				<ext-comp-def fam-id="FDP_ITC_EXT" title="Key/Credential Import">
+				<fam-behavior>
+					This family defines requirements for supporting and integrity of importing keys and key
+					material.
+				</fam-behavior>
+			</ext-comp-def>
+				
+				<f-component name="Key/Credential Import" cc-id="fdp_itc_ext.1" status="sel-based">
+					<depends on-sel=""/>
+					
+				<comp-lev> requires the TSF to choose a method for importing keys and key material.</comp-lev>
+				<management>No specific management functions are identified.</management>
+					<audit>The following actions should be auditable if FAU_GEN Security audit data generation is
+						included in the PP, PP-Module, functional package or ST:<h:br/><h:ul>
+							<h:li>Initiation of the trusted channel.</h:li>
+							<h:li>Termination of the trusted channel.</h:li>
+							<h:li>Failures of the trusted path functions.</h:li>
+						</h:ul></audit>
+				<dependencies>FTP_ITP_EXT.1 Physically Protected Channel<h:br/><h:br/>
+					FTP_ITE_EXT.1 Encrypted Data Communications<h:br/><h:br/>
+					FCS_CKM.2 Cryptographic Key Distribution<h:br/><h:br/>
+					FCS_COP.1 Cryptographic Operations<h:br/><h:br/>
+				</dependencies>
+					<f-element id="fdp-itc-1e1">
+						<title>The TSF shall support importing keys/key material using [selection: physically protected channels as specified in 
+							FTP_ITP_EXT.1, encrypted data buffers as specified in FTP_ITE_EXT.1, key distribution mechanisms as specified in 
+							FCS_CKM.2].</title>
+					</f-element>
+					<f-element id="fdp-itc-1e2">
+						<title>The TSF shall verify the integrity of imported keys/key material using [selection: cryptographic hash as specified
+							in FCS_COP.1/Hash, keyed hash as specified in FCS_COP.1/KeyedHash, integrity-providing encryption algorithm as specified 
+							in FCS_COP.1/KeyWrap, digital signature as specified in FCS_COP.1/SigVer, integrity verification provided through FCS_CKM.2
+							key distribution mechanisms, integrity verification supported by FTP_ITC_EXT.1].</title>
+						<note role="application">
+							This SFR is included in the ST when "importing keys/secrets into the TOE" is selected in FCS_STG_EXT.1.<h:br/><h:br/>
+							The way the TSF checks the integrity of the keys depends on the method of importation. For example, the encrypted data channel
+							may provide data integrity as part of its service.
+							
+						</note>
+					</f-element>
+				</f-component>
 			
 		</section>
       <section title="Security Management (FMT)" id="fmt">
