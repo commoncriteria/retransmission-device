@@ -56,6 +56,8 @@ output/retransmission-device-release-linkable.html: GFSBox
 output/retransmission-device-release-linkable.html: GenerationZ
 output/retransmission-device-release-linkable.html: HWS
 output/retransmission-device-release-linkable.html: IDV
+output/retransmission-device-release-linkable.html: ITE
+output/retransmission-device-release-linkable.html: ITP
 output/retransmission-device-release-linkable.html: KAS2
 output/retransmission-device-release-linkable.html: KDF
 output/retransmission-device-release-linkable.html: KMD
@@ -84,6 +86,7 @@ output/retransmission-device-release-linkable.html: RETRANS
 output/retransmission-device-release-linkable.html: RGB
 output/retransmission-device-release-linkable.html: RSASSA
 output/retransmission-device-release-linkable.html: RSK
+output/retransmission-device-release-linkable.html: SFP
 output/retransmission-device-release-linkable.html: SHA3
 output/retransmission-device-release-linkable.html: SHAKE256
 output/retransmission-device-release-linkable.html: SKs
@@ -195,6 +198,8 @@ output/retransmission-device-release.html: GFSBox
 output/retransmission-device-release.html: GenerationZ
 output/retransmission-device-release.html: HWS
 output/retransmission-device-release.html: IDV
+output/retransmission-device-release.html: ITE
+output/retransmission-device-release.html: ITP
 output/retransmission-device-release.html: KAS2
 output/retransmission-device-release.html: KDF
 output/retransmission-device-release.html: KMD
@@ -224,6 +229,7 @@ output/retransmission-device-release.html: RETRANS
 output/retransmission-device-release.html: RGB
 output/retransmission-device-release.html: RSASSA
 output/retransmission-device-release.html: RSK
+output/retransmission-device-release.html: SFP
 output/retransmission-device-release.html: SHA3
 output/retransmission-device-release.html: SHAKE256
 output/retransmission-device-release.html: SKs
@@ -333,6 +339,8 @@ output/retransmission-device.html: GFSBox
 output/retransmission-device.html: GenerationZ
 output/retransmission-device.html: HWS
 output/retransmission-device.html: IDV
+output/retransmission-device.html: ITE
+output/retransmission-device.html: ITP
 output/retransmission-device.html: KAS2
 output/retransmission-device.html: KDF
 output/retransmission-device.html: KMD
@@ -362,6 +370,7 @@ output/retransmission-device.html: RETRANS
 output/retransmission-device.html: RGB
 output/retransmission-device.html: RSASSA
 output/retransmission-device.html: RSK
+output/retransmission-device.html: SFP
 output/retransmission-device.html: SHA3
 output/retransmission-device.html: SHAKE256
 output/retransmission-device.html: SKs

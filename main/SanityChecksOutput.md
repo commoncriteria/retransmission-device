@@ -10,6 +10,18 @@
         /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[22]""/f-element[1]""
 * Error: f-element FDP_IFC.2.1  appears not to have an associated evaluation activity.:
         /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[1]""/f-element[1]""
+* Error: f-element FDP_IFC.2.2  appears not to have an associated evaluation activity.:
+        /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[1]""/f-element[2]""
+* Error: f-element FDP_IFC.2.3  appears not to have an associated evaluation activity.:
+        /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[1]""/f-element[3]""
+* Error: f-element FDP_IFC.2.4  appears not to have an associated evaluation activity.:
+        /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[1]""/f-element[4]""
+* Error: f-element FDP_IFC.2.5  appears not to have an associated evaluation activity.:
+        /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[1]""/f-element[5]""
+* Error: f-element FDP_ITC_EXT.1.1  appears not to have an associated evaluation activity.:
+        /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[2]""/f-element[1]""
+* Error: f-element FDP_ITC_EXT.1.2  appears not to have an associated evaluation activity.:
+        /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[2]""/f-element[2]""
 * Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to sel-itc-ssh from attribute
         on-sel/PP[1]""/include-pkg[1]""/depends[1]""/on-sel[1]""
@@ -133,6 +145,8 @@
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[25]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-stg1-sw-based from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[3]""/f-component[26]""/depends[1]""/on-sel[1]""
+* Error: Detected dangling id-reference to  from attribute
+        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[2]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to drbg from attribute
         on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[6]""/f-component[2]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to drbg from attribute

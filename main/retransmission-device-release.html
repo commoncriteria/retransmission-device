@@ -649,7 +649,7 @@ function showTarget(id){
     </span></a><a href="#alc-optional" style="text-indent:20px">A.1.1<span>Class ALC: Life-cycle Support</span></a><a href="#objective-reqs" style="text-indent:10px">A.2<span>Objective  Requirements
     </span></a><a href="#feat-based-reqs" style="text-indent:10px">A.3<span>Implementation-dependent  Requirements
     </span></a><a href="#fcs-feat-based" style="text-indent:20px">A.3.1<span>Cryptographic Support (FCS)</span></a><a href="#sel-based-reqs" style="text-indent:0px">Appendix B - <span>Selection-based  Requirements
-    </span></a><a href="#fcs-sel-based" style="text-indent:10px">B.1<span>Cryptographic Support (FCS)</span></a><a href="#fpt-sel-based" style="text-indent:10px">B.2<span>Protection of the TSF (FPT)</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FCS" style="text-indent:20px">C.2.1<span>Cryptographic Support (FCS)</span></a><a href="#ext-comp-FCS_CKM_EXT" style="text-indent:30px">C.2.1.1<span>FCS_CKM_EXT Cryptographic Key Management</span></a><a href="#ext-comp-FCS_RBG_EXT" style="text-indent:30px">C.2.1.2<span>FCS_RBG_EXT Random Bit Generation</span></a><a href="#ext-comp-FPT" style="text-indent:20px">C.2.2<span>Protection of the TSF (FPT)</span></a><a href="#ext-comp-FPT_TUD_EXT" style="text-indent:30px">C.2.2.1<span>FPT_TUD_EXT Trusted Updates</span></a><a href="#ext-comp-FTP" style="text-indent:20px">C.2.3<span>Trusted Path/Channel (FTP)</span></a><a href="#ext-comp-FTP_DIT_EXT" style="text-indent:30px">C.2.3.1<span>FTP_DIT_EXT Protection of Data in Transit</span></a><a href="#entropyappendix" style="text-indent:0px">Appendix D - <span>Entropy Documentation and Assessment</span></a><a href="#entropydesign" style="text-indent:10px">D.1<span>Design Description</span></a><a href="#entropyjustification" style="text-indent:10px">D.2<span>Entropy Justification</span></a><a href="#entropyoperatingconditions" style="text-indent:10px">D.3<span>Operating Conditions</span></a><a href="#entropyhealthtesting" style="text-indent:10px">D.4<span>Health Testing</span></a><a href="#equiv" style="text-indent:0px">Appendix E - <span>Application Software Equivalency Guidelines</span></a><a href="#app-intro" style="text-indent:10px">E.1<span>Introduction</span></a><a href="#approach" style="text-indent:10px">E.2<span>Approach to Equivalency Analysis</span></a><a href="#modelequiv" style="text-indent:10px">E.3<span>Specific Guidance for Determining Product Model Equivalence</span></a><a href="#versionequiv" style="text-indent:10px">E.4<span>Specific Guidance for Determining Product Version Equivalence</span></a><a href="#platformequiv" style="text-indent:10px">E.5<span>Specific Guidance for Determining Platform Equivalence</span></a><a href="#hardware-equiv" style="text-indent:20px">E.5.1<span>Platform Equivalence—Hardware/Virtual Hardware Platforms</span></a><a href="#os-equiv" style="text-indent:20px">E.5.2<span>Platform Equivalence—OS Platforms</span></a><a href="#software-equiv" style="text-indent:20px">E.5.3<span>Software-based Execution Environment Platform Equivalence</span></a><a href="#specificity" style="text-indent:10px">E.6<span>Level of Specificity for Tested Configurations and Claimed Equivalent Configurations</span></a><a href="#acronyms" style="text-indent:0px">Appendix F - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix G - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
+    </span></a><a href="#fcs-sel-based" style="text-indent:10px">B.1<span>Cryptographic Support (FCS)</span></a><a href="#fdp-sel-based" style="text-indent:10px">B.2<span>User Data Protection (FDP)</span></a><a href="#fpt-sel-based" style="text-indent:10px">B.3<span>Protection of the TSF (FPT)</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FCS" style="text-indent:20px">C.2.1<span>Cryptographic Support (FCS)</span></a><a href="#ext-comp-FCS_CKM_EXT" style="text-indent:30px">C.2.1.1<span>FCS_CKM_EXT Cryptographic Key Management</span></a><a href="#ext-comp-FCS_RBG_EXT" style="text-indent:30px">C.2.1.2<span>FCS_RBG_EXT Random Bit Generation</span></a><a href="#ext-comp-FPT" style="text-indent:20px">C.2.2<span>Protection of the TSF (FPT)</span></a><a href="#ext-comp-FPT_TUD_EXT" style="text-indent:30px">C.2.2.1<span>FPT_TUD_EXT Trusted Updates</span></a><a href="#ext-comp-FTP" style="text-indent:20px">C.2.3<span>Trusted Path/Channel (FTP)</span></a><a href="#ext-comp-FTP_DIT_EXT" style="text-indent:30px">C.2.3.1<span>FTP_DIT_EXT Protection of Data in Transit</span></a><a href="#ext-comp-FDP" style="text-indent:20px">C.2.4<span>User Data Protection (FDP)</span></a><a href="#ext-comp-FDP_ITC_EXT" style="text-indent:30px">C.2.4.1<span>FDP_ITC_EXT Key/Credential Import</span></a><a href="#entropyappendix" style="text-indent:0px">Appendix D - <span>Entropy Documentation and Assessment</span></a><a href="#entropydesign" style="text-indent:10px">D.1<span>Design Description</span></a><a href="#entropyjustification" style="text-indent:10px">D.2<span>Entropy Justification</span></a><a href="#entropyoperatingconditions" style="text-indent:10px">D.3<span>Operating Conditions</span></a><a href="#entropyhealthtesting" style="text-indent:10px">D.4<span>Health Testing</span></a><a href="#equiv" style="text-indent:0px">Appendix E - <span>Application Software Equivalency Guidelines</span></a><a href="#app-intro" style="text-indent:10px">E.1<span>Introduction</span></a><a href="#approach" style="text-indent:10px">E.2<span>Approach to Equivalency Analysis</span></a><a href="#modelequiv" style="text-indent:10px">E.3<span>Specific Guidance for Determining Product Model Equivalence</span></a><a href="#versionequiv" style="text-indent:10px">E.4<span>Specific Guidance for Determining Product Version Equivalence</span></a><a href="#platformequiv" style="text-indent:10px">E.5<span>Specific Guidance for Determining Platform Equivalence</span></a><a href="#hardware-equiv" style="text-indent:20px">E.5.1<span>Platform Equivalence—Hardware/Virtual Hardware Platforms</span></a><a href="#os-equiv" style="text-indent:20px">E.5.2<span>Platform Equivalence—OS Platforms</span></a><a href="#software-equiv" style="text-indent:20px">E.5.3<span>Software-based Execution Environment Platform Equivalence</span></a><a href="#specificity" style="text-indent:10px">E.6<span>Level of Specificity for Tested Configurations and Claimed Equivalent Configurations</span></a><a href="#acronyms" style="text-indent:0px">Appendix F - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix G - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
 
 	
     <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
@@ -1570,9 +1570,29 @@ The following sections list Common Criteria and technology terms used in this do
 		
 		<h3 id="fdp" class="indexable" data-level="3">5.1.4 User Data Protection (FDP)</h3>
 			
-			<div class="comp" id="FDP_IFC.2"><h4>FDP_IFC.2 Information Flow Control</h4>
-				<div class="element"><div class="reqid" id="FDP_IFC.2.1"><a href="#FDP_IFC.2.1" class="abbr">FDP_IFC.2.1</a></div><div class="reqdesc"></div></div>
+			<div class="comp" id="FDP_IFC.2"><h4>FDP_IFC.2 Complete Information Flow Control</h4>
+				<div class="element"><div class="reqid" id="FDP_IFC.2.1"><a href="#FDP_IFC.2.1" class="abbr">FDP_IFC.2.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce the [assignment: information flow control SFP] on [assignment: list of
+						subjects and information] and all operations that cause that information to flow to and from
+						subjects covered by the SFP.
+					</div></div>
+				<div class="element"><div class="reqid" id="FDP_IFC.2.2"><a href="#FDP_IFC.2.2" class="abbr">FDP_IFC.2.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all operations that cause any information in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to flow
+						to and from any subject in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are covered by an information flow control SFP.</div></div>
+				<div class="element"><div class="reqid" id="FDP_IFC.2.3"><a href="#FDP_IFC.2.3" class="abbr">FDP_IFC.2.3</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce the [<b>assignment</b>: 
+     <span class="assignable-content">additional information flow control SFP
+						rules</span>].</div></div>
+				<div class="element"><div class="reqid" id="FDP_IFC.2.4"><a href="#FDP_IFC.2.4" class="abbr">FDP_IFC.2.4</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall explicitly authorize an information flow based on the following rules:
+						[<b>assignment</b>: 
+     <span class="assignable-content">rules, based on security attributes, that explicitly authorize information
+							flows</span>].</div></div>
+				<div class="element"><div class="reqid" id="FDP_IFC.2.5"><a href="#FDP_IFC.2.5" class="abbr">FDP_IFC.2.5</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall explicitly deny an information flow based on the following rules:
+						[<b>assignment</b>: 
+     <span class="assignable-content">rules, based on security attributes, that explicitly deny information
+							flows</span>].</div></div>
 			</div>
+				
+				
+				
+				
 			
 		
       <h3 id="fmt" class="indexable" data-level="3">5.1.5 Security Management (FMT)</h3>
@@ -5554,7 +5574,7 @@ The following sections list Common Criteria and technology terms used in this do
 					</table><div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-					This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed when "key wrapping" is selected in <a href="#FCS_CKM.2.1">FCS_CKM.2.1</a> or is used as a mechanism supporting verification of imported key integrity (FDP_ITC_EXT.1.2) or the integrity of stored key data (<a href="#FCS_STG_EXT.3.1">FCS_STG_EXT.3.1</a>). <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> 800-57p1rev5 sec. 5.6.2 specifies that the size of key used to protect the key being 
+					This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is claimed when "key wrapping" is selected in <a href="#FCS_CKM.2.1">FCS_CKM.2.1</a> or is used as a mechanism supporting verification of imported key integrity (<a href="#FDP_ITC_EXT.1.2">FDP_ITC_EXT.1.2</a>) or the integrity of stored key data (<a href="#FCS_STG_EXT.3.1">FCS_STG_EXT.3.1</a>). <abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> 800-57p1rev5 sec. 5.6.2 specifies that the size of key used to protect the key being 
 					transported should be at least the security strength of the key it is protecting.
 				</span></div></div></div>
 			
@@ -6226,7 +6246,28 @@ The following sections list Common Criteria and technology terms used in this do
 						meets the requirements to ensure the keys are adequately protected. This documentation should
 						include an essay and diagrams. This documentation may be marked as developer proprietary.
 					</div></div><div class="eacategory">Tests</div><div class="ea">
-			There are no test activities for this component.<br/></div></div></div></div><h2 id="fpt-sel-based" class="indexable" data-level="2">B.2 Protection of the TSF (FPT)</h2><div class="comp" id="FPT_FLS.1"><h4>FPT_FLS.1 Failure with Preservation of Secure State</h4><div class="statustag"></div>
+			There are no test activities for this component.<br/></div></div></div></div><h2 id="fdp-sel-based" class="indexable" data-level="2">B.2 User Data Protection (FDP)</h2><div class="comp" id="FDP_ITC_EXT.1"><h4>FDP_ITC_EXT.1 Key/Credential Import</h4><div class="statustag"></div>
+					
+					
+				
+				
+					
+				
+					<div class="element"><div class="reqid" id="FDP_ITC_EXT.1.1"><a href="#FDP_ITC_EXT.1.1" class="abbr">FDP_ITC_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support importing keys/key material using [selection: physically protected channels as specified in 
+							FTP_ITP_EXT.1, encrypted data buffers as specified in FTP_ITE_EXT.1, key distribution mechanisms as specified in 
+							<a href="#FCS_CKM.2">FCS_CKM.2</a>].</div></div>
+					<div class="element"><div class="reqid" id="FDP_ITC_EXT.1.2"><a href="#FDP_ITC_EXT.1.2" class="abbr">FDP_ITC_EXT.1.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall verify the integrity of imported keys/key material using [selection: cryptographic hash as specified
+							in <a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a>, keyed hash as specified in <a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a>, integrity-providing encryption algorithm as specified 
+							in <a href="#FCS_COP.1/KeyWrap">FCS_COP.1/KeyWrap</a>, digital signature as specified in <a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a>, integrity verification provided through <a href="#FCS_CKM.2">FCS_CKM.2</a>
+							key distribution mechanisms, integrity verification supported by FTP_ITC_EXT.1].<div class="appnote"><span class="note-header">Application
+      Note:
+    </span><span class="note">
+							This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> when "importing keys/secrets into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>" is selected in FCS_STG_EXT.1.<br/><br/>
+							The way the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> checks the integrity of the keys depends on the method of importation. For example, the encrypted data channel
+							may provide data integrity as part of its service.
+							
+						</span></div></div></div>
+				</div><h2 id="fpt-sel-based" class="indexable" data-level="2">B.3 Protection of the TSF (FPT)</h2><div class="comp" id="FPT_FLS.1"><h4>FPT_FLS.1 Failure with Preservation of Secure State</h4><div class="statustag"></div>
     		
     		<div class="element"><div class="reqid" id="FPT_FLS.1.1"><a href="#FPT_FLS.1.1" class="abbr">FPT_FLS.1.1</a></div><div class="reqdesc">
     				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall preserve a secure state when the following types of failures occur: [<i><abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> self-test failure</i>].              
@@ -6431,7 +6472,7 @@ The following sections list Common Criteria and technology terms used in this do
 
 	All extended components specified in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> are listed in this table:
 
-<table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">20</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="Cryptographic Support (FCS)"><td>Cryptographic Support (FCS)</td><td>FCS_CKM_EXT Cryptographic Key Management<br/>FCS_RBG_EXT Random Bit Generation<br/></td></tr><tr data-sortkey="Protection of the TSF (FPT)"><td>Protection of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> (FPT)</td><td>FPT_TUD_EXT Trusted Updates<br/></td></tr><tr data-sortkey="Trusted Path/Channel (FTP)"><td>Trusted Path/Channel (FTP)</td><td>FTP_DIT_EXT Protection of Data in Transit<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="Cryptographic Support (FCS)"><h3 id="ext-comp-FCS" class="indexable" data-level="3">C.2.1 Cryptographic Support (FCS)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
+<table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">20</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="Cryptographic Support (FCS)"><td>Cryptographic Support (FCS)</td><td>FCS_CKM_EXT Cryptographic Key Management<br/>FCS_RBG_EXT Random Bit Generation<br/></td></tr><tr data-sortkey="Protection of the TSF (FPT)"><td>Protection of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> (FPT)</td><td>FPT_TUD_EXT Trusted Updates<br/></td></tr><tr data-sortkey="Trusted Path/Channel (FTP)"><td>Trusted Path/Channel (FTP)</td><td>FTP_DIT_EXT Protection of Data in Transit<br/></td></tr><tr data-sortkey="User Data Protection (FDP)"><td>User Data Protection (FDP)</td><td>FDP_ITC_EXT Key/Credential Import<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="Cryptographic Support (FCS)"><h3 id="ext-comp-FCS" class="indexable" data-level="3">C.2.1 Cryptographic Support (FCS)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
 	 FCS class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
 	<h3 id="ext-comp-FCS_CKM_EXT" class="indexable" data-level="4">C.2.1.1 FCS_CKM_EXT Cryptographic Key Management</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for management of cryptographic keys that are not addressed by FCS_CKM in <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2.
 			</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FCS_CKM_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">7</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FCS_CKM_EXT.7">FCS_CKM_EXT.7</a>,
@@ -6565,7 +6606,28 @@ The following sections list Common Criteria and technology terms used in this do
      <span class="assignable-content">trusted protocol</span>] for [<b>assignment</b>: 
      <span class="assignable-content">function(s)</span>]
 						</span></li></ul>] between itself and another trusted <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> product.
-				</div></div></span></span><h1 id="entropyappendix" class="indexable" data-level="A">Appendix D -  Entropy Documentation and Assessment</h1> 
+				</div></div></span><span data-sortkey="User Data Protection (FDP)"><h3 id="ext-comp-FDP" class="indexable" data-level="3">C.2.4 User Data Protection (FDP)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> defines the following extended components as part of the
+	 FDP class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
+	<h3 id="ext-comp-FDP_ITC_EXT" class="indexable" data-level="4">C.2.4.1 FDP_ITC_EXT Key/Credential Import</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>
+					This family defines requirements for supporting and integrity of importing keys and key
+					material.
+				</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_ITC_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_ITC_EXT.1">FDP_ITC_EXT.1</a>,
+             Key/Credential Import,
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to choose a method for importing keys and key material.</p><h4>Management: FDP_ITC_EXT.1</h4><p>No specific management functions are identified.</p><h4>Audit: FDP_ITC_EXT.1</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is
+						included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:<br/><ul>
+							<li>Initiation of the trusted channel.</li>
+							<li>Termination of the trusted channel.</li>
+							<li>Failures of the trusted path functions.</li>
+						</ul></p><h4>FDP_ITC_EXT.1 Key/Credential Import</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FTP_ITP_EXT.1 Physically Protected Channel<br/><br/>
+					FTP_ITE_EXT.1 Encrypted Data Communications<br/><br/>
+					<a href="#FCS_CKM.2">FCS_CKM.2</a> Cryptographic Key Distribution<br/><br/>
+					FCS_COP.1 Cryptographic Operations<br/><br/>
+				</td></tr></table><h4 id="ext-comp-FDP_ITC_EXT.1.1">FDP_ITC_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support importing keys/key material using [selection: physically protected channels as specified in 
+							FTP_ITP_EXT.1, encrypted data buffers as specified in FTP_ITE_EXT.1, key distribution mechanisms as specified in 
+							<a href="#FCS_CKM.2">FCS_CKM.2</a>].<h4 id="ext-comp-FDP_ITC_EXT.1.2">FDP_ITC_EXT.1.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall verify the integrity of imported keys/key material using [selection: cryptographic hash as specified
+							in <a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a>, keyed hash as specified in <a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a>, integrity-providing encryption algorithm as specified 
+							in <a href="#FCS_COP.1/KeyWrap">FCS_COP.1/KeyWrap</a>, digital signature as specified in <a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a>, integrity verification provided through <a href="#FCS_CKM.2">FCS_CKM.2</a>
+							key distribution mechanisms, integrity verification supported by FTP_ITC_EXT.1].</div></div></span></span><h1 id="entropyappendix" class="indexable" data-level="A">Appendix D -  Entropy Documentation and Assessment</h1> 
   	<p>
   This appendix describes the required supplementary information for the entropy
   source used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
