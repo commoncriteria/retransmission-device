@@ -39,8 +39,6 @@ can be found https://www.niap-ccevs.org/products[here].
 
 * https://commoncriteria.github.io/retransmission-device/main/retransmission-device-release.html[Protection
 Profile for Retransmission Device] (html)
-* https://commoncriteria.github.io/pp/QQQQ/QQQQ-release.pdf[Protection
-Profile for Retransmission Device] (pdf)
 
 === Release Version
 
