@@ -27,18 +27,7 @@
       <date>2024-12-30</date>
       <subject>Initial release</subject>
     </entry>
-  </RevisionHistory>
-	
-	
-	<include-pkg id="macsec">
-		<git>
-			<url>https://github.com/commoncriteria/macsec</url>
-			<branch>master</branch>
-		</git>
-		<url>https://www.niap-ccevs.org/static_html/protection-profile/480/MACsec/index.html</url>
-		<depends on-sel="sel-itc-ssh"/>
-		<depends on-sel="sel-fia-uau-5-ssh"/>
-	</include-pkg>
+  </RevisionHistory>	
 	
 	<include-pkg id="ssh">
 		<git>
@@ -423,15 +412,13 @@
 			<cc-pt3-conf>extended</cc-pt3-conf>
 			<cc-pp-conf/>
 			<cc-pp-config-with>       
-				<!--R-UPDATE If any modules will be used directly they will be here example
-					<Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 1.0</Mod-cc-ref> --> 
+				<Mod-cc-ref>PP-Module for MACsec Ethernet Encryption, Version 1.0</Mod-cc-ref>
+				<Mod-cc-ref>PP-Module for VPN Client, Version 3.0</Mod-cc-ref>
+				<Mod-cc-ref>PP-Module for WLAN Clients, Version 1.0</Mod-cc-ref>
 			</cc-pp-config-with>
 			<cc-pkg-claim>
-				<FP-cc-ref conf="conformant">***UPDATE WITH APPLICABLE PACKAGES</FP-cc-ref>
-				<!--R-UPDATE If any modules will be used directly they will be here example 
-				<FP-cc-ref conf="conformant">Functional Package for Transport Layer Security Version 2.1</FP-cc-ref>
-				<FP-cc-ref conf="conformant">Functional Package for X.509 Version 1.0</FP-cc-ref>
-				-->
+				<FP-cc-ref conf="conformant">Functional Package for SEcure Shell (SSH), Version 2.0</FP-cc-ref>
+				<FP-cc-ref conf="conformant">Functional Package for Transport Layer Security (TLS), Version 2.0</FP-cc-ref>				
 			</cc-pkg-claim>
 		</CClaimsInfo>	
 		
@@ -500,7 +487,8 @@
 	<!-- 5.1 Security Functional Requirements -->
 	<sec:SFRs title="Security Functional Requirements">
 		<section id="ss-audit-table" title="Auditable Events for Mandatory SFRs">
-			<audit-table id="t-audit-mandatory" table="mandatory"/>
+			<audit-table id="at-mandatory" table="mandatory"/>
+			
 		</section>
 	<!-- 5.1.1 Security Audit (FAU) -->
 	 <section title="Security Audit (FAU)" id="fau">
@@ -511,7 +499,7 @@
 	 					<h:li>Start-up and shutdown of the audit functions</h:li>
 	 					<h:li>All administrative actions</h:li>
 	 					<h:li>Start-up, shutdown, and reboot of the platform</h:li>
-	 					<h:li>Specifically defined auditable events in <xref g="t-audit-mandatory"/></h:li>
+	 					<h:li>Specifically defined auditable events in <xref to="at-mandatory"/></h:li>
 	 					<h:li><selectables linebreak="yes">
 	 						<selectable>Specifically defined auditable event in <xref g="t-audit-optional"/> 
 	 							for Strictly Optional requirements</selectable>
@@ -533,7 +521,7 @@
 	 					<h:li>Type of event</h:li>
 	 					<h:li>Subject and object identity (if applicable)</h:li>
 	 					<h:li>The outcome (success or failure) of the event</h:li>
-	 					<h:li>[<refinement>Additional information defined in <xref g="t-audit-mandatory"/></refinement>]</h:li>
+	 					<h:li>[<refinement>Additional information defined in <xref to="at-mandatory"/></refinement>]</h:li>
 	 					<h:li><refinement><selectables linebreak="yes">
 	 						<selectable>Additional information defined in <xref g="t-audit-optional"/> for Strictly Optional SFRs</selectable>
 	 						<selectable>Additional information defined in <xref g="t-audit-objective"/> for Objective SFRs</selectable>
@@ -774,21 +762,27 @@
 							<selectable><assignable>list of third parties</assignable></selectable>
 						</selectables> given <assignable>limitations on the evidence of origin</assignable>.
 					</title>
+					<aactivity level="component">
+						<TSS>Needs to be completed.</TSS>
+						<Guidance>Needs to be completed.</Guidance>
+						<Tests><comment>Needs to be completed.</comment></Tests>
+					</aactivity>
+				
 				</f-element>
 			</f-component>
 			
 			<f-component name="Selective Proof of Receipt" cc-id="fco_nrr.1">
 				<consistency-rationale>This SFR applies to the implementation of the supported authentication protocol, which is beyond the original scope of the
-					Base-PP. <comment>This SFR will need to be completed with missing information</comment></consistency-rationale>
+					Base-PP. </consistency-rationale>
 				<f-element>
 					<title>
-						The TSF shall be able to generate evidence of receipt for received <assignable>list of information typles</assignable>at the request
+						The TSF shall be able to generate evidence of receipt for received <assignable>list of information types</assignable>at the request
 						of the <selectables>
 							<selectable>originator</selectable>
 							<selectable>recipient</selectable>
 							<selectable><assignable>list of third parties</assignable></selectable>
 						</selectables>.
-					</title>					
+					</title>
 				</f-element>
 				<f-element>
 					<title>
@@ -803,76 +797,16 @@
 							<selectable>recipient</selectable>
 							<selectable><assignable>list of third parties</assignable></selectable>
 						</selectables> given <assignable>limitations on the evidence of receipt</assignable>.
-					</title>					
-				</f-element>
-				<audit-event/>
-			</f-component>
-			
-			<f-component name="Selective Proof of Receipt" cc-id="fco_nrr.1">
-				<consistency-rationale>This SFR applies to the implementation of the supported authentication protocol, which is beyond the original scope of the
-					Base-PP.</consistency-rationale>
-				<f-element>
-					<title>
-						The TSF shall be able to generate evidence of receipt for received [<h:i>authentication requests, 
-							<selectables>
-								<selectable>authentication responses and queries</selectable>
-								<selectable>none</selectable></selectables></h:i>] at the request of the [<h:i>originator</h:i>].
-					</title>
-					<note role="application">
-						The intent of this requirement is for the TOE to be able to return a valid response to the relying party upon receipt of an Access-Request. 
-						If the TSF supports pass-through functionality, the ST author claims ‘authentication responses and queries’ 
-						in the selection for authentication in communications with external authentication servers.  
-					</note>
-				</f-element>
-				<f-element>
-					<title>
-						The TSF shall be able to relate the [<h:i>claimant identifier and claimant authenticators</h:i>] of the recipient of the information, and the 
-						[<h:i>identity assertion, information requests, and error responses</h:i>] of the information to which the evidence applies.
-					</title>
-					<note role="application">
-						The intent of this requirement is for the ST author to list the information supplied by the TOE in response to an authentication request that confirms
-						receipt of the request, and identifies: 
-						<h:ul>
-							<h:li>the authentication request that is being responded to;</h:li> 
-							<h:li>the mutually authenticated channel between the trusted relying party and the TOE.</h:li> 
-						</h:ul>
-					</note>
-				</f-element>
-				<f-element>
-					<title>The TSF shall provide a capability to verify the evidence of receipt of information to 
-						[<h:i>originator</h:i>] given [<h:i>establishment of a mutually authenticated channel with a trusted relying party</h:i>].</title>
-					<aactivity>
-						<TSS>
-							The evaluator shall ensure that the ST includes a description of each messaging protocol and the specific messages provided to a relying party in
-							response to authentication requests, 
-							to include any affirmative and negative responses, and requests for additional information.
-							<h:p/>
-							The evaluator shall verify that the descriptions specify how the TSF indicates the identity of the claimant associated with any responses to a
-							request.
-							<h:p/>
-							The evaluator shall verify that the ST describes how the TSF handles session interruptions and resumptions to ensure the relying party is able to
-							associate data 
-							associated with a claimant to the authentication request by the relying party and the authenticator provided by the claimant.
-							<h:p/>
-						</TSS>
-						<Guidance>The evaluator shall ensure that any instructions for configuring the TSF to meet the requirements are provided.<h:p/></Guidance>
-						<Tests>
-							For each messaging protocol supported, the evaluator shall perform the following test:
-							<testlist>
-								<test>
-									The evaluator shall establish a connection between a trusted relying party and the TOE and send an authentication request for a registered
-									claimant, in accordance with the messaging protocol standard. 
-									The evaluator shall confirm the TOE responds to each message sent by the relying party with a message that appropriately identifies the
-									claimant and confirms receipt of the request.
-								</test>
-							</testlist>
-						</Tests>
+					</title>	
+					<aactivity level="component">
+						<TSS>Needs to be completed.</TSS>
+						<Guidance>Needs to be completed.</Guidance>
+						<Tests><comment>Needs to be completed.</comment></Tests>
 					</aactivity>
-				</f-element>
+				</f-element>				
 				<audit-event/>
 			</f-component>
 		</section>
-		
 	
 	<section title="Cryptographic Support (FCS)" id="fcs">
 	  
@@ -1635,17 +1569,9 @@
         </f-component>
 		
 		<f-component cc-id="fcs_ckm.6" name="Timing and Event of Cryptographic Key Destruction"
-			status="feat-based">
-			<depends on-sfr=""/>
-			<depends on-sfr=""/>
-			<depends on-sfr=""/>
-			<depends on-sfr=""/>
-			<depends on-sfr=""/>
-			<depends on-sfr=""/>
-			<depends on-sfr=""/>
-			<depends on-sfr=""/>
+			status="feat-based">			
 			<f-element id="fel-key-kill-when">
-				<title>The TSF shall destroy [<h:i>all plaintext keying material and critical security
+				<title><comment></comment>The TSF shall destroy [<h:i>all plaintext keying material and critical security
 					parameters (CSPs)</h:i>] when 
 					<selectables>
 						<selectable>no longer needed</selectable>
@@ -1756,7 +1682,7 @@
 										repeated (as described for test 1 above), and if a fragment is found in the
 										repeated test then the test fails.</h:li>
 								</h:ol>
-								<h:br/><h:br/>
+								
 							</test>
 							<test> Applied to each key held as non-volatile memory and subject to destruction
 								by overwrite by the TOE. The evaluator shall use special tools (as needed),
@@ -2333,13 +2259,13 @@
         <f-component cc-id="fcs_cop.1" id="fcom_hash" iteration="Hash" name="Cryptographic Operation
         	- Hashing" status="sel-based">
         	<depends on-sel=""/>
-        	<depends on-sel=""/>
-        	<depends on-sel=""/>
-        	<depends on-sel=""/>
-        	<depends on-sel=""/>
-        	<depends on-sfr=""/>
-        	<depends on-sfr=""/>
-        	<depends on-sfr=""/>
+        	<depends on-sel="fdp-itc-1e2"/>
+        	<depends on-sel="fpt-rot-ext-2e1"/>
+        	<depends on-sel="fpt-tud-ext-2e1"/>
+        	<depends on-sel="ftp-itc-ext-1e1"/>
+        	<depends on-sfr="sfr-fcs-cop-1-keyedhash"/>
+        	<depends on-sfr="fcs_sign_gen"/>
+        	<depends on-sfr="sfr-fcs-cop-1-sigver"/>
         	<depends><optional/></depends>
 			<f-element id="fel-crypt-hash">
 				<title>The TSF shall perform [<h:i>cryptographic hashing</h:i>] in accordance with a specified 
@@ -2490,9 +2416,8 @@
 		<!-- FCS_COP.1/KeyedHash Cryptographic Operation - Keyed Hash -->
 		<f-component id="sfr-fcs-cop-1-keyedhash" cc-id="fcs_cop.1" iteration="KeyedHash" name="Cryptographic Operation - Keyed Hash" status="sel-based">
 			<depends on-sel=""/>
-			<depends on-sel=""/>
-			<depends on-sel=""/>
-			<depends on-incl=""/>
+			<depends on-sel="fcs-stg-ext-3e1"/>
+			<depends on-sel="fdp-itc-1e2"/>
 			<depends on-incl=""/>
 			<depends><optional/></depends>    		<!-- May be also included optionally -->
 			<f-element id="fcs-cop-1e1-keyedhash">
@@ -2728,10 +2653,190 @@
 			</f-element>
 			<audit-event/>
 		</f-component>
+		
+		<!-- FCS_COP.1/KeyWrap Cryptographic Operation - Key Wrapping -->
+		<f-component id="sfr-fcs-cop-1-kw" cc-id="fcs_cop.1" iteration="KeyWrap" name="Cryptographic Operation - Key Wrapping" status="sel-based">
+			<depends on-sel="sel-ckm-2-wrap"/>
+			<depends on-sel="sel-stg3-kw"/>
+			<depends on-sel="sel-fdp-itc-ext-1e2-kw"/>
+			<f-element id="fcs-cop-1e1-kw">
+				<title>
+					The TSF shall perform [<h:i>key wrapping</h:i>] in accordance with a specified cryptographic algorithm 
+					<selectables>
+						<tabularize id="fcs-cop-kw-sels" title="Allowable choices for FCS_COP.1/KeyWrap">
+							<textcol>Identifier</textcol>
+							<reqtext></reqtext>
+							<selectcol>Cryptographic algorithm</selectcol>
+							<reqtext>and cryptographic key sizes</reqtext>
+							<selectcol>Cryptographic key sizes</selectcol>
+							<reqtext>that meet the following:</reqtext>
+							<selectcol>List of standards</selectcol>
+							<reqtext><h:p/><h:p/>The following table provides the allowable choices for
+								completion of the selection operations of FCS_COP.1/KeyWrap.</reqtext>
+						</tabularize>
+						
+						<!-- AES-KW  -->
+						<selectable id="sel-fcs-cop-kw-aes-kw">
+							<col>AES-KW</col>
+							<col>AES in KW mode</col>
+							<col>256 bits</col>
+							<col><selectables>
+								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable>
+								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/>
+								<selectables>
+									<selectable>ISO/IEC 19772:2020 (clause 6)</selectable>
+									<selectable>NIST SP 800-38F (Section 6.2)</selectable> 
+								</selectables> [KW mode]</col>
+						</selectable>
+						
+						<!-- KWP mode -->
+						<selectable id="sel-fcs-cop-kw-aes-kwp">
+							<col>AES-KWP</col>
+							<col>AES in KWP mode</col>
+							<col>256 bits</col>
+							<col><selectables>
+								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable>
+								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/>
+								NIST SP 800-38F (Section 6.3) [KWP mode]</col>
+						</selectable>
+						
+						<selectable id="sel-fcs-cop-kw-aes-ccm">
+							<col>AES-CCM</col>
+							<col>AES in CCM mode with unpredictable, non-repeating nonce, minimum size of 64 bits</col>
+							<col>256 bits</col>
+							<col><selectables>
+								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable>
+								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/>
+								<selectables>
+									<selectable>ISO/IEC 19772:2020 (Clause 7)</selectable> 
+									<selectable>NIST SP 800-38C</selectable></selectables> [CCM]
+							</col></selectable>
+						
+						<selectable id="sel-fcs-cop-kw-aes-gcm">
+							<col>AES-GCM</col>
+							<col>AES in GCM mode with non-repeating IVs using <selectables>
+								<selectable>deterministic</selectable>
+								<selectable>RBG-based</selectable></selectables>,
+								IV construction; the tag must be of length
+								<selectables>
+									<selectable>96</selectable>
+									<selectable>104</selectable>
+									<selectable>112</selectable>
+									<selectable>120</selectable>
+									<selectable>128</selectable>
+								</selectables> bits.
+							</col>
+							<col>256 bits</col>
+							<col><selectables>
+								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable>
+								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/>
+								<selectables>
+									<selectable>ISO/IEC 19772:2020 (Clause 10)</selectable> 
+									<selectable>NIST SP 800-38D</selectable></selectables> [GCM]
+							</col></selectable>
+					</selectables>
+				</title>
+				<note role="application">
+					This SFR is claimed when "key wrapping" is selected in FCS_CKM.2.1 or is used as a mechanism supporting verification of imported key integrity (FDP_ITC_EXT.1.2) or the integrity of stored key data (FCS_STG_EXT.3.1). NIST 800-57p1rev5 sec. 5.6.2 specifies that the size of key used to protect the key being 
+					transported should be at least the security strength of the key it is protecting.
+				</note>
+				<aactivity>
+					<TSS>
+						The evaluator shall ensure that the TSS documents that the selection of the key size is
+						sufficient for the security strength of the key wrapped.<h:p/>
+						The evaluator shall examine the TSS to ensure that it describes the construction of any IVs,
+						nonces, and MACs in conformance with the relevant specifications.
+					</TSS>
+					<Guidance/>
+					<Tests>
+						For tests of AES-GCM and AES-CCM, see testing for FCS_COP.1/AEAD.<h:p/>
+						The following tests are conditional based upon the selections made in the SFR. The evaluator
+						shall perform the following test or witness respective tests executed by the developer. The tests
+						must be executed on a platform that is as close as practically possible to the operational platform
+						(but which may be instrumented in terms of, for example, use of a debug mode). Where the test
+						is not carried out on the TOE itself, the test platform shall be identified and the differences
+						between test environment and TOE execution environment shall be described.<h:p/>
+						
+						<!-- AES-KW -->
+						<h:br/><h:b>AES-KW</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">AES-KW</h:td>
+								<h:td valign="top">AES in KW mode</h:td>
+								<h:td valign="top">256 bits</h:td>
+								<h:td valign="top">[<h:b>selection:</h:b> ISO/IEC 18033-3:2010 (Subclause 5.2),
+									FIPS PUB 197] [AES]<h:p/>
+									[<h:b>selection:</h:b> ISO/IEC 19772:2020 (clause 6), 
+									NIST SP 800-38F (Section 6.2)] [KW mode] </h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to wrap keys using AES in Key Wrap mode the evaluator shall perform
+						the Algorithm Functional Tests using the following input parameters:<h:ul>
+							<h:li>Key size [256] bits</h:li>
+							<h:li>Keyword cipher type [cipher, inverse]</h:li>
+							<h:li>Payload sizes [128-4096] bits by 64s</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
+						The evaluator shall generate 100 encryption test cases using random data for each combination
+						of claimed key size, keyword cipher type, and six supported payload sizes such that the payload
+						sizes include the minimum, the maximum, two that are divisible by 128, and two that are not
+						divisible by 128.<h:p/>
+						The results shall be compared with those generated by a known-good implementation using the
+						same inputs.<h:p/>
+						The evaluator shall generate 100 decryption test cases using the same parameters as above, but
+						with 20 of each 100 test cases having modified ciphertext to produce an incorrect result. To
+						determine correctness, the evaluator shall confirm that the results correspond as expected for
+						both the modified and unmodified values.<h:p/>
+						
+						<!-- AES-KWP -->
+						<h:br/><h:b>AES-KWP</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">AES-KWP</h:td>
+								<h:td valign="top">AES in KWP mode</h:td>
+								<h:td valign="top">256 bits</h:td>
+								<h:td valign="top">[<h:b>selection:</h:b> ISO/IEC 18033-3:2010 (Subclause 5.2),
+									FIPS PUB 197] [AES]<h:p/>
+									NIST SP 800-38F (Section 6.3) [KWP mode] </h:td>
+							</h:tr>
+						</h:table><h:p/>	
+						To test the TOE’s ability to wrap keys using AES in Key Wrap with Padding mode with padding
+						the evaluator shall perform the Algorithm Functional Tests using the following input parameters:<h:ul>
+							<h:li>Key size [256] bits</h:li>
+							<h:li>Keyword cipher type [cipher, inverse]</h:li>
+							<h:li>Payload sizes [8-4096] bits by 8s</h:li></h:ul><h:p/>
+						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
+						The evaluator shall generate 100 encryption test cases using random data for each combination
+						of claimed key size, keyword cipher type, and six supported payload sizes such that the payload
+						sizes include the minimum, the maximum, two that are divisible by 128, and two that are not
+						divisible by 128.<h:p/>
+						The results shall be compared with those generated by a known-good implementation using the
+						same inputs.<h:p/>
+						The evaluator shall generate 100 decryption test cases using the same parameters as above, but
+						with 20 of each 100 test cases having modified ciphertext to produce an incorrect result. To
+						determine correctness, the evaluator shall confirm that the results correspond as expected for
+						both the modified and unmodified values.<h:p/>					
+					</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event/>
+		</f-component>
+		
 
 	    <!-- FCS_COP.1/SigGen (formerly FCS_COP.1/3) -->
         <f-component cc-id="fcs_cop.1" id="fcs_sign_gen" iteration="SigGen" name="Cryptographic Operation - Signing Generation" status="sel-based">
-			<depends on-sel=""/>
+        	<depends on-sel="fcs-stg-ext-3e1"/>
         	<depends><optional/></depends>
         	<f-element id="fel-sign-gen">
 				<title> The TSF shall perform [<h:i>digital signature generation</h:i>] in accordance with a specified 
@@ -3946,184 +4051,6 @@
 			<audit-event/>
 		</f-component> 
 		
-		<!-- FCS_COP.1/KeyWrap Cryptographic Operation - Key Wrapping -->
-		<f-component id="sfr-fcs-cop-1-kw" cc-id="fcs_cop.1" iteration="KeyWrap" name="Cryptographic Operation - Key Wrapping" status="sel-based">
-			<depends on-sel="sel-ckm-2-wrap"/>
-			<depends on-sel="sel-stg3-kw"/>
-			<depends on-sel="sel-fdp-itc-ext-1e2-kw"/>
-			<f-element id="fcs-cop-1e1-kw">
-				<title>
-					The TSF shall perform [<h:i>key wrapping</h:i>] in accordance with a specified cryptographic algorithm 
-					<selectables>
-						<tabularize id="fcs-cop-kw-sels" title="Allowable choices for FCS_COP.1/KeyWrap">
-							<textcol>Identifier</textcol>
-							<reqtext></reqtext>
-							<selectcol>Cryptographic algorithm</selectcol>
-							<reqtext>and cryptographic key sizes</reqtext>
-							<selectcol>Cryptographic key sizes</selectcol>
-							<reqtext>that meet the following:</reqtext>
-							<selectcol>List of standards</selectcol>
-							<reqtext><h:p/><h:p/>The following table provides the allowable choices for
-								completion of the selection operations of FCS_COP.1/KeyWrap.</reqtext>
-						</tabularize>
-						
-						<!-- AES-KW  -->
-						<selectable id="sel-fcs-cop-kw-aes-kw">
-							<col>AES-KW</col>
-							<col>AES in KW mode</col>
-							<col>256 bits</col>
-							<col><selectables>
-								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable>
-								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/>
-								<selectables>
-									<selectable>ISO/IEC 19772:2020 (clause 6)</selectable>
-									<selectable>NIST SP 800-38F (Section 6.2)</selectable> 
-								</selectables> [KW mode]</col>
-						</selectable>
-						
-						<!-- KWP mode -->
-						<selectable id="sel-fcs-cop-kw-aes-kwp">
-							<col>AES-KWP</col>
-							<col>AES in KWP mode</col>
-							<col>256 bits</col>
-							<col><selectables>
-								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable>
-								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/>
-								NIST SP 800-38F (Section 6.3) [KWP mode]</col>
-						</selectable>
-						
-						<selectable id="sel-fcs-cop-kw-aes-ccm">
-							<col>AES-CCM</col>
-							<col>AES in CCM mode with unpredictable, non-repeating nonce, minimum size of 64 bits</col>
-							<col>256 bits</col>
-							<col><selectables>
-								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable>
-								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/>
-								<selectables>
-									<selectable>ISO/IEC 19772:2020 (Clause 7)</selectable> 
-									<selectable>NIST SP 800-38C</selectable></selectables> [CCM]
-							</col></selectable>
-						
-						<selectable id="sel-fcs-cop-kw-aes-gcm">
-							<col>AES-GCM</col>
-							<col>AES in GCM mode with non-repeating IVs using <selectables>
-								<selectable>deterministic</selectable>
-								<selectable>RBG-based</selectable></selectables>,
-								IV construction; the tag must be of length
-								<selectables>
-									<selectable>96</selectable>
-									<selectable>104</selectable>
-									<selectable>112</selectable>
-									<selectable>120</selectable>
-									<selectable>128</selectable>
-								</selectables> bits.
-							</col>
-							<col>256 bits</col>
-							<col><selectables>
-								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable>
-								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/>
-								<selectables>
-									<selectable>ISO/IEC 19772:2020 (Clause 10)</selectable> 
-									<selectable>NIST SP 800-38D</selectable></selectables> [GCM]
-							</col></selectable>
-					</selectables>
-				</title>
-				<note role="application">
-					This SFR is claimed when "key wrapping" is selected in FCS_CKM.2.1 or is used as a mechanism supporting verification of imported key integrity (FDP_ITC_EXT.1.2) or the integrity of stored key data (FCS_STG_EXT.3.1). NIST 800-57p1rev5 sec. 5.6.2 specifies that the size of key used to protect the key being 
-					transported should be at least the security strength of the key it is protecting.
-				</note>
-				<aactivity>
-					<TSS>
-						The evaluator shall ensure that the TSS documents that the selection of the key size is
-						sufficient for the security strength of the key wrapped.<h:p/>
-						The evaluator shall examine the TSS to ensure that it describes the construction of any IVs,
-						nonces, and MACs in conformance with the relevant specifications.
-					</TSS>
-					<Guidance/>
-					<Tests>
-						For tests of AES-GCM and AES-CCM, see testing for FCS_COP.1/AEAD.<h:p/>
-						The following tests are conditional based upon the selections made in the SFR. The evaluator
-						shall perform the following test or witness respective tests executed by the developer. The tests
-						must be executed on a platform that is as close as practically possible to the operational platform
-						(but which may be instrumented in terms of, for example, use of a debug mode). Where the test
-						is not carried out on the TOE itself, the test platform shall be identified and the differences
-						between test environment and TOE execution environment shall be described.<h:p/>
-						
-						<!-- AES-KW -->
-						<h:br/><h:b>AES-KW</h:b><h:p/>
-						<h:table border="1">
-							<h:tr class="header" bgcolor="#cccccc">
-								<h:td valign="top">Identifier</h:td>
-								<h:td valign="top">Cryptographic Algorithm</h:td>
-								<h:td valign="top">Cryptographic Key Sizes</h:td>
-								<h:td valign="top">List of Standards</h:td>
-							</h:tr>
-							<h:tr>
-								<h:td valign="top">AES-KW</h:td>
-								<h:td valign="top">AES in KW mode</h:td>
-								<h:td valign="top">256 bits</h:td>
-								<h:td valign="top">[<h:b>selection:</h:b> ISO/IEC 18033-3:2010 (Subclause 5.2),
-									FIPS PUB 197] [AES]<h:p/>
-									[<h:b>selection:</h:b> ISO/IEC 19772:2020 (clause 6), 
-									NIST SP 800-38F (Section 6.2)] [KW mode] </h:td>
-							</h:tr>
-						</h:table><h:p/>	
-						To test the TOE’s ability to wrap keys using AES in Key Wrap mode the evaluator shall perform
-						the Algorithm Functional Tests using the following input parameters:<h:ul>
-							<h:li>Key size [256] bits</h:li>
-							<h:li>Keyword cipher type [cipher, inverse]</h:li>
-							<h:li>Payload sizes [128-4096] bits by 64s</h:li></h:ul><h:p/>
-						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
-						The evaluator shall generate 100 encryption test cases using random data for each combination
-						of claimed key size, keyword cipher type, and six supported payload sizes such that the payload
-						sizes include the minimum, the maximum, two that are divisible by 128, and two that are not
-						divisible by 128.<h:p/>
-						The results shall be compared with those generated by a known-good implementation using the
-						same inputs.<h:p/>
-						The evaluator shall generate 100 decryption test cases using the same parameters as above, but
-						with 20 of each 100 test cases having modified ciphertext to produce an incorrect result. To
-						determine correctness, the evaluator shall confirm that the results correspond as expected for
-						both the modified and unmodified values.<h:p/>
-						
-						<!-- AES-KWP -->
-						<h:br/><h:b>AES-KWP</h:b><h:p/>
-						<h:table border="1">
-							<h:tr class="header" bgcolor="#cccccc">
-								<h:td valign="top">Identifier</h:td>
-								<h:td valign="top">Cryptographic Algorithm</h:td>
-								<h:td valign="top">Cryptographic Key Sizes</h:td>
-								<h:td valign="top">List of Standards</h:td>
-							</h:tr>
-							<h:tr>
-								<h:td valign="top">AES-KWP</h:td>
-								<h:td valign="top">AES in KWP mode</h:td>
-								<h:td valign="top">256 bits</h:td>
-								<h:td valign="top">[<h:b>selection:</h:b> ISO/IEC 18033-3:2010 (Subclause 5.2),
-									FIPS PUB 197] [AES]<h:p/>
-									NIST SP 800-38F (Section 6.3) [KWP mode] </h:td>
-							</h:tr>
-						</h:table><h:p/>	
-						To test the TOE’s ability to wrap keys using AES in Key Wrap with Padding mode with padding
-						the evaluator shall perform the Algorithm Functional Tests using the following input parameters:<h:ul>
-							<h:li>Key size [256] bits</h:li>
-							<h:li>Keyword cipher type [cipher, inverse]</h:li>
-							<h:li>Payload sizes [8-4096] bits by 8s</h:li></h:ul><h:p/>
-						<h:br/><h:b>Algorithm Functional Test</h:b><h:p/>
-						The evaluator shall generate 100 encryption test cases using random data for each combination
-						of claimed key size, keyword cipher type, and six supported payload sizes such that the payload
-						sizes include the minimum, the maximum, two that are divisible by 128, and two that are not
-						divisible by 128.<h:p/>
-						The results shall be compared with those generated by a known-good implementation using the
-						same inputs.<h:p/>
-						The evaluator shall generate 100 decryption test cases using the same parameters as above, but
-						with 20 of each 100 test cases having modified ciphertext to produce an incorrect result. To
-						determine correctness, the evaluator shall confirm that the results correspond as expected for
-						both the modified and unmodified values.<h:p/>					
-					</Tests>
-				</aactivity>
-			</f-element>
-			<audit-event/>
-		</f-component>
 		
 		<!-- FCS_COP.1/XOF Cryptographic Operation - Extendable-Output Function  -->
 		<f-component id="sfr-fcs-cop-1-xof" cc-id="fcs_cop.1" iteration="XOF" 
@@ -4228,138 +4155,15 @@
 			<audit-event/>
 		</f-component>
 		
-		<ext-comp-def fam-id="FCS_RBG_EXT" title="Random Bit Generation">
-			<fam-behavior>This family defines requirements for the generation of random bits.</fam-behavior>
-		</ext-comp-def>
-		
-		<f-component cc-id="fcs_rbg.1" name="Random Bit Generation (RBG)" status="feat-based">
-        	<depends on="pfedspec"/>
-			<f-element id="fcs-rbg-1e1">
-				<title>
-					TSF shall perform deterministic random bit generation services using   
-					<selectables>
-						<tabularize id="fcs-rbg-1-sels" title="Allowable choices for FCS_RBG.1.1">
-							<textcol>Identifier</textcol>
-							<reqtext></reqtext>
-							<selectcol>DRBG Algorithm</selectcol>
-							<reqtext> in accordance with </reqtext>
-							<selectcol>List of standards</selectcol>
-							<reqtext>after initialization.<h:p/><h:p/>The following table provides the allowable choices for
-								completion of the selection operations of FCS_RBG.1.1.</reqtext>
-						</tabularize>
-						
-						<selectable id="sel-fcs-rbg-hash-drbg">
-							<col>HASH_DRBG</col>
-							<col>Hash_DRBG with <selectables>
-								<selectable>SHA-384</selectable>
-								<selectable>SHA-512</selectable>
-							</selectables></col>
-							<col><selectables>
-								<selectable>ISO/IEC 18031: 2011 (Section C.2.2)</selectable>
-								<selectable>NIST SP 800-90A Revision 1 Section 10.1.1</selectable></selectables>
-							</col>
-						</selectable>
-						
-						<selectable id="sel-fcs-rbg-hmac-drbg">
-							<col>HMAC_DRBG</col>
-							<col>HMAC_DRBG with  <selectables>
-								<selectable>SHA-384</selectable>
-								<selectable>SHA-512</selectable>
-							</selectables></col>
-							<col><selectables>
-								<selectable>ISO/IEC 18031: 2011 (Section C.2.3)</selectable>
-								<selectable>NIST SP 800-90A Revision 1 Section 10.1.2</selectable></selectables>
-							</col>
-						</selectable>
-						
-						<selectable id="sel-fcs-rbg-ctr-drbg">
-							<col>CTR_DRBG</col>
-							<col>CTR_DRBG with AES-CTR-256</col>
-							<col><selectables>
-								<selectable>ISO/IEC 18031: 2011 (Section C.3.2)</selectable>
-								<selectable>NIST SP800-90A Revision 1 Section 10.2.1</selectable></selectables>
-							</col>
-						</selectable>
-					</selectables>
-				</title>
-				<note role="application">
-					CNSA 1.0 and 2.0 requires the use of 256-bit AES and SHA-384 or SHA-512. SHA-256 and all SHA3
-					hashes are not allowed. <h:p/>
-					NIST SP 800-90A contains three different methods of generating random numbers;
-					each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers).
-					The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the TSS.
-					While any of the identified hash functions (SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG,
-					only AES-based implementations for CTR_DRBG are allowed.<h:p/>
-					This SFR must be included in the ST if random bits are provided by the TOE to tenant software,
-					or if it is used by the TOE itself to support or implement PP-specified security functionality.<h:p/> 
-					This SFR is also needed if the following SFRs are included in the ST: FCS_IPSEC_EXT.1, 
-					FCS_CKM.1/AKG, FCS_CKM.1/SKG, and FCS_COP.1/SigGen.<h:p/>
-					Also, this SFR must be claimed if "<h:i>KDF-CTR</h:i>," "<h:i>KDF-FB</h:i>," or
-					"<h:i>KDF-DPI</h:i>" is selected in FCS_CKM.5.<h:p/>
-					If "HMAC_DRBG" is selected, then FCS_COP.1/KeyedHash must be claimed.<h:p/>
-					If "Hash_DRBG" is selected, then FCS_COP.1/Hash must be claimed.<h:p/>
-					If "CTR_DRBG" is selected, then FCS_COP.1/SKC must be claimed.
-				</note>
-			</f-element>
-			<f-element id="fcs-rbg-1e2">
-				<title>
-					The TSF shall use a <selectables>
-						<selectable id="sel-drbg-internal-seed">TSF entropy source <assignable>name of entropy
-							source</assignable>,</selectable>
-						<selectable id="sel-drbg-multiple-sources"><h:b>multiple TSF entropy sources <assignable>name of
-							entropy sources</assignable></h:b>,</selectable>
-						<selectable id="sel-drbg-external-seed">TSF interface for seeding</selectable>
-					</selectables>
-					for initialization and reseeding.
-				</title>
-				<note role="application">
-					<h:p>
-						For the selection in this requirement, the ST author selects "TSF entropy source" if a single entropy
-						source is used as input to the DRBG. The ST author selects "multiple TSF entropy sources" if a seed is
-						formed from a combination of two or more entropy sources within the TOE boundary. If the TSF implements
-						two or more separate DRBGs that are seeded in separate manners, this SFR should be iterated for each DRBG.
-						If multiple distinct entropy sources exist such that each DRBG only uses one of them, then each iteration
-						would select "TSF entropy source"; "multiple TSF entropy sources" is only selected if a single DRBG uses
-						multiple entropy sources for its seed. The ST author selects "TSF interface for seeding" if entropy source
-						data is generated outside the TOE boundary.
-					</h:p>	
-					<h:p>
-						If "multiple TSF entropy sources" is selected, FCS_RBG.1.2, FCS_RBG.4, and FCS_RBG.5 must be claimed. 
-					</h:p>
-				</note>
-			</f-element>
-			
-			<f-element id="fcs-rbg-1e3">
-				<title>
-					The TSF shall update the DRBG state by <selectables>
-						<selectable>reseeding</selectable>
-						<selectable>uninstantiating and re-instantiating</selectable>
-					</selectables> using a <selectables>
-						<selectable>TSF entropy source <assignable>name of entropy source</assignable></selectable>
-						<selectable><h:b>multiple TSF entropy sources <assignable>name of entropy sources</assignable></h:b>,</selectable>
-						<selectable>TSF interface for obtaining entropy <assignable>name of the interface</assignable></selectable></selectables>
-					in the following situations: <selectables linebreak="yes">
-						<selectable>never</selectable>
-						<selectable>on demand</selectable>
-						<selectable>on the condition: <assignable>condition</assignable></selectable>
-						<selectable>after <assignable>time</assignable></selectable>
-					</selectables>
-					in accordance with <assignable>list of standards</assignable>.
-				</title>
-			</f-element>
-			<audit-event>
-				<audit-event-descr>Failure of the randomization process</audit-event-descr>
-				<audit-event-info>None.</audit-event-info>
-			</audit-event>
-        </f-component>    
 		
 		<f-component cc-id="fcs_rbg.1" name="Random Bit Generation (RBG)" status="sel-based">
-			<depends on-sel=""/>
-			<depends on-incl=""/>
-			<depends on-incl=""/>
-			<depends on-incl=""/>
-			<depends on-incl=""/>
-			<depends on-incl=""/>
+			<depends on-sel="ftp-itc-ext-1e1"/>
+			<depends on-incl="fcom_asym_key_gen"/>				
+			<depends on-incl="fcom_sym_key_gen"/>			
+			<depends on-incl="fcs_sign_gen"/>
+			<depends on-incl="fcs-ipsec-ext-1">
+				<external-doc ref=""/>
+			</depends>
 			<depends><optional/></depends>
 			<f-element id="fcs-rbg-1e1">
 				<title>
@@ -4414,7 +4218,8 @@
 					hashes are not allowed. <h:p/>
 					NIST SP 800-90A contains three different methods of generating random numbers;
 					each of these, in turn, depends on underlying cryptographic primitives (hash functions/ciphers).
-					The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the TSS.
+					The ST author will select the function used and include the specific underlying cryptographic primitives used in the requirement or in the
+					TSS.
 					While any of the identified hash functions (SHA-384, SHA-512) are allowed for Hash_DRBG or HMAC_DRBG,
 					only AES-based implementations for CTR_DRBG are allowed.<h:p/>
 					This SFR must be included in the ST if random bits are provided by the TOE to tenant software,
@@ -4612,7 +4417,7 @@
 		</f-component>
 		
 		<f-component cc-id="fcs_rbg.2" name="Random Bit Generation (External Seeding)"  status="sel-based">
-			<depends on-sel="sel-drbg-external-seed"/>
+			<depends on-sel="fcs-rbg-1e2"/>
 			<f-element id="fe1-rbg-seed">
 				<title>
 					The TSF shall be able to accept a minimum input of <assignable>minimum input length greater than zero</assignable>
@@ -4645,7 +4450,7 @@
 		</f-component>
 
         <f-component cc-id="fcs_rbg.3" name="Random Bit Generation (Internal Seeding - Single Source)" status="sel-based">
-        	<depends on="sel-drbg-internal-seed"/>
+        	<depends on-sel="fcs-rbg-1e2"/>
           <f-element id="fel-rbg-seed-int-sing">
             <title>
               The TSF shall be able to seed the RBG using a <selectables onlyone="yes">
@@ -4683,20 +4488,8 @@
                 </f-element>
         </f-component>
 		
-		<f-component name="Random Bit Generation (Internal Seeding - Multiple Sources)" cc-id="fcs_rbg.4" status="feat-based">
-			<depends on="pfedspec"/>
-			<f-element id="fe1-rbg-comb">
-				<title>
-					The TSF shall be able to seed the DRBG using <selectables>
-						<selectable><assignable>number</assignable> TSF software-based entropy sources</selectable>
-						<selectable><h:b><assignable>number</assignable> TSF hardware-based entorpy sources</h:b></selectable>
-					</selectables>.
-				</title>
-			</f-element>
-		</f-component>
-        
-        <f-component cc-id="fcs_rbg.4" name="Random Bit Generation (Internal Seeding - Multiple Sources)" status="sel-based">
-        	<depends on="sel-drbg-multiple-sources"/>
+		<f-component cc-id="fcs_rbg.4" name="Random Bit Generation (Internal Seeding - Multiple Sources)" status="sel-based">
+			<depends on-sel="fcs-rbg-1e2"/>
           <f-element id="fel-rbg-seed-int-mult">
             <title>
               The TSF shall be able to seed the DRBG using <selectables>
@@ -4720,55 +4513,59 @@
             <Tests/>
           </aactivity>
           </f-element>
-        </f-component>
-          
-        <f-component name="Random Bit Generation (Combining Entropy Sources)" cc-id="fcs_rbg.5" status="feat-based">
-        <depends on="pfedspec"/>
-		<f-element id="fe1-rbg-comb">
-			<title>
-				The TSF shall <selectables>
-					<selectable>hash</selectable>
-					<selectable>concatenate and hash</selectable>
-					<selectable>XOR</selectable>
-					<selectable>input into a linear feedback shift register</selectable>
-					<selectable><assignable>combining operation</assignable></selectable></selectables>
-				<selectables>
-					<selectable>output from TSF entropy sources</selectable>
-					<selectable>input from TSF interfaces for obtaining entropy</selectable>
-				</selectables>
-				resulting in a minimum of <assignable>number of bits</assignable> bits of min-entropy to create
-				the entropy input into the derivation function as defined in [<h:i>NIST SP 800-90A Revision
-					1</h:i>].
-			</title>
-		</f-element>
-		</f-component>
-		
+        </f-component>          
+       
 		<f-component cc-id="fcs_rbg.5" name="Random Bit Generation (Combining Entropy Sources)" status="sel-based">
-        	<depends on="sel-drbg-multiple-sources"/>
+			<depends on-sel="fcs-rbg-1e2"/>
           <f-element id="fel-rbg-comb">
             <title>
-              The TSF shall <assignable>combining operation</assignable> <selectables>
-                <selectable>output from TSF noise source(s)</selectable>
-                <selectable>input from TSF interface(s) for seeding</selectable></selectables>
-                to create the entropy input into the derivation function as defined in <assignable>list of standards</assignable>, resulting
-                in a minimum of <assignable>number of bits</assignable> bits of min-entropy.              
+              The TSF shall <selectables>
+              	<selectable><h:b>hash</h:b></selectable>
+              	<selectable><h:b>concatenate and hash</h:b></selectable>
+              	<selectable><h:b>XOR</h:b></selectable>
+              	<selectable><h:b>input into a linear feedback shift register</h:b></selectable>
+              	<selectable><assignable>combining operation</assignable></selectable>
+              </selectables>
+              	<selectables>
+              		<selectable>output from TSF <h:b>entropy noise</h:b> sources</selectable>
+                <selectable>input from TSF interfaces for <h:b>obtaining entropy</h:b></selectable>
+              	</selectables>
+                to create the entropy input into the derivation function as defined in [<selectables>
+                	<selectable>ISO/IEC 18031:2011</selectable>
+                	<selectable>NIST SP 800-90A Revision 1</selectable>
+                </selectables>, resulting in a minimum of <assignable>number of bits</assignable> bits of min-entropy.              
             </title> 
 	    <note role="application">
-              Examples of typical combining operations include, but are not limited to, XORing or hashing.
+	    	The ST author claims this requirement when a TOE combines two or more sources of entropy to initialize or reseed a DRBG. Seeding a DRBG is the same as
+	    	initializing a DRBG. The ST author ensures that the assignment is completed with the number of bits of the combined entropy sufficient to initialize or
+	    	reseed a DRBG.<h:br/><h:br/>
+	    	One can apply NIST SP 800-90B (or AIS-31) statistical tests against internal noise sources (aka raw entropy) to confirm the min-entropy of the noise
+	    	sources either in aggregate or individually. One should not apply NIST SP 800-90B (or AIS-31) statistical tests against external noise sources since the
+	    	TOE is unable to enforce entropy requirements or conditioning requirements against external sources of entropy. However, the TSS may include estimates
+	    	for min-entropy from external sources that contribute to the overall entropy requirements for the DRBG.	    	
             </note>
           <aactivity>
-          	<h:p>
-            Using the entropy sources specified in FCS_RBG.4, the evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it describes the method by which the various entropy sources are combined into a single seed. This should include an estimation of the rate at which each noise source outputs data and whether this is dependent on any system-specific factors so that each source's relative contribution to the overall entropy is understood. The evaluator shall verify that the resulting combination of sampled data and the min-entropy rate of the sampled data is described in sufficient detail to determine that sufficient entropy can be made available for the highest strength keys that the TSF can generate (e.g., 256 bits). If the seed data cannot be assumed to have full entropy (e.g., the min-entropy of the sampled bits is less than 1), the evaluator shall ensure that the entropy documentation describes the method by which the TOE estimates the amount of entropy that has been accumulated to ensure that sufficient data is collected and any conditioning that the TSF applies to the output data to create a seed of sufficient size with full entropy.
-          	</h:p>
-            <TSS/>
-            <Guidance/>
-            <Tests/>
+            <TSS>
+            	The evaluator shall examine th eTSS and verify that it documents the types of noise sources selected in FCS_RBG.5.1 and indicates the amount of
+            	entropy provided by these sources in combination.
+            </TSS>
+            <Guidance>The evaluator shall verify that the guidance describes any settings, operational requirements, or user input necessary for the proper
+            	function of the noise sources.</Guidance>
+            <Tests>The evaluator shall ensure that the combination of claimed entropy sources can provide at least the number of bits of entropy claimed in 
+            the assignment.</Tests>
           </aactivity>
           </f-element>    
 		</f-component>  
 		
 		<!-- FCS_RBG.6 Random Bit Generation Service -->
 		<f-component id="sfr-fcs-rbg-6" cc-id="fcs_rbg.6" name="Random Bit Generation Service" status="sel-based">			
+			<depends on-incl="fcom_asym_key_gen"/>
+			<depends on-incl="fcom_sym_key_gen"/>
+			<depends on-incl="fcs_ckm.2"/>
+			<depends on-incl=""/>
+			<depends on-incl="sfr-fcs-ckm-ext-7"/>
+			<depends on-incl="sfr-fcs-stg-ext-1"/>
+			<depends on-incl="sfr-fia-afl-ext-1"/>
 			<depends><optional/></depends>
 			<f-element id="fcs-rbg-6e1">
 				<title>
@@ -5082,6 +4879,11 @@
 					<title>The TSF shall explicitly deny an information flow based on the following rules:
 						<assignable>rules, based on security attributes, that explicitly deny information
 							flows</assignable>.</title>
+					<aactivity level="component">
+						<TSS>Needs to be completed.</TSS>
+						<Guidance>Needs to be completed.</Guidance>
+						<Tests><comment>Needs to be completed.</comment></Tests>
+					</aactivity>
 				</f-element>
 			</f-component>
 				
@@ -5108,6 +4910,11 @@
 					<title>The TSF shall explicitly deny an information flow based on the following rules:
 						[assignment: rules, based on security attributes, that explicitly deny information flows].
 					</title>
+					<aactivity level="component">
+						<TSS>Needs to be completed.</TSS>
+						<Guidance>Needs to be completed.</Guidance>
+						<Tests><comment>Needs to be completed.</comment></Tests>
+					</aactivity>
 				</f-element>
 			
 			</f-component>
@@ -5119,7 +4926,7 @@
 			</ext-comp-def>
 				
 				<f-component name="Key/Credential Import" cc-id="fdp_itc_ext.1" status="sel-based">
-					<depends on-sel=""/>
+					<depends on-sel="fcs-stg-ext-1e2"/>
 					
 				<comp-lev> requires the TSF to choose a method for importing keys and key material.</comp-lev>
 				<management>No specific management functions are identified.</management>
@@ -5191,7 +4998,8 @@
 							description shall contain information pertaining to how certificates are loaded into
 							the store, and how the store is protected from unauthorized access (for example,
 							UNIX permissions) in accordance with the permissions established in FMT_SMF_EXT.1
-							and FMT_MOF_EXT.1.1.<h:br/><h:br/></TSS>
+							and FMT_MOF_EXT.1.1.
+						</TSS>
 						<Guidance/>
 						<Tests/>
 					</aactivity>
@@ -5587,7 +5395,7 @@
 		</f-component>
 			
 			<f-component name="Multiple Authentication Mechanisms" cc-id="fia_uau.5" status="sel-based">
-				<depends on-sel=""></depends>
+				<depends on-sel="sfr-fmt-smr-1"></depends>
 				<f-element id="fia-uau-5e1">
 					<title>The TSF shall provide [<h:i>password and</h:i><selectables>
 						<selectable>certificate-based authentication</selectable>
@@ -5717,7 +5525,6 @@
 			</ext-comp-def>
 		
 			<f-component cc-id="fia_uau_ext.1" name="Authentication for Cryptographic Operation" status="sel-based">
-				<depends on-sel=""/>
 				
 				<comp-lev> requires the TSF enforce data-at-rest protection until successful authentication has occurred. </comp-lev>
 				<management>There are no management activities foreseen.</management>
@@ -5725,7 +5532,6 @@
 				<dependencies>FDP_DAR_EXT.1 Protected Data Encryption<h:br/>
 					FDP_DAR_EXT.2 Sensitive Data Encryption
 				</dependencies>
-				
 				
 				<f-element id="fel-auth-before-decrypt">
 					<title>The TSF shall require the user to present the Password Authentication Factor
@@ -5745,7 +5551,7 @@
 							requires the user to enter a Password Authentication Factor and, in accordance with
 							FCS_CKM_EXT.3, derives a KEK, which is used to protect the software-based secure key
 							storage and (optionally) DEKs for sensitive data, in accordance with
-							FCS_STG_EXT.2.<h:br/><h:br/></TSS>
+							FCS_STG_EXT.2.</TSS>
 						<Guidance/>
 						<Tests> The following tests may be performed in conjunction with FDP_DAR_EXT.1 and
 							FDP_DAR_EXT.2. <h:br/><h:br/>
@@ -5823,8 +5629,8 @@
 						take a picture when the device is in locked state, this action must be listed. </note>
 					<aactivity>
 						<TSS>The evaluator shall verify that the TSS describes the actions allowed by
-							unauthorized users in the locked state.<h:br/><h:br/></TSS>
-						<Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+							unauthorized users in the locked state.</TSS>
+						<Guidance>There are no guidance evaluation activities for this component.</Guidance>
 						<Tests>The evaluator shall attempt to perform some actions not listed in the selection
 							while the device is in the locked state and verify that those actions do not
 							succeed. </Tests>
@@ -5917,9 +5723,7 @@
       	</f-component>
       	
 		<f-component name="Static Attributes" cc-id="fmt_msa.3">
-			
 			<f-element>
-				
 				<title><comment>Decide whether we are using and completed unfinished fields (EAs, App Notes, etc.)</comment>
 					
 					The TSF shall enforce the <assignable>access control SFP, information flow control SFP</assignable> to provide <selectables choose-one-of="yes">
@@ -5931,6 +5735,11 @@
 			<f-element>
 				<title>The TSF shall allow the <assignable>the authorized identified roles</assignable> to specify alternative
 				initial values to override the derfault values when an object or information is created.</title>
+				<aactivity level="component">
+					<TSS>Needs to be completed.</TSS>
+					<Guidance>Needs to be completed.</Guidance>
+					<Tests><comment>Needs to be completed.</comment></Tests>
+				</aactivity>
 			</f-element>
 		</f-component>      	
 
@@ -6302,7 +6111,7 @@
     	<ext-comp-def title="Packet Filtering" fam-id="FPF_RUL_EXT">
     		<fam-behavior>This family defines requirements for using packet filtering.</fam-behavior>
     	</ext-comp-def>
-    	<f-component name="Packet Filtering Rules" cc-id="fpt_rul_ext.1">
+    	<f-component name="Packet Filtering Rules" cc-id="fpf_rul_ext.1">
     		<comp-lev> requires the TSF to perform packet filtering using specific protocols.</comp-lev>
     		<management>There are no management activities foreseen.</management>
     		<audit>There are no auditable events foreseen.</audit>
@@ -6314,7 +6123,7 @@
     			</title>
     			<aactivity level="element">
     				<TSS>
-    					The evaluator shall verify that the TSS provide a description of the TOE’s initialization and startup process, which clearly 
+    					The evaluator shall verify that the TSS provide a description of the TOE’s initialization and start-up process, which clearly 
     					indicates where processing of network packets begins to take place, and provides a discussion that supports the assertion that
     					packets cannot flow during this process.<h:br/><h:br/>
     					The evaluator shall verify that the TSS also includes a narrative that identifies the components (e.g., active entity such as a 
@@ -6323,7 +6132,7 @@
     					such as a process being terminated, or a failure within a component, such as memory buffers full and cannot process packets.
     				</TSS>
     				<Guidance>
-    					The operational guidance associated with this requirment is assessed in the subsequent test EAs.
+    					The operational guidance associated with this requirement is assessed in the subsequent test EAs.
     				</Guidance>
     				<Tests>
     					<testlist>
@@ -6512,7 +6321,7 @@
     			<note role="application">
     				This element requires that an administrator is able to define the order in which configured filtering rules are precessed for matches.
     			</note>
-    			<aactivity>
+    			<aactivity level="element">
     				<TSS>
     					The evaluator shall verify that the TSS describes the algorithm applied to incoming packets, including the processing of 
     					default rules, determination of whether a packet is part of an established session, and application of administrator defined 
@@ -6545,7 +6354,7 @@
     			<note role="application">
     				This element requires that the behavior is always to deny network traffic when no rules apply.
     			</note>
-    			<aactivity>
+    			<aactivity level="element">
     				<TSS>
     					The evaluator shall verify that the TSS describes the process for applying packet filtering rules and also that the behavior
     					(either by default, or as configured by the administrator) is to discard packets when there is no rule match. The evaluator 
@@ -7059,7 +6868,7 @@
     	
     	<f-component name="TSF Initialization" cc-id="fpt_ini.1">
     		<f-element>
-    			<title><comment>This SFR will need to be completed.</comment>
+    			<title>
     			The TOE shall provide an initialization function which is self-protected for integrity and authenticity.
     			</title>
     		</f-element>
@@ -7084,6 +6893,11 @@
     		<f-element>
     			<title>The TOE initialization function shall only interact with the TSF in <assignable>defined methods</assignable> during initialization.
     			</title>
+    			<aactivity level="component">
+    				<TSS>Needs to be completed.</TSS>
+    				<Guidance>Needs to be completed.</Guidance>
+    				<Tests><comment>Needs to be completed.</comment></Tests>
+    			</aactivity>
     		</f-element>
     	</f-component>
     	
@@ -7213,8 +7027,8 @@
     					that no unencrypted key material is transmitted outside the security boundary of the
     					TOE. <h:br/><h:br/> The evaluator shall review the TSS to determine that it
     					makes a case that key material is not transmitted outside the security boundary of
-    					the TOE. <h:br/><h:br/></TSS>
-    				<Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+    					the TOE. </TSS>
+    				<Guidance>There are no guidance evaluation activities for this component.</Guidance>
     				<Tests>There are no test evaluation activities for this component.</Tests>
     			</aactivity>
     		</f-element>
@@ -7238,8 +7052,8 @@
     				<TSS>The ST author shall provide a statement of their policy for handling and
     					protecting keys. The evaluator shall check to ensure the TSS describes a policy in
     					line with not exporting either plaintext DEKs, KEKs, or keys stored in the secure
-    					key storage.<h:br/><h:br/></TSS>
-    				<Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+    					key storage.</TSS>
+    				<Guidance>There are no guidance evaluation activities for this component.</Guidance>
     				<Tests>There are no test evaluation activities for this component.</Tests>
     			</aactivity>
     		</f-element>
@@ -7281,7 +7095,7 @@
     			<aactivity>
     				<TSS>The evaluator shall verify that the TSS describes critical failures that may
     					occur and the actions to be taken upon these critical failures.
-    					<h:br/><h:br/></TSS>
+    					</TSS>
     				<Guidance/>
     				<Tests>
     					<h:b>Evaluation Activity Note:</h:b> The following test require the developer to
@@ -7553,10 +7367,15 @@
     	
     	<f-component name="Automated Recovery" cc-id="fpt_rcv.2">
     		<f-element>
-    			<title><comment>This SFR needs to be completed in full.</comment>
+    			<title>
     				When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
     				maintenance mode where the ability to return to a secure state is provided.
     			</title>
+    			<aactivity level="component">
+    				<TSS>Needs to be completed.</TSS>
+    				<Guidance>Needs to be completed.</Guidance>
+    				<Tests><comment>Needs to be completed.</comment></Tests>
+    			</aactivity>
     		</f-element>
     	</f-component>
     	
@@ -8027,10 +7846,11 @@
     					and the conditions and actions necessary to exit the error states and resume normal
     					operation. The evaluator shall verify that the TSS indicates these self-tests are
     					run at start-up automatically, and do not involve any inputs from or actions by the
-    					user or operator. <h:br/><h:br/> The evaluator shall inspect the list of
+    					user or operator. <h:br/><h:br/> 
+    					The evaluator shall inspect the list of
     					self-tests in the TSS and verify that it includes algorithm self-tests. The
-    					algorithm self-tests will typically be conducted using known answer tests.<h:br/><h:br/></TSS>
-    				<Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+    					algorithm self-tests will typically be conducted using known answer tests.</TSS>
+    				<Guidance>There are no guidance evaluation activities for this component.</Guidance>
     				<Tests>There are no test evaluation activities for this component.</Tests>
     			</aactivity>
     		</f-element>
@@ -8561,21 +8381,32 @@
 	    	
 	    	<f-component name="TSF-Initiated Termination" cc-id="fta_ssl.3">
 	    		<f-element>
-	    			<title><comment>This SFR will need to be completed with all sections.</comment>The TSF shall terminate a remote interactive session after a security
+	    			<title>The TSF shall terminate a remote interactive session after a security
 	    				administrator-configurable time interval of session inactivity</title>
+	    			
 	    		<note role="application">
 	    			An interactive session governed by this SFR is a session in which an authenticated state is achieved and then preserved across multiple commands. By
 	    			contrast, if authentication accompanies each individual command (without preservation of the same authenticated state) then this is not considered an
 	    			interactive session.
 	    		</note>
+	    			<aactivity level="component">
+	    				<TSS>Needs to be completed.</TSS>
+	    				<Guidance>Needs to be completed.</Guidance>
+	    				<Tests><comment>Needs to be completed.</comment></Tests>
+	    			</aactivity>
 	    		</f-element>	    		
 	    	</f-component>
 	    	
 	    	<f-component name="User-Initiated Termination" cc-id="fta_ssl.4">
 	    		<f-element>
-	    			<title><comment>This SFR will need to be completed with all sections.</comment> The TSF shall allow administrator-initiated termination of the
+	    			<title>The TSF shall allow administrator-initiated termination of the
 	    				administrator's
-	    				own interactive session.</title>	    			
+	    				own interactive session.</title>	
+	    			<aactivity level="component">
+	    				<TSS>Needs to be completed.</TSS>
+	    				<Guidance>Needs to be completed.</Guidance>
+	    				<Tests><comment>Needs to be completed.</comment></Tests>
+	    			</aactivity>
 	    		</f-element>
 	    	</f-component>
 	    	
@@ -8628,11 +8459,11 @@
 	    				specified in FMT_SMF_EXT.1 function <xref to="mf-lockState"/>.</note>
 	    			<aactivity>
 	    				<TSS>The evaluator shall verify the TSS describes the actions performed upon
-	    					transitioning to the locked state. <h:br/><h:br/></TSS>
+	    					transitioning to the locked state.</TSS>
 	    				<Guidance>The evaluation shall verify that the AGD guidance describes the method of
 	    					setting the inactivity interval and of commanding a lock. The evaluator shall verify
 	    					that the TSS describes the information allowed to be displayed to unauthorized
-	    					users.<h:br/><h:br/></Guidance>
+	    					users.</Guidance>
 	    				<Tests>
 	    					<testlist>
 	    						<test>The evaluator shall configure the TSF to transition to the locked state
@@ -8662,8 +8493,8 @@
 	    				unlock. The banner is configured according to FMT_SMF_EXT.1 function <xref
 	    					to="mf-unlockBanner"/>.</note>
 	    			<aactivity>
-	    				<TSS> The TSS shall describe when the banner is displayed.<h:br/><h:br/></TSS>
-	    				<Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+	    				<TSS> The TSS shall describe when the banner is displayed.</TSS>
+	    				<Guidance>There are no guidance evaluation activities for this component.</Guidance>
 	    				<Tests> The evaluator shall also perform the following test: <testlist>
 	    					<test>The evaluator follows the operational guidance to configure a notice and
 	    						consent warning message. The evaluator shall then start up or unlock the TSF.
@@ -8711,6 +8542,11 @@
       			The TSF shall initiate communication via the trusted channel for <assignable>list of <h:b>services for which the TSF is able to initiate
       			communications</h:b></assignable>.
       		</title>
+      		<aactivity level="component">
+      			<TSS>Needs to be completed.</TSS>
+      			<Guidance>Needs to be completed.</Guidance>
+      			<Tests><comment>Needs to be completed.</comment></Tests>
+      		</aactivity>
       	</f-element>
       </f-component>
     	
@@ -8738,6 +8574,11 @@
     					<selectable>no functions</selectable>
     				</selectables></h:i>.
     			</title>
+    			<aactivity>
+    				<TSS>Needs to be completed.</TSS>
+    				<Guidance>Needs to be completed.</Guidance>
+    				<Tests><comment>Needs to be completed.</comment></Tests>
+    			</aactivity>
     		</f-element>
     		
     	</f-component>
