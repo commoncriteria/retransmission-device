@@ -417,7 +417,7 @@
 				<Mod-cc-ref>PP-Module for WLAN Clients, Version 1.0</Mod-cc-ref>
 			</cc-pp-config-with>
 			<cc-pkg-claim>
-				<FP-cc-ref conf="conformant">Functional Package for SEcure Shell (SSH), Version 2.0</FP-cc-ref>
+				<FP-cc-ref conf="conformant">Functional Package for Secure Shell (SSH), Version 2.0</FP-cc-ref>
 				<FP-cc-ref conf="conformant">Functional Package for Transport Layer Security (TLS), Version 2.0</FP-cc-ref>				
 			</cc-pkg-claim>
 		</CClaimsInfo>	
@@ -767,8 +767,10 @@
 						<Guidance>Needs to be completed.</Guidance>
 						<Tests><comment>Needs to be completed.</comment></Tests>
 					</aactivity>
-				
 				</f-element>
+				<audit-event>
+					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+				</audit-event>
 			</f-component>
 			
 			<f-component name="Selective Proof of Receipt" cc-id="fco_nrr.1">
@@ -804,7 +806,9 @@
 						<Tests><comment>Needs to be completed.</comment></Tests>
 					</aactivity>
 				</f-element>				
-				<audit-event/>
+				<audit-event>
+					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+				</audit-event>
 			</f-component>
 		</section>
 	
@@ -1433,6 +1437,9 @@
 					</Tests>
 				</aactivity>
 			</f-element>
+        	<audit-event>
+        		<audit-event-descr>Needs to be completed.</audit-event-descr>
+        	</audit-event>
         </f-component>
 
 		<!-- FCS_CKM.1/SKG -->
@@ -1515,12 +1522,14 @@
 					</Tests>				
 				</aactivity>
 			</f-element>
-			<audit-event/>			
+			<audit-event>
+				<audit-event-descr>Needs to be completed.</audit-event-descr>
+			</audit-event>			
 		</f-component>
 
 		<!-- FCS_CKM.2 -->
         <f-component cc-id="fcs_ckm.2" name="Cryptographic Key Distribution" status="sel-based">
-        	<depends on-sel=""/>
+        	<depends on-sel="sfr-ftp-itc-ext-1"/>
         	<depends on-sel=""/>
         	<depends on="ipsec"/>
         	<depends><optional/></depends>
@@ -1569,7 +1578,14 @@
         </f-component>
 		
 		<f-component cc-id="fcs_ckm.6" name="Timing and Event of Cryptographic Key Destruction"
-			status="feat-based">			
+			status="feat-based">		
+			<depends on-incl="fcom_asym_key_gen"/>
+			<depends on-incl="fcom_sym_key_gen"/>
+			<depends on-incl="fcs_ckm.2"/>
+			<depends on-incl=""/>
+			<depends on-incl="sfr-fcs-ckm-ext-7"/>
+			<depends on-incl="sfr-fcs-stg-ext-1"/>
+			<depends on-incl="sfr-fia-afl-ext-1"/>
 			<f-element id="fel-key-kill-when">
 				<title><comment></comment>The TSF shall destroy [<h:i>all plaintext keying material and critical security
 					parameters (CSPs)</h:i>] when 
@@ -1617,17 +1633,16 @@
 				</note>
 				
 				<aactivity>
-					<TSS><h:p>
-						The evaluator shall verify that the TSS identifies all plaintext keying material and CSPs stored by the TOE, the type of memory in which it is stored,
-						and when and how the keying material is erased. If the TOE uses one or more KEKs to protect stored keying material, the evaluator shall verify that the
-						TSS describes the destruction of that keying material, either directly or by destruction of the KEK used to encrypt it.</h:p>
-						<h:p>If different types of memory are used to store the materials to be protected, the evaluator shall check to ensure that the TSS describes the 
-						clearing procedure in terms of the memory in which the data are stored (for example, "secret keys stored on flash are cleared by overwriting once
-						with zeros, while secret keys stored on the internal persistent storage device are cleared by overwriting one time with a random pattern that is 
-						changed before each write"). For block erases, the evaluator shall also ensure that the TSS identifies the block erase command that is used and 
-						shall verify that the command used also addresses any copies of the plaintext key material that may be created, e.g. in order to optimize the use
-						of Flash memory.
-						</h:p>
+					<TSS>
+						The evaluator shall verify that the TSS identifies all plaintext keying material and CSPs stored by the TOE, the type of memory in 
+						which it is stored, and when and how the keying material is erased. If the TOE uses one or more KEKs to protect stored keying material,
+						the evaluator shall verify that the TSS describes the destruction of that keying material, either directly or by destruction of the KEK
+						used to encrypt it.<h:br/><h:br/>
+						If different types of memory are used to store the materials to be protected, the evaluator shall check to ensure that the TSS
+						describes the clearing procedure in terms of the memory in which the data are stored (for example, "secret keys stored on flash are
+						cleared by overwriting once with zeros, while secret keys stored on the internal persistent storage device are cleared by
+						overwriting one time with a random pattern that is changed before each write"). For block erases, the evaluator shall also ensure
+						that the TSS identifies the block erase command that is used and shall verify that the command used also addresses any copies of the								plaintext key material that may be created, e.g. in order to optimize the use of Flash memory.						
 					</TSS>
 					<Guidance/>
 					<Tests>
@@ -1635,10 +1650,10 @@
 							provide access to a test platform that provides the evaluator with tools that are
 							typically not found on the end consumer version of the TOE.</h:p>
 						<h:p>
-							The evaluator shall perform the following tests for all keys and key material subject to destruction by the TOE. For these tests, the evaluator
-							shall utilize an appropriate development environment (e.g., a virtual machine) and development tools (debuggers, simulators, etc.) to test that
-							keys are cleared, including all copies of the key that may have been created internally by the TOE during normal cryptographic
-							processing with that key.</h:p>
+							The evaluator shall perform the following tests for all keys and key material subject to destruction by the TOE. For these tests,
+							the evaluator shall utilize an appropriate development environment (e.g., a virtual machine) and development tools (debuggers,
+							simulators, etc.) to test that keys are cleared, including all copies of the key that may have been created internally by the TOE
+							during normal cryptographic processing with that key.</h:p>
 						<testlist>
 							<test> Applied to each key held as plaintext in volatile memory and subject to
 								destruction by overwrite by the TOE (whether or not the plaintext value is
@@ -1948,7 +1963,7 @@
 			<depends on-sel=""/>  
 			<depends on-sel="ftp-itc-ext-1e1"/>
 			<depends on-incl="sfr-fcs-stg-ext-2"/>	
-			<depends on="ipsec"/>  
+			<depends on-incl=""/>  
 			<depends><optional/></depends>    		<!-- May be also included optionally -->
 			<f-element id="fcs-cop-1e1-aead">
 				<title>
@@ -3341,10 +3356,11 @@
 		
 		<!-- FCS_COP.1/SigVer Cryptographic Operation - Signature Verification --> 
 		<f-component id="sfr-fcs-cop-1-sigver" cc-id="fcs_cop.1" iteration="SigVer" name="Cryptographic Operation - Signature Verification" status="sel-based">
+			<depends on-sel="sel-fdp-itc-ext-1e2-sig"/>  <!-- from FDP_ITC_EXT.1 -->	
 			<depends on-sel="sel-rot2-digsig"/>  <!-- FPT_ROT_EXT.2 -->
 			<depends on-sel="sel-tud1-auth-update"/>  <!-- FPT_TUD_EXT.1 (covers TUD2, which requires SigVer) -->
 			<depends on-sel="sel-tud1-unauth-update"/> <!-- FPT_TUD_EXT.1 -->
-			<depends on-sel="sel-fdp-itc-ext-1e2-sig"/>  <!-- from FDP_ITC_EXT.1 -->			
+					
 			<depends><optional/></depends>    		<!-- May be also included optionally -->
 			<f-element id="fcs-cop-1e1-sigver">
 				<title> 
@@ -3778,7 +3794,8 @@
 		</f-component>
 		
 		<!-- FCS_COP.1/SKC Cryptographic Operation - Symmetric Key Cryptography -->	
-		<f-component id="sfr-fcs-cop-1-skc" cc-id="fcs_cop.1" iteration="SKC" name="Cryptographic Operation - Symmetric Key Encryption/Decryption" status="sel-based">
+		<f-component id="sfr-fcs-cop-1-skc" cc-id="fcs_cop.1" iteration="SKC" name="Cryptographic Operation - Symmetric Key Encryption/Decryption"
+			status="sel-based">
 			<depends on-sel=""/>  
 			<depends on-sel="ftp-itc-ext-1e1"/>  
 			<depends on-incl="sfr-fcs-stg-ext-2"/>	
@@ -4885,6 +4902,9 @@
 						<Tests><comment>Needs to be completed.</comment></Tests>
 					</aactivity>
 				</f-element>
+				<audit-event>
+					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+				</audit-event>
 			</f-component>
 				
 			<f-component name="Information Flow Control Functions" cc-id="fdp_iff.1">
@@ -4916,8 +4936,11 @@
 						<Tests><comment>Needs to be completed.</comment></Tests>
 					</aactivity>
 				</f-element>
-			
+				<audit-event>
+					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+				</audit-event>
 			</f-component>
+			
 				<ext-comp-def fam-id="FDP_ITC_EXT" title="Key/Credential Import">
 				<fam-behavior>
 					This family defines requirements for supporting and integrity of importing keys and key
@@ -5322,7 +5345,9 @@
 						</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event/>
+				<audit-event>
+					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+				</audit-event>
 			</f-component>
 			
 			<ext-comp-def title="Pre-Shared Key Composition" fam-id="FIA_PSK_EXT">
@@ -5353,7 +5378,9 @@
 					<Tests><comment>This needs to be completed.</comment></Tests>
 				</aactivity>
 			</f-element>			
-			<audit-event/>
+			<audit-event>
+				<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+			</audit-event>
 						
 		</f-component>
 		<ext-comp-def title="Authentication Throttling" fam-id="FIA_TRT_EXT">
@@ -5734,13 +5761,16 @@
 			</f-element>
 			<f-element>
 				<title>The TSF shall allow the <assignable>the authorized identified roles</assignable> to specify alternative
-				initial values to override the derfault values when an object or information is created.</title>
+				initial values to override the default values when an object or information is created.</title>
 				<aactivity level="component">
 					<TSS>Needs to be completed.</TSS>
 					<Guidance>Needs to be completed.</Guidance>
 					<Tests><comment>Needs to be completed.</comment></Tests>
-				</aactivity>
+				</aactivity>				
 			</f-element>
+			<audit-event>
+					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+				</audit-event>
 		</f-component>      	
 
         <f-component id="sfr-fmt-smf-1" cc-id="fmt_smf.1" name="Specification of Management Functions">
@@ -6824,8 +6854,8 @@
     					shall verify that the design described in the TSS does not permit any BPs from
     					accessing any of the peripherals and sensors or from accessing main memory (volatile
     					and non-volatile) used by the AP. In particular, the evaluator shall ensure that the
-    					design prevents modification of executable memory of the AP by the BP.<h:br/><h:br/></TSS>
-    				<Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+    					design prevents modification of executable memory of the AP by the BP.</TSS>
+    				<Guidance>There are no guidance evaluation activities for this component.</Guidance>
     				<Tests>There are no test evaluation activities for this component.</Tests>
     			</aactivity>
     		</f-element>
@@ -6899,6 +6929,9 @@
     				<Tests><comment>Needs to be completed.</comment></Tests>
     			</aactivity>
     		</f-element>
+    		<audit-event>
+    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+    		</audit-event>
     	</f-component>
     	
     	<ext-comp-def title="JTAG Disablement" fam-id="FPT_JTA_EXT">
@@ -6992,9 +7025,9 @@
     					in persistent storage. <h:br/><h:br/> 
     					The evaluator shall review the TSS to
     					determine that it makes a case that key material is not written unencrypted to the
-    					persistent storage. <h:br/><h:br/>
+    					persistent storage. 
     				</TSS>
-    				<Guidance>There are no guidance evaluation activities for this component.<h:br/><h:br/></Guidance>
+    				<Guidance>There are no guidance evaluation activities for this component.</Guidance>
     				<Tests>There are no test evaluation activities for this component.</Tests>
     			</aactivity>
     		</f-element>
@@ -7377,6 +7410,9 @@
     				<Tests><comment>Needs to be completed.</comment></Tests>
     			</aactivity>
     		</f-element>
+    		<audit-event>
+    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+    		</audit-event>
     	</f-component>
     	
     	<ext-comp-def title="Platform Integrity" fam-id="FPT_ROT_EXT">
@@ -7796,7 +7832,10 @@
     				</h:p>
     			</Tests>
     		</aactivity>
-    		</f-element>    		
+    		</f-element> 
+    		<audit-event>
+    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+    		</audit-event>
     	</f-component>
     	
     	<f-component cc-id="fpt_tst_ext.1" name="TSF Testing">
@@ -8385,9 +8424,9 @@
 	    				administrator-configurable time interval of session inactivity</title>
 	    			
 	    		<note role="application">
-	    			An interactive session governed by this SFR is a session in which an authenticated state is achieved and then preserved across multiple commands. By
-	    			contrast, if authentication accompanies each individual command (without preservation of the same authenticated state) then this is not considered an
-	    			interactive session.
+	    			An interactive session governed by this SFR is a session in which an authenticated state is achieved and then preserved across multiple
+	    			commands. By contrast, if authentication accompanies each individual command (without preservation of the same authenticated state) then this
+	    			is not considered an interactive session.
 	    		</note>
 	    			<aactivity level="component">
 	    				<TSS>Needs to be completed.</TSS>
@@ -8395,6 +8434,9 @@
 	    				<Tests><comment>Needs to be completed.</comment></Tests>
 	    			</aactivity>
 	    		</f-element>	    		
+	    		<audit-event>
+	    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+	    		</audit-event>
 	    	</f-component>
 	    	
 	    	<f-component name="User-Initiated Termination" cc-id="fta_ssl.4">
@@ -8408,6 +8450,9 @@
 	    				<Tests><comment>Needs to be completed.</comment></Tests>
 	    			</aactivity>
 	    		</f-element>
+	    		<audit-event>
+	    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+	    		</audit-event>
 	    	</f-component>
 	    	
 	    	<ext-comp-def fam-id="FTA_SSL_EXT" title="Session Locking and Termination">
@@ -8548,6 +8593,9 @@
       			<Tests><comment>Needs to be completed.</comment></Tests>
       		</aactivity>
       	</f-element>
+      	<audit-event>
+      		<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+      	</audit-event>
       </f-component>
     	
     	<f-component name="Inter-TSF Trusted Channel (VPN Communications)" cc-id="ftp_itc.1" iteration="VPN" status="sel-based">
@@ -8876,7 +8924,9 @@
     				<Tests/>
     			</aactivity>
     		</f-element>
-    		<audit-event/>
+    		<audit-event>
+    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+    		</audit-event>
     	</f-component>
     	
     </section>   
