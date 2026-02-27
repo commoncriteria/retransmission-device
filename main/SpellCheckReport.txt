@@ -155,7 +155,6 @@ output/retransmission-device-release-linkable.html: RSASSA
 output/retransmission-device-release-linkable.html: RSK
 output/retransmission-device-release-linkable.html: SATNET
 output/retransmission-device-release-linkable.html: SCPS
-output/retransmission-device-release-linkable.html: SEcure
 output/retransmission-device-release-linkable.html: SFP
 output/retransmission-device-release-linkable.html: SHA3
 output/retransmission-device-release-linkable.html: SHAKE128
@@ -196,7 +195,6 @@ output/retransmission-device-release-linkable.html: codecs
 output/retransmission-device-release-linkable.html: configurability
 output/retransmission-device-release-linkable.html: connectionless
 output/retransmission-device-release-linkable.html: decapsulation
-output/retransmission-device-release-linkable.html: derfault
 output/retransmission-device-release-linkable.html: doesn
 output/retransmission-device-release-linkable.html: eTSS
 output/retransmission-device-release-linkable.html: ek
@@ -359,7 +357,6 @@ output/retransmission-device-release.html: RSASSA
 output/retransmission-device-release.html: RSK
 output/retransmission-device-release.html: SATNET
 output/retransmission-device-release.html: SCPS
-output/retransmission-device-release.html: SEcure
 output/retransmission-device-release.html: SFP
 output/retransmission-device-release.html: SHA3
 output/retransmission-device-release.html: SHAKE128
@@ -400,7 +397,6 @@ output/retransmission-device-release.html: codecs
 output/retransmission-device-release.html: configurability
 output/retransmission-device-release.html: connectionless
 output/retransmission-device-release.html: decapsulation
-output/retransmission-device-release.html: derfault
 output/retransmission-device-release.html: eTSS
 output/retransmission-device-release.html: ek
 output/retransmission-device-release.html: enquiries
@@ -562,7 +558,6 @@ output/retransmission-device.html: RSASSA
 output/retransmission-device.html: RSK
 output/retransmission-device.html: SATNET
 output/retransmission-device.html: SCPS
-output/retransmission-device.html: SEcure
 output/retransmission-device.html: SFP
 output/retransmission-device.html: SHA3
 output/retransmission-device.html: SHAKE128
@@ -603,7 +598,6 @@ output/retransmission-device.html: codecs
 output/retransmission-device.html: configurability
 output/retransmission-device.html: connectionless
 output/retransmission-device.html: decapsulation
-output/retransmission-device.html: derfault
 output/retransmission-device.html: eTSS
 output/retransmission-device.html: ek
 output/retransmission-device.html: evaluator’s

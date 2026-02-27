@@ -12,11 +12,15 @@
 * Error: Detected dangling id-reference to fcs-cop.1 from attribute
         on-incl/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[1]""/depends[3]""/on-incl[1]""
 * Error: Detected dangling id-reference to  from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/depends[1]""/on-sel[1]""
-* Error: Detected dangling id-reference to  from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/depends[2]""/on-sel[1]""
+* Error: Detected dangling id-reference to fcs_ckm.2 from attribute
+        on-incl/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[4]""/depends[3]""/on-incl[1]""
+* Error: Detected dangling id-reference to  from attribute
+        on-incl/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[4]""/depends[4]""/on-incl[1]""
 * Error: Detected dangling id-reference to  from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[6]""/depends[1]""/on-sel[1]""
+* Error: Detected dangling id-reference to  from attribute
+        on-incl/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[6]""/depends[4]""/on-incl[1]""
 * Error: Detected dangling id-reference to  from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[7]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to  from attribute
@@ -28,7 +32,7 @@
 * Error: Detected dangling id-reference to sel-fdp-itc-ext-1e2-kw from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[11]""/depends[3]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-fdp-itc-ext-1e2-sig from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[13]""/depends[4]""/on-sel[1]""
+        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[13]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to  from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[14]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to fcs_ckm.2 from attribute
