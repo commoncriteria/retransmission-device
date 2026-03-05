@@ -335,70 +335,71 @@
 		<section title="Product Features Mapped to Implementation-Dependent Requirements" id="sec-features">
 			A conformant TOE may implement either IPsec, MACsec, PFED, or WLAN for data in transit encryption in the EU. Depending on which is
 			supported, different requirements will apply to the TOE as they each implement different methods of protection of data in transit.
+			<comment>Each feature description needs to be completed with a list of SFRs.</comment>
 			<implements>
 				<feature id="ipsec" title="IPsec">
 					<description>The TOE implements IPsec encryption in the EU.<h:br/><h:br/>
 				If this feature is implemented by the TOE, the following requirements must be claimed in the ST.
-				<comment>This section needs to be completed.</comment></description>
+				</description>
 				</feature>
 				<feature id="macsec" title="MACsec">
 					<description>The TOE implements MACsec encryption in the EU.<h:br/><h:br/>
 				If this feature is implemented by the TOE, the following requirements must be claimed in the ST.
-				<comment>This section needs to be completed.</comment></description>
+				</description>
 				</feature>
 				<feature id="pfed" title="PFED">
 					<description>The TOE implements PFED encryption in the EU.<h:br/><h:br/>
 				If this feature is implemented by the TOE, the following requirements must be claimed in the ST.
-				<comment>This section needs to be completed.</comment></description>
+				</description>
 				</feature>
 				<feature id="wlan" title="WLAN">
 					<description>The TOE implements WLAN encryption in the EU.<h:br/><h:br/>
 				If this feature is implemented by the TOE, the following requirements must be claimed in the ST.
-				<comment>This section needs to be completed.</comment></description>
+				</description>
 				</feature>
 			</implements>
 		</section>
 		<section title="PFED Specification" id="pfedspec">
-			PFED Specification...<comment>Need to complete a description.</comment>
+			PFED Specification...<comment>Need to complete a description for each feature.</comment>
 			<implements>
 				<feature id="TOE-crypto-bound-over" title="TOE Cryptographic Boundary and Overview">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="crypto-alg-para" title="Cryptographic Algorithms and Parameters">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="ERD-pair-prov-crypto-bond" title="ERD Pair Provisioning and Cryptographic Bonding">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="prov-comp-key-mat-genz" title="Provisioning Completion and Key Material GenerationZ">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="key-der-key-stor" title="Key Derivation and Key Storage">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="sess-set-mut-auth" title="Session Setup and Mutual Authentication">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="rekey-op" title="Rekey Operations">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="sess-key-recov" title="Session Key Recovery">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="traff-iso-inter-filt" title="Traffic Isolation and Interface Filtering">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="dead-peer-det-pers-enforc" title="Dead Peer Detection and Persona Enforcement">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="log-audit" title="Loggin and Audit">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="plat-op-enviro-enforc" title="Platform and Operational Environment Enforcement">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 				<feature id="bring-up-multi-activ" title="Bring-Up and Multi-Factor Activation">
-					<description><comment>Need to complete a description.</comment></description>
+					<description>TBD</description>
 				</feature>
 			</implements>
 		</section>
@@ -572,6 +573,51 @@
 	 		<audit-event/>
 	 	</f-component>
 	 	
+	 	<f-component name="Auidt Data Generation" cc-id="fau_gen.1" iteration="pfed" status="feat-based">
+	 		<depends on="pfed"/>
+	 		<f-element id="fau-gen-1e1">
+	 			<title>
+	 				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+	 				The TOE shall generate audit records for the following events:<h:ul>
+	 					<h:li>Provisioning</h:li>
+	 					<h:li>Session setup and termination</h:li>
+	 					<h:li>Rekey</h:li>
+	 					<h:li>Key recovery</h:li>
+	 				</h:ul>.				
+	 			</title>
+	 			<note role="application">
+	 				TBD
+	 			</note>	 			
+	 			<aactivity>
+	 				<TSS>TBD</TSS>
+	 				<Guidance>TBD</Guidance>
+	 				<Tests>TBD</Tests>
+	 			</aactivity>
+	 		</f-element>
+	 		<audit-event><audit-event-descr>TBD</audit-event-descr>
+	 		</audit-event>
+	 	</f-component>
+	 	
+	 	<f-component name="User Identity Association" cc-id="fau_gen.2" iteration="pfed" status="feat-based">
+	 		<depends on="pfed"/>
+	 		<f-element id="fau-gen-2e1">
+	 			<title>
+	 				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+	 				The TOE shall associate audit records with the initiating ERD identity.
+	 			</title>
+	 			<note role="application">
+	 				TBD
+	 			</note>
+	 			<aactivity>
+	 				<TSS>TBD</TSS>
+	 				<Guidance>TBD</Guidance>
+	 				<Tests>TBD</Tests>
+	 			</aactivity>
+	 		</f-element>
+	 		<audit-event><audit-event-descr>TBD</audit-event-descr>
+	 		</audit-event>
+	 	</f-component>
+	 	
 	 	<f-component id="sfr-fau-sar-1" cc-id="fau_sar.1" name="Audit Review">
 	 		<f-element id="fau-sar-1e1">
 	 			<title>The TSF shall provide <refinement>the Administrator</refinement> with the
@@ -646,6 +692,26 @@
 	 			<audit-event-info>None.</audit-event-info>
 	 		</audit-event>
 	 	</f-component>        
+	 	
+	 	<f-component name="Protected Audit Trail Storage" cc-id="fau_stg.1" iteration="pfed" status="feat-based">
+	 		<depends on="pfed"/>
+	 		<f-element id="fau-stg-1e1">
+	 			<title>
+	 				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+	 				The TOE shall protect stored audit records from unauthorized modification and deletion.
+	 			</title>
+	 			<note role="application">
+	 				TBD
+	 			</note>
+	 			<aactivity>
+	 				<TSS>TBD</TSS>
+	 				<Guidance>TBD</Guidance>
+	 				<Tests>TBD</Tests>
+	 			</aactivity>
+	 		</f-element>
+	 		<audit-event><audit-event-descr>TBD</audit-event-descr>
+	 		</audit-event>
+	 	</f-component>
 	 	
 	 	<!-- FAU_STG.2 Protected Audit Trail Storage -->
 	 	
@@ -736,8 +802,11 @@
 		
 		<section title="Communications (FCO)" id="fco">
 			<f-component name="Selective Proof of Origin" cc-id="fco_nro.1">
-				<consistency-rationale>This SFR applies to the implementation of the supported authentication protocol, which is beyond the original 
-					scope of the Base-PP. <comment>This SFR will need to be completed with missing information</comment></consistency-rationale>
+				<consistency-rationale>
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+					This SFR applies to the implementation of the supported authentication protocol, which is beyond the original 
+					scope of the Base-PP.</consistency-rationale>
+				
 				<f-element>
 					<title>
 						The TSF shall be able to generate evidence of origin for transmitted <assignable>list of information types</assignable> at the
@@ -762,22 +831,27 @@
 							<selectable><assignable>list of third parties</assignable></selectable>
 						</selectables> given <assignable>limitations on the evidence of origin</assignable>.
 					</title>
+					<note role="application">
+						TBD
+					</note>
 					<aactivity level="component">
-						<TSS>Needs to be completed.</TSS>
-						<Guidance>Needs to be completed.</Guidance>
-						<Tests><comment>Needs to be completed.</comment></Tests>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
 					</aactivity>
 				</f-element>
 				<audit-event>
-					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+					<audit-event-descr>TBD</audit-event-descr>
 				</audit-event>
 			</f-component>
 			
 			<f-component name="Selective Proof of Receipt" cc-id="fco_nrr.1">
-				<consistency-rationale>This SFR applies to the implementation of the supported authentication protocol, which is beyond the original scope of the
+				<consistency-rationale>
+					This SFR applies to the implementation of the supported authentication protocol, which is beyond the original scope of the
 					Base-PP. </consistency-rationale>
 				<f-element>
 					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 						The TSF shall be able to generate evidence of receipt for received <assignable>list of information types</assignable>at the request
 						of the <selectables>
 							<selectable>originator</selectable>
@@ -800,14 +874,17 @@
 							<selectable><assignable>list of third parties</assignable></selectable>
 						</selectables> given <assignable>limitations on the evidence of receipt</assignable>.
 					</title>	
+					<note role="application">
+						TBD
+					</note>
 					<aactivity level="component">
-						<TSS>Needs to be completed.</TSS>
-						<Guidance>Needs to be completed.</Guidance>
-						<Tests><comment>Needs to be completed.</comment></Tests>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
 					</aactivity>
 				</f-element>				
 				<audit-event>
-					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+					<audit-event-descr>TBD</audit-event-descr>
 				</audit-event>
 			</f-component>
 		</section>
@@ -1441,6 +1518,54 @@
         		<audit-event-descr>Needs to be completed.</audit-event-descr>
         	</audit-event>
         </f-component>
+		
+		<f-component name="Cryptographic Key Generation - Asymmetric Key" cc-id="fcs_ckm.1" iteration="PFEDAKG" status="feat-based">
+			<depends on="pfed"/>
+			<f-element >
+				<title>
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+					The TSF shall generate <h:b>asymmetric</h:b> cryptographic keys in accordance with a specified cryptographic key generation algorithm: 
+					[<h:i><selectables>
+						<selectable>ML-KEM <h:b>using the parameter set</h:b> [ML-KEM-1024] that meets the following: [NIST FIPS PUB 203]</selectable>
+						<selectable>ML-DSA <h:b>using the parameter set</h:b> [ML-DSA-87] that meets the following [NIST FIPS PUB 204]</selectable>
+					</selectables></h:i> 
+				</title>
+				<note role="application">
+					TBD
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
+		</f-component>
+		
+		<f-component name="Cryptographic Symmetric Key Generation" cc-id="fcs_ckm.1" iteration="SK" status="feat-based">
+			<depends on="pfed"/>
+			<f-element >
+				<title>
+					<comment>Need to complete sections for EAs and audit events.</comment><h:p/>
+					The TSF shall generate <h:b>symmetric</h:b> cryptographic keys <h:b>using a Random Bit Generator as specified in FCS_RBG.1</h:b> and
+					specified cryptographic key sizes [<h:i>256-bit</h:i>.
+				</title>
+				<note role="application">
+					This requirement is dependent on selecting and AES selection in FCS_COP.1.1/SKC. Symmetric keys may be used to generate keys along the key
+					chain.
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
+		</f-component>
 
 		<!-- FCS_CKM.1/SKG -->
 		<f-component cc-id="fcs_ckm.1" id="fcom_sym_key_gen" iteration="SKG" name="Cryptographic Key
@@ -1529,8 +1654,7 @@
 
 		<!-- FCS_CKM.2 -->
         <f-component cc-id="fcs_ckm.2" name="Cryptographic Key Distribution" status="sel-based">
-        	<depends on-sel="sfr-ftp-itc-ext-1"/>
-        	<depends on-sel=""/>
+        	<depends on-sel="sfr-ftp-itc-ext-1"/>       
         	<depends on="ipsec"/>
         	<depends><optional/></depends>
         	
@@ -1577,6 +1701,60 @@
 			</f-element>
         </f-component>
 		
+		<f-component name="Cryptographic Key Distribution" cc-id="fcs_ckm.2" iteration="PFEDDist" status="feat-based">
+			<depends on="pfed"/>
+			<f-element >
+				<title>
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+					The TSF shall <h:b>perform cryptographic key establishment</h:b> in accordance with a specified cryptographic key <h:b>establishment</h:b>
+					method: <selectables>
+						<selectable>key encapsulation</selectable>
+						<selectable>encrypted channel</selectable>
+					</selectables>.
+				</title>
+				<note role="application">
+					TBD
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
+		</f-component>
+		
+		<f-component name="Cryptographic Key Derivation" cc-id="fcs_ckm.5" iteration="PFED" status="feat-based">
+			<depends on="pfed"/>
+			<f-element >
+				<title>
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+					The TSF shall derive [<h:i>all session and recovery keys</h:i> from [<h:i>existing key store material, newly derived shared secrets,
+					hardware-based RBG entropy as defined in FCS_RBG.1</h:i>] in accordance with a specified key derivation algorithm [Hash Key Derivation
+					Function using <selectables>
+						<selectable>SHA-384</selectable>
+						<selectable>SHA-512</selectable>
+					</selectables>, and cryptographic key sizes <selectables>
+						<selectable>384</selectable>
+						<selectable>512</selectable>
+					</selectables> that meet the following [<h:i>NIST SP 800-56C Revision 2 (Section 4.1, Option 1)</h:i>].
+				</title>
+				<note role="application">
+					TBD
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
+		</f-component>
+		
 		<f-component cc-id="fcs_ckm.6" name="Timing and Event of Cryptographic Key Destruction"
 			status="feat-based">		
 			<depends on-incl="fcom_asym_key_gen"/>
@@ -1587,7 +1765,7 @@
 			<depends on-incl="sfr-fcs-stg-ext-1"/>
 			<depends on-incl="sfr-fia-afl-ext-1"/>
 			<f-element id="fel-key-kill-when">
-				<title><comment></comment>The TSF shall destroy [<h:i>all plaintext keying material and critical security
+				<title>he TSF shall destroy [<h:i>all plaintext keying material and critical security
 					parameters (CSPs)</h:i>] when 
 					<selectables>
 						<selectable>no longer needed</selectable>
@@ -1718,6 +1896,31 @@
 				</aactivity>
 			</f-element>
 			<audit-event/>
+		</f-component>
+		
+		<f-component name="Timing and Event of Cryptographic Key Destruction" cc-id="fcs_ckm.6" iteration="PFED" status="feat-based">
+			<depends on="pfed"/>
+			<f-element >
+				<title>
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+					The TSF shall destroy [<h:i><h:ul>
+						<h:li>the PSK immediately after teardown of tunnel-0</h:li>
+						<h:li>any replaced session key immediately after a successful rekey</h:li>
+						<h:li>any obsolete recovery key immediately after replacement</h:li>
+					</h:ul></h:i>.]
+				</title>
+				<note role="application">
+					TBD
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
 		</f-component>
 		
 		<!-- FCS_CKM_EXT.7 Cryptographic Key Agreement -->
@@ -2848,7 +3051,119 @@
 			<audit-event/>
 		</f-component>
 		
-
+		<f-component name="Cryptographic Operation - AES Data Enctrypytion and Decryption" cc-id="fcs_cop.1" iteration="PFEDAES" status="feat-based">
+			<depends on="pfed"/>
+			<f-element >
+				<title>
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+					The TSF shall perform [<h:i>encryption and decryption</h:i>] in accordance with a specified cryptographic algorithms [<h:i>AES operating in
+					GCM mode as defined in FCS_COP.1/AEAD</h:i>] and cryptographic key size [<h:i>256 bits</h:i>] that meet the following: [<h:i>AES as
+					specified in FIPS PUB 197, GCM as specified in NIST SP 800-38D</h:i>].
+				</title>
+				<note role="application">
+					TBD
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
+		</f-component>
+		
+		<f-component name="Cryptographic Operation - Hashing" cc-id="fcs_cop.1" iteration="PFEDHash" status="feat-based">
+			<depends on="pfed"/>
+			<f-element >
+				<title>
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+					The TSF shall perform [<h:i>cryptographic hashing</h:i> in accordance with a specified cryptographic algorithm <selectables>
+						<selectable>SHA-384</selectable>
+						<selectable>SHA-512</selectable>
+					</selectables> that meet the following [<h:i>FIPS PUB 180-4</h:i>].
+				</title>
+				<note role="application">
+					TBD
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
+		</f-component>
+		
+		<f-component name="Cryptographic Operation - Signature Generation" cc-id="fcs_cop.1" iteration="PFEDSigGen" status="feat-based">
+			<depends on="pfed"/>
+			<f-element >
+				<title>
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+					The TSF shall perform [<h:i>digital signature generation</h:i>] in accordance with a specified cryptographic algorithm [<h:i>ML-DSA</h:i>]
+					and cryptographic key size [<h:i>parameter set ML-DSA-87</h:i>] that meet the following: [<h:i>NIST FIPS PUB 204 (Section 5.2)</h:i>].
+				</title>
+				<note role="application">
+					TBD
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
+		</f-component>
+		
+		<f-component name="Cryptographic Operation - Signature Verification" cc-id="fcs_cop.1" iteration="PFEDSigVer" status="feat-based">
+			<depends on="pfed"/>
+			<f-element >
+				<title>
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+					The TSF shall perform [<h:i>digital signature verification</h:i>] in accordance with a specified cryptographic algorithm [<h:i>ML-DSA</h:i>]
+					and cryptographic key size [<h:i>parameter set ML-DSA-87</h:i>] that meet the following: [<h:i>NIST FIPS PUB 204 (Section 5.3)</h:i>].
+				</title>
+				<note role="application">
+					TBD
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
+		</f-component>
+		
+		<f-component name="Cryptographic Operation - Key Encapsulation" cc-id="fcs_cop.1" iteration="PFEDKeyEncap" status="feat-based">
+			<depends on="pfed"/>
+			<f-element >
+				<title>
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+					The TSF shall perform [<h:i>key encapsulation</h:i>] in accordance with a specified cryptographic algorithm [<h:i>ML-KEM</h:i>]
+					and cryptographic key size [<h:i>parameter set ML-KEM-1024</h:i>] that meet the following: [<h:i>NIST FIPS 203</h:i>].
+				</title>
+				<note role="application">
+					TBD
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
+		</f-component>
+		
 	    <!-- FCS_COP.1/SigGen (formerly FCS_COP.1/3) -->
         <f-component cc-id="fcs_cop.1" id="fcs_sign_gen" iteration="SigGen" name="Cryptographic Operation - Signing Generation" status="sel-based">
         	<depends on-sel="fcs-stg-ext-3e1"/>
@@ -4174,13 +4489,13 @@
 		
 		
 		<f-component cc-id="fcs_rbg.1" name="Random Bit Generation (RBG)" status="sel-based">
+			<depends on="ipsec"/>
+			<depends on="pfed"/>
 			<depends on-sel="ftp-itc-ext-1e1"/>
 			<depends on-incl="fcom_asym_key_gen"/>				
 			<depends on-incl="fcom_sym_key_gen"/>			
 			<depends on-incl="fcs_sign_gen"/>
-			<depends on-incl="fcs-ipsec-ext-1">
-				<external-doc ref=""/>
-			</depends>
+			
 			<depends><optional/></depends>
 			<f-element id="fcs-rbg-1e1">
 				<title>
@@ -4248,6 +4563,7 @@
 					If "HMAC_DRBG" is selected, then FCS_COP.1/KeyedHash must be claimed.<h:p/>
 					If "Hash_DRBG" is selected, then FCS_COP.1/Hash must be claimed.<h:p/>
 					If "CTR_DRBG" is selected, then FCS_COP.1/SKC must be claimed.
+					If "PFED" is included, you must select "DRBG
 				</note>
 			</f-element>
 			<f-element id="fcs-rbg-1e2">
@@ -4433,8 +4749,10 @@
 			</audit-event>
 		</f-component>
 		
+		
+		
 		<f-component cc-id="fcs_rbg.2" name="Random Bit Generation (External Seeding)"  status="sel-based">
-			<depends on-sel="fcs-rbg-1e2"/>
+			<depends on-sel="sel-drbg-external-seed"/>
 			<f-element id="fe1-rbg-seed">
 				<title>
 					The TSF shall be able to accept a minimum input of <assignable>minimum input length greater than zero</assignable>
@@ -4446,7 +4764,8 @@
 					Dedicated Security Component that is integrated with the TOE. Typically the entropy produced by an environmental
 					noise source is conditioned such that the input length has full entropy and is therefore usable as the seed. 
 					However, if this is not the case, it should be noted what the minimum entropy rate of the noise source is so 
-					that the TSF can collect a sufficiently large sample of noise data to be conditioned into a seed value.
+					that the TSF can collect a sufficiently large sample of noise data to be conditioned into a seed value.<h:br/><h:br/>
+					This SFR is included in the ST when "TSF interface for seeding" is selected in FCS_RBG.1.2.
 				</note>
 			<aactivity>
 				<h:p>
@@ -4467,7 +4786,7 @@
 		</f-component>
 
         <f-component cc-id="fcs_rbg.3" name="Random Bit Generation (Internal Seeding - Single Source)" status="sel-based">
-        	<depends on-sel="fcs-rbg-1e2"/>
+        	<depends on-sel="sel-drbg-internal-seed"/>
           <f-element id="fel-rbg-seed-int-sing">
             <title>
               The TSF shall be able to seed the RBG using a <selectables onlyone="yes">
@@ -4485,7 +4804,8 @@
           		etc.<h:br/><h:br/>
           		The TOE collects enough input from the internal noise source such that the total measured entropy of the input is
           		sufficient to initialize or reseed a DRBG. The ST author ensures that the assignment is completed with the number
-          		of bits of the input sufficient to initialize or reseed a DRBG.
+          		of bits of the input sufficient to initialize or reseed a DRBG.<h:br/><h:br/>
+          		This SFR is included in the ST when "TSF entropy source" is selected in FCS_RBG.1.2.
           	</note>
 
           <aactivity>
@@ -4506,7 +4826,8 @@
         </f-component>
 		
 		<f-component cc-id="fcs_rbg.4" name="Random Bit Generation (Internal Seeding - Multiple Sources)" status="sel-based">
-			<depends on-sel="fcs-rbg-1e2"/>
+			<depends on="pfed"/>
+			<depends on-sel="sel-drbg-multiple-sources"/>
           <f-element id="fel-rbg-seed-int-mult">
             <title>
               The TSF shall be able to seed the DRBG using <selectables>
@@ -4517,7 +4838,8 @@
             <note role="application">
             	The ST author claims this requirement when a TOE uses two or more internal sources of entropy to initialize or
             	reseed a DRBG. Seeding a DRBG is the same as initializing a DRBG. FCS_RBG.5 defines the mechanism by which these
-            	sources are combined to ensure sufficient minimum entropy.
+            	sources are combined to ensure sufficient minimum entropy.<h:br/><h:br/>
+            	This SFR is included in the ST when "multiple TSF entropy sources" is selected in FCS_RBG.1.2.
             </note>
           <aactivity>          
             <TSS>
@@ -4533,7 +4855,8 @@
         </f-component>          
        
 		<f-component cc-id="fcs_rbg.5" name="Random Bit Generation (Combining Entropy Sources)" status="sel-based">
-			<depends on-sel="fcs-rbg-1e2"/>
+			<depends on="pfed"/>
+			<depends on-sel="sel-drbg-multiple-sources"/>
           <f-element id="fel-rbg-comb">
             <title>
               The TSF shall <selectables>
@@ -4559,7 +4882,8 @@
 	    	One can apply NIST SP 800-90B (or AIS-31) statistical tests against internal noise sources (aka raw entropy) to confirm the min-entropy of the noise
 	    	sources either in aggregate or individually. One should not apply NIST SP 800-90B (or AIS-31) statistical tests against external noise sources since the
 	    	TOE is unable to enforce entropy requirements or conditioning requirements against external sources of entropy. However, the TSS may include estimates
-	    	for min-entropy from external sources that contribute to the overall entropy requirements for the DRBG.	    	
+	    	for min-entropy from external sources that contribute to the overall entropy requirements for the DRBG.	<h:br/><h:br/>
+	    	This SFR is included in the ST when "multiple TSF entropy sources" is selected in FCS_RBG.1.2.    	
             </note>
           <aactivity>
             <TSS>
@@ -4615,6 +4939,47 @@
 				</aactivity>
 			</f-element>
 			<audit-event/>
+		</f-component>
+		
+		<ext-comp-def title="Periodic Rekey" fam-id="FCS_REKEY_EXT">
+			<fam-behavior>This family defines requirements for session rekeying.</fam-behavior>
+		</ext-comp-def>
+		
+		<f-component name="Periodic Rekey" cc-id="fcs_rekey_ext.1" iteration="PFED" status="feat-based">
+			<depends on="pfed"/>
+			<comp-lev>requires the TSF to perform session rekey under specific circumstances.</comp-lev>
+			<management>There are no management activities foreseen.</management>
+			<audit>There are no auditable events foreseen.</audit>
+			<dependencies>No dependencies.</dependencies>
+			<f-element>
+				<title>The TSF shall perform session rekey: <h:ul>
+					<h:li>At a configurable interval <assignable>between 2 and 30 minutes</assignable></h:li>
+					<h:li>Using ML-KEM-1024 only</h:li>
+					<h:li>Either synchronously or asynchronously with EUD traffic</h:li>
+				</h:ul>.</title>
+			</f-element>
+		</f-component>
+		
+		<ext-comp-def title="Key Recovery" fam-id="FCS_REC_EXT">
+			<fam-behavior>This family defines requirements for session key recovery.</fam-behavior>
+		</ext-comp-def>
+		
+		<f-component name="Key Recovery" cc-id="fcs_red_ext.1" iteration="PFED" status="feat-based">
+			<depends on="pfed"/>
+			<comp-lev>requires the TSF to perform session key recovery under specific circumstances.</comp-lev>
+			<management>There are no management activities foreseen.</management>
+			<audit>There are no auditable events foreseen.</audit>
+			<dependencies>No dependencies.</dependencies>
+			<f-element>
+				<title>The TSF shall support session key recovery such that: <h:ul>
+					<h:li>EUD traffic is suppressed during recovery</h:li>
+					<h:li>Recovery keys are refreshed at the same rate as session keys</h:li>
+					<h:li>Recovery keys are derived via HKDF including the current session key</h:li>
+					<h:li>There must be at least two recovery keys</h:li>
+					<h:li>Only one recovery key can be derived at a time</h:li>
+					<h:li>Failure to converge causes session termination</h:li>
+				</h:ul>.</title>
+			</f-element>
 		</f-component>
 		
 		<!-- FCS_STG_EXT.1 Protected Storage -->
@@ -4872,9 +5237,110 @@
 		
 		<section title="User Data Protection (FDP)" id="fdp">
 			
+			<f-component name="Secure Bring-Up" cc-id="fdp_bringup.1" status="feat-based">
+				<depends on="pfed"/>
+				<f-element id="fdp-bringup-1e1">
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall prevent any traffic flow until: <h:ul>
+							<h:li>PIN or CIK credentials are supplied</h:li>
+							<h:li>Session setup and authentication complete</h:li>
+						</h:ul>.				
+					</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+			</f-component>
+			
+			<f-component name="Subset Information Flow Control" cc-id="fdp_ifc.1" iteration="CU" status="feat-based">
+				<depends on="pfed"/>
+				<f-element>
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall enforce the [<h:i>CU Information Flow Control Policy</h:i> on: [<h:ul><h:i>
+							<h:li>Packets received on an untrusted Black Transport Network interface and destined for a trusted interface; and</h:li>
+							<h:li>Packets received on a trusted interface and destined for an untrusted Black Transport Network interface.</h:li></h:i>]
+						</h:ul>
+					</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>				
+			
+			<f-component name="Subset Information Flow Control" cc-id="fdp_ifc.1" iteration="HWS" status="feat-based">
+				<depends on="pfed"/>
+				<f-element id="fdp-ifc-hws-1e1">
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall enforce [<h:i>an information flow control policy</h:i>] on: [<h:i><h:ul>
+							<h:li>User data transmitted between the EU and CU</h:li>
+							<h:li>TSF data transmitted between the EU and CU</h:li>].
+						</h:ul></h:i>				
+					</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>
+			
+			
+			
+			<f-component name="Information Flow Control" cc-id="fdp_ifc.1" iteration="PFED" status="feat-based">
+				<depends on="pfed"/>
+				<f-element id="fia-uau-pfed-2e1">
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall ensure all EUD traffic flows exclusively within an AES-GCM-256 protected session tunnel and is blocked until 
+						authentication and rekey complete.				
+					</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>
+			
 			<f-component name="Complete Information Flow Control" cc-id="fdp_ifc.2">
 				<f-element id="fdp-ifc-2e1">
-					<title>The TSF shall enforce the [assignment: information flow control SFP] on [assignment: list of
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall enforce the [assignment: information flow control SFP] on [assignment: list of
 						subjects and information] and all operations that cause that information to flow to and from
 						subjects covered by the SFP.
 					</title>
@@ -4896,20 +5362,26 @@
 					<title>The TSF shall explicitly deny an information flow based on the following rules:
 						<assignable>rules, based on security attributes, that explicitly deny information
 							flows</assignable>.</title>
-					<aactivity level="component">
-						<TSS>Needs to be completed.</TSS>
-						<Guidance>Needs to be completed.</Guidance>
-						<Tests><comment>Needs to be completed.</comment></Tests>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
 					</aactivity>
 				</f-element>
 				<audit-event>
-					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+					<audit-event-descr>TBD</audit-event-descr>
 				</audit-event>
+				
 			</f-component>
 				
 			<f-component name="Information Flow Control Functions" cc-id="fdp_iff.1">
 				<f-element>
-					<title>The TSF shall enforce the [assignment: information flow control SFP] based on the following types of subject and
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall enforce the [assignment: information flow control SFP] based on the following types of subject and
 						information security attributes: [assignment: list of subjects and information controlled under the indicated SFP, 
 						and for each, the security attributes].</title>
 				</f-element>
@@ -4930,15 +5402,236 @@
 					<title>The TSF shall explicitly deny an information flow based on the following rules:
 						[assignment: rules, based on security attributes, that explicitly deny information flows].
 					</title>
-					<aactivity level="component">
-						<TSS>Needs to be completed.</TSS>
-						<Guidance>Needs to be completed.</Guidance>
-						<Tests><comment>Needs to be completed.</comment></Tests>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
 					</aactivity>
 				</f-element>
 				<audit-event>
-					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+					<audit-event-descr>TBD</audit-event-descr>
 				</audit-event>
+				
+			</f-component>
+			
+			<f-component name="Simple Security Attributes" cc-id="fdp_iff.1" iteration="CU" status="feat-based">
+				<depends on="pfed"/>
+				<f-element id="fdp-iff-cu-1e1">
+					<title>
+						The TSF shall enforce the [<h:i>CU Information Flow Control Policy</h:i> based on the following types subject and information security
+						attributes:
+						[<h:ul><h:i>
+							<h:li>Subject Security Attributes<h:ul>
+								<h:li>Ingress interface identifier</h:li>
+								<h:li>Egress interface identifier</h:li>
+							</h:ul></h:li>
+							<h:li>Information Security Attributes<h:ul>
+								<h:li>Source IP address</h:li>
+								<h:li>Destination IP address</h:li>
+								<h:li>IP protocol type</h:li>
+								<h:li>Source transport-layer port (if applicable)</h:li>
+								<h:li>Destination transport-layer port (if applicable)</h:li>
+							</h:ul></h:li>
+						</h:i>]
+						</h:ul>
+					</title>
+				</f-element>
+				
+				<f-element id="fdp-iff-cu-1e2">
+					<title>
+						The TSF shall permit information flow between the Untrusted Interface and the Trusted Interface only if all of the following conditions
+						are met: <h:ul>
+							<h:li>The received Layer-2 frame is fully decapsulated, including removal of: <h:ul>
+								<h:li>Original MAC header</h:li>
+								<h:li>VLAN tags</h:li>
+								<h:li>Security headers</h:li>
+								<h:li>Any Layer-2 control protocol fields</h:li>
+							</h:ul></h:li>
+							<h:li>The TOE performs a complete re-origination of the Layer-2 header prior to transmission, such that: <h:ul>
+								<h:li>A newly generated source MAC address is used</h:li>
+								<h:li>The destination MAC address is derived from TOE forwarding logic</h:li>
+								<h:li>VLAN tagging is re-applied only according to TSF configuration</h:li>
+								<h:li>Security headers (if required) are newly generated</h:li>.
+							</h:ul></h:li>
+						</h:ul>
+					</title>
+				</f-element>
+				
+				<f-element id="fdp-iff-cu-1e3">
+					<title>
+						The TSF shall deny an information flow between an untrusted Black Transport Network interface and a trusted interface if the packet does							not match an explicitly configured allow rule.
+					</title>
+				</f-element>
+				
+				<f-element id="fdp-iff-cu-1e4">
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall ensure that all information flows between untrusted interfaces and are mediated by the TSF and are subject to the 
+						CU INformation Flow Control Policy.</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>
+			
+			<f-component name="Simple Security Attributes" cc-id="fdp_iff.1" iteration="HWS" status="feat-based">
+				<depends on="pfed"/>
+				<f-element id="fdp-iff-hws-1e1">
+					<title>
+						The TSF shall enforce [<h:i>the information flow control policy</h:i>] based on the following types of 
+						subject and information security attributes: [<h:i><h:ul>
+							<h:li>The source domain (EU or CU)</h:li>
+							<h:li>The destination domain (EU or CU)</h:li>
+							<h:li>The communication interface (dedicated wired interface)</h:li>].
+						</h:ul></h:i>				
+					</title>					
+				</f-element>
+				
+				<f-element id="fdp-iff-hws-1e2">
+					<title>
+						The TSF shall permit an information flow between <h:b>subjects only if all of the following rules are satisfied:</h:b> [<h:i><h:ul>
+							<h:li>Information exchange between the EU and CU occurs exclusively over the dedicated wired interface.</h:li>
+							<h:li>No logical or physical shared memory exists between the EU and CU.</h:li>
+							<h:li>The EU and CU execute on independent processors.</h:li>
+							<h:li>The EU and CU access only their own dedicated memory resources.</h:li>
+							<h:li>No alternate communication path exists between the EU and CU.</h:li>							
+						</h:ul></h:i>.]
+					</title>
+				</f-element>
+				
+				<f-element id="fdp-iff-hws-1e3">
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall enforce the <h:b>following additional information flow control rules:></h:b> [<h:i>None</h:i>].
+					</title>
+				</f-element>
+				
+				<f-element id="fdp-iff-hws-1e4">
+					<title>
+						The TSF shall explicitly <h:b>deny</h:b> an information flow based on the following rules: [<h:i>Any information flow not explicitly
+						permitted in FDP_IFF.1.2</h:i>].
+					</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>
+			
+			<f-component name="Simple Security Attributes" cc-id="fdp_iff.1" iteration="PFED" status="feat-based">
+				<depends on="pfed"/>
+				<f-element id="fdp-iff-pfed-1e1">
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall enforce packet filtering such that: <h:ul>
+							<h:li>Only a single expected packet type is accepted at fixed offsets</h:li>
+							<h:li>All malformed, unexpected, or out-of-context packets are dropped pre-stack</h:li>
+							<h:li>The EU does not respond to invalid packets from the CU or EUD.</h:li>
+						</h:ul>.				
+					</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>
+			
+			<ext-comp-def title="Communications Unit Layer-2 Isolation Enforcement" fam-id="FDP_ISO_EXT">
+				<fam-behavior>
+					This family defines requirements for the Communications Unit (CU) to enforce isolation between trusted components and untrusted Black
+					Transport Networks while preserving cryptographic continuity for already-encrypted Ethernet traffic.<h:br/><h:br/>
+					A Layer-2 protocol break is defined as the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when forwarding
+					traffic between interfaces, preventing transparent bridging across trust boundaries.<h:br/><h:br/>
+					This family ensures that the CU: <h:ul>
+						<h:li>Enforces isolation between trusted and untrusted interfaces</h:li>
+						<h:li>Performs a Layer-2 protocol break when forwarding non-Ethernet-encrypted traffic across trust boundaries</h:li>
+						<h:li>Does not disrupt Ethernet-layer cryptographic protections already applied by trusted components</h:li>
+						<h:li>Does not act as a cryptographic endpoint for user data traffic</h:li>
+					</h:ul>					
+				</fam-behavior>
+			</ext-comp-def>
+			
+			<f-component name="Layer-2 Isolation and Cryptographic Continuity Enforcement" cc-id="fdp_iso_ext.1" status="feat-based">
+				<depends on="ftp_trp.1"/>
+				<depends on-sel="selpfed"/>
+				<consistency-rationale/>
+				<comp-lev> requires the TSF to ensure and manage the use of Layer-2 protocol.</comp-lev>
+				<management>TBD</management>
+				<audit>TBD</audit>
+				<dependencies>TBD</dependencies>
+				
+				<f-element id="fdp-iso-ext-1e1">
+					<title>
+						<comment>Need to complete sections for management, audit, dependencies, App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall provide isolation between trusted components and untrusted Black Transport Network interfaces by enforcing routing and firewall policies
+						and preventing transparent Layer-2 bridging across trust boundaries.
+					</title>
+				</f-element>
+				
+				<f-element id="fdp-iso-ext-1e2">
+					<title>
+						The TSF shall forward Ethernet frames that contain cryptographic protection applied by a trusted component without: <h:ul>
+							<h:li>Removing, modifying, or replacing the protected Layer-2 header</h:li>
+							<h:li>Terminating, decrypting, inspecting, or re-originating cryptographic protection</h:li>
+							<h:li>Disrupting cryptographic continuity across the trust boundary</h:li>.
+						</h:ul>
+					</title>
+				</f-element>
+				
+				<f-element id="fdp-iso-ext-1e3">
+					<title>
+						The TSF shall not act as a cryptographic endpoint for user data traffic and shall not terminate, decrypt, or re-originate cryptographic protection for
+						traffic transmitted between trusted components and untrusted Black Transport Networks.
+					</title>
+				</f-element>
+				
+				<f-element id="fdp-iso-ext-1e4">
+					<title>
+						The TSF shall drop traffic that cannot be routed or forwarded in accordance with the isolation and cryptographic continuity requirements defined in this
+						component.
+					</title>
+					
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
 			</f-component>
 			
 				<ext-comp-def fam-id="FDP_ITC_EXT" title="Key/Credential Import">
@@ -4949,10 +5642,10 @@
 			</ext-comp-def>
 				
 				<f-component name="Key/Credential Import" cc-id="fdp_itc_ext.1" status="sel-based">
-					<depends on-sel="fcs-stg-ext-1e2"/>
+					<depends on-sel="sel-fcs-stg-ext-1e2-import"/>
 					
 				<comp-lev> requires the TSF to choose a method for importing keys and key material.</comp-lev>
-				<management>No specific management functions are identified.</management>
+				<management>There are no management activities foreseen.</management>
 					<audit>The following actions should be auditable if FAU_GEN Security audit data generation is
 						included in the PP, PP-Module, functional package or ST:<h:br/><h:ul>
 							<h:li>Initiation of the trusted channel.</h:li>
@@ -4965,15 +5658,26 @@
 					FCS_COP.1 Cryptographic Operations<h:br/><h:br/>
 				</dependencies>
 					<f-element id="fdp-itc-1e1">
-						<title>The TSF shall support importing keys/key material using [selection: physically protected channels as specified in 
-							FTP_ITP_EXT.1, encrypted data buffers as specified in FTP_ITE_EXT.1, key distribution mechanisms as specified in 
-							FCS_CKM.2].</title>
+						<title>The TSF shall support importing keys/key material using <selectables>
+							<selectable>physically protected channels as specified in 
+							FTP_ITP_EXT.1</selectable>
+							<selectable>encrypted data buffers as specified in FTP_ITE_EXT.1</selectable>
+							<selectable>key distribution mechanisms as specified in 
+							FCS_CKM.2</selectable>
+						</selectables> 
+						</title>
 					</f-element>
 					<f-element id="fdp-itc-1e2">
-						<title>The TSF shall verify the integrity of imported keys/key material using [selection: cryptographic hash as specified
-							in FCS_COP.1/Hash, keyed hash as specified in FCS_COP.1/KeyedHash, integrity-providing encryption algorithm as specified 
-							in FCS_COP.1/KeyWrap, digital signature as specified in FCS_COP.1/SigVer, integrity verification provided through FCS_CKM.2
-							key distribution mechanisms, integrity verification supported by FTP_ITC_EXT.1].</title>
+						<title>The TSF shall verify the integrity of imported keys/key material using <selectables>
+							<selectable>cryptographic hash as specified
+							in FCS_COP.1/Hash</selectable>
+							<selectable>keyed hash as specified in FCS_COP.1/KeyedHash</selectable>
+							<selectable>integrity-providing encryption algorithm as specified in FCS_COP.1/KeyWrap</selectable>
+							<selectable>digital signature as specified in FCS_COP.1/SigVer</selectable>
+							<selectable>integrity verification provided through FCS_CKM.2</selectable>
+							<selectable id="key-dist-ftp-itc-ext-1">key distribution mechanisms, integrity verification supported by FTP_ITC_EXT.1</selectable>
+						</selectables>
+						</title>
 						<note role="application">
 							This SFR is included in the ST when "importing keys/secrets into the TOE" is selected in FCS_STG_EXT.1.<h:br/><h:br/>
 							The way the TSF checks the integrity of the keys depends on the method of importation. For example, the encrypted data channel
@@ -4994,6 +5698,64 @@
 						</aactivity>
 					</f-element>					
 				</f-component>			
+			
+			<ext-comp-def title="Protocol Break Enforcement" fam-id="FDP_PBR_EXT">
+				<fam-behavior>
+					This family defines requirements for enforcing a Layer-2 protocol break when forwarding traffic between untrusted Black Transport Networks
+					and trusted components. A protocol break prevents transparent Layer-2 bridging across trust boundaries.<h:br/><h:br/>
+					A Layer-2 protocol break is defined as the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when forwarding
+					traffic between interfaces, preventing transparent bridging across trust boundaries.<h:br/><h:br/>
+					The CU represents the minimum TOE configuration supported by this Protection Profile and provides the network-facing boundary between
+					trusted components and untrusted networks.					
+				</fam-behavior>
+			</ext-comp-def>
+			
+			<f-component name="Layer-2 Protocol Break" cc-id="fdp_pbr_ext.1" status="sel-based">
+				<depends on-sel="selpfed"/>
+				<depends on="fpt_trp.1"/>
+				<consistency-rationale></consistency-rationale>
+				<comp-lev> requires the TSF to ensure and manage the use of a Layer-2 protocol break.</comp-lev>
+				<management>TBD</management>
+				<audit>TBD</audit>
+				<dependencies>TBD</dependencies>
+				
+				<f-element id="fdp-pbr-ext-1e1">
+					<title>
+						<comment>Need to complete sections for management, audit, dependencies, App Note, EAs, and audit
+					events.</comment><h:p/>
+						The TSF shall ensure that all traffic forwarded between an untrusted Black Transport Network interface and a trusted interface undergoes							a Layer-2 protocol break.
+					</title>
+				</f-element>
+				
+				<f-element id="fdp-pbr-ext-1e2">
+					<title>
+						The TSF shall perform a Layer-2 protocol break when forwarding traffic that is not protected by Ethernet-layer cryptographic mechanisms
+						across a trust boundary by:<h:ul>
+							<h:li>Removing the complete incoming Layer-2 header and associated Layer-2 control information (decapsulation); and</h:li>
+							<h:li>Constructing and applying a new Layer-2 header (encapsulation) prior to transmission on the egress interface</h:li>
+						</h:ul>
+					</title>
+				</f-element>
+				
+				<f-element id="fdp-pbr-ext-1e3">
+					<title>
+						The TSF shall prevent transparent Layer-2 bridging between untrusted Black Transport Network interfaces and trusted interfaces.
+					</title>
+					<note role="application">A Layer-2 protocol break is the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when
+						forwarding traffic between interfaces, preventing transparent bridging across trust boundaries.
+					</note>
+					
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>
 			
 			<ext-comp-def fam-id="FDP_STG_EXT" title="User Data Storage">
 				<fam-behavior>This family defines requirements for managing data storage. 
@@ -5036,6 +5798,31 @@
 		</section>
 		
 		<section title="Identification and Authentication (FIA)" id="fia">
+			
+			<f-component name="Authentication Failure Handling" cc-id="fia_afl.1" iteration="PFED" status="feat-based">
+				<depends on="pfed"/>
+				<f-element id="fia-afl-pfed-1e1">
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TOE shall enforce client and server personas such that: <h:ul>
+							<h:li>A client persona initiates session setup</h:li>
+							<h:lli>A server persona waits for session setup initiation</h:lli>
+						</h:ul>				
+					</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>
 			
 			<ext-comp-def title="Authentication Failure Handling" fam-id="FIA_AFL_EXT">
 				<fam-behavior>This family defines requirements for the TOE’s behavior when repeated failed attempts to gain
@@ -5361,7 +6148,9 @@
 			<audit/>
 			<dependencies>No dependencies.</dependencies>
 			<f-element id="fia-psk-ext-1e1">
-				<title>The TSF shall be able to use pre-shared keys that conform to RFC 8784 for IPsec</title>
+				<title>
+					<comment>Need to complete sections for EAs, and audit events.</comment><h:p/>
+					The TSF shall be able to use pre-shared keys that conform to RFC 8784 for IPsec</title>
 			</f-element>
 			<f-element id="fia-psk-ext-1e2">
 				<title>The TSF shall be able to <selectables>
@@ -5373,16 +6162,40 @@
 					Generated PSKs are expected to be shared between components via an out-of-band mechanism.
 				</note>
 				<aactivity>
-					<TSS><comment>This needs to be completed.</comment></TSS>
-					<Guidance><comment>This needs to be completed.</comment></Guidance>
-					<Tests><comment>This needs to be completed.</comment></Tests>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
 				</aactivity>
-			</f-element>			
+			</f-element>
 			<audit-event>
-				<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+				<audit-event-descr>TBD</audit-event-descr>
 			</audit-event>
+			
 						
 		</f-component>
+			
+			<f-component name="PSK Bootstrap Authentication" cc-id="fia_psk.1" iteration="PFED" status="feat-based">
+				<depends on="pfed"/>
+				<f-element id="fia-psk-pfed-1e1">
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TOE shall support a PSK exclusively for tunnel-0 bootstrap.				
+					</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>
+			
 		<ext-comp-def title="Authentication Throttling" fam-id="FIA_TRT_EXT">
 			<fam-behavior>This family defines requirements for managing the number of authentication attempts.</fam-behavior>
 		</ext-comp-def>
@@ -5420,6 +6233,53 @@
 			</f-element>
 			<audit-event/>
 		</f-component>
+			
+			<f-component name="Mutual Authentication Before Any Action" cc-id="fia_uau.2" iteration="PFED" status="feat-based">
+				<depends on="pfed"/>
+				<f-element id="fia-uau-pfed-2e1">
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TSF shall enforce mutual authentication between EU peers using ML-DSA-87 prior to permitting EUD traffic.				
+					</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>
+			
+			<f-component name="Multiple Authentication Mechanisms" cc-id="fia_uau.3" iteration="PFED" status="feat-based">
+				<depends on="pfed"/>
+				<f-element id="fia-uau-pfed-3e1">
+					<title>
+						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						The TOE shall support the following authentication mechanisms: <h:ul>
+							<h:li>Cryptographic mutual authentication using ML-DSA-87</h:li>
+							<h:li>User activation using <assignable>password, PIN, or CIK</assignable>.</h:li>
+						</h:ul>				
+					</title>
+					<note role="application">
+						TBD
+					</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
+				
+			</f-component>
 			
 			<f-component name="Multiple Authentication Mechanisms" cc-id="fia_uau.5" status="sel-based">
 				<depends on-sel="sfr-fmt-smr-1"></depends>
@@ -5552,7 +6412,7 @@
 			</ext-comp-def>
 		
 			<f-component cc-id="fia_uau_ext.1" name="Authentication for Cryptographic Operation" status="sel-based">
-				
+				<depends on-sel="sel-fmt-smr-1-admin"/>
 				<comp-lev> requires the TSF enforce data-at-rest protection until successful authentication has occurred. </comp-lev>
 				<management>There are no management activities foreseen.</management>
 				<audit>There are no auditable events foreseen.</audit>
@@ -5752,7 +6612,7 @@
 		<f-component name="Static Attributes" cc-id="fmt_msa.3">
 			<f-element>
 				<title><comment>Decide whether we are using and completed unfinished fields (EAs, App Notes, etc.)</comment>
-					
+					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 					The TSF shall enforce the <assignable>access control SFP, information flow control SFP</assignable> to provide <selectables choose-one-of="yes">
 					<selectable>restrictive</selectable>
 					<selectable>permissive</selectable>
@@ -5762,15 +6622,19 @@
 			<f-element>
 				<title>The TSF shall allow the <assignable>the authorized identified roles</assignable> to specify alternative
 				initial values to override the default values when an object or information is created.</title>
-				<aactivity level="component">
-					<TSS>Needs to be completed.</TSS>
-					<Guidance>Needs to be completed.</Guidance>
-					<Tests><comment>Needs to be completed.</comment></Tests>
-				</aactivity>				
+				<note role="application">
+					TBD
+				</note>
+				<aactivity>
+					<TSS>TBD</TSS>
+					<Guidance>TBD</Guidance>
+					<Tests>TBD</Tests>
+				</aactivity>
 			</f-element>
 			<audit-event>
-					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-				</audit-event>
+				<audit-event-descr>TBD</audit-event-descr>
+			</audit-event>
+			
 		</f-component>      	
 
         <f-component id="sfr-fmt-smf-1" cc-id="fmt_smf.1" name="Specification of Management Functions">
@@ -6106,6 +6970,33 @@
 			</f-element>
 			<audit-event/>
         </f-component>
+      	
+      	<f-component name="Specification of Management Functions" cc-id="fmt_smf.1" iteration="pfed" status="feat-based">
+      		<depends on="pfed"/>
+      		<f-element id="fmt-smf-1e1">
+      			<title>
+      				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+      				The TSF shall be capable of performing the following management functions:<h:ul>
+      					<h:li>Provisioning</h:li>
+      					<h:li>Session setup</h:li>
+      					<h:li>Rekey configuration</h:li>
+      					<h:li>Log management</h:li>
+      				</h:ul>.				
+      			</title>
+      			<note role="application">
+      				TBD
+      			</note>
+      			<aactivity>
+      				<TSS>TBD</TSS>
+      				<Guidance>TBD</Guidance>
+      				<Tests>TBD</Tests>
+      			</aactivity>
+      		</f-element>
+      		<audit-event>
+      			<audit-event-descr>TBD</audit-event-descr>
+      		</audit-event>
+      		
+      	</f-component>
       	
       	<f-component cc-id="fmt_smr.1" id="sfr-fmt-smr-1" name="Security Roles">
       		<f-element id="fmt-smr-1e1">
@@ -6754,7 +7645,7 @@
     		
     		<comp-lev>requires that the TSF
     			prevent plaintext administrator credential data from being read by any user or subject.</comp-lev>
-    		<management>No specific management functions are identified.</management>
+    		<management>There are no management activities foreseen.</management>
     		<audit>There are no auditable events foreseen.</audit>
     		<dependencies>No dependencies.</dependencies>
     		<f-element>
@@ -6862,6 +7753,31 @@
     		<audit-event/>
     	</f-component>
     	
+    	<f-component name="Dead Peer Detection" cc-id="fpt_dpd.1" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="fdp-dpd-2e1">
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TSF shall detect peer failure using: <h:ul>
+    					<h:li>RFC 3706 mechanisms or keep-alive beacons</h:li>
+    					<h:li>Trigger session reconnect upon failure or disconnect notification</h:li>
+    				</h:ul>				
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
+    	</f-component>
+    	
     	<f-component cc-id="fpt_fls.1" name="Failure with Preservation of Secure State" status="sel-based">
     		<depends on-sel=""/>  <!-- FCS_CKM.5.1 -->    		
     		<depends on-incl="fcom_asym_key_gen"/>
@@ -6896,9 +7812,55 @@
     		</audit-event>
     	</f-component>
     	
+    	<f-component name="Failure with Preservation of SEcure State" cc-id="fpt_fls.1" iteration="pfed" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="fdp-fls-1e1">
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TSF shall preserve a secure state by terminating sessions and destroying keys when the following types of failures occur: [<h:i>Dead
+    				peer detected, Recovery failure, Provisioning failure</h:i>.				
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
+    	</f-component>
+    
+    	<f-component name="Hardware Root of Trust" cc-id="fpt_hrt.1" iteration="pfed" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="fpt-hrt-2e1">
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TSF shall store a root key within a TPM 2.0 bound to a physical property of the platform and used only to unwrap other keys.				
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
+    	</f-component>
+    
     	<f-component name="TSF Initialization" cc-id="fpt_ini.1">
     		<f-element>
     			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
     			The TOE shall provide an initialization function which is self-protected for integrity and authenticity.
     			</title>
     		</f-element>
@@ -6923,15 +7885,91 @@
     		<f-element>
     			<title>The TOE initialization function shall only interact with the TSF in <assignable>defined methods</assignable> during initialization.
     			</title>
-    			<aactivity level="component">
-    				<TSS>Needs to be completed.</TSS>
-    				<Guidance>Needs to be completed.</Guidance>
-    				<Tests><comment>Needs to be completed.</comment></Tests>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
     			</aactivity>
     		</f-element>
     		<audit-event>
-    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+    			<audit-event-descr>TBD</audit-event-descr>
     		</audit-event>
+    		
+    	</f-component>
+    	
+    	<f-component name="EU and CU Isolation" cc-id="fpt_iso_ext.1" iteration="pfed" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="fdp-iso_ext-1e1">
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TSF shall ensure:<h:ul>
+    					<h:li>EU and CU do not share computation resources</h:li>
+    					<h:li>EU interfaces are non-addressable and stateless</h:li>
+    					<h:li>Network namespaces are isolated.</h:li>
+    					<h:li>Only a connectionless bus is shared</h:li>
+    				</h:ul>.				
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
+    	</f-component>
+    	
+    	<f-component name="Basic Internal TSF Data Transfer Protection" cc-id="fpt_itt.1" iteration="HWS" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="ftp-itt-hws-1e1">
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TSF shall protect TSF data from disclosure and modification when transmitted between the EU and CU over the dedicated wired interface.		
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
+    	</f-component>
+    	
+    	<f-component name="Basic Internal TSF Data Transfer Protection" cc-id="fpt_itt.1" iteration="PFED" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="fpt-itt-pfed-1e1">
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TSF shall protect the confidentiality and integrity of internal data transfers betwween the EU and CU using cryptographically protected,
+    				stateless message formats.				
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
     	</f-component>
     	
     	<ext-comp-def title="JTAG Disablement" fam-id="FPT_JTA_EXT">
@@ -6941,7 +7979,7 @@
     	</ext-comp-def>
     	<f-component name="JTAG Disablement" cc-id="fpt_jta_ext.1">
     		<comp-lev> requires the TSF to disable JTAG through a selected method.</comp-lev>
-    		<management>No specific management functions are identified.</management>
+    		<management>There are no management activities foreseen.</management>
     		<audit>There are no auditable events foreseen.</audit>
     		<dependencies>No dependencies</dependencies>
     		<f-element>
@@ -7033,6 +8071,7 @@
     		</f-element>
     		<audit-event/>
     	</f-component>
+    	
     	<f-component cc-id="fpt_kst_ext.2" name="No Key Transmission">
     		
     		<comp-lev> requires the TSF to prevent transmitting plaintext key material to the operational environment.</comp-lev>
@@ -7067,6 +8106,7 @@
     		</f-element>
     		<audit-event/>
     	</f-component>
+    	
     	<f-component cc-id="fpt_kst_ext.3" name="No Plaintext Key Export">
     		
     		<comp-lev> requires the TSF to prevent the export of plaintext keys.</comp-lev>
@@ -7398,21 +8438,59 @@
     		</f-element>
     	</f-component>
     	
-    	<f-component name="Automated Recovery" cc-id="fpt_rcv.2">
-    		<f-element>
+    	<f-component name="Recovery Behavior" cc-id="fpt_rcv.1" iteration="PFED" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="fpt-rcv-pfed-1e1">
     			<title>
-    				When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
-    				maintenance mode where the ability to return to a secure state is provided.
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TOE shall enter a secure recovery state upon detection of: <h:ul>
+    					<h:li>Dead peer</h:li>
+    					<h:li>Session key divergence</h:li>
+    					<h:li>Failed rekey or recovery transaction</h:li>
+    				</h:ul>.				
     			</title>
-    			<aactivity level="component">
-    				<TSS>Needs to be completed.</TSS>
-    				<Guidance>Needs to be completed.</Guidance>
-    				<Tests><comment>Needs to be completed.</comment></Tests>
+    			
+    		</f-element>
+    		
+    		<f-element id="fpt-rcv-pfed-1e2">
+    			<title>
+    				During recovery, the TOE shall suppress all EUD traffic.
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
     			</aactivity>
     		</f-element>
     		<audit-event>
-    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+    			<audit-event-descr>TBD</audit-event-descr>
     		</audit-event>
+    		
+    	</f-component>
+    	
+    	<f-component name="Automated Recovery" cc-id="fpt_rcv.2">
+    		<f-element>
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
+    				maintenance mode where the ability to return to a secure state is provided.
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
     	</f-component>
     	
     	<ext-comp-def title="Platform Integrity" fam-id="FPT_ROT_EXT">
@@ -7694,6 +8772,56 @@
     		</f-element>
     		<audit-event/>
     	</f-component>
+    	
+    	<ext-comp-def title="Hardware-Enforced Separation Between TOE Subsystems" fam-id="FPT_SEP_EXT">
+    		<fam-behavior>This family defines requirements for hardware-enforced physical and logical separation between TOE subsystems such that compromise of one
+    			subsystem does not permit direct compromise of the other.</fam-behavior>
+    	</ext-comp-def>
+	
+    	<f-component name="TSF Domain Separation" cc-id="fpt_sep_ext.1">
+    		<consistency-rationale>
+    			<comment>Need to complete sections for management, audit, dependencies, App Note, EAs, and audit
+    				events.</comment><h:p/>
+    			
+    		</consistency-rationale>
+    		<comp-lev>requires the TSF to maintain separation between security domains for the EU and CU.</comp-lev>
+    		<management>TBD</management>
+    		<audit>TBD</audit>
+    		<dependencies>TBD</dependencies>
+    		
+    		
+    		<f-element id="fpt-sep-ext-1e1">
+    			<title>
+    				The TSF shall maintain a security domain for the Encryption Unit (EU) and a separate security domain for the Communication Unit (CU) within the
+    				TOE.			
+    			</title>
+    		</f-element>
+    		<f-element id="fpt-sep-ext-1e2">
+    			<title>
+    				The TSF shall enforce separation between the EU and CU such that: <h:ul>
+    					<h:li>The EU executes on a processor that is physically distinct from the processor used by the CU</h:li>
+    					<h:li>The EU uses dedicated volatile and non-volatile memory resources that are physically distinct from those used by the CU</h:li>
+    					<h:li>Independent execution environments</h:li>
+    					<h:li>No shared memory exists between the EU and CU</h:li>
+    					<h:li>Direct memory access from the EU to CU memory is not possible</h:li>
+    					<h:li>Direct memory access from the CU to EU memory is not possible</h:li>
+    					<h:li>All communication between the EU and CU is restricted to a dedicated wired interface that is part of the TSF boundary</h:li>
+    				</h:ul>    				
+    			</title>    		
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
+    	</f-component>
 	
     	<ext-comp-def fam-id="FPT_SKP_EXT" title="Protection of TSF Data">
     		<fam-behavior>Components in this family define requirements for managing and protecting
@@ -7702,7 +8830,7 @@
     	<f-component cc-id="fpt_skp_ext.1" name="Protection of TSF Data (for reading of all symmetric keys">
     		<comp-lev>requires
     			preventing symmetric keys from being read by any user or subject.</comp-lev>
-    		<management>No specific management functions are identified.</management>
+    		<management>There are no management activities foreseen.</management>
     		<audit>There are no auditable events foreseen.</audit>
     		<dependencies>No dependencies.</dependencies>
     		<f-element>
@@ -7780,6 +8908,50 @@
     		</f-element>
     		<audit-event/>
     	</f-component>
+    	
+    	<f-component name="Transaction Control" cc-id="fpt_tran.1" iteration="pfed" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="fdp-tran-1e1">
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.	
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
+    	</f-component>
+    	
+    	<f-component name="Trusted Path" cc-id="fpt_trp.1" iteration="pfed" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="fdp-trp-1e1">
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TSF shall provide a trusted cryptographic channel between paired EUs for all session setup, rekey, and recovery transactions.				
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
+    	</f-component>
 	      
     	<f-component cc-id="fpt_tst.1" name="TSF Self-Test">
     		<f-element id="fel-tsf-self-test">
@@ -7836,6 +9008,28 @@
     		<audit-event>
     			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
     		</audit-event>
+    	</f-component>
+    	
+    	<f-component name="TSF Self-TEst" cc-id="fpt_tst.1" iteration="pfed" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="fdp-dpd-2e1">
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TSF shall perform self-tests of cryptographic functions and hardware root of trust during initialization.				
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
     	</f-component>
     	
     	<f-component cc-id="fpt_tst_ext.1" name="TSF Testing">
@@ -8420,7 +9614,9 @@
 	    	
 	    	<f-component name="TSF-Initiated Termination" cc-id="fta_ssl.3">
 	    		<f-element>
-	    			<title>The TSF shall terminate a remote interactive session after a security
+	    			<title>
+	    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+	    				The TSF shall terminate a remote interactive session after a security
 	    				administrator-configurable time interval of session inactivity</title>
 	    			
 	    		<note role="application">
@@ -8428,36 +9624,43 @@
 	    			commands. By contrast, if authentication accompanies each individual command (without preservation of the same authenticated state) then this
 	    			is not considered an interactive session.
 	    		</note>
-	    			<aactivity level="component">
-	    				<TSS>Needs to be completed.</TSS>
-	    				<Guidance>Needs to be completed.</Guidance>
-	    				<Tests><comment>Needs to be completed.</comment></Tests>
+	    			<aactivity>
+	    				<TSS>TBD</TSS>
+	    				<Guidance>TBD</Guidance>
+	    				<Tests>TBD</Tests>
 	    			</aactivity>
-	    		</f-element>	    		
+	    		</f-element>
 	    		<audit-event>
-	    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+	    			<audit-event-descr>TBD</audit-event-descr>
 	    		</audit-event>
+	    		
 	    	</f-component>
 	    	
 	    	<f-component name="User-Initiated Termination" cc-id="fta_ssl.4">
 	    		<f-element>
-	    			<title>The TSF shall allow administrator-initiated termination of the
+	    			<title>
+	    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+	    				The TSF shall allow administrator-initiated termination of the
 	    				administrator's
 	    				own interactive session.</title>	
-	    			<aactivity level="component">
-	    				<TSS>Needs to be completed.</TSS>
-	    				<Guidance>Needs to be completed.</Guidance>
-	    				<Tests><comment>Needs to be completed.</comment></Tests>
+	    			<note role="application">
+	    				TBD
+	    			</note>	    			
+	    			<aactivity>
+	    				<TSS>TBD</TSS>
+	    				<Guidance>TBD</Guidance>
+	    				<Tests>TBD</Tests>
 	    			</aactivity>
 	    		</f-element>
 	    		<audit-event>
-	    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+	    			<audit-event-descr>TBD</audit-event-descr>
 	    		</audit-event>
+	    		
 	    	</f-component>
 	    	
 	    	<ext-comp-def fam-id="FTA_SSL_EXT" title="Session Locking and Termination">
 	    		<fam-behavior>This family defines requirements for session locking capabilities that are not addressed by FTA_SSL in CC Part 2. 
-	    			<comment>This SFR will need to be completed with all sections.</comment></fam-behavior>
+	    			</fam-behavior>
 	    	</ext-comp-def>
 	    	
 	    	<f-component cc-id="fta_ssl_ext.1" name="TSF- and TSF-initiated Session Blocking">
@@ -8559,11 +9762,11 @@
 	  
       <f-component name="Inter-TSF Trusted Channel" cc-id="ftp_itc.1">
       	<f-element id="ftp-itc-1e1">
-      		<title> <comment>This SFR needs missing sections completed.</comment>
+      		<title> <comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
       			The TSF shall <h:b>be capable of using <selectables>
       				<selectable>IPsec</selectable>
       				<selectable>MACsec</selectable>
-      				<selectable>PFED</selectable>
+      				<selectable id="selpfed">PFED</selectable>
       				<selectable>WLAN</selectable>
       			</selectables> to </h:b>provide a <h:b>trusted</h:b>communication channel between itself and <h:s>another trusted</h:s> <h:b>authorized</h:b> IT <h:b>entities
       				supporting the following capabilities: audit server, <selectables>
@@ -8587,21 +9790,91 @@
       			The TSF shall initiate communication via the trusted channel for <assignable>list of <h:b>services for which the TSF is able to initiate
       			communications</h:b></assignable>.
       		</title>
-      		<aactivity level="component">
-      			<TSS>Needs to be completed.</TSS>
-      			<Guidance>Needs to be completed.</Guidance>
-      			<Tests><comment>Needs to be completed.</comment></Tests>
+      		<note role="application">
+      			TBD
+      		</note>
+      		<aactivity>
+      			<TSS>TBD</TSS>
+      			<Guidance>TBD</Guidance>
+      			<Tests>TBD</Tests>
       		</aactivity>
       	</f-element>
       	<audit-event>
-      		<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+      		<audit-event-descr>TBD</audit-event-descr>
       	</audit-event>
+      	
       </f-component>
+    	
+    	<f-component name="Trusted Channel Communication" cc-id="ftp_itc.1" iteration="MACsec" status="feat-based">
+    		<depends on="macsec"/>
+    		<f-element id="ftp-itc-macsec-1e1">
+    			<title>
+    				The TSF shall <h:b>use MACsec in accordance with the PP-Module for MACsec Ethernet Encryption, version 2.0</h:b> to provide a communication
+    				channel between itself and <h:b>a MACsec peer</h:b> that is logically distinct from other communication channels and provides assured
+    				identification of its endpoints, <h:b>protects channel data from disclosure, and detects modification of the channel data</h:b>.
+    			</title>
+    			<note role="application">
+    				Assured identification of endpoints is performed according to the authentication mechanisms used by the listed trusted channel
+    				protocols.<h:br/><h:br/>
+    				Claims from the Functional Package for X.509, version 1.0 are only required to the extent that they are needed to support the functionality 
+    				required by the trusted protocols that are claimed.    				
+    			</note>
+    		</f-element>
+    		
+    		<f-element id="ftp-itc-macsec-1e2">
+    			<title>
+    				The TSF shall permit <selectables>
+    					<selectable>the TSF</selectable>
+    					<selectable><h:b>a MACsec peer</h:b></selectable>
+    				</selectables>
+    				to initiate communication via the trusted channel.
+    			</title>
+    		</f-element>
+    		
+    		<f-element id="ftp-itc-macsec-1e3">
+    			<title>
+    				The TSF shall initiate communication via the trusted channel for [<h:i>communications with MACsec peers that require the use of MACsec</h:i>]
+    			</title>
+    			<aactivity>
+    				<no-tests>
+    					The evaluator shall apply the test activities for FCS_MACSEC_EXT.1, FCS_MACSEC_EXT.2, FCS_MACSEC_EXT.3, and FCS_MACSEC_EXT.4 as defined in
+    					the PP-Module for MACsec Ethernet Encryption.
+    				</no-tests>
+    			</aactivity>
+    		</f-element>
+		<audit-event>
+			<audit-event-descr><comment>This needs to be completed.</comment></audit-event-descr>
+		</audit-event>    		
+    	</f-component>
+    	
+    	<f-component name="Trusted Channel Communication" cc-id="ftp_itc.1" iteration="PFED" status="feat-based">
+    		<depends on="pfed"/>
+    		<f-element id="ftp-itc-pfed-1e1">
+    			<title>
+    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				The TSF shall provide a communication channel <h:b>using PFED in accordance with the PFED specification in Appendix X and PFED SFRs to</h:b>
+    				provide a <h:b>trusted</h:b> channel between itself and <h:b>a PFED peer</h:b> that is logically distinct from other communication channels and
+    				provides assured identification of its endpoints and protection of the channel data from modification or disclosure.   				
+    			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
+    		
+    	</f-component>
     	
     	<f-component name="Inter-TSF Trusted Channel (VPN Communications)" cc-id="ftp_itc.1" iteration="VPN" status="sel-based">
     		<depends on-sel=""></depends>
     		<f-element id="ftp-itc-vpn-1e1">
-    			<title> <comment>This SFR needs missing sections completed.</comment>
+    			<title> <comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
     				The TSF shall <h:b>be capable of using IPsec to </h:b>provide a communication channel between itself and <h:s>another trusted</h:s> <h:b>authorized</h:b> IT
     				<h:b>entities</h:b> supporting <h:b>VPN communications</h:b> that is logically distinct from other communication channels and provides assured
     				identification of its end points and protection of the channel data from <h:b>disclosure and detection of modification of the channel data</h:b>.
@@ -8622,19 +9895,25 @@
     					<selectable>no functions</selectable>
     				</selectables></h:i>.
     			</title>
+    			<note role="application">
+    				TBD
+    			</note>
     			<aactivity>
-    				<TSS>Needs to be completed.</TSS>
-    				<Guidance>Needs to be completed.</Guidance>
-    				<Tests><comment>Needs to be completed.</comment></Tests>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
     			</aactivity>
     		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>
     		
     	</f-component>
     	
     	<f-component name="Trusted Channel Communication (Wireless LAN)" cc-id="ftp_itc.1" iteration="WLAN" status="sel-based">
     		<depends on-sel=""/>
     		<f-element id="ftp-itc-wlan-1e1">
-    			<title> <comment>This SFR needs missing sections completed.</comment>
+    			<title> <comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
     				The TSF shall <h:b>use 802.11-2020, 8021X, and EAP-TLS to </h:b>provide a communication channel between itself and <h:s>another trusted</h:s> <h:b>a 
     				wireless access point</h:b> that is logically distinct from other communication channels and provides assured
     				identification of its end points and protection of the channel data from modification or disclosure.
@@ -8649,7 +9928,18 @@
     			<title>
     				The TSF shall initiate communication via the trusted channel for [<h:i>wireless access point connections</h:i>.
     			</title>
+    			<note role="application">
+    				TBD
+    			</note>
+    			<aactivity>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
+    			</aactivity>
     		</f-element>
+    		<audit-event>
+    			<audit-event-descr>TBD</audit-event-descr>
+    		</audit-event>    		
     		
     	</f-component>
     	
@@ -8659,9 +9949,8 @@
     	</ext-comp-def>    	
     	
     	<f-component id="sfr-ftp-itc-ext-1" cc-id="ftp_itc_ext.1" name="Physically Protected Channel" status="sel-based">
-    		<depends on-sel="fel-key-est"/>
-    		<depends on-sel="fdp-itc-1e1"/>
-    		<depends on-sel="fmt-smf-est-1e1"/> 
+    		<depends on-sel="sel-ckm-2-echan"/>
+    		<depends on-sel="key-dist-ftp-itc-ext-1"/>
     		<consistency-rationale/>
     		<comp-lev>requires the TSF to implement one or more cryptographic protocols
     			to secure connectivity between the TSF and various external entities.</comp-lev>
@@ -8774,7 +10063,7 @@
     	</f-component>	
 		
 		<f-component name="Trusted Channel Communication" cc-id="ftp_itc_ext.1" iteration="IPsec" status="sel-based">
-    	<depends on="ipsec"></depends>
+    	<depends on="ipsec"/>
     	<f-element id="ftp-itc-ext-ipsec-1e1">
     		<title>The TSF shall use
     			<selectables linebreak="yes">    				
@@ -8829,7 +10118,7 @@
 	</f-component>	
     	
     	<f-component name="Trusted Channel Communication" cc-id="ftp_itc_ext.1" iteration="WLAN" status="sel-based">
-    		<depends on="ipsec"></depends>
+    		<depends on="wlan"/>
     		<f-element id="ftp-itc-ext-wlan-1e1">
     			<title>The TSF shall use
     				<selectables linebreak="yes">    				
@@ -8926,6 +10215,80 @@
     		</f-element>
     		<audit-event>
     			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+    		</audit-event>
+    	</f-component>
+    	
+    	<f-component name="Trusted Path" cc-id="ftp_trp.1" status="sel-based">
+    		<depends on="pfed"/>
+    		<depends on-sel="sel-smf-remote-admin"/>    		
+    		<f-element id="ftp-trp-1e1">
+    			<title>
+    				The TSF shall <h:b>use a trusted channel as specified in FTP_ITC_EXT.1 to</h:b> provide a <h:b>trusted</h:b> communication path between itself
+    				and [<h:i>remote</h:i>] <h:b>administrators</h:b> that is logically distinct from other communication paths and provides assured identification
+    				of its endpoints and protection of the communicated data from [<h:i>modification, disclosure</h:i>.
+    			</title>
+    			
+    		</f-element>
+    		<f-element id="ftp-trp-1e2">
+    			<title>
+    				The TSF shall permit [<h:i>remote <h:b>administrators</h:b></h:i> to initiate communication via the trusted path.
+    			</title>
+    		</f-element>
+    		<f-element id="ftp-trp-1e3">
+    			<title>
+    				The TSF shall require the use of the trusted path for [<h:i>[all remote administrator actions]</h:i>]
+    			</title>
+    			<note role="application">
+    				This SFR is included in the ST if "remotely" is selected in Management Function 1 of FMT_SMF.1.1.<h:br/><h:br/>
+    				Protocols used to implement the remote administration trusted channel must be selected in FTP_ITC_EXT.1.<h:br/><h:br/>
+    				This requirement ensures that authorized remote Administrators initiate all communication with the TOE via a trusted path, and that all
+    				communications with the TOE by remote Administrators is performed over this path. The data passed in this trusted communication channel are
+    				encrypted as defined the protocol chosen in the first selection in FTP_ITC_EXT.1.    				
+    			</note>
+    			<aactivity>
+    				<TSS>
+    					The evaluator shall examine the TSS to determine that the methods of remote TOE administration are indicated, along with how those
+    					communications are protected. The evaluator shall also confirm that all protocols listed in the TSS in support of TOE administration are
+    					consistent with those specified in the requirement, and are included in the requirements in the ST.
+    				</TSS>
+    				<Guidance>
+    					The evaluator shall confirm that the AGD contains instructions for establishing the remote administrative sessions for each supported
+    					method.
+    				</Guidance>
+    				<Tests>
+    					The evaluator shall also perform the following tests.
+    					<testlist>
+    						<test>
+    							Test FTP_TRP.1:1: The evaluator shall ensure that communications using each specified (in the AGD) remote administration method is
+    							tested during the course of the evaluation, setting up the connections as described in the AGD and ensuring that communication is
+    							successful.
+    						</test>
+    						<test>
+    							Test FTP_TRP.1:2: For each method of remote administration supported, the evaluator shall follow the AGD to ensure that there is no
+    							available interface that can be used by a remote user to establish remote administrative sessions without invoking the trusted path.
+    						</test>
+    						<test>
+    							Test FTP_TRP.1:3: The evaluator shall ensure, for each method of remote administration, the channel data is not sent in plaintext.
+    						</test>
+    						<test>
+    							Test FTP_TRP.1:4: The evaluator shall ensure, for each method of remote administration, modification of the channel data is detected    							by the TOE.
+    						</test>
+    					</testlist>
+    					Additional evaluation activities are associated with the specific protocols.    					
+    				</Tests>
+    			</aactivity>
+    		</f-element>
+    		<audit-event>
+    			<audit-event-descr>Initiation of the trusted channel.</audit-event-descr>
+    			<audit-event-info>Administrator ID and remote source (IP Address), if feasible.</audit-event-info>
+    		</audit-event>
+    		<audit-event>
+    			<audit-event-descr>Termination of the trusted channel.</audit-event-descr>
+    			<audit-event-info>Administrator ID and remote source (IP Address), if feasible.</audit-event-info>
+    		</audit-event>
+    		<audit-event>
+    			<audit-event-descr>Faillures of the trusted path functions.</audit-event-descr>
+    			<audit-event-info>User ID and remote source (IP Address), if feasible.</audit-event-info>
     		</audit-event>
     	</f-component>
     	
