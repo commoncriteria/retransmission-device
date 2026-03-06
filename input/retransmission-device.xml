@@ -403,6 +403,629 @@
 				</feature>
 			</implements>
 		</section>
+		
+		<section id="sfrappl" title="SFR Applicability">
+			The following table depicts how each SFR is applicable to CU and EU.
+			<h:table>
+				<h:tr>
+					<h:th>SFR</h:th>
+					<h:th>CU</h:th>
+					<h:th>EU</h:th>
+					<h:th>Mandatory (M), Objective (Ob), Optional(Op, Selection-Based (SB)</h:th>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FAU_GEN.1 Audit Data Generation</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FAU_SAR.1 Audit Review</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FAU_STG.1 Audit Data Storage Location</h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FAU_STG.2 Protected Audit Trail Storage</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FAU_STG.5 Prevention of Audit Data Loss</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCO_NRO.1 Selective Proof of Origin</h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+					<h:td>O</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCO_NRR.1 Selective Proof of Receipt</h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+					<h:td>O</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_CKM.1/AKG Cryptographic Key Generation - Asymmetric Key</h:td>
+					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>				
+				
+				<h:tr>
+					<h:td>FCS_CKM.1/SKG Cryptographic Key Generation - Symmetric Key</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_CKM.2 Cryptographic Key Distribution</h:td>
+					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_CKM.6 Timing and Event for Cryptographic Key Destruction</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_CKM_EXT.7 Cryptographic Key Agreement</h:td>
+					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_COP.1/AEAD Cryptographic Operation - Authenticated Encryption with Associated Data</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_COP.1/CMAC Cryptographic Operation - CMAC</h:td>
+					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>SB (FCS_CKM.5.1, FCS_STG_EXT.3.1)</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_COP.1/Hash Cryptographic Operation - Hashing</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+								
+				<h:tr>
+					<h:td>FCS_COP.1/KeyedHash Cryptographic Operation - Keyed Hash</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_COP.1/KeyEncap Cryptographic Operation - Key Encapsulation</h:td>
+					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_COP.1/KeyWrap Cryptographic Operation - Hashing</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_COP.1/SigGen Cryptographic Operation - Signature Generation</h:td>
+					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_COP.1/SigVer Cryptographic Operation - Signature Verification</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_COP.1/SKC Cryptographic Operation - Symmetric Key Encryption and Decryption</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_COP.1/XOF Cryptographic Operation - Extendable-Output Function</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_RBG.1 Random Bit Generation (RBG)</h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_RBG.2 Random Bit Generation (External Seeding)</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_RBG.3 Random Bit Generation (Internal Seeding - Single Source</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_RBG.4 Random Bit Generation (Internal Seeding - Multiple Sources)</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_RBG.5 Random Bit Generation (Combining Entropy Sources)</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_RBGH.6 Random Bit Generation Service</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_STG_EXT.1 Protected Storage</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_STG_EXT.2 Encrypted Cryptographic Key Storage</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB (FCS_STG_EXT.1.1)</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FCS_STG_EXT.3 Key Integrity Protection</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB (FCS_STG_EXT.1.1)</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FDP_IFC.2 Complete Information Flow Control</h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FDP_IFF.1 Information Flow Control Functions</h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FDP_ITC_EXT.1 Key/Credential Import</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB (FCS_STG_EXT.1.2</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FDP_STG_EXT.1 User Data Storage</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FIA_AFL_EXT.1 Authentication Failure Handling <comment>Review App Notes</comment></h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FIA_PMG_EXT.1 Password Management</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FIA_PSK_EXT.1 Pre-Shared Key Composition</h:td>
+					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>SB (IPsec)</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FIA_TRT_EXT.1 Authentication Throttling</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FIA_UAU.5 Multiple Authentication Mechanisms</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FIA_UAU.7 Protected Authentication Feedback</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FIa_UAU_EXT.1 Authentication for Cryptographic Operation</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FIA_UAU_EXT.2 Timing of Authentication</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FMT_MOF1 Management of Security FUnctions Behavior</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FMT_MSA.3 Static Attributes</h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+					<h:td>O</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FMT_SMF.1 Specification of Management Functions</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FMT_SMR.1 Security Roles</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_APW_EXT.1 Protection of Administrator Password</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_BBD_EXT.1 Application Processor Mediation</h:td>
+					<h:td>X</h:td>
+					<h:td></h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_FLS.1 Failure with Preservation of Secure State</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_INI.1 TSF Initialization</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_JTA_EXT.1 JTAG Disablement</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_KST_EXT.1 Key Storage</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_KST_EXT.2 No Key Transmission</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_KST_EXT.3 No Plaintext Key Export</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_NOT_EXT.1 Self-Test Notification</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_PHP.1 Passive Detection of Physical Attack</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_PHP.2 Notification of Physical Attack</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>Ob</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_PHP.3 Resistance to Physical Attack</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>Ob</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_PPF_EXT.1 Protection of Platform Firmware and Critical Data</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_RBP_EXT.1 Rollback Protection</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_RCV.2 Automated Recovery</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_ROT_EXT.1 Platform Integrity Root</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_ROT_EXT.2 Platform Integrity Extension</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_RUL_EXT.1 Packet Filtering Rules</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_RUL_EXT.1 Packet Filtering Rules</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_RVR_EXT.1 Platform Firmware Recovery</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_SKP_EXT.1 Protection of TSF Data (for reading of all symmetric keys)</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_STM.1 Reliable Time Stamps</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_TST.1 TSF Self-Test</h:td>
+					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_TST_EXT.1 TSF Testing</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_TUD_EXT.1 TOE Firmware Update</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_TUD_EXT.2 Platform Firmware Authenticated Update Mechanism</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_TUD_EXT.3 Platform Firmware Delayed - Authentication Update Mechanism</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FPT_TUD_EXT.4 Secure Local Platform Firmware Update Mechanism</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FTA_SSL.3 TSF-Initiated Termination</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FTA_SSL.4 User-Initiated Termination</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FTA_SSL_EXT.1 TSF- and TSF-Initiated Session Blocking
+					<comment>Review verbiage</comment></h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FTA_TAB.1 Default TOE Access Banners</h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FTP_ITC.1 Inter-TSF Trusted Channel</h:td>
+					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td></h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FTP_ITC_EXT.1 Physically Protected Channel <comment>Review offload audit data or if the platform is administered remotely</comment></h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FTP_ITC_EXT.1/IPsec Trusted Channel Communication <comment>Review App Notes</comment></h:td>
+					<h:td></h:td>
+					<h:td>X (IPsec)</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FTP_ITC_EXT.1/MACsec Trusted Channel Communication - MACsec</h:td>
+					<h:td></h:td>
+					<h:td>X (MACsec)</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FTP_ITC_EXT.1/VPN Trusted Channel Communication (VPN Communications)</h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+				</h:tr>
+
+				<h:tr>
+					<h:td>FTP_ITC_EXT.1/WLAN Trusted Channel Communication (Wireless LAN)</h:td>
+					<h:td></h:td>
+					<h:td>X (WLAN, EU-only)</h:td>
+					<h:td>SB</h:td>
+				</h:tr>
+
+				<h:tr>
+					<h:td>FTP_ITP_EXT.1 Physically Protected Channel <comment>Review</comment></h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td></h:td>
+				</h:tr>
+				
+				<h:tr>
+					<h:td>FTP_TRP.1 Trusted Path</h:td>
+					<h:td></h:td>
+					<h:td></h:td>
+					<h:td>SB (FMT_SMF.1.1)</h:td>
+				</h:tr>
+			</h:table>
+			
+		</section>
   </sec:Introduction>
   
 	<!-- 2.0 Conformance Claims -->
