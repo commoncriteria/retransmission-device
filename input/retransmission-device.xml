@@ -406,12 +406,12 @@
 		
 		<section id="sfrappl" title="SFR Applicability">
 			The following table depicts how each SFR is applicable to CU and EU.
-			<h:table>
+			<h:table align="center">
 				<h:tr>
 					<h:th>SFR</h:th>
-					<h:th align="center">CU</h:th>
-					<h:th align="center">EU</h:th>
-					<h:th align="center">Mandatory (M), Objective (Ob), Optional(Op, Selection-Based (SB)</h:th>
+					<h:th>CU</h:th>
+					<h:th>EU</h:th>
+					<h:th>Mandatory (M), Objective (Ob), Optional(Op, Selection-Based (SB)</h:th>
 				</h:tr>
 				
 				<h:tr>
