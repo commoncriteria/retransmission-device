@@ -82,6 +82,7 @@ output/retransmission-device-release-linkable.html: CNSA
 output/retransmission-device-release-linkable.html: CPUs
 output/retransmission-device-release-linkable.html: CSP
 output/retransmission-device-release-linkable.html: CSPs
+output/retransmission-device-release-linkable.html: CUs
 output/retransmission-device-release-linkable.html: CoreOS
 output/retransmission-device-release-linkable.html: DCN
 output/retransmission-device-release-linkable.html: DDX
@@ -102,7 +103,6 @@ output/retransmission-device-release-linkable.html: Enctrypytion
 output/retransmission-device-release-linkable.html: EtherType
 output/retransmission-device-release-linkable.html: FB
 output/retransmission-device-release-linkable.html: FFC
-output/retransmission-device-release-linkable.html: FIa
 output/retransmission-device-release-linkable.html: FUnctions
 output/retransmission-device-release-linkable.html: Fi
 output/retransmission-device-release-linkable.html: Fibre
@@ -228,7 +228,6 @@ output/retransmission-device-release-linkable.html: reauthenticate
 output/retransmission-device-release-linkable.html: rekeying
 output/retransmission-device-release-linkable.html: ruleset
 output/retransmission-device-release-linkable.html: sLen
-output/retransmission-device-release-linkable.html: sel
 output/retransmission-device-release-linkable.html: sk
 output/retransmission-device-release-linkable.html: subcommands
 output/retransmission-device-release-linkable.html: supersets
@@ -295,6 +294,7 @@ output/retransmission-device-release.html: CNSA
 output/retransmission-device-release.html: CPUs
 output/retransmission-device-release.html: CSPs
 output/retransmission-device-release.html: CSP’
+output/retransmission-device-release.html: CUs
 output/retransmission-device-release.html: CoreOS
 output/retransmission-device-release.html: DCN
 output/retransmission-device-release.html: DDX
@@ -316,7 +316,6 @@ output/retransmission-device-release.html: Enctrypytion
 output/retransmission-device-release.html: EtherType
 output/retransmission-device-release.html: FB
 output/retransmission-device-release.html: FFC
-output/retransmission-device-release.html: FIa
 output/retransmission-device-release.html: FUnctions
 output/retransmission-device-release.html: Fi
 output/retransmission-device-release.html: Fibre
@@ -446,7 +445,6 @@ output/retransmission-device-release.html: reauthenticate
 output/retransmission-device-release.html: rekeying
 output/retransmission-device-release.html: ruleset
 output/retransmission-device-release.html: sLen
-output/retransmission-device-release.html: sel
 output/retransmission-device-release.html: sk
 output/retransmission-device-release.html: subcommands
 output/retransmission-device-release.html: supersets
@@ -509,6 +507,7 @@ output/retransmission-device.html: CNSA
 output/retransmission-device.html: CPUs
 output/retransmission-device.html: CSPs
 output/retransmission-device.html: CSP’
+output/retransmission-device.html: CUs
 output/retransmission-device.html: CoreOS
 output/retransmission-device.html: DCN
 output/retransmission-device.html: DDX
@@ -530,7 +529,6 @@ output/retransmission-device.html: Enctrypytion
 output/retransmission-device.html: EtherType
 output/retransmission-device.html: FB
 output/retransmission-device.html: FFC
-output/retransmission-device.html: FIa
 output/retransmission-device.html: FUnctions
 output/retransmission-device.html: Fi
 output/retransmission-device.html: Fibre
@@ -659,7 +657,6 @@ output/retransmission-device.html: reauthenticate
 output/retransmission-device.html: rekeying
 output/retransmission-device.html: ruleset
 output/retransmission-device.html: sLen
-output/retransmission-device.html: sel
 output/retransmission-device.html: sk
 output/retransmission-device.html: subcommands
 output/retransmission-device.html: supersets
