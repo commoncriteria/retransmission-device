@@ -451,15 +451,15 @@
 				
 				<h:tr>
 					<h:td>FCO_NRO.1 Selective Proof of Origin</h:td>
-					<h:td></h:td>
+					<h:td>X</h:td>
 					<h:td></h:td>
 					<h:td>O</h:td>
 				</h:tr>
 				
 				<h:tr>
 					<h:td>FCO_NRR.1 Selective Proof of Receipt</h:td>
-					<h:td></h:td>
-					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
 					<h:td>O</h:td>
 				</h:tr>
 				
@@ -633,16 +633,16 @@
 				
 				<h:tr>
 					<h:td>FDP_IFC.2 Complete Information Flow Control</h:td>
-					<h:td></h:td>
-					<h:td></h:td>
-					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M - EUs, O - CUs</h:td>
 				</h:tr>
 				
 				<h:tr>
 					<h:td>FDP_IFF.1 Information Flow Control Functions</h:td>
-					<h:td></h:td>
-					<h:td></h:td>
-					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
+					<h:td>M - EUs, O - CUs</h:td>
 				</h:tr>
 				
 				<h:tr>
@@ -675,9 +675,9 @@
 				
 				<h:tr>
 					<h:td>FIA_PSK_EXT.1 Pre-Shared Key Composition</h:td>
-					<h:td></h:td>
 					<h:td>X</h:td>
-					<h:td>SB (IPsec)</h:td>
+					<h:td>X</h:td>
+					<h:td>SB (IPsec only)</h:td>
 				</h:tr>
 				
 				<h:tr>
@@ -702,7 +702,7 @@
 				</h:tr>
 				
 				<h:tr>
-					<h:td>FIa_UAU_EXT.1 Authentication for Cryptographic Operation</h:td>
+					<h:td>FIA_UAU_EXT.1 Authentication for Cryptographic Operation</h:td>
 					<h:td>X</h:td>
 					<h:td>X</h:td>
 					<h:td>SB</h:td>
@@ -724,8 +724,8 @@
 				
 				<h:tr>
 					<h:td>FMT_MSA.3 Static Attributes</h:td>
-					<h:td></h:td>
-					<h:td></h:td>
+					<h:td>X</h:td>
+					<h:td>X</h:td>
 					<h:td>O</h:td>
 				</h:tr>
 				
@@ -1112,8 +1112,21 @@
 	<sec:SFRs title="Security Functional Requirements">
 		<section id="ss-audit-table" title="Auditable Events for Mandatory SFRs">
 			<audit-table id="at-mandatory" table="mandatory"/>
-			
 		</section>
+		
+		<section id="sop-audit-table" title="Auditable Events for Optional SFRs">
+			<audit-table id="at-optional" table="optional"/>
+		</section>
+		
+		<section id="sid-audit-table" title="Auditable Events for Implementation-Dependent SFRs">
+			<audit-table id="at-implementation-dependent" table="implementation-dependent"/>
+		</section>
+		
+		<section id="ssb-audit-table" title="Auditable Events for Mandatory SFRs">
+			<audit-table id="at-selection-based" table="selection-based"/>
+		</section>
+		
+		
 	<!-- 5.1.1 Security Audit (FAU) -->
 	 <section title="Security Audit (FAU)" id="fau">
 	 	<f-component id="sfr-fau-gen-1" cc-id="fau_gen.1" name="Audit Data Generation">
@@ -1125,11 +1138,11 @@
 	 					<h:li>Start-up, shutdown, and reboot of the platform</h:li>
 	 					<h:li>Specifically defined auditable events in <xref to="at-mandatory"/></h:li>
 	 					<h:li><selectables linebreak="yes">
-	 						<selectable>Specifically defined auditable event in <xref g="t-audit-optional"/> 
+	 						<selectable>Specifically defined auditable event in <xref to="at-optional"/> 
 	 							for Strictly Optional requirements</selectable>
-	 						<selectable>Specifically defined auditable event in <xref g="t-audit-objective"/> 
+	 						<selectable>Specifically defined auditable event in <xref to="at-objective"/> 
 	 							for Objective requirements</selectable>
-	 						<selectable>Specifically defined auditable event in <xref g="t-audit-sel-based"/> 
+	 						<selectable>Specifically defined auditable event in <xref to="at-selection-based"/> 
 	 							for Selection-Based requirements</selectable>
 	 						<selectable>Additional information defined in the audit table for the <comment>TBD</comment></selectable>
 	 						<selectable>Additional information defined in the audit table for the <comment>TBD</comment></selectable>
@@ -1147,9 +1160,9 @@
 	 					<h:li>The outcome (success or failure) of the event</h:li>
 	 					<h:li>[<refinement>Additional information defined in <xref to="at-mandatory"/></refinement>]</h:li>
 	 					<h:li><refinement><selectables linebreak="yes">
-	 						<selectable>Additional information defined in <xref g="t-audit-optional"/> for Strictly Optional SFRs</selectable>
-	 						<selectable>Additional information defined in <xref g="t-audit-objective"/> for Objective SFRs</selectable>
-	 						<selectable>Additional information defined in <xref g="t-audit-sel-based"/> for Selection-Based SFRs</selectable>
+	 						<selectable>Additional information defined in <xref to="at-optional"/> for Strictly Optional SFRs</selectable>
+	 						<selectable>Additional information defined in <xref to="at-objective"/> for Objective SFRs</selectable>
+	 						<selectable>Additional information defined in <xref to="at-selection-based"/> for Selection-Based SFRs</selectable>
 	 						<selectable>Additional information defined in the audit table for the <comment>TBD</comment></selectable>
 	 						<selectable>Additional information defined in the audit table for the <comment>TBD</comment></selectable>
 	 						<selectable exclusive="yes">no other information</selectable>
@@ -1161,8 +1174,8 @@
 	 				or boot failures as indicated by the appropriate selections in FPT_ROT_EXT.2, FPT_ROT_EXT.3,
 	 				FPT_TUD_EXT.2, or FPT_TUD_EXT.3.4.<h:p/>
 	 				If this SFR is included in the ST, then all the other FAU SFRs must also be claimed.<h:p/>
-	 				Appropriate entries from <xref g="t-audit-optional"/>, <xref g="t-audit-objective"/>, and
-	 				<xref g="t-audit-sel-based"/> should be included in the ST if the 
+	 				Appropriate entries from <xref to="at-optional"/>, <xref to="at-objective"/>, and
+	 				<xref to="at-selection-based"/> should be included in the ST if the 
 	 				associated SFRs and selections are included.<h:p/>
 	 				Specific auditable events required for SFRs from the functional packages are defined in the respective packages.<h:p/>
 	 			</note>
@@ -1196,7 +1209,7 @@
 	 		<audit-event/>
 	 	</f-component>
 	 	
-	 	<f-component name="Auidt Data Generation" cc-id="fau_gen.1" iteration="pfed" status="feat-based">
+	 	<f-component name="Auidt Data Generation" cc-id="fau_gen.1" iteration="PFED" status="feat-based">
 	 		<depends on="pfed"/>
 	 		<f-element id="fau-gen-1e1">
 	 			<title>
@@ -9930,7 +9943,7 @@
 					An indication of success or failure can be generation of an audit event by a management subsystem, a beep code,
 					an updated version number on a splash screen, or simple failure to continue functioning.<h:p/>
 					If the update mechanism generates audit events, the ST Author must make the appropriate selections
-					from the audit events table (<xref g="t-audit-sel-based"/>).<h:p/>
+					from the audit events table (<xref to="at-selection-based"/>).<h:p/>
 					In the selection "by express determination of a User," the "User" could be more properly expressed as 
 					the "operator." It can be either a User or an Administrator, but the distinction is not important in the
 					context of this requirement.
