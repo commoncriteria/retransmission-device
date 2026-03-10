@@ -1,7 +1,3 @@
-* Error: f-element FCS_REKEY_EXT.1.1/PFED  appears not to have an associated evaluation activity.:
-        /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[32]""/f-element[1]""
-* Error: f-element FCS_RED_EXT.1.1/PFED  appears not to have an associated evaluation activity.:
-        /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[33]""/f-element[1]""
 * Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to sel-fia-uau-5-ssh from attribute
         on-sel/PP[1]""/include-pkg[1]""/depends[2]""/on-sel[1]""
@@ -626,6 +622,8 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[26]""/f-element[3]""/aactivity[1]""/Tests[1]"The follo"/h:p[14]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[31]""/f-element[1]""/note[1]"This SFR "/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[31]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[32]""/f-element[1]""/title[1]"The TSF s"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[33]""/f-element[1]""/title[1]"The TSF s"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[34]""/f-element[1]""/note[1]"If the pr"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[34]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[8]""/f-component[1]""/f-element[1]""/title[1]""/h:p[1]""
@@ -779,9 +777,6 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[14]""/f-component[8]""/f-element[1]""/note[1]"The inten"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[14]""/f-component[8]""/f-element[1]""/note[1]"The inten"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[14]""/f-component[8]""/f-element[1]""/note[1]"The inten"/h:p[3]""
- Failed to find a reference to at-objective.
- Failed to find a reference to at-objective.
- Failed to find a reference to at-objective.
  Failed to find a reference to mf-audioVisual.
  Failed to find a reference to pkg-x509.
  Failed to find a reference to pkg-x509.

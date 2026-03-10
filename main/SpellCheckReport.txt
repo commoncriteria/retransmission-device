@@ -228,6 +228,7 @@ output/retransmission-device-release-linkable.html: reauthenticate
 output/retransmission-device-release-linkable.html: rekeying
 output/retransmission-device-release-linkable.html: ruleset
 output/retransmission-device-release-linkable.html: sLen
+output/retransmission-device-release-linkable.html: sel
 output/retransmission-device-release-linkable.html: sk
 output/retransmission-device-release-linkable.html: subcommands
 output/retransmission-device-release-linkable.html: supersets
@@ -445,6 +446,7 @@ output/retransmission-device-release.html: reauthenticate
 output/retransmission-device-release.html: rekeying
 output/retransmission-device-release.html: ruleset
 output/retransmission-device-release.html: sLen
+output/retransmission-device-release.html: sel
 output/retransmission-device-release.html: sk
 output/retransmission-device-release.html: subcommands
 output/retransmission-device-release.html: supersets
@@ -657,6 +659,7 @@ output/retransmission-device.html: reauthenticate
 output/retransmission-device.html: rekeying
 output/retransmission-device.html: ruleset
 output/retransmission-device.html: sLen
+output/retransmission-device.html: sel
 output/retransmission-device.html: sk
 output/retransmission-device.html: subcommands
 output/retransmission-device.html: supersets
