@@ -129,6 +129,10 @@
           /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[10]""/f-component[3]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[18]""/O[2]""/depends[2]""
 * Warning: Potentially illegal 'depends' element.
           /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[10]""/f-component[3]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[19]""/depends[1]""
+* Error: Detected multiple elements with an id of 'pfedspec'.
+* Error: Detected multiple elements with an id of 'crypto-alg-para'.
+* Error: Detected multiple elements with an id of 'sess-set-mut-auth'.
+* Error: Detected multiple elements with an id of 'rekey-op'.
 * Error: Detected multiple elements with an id of 'fau-gen-1e1'.
 * Error: Detected multiple elements with an id of 'fau-gen-1e1'.
 * Error: Detected multiple elements with an id of 'fau-stg-1e1'.
@@ -151,6 +155,10 @@
 * Error: Detected multiple elements with an id of 'sel-rot2-admin-det'.
 * Error: Detected multiple elements with an id of 'sel-rot2-user-det'.
 * Error: Detected multiple elements with an id of 'fdp-dpd-2e1'.
+* Error: Detected multiple elements with an id of 'pfedspec'.
+* Error: Detected multiple elements with an id of 'crypto-alg-para'.
+* Error: Detected multiple elements with an id of 'sess-set-mut-auth'.
+* Error: Detected multiple elements with an id of 'rekey-op'.
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/note[1]"The ST Au"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/note[1]"The ST Au"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/note[1]"The ST Au"/h:p[3]""
@@ -777,6 +785,32 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[14]""/f-component[8]""/f-element[1]""/note[1]"The inten"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[14]""/f-component[8]""/f-element[1]""/note[1]"The inten"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[14]""/f-component[8]""/f-element[1]""/note[1]"The inten"/h:p[3]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[3]"This appe"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[1]"The TOE i"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[2]"The TOE i"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[3]""/section[1]"The TOE r"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[3]""/section[1]"The TOE r"/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[3]""/section[1]"The TOE r"/h:p[3]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[3]""/section[2]"Upon succ"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[4]"During tu"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[4]"During tu"/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[5]""/section[1]"The TOE d"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[5]""/section[1]"The TOE d"/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[5]""/section[2]"The TOE i"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[6]"Prior to "/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[7]""/section[1]"Following"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[7]""/section[2]"The TOE s"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[8]"The TOE s"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[8]"The TOE s"/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[8]"The TOE s"/h:p[3]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[8]"The TOE s"/h:p[4]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[9]"The TOE e"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[10]"Each EU i"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[10]"Each EU i"/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[11]"The TOE m"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[12]"The TOE e"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[12]"The TOE e"/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[13]"The TOE e"/h:p[1]""
  Failed to find a reference to mf-audioVisual.
  Failed to find a reference to pkg-x509.
  Failed to find a reference to pkg-x509.
