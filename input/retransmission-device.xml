@@ -11879,338 +11879,207 @@
   
   </appendix>
 
-	<!--R-UPDATE - Defining any equivelency that may apply between models -->
-  <appendix id="equiv" title="Application Software Equivalency Guidelines">
-    <section id="app-intro" title="Introduction">
-    	<h:p>
-      The purpose of equivalence in PP-based evaluations is to find a balance between evaluation rigor and commercial practicability—to 
-      ensure that evaluations meet customer expectations while recognizing that there is little to be gained from requiring that every 
-      variation in a product or platform be fully tested. If a product is found to be compliant with a PP on one platform, then all 
-      equivalent products on equivalent platforms are also considered to be compliant with the PP.
-    	</h:p><h:p>
-      A Vendor can make a claim of equivalence if the Vendor believes that a particular instance of their Product implements PP-specified 
-      security functionality in a way equivalent to the implementation of the same functionality on another instance of their Product on 
-      which the functionality was tested. The Product instances can differ in version number or feature level (model), or the instances may
-      run on different platforms. Equivalency can be used to reduce the testing required across claimed evaluated configurations. It can 
-      also be used during Assurance Maintenance to reduce testing needed to add more evaluated configurations to a certification.
-    	</h:p><h:p>
-      These equivalency guidelines do not replace Assurance Maintenance requirements or NIAP Policy #5 requirements for CAVP certificates. 
-      Nor may equivalency be used to leverage evaluations with expired certifications.
-    	</h:p><h:p>
-      These Equivalency Guidelines represent a shift from complete testing of all product instances to more of a risk-based approach. 
-      Rather than require that every combination of product and platform be tested, these guidelines support an approach that recognizes
-      that products are being used in a variety of environments—and often in cloud environments over where the vendor (and sometimes the 
-      customer) have little or no control over the underlying hardware. Developers should be responsible for the security functionality of 
-      their applications on the platforms they are developed for—whether that is an operating system, a virtual machine, or a software-based
-      execution environment such as a container. But those platforms may themselves run within other environments—virtual machines or
-      operating systems—that completely abstract away the underlying hardware from the application. The developer should not be held
-      accountable for security functionality that is implemented by platform layers that are abstracted away. The implication is that
-      not all security functionality will necessarily be tested for all platform layers down to the hardware for all evaluated
-      configurations—especially for applications developed for software-based execution environments such as containers. For these cases, 
-      the balancing of evaluation rigor and commercial practicability tips in favor of practicability. Note that this does not affect
-      the requirement that at least one product instance be fully tested on at least one platform with cryptography mapped to a CAVP 
-      certificate.
-    	</h:p><h:p>
-      Equivalency has two aspects:
-    	</h:p>
-      <h:ol>
-        <h:li><h:b><h:i>Product Equivalence:</h:i></h:b> Products may be considered equivalent if there are no
-          differences between Product Models and Product Versions with respect to PP-specified security functionality.</h:li>
-        <h:li><h:b><h:i>Platform Equivalence:</h:i></h:b> Platforms may be considered equivalent if there are no
-          significant differences in the services they provide to the Product—or in the way the platforms 
-          provide those services—with respect to PP-specified security functionality.</h:li>
-      </h:ol>
-      The equivalency determination is made in accordance with these guidelines by the Validator and Scheme using information provided by the Evaluator/Vendor.
-    </section>
-    <section id="approach" title="Approach to Equivalency Analysis">
-    	<h:p>
-      There are two scenarios for performing equivalency analysis. One is when a product has been certified and the vendor 
-      wants to show that a later product should be considered certified due to equivalence with the earlier product. The 
-      other is when multiple product variants are going though evaluation together and the vendor would like to reduce 
-      the amount of testing that must be done. The basic rules for determining equivalence are the same in both cases. 
-      But there is one additional consideration that applies to equivalence with previously certified products. That is, 
-      the product with which equivalence is being claimed must have a valid certification in accordance with scheme rules
-      and the Assurance Maintenance process must be followed. If a product’s certification has expired, then equivalence 
-      cannot be claimed with that product.
-    	</h:p><h:p>
-      When performing equivalency analysis, the Evaluator/Vendor should first use the factors and guidelines for Product
-      Model equivalence to determine the set of Product Models to be evaluated. In general, Product Models that do not differ 
-      in PP-specified security functionality are considered equivalent for purposes of evaluation against the AppPP.
-    	</h:p><h:p>
-      If multiple revision levels of Product Models are to be evaluated—or to determine whether a revision of an evaluated 
-      product needs re-evaluation—the Evaluator/Vendor and Validator should use the factors and guidelines for Product 
-      Version equivalence to analyze whether Product Versions are equivalent.
-    	</h:p><h:p>
-      Having determined the set of Product Models and Versions to be evaluated, the next step is to determine the set of
-      Platforms that the Products must be tested on.
-    	</h:p><h:p>
-      Each non-equivalent Product for which compliance is claimed must be fully tested on each non-equivalent platform 
-      for which compliance is claimed. For non-equivalent Products on equivalent platforms, only the differences that
-      affect PP-specified security functionality must be tested for each product.
-    	</h:p><h:p>
-      <h:b><h:i>“Differences in PP-Specified Security Functionality” Defined</h:i></h:b>
-    	</h:p><h:p>
-      If PP-specified security functionality is implemented by the TOE, then differences in the actual implementation
-      between versions or product models break equivalence for that feature. Likewise, if the TOE implements the 
-      functionality in one version or model and the functionality is implemented by the platform in another version 
-      or model, then equivalence is broken. If the functionality is implemented by the platform in multiple models or 
-      versions on equivalent platforms, then the functionality is considered different if the product invokes the platform 
-      differently to perform the function.
-    	</h:p>
-    </section>
-    <section id="modelequiv" title="Specific Guidance for Determining Product Model Equivalence">
-      <h:p>
-      Product Model equivalence attempts to determine whether different feature levels of the same product across 
-      a product line are equivalent for purposes of PP testing. For example, if a product has a “basic” edition and an “enterprise” 
-      edition, is it necessary to test both models? Or does testing one model provide sufficient assurance that both models 
-      are compliant?
-      </h:p><h:p>
-      Product models are considered equivalent if there are no differences that affect PP-specified security 
-      functionality—as indicated in Table 1.
-      </h:p><h:p>
-      
-      <h:table border="1">
-        <h:tr class="header" bgcolor="#cccccc">
-          <h:td valign="top">Factor</h:td>
-          <h:td valign="top">Same/Different</h:td>
-          <h:td valign="top">Guidance</h:td>
-        </h:tr>
-        <h:tr>
-          <h:td rowspan="2" valign="top">PP-Specified Functionality</h:td>
-          <h:td valign="top">Same</h:td>
-          <h:td valign="top">If the differences between Models affect only non-PP-specified functionality, then the Models are equivalent. </h:td>
-        </h:tr>
-        <h:tr>
-          <h:td valign="top">Different</h:td>
-          <h:td valign="top">If PP-specified security functionality is affected by the differences between Models, 
-            then the Models are not equivalent and must be tested separately. It is necessary only to test the functionality 
-            affected by the software differences. If only differences are tested, then the differences must be enumerated, 
-            and for each difference the Vendor must provide an explanation of why each difference does or does not affect 
-            PP-specified functionality. If the Product Models are separately tested fully, then there is no need to document the differences. 
-          </h:td>
-        </h:tr>
-      </h:table>
-      <h:b>Table 1. Determining Product Model Equivalence</h:b>
-      </h:p>
-    </section>
-    <section id="versionequiv" title="Specific Guidance for Determining Product Version Equivalence">
-      <h:p>
-      In cases of version equivalence, differences are expressed in terms of changes implemented in revisions 
-      of an evaluated Product. In general, versions are equivalent if the changes have no effect on any 
-      security-relevant claims about the TOE or assurance evidence. Non-security-relevant changes to TOE 
-      functionality or the addition of non-security-relevant functionality does not affect equivalence.
-      </h:p><h:p>
-      <h:table border="1">
-        <h:tr class="header" bgcolor="#cccccc">
-          <h:td valign="top">Factor</h:td>
-          <h:td valign="top">Same/Different</h:td>
-          <h:td valign="top">Guidance</h:td>
-        </h:tr>
-        <h:tr valign="top">
-          <h:td valign="top">Product Models</h:td>
-          <h:td valign="top">Different</h:td>
-          <h:td valign="top">Versions of different Product Models are not equivalent unless the Models are equivalent as defined in Section 3.</h:td>
-        </h:tr>
-        <h:tr>
-          <h:td rowspan="2" valign="top">PP-Specified Functionality</h:td>
-          <h:td valign="top">Same</h:td>
-          <h:td valign="top">If the differences affect only non-PP-specified functionality, then the Versions are equivalent. </h:td>
-        </h:tr>
-        <h:tr>
-          <h:td valign="top">Different</h:td>
-          <h:td valign="top">If PP-specified security functionality is affected by the differences, then the 
-            Versions are not considered equivalent and must be tested separately. It is necessary only to test 
-            the functionality affected by the changes. If only the differences are tested, then for each 
-            difference the Vendor must provide an explanation of why the difference does or does not affect 
-            PP-specified functionality. If the Product Versions are separately tested fully, then there is 
-            no need to document the differences. </h:td>
-        </h:tr>
-      </h:table>
-      <h:b>Table 2. Factors for Determining Product Version Equivalence</h:b>
-      </h:p>
-    </section>
-    <section id="platformequiv" title="Specific Guidance for Determining Platform Equivalence">
-      <h:p>
-      Platform equivalence is used to determine the platforms that equivalent versions of a Product must be tested on. 
-      Platform equivalence analysis done for one software application cannot be applied to another software application.
-      Platform equivalence is not general—it is with respect to a particular application. 
-      </h:p><h:p>
-      Product Equivalency analysis must already have been done and Products have been determined to be equivalent.
-      </h:p><h:p>
-      The platform can be hardware or virtual hardware, an operating system or similar entity, or a software execution 
-      environment such as a container. For purposes of determining equivalence for software applications, we address each
-      type of platform separately. In general, platform equivalence is based on differences in the interfaces between the 
-      TOE and Platform that are relevant to the implementation of PP-specified security functionality.
-      </h:p>
-      <section id="hardware-equiv" title="Platform Equivalence—Hardware/Virtual Hardware Platforms">
-      	<h:p>
-      		If an application runs directly on hardware without an operating system—or directly on virtualized 
-        hardware without an operating system—then platform equivalence is based on processor architecture and 
-        instruction sets. In the case of virtualized hardware, it is the virtualized processor and architecture 
-        that are presented to the application that matters—not the physical hardware.
-      </h:p><h:p>
-        Platforms with different processor architectures and instruction sets are not equivalent. This is not 
-        likely to be an issue for equivalency analysis for applications since there is likely to be a different 
-        version of the application for different hardware environments.
-        Equivalency analysis becomes important when comparing processors with the same architecture. Processors 
-        with the same architecture that have instruction sets that are subsets or supersets of each other are not
-        disqualified from being equivalent for purposes of an App evaluation. If the application takes the same 
-        code paths when executing PP-specified security functionality on different processors of the same family, 
-        then the processors can be considered equivalent with respect to that application.
-        For example, if an application follows one code path on platforms that support the AES-NI instruction 
-        and another on platforms that do not, then those two platforms are not equivalent with respect to that 
-        application functionality. But if the application follows the same code path whether or not the platform 
-        supports AES-NI, then the platforms are equivalent with respect to that functionality.
-      </h:p><h:p>
-        The platforms are equivalent with respect to the application if the platforms are equivalent with respect to all PP-specified
-        security functionality.
-        <h:table border="1">
-          <h:tr class="header" bgcolor="#cccccc">
-            <h:td valign="top">Factor</h:td>
-            <h:td valign="top">Same/Different/None</h:td>
-            <h:td valign="top">Guidance</h:td>
-          </h:tr>
-          <h:tr valign="top">
-            <h:td valign="top">Platform Architectures</h:td>
-            <h:td valign="top">Different</h:td>
-            <h:td valign="top">Platforms that present different processor architectures and instruction sets to the application are not equivalent.</h:td>
-          </h:tr>
-          <h:tr>
-            <h:td valign="top">PP-Specified Functionality</h:td>
-            <h:td valign="top">Same</h:td>
-            <h:td valign="top">For platforms with the same processor architecture, the platforms are equivalent with
-              respect to the application if execution of all PP-specified security functionality follows the same code path on both platforms.</h:td>
-          </h:tr>
-        </h:table>
-        <h:b>Table 3. Factors for Determining Hardware/Virtual Hardware Platform Equivalence</h:b>
-      </h:p>
-      </section>
-      <section id="os-equiv" title="Platform Equivalence—OS Platforms">
-      	<h:p>
-        For traditional applications that are built for and run on operating systems, platform equivalence is 
-        determined by the interfaces between the application and the operating system that are relevant to PP-specified 
-        security functionality. Generally, these are the processor interface, device interfaces, and OS APIs. The following 
-        factors applied in order:
-        
-        <h:table border="1">
-          <h:tr class="header" bgcolor="#cccccc">
-            <h:td valign="top">Factor</h:td>
-            <h:td valign="top">Same/Different/None</h:td>
-            <h:td valign="top">Guidance</h:td>
-          </h:tr>
-          <h:tr valign="top">
-            <h:td valign="top">Platform Architectures</h:td>
-            <h:td valign="top">Different</h:td>
-            <h:td valign="top">Platforms that run on different processor architectures and instruction sets are not equivalent.</h:td>
-          </h:tr>
-          <h:tr valign="top">
-            <h:td valign="top">Platform Vendors</h:td>
-            <h:td valign="top">Different</h:td>
-            <h:td valign="top">Platforms from different vendors are not equivalent. </h:td>
-          </h:tr>
-          <h:tr valign="top">
-            <h:td valign="top">Platform Versions</h:td>
-            <h:td valign="top">Different</h:td>
-            <h:td valign="top">Platforms from the same vendor with different major version numbers are not equivalent.</h:td>
-          </h:tr>
-          <h:tr valign="top">
-            <h:td valign="top">Platform Interfaces</h:td>
-            <h:td valign="top">Different</h:td>
-            <h:td valign="top">Platforms from the same vendor and major version are not equivalent if there are
-              differences in device interfaces and OS APIs that are relevant to the way the platform provides PP-specified 
-              security functionality to the application. </h:td>
-          </h:tr>
-          <h:tr valign="top">
-            <h:td valign="top">Platform Interfaces</h:td>
-            <h:td valign="top">Same</h:td>
-            <h:td valign="top">Platforms from the same vendor and major version are equivalent if there are 
-              no differences in device interfaces and OS APIs that are relevant to the way the platform 
-              provides PP-specified security functionality to the application, or if the Platform does 
-              not provide such functionality to the application.</h:td>
-          </h:tr>
-          
-        </h:table>
-        <h:b>Table 4. Factors for Determining OS/VS Platform Equivalence</h:b>
-      	</h:p>
-    
-      </section>
-      <section id="software-equiv" title="Software-based Execution Environment Platform Equivalence">
-      	<h:p>
-        If an Application is built for and runs in a non-OS software-based execution environment, such as a Container or 
-        Java Runtime, then the below criteria must be used to determine platform equivalence. The key point is that the 
-        underlying hardware (virtual or physical) and OS is not relevant to platform equivalence. This allows applications 
-        to be tested and run on software-based execution environments on any hardware—as in cloud deployments.
-        
-        <h:table border="1">
-          <h:tr class="header" bgcolor="#cccccc">
-            <h:td valign="top">Factor</h:td>
-            <h:td valign="top">Same/Different/None</h:td>
-            <h:td valign="top">Guidance</h:td>
-          </h:tr>
-          <h:tr valign="top">
-            <h:td valign="top">Platform Type/Vendor</h:td>
-            <h:td valign="top">Different</h:td>
-            <h:td valign="top">Software-based execution environments that are substantially different or come 
-              from different vendors are not equivalent. For example, a Java virtual machine is not the same as a 
-              container. A Docker container is not the same as a CoreOS container.</h:td>
-          </h:tr>
-          <h:tr valign="top">
-            <h:td valign="top">Platform Versions</h:td>
-            <h:td valign="top">Different</h:td>
-            <h:td valign="top">Execution environments that are otherwise equivalent are not equivalent if they have 
-              different major version numbers.</h:td>
-          </h:tr>
-          <h:tr valign="top">
-            <h:td valign="top">PP-Specified Security Functionality</h:td>
-            <h:td valign="top">Same</h:td>
-            <h:td valign="top">All other things being equal, execution environments are equivalent if there is no 
-              significant difference in the interfaces through which the environments provide PP-specified security 
-              functionality to applications.</h:td>
-          </h:tr>
-        </h:table>
-        <h:b>Table 5. Factors for Software-based Execution Environment Platform Equivalence</h:b>
-      	</h:p>
-      </section>
-    </section>
-    <section id="specificity" title="Level of Specificity for Tested Configurations and Claimed Equivalent Configurations">
-    	<h:p>
-      In order to make equivalency determinations, the vendor and evaluator must agree on the equivalency claims. They must 
-      then provide the scheme with sufficient information about the TOE instances and platforms that were evaluated, and the 
-      TOE instances and platforms that are claimed to be equivalent.
-    	</h:p><h:p>
-      The ST must describe all configurations evaluated down to processor manufacturer, model number, and microarchitecture version. 
-    	</h:p><h:p>
-      The information regarding claimed equivalent configurations depends on the platform that the application was developed for and runs on.
-    	</h:p><h:p>
-      <h:b>Bare-Metal Applications</h:b>
-    	</h:p><h:p>
-      For applications that run without an operating system on bare-metal or virtual bare-metal, the claimed configuration must 
-      describe the platform down to the specific processor manufacturer, model number, and microarchitecture version. The Vendor
-      must describe the differences in the TOE with respect to PP-specified security functionality and how the TOE functions
-      differently to leverage platform differences (e.g., instruction set extensions) in the tested configuration versus the 
-      claimed equivalent configuration. 
-    	</h:p><h:p>
-      <h:b>Traditional Applications</h:b>
-    	</h:p><h:p>
-      For applications that run with an operating system as their immediate platform, the claimed configuration must describe 
-      the platform down to the specific operating system version. If the platform is a virtualization system, then the claimed 
-      configuration must describe the platform down to the specific virtualization system version. The Vendor must describe the 
-      differences in the TOE with respect to PP-specified security functionality and how the TOE functions differently to leverage
-      platform differences in the tested configuration versus the claimed equivalent configuration. Relevant platform differences 
-      could include instruction sets, device interfaces, and OS APIs invoked by the TOE to implement PP-specified security 
-      functionality.
-    	</h:p><h:p>
-      <h:b>Software-Based Execution Environments</h:b>
-    	</h:p><h:p>
-      For applications that run in a software-based execution environment such as a Java virtual machine or a Container, then 
-      the claimed configuration must describe the platform down to the specific version of the software execution environment. 
-      The Vendor must describe the differences in the TOE with respect to PP-specified security functionality and how the TOE 
-      functions differently to leverage platform differences in the tested configuration versus the claimed equivalent 
-      configuration.
-    	</h:p>
-      
-    </section>
+	
+  <appendix id="valguide" title="Validation Guidelines">
+    <comment>Needs to be completed.</comment>
   </appendix>
+	
+	<appendix id="impsatreq" title="Implicitly Satisfied Requirements">
+		This appendix lists requirements that should be considered satisfied by products successfully evaluated against this PP. These requirements are not featured explicitly
+		as SFRs and should not be included in the ST. They are not included as standalone SFRs because it would increase the time, cost, and complexity of evaluation. This
+		approach is permitted by [CC] Part 1, 8.3 Dependencies between components.<h:p/>
+		
+		This information benefits systems engineering activities which call for inclusion of particular security controls. Evaluation against the PP provides evidence that these			controls are present and have been evaluated.		
+	</appendix>
+	
+	<appendix id="usecase" title="Use Case Templates">
+		<comment>Needs to be completed.</comment>
+	</appendix>
+	
+	<appendix id="pfedspec" title="PFEC Specification">
+		<section id="toe-boun-over" title="TOE Cryptographic Boundary and Overview">
+			The TOE is an Encrypting Retransmission Device (ERD) consisting of a hardware-separated Encryption Unit (EU) and Communication Unit (CU). The EU is within the TOE
+			security boundary and is solely responsible for cryptographic processing, key management, authentication, traffic filtering, and enforcement of secure channel state.				The CU is outside the cryptographic boundary and provides best-effort forwarding over an untrusted network.<h:p/>
+			
+			All communication between paired ERDs is protected by an AES-based secure session tunnel implemented by the EU. The TOE does not rely on external key management
+			protocols. When MACsec encapsulation is used, the IEEE 802.1X MACsec Key Agreement (MKA) protocol is not implemented or invoked.			
+		</section>
+		
+		<section id="crypto-alg-para" title="Cryptographic Algorithms and Parameters">
+			The TOE implements a secure session tunnel using AES in Galois/Counter Mode (AES-GCM) with a 256-bit key size. AES-GCM provides confidentiality, integrity
+			protection, data origin authentication, and anti-replay protection for all session traffic.<h:p/>
+			
+			All cryptographic operations are implemented within the EU. No cryptographic keys are available to or processed by the CU.
+		</section>
+		
+		<section id="erd-pair-prov-crypto-bond" title="ERD Pair Provisioning and Cryptographic Bonding">
+			<section id="tunnel-0" title="Tunnel-0 Establishment Using a Pre-Shared Key">
+				The TOE requires an ERD pair to be cryptographically bonded prior to the transmission of any End User Data (EUD). Initial bonding is performed during
+				provisioning using a temporary secure tunnel (tunnel-0).
+				Tunnel-0 is established using a Pre-Shared Key (PSK) that is either:<h:ul>
+					<h:li>Injected during manufacturing, or</h:li>
+					<h:li>Entered by the system owner through a trusted EU entry interface.</h:li>
+				</h:ul><h:p/>
+				
+				The PSK is used exclusively for tunnel-0 and is not retained after provisioning.<h:p/>
+				During tunnel-0 operation, the TOE enforces a packet allowlist. Only the following packet types are accepted and processed by the EU.<h:ul>
+					<h:li>HELLO</h:li>
+					<h:li>HELLO-ACK</h:li>
+					<h:li>A single ML-KEM-1024 key encapsulation transaction</h:li>
+				</h:ul><h:p/>
+				All other packets received during tunnel-0 are dropped by the EU prior to protocol stack processing.				
+			</section>
+			
+			<section id="trans-tunnel-1" title="Transition to Tunnel-1 and PSK Destruction">
+				Upon successful completion of the ML-KEM-1024 transaction, the following occurs.<h:ul>
+					<h:li>Tunnel-0 is terminated.</h:li>
+					<h:li>The PSK is cryptographically destroyed.</h:li>
+					<h:li>A new secure tunnel (tunnel-1) is established using the shared secret derived from the ML-KEM-1024 transaction.</h:li>
+				</h:ul><h:p/>
+				Tunnel-1 is used to complete the remainder of the provisioning process.
+			</section>			
+		</section>
+		
+		<section id="prov-comp-genz" title="Provisioning Completion and Key Material GenerationZ">
+			During tunnel-1, the TOE performs the following provisioning operations.<h:ul>
+				<h:li>Generation of an ML-DSA-87 public and private key pair</h:li>
+				<h:li>Secure exchange of ML-DSA-87 public keys with the peer</h:li>
+				<h:li>Exchange of link parameters, including MTU and event timing values (e.g., rekey intervals)</h:li>
+				<h:li>Execution of at least one authentication transaction</h:li>
+				<h:li>Execution of at least one operational rekey transaction</h:li>
+			</h:ul><h:p/>
+			The TOE does not permit EUD traffic until all provisioning steps have successfully completed.
+			Upon completion of provisioning, the active EU keystore contains the following.<h:ul>
+				<h:li>Transmit (TX) session key</h:li>
+				<h:li>Receive (RX) session key</h:li>
+				<h:li>Recovery Key 1</h:li>
+				<h:li>Recovery Key 2</h:li>
+				<h:li>ML-DSA-87 private key</h:li>
+				<h:li>Peer ML-DSA-87 public key</h:li>
+			</h:ul><h:p/>
+		</section>
+		
+		<section id="key-der-stor" title="Key Derivation and Key Storage">
+			<section id="key-der" title="Key Derivation">
+				The TOE derives all session keys, recovery keys, and operational keys using a Hash-based Key Derivation Function (HKDF). HKDF input material includes entropy
+				generated by the hardware random number generator (RNG) of each ERD.<h:p/>
+				The TOE uses SHA-384 or SHA-512 as the underlying hash function for HKDF operations.<h:p/>
+				When session keys are replaced, the TOE ensures that superseded keys are securely destroyed.				
+		</section>
+			
+			<section id="hw-rot" title="Hardware Root of Trust">
+				The TOE implements a hardware root of trust using a TPM 2.0, either as a discrete device or as a firmware-based implementation.<h:p/>
+				
+				A Root Key is stored within the TPM and is cryptographically bound to physical properties of the platform. The Root Key is used only to unwrap subordinate
+				keys and is not exportable.
+		</section>
+		</section>
+		
+		<section id="sess-set-mut-auth" title="Session Setup and Mutual Authentication">
+			Prior to permitting EUD traffic, the TOE requires successful completion of a session setup transaction. Session setup includes the following.<h:ol>
+				<h:li>Mutual authentication between ERDs using ML-DSA-87 exclusively.</h:li>
+				<h:li>A mandatory session rekey using ML-KEM-1024 exclusively.</h:li>
+			</h:ol><h:p/>
+			The TOE enforces the completion of both steps before transitioning the session to an operational state. Until session setup completes, the following
+			applies.<h:ul>
+				<h:li>All EUD packets are dropped by the EU.</h:li>
+				<h:li>All non-transaction packets received from the CU are dropped.</h:li>
+			</h:ul>
+		</section>
+		
+		<section id="rekey-op" title="Rekey Operations">
+			<section id="rekey-sched" title="Rekey Scheduling">
+				Following session establishment, the TOE enforces periodic rekey operations at configurable intervals between 2 and 30 minutes.<h:p/>
+				Rekey operations may be initiated by either ERD, and may be performed by either of the following.<h:ul>
+					<h:li>Asynchronously while EUD traffic continues.</h:li>
+					<h:li>Synchronously with EUD traffic paused.</h:li>
+				</h:ul>
+			</section>
+			
+			<section id="rekey-modes" title="Rekey Modes">
+				The TOE supports the following rekey mechanisms.<h:ul>
+					<h:li>Dual rekey transactions initiated independently by each ERD and combined using HKDF</h:li>
+					<h:li>Alternating rekey transactions, where ERDs take turns initiating rekey operations</h:li>
+				</h:ul><h:p/>
+				
+				In all cases, the following applies.<h:ul>
+					<h:li>The final session key is derived from the current key store and newly derived shared secrets.</h:li>
+					<h:li>The replaced session key is securely destroyed.</h:li>
+				</h:ul>
+				
+			</section>
+		</section>
+		
+		<section id="sess-key-rec" title="Session Key Recovery">
+			The TOE supports a session key recovery transaction to resynchronize session state in the event of key divergence.<h:p/>
+			During key recovery, the following applies.<h:ul>
+				<h:li>EUD traffic is suppressed.</h:li>
+				<h:li>Recovery keys are periodically refreshed using HKDF.</h:li>
+				<h:li>Recovery keys are not static values.</h:li>
+			</h:ul><h:p/>
+			Upon successful resynchronization, the following applies.<h:ul>
+				<h:li>The TOE performs a new session setup transaction.</h:li>
+				<h:li>A new recovery key replaces the previous recovery key prior to resuming EUD traffic.</h:li>
+				<h:li></h:li>
+			</h:ul><h:p/>
+			If key recovery does not converge within a defined timeout, the TOE terminates the session.<h:p/>
+			The TOE does not provide any mechanism to offload cryptographic keys. Channel recovery is performed only through reprovisioning or ERD replacement.			
+		</section>
+		
+		<section id="traf-iso-inter-filt" title="Traffic Isolation and Interface Filtering">
+			The TOE enforces strict isolation between the EU, CU, and EUD interfaces.<h:ul>
+				<h:li>EU interfaces IC1 and IC3 are non-addressable.</h:li>
+				<h:li>The EU accepts only a single, fixed-offset packet signature from the CU.</h:li>
+				<h:li>All unexpected or malformed packets are dropped prior to reaching the EU protocol stack.</h:li>
+				<h:li>The EU does not respond to invalid packets from the CU or EUD.</h:li>
+			</h:ul><h:p/>
+			All packets received from the EUD are encapsulated and forwarded to the peer EU.
+			
+		</section>
+		
+		<section id="dead-peer-det-persona-enf" title="Dead Peer Detection and Persona Enforcement">
+			Each EU implements dead peer detection using either RFC 3706 mechanisms or a keep-alive beacon.<h:p/>
+			When a dead peer is detected, the TOE transitions to a session setup state.<h:p/>
+			The TOE enforces ERD persona roles as follows.<h:ul>
+				<h:li>A client persona initiates session setup.</h:li>
+				<h:li>A server persona waits for session initiation.</h:li>
+			</h:ul>
+		</section>
+		
+		<section id="Log-audit" title="Logging and Audit">
+			The TOE maintains separate logs for the EU and CU.<h:p/>
+			EU logs are as follows.<h:ul>
+				<h:li>Timestamped</h:li>
+				<h:li>Stored on persistent storage</h:li>
+				<h:li>Record the execution of provisioning, session setup, session termination, rekey, and key recovery</h:li>
+				<h:li>Size-limited and rotated</h:li>
+				<h:li>Conform to RFC 3194, RFC 5424, or an equivalent syslog standard</h:li>
+				<h:li>May be streamed via a console interface or retrieved using a vendor-defined mechanism</h:li>
+			</h:ul>
+			<comment>Should there be a list for CU?</comment>
+		</section>
+		
+		<section id="plat-oe-enforc" title="Platform and Operational Environment Enforcement">
+			The TOE enforces platform separation such that the following is true.<h:ul>
+				<h:li>The EU and CU do not share computation infrastructure.</h:li>
+				<h:li>Only a stateless, connectionless bus is shared.</h:li>
+				<h:li>Bus mastering is controlled by the EU.</h:li>
+			</h:ul><h:p/>
+			The EU executes transaction processing at non-root privilege on a minimal operating system providing only timers, interface handling, and inter-process
+			communication.<h:p/>
+			Unused peripherals are disabled, unused pins are terminated, and power supplies are isolated or filtered.
+			
+		</section>
+		
+		<section id="bring-up-multi-act" title="Bring-Up and Multi-Factor Activation">			
+			The TOE enforces PIN- or CIK-based gating such that no traffic flows until activation credentials are provided.<h:p/>
+			Multi-factor activation includes the following.<h:ul>
+				<h:li>A user password to activate EU cryptographic functions.</h:li>
+				<h:li>A removable media or keyboard entry combined with device authentication to boot the CU.</h:li>
+			</h:ul>
+				
+		</section>
+	</appendix>
 
     <bibliography>
 	  <cc-entry/>
