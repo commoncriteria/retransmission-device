@@ -201,6 +201,7 @@ output/retransmission-device-release-linkable.html: XTP
 output/retransmission-device-release-linkable.html: authorised
 output/retransmission-device-release-linkable.html: behaviour
 output/retransmission-device-release-linkable.html: betwween
+output/retransmission-device-release-linkable.html: carrierss
 output/retransmission-device-release-linkable.html: ciphertexts
 output/retransmission-device-release-linkable.html: codecs
 output/retransmission-device-release-linkable.html: configurability
@@ -420,6 +421,7 @@ output/retransmission-device-release.html: XTP
 output/retransmission-device-release.html: authorised
 output/retransmission-device-release.html: behaviour
 output/retransmission-device-release.html: betwween
+output/retransmission-device-release.html: carrierss
 output/retransmission-device-release.html: ciphertexts
 output/retransmission-device-release.html: codecs
 output/retransmission-device-release.html: configurability
@@ -637,6 +639,7 @@ output/retransmission-device.html: XTP
 output/retransmission-device.html: authorised
 output/retransmission-device.html: behaviour
 output/retransmission-device.html: betwween
+output/retransmission-device.html: carrierss
 output/retransmission-device.html: ciphertexts
 output/retransmission-device.html: codecs
 output/retransmission-device.html: configurability
