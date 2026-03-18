@@ -419,9 +419,9 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FAU_GEN.1 Audit Data Generation</h:td>
-					<h:td>X</h:td>
-					<h:td>X</h:td>
-					<h:td>M</h:td>
+					<h:td style="text-align: center">X</h:td>
+					<h:td style="text-align: center">X</h:td>
+					<h:td style="text-align: center">M</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -2403,7 +2403,7 @@
 			<depends on-incl="sfr-fcs-stg-ext-1"/>
 			<depends on-incl="sfr-fia-afl-ext-1"/>
 			<f-element id="fel-key-kill-when">
-				<title>he TSF shall destroy [<h:i>all plaintext keying material and critical security
+				<title>The TSF shall destroy [<h:i>all plaintext keying material and critical security
 					parameters (CSPs)</h:i>] when 
 					<selectables>
 						<selectable>no longer needed</selectable>
@@ -4782,20 +4782,6 @@
 							</col>
 						</selectable>
 						
-						<!-- XTS-AES -->
-						<selectable id="sel-fcs-cop-skc-aes-xts">
-							<col>XTS-AES</col>
-							<col>AES in XTS mode with unique tweak values that are consecutive non-negative 
-								integers starting at an arbitrary non-negative integer</col>
-							<col>512 bits</col>
-							<col><selectables>
-								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable> 
-								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/><selectables>
-									<selectable>IEEE Std. 1619-2018</selectable> 
-									<selectable>NIST SP 800-38E</selectable></selectables> [XTS]
-							</col>
-						</selectable>
-						
 						<!-- AES-CTR -->
 						<selectable id="sel-fcs-cop-skc-aes-ctr">
 							<col>AES-CTR</col>
@@ -4807,6 +4793,20 @@
 								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/><selectables>
 									<selectable>: ISO/IEC 10116:2017 (Clause 10)</selectable> 
 									<selectable>NIST SP 800-38A</selectable></selectables> [CBC]
+							</col>
+						</selectable>
+						
+						<!-- XTS-AES -->
+						<selectable id="sel-fcs-cop-skc-aes-xts">
+							<col>XTS-AES</col>
+							<col>AES in XTS mode with unique tweak values that are consecutive non-negative 
+								integers starting at an arbitrary non-negative integer</col>
+							<col>512 bits</col>
+							<col><selectables>
+								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable> 
+								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/><selectables>
+									<selectable>IEEE Std. 1619-2018</selectable> 
+									<selectable>NIST SP 800-38E</selectable></selectables> [XTS]
 							</col>
 						</selectable>
 					</selectables>
@@ -5123,6 +5123,82 @@
 			<audit-event table="sel-based"/>
 		</f-component>
 		
+		
+		<ext-comp-def title="HTTPS Protocol" fam-id="FCS_HTTPS_EXT">
+			<fam-behavior>This family defines requirements for implementation of the HTTPS protocol.</fam-behavior>
+		</ext-comp-def>
+		
+		<f-component cc-id="fcs_https_ext.1" name="HTTPS Protocol" status="sel-based">
+			<depends on-sel="https"/>
+			
+			<comp-lev> requires the TSF to implement the HTTPS protocol in accordance with the specified standard, using TLS, and notifying the application if
+				invalid.</comp-lev>			
+			<management>There are no management activities foreseen.</management>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+				<h:ul>
+					<h:li>Failure to establish an HTTPS Session</h:li>
+				</h:ul></audit>
+			<dependencies>No dependencies.
+			</dependencies>
+			
+			
+			<f-element id="fel-https-how">
+				<title>The TSF shall implement the HTTPS protocol that complies with RFC 2818. </title>
+				<note role="application">This SFR is included in the ST if the ST author selections"HTTPS" in FTP_ITP_EXT.1.1.</note>
+			</f-element>
+			
+			<f-element id="fel-https-tls">
+				<title>The TSF shall implement HTTPS using TLS as defined in [<h:i>the <xref to="tls"/></h:i>].</title>
+				<ext-comp-def-title>
+					<title>The TSF shall implement HTTPS using TLS as defined in 
+						<assignable>specification that defines TLS implementation requirements</assignable>.</title>
+				</ext-comp-def-title>
+				<note role="application"> 
+					The <xref to="tls"/> must be included in the ST, with the following selections made: <h:ul>
+						<h:li>FCS_TLS_EXT.1:</h:li>
+						<h:li>TLS must be selected</h:li>
+						<h:li>Client must be selected</h:li>						
+					</h:ul>
+				</note>
+				<aactivity>
+					
+					<TSS/>
+					<Guidance/>					
+					<Tests>
+						<testlist>
+							<test>The evaluator shall attempt to establish an HTTPS connection with a
+								webserver, observe the traffic with a packet analyzer, and verify that the
+								connection succeeds and that the traffic is identified as TLS or HTTPS.<h:p/>
+								
+								Other tests are performed in conjunction with testing in the
+								<xref to="tls"/>. <h:p/>
+								Certificate validity shall be tested in accordance with testing performed for FIA_X509_EXT.1 as defined in <xref to="pkg-x509"/>, and the
+								evaluator shall perform the following test:</test>
+							
+							<test>The evaluator shall demonstrate that using a certificate without a valid
+								certification path results in an application notification. Using the
+								administrative guidance, the evaluator shall then load a certificate or
+								certificates to the Trust Anchor Database needed to validate the certificate to
+								be used in the function, and demonstrate that the function succeeds. The
+								evaluator shall then delete one of the certificates, and show that the
+								application is notified of the validation failure.</test>
+						</testlist>
+					</Tests>
+				</aactivity>
+			</f-element>
+			<audit-event table="selection-based">
+				<audit-event-descr>Failure to establish an HTTPS session</audit-event-descr>
+				<audit-event-info><h:ul>
+					<h:li>Reason for failure</h:li>
+					<h:li>Non-TOE endpoint of connection (IP address) for failures</h:li>
+				</h:ul>
+				</audit-event-info>				
+			</audit-event>
+			<audit-event table="selection-based">
+				<audit-event-descr>Establishment or Termination of an IPsec SA</audit-event-descr>
+				<audit-event-info>Non-TOE endpoint of connection (IP address)</audit-event-info>
+			</audit-event>
+		</f-component>
 		
 		<f-component cc-id="fcs_rbg.1" name="Random Bit Generation (RBG)" status="sel-based">
 			<depends on="ipsec"/>
@@ -5505,17 +5581,17 @@
           <f-element id="fel-rbg-comb">
             <title>
               The TSF shall <selectables>
-              	<selectable><h:b>hash</h:b></selectable>
-              	<selectable><h:b>concatenate and hash</h:b></selectable>
-              	<selectable><h:b>XOR</h:b></selectable>
-              	<selectable><h:b>input into a linear feedback shift register</h:b></selectable>
+              	<selectable>hash</selectable>
+              	<selectable>concatenate and hash</selectable>
+              	<selectable>XOR</selectable>
+              	<selectable>input into a linear feedback shift register</selectable>
               	<selectable><assignable>combining operation</assignable></selectable>
               </selectables>
               	<selectables>
               		<selectable>output from TSF <h:b>entropy noise</h:b> sources</selectable>
                 <selectable>input from TSF interfaces for <h:b>obtaining entropy</h:b></selectable>
               	</selectables>
-                to create the entropy input into the derivation function as defined in [<selectables>
+                to create the entropy input into the derivation function as defined in <selectables>
                 	<selectable>ISO/IEC 18031:2011</selectable>
                 	<selectable>NIST SP 800-90A Revision 1</selectable>
                 </selectables>, resulting in a minimum of <assignable>number of bits</assignable> bits of min-entropy.              
@@ -5547,14 +5623,7 @@
 		</f-component>  
 		
 		<!-- FCS_RBG.6 Random Bit Generation Service -->
-		<f-component id="sfr-fcs-rbg-6" cc-id="fcs_rbg.6" name="Random Bit Generation Service" status="sel-based">			
-			<depends on-incl="fcom_asym_key_gen"/>
-			<depends on-incl="fcom_sym_key_gen"/>
-			<depends on-incl="fcs_ckm.2"/>
-			<depends on-incl=""/>
-			<depends on-incl="sfr-fcs-ckm-ext-7"/>
-			<depends on-incl="sfr-fcs-stg-ext-1"/>
-			<depends on-incl="sfr-fia-afl-ext-1"/>
+		<f-component id="sfr-fcs-rbg-6" cc-id="fcs_rbg.6" name="Random Bit Generation Service" status="sel-based">	
 			<depends><optional/></depends>
 			<f-element id="fcs-rbg-6e1">
 				<title>
@@ -6962,7 +7031,7 @@
 			<f-component name="Multiple Authentication Mechanisms" cc-id="fia_uau.5" status="sel-based">
 				<depends on-sel="sfr-fmt-smr-1"></depends>
 				<f-element id="fia-uau-5e1">
-					<title>The TSF shall provide [<h:i>password and</h:i><selectables>
+					<title>The TSF shall provide [<h:i>password and </h:i><selectables>
 						<selectable>certificate-based authentication</selectable>
 						<selectable>public key-based authentication</selectable>
 						<selectable>biometric authentication</selectable>
@@ -8467,10 +8536,9 @@
     	</f-component>
     	
     	<f-component cc-id="fpt_fls.1" name="Failure with Preservation of Secure State" status="sel-based">
-    		<depends on-sel=""/>  <!-- FCS_CKM.5.1 -->    		
     		<depends on-incl="fcom_asym_key_gen"/>
     		<depends on-incl="fcom_sym_key_gen"/>
-    		<depends on-incl="fcs_cop.1"/> 
+    		<depends on-incl="fcs_sign_gen"/>    		
     		<depends on-="ipsec"/>
     		
     		<f-element id="fel-pres-sec-state">
@@ -9390,9 +9458,9 @@
     	</ext-comp-def>
     	
     	<f-component id="sfr-fpt-rvr-ext-1" cc-id="fpt_rvr_ext.1" name="Platform Firmware Recovery" status="sel-based">
-    		<depends on-sel="fpt-rot-ext-2e2"/>   
-    		<depends on-sel="fpt-tud-ext-2e5"/>     
-    		<depends on-sel="fpt-tud-ext-3e4"/>  
+    		<depends on-sel="sel-rot2-recovery"/>   
+    		<depends on-sel="sel-tud2-recovery"/>     
+    		<depends on-sel="sel-tud3-recovery"/>  
     		<consistency-rationale/>
     		<comp-lev>defines mechanisms for recovering from a platform firmware integrity failure.</comp-lev>
     		<management>The following actions could be considered for the management functions in FMT:<h:ul>
@@ -10555,45 +10623,6 @@
     		
     	</f-component>
     	
-    	<f-component name="Inter-TSF Trusted Channel (VPN Communications)" cc-id="ftp_itc.1" iteration="VPN" status="sel-based">
-    		<depends on-sel=""></depends>
-    		<f-element id="ftp-itc-vpn-1e1">
-    			<title> <comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
-    				The TSF shall <h:b>be capable of using IPsec to </h:b>provide a communication channel between itself and <h:s>another trusted</h:s> <h:b>authorized</h:b> IT
-    				<h:b>entities</h:b> supporting <h:b>VPN communications</h:b> that is logically distinct from other communication channels and provides assured
-    				identification of its end points and protection of the channel data from <h:b>disclosure and detection of modification of the channel data</h:b>.
-    			</title>
-    		</f-element>
-    		<f-element id="ftp-itc-vpn-1e2">
-    			<title>
-    				The TSF shall permit <selectables>
-    					<selectable>the TSF</selectable>
-    					<selectable><h:b>the authorised IT entities</h:b></selectable>
-    				</selectables> to initiate communication via the trusted channel.
-    			</title>
-    		</f-element>
-    		<f-element id="ftp-itc-vpn-1e3">
-    			<title>
-    				The TSF shall initiate communication via the trusted channel for [<h:i><selectables choose-one-of="yes">
-    					<selectable>remote VPN gateways or peers</selectable>
-    					<selectable>no functions</selectable>
-    				</selectables></h:i>.
-    			</title>
-    			<note role="application">
-    				TBD
-    			</note>
-    			<aactivity>
-    				<TSS>TBD</TSS>
-    				<Guidance>TBD</Guidance>
-    				<Tests>TBD</Tests>
-    			</aactivity>
-    		</f-element>
-    		<audit-event table="sel-based">
-    			<audit-event-descr>TBD</audit-event-descr>
-    		</audit-event>
-    		
-    	</f-component>
-    	
     	<f-component name="Trusted Channel Communication (Wireless LAN)" cc-id="ftp_itc.1" iteration="WLAN" status="sel-based">
     		<depends on-sel=""/>
     		<f-element id="ftp-itc-wlan-1e1">
@@ -10610,7 +10639,7 @@
     		</f-element>
     		<f-element id="ftp-itc-wlan-1e3">
     			<title>
-    				The TSF shall initiate communication via the trusted channel for [<h:i>wireless access point connections</h:i>.
+    				The TSF shall initiate communication via the trusted channel for [<h:i>wireless access point connections</h:i>].
     			</title>
     			<note role="application">
     				TBD
@@ -10635,6 +10664,7 @@
     	<f-component id="sfr-ftp-itc-ext-1" cc-id="ftp_itc_ext.1" name="Physically Protected Channel" status="sel-based">
     		<depends on-sel="sel-ckm-2-echan"/>
     		<depends on-sel="key-dist-ftp-itc-ext-1"/>
+    		<depends on-sel="sel-smf-remote-admin"/>
     		<consistency-rationale/>
     		<comp-lev>requires the TSF to implement one or more cryptographic protocols
     			to secure connectivity between the TSF and various external entities.</comp-lev>
@@ -10753,7 +10783,7 @@
     			<selectables linebreak="yes">    				
     				<selectable id="sel-itc-ipsec-vpn-3.0">IPsec in accordance with the PP-Module for Virtual Private Network (VPN) Clients, version
     					3.0</selectable>    					
-    				<selectable id="sel-itc-ipsec-vpn-2.0">IPsec in accordance with the PP-Module for Virtual Private Network (VPN) Clients, version
+    				<selectable id="sel-itc-ipsec-vpn-2.0">IPsec in accordance with the PP-Module for Virtual Private Network (VPN) Gateway, version
     					2.0</selectable></selectables>
     				protocols to provide a communication channel between itself and another trusted IT product using certificates as defined in [<h:i>Functional 
     				Package for X.509, version 1.0</h:i>]
@@ -10820,7 +10850,7 @@
     				</selectables> and <selectables>
     					<selectable id="sel-itc-ipsec-wlan-mut-auth-dtls">Mutually authenticated DTLS in accordance with [<h:i>Functional Package for Transport
     						Layer Security (TLS), version 2.1</h:i>]</selectable>
-    					<selectable>HTTPS</selectable>
+    					<selectable id="https">HTTPS</selectable>
     				</selectables>
     					protocols to provide a communication channel between itself and another trusted IT product using certificates as defined in 
     					[<h:i>Functional Package for X.509, version 1.0</h:i>] that is logically distinct from other communication channels, provides assured 
