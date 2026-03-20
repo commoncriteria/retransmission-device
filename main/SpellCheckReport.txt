@@ -52,7 +52,6 @@ output/retransmission-device-release-linkable.html: 5C
 output/retransmission-device-release-linkable.html: 64s
 output/retransmission-device-release-linkable.html: 6C
 output/retransmission-device-release-linkable.html: 7C
-output/retransmission-device-release-linkable.html: 8021X
 output/retransmission-device-release-linkable.html: 8C
 output/retransmission-device-release-linkable.html: 8GB
 output/retransmission-device-release-linkable.html: 8s
@@ -238,6 +237,7 @@ output/retransmission-device-release-linkable.html: sk
 output/retransmission-device-release-linkable.html: subcommands
 output/retransmission-device-release-linkable.html: syslog
 output/retransmission-device-release-linkable.html: teardown
+output/retransmission-device-release-linkable.html: udit
 output/retransmission-device-release-linkable.html: unauthorised
 output/retransmission-device-release-linkable.html: uninstantiating
 output/retransmission-device-release-linkable.html: unobscured
@@ -269,7 +269,6 @@ output/retransmission-device-release.html: 5C
 output/retransmission-device-release.html: 64s
 output/retransmission-device-release.html: 6C
 output/retransmission-device-release.html: 7C
-output/retransmission-device-release.html: 8021X
 output/retransmission-device-release.html: 8C
 output/retransmission-device-release.html: 8GB
 output/retransmission-device-release.html: 8s
@@ -460,6 +459,7 @@ output/retransmission-device-release.html: sk
 output/retransmission-device-release.html: subcommands
 output/retransmission-device-release.html: syslog
 output/retransmission-device-release.html: teardown
+output/retransmission-device-release.html: udit
 output/retransmission-device-release.html: unauthorised
 output/retransmission-device-release.html: uninstantiating
 output/retransmission-device-release.html: unobscured
@@ -489,7 +489,6 @@ output/retransmission-device.html: 5C
 output/retransmission-device.html: 64s
 output/retransmission-device.html: 6C
 output/retransmission-device.html: 7C
-output/retransmission-device.html: 8021X
 output/retransmission-device.html: 8GB
 output/retransmission-device.html: 8s
 output/retransmission-device.html: 90A
@@ -617,6 +616,7 @@ output/retransmission-device.html: Sitara
 output/retransmission-device.html: SoC
 output/retransmission-device.html: SoCs
 output/retransmission-device.html: SpectraLink
+output/retransmission-device.html: Stora
 output/retransmission-device.html: Subclause
 output/retransmission-device.html: TCF
 output/retransmission-device.html: TEst
@@ -655,6 +655,7 @@ output/retransmission-device.html: ffdhe6144
 output/retransmission-device.html: ffdhe8192
 output/retransmission-device.html: firewalling
 output/retransmission-device.html: fulfil
+output/retransmission-device.html: ge
 output/retransmission-device.html: hLen
 output/retransmission-device.html: invocable
 output/retransmission-device.html: keystore
