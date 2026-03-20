@@ -2286,7 +2286,7 @@
 		</f-component>
 
 		<!-- FCS_CKM.2 -->
-        <f-component cc-id="fcs_ckm.2" name="Cryptographic Key Distribution" status="sel-based">
+        <f-component cc-id="fcs_ckm.2" id="fcs-ckm-2" name="Cryptographic Key Distribution" status="sel-based">
         	<depends on-sel="sfr-ftp-itc-ext-1"/>  
         	<depends on="sfr-fcs-cop-1-keyencap"/>
         	<depends on="sfr-fcs-cop-1-kw"/>
@@ -2393,12 +2393,10 @@
 			</audit-event>
 		</f-component>
 		
-		<f-component cc-id="fcs_ckm.6" name="Timing and Event of Cryptographic Key Destruction"
-			status="feat-based">		
+		<f-component cc-id="fcs_ckm.6" name="Timing and Event of Cryptographic Key Destruction" status="sel-based">		
 			<depends on-incl="fcom_asym_key_gen"/>
 			<depends on-incl="fcom_sym_key_gen"/>
-			<depends on-incl="fcs_ckm.2"/>
-			<depends on-incl=""/>
+			<depends on-incl="fcs-ckm-2"/>
 			<depends on-incl="sfr-fcs-ckm-ext-7"/>
 			<depends on-incl="sfr-fcs-stg-ext-1"/>
 			<depends on-incl="sfr-fia-afl-ext-1"/>
@@ -2570,12 +2568,12 @@
 			<management/>
 			<audit>
 				The following actions should be auditable if FAU_GEN Security audit data generation is
-				included in the PP, PP-Module, functional package or ST:<h:br/><h:ul>
+				included in the PP, PP-Module, functional package or ST:<h:ul>
 					<h:li>minimal: Success and failure of the activity;</h:li>
 					<h:li>basic: The object attributes, and object values excluding any sensitive information.</h:li>
 				</h:ul>
 			</audit>
-			<dependencies><h:br/>
+			<dependencies>
 				<h:br/>[FDP_ITC.1 Import of user data without security attributes, or
 				<h:br/>FDP_ITC.2 Import of user data with security attributes],
 				<h:br/>[FCS_CKM.1 Cryptographic key generation, or
@@ -2644,7 +2642,12 @@
 							</col>
 						</selectable>
 					</selectables>
-				</title>
+				</title>			
+				<ext-comp-def-title>
+					<title>The TSF shall derive shared cryptographic keys with input from multiple parties in accordance with specified cryptographic key agreement algorithms
+						<assignable>cryptographic algorithm</assignable> and specified cryptographic parameters <assignable>cryptographic parameters</assignable> that meet the
+						following: <assignable>list of standards</assignable></title>
+				</ext-comp-def-title>
 				<note role="application">
 					All of the above algorithms with the selectable parameters are CNSA 1.0 compliant.<h:p/>
 					This SFR must be included in the ST if key agreement or transport is a service provided by the TOE to 
@@ -2653,6 +2656,7 @@
 					If this SFR is claimed, then FCS_CKM.6 an FCS_CKM.1/AKG must also be claimed.<h:p/>
 					This SFR has dependencies on FCS_COP.1/Hash and FCS_COP.1/XOF only if ML-KEM is selected.
 				</note>
+				
 				<aactivity>
 					<TSS>
 						The evaluator shall ensure that the TSS documents that the security strength of the
@@ -5658,20 +5662,25 @@
 			<audit-event table="sel-based"/>
 		</f-component>
 		
-		<ext-comp-def title="Periodic Rekey" fam-id="FCS_REKEY_EXT">
-			<fam-behavior>This family defines requirements for session rekeying.</fam-behavior>
-		</ext-comp-def>
-		
 		<ext-comp-def title="Key Recovery" fam-id="FCS_REC_EXT">
 			<fam-behavior>This family defines requirements for session key recovery.</fam-behavior>
 		</ext-comp-def>
 		
-		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1" iteration="PFED" status="feat-based">
-			<depends on="pfed"/>
-			<comp-lev>requires the TSF to perform session key recovery under specific circumstances.</comp-lev>
+		<ext-comp-def title="Periodic Rekey" fam-id="FCS_REKEY_EXT">
+			<fam-behavior>This family defines requirements for session rekeying.</fam-behavior>
+		</ext-comp-def>
+		
+		
+		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1" status="invisible">
+			<comp-lev>requires the TSF to support session key recovery.</comp-lev>
 			<management>There are no management activities foreseen.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>No dependencies.</dependencies>
+		</f-component>
+		
+		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1" iteration="PFED" status="feat-based">
+			<depends on="pfed"/>
+			
 			<f-element>
 				<title><comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 					The TSF shall support session key recovery such that: <h:ul>
@@ -5694,19 +5703,23 @@
 			</audit-event>			
 		</f-component>
 		
-		<f-component name="Periodic Rekey" cc-id="fcs_rekey_ext.1" iteration="PFED" status="feat-based">
-			<depends on="pfed"/>
+		<f-component name="Periodic Rekey" cc-id="fcs_rec_ext.1" status="invisible">
 			<comp-lev>requires the TSF to perform session rekey under specific circumstances.</comp-lev>
 			<management>There are no management activities foreseen.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>No dependencies.</dependencies>
+		</f-component>
+		
+		<f-component name="Periodic Rekey" cc-id="fcs_rekey_ext.1" iteration="PFED" status="feat-based">
+			<depends on="pfed"/>
+			
 			<f-element>
 				<title><comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 					The TSF shall perform session rekey: <h:ul>
-						<h:li>At a configurable interval <assignable>between 2 and 30 minutes</assignable></h:li>
-						<h:li>Using ML-KEM-1024 only</h:li>
-						<h:li>Either synchronously or asynchronously with EUD traffic</h:li>
-					</h:ul>.</title>
+						<h:li>at a configurable interval <assignable>between 2 and 30 minutes</assignable></h:li>
+						<h:li>using ML-KEM-1024 only</h:li>
+						<h:li>either synchronously or asynchronously with EUD traffic</h:li>.
+					</h:ul></title>
 				<note role="application">TBD</note>
 				<aactivity>
 					<TSS>TBD</TSS>
@@ -5720,6 +5733,10 @@
 		</f-component>
 		
 		<!-- FCS_STG_EXT.1 Protected Storage -->
+		<ext-comp-def title="Key Storage and Protection" fam-id="FCS_STG_EXT">
+			<fam-behavior>This family defines requirements for managing key storage and protection.</fam-behavior>
+		</ext-comp-def>
+		
 		<f-component id="sfr-fcs-stg-ext-1" cc-id="fcs_stg_ext.1" name="Protected Storage">
 			<consistency-rationale/>
 			<comp-lev>requires the TSF to enforce protected storage for keys and
@@ -5728,7 +5745,7 @@
 				<h:ul><h:li>Ability to manage import and export keys/secrets to and from protected storage.</h:li></h:ul>
 			</management>
 			<audit/>
-			<dependencies><h:br/>FCS_CKM.6 Timing and Event of Cryptographic Key Destruction</dependencies>
+			<dependencies>FCS_CKM.6 Timing and Event of Cryptographic Key Destruction</dependencies>
 			<f-element id="fcs-stg-ext-1e1">
 				<title>
 					The TSF shall provide 
@@ -5980,11 +5997,22 @@
 		
 		<section title="User Data Protection (FDP)" id="fdp">
 			
+			<ext-comp-def title="Secure Bring-Up" fam-id="FDP_BRINGUP_EXT">
+				<fam-behavior>This family defines requirements for preventing traffic flow until certain conditions are met.</fam-behavior>
+			</ext-comp-def>
+			
 			<f-component name="Secure Bring-Up" cc-id="fdp_bringup_ext.1" status="feat-based">
 				<depends on="pfed"/>
+				
+				<consistency-rationale/>
+				<comp-lev> requires the TSF to prevent traffic flow until authentication and credentials are met.</comp-lev>
+				<management>TBD</management>
+				<audit>TBD</audit>
+				<dependencies>TBD</dependencies>
+						
 				<f-element id="fdp-bringup-ext-1e1">
 					<title>
-						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+						<comment>Need to complete sections for management, audit, dependencies, App Note, EAs, and audit events.</comment><h:p/>
 						The TSF shall prevent any traffic flow until: <h:ul>
 							<h:li>PIN or CIK credentials are supplied</h:li>
 							<h:li>Session setup and authentication complete</h:li>
@@ -6919,9 +6947,9 @@
 						
 		</f-component>
 			
-			<f-component name="PSK Bootstrap Authentication" cc-id="fia_psk.1" iteration="PFED" status="feat-based">
+			<f-component name="PSK Bootstrap Authentication" cc-id="fia_psk_ext.1" iteration="PFED" status="feat-based">
 				<depends on="pfed"/>
-				<f-element id="fia-psk-pfed-1e1">
+				<f-element id="fia-psk-pfed-ext-1e1">
 					<title>
 						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 						The TOE shall support a PSK exclusively for tunnel-0 bootstrap.				
@@ -8655,11 +8683,22 @@
     		
     	</f-component>
     	
+    	<ext-comp-def title="EU and CU Isolation" fam-id="FPT_ISO_EXT">
+    		<fam-behavior>This family defines requirements for ensuring compliance to the sent requirement.</fam-behavior>
+    	</ext-comp-def>
+    	
     	<f-component name="EU and CU Isolation" cc-id="fpt_iso_ext.1" iteration="PFED" status="feat-based">
     		<depends on="pfed"/>
-    		<f-element id="fdp-iso_ext-1e1">
+    		
+    		<consistency-rationale/>
+    		<comp-lev> requires the TSF to .</comp-lev>
+    		<management>TBD</management>
+    		<audit>TBD</audit>
+    		<dependencies>TBD</dependencies>
+    		
+    		<f-element id="fpt-iso_ext-1e1">
     			<title>
-    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				<comment>Need to complete sections for management, audit, dependencies, App Note, EAs, and audit events.</comment><h:p/>
     				The TSF shall ensure:<h:ul>
     					<h:li>EU and CU do not share computation resources</h:li>
     					<h:li>EU interfaces are non-addressable and stateless</h:li>
@@ -9665,11 +9704,20 @@
     		<audit-event/>
     	</f-component>
     	
+    	<ext-comp-def title="Transaction Control" fam-id="FPT_TRAN_EXT">
+    		<fam-behavior>This family defines requirements for controlling transactions.</fam-behavior>
+    	</ext-comp-def>
+    	
     	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" iteration="PFED" status="feat-based">
     		<depends on="pfed"/>
+    		<consistency-rationale/>
+    		<comp-lev>requires that the TSF allow only one transaction at a time.</comp-lev>
+    		<management>TBD</management>
+    		<audit>TBD</audit>
+    		<dependencies>TBD</dependencies>
     		<f-element id="fdp-tran-ext-1e1">
     			<title>
-    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+    				<comment>Need to complete sections for management, audit, dependencies, app note, EAs, and audit events.</comment><h:p/>
     				The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.	
     			</title>
     			<note role="application">
@@ -9782,6 +9830,10 @@
     		</audit-event>
     		
     	</f-component>
+    	
+    	<ext-comp-def title="TSF Testing" fam-id="FPT_TST_EXT">
+    		<fam-behavior>This family defines requirements for running self-tests.</fam-behavior> 
+    	</ext-comp-def>
     	
     	<f-component cc-id="fpt_tst_ext.1" name="TSF Testing">
     		
@@ -10619,39 +10671,6 @@
     		<audit-event table="impl-dep">
     			<audit-event-descr>TBD</audit-event-descr>
     		</audit-event>
-    		
-    	</f-component>
-    	
-    	<f-component name="Trusted Channel Communication (Wireless LAN)" cc-id="ftp_itc.1" iteration="WLAN" status="sel-based">
-    		<depends on-sel=""/>
-    		<f-element id="ftp-itc-wlan-1e1">
-    			<title> <comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
-    				The TSF shall <h:b>use 802.11-2020, 8021X, and EAP-TLS to </h:b>provide a communication channel between itself and <h:s>another trusted</h:s> <h:b>a 
-    				wireless access point</h:b> that is logically distinct from other communication channels and provides assured
-    				identification of its end points and protection of the channel data from modification or disclosure.
-    			</title>
-    		</f-element>
-    		<f-element id="ftp-itc-wlan-1e2">
-    			<title>
-    				The TSF shall permit [<h:i>the TSF</h:i>] to initiate communication via the trusted channel.
-    			</title>
-    		</f-element>
-    		<f-element id="ftp-itc-wlan-1e3">
-    			<title>
-    				The TSF shall initiate communication via the trusted channel for [<h:i>wireless access point connections</h:i>].
-    			</title>
-    			<note role="application">
-    				TBD
-    			</note>
-    			<aactivity>
-    				<TSS>TBD</TSS>
-    				<Guidance>TBD</Guidance>
-    				<Tests>TBD</Tests>
-    			</aactivity>
-    		</f-element>
-    		<audit-event table="sel-based">
-    			<audit-event-descr>TBD</audit-event-descr>
-    		</audit-event>    		
     		
     	</f-component>
     	
