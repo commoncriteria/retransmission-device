@@ -92,7 +92,10 @@
         <term abbr="CN" full="Common Names"/>
         <term abbr="CRL" full="Certificate Revocation List"/>
         <term abbr="CSA" full="Computer Security Act"/>
-		<term abbr="CU" full="Communications Unit"/>
+    	<term abbr="CU" full="Communication Unit">
+    		A lightweight computing device that acts as both a retransmission device and a boundary. 
+    		The RD sits between an EUD and the untrusted transport network. The interconnect between the 
+    		EUD and the RD is always a wired connection.<comment>Review definition for accuracy.</comment></term>
         <term full="Data Execution Prevention" abbr="DEP">
             An anti-exploitation feature of modern operating systems executing on
             modern computer hardware, which enforces a non-execute permission on pages of memory.
@@ -114,10 +117,10 @@
         <term abbr="ECDHE" full="Elliptic Curve Diffie-Hellman Ephemeral"/>
         <term abbr="ECDSA" full="Elliptic Curve Digital Signature Algorithm"/>
         <term abbr="EMET" full="Enhanced Mitigation Experience Toolkit"/>
-		<term abbr="ERD" full="Encrypting Retransmission Device">
+		<term abbr="EU" full="Encryption Unit">
 			An RD with the additional capability to encrypt all traffic from the EUD through the 
 			LAN interface to form an encrypted tunnel to another encryption end-point through the 
-			ERD’s WAN interface.</term>
+			ERD’s WAN interface. <comment>Review definition for accuracy.</comment></term>
         <term abbr="EST" full="Enrollment over Secure Transport"/>
 		<term abbr="EUD" full="End-User Device"/>
         <term abbr="FIPS" full="Federal Information Processing Standards"/>
@@ -181,11 +184,7 @@
         <term abbr="PID" full="Process Identifier"/>
         <term abbr="PKG" full="Package file"/>
         <term abbr="PKI" full="Public Key Infrastructure"/>
-        <term abbr="RBG" full="Random Bit Generator"/>
-		<term abbr="RD" full="Retransmission Device">
-			A lightweight computing device that acts as both a retransmission device and a boundary. 
-			The RD sits between an EUD and the untrusted transport network. The interconnect between the 
-			EUD and the RD is always a wired connection.</term>
+        <term abbr="RBG" full="Random Bit Generator"/>		
         <term abbr="RFC" full="Request for Comment"/>
         <term abbr="RNG" full="Random Number Generator"/>
         <term abbr="RNGVS" full="Random Number Generator Validation System"/>
@@ -225,6 +224,7 @@
 		 <section title="Compliant Targets of Evaluation" id="TOEdescription">
 		 	
 		 <sec:TOE_Overview>
+			<comment>Needs to be reviewed and updated as needed.</comment>
 			An encrypting retransmission device (ERD) consists of two computing units: the encryption unit (EU) and the communication unit (CU), 
 			interconnected by one connectionless bus (IC 3) that carries stateless frames. A conformant TOE may meet the requirements of either 
 			EU or CU alone, or together in one physical enclosure.<h:p/>
@@ -244,8 +244,8 @@
    <!-- 1.3.1 TOE Boundary -->
 	<sec:TOE_Boundary>
 		<!--R-UPDATE replace - define boundry of TOE, probably look to network device or VPN GW for example.-->
-		This PP is written to apply only to the Encryption Unit (EU). It is meant to be used in conjunction with a matching device
-		certified against the CU PP, PP_RD_CU. Conformant TOEs may also evaluate against both PPs.
+		This PP is intended to protect an Encryption Unit, a communication unit, or an EU+CU. The description below defines these parts of a conformant TOE.  
+		Section 1.4 defines the use cases for each type of TOE including the combined EU + CU.
 	</sec:TOE_Boundary>
 		
 	<sec:TOE_Description>
@@ -341,23 +341,19 @@
 			<comment>Each feature description needs to be completed with a list of SFRs.</comment>
 			<implements>
 				<feature id="ipsec" title="IPsec">
-					<description>The TOE implements IPsec encryption in the EU.<h:p/>
-				If this feature is implemented by the TOE, the following requirements must be claimed in the ST.
+					<description>The TOE implements IPsec encryption in the EU.
 				</description>
 				</feature>
 				<feature id="macsec" title="MACsec">
 					<description>The TOE implements MACsec encryption in the EU.<h:p/>
-				If this feature is implemented by the TOE, the following requirements must be claimed in the ST.
 				</description>
 				</feature>
 				<feature id="pfed" title="PFED">
 					<description>The TOE implements PFED encryption in the EU.<h:p/>
-				If this feature is implemented by the TOE, the following requirements must be claimed in the ST.
 				</description>
 				</feature>
 				<feature id="wlan" title="WLAN">
-					<description>The TOE implements WLAN encryption in the EU.<h:p/>
-				If this feature is implemented by the TOE, the following requirements must be claimed in the ST.
+					<description>The TOE implements WLAN encryption in the EU.
 				</description>
 				</feature>
 			</implements>
@@ -414,7 +410,7 @@
 					<h:th>SFR</h:th>
 					<h:th>CU</h:th>
 					<h:th>EU</h:th>
-					<h:th>Mandatory (M), Objective (Ob), Optional(Op, Selection-Based (SB)</h:th>
+					<h:th>Mandatory (M), Objective (Ob), Optional (Op), Selection-Based (SB)</h:th>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -5822,7 +5818,14 @@
 							<selectable>a common application developer</selectable>
 						</selectables>.
 					</title>
+					
+					<ext-comp-def-title>
+						<title>The TSF shall have the capability to allow only the application that imported the key or secret the use of the key or secret. Exceptions may only
+							be explicitly authorized by <assignable>authorized role</assignable>. 
+						</title>
+					</ext-comp-def-title>
 				</f-element>
+			
 			
 			<f-element id="fcs-stg-ext-1e5">
 				<title>
@@ -5833,6 +5836,13 @@
 						<selectable>a common application developer</selectable>
 					</selectables>.
 				</title>
+				
+				<ext-comp-def-title>
+					<title>The TSF shall allow only the application that imported the key or secret to request that the key or secret be destroyed. Exceptions may only be
+						explicitly authorized by <assignable>authorized role</assignable>. 
+					</title>
+				</ext-comp-def-title>
+				
 				<aactivity>
 					<TSS>
 						The evaluator shall review the TSS to determine that the TOE implements the
@@ -5888,7 +5898,7 @@
 				data using a specified method.</comp-lev>
 			<management/>
 			<audit/>
-			<dependencies><h:br/>FCS_COP.1 Cryptographic Operation<h:br/>
+			<dependencies>FCS_COP.1 Cryptographic Operation<h:br/>
 				FCS_STG_EXT.1 Protected Storage</dependencies>
 			<f-element id="fcs-stg-ext-2e1">
 				<title>
@@ -5931,7 +5941,7 @@
 			</comp-lev>
 			<management/>
 			<audit/>
-			<dependencies><h:br/>FCS_COP.1 Cryptographic Operation</dependencies>
+			<dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
 			<f-element id="fcs-stg-ext-3e1">
 				<title>
 					The TSF shall protect the integrity of any encrypted [<h:i>AKs, SKs, KEKs, and
@@ -6437,6 +6447,9 @@
 							FCS_CKM.2</selectable>
 						</selectables> 
 						</title>
+						<ext-comp-def-title>
+							<title>The TSF shall support importing keys/key material using <assignable>import method</assignable>.</title>
+						</ext-comp-def-title>
 					</f-element>
 					<f-element id="fdp-itc-1e2">
 						<title>The TSF shall verify the integrity of imported keys/key material using <selectables>
@@ -6449,6 +6462,9 @@
 							<selectable id="key-dist-ftp-itc-ext-1">key distribution mechanisms, integrity verification supported by FTP_ITC_EXT.1</selectable>
 						</selectables>
 						</title>
+						<ext-comp-def-title>
+							<title>The TSF shall verify the integrity of imported keys/key material using <assignable>method of integrity verification</assignable>.</title>
+						</ext-comp-def-title>
 						<note role="application">
 							This SFR is included in the ST when "importing keys/secrets into the TOE" is selected in FCS_STG_EXT.1.<h:p/>
 							The way the TSF checks the integrity of the keys depends on the method of importation. For example, the encrypted data channel
@@ -6612,7 +6628,7 @@
 					<h:ul><h:li>Ability to set parameters for allowable number of authentication failures.</h:li></h:ul></management>
 				<audit>If FAU_GEN.1 is included in the ST, then the following audit events should be considered:
 					<h:ul><h:li>Failed attempt at Administrator authentication.</h:li></h:ul></audit>
-				<dependencies><h:br/>FCS_CKM.6 Timing and Event of Cryptographic Key Destruction<h:br/>
+				<dependencies>FCS_CKM.6 Timing and Event of Cryptographic Key Destruction<h:br/>
 					FIA_SMF.1 Specification of Management Functions
 				</dependencies>
 				<f-element id="fia-afl-ext-1e1">
@@ -6732,6 +6748,11 @@
 								attempts for <assignable>a period of time greater than the minimum boot time of the system</assignable></selectable>
 						</selectables>.
 					</title>
+					<ext-comp-def-title>
+						<title>When the defined number of unsuccessful authentication attempts for the last available
+							authentication mechanism or a critical authentication mechanism has been surpassed, the 
+							TSF shall <assignable>rules for unsuccessful authentication attemps</assignable>.</title>
+					</ext-comp-def-title>
 					<note role="application">
 						The "current Administrator" is the entity attempting to authenticate to the TOE that has run afoul of 
 						the limit on authentication attempts. For platforms that support multiple Administrator identities, only the
@@ -7201,6 +7222,12 @@
 							<selectable>all software-based key storage</selectable>
 							<selectable exclusive="yes">no other keys</selectable>
 						</selectables> at startup. </title>
+					
+					<ext-comp-def-title>
+						<title>The TSF shall require the user to present the Password Authentication Factor
+							prior to decryption of protected data and encrypted DEKs, KEKs and <assignable>types of keys</assignable>.</title>
+					</ext-comp-def-title>
+					
 					<note role="application">The intent of this requirement is to prevent decryption of
 						protected data before the user has authorized to the device using the Password
 						Authentication Factor. The Password Authentication Factor is also required in order
@@ -7302,6 +7329,11 @@
 				</audit-event>
 			</f-component>
 		
+		
+		<ext-comp-def title="Administrator Authentication" fam-id="FIA_UIA_EXT">
+			<fam-behavior>This family defines requirements for authenticating administrators.</fam-behavior>
+		</ext-comp-def>
+			
 			<f-component id="sfr-fia-uia-ext-1" cc-id="fia_uia_ext.1" name="Administrator Authentication" status="sel-based"> 
 				<depends on-sel="sfr-fmt-smr-1"/>  
 				<consistency-rationale/>
@@ -8013,6 +8045,14 @@
     				The TSF shall process the applicable packet filtering rules (as determined in accordance with FPF_RUL_EXT.1.4) in the following order: 
     				[<h:li>Administrator-defined</h:li>].
     			</title>
+    			
+    			<ext-comp-def-title>
+    				<title>
+    					The TSF shall process the applicable packet filtering rules (as determined in
+    					accordance with FPF_RUL_EXT.1.4) in the following order: <assignable>rule processing order</assignable>.
+    				</title>
+    			</ext-comp-def-title>
+    			
     			<note role="application">
     				This element requires that an administrator is able to define the order in which configured filtering rules are precessed for matches.
     			</note>
@@ -8687,15 +8727,17 @@
     		<fam-behavior>This family defines requirements for ensuring compliance to the sent requirement.</fam-behavior>
     	</ext-comp-def>
     	
+    	<f-component name="Isolation" cc-id="fpt_iso_ext.1" status="invisible">
+    		<comp-lev> requires the TSF to ensure the use of EU and CU.</comp-lev>
+    		<management>TBD</management>
+    		<audit>TBD</audit>
+    		<dependencies>TBD</dependencies>
+    	</f-component>
+    	
     	<f-component name="EU and CU Isolation" cc-id="fpt_iso_ext.1" iteration="PFED" status="feat-based">
     		<depends on="pfed"/>
     		
     		<consistency-rationale/>
-    		<comp-lev> requires the TSF to .</comp-lev>
-    		<management>TBD</management>
-    		<audit>TBD</audit>
-    		<dependencies>TBD</dependencies>
-    		
     		<f-element id="fpt-iso_ext-1e1">
     			<title>
     				<comment>Need to complete sections for management, audit, dependencies, App Note, EAs, and audit events.</comment><h:p/>
@@ -9343,7 +9385,7 @@
     			<h:li>Configuration of action to take on integrity failure.</h:li></h:ul></management>
     		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is
     			included in the PP/ST:<h:ul><h:li>Failure of integrity verification.</h:li></h:ul></audit>
-    		<dependencies><h:br/>FPT_ROT_EXT.1 Platform Integrity Root</dependencies>
+    		<dependencies>FPT_ROT_EXT.1 Platform Integrity Root</dependencies>
     		<f-element id="fpt-rot-ext-2e1">
     			<title>The integrity of all mutable platform firmware outside of the platform integrity root specified in FPT_ROT_EXT.1 shall be verified 
     				prior to
@@ -9504,7 +9546,7 @@
     		<management>The following actions could be considered for the management functions in FMT:<h:ul>
     			<h:li>Configuration of action to take on integrity failure.</h:li></h:ul></management>
     		<audit/>
-    		<dependencies><h:br/>FPT_TUD_EXT.4 Secure Local Update Mechanism</dependencies>
+    		<dependencies>FPT_TUD_EXT.4 Secure Local Update Mechanism</dependencies>
     		<f-element id="fpt-rvr-ext-1e1">
     			<title>
     				The TSF shall implement a mechanism for recovering from boot firmware failure consisting of 
@@ -9707,6 +9749,12 @@
     	<ext-comp-def title="Transaction Control" fam-id="FPT_TRAN_EXT">
     		<fam-behavior>This family defines requirements for controlling transactions.</fam-behavior>
     	</ext-comp-def>
+    	
+    	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" iteration="PFED" status="invisible">
+    		<f-element>
+    			<title>The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.</title>
+    		</f-element>
+    	</f-component>
     	
     	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" iteration="PFED" status="feat-based">
     		<depends on="pfed"/>
@@ -9920,7 +9968,7 @@
     		<management>The following actions could be considered for the management functions in FMT:<h:ul>
     			<h:li>Initiation of the update process.</h:li></h:ul></management>
     		<audit/>
-    		<dependencies><h:br/>FPT_TUD_EXT.2 Platform Firmware Authenticated Update Mechanism<h:br/>
+    		<dependencies>FPT_TUD_EXT.2 Platform Firmware Authenticated Update Mechanism<h:br/>
     			FPT_TUD_EXT.3 Platform Firmware Delayed-Authentication Update Mechanism<h:br/>
     			FPT_TUD_EXT.4 Secure Local Platform Firmware Update Mechanism
     		</dependencies>
@@ -9992,7 +10040,7 @@
 				included in the PP/ST:<h:ul><h:li>Failure of update authentication/integrity check/rollback</h:li>
 				<h:li>Failure of update operation</h:li>
 				<h:li>Success of update operation</h:li></h:ul></audit>
-			<dependencies><h:br/>FCS_COP.1 Cryptographic Operations</dependencies>
+			<dependencies>FCS_COP.1 Cryptographic Operations</dependencies>
 			<f-element id="fpt-tud-ext-2e1">
 				<title>The TSF shall authenticate the source of all platform firmware updates using a 
 					digital signature algorithm specified in FCS_COP.1<h:b>/SigVer</h:b> and using a key store 
@@ -11948,10 +11996,10 @@
 		<comment>Needs to be completed.</comment>
 	</appendix>
 	
-	<appendix id="pfedspec" title="PFEC Specification">
+	<appendix id="pfedspec" title="PFED Specification">
 		<section id="toe-boun-over" title="TOE Cryptographic Boundary and Overview">
-			The TOE is an Encrypting Retransmission Device (ERD) consisting of a hardware-separated Encryption Unit (EU) and Communication Unit (CU). The EU is within the TOE
-			security boundary and is solely responsible for cryptographic processing, key management, authentication, traffic filtering, and enforcement of secure channel state.				The CU is outside the cryptographic boundary and provides best-effort forwarding over an untrusted network.<h:p/>
+			A TOE claiming PFED as its trusted channel must also implement a Hardware Separated Encrypted Retransmission Device, including EU+CU and all required SFRs for a
+			combined implementation. In addition, a PFED-conformant HWS-ERD TOE must adhere to the additional requirements outlined below."<h:br/>
 			
 			All communication between paired ERDs is protected by an AES-based secure session tunnel implemented by the EU. The TOE does not rely on external key management
 			protocols. When MACsec encapsulation is used, the IEEE 802.1X MACsec Key Agreement (MKA) protocol is not implemented or invoked.			
