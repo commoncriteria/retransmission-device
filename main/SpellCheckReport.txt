@@ -94,6 +94,7 @@ output/retransmission-device-release-linkable.html: EMCON
 output/retransmission-device-release-linkable.html: ERB
 output/retransmission-device-release-linkable.html: ERD
 output/retransmission-device-release-linkable.html: ERDs
+output/retransmission-device-release-linkable.html: EUDs
 output/retransmission-device-release-linkable.html: EUs
 output/retransmission-device-release-linkable.html: EXPAK
 output/retransmission-device-release-linkable.html: Electrotechnical
@@ -198,6 +199,7 @@ output/retransmission-device-release-linkable.html: Winternitz
 output/retransmission-device-release-linkable.html: XCU
 output/retransmission-device-release-linkable.html: XMSS
 output/retransmission-device-release-linkable.html: XTP
+output/retransmission-device-release-linkable.html: adedicated
 output/retransmission-device-release-linkable.html: attemps
 output/retransmission-device-release-linkable.html: authorised
 output/retransmission-device-release-linkable.html: behaviour
@@ -209,7 +211,6 @@ output/retransmission-device-release-linkable.html: configurability
 output/retransmission-device-release-linkable.html: connectionless
 output/retransmission-device-release-linkable.html: decapsulated
 output/retransmission-device-release-linkable.html: decapsulation
-output/retransmission-device-release-linkable.html: doesn
 output/retransmission-device-release-linkable.html: eTSS
 output/retransmission-device-release-linkable.html: ek
 output/retransmission-device-release-linkable.html: enquiries
@@ -217,7 +218,6 @@ output/retransmission-device-release-linkable.html: ffdhe3072
 output/retransmission-device-release-linkable.html: ffdhe4096
 output/retransmission-device-release-linkable.html: ffdhe6144
 output/retransmission-device-release-linkable.html: ffdhe8192
-output/retransmission-device-release-linkable.html: firewalling
 output/retransmission-device-release-linkable.html: fulfil
 output/retransmission-device-release-linkable.html: hLen
 output/retransmission-device-release-linkable.html: invocable
@@ -246,6 +246,7 @@ output/retransmission-device-release-linkable.html: updateable
 output/retransmission-device-release-linkable.html: utside
 output/retransmission-device-release-linkable.html: v1
 output/retransmission-device-release-linkable.html: v2
+output/retransmission-device-release-linkable.html: wirelessly
 output/retransmission-device-release.html: 0s
 output/retransmission-device-release.html: 0’s
 output/retransmission-device-release.html: 10C
@@ -312,6 +313,7 @@ output/retransmission-device-release.html: ERB
 output/retransmission-device-release.html: ERD
 output/retransmission-device-release.html: ERDs
 output/retransmission-device-release.html: ERD’s
+output/retransmission-device-release.html: EUDs
 output/retransmission-device-release.html: EUs
 output/retransmission-device-release.html: EXPAK
 output/retransmission-device-release.html: Electrotechnical
@@ -418,6 +420,7 @@ output/retransmission-device-release.html: Winternitz
 output/retransmission-device-release.html: XCU
 output/retransmission-device-release.html: XMSS
 output/retransmission-device-release.html: XTP
+output/retransmission-device-release.html: adedicated
 output/retransmission-device-release.html: attemps
 output/retransmission-device-release.html: authorised
 output/retransmission-device-release.html: behaviour
@@ -437,7 +440,6 @@ output/retransmission-device-release.html: ffdhe3072
 output/retransmission-device-release.html: ffdhe4096
 output/retransmission-device-release.html: ffdhe6144
 output/retransmission-device-release.html: ffdhe8192
-output/retransmission-device-release.html: firewalling
 output/retransmission-device-release.html: fulfil
 output/retransmission-device-release.html: hLen
 output/retransmission-device-release.html: invocable
@@ -468,6 +470,7 @@ output/retransmission-device-release.html: updateable
 output/retransmission-device-release.html: utside
 output/retransmission-device-release.html: v1
 output/retransmission-device-release.html: v2
+output/retransmission-device-release.html: wirelessly
 output/retransmission-device.html: 0s
 output/retransmission-device.html: 0’s
 output/retransmission-device.html: 1GB
@@ -530,6 +533,7 @@ output/retransmission-device.html: ERB
 output/retransmission-device.html: ERD
 output/retransmission-device.html: ERDs
 output/retransmission-device.html: ERD’s
+output/retransmission-device.html: EUDs
 output/retransmission-device.html: EUs
 output/retransmission-device.html: EXPAK
 output/retransmission-device.html: Electrotechnical
@@ -636,6 +640,7 @@ output/retransmission-device.html: Winternitz
 output/retransmission-device.html: XCU
 output/retransmission-device.html: XMSS
 output/retransmission-device.html: XTP
+output/retransmission-device.html: adedicated
 output/retransmission-device.html: attemps
 output/retransmission-device.html: authorised
 output/retransmission-device.html: behaviour
@@ -654,7 +659,6 @@ output/retransmission-device.html: ffdhe3072
 output/retransmission-device.html: ffdhe4096
 output/retransmission-device.html: ffdhe6144
 output/retransmission-device.html: ffdhe8192
-output/retransmission-device.html: firewalling
 output/retransmission-device.html: fulfil
 output/retransmission-device.html: hLen
 output/retransmission-device.html: invocable
@@ -685,3 +689,4 @@ output/retransmission-device.html: updateable
 output/retransmission-device.html: utside
 output/retransmission-device.html: v1
 output/retransmission-device.html: v2
+output/retransmission-device.html: wirelessly

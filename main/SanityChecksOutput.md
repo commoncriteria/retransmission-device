@@ -139,16 +139,6 @@
 * Error: Detected multiple elements with an id of 'crypto-alg-para'.
 * Error: Detected multiple elements with an id of 'sess-set-mut-auth'.
 * Error: Detected multiple elements with an id of 'rekey-op'.
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The purpo"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The purpo"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Overview[1]""/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Overview[1]""/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Overview[1]""/h:p[3]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Description[1]""/sec:Communication_Unit[1]"The CU pr"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Description[1]""/sec:Communication_Unit[1]"The CU pr"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Description[1]""/sec:Communication_Unit[1]"The CU pr"/h:p[3]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Description[1]""/sec:Communication_Unit[1]"The CU pr"/h:p[4]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Description[1]""/sec:Communication_Unit[1]"The CU pr"/h:p[5]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"A conform"/implements[1]""/feature[2]""/description[1]"The TOE i"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"A conform"/implements[1]""/feature[3]""/description[1]"The TOE i"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/note[1]"The ST Au"/h:p[1]""
