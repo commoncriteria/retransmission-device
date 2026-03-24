@@ -255,8 +255,8 @@
 		 	
 		 	Each evaluated configuration constitutes a distinct TOE instance.
 		 	
-		 	<figure entity="images/CU_Toe.png" title="Communications Unit (CU) TOE" id="commcu"/>
-		 	<figure entity="images/EU_Toe.png" title="Encryption Unite (EU) TOE" id="enccu"/>
+		 	<figure entity="images/CU_TOE.png" title="Communications Unit (CU) TOE" id="commcu"/>
+		 	<figure entity="images/EU_TOE.png" title="Encryption Unite (EU) TOE" id="enccu"/>
 		 	<figure entity="images/CU+EU_HWS-ERD.png" title="CU+EU Hardware-Separated Encrypting Retransmission Device (HWS-ERD) TOE" id="cueuhwserd"/>		 	
 		 	<figure entity="images/CU+EU_HWS-ERD_TOE_Enviro_Config.png" title="CU+EU Hardware-Separated Encrypting Retransmission Device (HWS-ERD) TOE Environment 
 		 		Configuration" id="cueuhwserdtoeenviroconfig"/>
