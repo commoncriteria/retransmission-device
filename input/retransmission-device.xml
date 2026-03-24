@@ -53,17 +53,17 @@
 
 	<!-- 1.1 Overview -->
     <sec:Overview>
-    	The scope of this Protection Profile (PP) is to describe the security functionality of Retransmission Devices in terms of the Common Criteria and to define functional
-    	and assurance requirements for such products.<h:br/>
-    	The form factors may vary according to the needs of the mission and the specific supported End User Devices (EUD) and are intended to provide isolation, authentication
-    	and confidentiality for a EUD that must interoperate with an Untrusted Domain.<h:br/>
+    	The scope of this Protection Profile (PP) is to describe the security functionality of retransmission devices in terms of the Common Criteria and to define functional
+    	and assurance requirements for such products.<h:p/>
+    	The form factors may vary according to the needs of the mission and the specific supported End User Devices (EUD) and are intended to provide isolation, authentication,
+    	and confidentiality for an EUD that must interoperate with an untrusted domain.<h:p/>
     	This PP covers devices which meet one of the following use cases: Communication Unit (CU), Encryption Unit (EU), or a combined EU+CU. The main goal of the CU use case
     	is to provide network transport and simple isolation of the EUD. The EU use case is intended to provide an independent layer of encryption for an EUD on top of the
-    	existing network transport.<h:br/>
-    	This PP can be met in one of three ways. The first is to claim conformance only to the Communication Unit requirements; the conformant TOE claims only that it is a CU.
-    	The second is to claim conformance to only the Encryption Unit requirements; the conformant TOE claims only that it is an EU. The third is to claim conformance to both
-    	EU + CU, which must include a physical and logical separation between the EU and CU components in the enclosure or solution.
-    	
+    	existing network transport.<h:p/>
+    	This PP can be met in one of three ways. The first is to claim conformance only to the CU requirements; the conformant Target of Evaluation (TOE) claims only that it is
+    	a CU.
+    	The second is to claim conformance to only the EU requirements; the conformant TOE claims only that it is an EU. The third is to claim conformance to both
+    	EU+CU, which must include a physical and logical separation between the EU and CU components in the enclosure or solution.    	
 	</sec:Overview>
 	
 	<!-- 1.2 Terms -->
@@ -224,64 +224,63 @@
 		 <section title="Compliant Targets of Evaluation" id="TOEdescription">
 		 	
 		 <sec:TOE_Overview>
-		 	The primary Target of Evaluation (TOE) for this Protection Profile (PP) is a Retransmission Device, herein referred to as a Communications Unit
-		 	(CU), that is designed to provide hardware isolation and other security features to protect communication between trusted End User Devices (EUDs)
-		 	or networks and untrusted (Black) transport networks.<h:br/>
+		 	The primary TOE for this PP is a retransmission device, herein referred to as a CU, that is designed to provide hardware isolation and other security features to
+		 	protect communication between trusted EUDs or networks and unrestricted (black) transport networks.<h:p/>
 		 	
 		 	In addition, this PP supports the specification, evaluation, and certification of other related components, either independently or in combination,
-		 	as described in more detail below. Beyond the primary TOE (i.e., CU), conformance under this PP can be claimed for an Encryption Unit (EU),
-		 	including the special use cases for supporting Wireless LAN (WLAN) or other Black network interface configurations, or a combination of a CU and 
+		 	as described in more detail below. Beyond the primary TOE (i.e., CU), conformance under this PP can be claimed for an EU,
+		 	including the special use cases for supporting Wireless Local Area Network (WLAN) or other black network interface configurations, or a combination of a CU and 
 		 	EU, referred to herein as a Hardware Separated Encrypting Retransmission Device (HWS-ERD), including the special use case for Protocol Free
-		 	Encrypting Device (PFED) based implementations.<h:br/>
+		 	Encrypting Device (PFED)-based implementations.<h:p/>
 		 	
-		 	Depending on the evaluated configuration, the TOE may provide:<h:ul>		 	
+		 	Depending on the evaluated configuration, the TOE may provide any of the following.<h:ul>		 	
 		 		<h:li>Network transport and routing security functionality</h:li>
 		 		<h:li>Cryptographic protection of user data</h:li>
 		 		<h:li>Hardware-enforced isolation between trusted and untrusted interfaces, or</h:li>
-		 		<h:li>A hardware-separated architecture combining encryption and communications functions.</h:li>
-		 	</h:ul><h:br/>
+		 		<h:li>A hardware-separated architecture combining encryption and communications functions</h:li>
+		 	</h:ul><h:p/>
 		 	
-		 	The TOE is deployed between an EUD or trusted network and an untrusted network environment. Its primary security objectives are to:<h:ul>
-		 		<h:li>Prevent unauthorized access from Black networks to trusted interfaces</h:li>
+		 	The TOE is deployed between an EUD or trusted network and an untrusted network environment. Its primary security objectives are to do the following.<h:ul>
+		 		<h:li>Prevent unauthorized access from black networks to trusted interfaces</h:li>
 		 		<h:li>Ensure controlled forwarding of traffic</h:li>
-		 		<h:li>Enforce isolation between trusted and untrusted domains, and</h:li>
-		 		<h:li>Where applicable, cryptographically protect transmitted data.</h:li>
-		 	</h:ul><h:br/>
+		 		<h:li>Enforce isolation between trusted and untrusted domains</h:li>
+		 		<h:li>Where applicable, cryptographically protect transmitted data</h:li>
+		 	</h:ul><h:p/>
 		 	
-		 	The TOE supports the following evaluated configurations:<h:ul>
-		 	<h:li>Dedicated Communications Unit (CU-Only)</h:li>
-		 	<h:li>Dedicated Encryption Unit (EU-Only)</h:li>
-		 	<h:li>Hardware-Separated Encrypting Retransmission Device (HWS-ERD) (i.e. CU+EU)</h:li>
-		 	</h:ul><h:br/>
+		 	The TOE supports the following evaluated configurations.<h:ul>
+		 	<h:li>Dedicated CU (CU-Only)</h:li>
+		 	<h:li>Dedicated EU (EU-Only)</h:li>
+		 	<h:li>HWS-ERD (i.e., CU+EU)</h:li>
+		 	</h:ul><h:p/>
 		 	
 		 	Each evaluated configuration constitutes a distinct TOE instance.
 		 	
-		 	<figure entity="images/comm unit toe.png" title="Communications Unit (CU) TOE" id="commcu"/>
-		 	<figure entity="images/encrypt unit toe" title="Encryption Unite (EU) TOE" id="enccu"/>
-		 	<figure entity="images/cu+eu hws-erd" title="CU+EU Hardware-Separated Encrypting Retransmission Device (HWS-ERD) TOE" id="cueuhwserd"/>		 	
-		 	<figure entity="images/cu+eu hws-erd" title="CU+EU Hardware-Separated Encrypting Retransmission Device (HWS-ERD) TOE Environment Configuration"
-		 		id="cueuhwserdtoeenviroconfig"/>
+		 	<figure entity="images/CU_Toe.png" title="Communications Unit (CU) TOE" id="commcu"/>
+		 	<figure entity="images/EU_Toe.png" title="Encryption Unite (EU) TOE" id="enccu"/>
+		 	<figure entity="images/CU+EU_HWS-ERD.png" title="CU+EU Hardware-Separated Encrypting Retransmission Device (HWS-ERD) TOE" id="cueuhwserd"/>		 	
+		 	<figure entity="images/CU+EU_HWS-ERD_TOE_Enviro_Config.png" title="CU+EU Hardware-Separated Encrypting Retransmission Device (HWS-ERD) TOE Environment 
+		 		Configuration" id="cueuhwserdtoeenviroconfig"/>
 		</sec:TOE_Overview>
 		
 	
    <!-- 1.3.2 TOE Configurations -->
 	<sec:TOE_Configurations>
 		<sec:CU-Only_Configuration>
-		In the CU-Only configuration, the TOE performs: <h:ul>
+		In the CU-Only configuration, the TOE performs the following. <h:ul>
 			<h:li>Network routing and transport functionality and</h:li>
-			<h:li>Hardware-based isolation via adedicated wired interface between EUDs or EUs and Black Transport Networks.</h:li>
-		</h:ul><h:br/>
+			<h:li>Hardware-based isolation via a dedicated wired interface between EUDs or EUs and black transport networks</h:li>
+		</h:ul><h:p/>
 		
-		The CU provides isolation between trusted components and untrusted Black Transport Networks and represents the minimum TOE configuration supported by 
-		the Protection Profile.<h:br/>
+		The CU provides isolation between trusted components and untrusted black transport networks and represents the minimum TOE configuration supported by 
+		the PP.<h:p/>
 		
 		<h:b>CU Characteristics</h:b><h:ul>
 			<h:li>Network-facing component (cellular, Wi-Fi, or Ethernet)</h:li>
 			<h:li>Provides hardware isolation between untrusted networks and the EUD or EU</h:li>
 			<h:li>Implements a stateless firewall</h:li>
-			<h:li>Provides routing functionality across untrusted Black Transport Networks</h:li>
+			<h:li>Provides routing functionality across untrusted black transport networks</h:li>
 			<h:li>Performs a mandatory Layer-2 protocol break only when required by the selected encryption option</h:li>
-		</h:ul><h:br/>
+		</h:ul><h:p/>
 		
 		<h:b>Encryption Option Specific CU Behavior</h:b><h:ul>
 			<h:li>The CU provides routing and isolation services between trusted and untrusted networks.</h:li>
@@ -293,14 +292,14 @@
 			<h:li>The CU does not implement cryptographic services for MACsec or PFED traffic and forwards already-encrypted traffic when those options are
 				selected.</h:li>
 			<h:li>The CU does not act as a cryptographic endpoint for user data traffic. The CU routes or forwards already-encrypted traffic across untrusted
-				Black Transport Networks without terminating, decrypting, or re-originating cryptographic protection while enforcing interface isolation
+				black transport networks without terminating, decrypting, or re-originating cryptographic protection while enforcing interface isolation
 				policies.</h:li>
 		</h:ul>
 		</sec:CU-Only_Configuration>
 		
 		<sec:EU-Only_Configuration>
-			In the EU-Only configuration, the TOE:<h:ul>
-				<h:li>Provides hardware isolation between the EUD and Black Transport Networks (e.g., WLAN or Tactical Radio) or CU, and</h:li>
+			In the EU-Only configuration, the TOE does the following.<h:ul>
+				<h:li>Provides hardware isolation between the EUD and black transport networks (e.g., WLAN or Tactical Radio) or CU</h:li>
 				<h:li>Encrypts all EUD traffic to form an encrypted tunnel to an authorized encryption endpoint.</h:li>
 				<h:li>Implements one selectable encryption option from the following set.</h:li><h:ul>
 					<h:li>IPsec</h:li>
@@ -311,82 +310,82 @@
 				<h:li>The interfaces between the EUD and EU shall be via a dedicated wired connection.</h:li>
 				<h:li>In non-WLAN configurations, the interface between the EU and CU (or other device) shall be via a dedicated wired connection.</h:li>
 				<h:li>Implements stateless Layer-2 traffic filtering when MACsec or PFED is selected, limited to Ethernet frame attributes (e.g., 
-						EtherType, source/destination MAC address).</h:li>
+						EtherType, source or destination MAC address).</h:li>
 				<h:li>When MACsec or PFED is selected, the EU presents a non-addressable Ethernet interface toward the CU (i.e., no IP address or
 						higher-layer protocol termination is supported on the EU–CU interface).</h:li>
-				<h:li>When PFED encryption is selected, the TOE must consist of the hardware-separated CU and EU (HWS-ERD) configuration </h:li>
+				<h:li>When PFED encryption is selected, the TOE must consist of the hardware-separated CU and EU (HWS-ERD) configuration.</h:li>
 			</h:ul>
-			As noted, this configuration supports EUs that require connections to untrusted Black networks, such as WLAN and tactical radio encryption
+			As noted, this configuration supports EUs that require connections to untrusted black networks, such as WLAN and tactical radio encryption
 			implementations and functions as a dedicated encryption component for those applications. For these special use cases, some or all of the CU
 			requirements may be applicable. All traffic transmitted over the untrusted interface, either wired or wirelessly, is cryptographically protected.
 		</sec:EU-Only_Configuration>
 		
 		<sec:HWS-ERD_Configuration>
-			In the Hardware-Separated Encrypting Retransmission Device (HWS-ERD) configuration, the TOE consists of:<h:ul>
-				<h:li>A hardware-separated Encryption Unit (EU), and</h:li>
-				<h:li>A hardware-separated Communications Unit (CU).</h:li>
+			In the HWS-ERD configuration, the TOE consists of the following.<h:ul>
+				<h:li>A hardware-separated EU</h:li>
+				<h:li>A hardware-separated CU</h:li>
 			</h:ul>
-			The EU and CU:<h:ul>
-				<h:li>Are physically distinct components, but may be housed within the same enclosure</h:li>
+			The EU and CU are as follows.<h:ul>
+				<h:li>Physically distinct components, but may be housed within the same enclosure</h:li>
 				<h:li>Contain independent processors and memory</h:li>
 				<h:li>Are independently administered via physically separated and isolated interfaces</h:li>
 				<h:li>Pass payload data exclusively via dedicated wired interfaces.</h:li>
 			</h:ul>
 			The EU is solely responsible for:<h:ul>
 				<h:li>Cryptographic processing of EUD or trusted network payload data</h:li>
-				<h:li>Ensuring plaintext is not exposed beyond trusted interfaces.</h:li>
+				<h:li>Ensuring plaintext is not exposed beyond trusted interfaces</h:li>
 			</h:ul>
-			The CU is solely responsible for:<h:ul>
+			The CU is solely responsible for the following.<h:ul>
 				<h:li>Routing or retransmission of encrypted traffic</h:li>
-				<h:li>Isolation from Black Transport Networks.</h:li>
+				<h:li>Isolation from black transport networks</h:li>
 			</h:ul>
-			Plaintext traffic does not traverse the CU or any Black interface, i.e., there may be no cryptographic bypass capability between the EUD or trusted
+			Plaintext traffic does not traverse the CU or any black interface, i.e., there may be no cryptographic bypass capability between the EUD or trusted
 			network and EU or between the EU and CU.			
 		</sec:HWS-ERD_Configuration>
 	</sec:TOE_Configurations>
 		 	
 	<sec:TOE_Logical_Boundary>
 		The logical boundary of the TOE includes the security functionality implemented by hardware, firmware, and software components within the evaluated 
-		configuration.<h:br/>
-		Depending on the configuration, the TOE logical boundary includes the following security functions:
+		configuration.<h:p/>
+		Depending on the configuration, the TOE logical boundary includes the following security functions.
 		
 		<sec:Security_Isolation>
-			For all configurations, the TOE:<h:ul>
-				<h:li>Enforces hardware-based separation between trusted and Black interfaces</h:li>
-				<h:li>Prevents direct access from Black networks to trusted components</h:li>
+			For all configurations, the TOE does the following.<h:ul>
+				<h:li>Enforces hardware-based separation between trusted and black interfaces</h:li>
+				<h:li>Prevents direct access from black networks to trusted components</h:li>
 				<h:li>Ensures all traffic traverses controlled forwarding paths</h:li>
-				<h:li>Prevents bypass of isolation mechanisms, including cryptographic and administrative.</h:li>
+				<h:li>Prevents bypass of isolation mechanisms, including cryptographic and administrative</h:li>
 			</h:ul>
 			In the HWS-ERD configuration, this includes enforced separation between the EU and CU roles.
 		</sec:Security_Isolation>
 		
 		<sec:Traffic_Forwarding_and_Routing_-_CU-Only_and_HWS-ERD>
-			Where applicable, the TOE:<h:ul>
+			Where applicable, the TOE does the following.<h:ul>
 				<h:li>Implements packet forwarding or routing security functions</h:li>
 				<h:li>Processes only traffic received on defined network interfaces</h:li>
-				<h:li>Ensures only encrypted traffic is transmitted onto Black networks (HWS-ERD)</h:li>
+				<h:li>Ensures only encrypted traffic is transmitted onto black networks (HWS-ERD)</h:li>
 				<h:li>Applies configured transport policies to forwarded traffic</h:li>
-				<h:li>Performs a mandatory Layer-2 protocol break only when required by the selected encryption option.</h:li>
+				<h:li>Performs a mandatory Layer-2 protocol break only when required by the selected encryption option</h:li>
 			</h:ul>
 		</sec:Traffic_Forwarding_and_Routing_-_CU-Only_and_HWS-ERD>
 		
 		<sec:Cryptographic_Processing_-_EU-Only_and_HWS-ERD>
-			Where applicable, the TOE:<h:ul>
-				<h:li>Encrypts all EUD or trusted network payload traffic prior to transmission over Black networks</h:li>
+			Where applicable, the TOE does the following.<h:ul>
+				<h:li>Encrypts all EUD or trusted network payload traffic prior to transmission over black networks</h:li>
 				<h:li>Establishes encrypted tunnels to authorized endpoints</h:li>
 				<h:li>Ensures plaintext traffic is restricted to trusted network interfaces</h:li>
-				<h:li>Protects cryptographic keys and critical security parameters within the TOE boundary.</h:li>				
+				<h:li>Protects cryptographic keys and critical security parameters within the TOE boundary</h:li>				
 			</h:ul>
 			In these configurations, all cryptographic processing is confined to the EU component.
 		</sec:Cryptographic_Processing_-_EU-Only_and_HWS-ERD>
 	
 		<sec:Security_Management>
-			The TOE provides administrative functionality to:<h:ul>
+			The TOE provides administrative functionality to do the following.<h:ul>
 				<h:li>Configure network interfaces and routing parameters (as applicable)</h:li>
 				<h:li>Configure encryption parameters and endpoints (as applicable)</h:li>
 				<h:li>Manage security-relevant configuration settings</h:li>
 				<h:li>Restrict administrative access to authorized administrators via independent, physically isolated interfaces, i.e., it must not be 
-					possible to administer the EU from the CU or vice versa.</h:li>				
+					possible to administer the EU from the CU or vice versa</h:li>				
 			</h:ul>
 			In these configurations, all cryptographic processing is confined to the EU component.
 		</sec:Security_Management>
@@ -397,41 +396,41 @@
 		logical boundary. The physical boundary must also be protected by passive anti-tamper methods.
 		
 		<sec:CU-Only_Physical_Boundary>
-			The TOE includes:<h:ul>
+			The TOE includes the following.<h:ul>
 				<h:li>The communications hardware platform</h:li>
-				<h:li>Network interfaces (trusted [wired to EUD or EU] and Black)</h:li>
+				<h:li>Network interfaces (trusted [wired to EUD or EU] and black)</h:li>
 				<h:li>Embedded firmware and operating system implementing routing and isolation, including a firewall protecting the interface to the EUD or
 					EU</h:li>
 				<h:li>Management interfaces</h:li>
-				<h:li>Non-volatile storage containing configuration data and key material (if required).</h:li>
+				<h:li>Non-volatile storage containing configuration data and key material (if required)</h:li>
 			</h:ul>
-			Excluded from the TOE:<h:ul>
+			The following are excluded from the TOE.<h:ul>
 				<h:li>External encryption devices</h:li>
 				<h:li>External network infrastructure</h:li>
-				<h:li>End User Devices.</h:li>
+				<h:li>EUDs</h:li>
 			</h:ul>
 		</sec:CU-Only_Physical_Boundary>
 		
 		<sec:EU-Only_Physical_Boundary>
-			The TOE includes:<h:ul>
+			The TOE includes the following.<h:ul>
 				<h:li>Encryption hardware platform</h:li>
-				<h:li>Untrusted network interface(s) for special use cases as noted above</h:li>
+				<h:li>Untrusted network interfaces for special use cases as noted above</h:li>
 				<h:li>Trusted EUD or network (wired) interfaces</h:li>
 				<h:li>Wired interface to CU (non-WLAN configuration)</h:li>
 				<h:li>Cryptographic modules</h:li>
 				<h:li>Firmware and software implementing encryption and tunnel establishment</h:li>
 				<h:li>Management interfaces</h:li>
-				<h:li>Storage for keys and configuration data.</h:li>
+				<h:li>Storage for keys and configuration data</h:li>
 			</h:ul>
-			Excluded from the TOE:<h:ul>
+			The following are excluded from the TOE<h:ul>
 				<h:li>Remote encryption endpoints</h:li>
 				<h:li>External routing infrastructure</h:li>
-				<h:li>End User Devices</h:li>
+				<h:li>EUDs</h:li>
 			</h:ul>
 		</sec:EU-Only_Physical_Boundary>
 		
 		<sec:HWS-ERD_Physical_Boundary>
-			The TOE includes both:
+			The TOE includes both of the following.<h:p/>
 			<h:b>Encryption Unite (EU)</h:b><h:ul>
 				<h:li>Dedicated processor and memory</h:li>
 				<h:li>Dedicated wired interface to the CU</h:li>
@@ -447,15 +446,15 @@
 				<h:li>Black network interfaces</h:li>
 				<h:li>Routing and forwarding firmware and software</h:li>
 				<h:li>Management interfaces</h:li>
-				<h:li>Configuration and key material storage.</h:li>
+				<h:li>Configuration and key material storage</h:li>
 			</h:ul>
 			The dedicated wired interface between the EU and CU is included within the TOE boundary.<h:b/>
 			
-			Excluded from the TOE:<h:ul>
-				<h:li>End User Devices</h:li>
+			The following are excluded from the TOE.<h:ul>
+				<h:li>EUDs</h:li>
 				<h:li>Remote encryption endpoints</h:li>
 				<h:li>External network infrastructure</h:li>
-				<h:li>Black Transport Networks</h:li>
+				<h:li>Black transport networks</h:li>
 			</h:ul>
 		</sec:HWS-ERD_Physical_Boundary>
 	</sec:TOE_Physical_Boundary>	
@@ -465,13 +464,13 @@
 		
     <sec:Use_Cases>
     	<usecases>
-    		<usecase id="uc-ded-cu-ret-dev-cu-only" title="Dedicated Communications Unit (CU) Retransmission Device (CU-Only)">
-    			<description>The TOE is a retransmission device that only provides network transport and routing functionality, as well
-    				as hardware isolation between trusted components and untrusted Black Transport Networks.</description>
+    		<usecase id="uc-ded-cu-ret-dev-cu-only" title="Dedicated CU Retransmission Device (CU-Only)">
+    			<description>The TOE is a retransmission device that provides network transport and routing functionality, as well
+    				as hardware isolation between trusted components and untrusted black transport networks.</description>
     		</usecase>
-    		<usecase id="uc-ded-eu-ret-dev-cu-only" title="Dedicated Encrytpion Unit (EU) Retransmission Device (EU-Only)">
-    			<description>The TOE is a retransmission device that provides hardware isolation between the EUD and untrusted Black Transport Networks, as well as capability
-    				to encrypt all traffic from the EUD to form an encrypted tunnel to another encryption end-point.</description>
+    		<usecase id="uc-ded-eu-ret-dev-cu-only" title="Dedicated EU Retransmission Device (EU-Only)">
+    			<description>The TOE is a retransmission device that provides hardware isolation between the EUD and untrusted black transport networks, as well as capability
+    				to encrypt all traffic from the EUD to form an encrypted tunnel to another encryption endpoint.</description>
     		</usecase>
     		<usecase id="uc-hw-sep-enc-ret-dev-hws-red" title="Hardware-Separated Encrypting Retransmission Device (HWS-ERD) (i.e., CU + EU)">
     			<description>The TOE is a retransmission device composed of a hardware-separated EU and CU.
@@ -1352,7 +1351,7 @@
 	 					evaluator shall ensure the audit records generated during testing match the format specified in the 
 	 					administrative guide, and that the fields in each audit record have the proper entries.<h:p/>
 	 					Note that the testing here can be accomplished in conjunction with the testing of the security mechanisms 
-	 					directly.<h:br/>
+	 					directly.<h:p/>
 	 				</Tests>   
 	 			</aactivity>
 	 		</f-element>
@@ -1938,7 +1937,7 @@
 						differences between test environment and TOE execution environment shall be 
 						described.<h:p/>			
 					
-						<h:br/><h:b>RSA Key Generation</h:b><h:p/>
+						<h:b>RSA Key Generation</h:b><h:p/>
 						<h:table border="1">
 							<h:tr class="header" bgcolor="#cccccc">
 								<h:td valign="top">Identifier</h:td>
@@ -1975,7 +1974,7 @@
 						private prime factors <h:i>p</h:i> and <h:i>q</h:i>, the public modulus <h:i>n</h:i> and 
 						the calculation of the private signature exponent <h:i>d</h:i>.<h:p/>
 						
-						<h:br/><h:i><h:b>Testing for Random Provable Primes and Conditional Methods</h:b></h:i><h:p/> 
+						<h:i><h:b>Testing for Random Provable Primes and Conditional Methods</h:b></h:i><h:p/> 
 						To test the key generation method for the Random Provable primes method and for
 						all the Primes with Conditions methods (methods 1, 3-5), the evaluator must seed 
 						the TSF key generation routine with sufficient data to deterministically 
@@ -6199,8 +6198,8 @@
 					<title>
 						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 						The TSF shall enforce the [<h:i>CU Information Flow Control Policy</h:i> on: [<h:ul><h:i>
-							<h:li>Packets received on an untrusted Black Transport Network interface and destined for a trusted interface; and</h:li>
-							<h:li>Packets received on a trusted interface and destined for an untrusted Black Transport Network interface.</h:li></h:i>]
+							<h:li>Packets received on an untrusted black Transport Network interface and destined for a trusted interface; and</h:li>
+							<h:li>Packets received on a trusted interface and destined for an untrusted black Transport Network interface.</h:li></h:i>]
 						</h:ul>
 					</title>
 					<note role="application">
@@ -6394,7 +6393,7 @@
 				
 				<f-element id="fdp-iff-cu-1e3">
 					<title>
-						The TSF shall deny an information flow between an untrusted Black Transport Network interface and a trusted interface if the packet does							not match an explicitly configured allow rule.
+						The TSF shall deny an information flow between an untrusted black Transport Network interface and a trusted interface if the packet does							not match an explicitly configured allow rule.
 					</title>
 				</f-element>
 				
@@ -6498,7 +6497,7 @@
 			
 			<ext-comp-def title="Communications Unit Layer-2 Isolation Enforcement" fam-id="FDP_ISO_EXT">
 				<fam-behavior>
-					This family defines requirements for the Communications Unit (CU) to enforce isolation between trusted components and untrusted Black
+					This family defines requirements for the Communications Unit (CU) to enforce isolation between trusted components and unrestricted black
 					Transport Networks while preserving cryptographic continuity for already-encrypted Ethernet traffic.<h:p/>
 					A Layer-2 protocol break is defined as the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when forwarding
 					traffic between interfaces, preventing transparent bridging across trust boundaries.<h:p/>
@@ -6523,7 +6522,7 @@
 				<f-element id="fdp-iso-ext-1e1">
 					<title>
 						<comment>Need to complete sections for management, audit, dependencies, App Note, EAs, and audit events.</comment><h:p/>
-						The TSF shall provide isolation between trusted components and untrusted Black Transport Network interfaces by enforcing routing and firewall policies
+						The TSF shall provide isolation between trusted components and untrusted black Transport Network interfaces by enforcing routing and firewall policies
 						and preventing transparent Layer-2 bridging across trust boundaries.
 					</title>
 				</f-element>
@@ -6541,7 +6540,7 @@
 				<f-element id="fdp-iso-ext-1e3">
 					<title>
 						The TSF shall not act as a cryptographic endpoint for user data traffic and shall not terminate, decrypt, or re-originate cryptographic protection for
-						traffic transmitted between trusted components and untrusted Black Transport Networks.
+						traffic transmitted between trusted components and untrusted black Transport Networks.
 					</title>
 				</f-element>
 				
@@ -6642,7 +6641,7 @@
 			
 			<ext-comp-def title="Protocol Break Enforcement" fam-id="FDP_PBR_EXT">
 				<fam-behavior>
-					This family defines requirements for enforcing a Layer-2 protocol break when forwarding traffic between untrusted Black Transport Networks
+					This family defines requirements for enforcing a Layer-2 protocol break when forwarding traffic between untrusted black Transport Networks
 					and trusted components. A protocol break prevents transparent Layer-2 bridging across trust boundaries.<h:p/>
 					A Layer-2 protocol break is defined as the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when forwarding
 					traffic between interfaces, preventing transparent bridging across trust boundaries.<h:p/>
@@ -6664,7 +6663,7 @@
 					<title>
 						<comment>Need to complete sections for management, audit, dependencies, App Note, EAs, and audit
 					events.</comment><h:p/>
-						The TSF shall ensure that all traffic forwarded between an untrusted Black Transport Network interface and a trusted interface undergoes							a Layer-2 protocol break.
+						The TSF shall ensure that all traffic forwarded between an untrusted black Transport Network interface and a trusted interface undergoes							a Layer-2 protocol break.
 					</title>
 				</f-element>
 				
@@ -6680,7 +6679,7 @@
 				
 				<f-element id="fdp-pbr-ext-1e3">
 					<title>
-						The TSF shall prevent transparent Layer-2 bridging between untrusted Black Transport Network interfaces and trusted interfaces.
+						The TSF shall prevent transparent Layer-2 bridging between untrusted black Transport Network interfaces and trusted interfaces.
 					</title>
 					<note role="application">A Layer-2 protocol break is the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when
 						forwarding traffic between interfaces, preventing transparent bridging across trust boundaries.
