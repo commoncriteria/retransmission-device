@@ -99,7 +99,6 @@ output/retransmission-device-release-linkable.html: EUs
 output/retransmission-device-release-linkable.html: EXPAK
 output/retransmission-device-release-linkable.html: Electrotechnical
 output/retransmission-device-release-linkable.html: Encap
-output/retransmission-device-release-linkable.html: Encrytpion
 output/retransmission-device-release-linkable.html: Enctrypytion
 output/retransmission-device-release-linkable.html: EtherType
 output/retransmission-device-release-linkable.html: FB
@@ -199,7 +198,6 @@ output/retransmission-device-release-linkable.html: Winternitz
 output/retransmission-device-release-linkable.html: XCU
 output/retransmission-device-release-linkable.html: XMSS
 output/retransmission-device-release-linkable.html: XTP
-output/retransmission-device-release-linkable.html: adedicated
 output/retransmission-device-release-linkable.html: attemps
 output/retransmission-device-release-linkable.html: authorised
 output/retransmission-device-release-linkable.html: behaviour
@@ -318,7 +316,6 @@ output/retransmission-device-release.html: EUs
 output/retransmission-device-release.html: EXPAK
 output/retransmission-device-release.html: Electrotechnical
 output/retransmission-device-release.html: Encap
-output/retransmission-device-release.html: Encrytpion
 output/retransmission-device-release.html: Enctrypytion
 output/retransmission-device-release.html: EtherType
 output/retransmission-device-release.html: FB
@@ -420,7 +417,6 @@ output/retransmission-device-release.html: Winternitz
 output/retransmission-device-release.html: XCU
 output/retransmission-device-release.html: XMSS
 output/retransmission-device-release.html: XTP
-output/retransmission-device-release.html: adedicated
 output/retransmission-device-release.html: attemps
 output/retransmission-device-release.html: authorised
 output/retransmission-device-release.html: behaviour
@@ -538,7 +534,6 @@ output/retransmission-device.html: EUs
 output/retransmission-device.html: EXPAK
 output/retransmission-device.html: Electrotechnical
 output/retransmission-device.html: Encap
-output/retransmission-device.html: Encrytpion
 output/retransmission-device.html: Enctrypytion
 output/retransmission-device.html: EtherType
 output/retransmission-device.html: FB
@@ -640,7 +635,6 @@ output/retransmission-device.html: Winternitz
 output/retransmission-device.html: XCU
 output/retransmission-device.html: XMSS
 output/retransmission-device.html: XTP
-output/retransmission-device.html: adedicated
 output/retransmission-device.html: attemps
 output/retransmission-device.html: authorised
 output/retransmission-device.html: behaviour

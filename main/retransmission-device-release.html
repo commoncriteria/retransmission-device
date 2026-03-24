@@ -653,17 +653,17 @@ function showTarget(id){
 
 	
     <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
-    	The scope of this Protection Profile (<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>) is to describe the security functionality of Retransmission Devices in terms of the Common Criteria and to define functional
-    	and assurance requirements for such products.<br/>
-    	The form factors may vary according to the needs of the mission and the specific supported End User Devices (<abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>) and are intended to provide isolation, authentication
-    	and confidentiality for a <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> that must interoperate with an Untrusted Domain.<br/>
+    	The scope of this Protection Profile (<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>) is to describe the security functionality of retransmission devices in terms of the Common Criteria and to define functional
+    	and assurance requirements for such products.<p></p>
+    	The form factors may vary according to the needs of the mission and the specific supported End User Devices (<abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>) and are intended to provide isolation, authentication,
+    	and confidentiality for an <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> that must interoperate with an untrusted domain.<p></p>
     	This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> covers devices which meet one of the following use cases: Communication Unit (<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>), Encryption Unit (<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>), or a combined <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>. The main goal of the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> use case
     	is to provide network transport and simple isolation of the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> use case is intended to provide an independent layer of encryption for an <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> on top of the
-    	existing network transport.<br/>
-    	This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> can be met in one of three ways. The first is to claim conformance only to the Communication Unit requirements; the conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims only that it is a <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.
-    	The second is to claim conformance to only the Encryption Unit requirements; the conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims only that it is an <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>. The third is to claim conformance to both
-    	<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> + <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, which must include a physical and logical separation between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> components in the enclosure or solution.
-    	
+    	existing network transport.<p></p>
+    	This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> can be met in one of three ways. The first is to claim conformance only to the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> requirements; the conformant Target of Evaluation (<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) claims only that it is
+    	a <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.
+    	The second is to claim conformance to only the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> requirements; the conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims only that it is an <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>. The third is to claim conformance to both
+    	<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, which must include a physical and logical separation between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> components in the enclosure or solution.    	
 	
 	
 	
@@ -777,67 +777,66 @@ The following sections list Common Criteria and technology terms used in this do
 		 <h2 class="indexable" data-level="2" id="TOEdescription">1.3 Compliant Targets of Evaluation</h2>
 		 	
 		 <h3 class="indexable" data-level="3" id="TOE_Overview">1.3.1 TOE Overview</h3>
-		 	The primary Target of Evaluation (<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) for this Protection Profile (<abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>) is a Retransmission Device, herein referred to as a Communications Unit
-		 	(<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>), that is designed to provide hardware isolation and other security features to protect communication between trusted End User Devices (EUDs)
-		 	or networks and untrusted (Black) transport networks.<br/>
+		 	The primary <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is a retransmission device, herein referred to as a <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, that is designed to provide hardware isolation and other security features to
+		 	protect communication between trusted EUDs or networks and unrestricted (black) transport networks.<p></p>
 		 	
 		 	In addition, this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> supports the specification, evaluation, and certification of other related components, either independently or in combination,
-		 	as described in more detail below. Beyond the primary <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (i.e., <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>), conformance under this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> can be claimed for an Encryption Unit (<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>),
-		 	including the special use cases for supporting Wireless LAN (WLAN) or other Black network interface configurations, or a combination of a <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> and 
+		 	as described in more detail below. Beyond the primary <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (i.e., <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>), conformance under this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> can be claimed for an <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>,
+		 	including the special use cases for supporting Wireless Local Area Network (WLAN) or other black network interface configurations, or a combination of a <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> and 
 		 	<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>, referred to herein as a Hardware Separated Encrypting Retransmission Device (<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>), including the special use case for Protocol Free
-		 	Encrypting Device (PFED) based implementations.<br/>
+		 	Encrypting Device (PFED)-based implementations.<p></p>
 		 	
-		 	Depending on the evaluated configuration, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may provide:<ul>		 	
+		 	Depending on the evaluated configuration, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may provide any of the following.<ul>		 	
 		 		<li>Network transport and routing security functionality</li>
 		 		<li>Cryptographic protection of user data</li>
 		 		<li>Hardware-enforced isolation between trusted and untrusted interfaces, or</li>
-		 		<li>A hardware-separated architecture combining encryption and communications functions.</li>
-		 	</ul><br/>
+		 		<li>A hardware-separated architecture combining encryption and communications functions</li>
+		 	</ul><p></p>
 		 	
-		 	The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed between an <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or trusted network and an untrusted network environment. Its primary security objectives are to:<ul>
-		 		<li>Prevent unauthorized access from Black networks to trusted interfaces</li>
+		 	The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is deployed between an <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or trusted network and an untrusted network environment. Its primary security objectives are to do the following.<ul>
+		 		<li>Prevent unauthorized access from black networks to trusted interfaces</li>
 		 		<li>Ensure controlled forwarding of traffic</li>
-		 		<li>Enforce isolation between trusted and untrusted domains, and</li>
-		 		<li>Where applicable, cryptographically protect transmitted data.</li>
-		 	</ul><br/>
+		 		<li>Enforce isolation between trusted and untrusted domains</li>
+		 		<li>Where applicable, cryptographically protect transmitted data</li>
+		 	</ul><p></p>
 		 	
-		 	The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports the following evaluated configurations:<ul>
-		 	<li>Dedicated Communications Unit (<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>-Only)</li>
-		 	<li>Dedicated Encryption Unit (<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-Only)</li>
-		 	<li>Hardware-Separated Encrypting Retransmission Device (<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>) (i.e. <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>)</li>
-		 	</ul><br/>
+		 	The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports the following evaluated configurations.<ul>
+		 	<li>Dedicated <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>-Only)</li>
+		 	<li>Dedicated <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-Only)</li>
+		 	<li><abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> (i.e., <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>)</li>
+		 	</ul><p></p>
 		 	
 		 	Each evaluated configuration constitutes a distinct <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> instance.
 		 	
-		 	<div class="figure" id="figure-commcu"><img id="commcu" src="images/comm unit toe.png" width="" height=""></img><br/><span class="ctr" data-myid="commcu" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>:
+		 	<div class="figure" id="figure-commcu"><img id="commcu" src="images/CU_Toe.png" width="" height=""></img><br/><span class="ctr" data-myid="commcu" data-counter-type="ct-figure">Figure <span class="counter">1</span></span>:
       Communications Unit (<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>) <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></div>
-		 	<div class="figure" id="figure-enccu"><img id="enccu" src="images/encrypt unit toe" width="" height=""></img><br/><span class="ctr" data-myid="enccu" data-counter-type="ct-figure">Figure <span class="counter">2</span></span>:
+		 	<div class="figure" id="figure-enccu"><img id="enccu" src="images/EU_Toe.png" width="" height=""></img><br/><span class="ctr" data-myid="enccu" data-counter-type="ct-figure">Figure <span class="counter">2</span></span>:
       Encryption Unite (<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>) <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></div>
-		 	<div class="figure" id="figure-cueuhwserd"><img id="cueuhwserd" src="images/cu+eu hws-erd" width="" height=""></img><br/><span class="ctr" data-myid="cueuhwserd" data-counter-type="ct-figure">Figure <span class="counter">3</span></span>:
+		 	<div class="figure" id="figure-cueuhwserd"><img id="cueuhwserd" src="images/CU+EU_HWS-ERD.png" width="" height=""></img><br/><span class="ctr" data-myid="cueuhwserd" data-counter-type="ct-figure">Figure <span class="counter">3</span></span>:
       <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> Hardware-Separated Encrypting Retransmission Device (<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>) <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></div>		 	
-		 	<div class="figure" id="figure-cueuhwserdtoeenviroconfig"><img id="cueuhwserdtoeenviroconfig" src="images/cu+eu hws-erd" width="" height=""></img><br/><span class="ctr" data-myid="cueuhwserdtoeenviroconfig" data-counter-type="ct-figure">Figure <span class="counter">4</span></span>:
-      <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> Hardware-Separated Encrypting Retransmission Device (<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>) <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Environment Configuration</div>
+		 	<div class="figure" id="figure-cueuhwserdtoeenviroconfig"><img id="cueuhwserdtoeenviroconfig" src="images/CU+EU_HWS-ERD_TOE_Enviro_Config.png" width="" height=""></img><br/><span class="ctr" data-myid="cueuhwserdtoeenviroconfig" data-counter-type="ct-figure">Figure <span class="counter">4</span></span>:
+      <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> Hardware-Separated Encrypting Retransmission Device (<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>) <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Environment       Configuration</div>
 		
 		
 	
    
 	<h3 class="indexable" data-level="3" id="TOE_Configurations">1.3.2 TOE Configurations</h3>
 		<h4 class="indexable" data-level="4" id="CU-Only_Configuration">1.3.2.1 CU-Only Configuration</h4>
-		In the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>-Only configuration, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs: <ul>
+		In the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>-Only configuration, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs the following. <ul>
 			<li>Network routing and transport functionality and</li>
-			<li>Hardware-based isolation via adedicated wired interface between EUDs or EUs and Black Transport Networks.</li>
-		</ul><br/>
+			<li>Hardware-based isolation via a dedicated wired interface between EUDs or EUs and black transport networks</li>
+		</ul><p></p>
 		
-		The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> provides isolation between trusted components and untrusted Black Transport Networks and represents the minimum <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> configuration supported by 
-		the Protection Profile.<br/>
+		The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> provides isolation between trusted components and untrusted black transport networks and represents the minimum <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> configuration supported by 
+		the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.<p></p>
 		
 		<b><abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> Characteristics</b><ul>
 			<li>Network-facing component (cellular, Wi-Fi, or Ethernet)</li>
 			<li>Provides hardware isolation between untrusted networks and the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr></li>
 			<li>Implements a stateless firewall</li>
-			<li>Provides routing functionality across untrusted Black Transport Networks</li>
+			<li>Provides routing functionality across untrusted black transport networks</li>
 			<li>Performs a mandatory Layer-2 protocol break only when required by the selected encryption option</li>
-		</ul><br/>
+		</ul><p></p>
 		
 		<b>Encryption Option Specific <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> Behavior</b><ul>
 			<li>The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> provides routing and isolation services between trusted and untrusted networks.</li>
@@ -849,14 +848,14 @@ The following sections list Common Criteria and technology terms used in this do
 			<li>The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> does not implement cryptographic services for MACsec or PFED traffic and forwards already-encrypted traffic when those options are
 				selected.</li>
 			<li>The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> does not act as a cryptographic endpoint for user data traffic. The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> routes or forwards already-encrypted traffic across untrusted
-				Black Transport Networks without terminating, decrypting, or re-originating cryptographic protection while enforcing interface isolation
+				black transport networks without terminating, decrypting, or re-originating cryptographic protection while enforcing interface isolation
 				policies.</li>
 		</ul>
 		
 		
 		<h4 class="indexable" data-level="4" id="EU-Only_Configuration">1.3.2.2 EU-Only Configuration</h4>
-			In the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-Only configuration, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>:<ul>
-				<li>Provides hardware isolation between the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> and Black Transport Networks (e.g., WLAN or Tactical Radio) or <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, and</li>
+			In the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-Only configuration, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does the following.<ul>
+				<li>Provides hardware isolation between the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> and black transport networks (e.g., WLAN or Tactical Radio) or <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr></li>
 				<li>Encrypts all <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic to form an encrypted tunnel to an authorized encryption endpoint.</li>
 				<li>Implements one selectable encryption option from the following set.</li><ul>
 					<li>IPsec</li>
@@ -867,82 +866,82 @@ The following sections list Common Criteria and technology terms used in this do
 				<li>The interfaces between the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> shall be via a dedicated wired connection.</li>
 				<li>In non-WLAN configurations, the interface between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> (or other device) shall be via a dedicated wired connection.</li>
 				<li>Implements stateless Layer-2 traffic filtering when MACsec or PFED is selected, limited to Ethernet frame attributes (e.g., 
-						EtherType, source/destination MAC address).</li>
+						EtherType, source or destination MAC address).</li>
 				<li>When MACsec or PFED is selected, the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> presents a non-addressable Ethernet interface toward the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> (i.e., no <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address or
 						higher-layer protocol termination is supported on the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>–<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> interface).</li>
-				<li>When PFED encryption is selected, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must consist of the hardware-separated <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>) configuration </li>
+				<li>When PFED encryption is selected, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must consist of the hardware-separated <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> (<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>) configuration.</li>
 			</ul>
-			As noted, this configuration supports EUs that require connections to untrusted Black networks, such as WLAN and tactical radio encryption
+			As noted, this configuration supports EUs that require connections to untrusted black networks, such as WLAN and tactical radio encryption
 			implementations and functions as a dedicated encryption component for those applications. For these special use cases, some or all of the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>
 			requirements may be applicable. All traffic transmitted over the untrusted interface, either wired or wirelessly, is cryptographically protected.
 		
 		
 		<h4 class="indexable" data-level="4" id="HWS-ERD_Configuration">1.3.2.3 HWS-ERD Configuration</h4>
-			In the Hardware-Separated Encrypting Retransmission Device (<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>) configuration, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> consists of:<ul>
-				<li>A hardware-separated Encryption Unit (<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>), and</li>
-				<li>A hardware-separated Communications Unit (<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>).</li>
+			In the <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> configuration, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> consists of the following.<ul>
+				<li>A hardware-separated <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr></li>
+				<li>A hardware-separated <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr></li>
 			</ul>
-			The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>:<ul>
-				<li>Are physically distinct components, but may be housed within the same enclosure</li>
+			The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> are as follows.<ul>
+				<li>Physically distinct components, but may be housed within the same enclosure</li>
 				<li>Contain independent processors and memory</li>
 				<li>Are independently administered via physically separated and isolated interfaces</li>
 				<li>Pass payload data exclusively via dedicated wired interfaces.</li>
 			</ul>
 			The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> is solely responsible for:<ul>
 				<li>Cryptographic processing of <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or trusted network payload data</li>
-				<li>Ensuring plaintext is not exposed beyond trusted interfaces.</li>
+				<li>Ensuring plaintext is not exposed beyond trusted interfaces</li>
 			</ul>
-			The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> is solely responsible for:<ul>
+			The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> is solely responsible for the following.<ul>
 				<li>Routing or retransmission of encrypted traffic</li>
-				<li>Isolation from Black Transport Networks.</li>
+				<li>Isolation from black transport networks</li>
 			</ul>
-			Plaintext traffic does not traverse the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> or any Black interface, i.e., there may be no cryptographic bypass capability between the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or trusted
+			Plaintext traffic does not traverse the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> or any black interface, i.e., there may be no cryptographic bypass capability between the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or trusted
 			network and <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> or between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.			
 		
 	
 		 	
 	<h3 class="indexable" data-level="3" id="TOE_Logical_Boundary">1.3.3 TOE Logical Boundary</h3>
 		The logical boundary of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes the security functionality implemented by hardware, firmware, and software components within the evaluated 
-		configuration.<br/>
-		Depending on the configuration, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> logical boundary includes the following security functions:
+		configuration.<p></p>
+		Depending on the configuration, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> logical boundary includes the following security functions.
 		
 		<h4 class="indexable" data-level="4" id="Security_Isolation">1.3.3.1 Security Isolation</h4>
-			For all configurations, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>:<ul>
-				<li>Enforces hardware-based separation between trusted and Black interfaces</li>
-				<li>Prevents direct access from Black networks to trusted components</li>
+			For all configurations, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does the following.<ul>
+				<li>Enforces hardware-based separation between trusted and black interfaces</li>
+				<li>Prevents direct access from black networks to trusted components</li>
 				<li>Ensures all traffic traverses controlled forwarding paths</li>
-				<li>Prevents bypass of isolation mechanisms, including cryptographic and administrative.</li>
+				<li>Prevents bypass of isolation mechanisms, including cryptographic and administrative</li>
 			</ul>
 			In the <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> configuration, this includes enforced separation between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> roles.
 		
 		
 		<h4 class="indexable" data-level="4" id="Traffic_Forwarding_and_Routing_-_CU-Only_and_HWS-ERD">1.3.3.2 Traffic Forwarding and Routing - CU-Only and HWS-ERD</h4>
-			Where applicable, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>:<ul>
+			Where applicable, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does the following.<ul>
 				<li>Implements packet forwarding or routing security functions</li>
 				<li>Processes only traffic received on defined network interfaces</li>
-				<li>Ensures only encrypted traffic is transmitted onto Black networks (<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>)</li>
+				<li>Ensures only encrypted traffic is transmitted onto black networks (<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>)</li>
 				<li>Applies configured transport policies to forwarded traffic</li>
-				<li>Performs a mandatory Layer-2 protocol break only when required by the selected encryption option.</li>
+				<li>Performs a mandatory Layer-2 protocol break only when required by the selected encryption option</li>
 			</ul>
 		
 		
 		<h4 class="indexable" data-level="4" id="Cryptographic_Processing_-_EU-Only_and_HWS-ERD">1.3.3.3 Cryptographic Processing - EU-Only and HWS-ERD</h4>
-			Where applicable, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>:<ul>
-				<li>Encrypts all <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or trusted network payload traffic prior to transmission over Black networks</li>
+			Where applicable, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does the following.<ul>
+				<li>Encrypts all <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or trusted network payload traffic prior to transmission over black networks</li>
 				<li>Establishes encrypted tunnels to authorized endpoints</li>
 				<li>Ensures plaintext traffic is restricted to trusted network interfaces</li>
-				<li>Protects cryptographic keys and critical security parameters within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary.</li>				
+				<li>Protects cryptographic keys and critical security parameters within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary</li>				
 			</ul>
 			In these configurations, all cryptographic processing is confined to the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> component.
 		
 	
 		<h4 class="indexable" data-level="4" id="Security_Management">1.3.3.4 Security Management</h4>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> provides administrative functionality to:<ul>
+			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> provides administrative functionality to do the following.<ul>
 				<li>Configure network interfaces and routing parameters (as applicable)</li>
 				<li>Configure encryption parameters and endpoints (as applicable)</li>
 				<li>Manage security-relevant configuration settings</li>
 				<li>Restrict administrative access to authorized administrators via independent, physically isolated interfaces, i.e., it must not be 
-					possible to administer the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> or vice versa.</li>				
+					possible to administer the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> or vice versa</li>				
 			</ul>
 			In these configurations, all cryptographic processing is confined to the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> component.
 		
@@ -953,41 +952,41 @@ The following sections list Common Criteria and technology terms used in this do
 		logical boundary. The physical boundary must also be protected by passive anti-tamper methods.
 		
 		<h4 class="indexable" data-level="4" id="CU-Only_Physical_Boundary">1.3.4.1 CU-Only Physical Boundary</h4>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes:<ul>
+			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes the following.<ul>
 				<li>The communications hardware platform</li>
-				<li>Network interfaces (trusted [wired to <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>] and Black)</li>
+				<li>Network interfaces (trusted [wired to <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>] and black)</li>
 				<li>Embedded firmware and operating system implementing routing and isolation, including a firewall protecting the interface to the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or
 					<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr></li>
 				<li>Management interfaces</li>
-				<li>Non-volatile storage containing configuration data and key material (if required).</li>
+				<li>Non-volatile storage containing configuration data and key material (if required)</li>
 			</ul>
-			Excluded from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>:<ul>
+			The following are excluded from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.<ul>
 				<li>External encryption devices</li>
 				<li>External network infrastructure</li>
-				<li>End User Devices.</li>
+				<li>EUDs</li>
 			</ul>
 		
 		
 		<h4 class="indexable" data-level="4" id="EU-Only_Physical_Boundary">1.3.4.2 EU-Only Physical Boundary</h4>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes:<ul>
+			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes the following.<ul>
 				<li>Encryption hardware platform</li>
-				<li>Untrusted network interface(s) for special use cases as noted above</li>
+				<li>Untrusted network interfaces for special use cases as noted above</li>
 				<li>Trusted <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or network (wired) interfaces</li>
 				<li>Wired interface to <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> (non-WLAN configuration)</li>
 				<li>Cryptographic modules</li>
 				<li>Firmware and software implementing encryption and tunnel establishment</li>
 				<li>Management interfaces</li>
-				<li>Storage for keys and configuration data.</li>
+				<li>Storage for keys and configuration data</li>
 			</ul>
-			Excluded from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>:<ul>
+			The following are excluded from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr><ul>
 				<li>Remote encryption endpoints</li>
 				<li>External routing infrastructure</li>
-				<li>End User Devices</li>
+				<li>EUDs</li>
 			</ul>
 		
 		
 		<h4 class="indexable" data-level="4" id="HWS-ERD_Physical_Boundary">1.3.4.3 HWS-ERD Physical Boundary</h4>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes both:
+			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes both of the following.<p></p>
 			<b>Encryption Unite (<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>)</b><ul>
 				<li>Dedicated processor and memory</li>
 				<li>Dedicated wired interface to the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr></li>
@@ -1003,15 +1002,15 @@ The following sections list Common Criteria and technology terms used in this do
 				<li>Black network interfaces</li>
 				<li>Routing and forwarding firmware and software</li>
 				<li>Management interfaces</li>
-				<li>Configuration and key material storage.</li>
+				<li>Configuration and key material storage</li>
 			</ul>
 			The dedicated wired interface between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> is included within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary.<b></b>
 			
-			Excluded from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>:<ul>
-				<li>End User Devices</li>
+			The following are excluded from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.<ul>
+				<li>EUDs</li>
 				<li>Remote encryption endpoints</li>
 				<li>External network infrastructure</li>
-				<li>Black Transport Networks</li>
+				<li>Black transport networks</li>
 			</ul>
 		
 		
@@ -1020,9 +1019,9 @@ The following sections list Common Criteria and technology terms used in this do
 	
 		
     <h2 class="indexable" data-level="2" id="Use_Cases">1.4 Use Cases</h2>
-    	<dl><dt id="uc-ded-cu-ret-dev-cu-only"> [USE CASE 1] Dedicated Communications Unit (CU) Retransmission Device (CU-Only)</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a retransmission device that only provides network transport and routing functionality, as well
-    				as hardware isolation between trusted components and untrusted Black Transport Networks.</span></dd><dt id="uc-ded-eu-ret-dev-cu-only"> [USE CASE 2] Dedicated Encrytpion Unit (EU) Retransmission Device (EU-Only)</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a retransmission device that provides hardware isolation between the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> and untrusted Black Transport Networks, as well as capability
-    				to encrypt all traffic from the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> to form an encrypted tunnel to another encryption end-point.</span></dd><dt id="uc-hw-sep-enc-ret-dev-hws-red"> [USE CASE 3] Hardware-Separated Encrypting Retransmission Device (HWS-ERD) (i.e., CU + EU)</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a retransmission device composed of a hardware-separated <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.
+    	<dl><dt id="uc-ded-cu-ret-dev-cu-only"> [USE CASE 1] Dedicated CU Retransmission Device (CU-Only)</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a retransmission device that provides network transport and routing functionality, as well
+    				as hardware isolation between trusted components and untrusted black transport networks.</span></dd><dt id="uc-ded-eu-ret-dev-cu-only"> [USE CASE 2] Dedicated EU Retransmission Device (EU-Only)</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a retransmission device that provides hardware isolation between the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> and untrusted black transport networks, as well as capability
+    				to encrypt all traffic from the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> to form an encrypted tunnel to another encryption endpoint.</span></dd><dt id="uc-hw-sep-enc-ret-dev-hws-red"> [USE CASE 3] Hardware-Separated Encrypting Retransmission Device (HWS-ERD) (i.e., CU + EU)</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is a retransmission device composed of a hardware-separated <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.
     				<ul>
     					<li>The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> are implemented as distinct hardware components with independent processors and memory.</li>
     					<li>Communication between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> occurs only via a dedicated wired interface.</li>
@@ -2065,7 +2064,7 @@ The following sections list Common Criteria and technology terms used in this do
 	 					evaluator shall ensure the audit records generated during testing match the format specified in the 
 	 					administrative guide, and that the fields in each audit record have the proper entries.<p></p>
 	 					Note that the testing here can be accomplished in conjunction with the testing of the security mechanisms 
-	 					directly.<br/>
+	 					directly.<p></p>
 	 				</div></div></div></div></div>
 	 	
 	 	
@@ -5972,8 +5971,8 @@ The following sections list Common Criteria and technology terms used in this do
 				<div class="element"><div class="reqid" id="FDP_IFC.1.1/CU"><a href="#FDP_IFC.1.1/CU" class="abbr">FDP_IFC.1.1/CU</a></div><div class="reqdesc">
 						<span style="" class="comment " id="Comment-41-">Need to complete sections for App Note, EAs, and audit events.</span><p></p>
 						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall enforce the [<i><abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> Information Flow Control Policy</i> on: [<ul><i>
-							<li>Packets received on an untrusted Black Transport Network interface and destined for a trusted interface; and</li>
-							<li>Packets received on a trusted interface and destined for an untrusted Black Transport Network interface.</li></i>]
+							<li>Packets received on an untrusted black Transport Network interface and destined for a trusted interface; and</li>
+							<li>Packets received on a trusted interface and destined for an untrusted black Transport Network interface.</li></i>]
 						</ul>
 					<div class="appnote"><span class="note-header">Application
       Note:
@@ -6062,7 +6061,7 @@ The following sections list Common Criteria and technology terms used in this do
 					</div></div>
 				
 				<div class="element"><div class="reqid" id="FDP_IFF.1.3/CU"><a href="#FDP_IFF.1.3/CU" class="abbr">FDP_IFF.1.3/CU</a></div><div class="reqdesc">
-						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall deny an information flow between an untrusted Black Transport Network interface and a trusted interface if the packet does							not match an explicitly configured allow rule.
+						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall deny an information flow between an untrusted black Transport Network interface and a trusted interface if the packet does							not match an explicitly configured allow rule.
 					</div></div>
 				
 				<div class="element"><div class="reqid" id="FDP_IFF.1.4/CU"><a href="#FDP_IFF.1.4/CU" class="abbr">FDP_IFF.1.4/CU</a></div><div class="reqdesc">
@@ -6150,7 +6149,7 @@ The following sections list Common Criteria and technology terms used in this do
 				
 				<div class="element"><div class="reqid" id="FDP_ISO_EXT.1.1"><a href="#FDP_ISO_EXT.1.1" class="abbr">FDP_ISO_EXT.1.1</a></div><div class="reqdesc">
 						<span style="" class="comment " id="Comment-49-">Need to complete sections for management, audit, dependencies, App Note, EAs, and audit events.</span><p></p>
-						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide isolation between trusted components and untrusted Black Transport Network interfaces by enforcing routing and firewall policies
+						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide isolation between trusted components and untrusted black Transport Network interfaces by enforcing routing and firewall policies
 						and preventing transparent Layer-2 bridging across trust boundaries.
 					</div></div>
 				
@@ -6164,7 +6163,7 @@ The following sections list Common Criteria and technology terms used in this do
 				
 				<div class="element"><div class="reqid" id="FDP_ISO_EXT.1.3"><a href="#FDP_ISO_EXT.1.3" class="abbr">FDP_ISO_EXT.1.3</a></div><div class="reqdesc">
 						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not act as a cryptographic endpoint for user data traffic and shall not terminate, decrypt, or re-originate cryptographic protection for
-						traffic transmitted between trusted components and untrusted Black Transport Networks.
+						traffic transmitted between trusted components and untrusted black Transport Networks.
 					</div></div>
 				
 				<div class="element"><div class="reqid" id="FDP_ISO_EXT.1.4"><a href="#FDP_ISO_EXT.1.4" class="abbr">FDP_ISO_EXT.1.4</a></div><div class="reqdesc">
@@ -6728,7 +6727,7 @@ The following sections list Common Criteria and technology terms used in this do
 						differences between test environment and <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> execution environment shall be 
 						described.<p></p>			
 					
-						<br/><b>RSA Key Generation</b><p></p>
+						<b>RSA Key Generation</b><p></p>
 						<table border="1">
 							<tr class="header" bgcolor="#cccccc">
 								<td valign="top">Identifier</td>
@@ -6765,7 +6764,7 @@ The following sections list Common Criteria and technology terms used in this do
 						private prime factors <i>p</i> and <i>q</i>, the public modulus <i>n</i> and 
 						the calculation of the private signature exponent <i>d</i>.<p></p>
 						
-						<br/><i><b>Testing for Random Provable Primes and Conditional Methods</b></i><p></p> 
+						<i><b>Testing for Random Provable Primes and Conditional Methods</b></i><p></p> 
 						To test the key generation method for the Random Provable primes method and for
 						all the Primes with Conditions methods (methods 1, 3-5), the evaluator must seed 
 						the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> key generation routine with sufficient data to deterministically 
@@ -10092,7 +10091,7 @@ The following sections list Common Criteria and technology terms used in this do
 				<div class="element"><div class="reqid" id="FDP_PBR_EXT.1.1"><a href="#FDP_PBR_EXT.1.1" class="abbr">FDP_PBR_EXT.1.1</a></div><div class="reqdesc">
 						<span style="" class="comment " id="Comment-51-">Need to complete sections for management, audit, dependencies, App Note, EAs, and audit
 					events.</span><p></p>
-						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all traffic forwarded between an untrusted Black Transport Network interface and a trusted interface undergoes							a Layer-2 protocol break.
+						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all traffic forwarded between an untrusted black Transport Network interface and a trusted interface undergoes							a Layer-2 protocol break.
 					</div></div>
 				
 				<div class="element"><div class="reqid" id="FDP_PBR_EXT.1.2"><a href="#FDP_PBR_EXT.1.2" class="abbr">FDP_PBR_EXT.1.2</a></div><div class="reqdesc">
@@ -10104,7 +10103,7 @@ The following sections list Common Criteria and technology terms used in this do
 					</div></div>
 				
 				<div class="element"><div class="reqid" id="FDP_PBR_EXT.1.3"><a href="#FDP_PBR_EXT.1.3" class="abbr">FDP_PBR_EXT.1.3</a></div><div class="reqdesc">
-						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall prevent transparent Layer-2 bridging between untrusted Black Transport Network interfaces and trusted interfaces.
+						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall prevent transparent Layer-2 bridging between untrusted black Transport Network interfaces and trusted interfaces.
 					<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">A Layer-2 protocol break is the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when
@@ -11636,7 +11635,7 @@ The following sections list Common Criteria and technology terms used in this do
 							<li>Session setup and authentication complete</li>
 						</ul>.				
 					</div></div><h3 id="ext-comp-FDP_ISO_EXT" class="indexable" data-level="4">C.2.7.2 FDP_ISO_EXT Communications Unit Layer-2 Isolation Enforcement</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>
-					This family defines requirements for the Communications Unit (<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>) to enforce isolation between trusted components and untrusted Black
+					This family defines requirements for the Communications Unit (<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>) to enforce isolation between trusted components and unrestricted black
 					Transport Networks while preserving cryptographic continuity for already-encrypted Ethernet traffic.<p></p>
 					A Layer-2 protocol break is defined as the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when forwarding
 					traffic between interfaces, preventing transparent bridging across trust boundaries.<p></p>
@@ -11650,7 +11649,7 @@ The following sections list Common Criteria and technology terms used in this do
              Layer-2 Isolation and Cryptographic Continuity Enforcement,
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to ensure and manage the use of Layer-2 protocol.</p><h4>Management: FDP_ISO_EXT.1</h4><p>TBD</p><h4>Audit: FDP_ISO_EXT.1</h4><p>TBD</p><h4>FDP_ISO_EXT.1 Layer-2 Isolation and Cryptographic Continuity Enforcement</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>TBD</td></tr></table><h4 id="ext-comp-FDP_ISO_EXT.1.1">FDP_ISO_EXT.1.1</h4>
 						<span style="" class="comment " id="Comment-49-">Need to complete sections for management, audit, dependencies, App Note, EAs, and audit events.</span><p></p>
-						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide isolation between trusted components and untrusted Black Transport Network interfaces by enforcing routing and firewall policies
+						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide isolation between trusted components and untrusted black Transport Network interfaces by enforcing routing and firewall policies
 						and preventing transparent Layer-2 bridging across trust boundaries.
 					<h4 id="ext-comp-FDP_ISO_EXT.1.2">FDP_ISO_EXT.1.2</h4>
 						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall forward Ethernet frames that contain cryptographic protection applied by a trusted component without: <ul>
@@ -11660,7 +11659,7 @@ The following sections list Common Criteria and technology terms used in this do
 						</ul>
 					<h4 id="ext-comp-FDP_ISO_EXT.1.3">FDP_ISO_EXT.1.3</h4>
 						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not act as a cryptographic endpoint for user data traffic and shall not terminate, decrypt, or re-originate cryptographic protection for
-						traffic transmitted between trusted components and untrusted Black Transport Networks.
+						traffic transmitted between trusted components and untrusted black Transport Networks.
 					<h4 id="ext-comp-FDP_ISO_EXT.1.4">FDP_ISO_EXT.1.4</h4>
 						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall drop traffic that cannot be routed or forwarded in accordance with the isolation and cryptographic continuity requirements defined in this
 						component.
@@ -11681,7 +11680,7 @@ The following sections list Common Criteria and technology terms used in this do
 				</td></tr></table><h4 id="ext-comp-FDP_ITC_EXT.1.1">FDP_ITC_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support importing keys/key material using [<b>assignment</b>: 
      <span class="assignable-content">import method</span>].<h4 id="ext-comp-FDP_ITC_EXT.1.2">FDP_ITC_EXT.1.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall verify the integrity of imported keys/key material using [<b>assignment</b>: 
      <span class="assignable-content">method of integrity verification</span>].</div></div><h3 id="ext-comp-FDP_PBR_EXT" class="indexable" data-level="4">C.2.7.4 FDP_PBR_EXT Protocol Break Enforcement</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>
-					This family defines requirements for enforcing a Layer-2 protocol break when forwarding traffic between untrusted Black Transport Networks
+					This family defines requirements for enforcing a Layer-2 protocol break when forwarding traffic between untrusted black Transport Networks
 					and trusted components. A protocol break prevents transparent Layer-2 bridging across trust boundaries.<p></p>
 					A Layer-2 protocol break is defined as the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when forwarding
 					traffic between interfaces, preventing transparent bridging across trust boundaries.<p></p>
@@ -11692,7 +11691,7 @@ The following sections list Common Criteria and technology terms used in this do
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to ensure and manage the use of a Layer-2 protocol break.</p><h4>Management: FDP_PBR_EXT.1</h4><p>TBD</p><h4>Audit: FDP_PBR_EXT.1</h4><p>TBD</p><h4>FDP_PBR_EXT.1 Layer-2 Protocol Break</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>TBD</td></tr></table><h4 id="ext-comp-FDP_PBR_EXT.1.1">FDP_PBR_EXT.1.1</h4>
 						<span style="" class="comment " id="Comment-51-">Need to complete sections for management, audit, dependencies, App Note, EAs, and audit
 					events.</span><p></p>
-						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all traffic forwarded between an untrusted Black Transport Network interface and a trusted interface undergoes							a Layer-2 protocol break.
+						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all traffic forwarded between an untrusted black Transport Network interface and a trusted interface undergoes							a Layer-2 protocol break.
 					<h4 id="ext-comp-FDP_PBR_EXT.1.2">FDP_PBR_EXT.1.2</h4>
 						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform a Layer-2 protocol break when forwarding traffic that is not protected by Ethernet-layer cryptographic mechanisms
 						across a trust boundary by:<ul>
@@ -11700,7 +11699,7 @@ The following sections list Common Criteria and technology terms used in this do
 							<li>Constructing and applying a new Layer-2 header (encapsulation) prior to transmission on the egress interface</li>
 						</ul>
 					<h4 id="ext-comp-FDP_PBR_EXT.1.3">FDP_PBR_EXT.1.3</h4>
-						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall prevent transparent Layer-2 bridging between untrusted Black Transport Network interfaces and trusted interfaces.
+						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall prevent transparent Layer-2 bridging between untrusted black Transport Network interfaces and trusted interfaces.
 					</div></div><h3 id="ext-comp-FDP_STG_EXT" class="indexable" data-level="4">C.2.7.5 FDP_STG_EXT User Data Storage</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>This family defines requirements for managing data storage. 
 				</div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_STG_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_STG_EXT.1">FDP_STG_EXT.1</a>,
              User Data Storage,
