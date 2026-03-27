@@ -1277,7 +1277,7 @@
 		
 		
 	<!-- 5.1.1 Security Audit (FAU) -->
-	 <section title="Security Audit (FAU)" id="fau">
+		<section title="Class FAU: Security Audit" id="fau">
 	 	<f-component id="sfr-fau-gen-1" cc-id="fau_gen.1" name="Audit Data Generation">
 	 		<f-element id="fau-gen-1e1">
 	 			<title>The TSF shall be able to generate audit data of the following auditable events:
@@ -1585,7 +1585,7 @@
 	 	
 	 </section>
 		
-		<section title="Communications (FCO)" id="fco">
+		<section title="Class FCO: Communications" id="fco">
 			<f-component name="Selective Proof of Origin" cc-id="fco_nro.1">
 				<consistency-rationale>
 					
@@ -1675,7 +1675,7 @@
 			</f-component>
 		</section>
 	
-	<section title="Cryptographic Support (FCS)" id="fcs">
+		<section title="Class FCS: Cryptographic Support" id="fcs">
 	  
 		<!-- FCS_CKM_EXT.1 -->
 		<ext-comp-def fam-id="FCS_CKM_EXT" title="Cryptographic Key Management">
@@ -6155,7 +6155,7 @@
 		</f-component>		
     </section>    
 		
-		<section title="User Data Protection (FDP)" id="fdp">
+		<section title="Class FDP: User Data Protection" id="fdp">
 			
 			<ext-comp-def title="Secure Bring-Up" fam-id="FDP_BRINGUP_EXT">
 				<fam-behavior>This family defines requirements for preventing traffic flow until certain conditions are met.</fam-behavior>
@@ -6736,7 +6736,7 @@
 			
 		</section>
 		
-		<section title="Identification and Authentication (FIA)" id="fia">
+		<section title="Class FIA: Identification and Authentication" id="fia">
 			
 			<f-component name="Authentication Failure Handling" cc-id="fia_afl.1" iteration="PFED" status="feat-based">
 				<depends on="pfed"/>
@@ -7537,7 +7537,7 @@
 			</f-component>
 		</section>
 		
-      <section title="Security Management (FMT)" id="fmt">
+		<section title="Class FMT: Security Management" id="fmt">
 
       	<f-component id="sfr-fmt-mof-1" cc-id="fmt_mof.1" name="Management of Security Functions Behavior">
       		<f-element id="fmt-mof-1e1">
@@ -7984,7 +7984,7 @@
       	
     </section>   <!-- FMT -->
 
-    <section title="Packet Filtering (FPF)" id="fpf">
+		<section title="Class FPF: Packet Filtering" id="fpf">
     	<ext-comp-def title="Packet Filtering" fam-id="FPF_RUL_EXT">
     		<fam-behavior>This family defines requirements for using packet filtering.</fam-behavior>
     	</ext-comp-def>
@@ -8599,7 +8599,7 @@
     	</f-component>    	
     </section>
 
-    <section title="Protection of the TSF (FPT)" id="fpt">
+		<section title="Class FPT: Protection of the TSF" id="fpt">
     	
     	<ext-comp-def fam-id="FPT_APW_EXT" title="Protection of Administrator Password">
     		<fam-behavior>Components in this family ensure that the TSF will protect plaintext administrator credential
@@ -10619,7 +10619,7 @@
 		</f-component>
     </section>  <!-- FPT -->
 	    
-	    <section id="fta" title="TOE Access (FTA)">
+		<section id="fta" title="Class FTA: TOE Access">
 	    	
 	    	<f-component name="TSF-Initiated Termination" cc-id="fta_ssl.3">
 	    		<f-element>
@@ -10767,7 +10767,7 @@
 	    </section>
 	    
 	    
-    <section title="Trusted Path/Channel (FTP)" id="ftp">
+		<section title="Class FTP: Trusted Path/Channel" id="ftp">
 	  
       <f-component name="Inter-TSF Trusted Channel" cc-id="ftp_itc.1">
       	<f-element id="ftp-itc-1e1">
