@@ -516,6 +516,7 @@ output/retransmission-device.html: CPUs
 output/retransmission-device.html: CSPs
 output/retransmission-device.html: CSP’
 output/retransmission-device.html: CUs
+output/retransmission-device.html: Conditi
 output/retransmission-device.html: DCN
 output/retransmission-device.html: DDX
 output/retransmission-device.html: DEKs
@@ -662,6 +663,7 @@ output/retransmission-device.html: lockscreen
 output/retransmission-device.html: log2
 output/retransmission-device.html: namespaces
 output/retransmission-device.html: nonrepeating
+output/retransmission-device.html: ons
 output/retransmission-device.html: pairs’
 output/retransmission-device.html: pluggable
 output/retransmission-device.html: pool’
