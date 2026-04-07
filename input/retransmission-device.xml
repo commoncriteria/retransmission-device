@@ -486,12 +486,13 @@
 	</sec:Use_Cases>
 	
 		<section title="Product Features Mapped to Implementation-Dependent Requirements" id="sec-features">
-			A conformant TOE may implement either IPsec, MACsec, PFED, or WLAN for data in transit encryption in the EU. Depending on which is
-			supported, different requirements will apply to the TOE as they each implement different methods of protection of data in transit.
-			<comment>Each feature description needs to be completed with a list of SFRs.</comment>
+			The features enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.
 			<implements>
 				<feature id="ipsec" title="IPsec">
-					<description>The TOE implements IPsec encryption in the EU.
+					<description>A conformant TOE claims to be an EU and implements IPsec for data-in-transit encryption in the EU.<h:p/>
+						If this feature is implemented by the TOE, the following requirements must be claimed in the ST. <h:ul>
+							<h:li></h:li>
+						</h:ul>
 				</description>
 				</feature>
 				<feature id="macsec" title="MACsec">
@@ -506,49 +507,25 @@
 					<description>The TOE implements WLAN encryption in the EU.
 				</description>
 				</feature>
-			</implements>
-		</section>
-		<section title="PFED Specification" id="pfedspec">
-			PFED Specification...<comment>Need to complete a description for each feature.</comment>
-			<implements>
-				<feature id="TOE-crypto-bound-over" title="TOE Cryptographic Boundary and Overview">
-					<description>TBD</description>
+				<feature id="cu-functionality" title="CU Functionality">
+					<description>A conformant TOE claims to be a CU. This includes the TOE claiming to be only a CU or claiming to be a CU as part of a HWS-ERD configuration.<h:p/>
+						If this feature is implemented by the TOE, the following requirements must be claimed in the ST. <h:ul>
+							<h:li>FDP_IFC.1/CU Subset Information Flow Control</h:li>
+							<h:li>FDP_IFF.1/CU Simple Security Attributes</h:li>
+							<h:li>FDP_ISO_EXT.1 Layer-2 Isolation and Cryptographic Continuity Enforcement</h:li>
+							<h:li>FDP_PBR_EXT.1 Layer-2 Protocol Break</h:li>
+						</h:ul>
+					</description>
 				</feature>
-				<feature id="crypto-alg-para" title="Cryptographic Algorithms and Parameters">
-					<description>TBD</description>
-				</feature>
-				<feature id="ERD-pair-prov-crypto-bond" title="ERD Pair Provisioning and Cryptographic Bonding">
-					<description>TBD</description>
-				</feature>
-				<feature id="prov-comp-key-mat-genz" title="Provisioning Completion and Key Material GenerationZ">
-					<description>TBD</description>
-				</feature>
-				<feature id="key-der-key-stor" title="Key Derivation and Key Storage">
-					<description>TBD</description>
-				</feature>
-				<feature id="sess-set-mut-auth" title="Session Setup and Mutual Authentication">
-					<description>TBD</description>
-				</feature>
-				<feature id="rekey-op" title="Rekey Operations">
-					<description>TBD</description>
-				</feature>
-				<feature id="sess-key-recov" title="Session Key Recovery">
-					<description>TBD</description>
-				</feature>
-				<feature id="traff-iso-inter-filt" title="Traffic Isolation and Interface Filtering">
-					<description>TBD</description>
-				</feature>
-				<feature id="dead-peer-det-pers-enforc" title="Dead Peer Detection and Persona Enforcement">
-					<description>TBD</description>
-				</feature>
-				<feature id="log-audit" title="Loggin and Audit">
-					<description>TBD</description>
-				</feature>
-				<feature id="plat-op-enviro-enforc" title="Platform and Operational Environment Enforcement">
-					<description>TBD</description>
-				</feature>
-				<feature id="bring-up-multi-activ" title="Bring-Up and Multi-Factor Activation">
-					<description>TBD</description>
+				<feature id="hws-erd" title="Hardware-Separated Encrypting Retransmission Device (HWS-ERD)">
+					<description>A conformant TOE claims to be both a CU and an EU, and includes physical and logical separation between the EU and CU components in the
+						enclosure or solution.  <h:p/>
+						If this feature is implemented by the TOE, the following requirements must be claimed in the ST. <h:ul>
+							<h:li>FDP_IFC.1/HWS Subset Information Flow Control</h:li>
+							<h:li>FDP_IFF.1/HWS Simple Security Attributes</h:li>
+							<h:li>FDP_ISO_EXT.1 Layer-2 Isolation and Cryptographic Continuity Enforcement</h:li>
+							<h:li>FDP_PBR_EXT.1 Layer-2 Protocol Break</h:li>
+						</h:ul></description>
 				</feature>
 			</implements>
 		</section>
