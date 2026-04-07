@@ -489,43 +489,28 @@
 			The features enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.
 			<implements>
 				<feature id="ipsec" title="IPsec">
-					<description>A conformant TOE claims to be an EU and implements IPsec for data-in-transit encryption in the EU.<h:p/>
-						If this feature is implemented by the TOE, the following requirements must be claimed in the ST. <h:ul>
-							<h:li></h:li>
-						</h:ul>
+					<description>A conformant TOE claims to be an EU and implements IPsec for data-in-transit encryption in the EU.						
 				</description>
 				</feature>
 				<feature id="macsec" title="MACsec">
-					<description>The TOE implements MACsec encryption in the EU.<h:p/>
+					<description>A conformant TOE claims to be an EU and implements MACsec for data-in-transit encryption in the EU.
 				</description>
 				</feature>
 				<feature id="pfed" title="PFED">
-					<description>The TOE implements PFED encryption in the EU.<h:p/>
+					<description>A conformant TOE claims to be an EU and implements PFED for data-in-transit encryption in the EU.
 				</description>
 				</feature>
 				<feature id="wlan" title="WLAN">
-					<description>The TOE implements WLAN encryption in the EU.
+					<description>A conformant TOE claims to be an EU and implements WLAN for data-in-transit encryption in the EU.
 				</description>
 				</feature>
 				<feature id="cu-functionality" title="CU Functionality">
-					<description>A conformant TOE claims to be a CU. This includes the TOE claiming to be only a CU or claiming to be a CU as part of a HWS-ERD configuration.<h:p/>
-						If this feature is implemented by the TOE, the following requirements must be claimed in the ST. <h:ul>
-							<h:li>FDP_IFC.1/CU Subset Information Flow Control</h:li>
-							<h:li>FDP_IFF.1/CU Simple Security Attributes</h:li>
-							<h:li>FDP_ISO_EXT.1 Layer-2 Isolation and Cryptographic Continuity Enforcement</h:li>
-							<h:li>FDP_PBR_EXT.1 Layer-2 Protocol Break</h:li>
-						</h:ul>
+					<description>A conformant TOE claims to be a CU. This includes the TOE claiming to be only a CU or claiming to be a CU as part of a HWS-ERD configuration.
 					</description>
 				</feature>
 				<feature id="hws-erd" title="Hardware-Separated Encrypting Retransmission Device (HWS-ERD)">
 					<description>A conformant TOE claims to be both a CU and an EU, and includes physical and logical separation between the EU and CU components in the
-						enclosure or solution.  <h:p/>
-						If this feature is implemented by the TOE, the following requirements must be claimed in the ST. <h:ul>
-							<h:li>FDP_IFC.1/HWS Subset Information Flow Control</h:li>
-							<h:li>FDP_IFF.1/HWS Simple Security Attributes</h:li>
-							<h:li>FDP_ISO_EXT.1 Layer-2 Isolation and Cryptographic Continuity Enforcement</h:li>
-							<h:li>FDP_PBR_EXT.1 Layer-2 Protocol Break</h:li>
-						</h:ul></description>
+						enclosure or solution.</description>
 				</feature>
 			</implements>
 		</section>
@@ -1664,8 +1649,7 @@
 		<!-- FCS_CKM.1/AKG -->
         <f-component cc-id="fcs_ckm.1" id="fcom_asym_key_gen" iteration="AKG" name="Cryptographic
         	Key Generation - Asymmetric Key" status="sel-based">
-        	<depends on-sel=""/>
-        	<depends on-sel=""/>
+        	<depends on="ipsec"/>
         	<depends on-incl="sfr-fcs-ckm-ext-7"/>
         	<depends on-incl="sfr-fcs-cop-1-keyencap"/>
         	<depends on-incl="fcs_sign_gen"/>
@@ -2327,6 +2311,8 @@
 		<!-- FCS_CKM.1/SKG -->
 		<f-component cc-id="fcs_ckm.1" id="fcom_sym_key_gen" iteration="SKG" name="Cryptographic Key
 			Generation - Symmetric Key" status="sel-based">
+			<depends on="pfed"/>
+			<depends on="ipsec"/>
 			<depends on-sel="fcs-stg-ext-1e2-sk"/>			
 			<depends on-incl="sfr-fcs-cop-1-aead"/>
 			<depends on-incl="sfr-fcs-cop-1-cmac"/>
@@ -2410,6 +2396,7 @@
 
 		<!-- FCS_CKM.2 -->
         <f-component cc-id="fcs_ckm.2" id="fcs-ckm-2" name="Cryptographic Key Distribution" status="sel-based">
+        	<depends on="wlan"/>
         	<depends on-sel="sfr-ftp-itc-ext-1"/>  
         	<depends on="sfr-fcs-cop-1-keyencap"/>
         	<depends on="sfr-fcs-cop-1-kw"/>
@@ -2684,6 +2671,7 @@
 		
 		<!-- FCS_CKM_EXT.7 Cryptographic Key Agreement -->
 		<f-component id="sfr-fcs-ckm-ext-7" cc-id="fcs_ckm_ext.7" name="Cryptographic Key Agreement" status="feat-based">
+			<depends on="ipsec"/>
 			<depends><optional/></depends>
 						
 			<consistency-rationale/>
@@ -3525,6 +3513,7 @@
 		<!-- FCS_COP.1/KeyEncap Cryptographic Operation - Key Encapsulation -->
 		<f-component id="sfr-fcs-cop-1-keyencap" cc-id="fcs_cop.1" iteration="KeyEncap" 
 			name="Cryptographic Operation - Key Encapsulation" status="sel-based">
+			<depends on="ipsec"/>
 			<depends on-sel="sel-ckm-2-encap"/>
 			<f-element id="fcs-cop-1e1-keyencap">
 				<title> The TSF shall perform [<h:i>key encapsulation</h:i>] in accordance with a specified cryptographic algorithm 
@@ -3637,6 +3626,7 @@
 		
 		<!-- FCS_COP.1/KeyWrap Cryptographic Operation - Key Wrapping -->
 		<f-component id="sfr-fcs-cop-1-kw" cc-id="fcs_cop.1" iteration="KeyWrap" name="Cryptographic Operation - Key Wrapping" status="sel-based">
+			<depends on="ipsec"/>
 			<depends on-sel="sel-ckm-2-wrap"/>
 			<depends on-sel="sel-stg3-kw"/>
 			<depends on-sel="sel-fdp-itc-ext-1e2-kw"/>
@@ -3929,6 +3919,7 @@
 		
 	    <!-- FCS_COP.1/SigGen (formerly FCS_COP.1/3) -->
         <f-component cc-id="fcs_cop.1" id="fcs_sign_gen" iteration="SigGen" name="Cryptographic Operation - Signing Generation" status="sel-based">
+        	<depends on="ipsec"/>
         	<depends on-sel="fcs-stg-ext-3e1"/>
         	<depends><optional/></depends>
         	<f-element id="fel-sign-gen">
@@ -6019,6 +6010,7 @@
 		<!-- FCS_STG_EXT.2 Key Storage Encryption -->
 		<f-component id="sfr-fcs-stg-ext-2" cc-id="fcs_stg_ext.2" name="Encrypted Cryptographic Key
 			Storage" status="sel-based">
+			<depends on="ipsec"/>
 			<depends on-sel="sel-stg1-sw-based"/>  <!-- implies sel-stg2-sw-based -->
 			<consistency-rationale/>
 			<comp-lev>requires the TSF to ensure the confidentiality of stored
@@ -6170,6 +6162,7 @@
 			</f-component>
 			
 			<f-component name="Subset Information Flow Control" cc-id="fdp_ifc.1" iteration="CU" status="feat-based">
+				<depends on="cu-functionality"/>
 				<depends on="pfed"/>
 				<f-element>
 					<title>
@@ -6195,6 +6188,7 @@
 			</f-component>				
 			
 			<f-component name="Subset Information Flow Control" cc-id="fdp_ifc.1" iteration="HWS" status="feat-based">
+				<depends on="hws-erd"/>
 				<depends on="pfed"/>
 				<f-element id="fdp-ifc-hws-1e1">
 					<title>
@@ -6326,6 +6320,7 @@
 			</f-component>
 			
 			<f-component name="Simple Security Attributes" cc-id="fdp_iff.1" iteration="CU" status="feat-based">
+				<depends on="cu-functionality"/>
 				<depends on="pfed"/>
 				<f-element id="fdp-iff-cu-1e1">
 					<title>
@@ -6395,6 +6390,7 @@
 			</f-component>
 			
 			<f-component name="Simple Security Attributes" cc-id="fdp_iff.1" iteration="HWS" status="feat-based">
+				<depends on="hws-erd"/>
 				<depends on="pfed"/>
 				<f-element id="fdp-iff-hws-1e1">
 					<title>
@@ -6488,6 +6484,8 @@
 			</ext-comp-def>
 			
 			<f-component name="Layer-2 Isolation and Cryptographic Continuity Enforcement" cc-id="fdp_iso_ext.1" status="feat-based">
+				<depends on="cu-functionality"/>
+				<depends on="hws-erd"/>
 				<depends on="ftp_trp.1"/>
 				<depends on-sel="selpfed"/>
 				<consistency-rationale/>
@@ -6628,6 +6626,8 @@
 			</ext-comp-def>
 			
 			<f-component name="Layer-2 Protocol Break" cc-id="fdp_pbr_ext.1" status="sel-based">
+				<depends on="cu-functionality"/>
+				<depends on="hws-erd"/>
 				<depends on-sel="selpfed"/>
 				<depends on="ftp_trp.1"/>
 				<consistency-rationale></consistency-rationale>
@@ -9749,7 +9749,8 @@
     			subsystem does not permit direct compromise of the other.</fam-behavior>
     	</ext-comp-def>
 	
-    	<f-component name="TSF Domain Separation" cc-id="fpt_sep_ext.1">
+    	<f-component name="TSF Domain Separation" cc-id="fpt_sep_ext.1" status="feat-based">
+    		<depends on="hws-erd"/>
     		<consistency-rationale>
     			<comment>Need to complete sections for management, audit, dependencies, App Note, EAs, and audit
     				events.</comment><h:p/>
@@ -10863,6 +10864,7 @@
     	</ext-comp-def>    	
     	
     	<f-component id="sfr-ftp-itc-ext-1" cc-id="ftp_itc_ext.1" name="Physically Protected Channel" status="sel-based">
+    		<depends on="ipsec"/>
     		<depends on-sel="sel-ckm-2-echan"/>
     		<depends on-sel="key-dist-ftp-itc-ext-1"/>
     		<depends on-sel="sel-smf-remote-admin"/>
