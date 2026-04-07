@@ -109,10 +109,6 @@
           /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[10]""/f-component[3]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[18]""/O[2]""/depends[2]""
 * Warning: Potentially illegal 'depends' element.
           /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[10]""/f-component[3]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[19]""/depends[1]""
-* Error: Detected multiple elements with an id of 'pfedspec'.
-* Error: Detected multiple elements with an id of 'crypto-alg-para'.
-* Error: Detected multiple elements with an id of 'sess-set-mut-auth'.
-* Error: Detected multiple elements with an id of 'rekey-op'.
 * Error: Detected multiple elements with an id of 'fau-gen-1e1'.
 * Error: Detected multiple elements with an id of 'fau-gen-1e1'.
 * Error: Detected multiple elements with an id of 'fau-stg-1e1'.
@@ -135,10 +131,6 @@
 * Error: Detected multiple elements with an id of 'sel-rot2-user-det'.
 * Error: Detected multiple elements with an id of 'ftp-trp-1e1'.
 * Error: Detected multiple elements with an id of 'ftp-trp-1e1'.
-* Error: Detected multiple elements with an id of 'pfedspec'.
-* Error: Detected multiple elements with an id of 'crypto-alg-para'.
-* Error: Detected multiple elements with an id of 'sess-set-mut-auth'.
-* Error: Detected multiple elements with an id of 'rekey-op'.
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[3]""
@@ -152,8 +144,11 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Configurations[1]""/sec:CU-Only_Configuration[1]"In the CU"/h:p[3]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Logical_Boundary[1]"The logic"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Physical_Boundary[1]"The TOE p"/sec:HWS-ERD_Physical_Boundary[1]"The TOE i"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"A conform"/implements[1]""/feature[2]""/description[1]"The TOE i"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"A conform"/implements[1]""/feature[3]""/description[1]"The TOE i"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The featu"/implements[1]""/feature[1]""/description[1]"A conform"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The featu"/implements[1]""/feature[2]""/description[1]"The TOE i"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The featu"/implements[1]""/feature[3]""/description[1]"The TOE i"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The featu"/implements[1]""/feature[5]""/description[1]"A conform"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The featu"/implements[1]""/feature[6]""/description[1]"A conform"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/note[1]"The ST Au"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/note[1]"The ST Au"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/note[1]"The ST Au"/h:p[3]""

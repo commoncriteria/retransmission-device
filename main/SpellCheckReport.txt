@@ -135,7 +135,6 @@ output/retransmission-device-release-linkable.html: Kryptolan
 output/retransmission-device-release-linkable.html: Kryptonet
 output/retransmission-device-release-linkable.html: LMS
 output/retransmission-device-release-linkable.html: LTE
-output/retransmission-device-release-linkable.html: Loggin
 output/retransmission-device-release-linkable.html: MACs
 output/retransmission-device-release-linkable.html: MFE
 output/retransmission-device-release-linkable.html: MGF1
@@ -353,7 +352,6 @@ output/retransmission-device-release.html: Kryptolan
 output/retransmission-device-release.html: Kryptonet
 output/retransmission-device-release.html: LMS
 output/retransmission-device-release.html: LTE
-output/retransmission-device-release.html: Loggin
 output/retransmission-device-release.html: MACs
 output/retransmission-device-release.html: MFE
 output/retransmission-device-release.html: MGF1
@@ -516,7 +514,6 @@ output/retransmission-device.html: CPUs
 output/retransmission-device.html: CSPs
 output/retransmission-device.html: CSP’
 output/retransmission-device.html: CUs
-output/retransmission-device.html: Conditi
 output/retransmission-device.html: DCN
 output/retransmission-device.html: DDX
 output/retransmission-device.html: DEKs
@@ -558,6 +555,7 @@ output/retransmission-device.html: INformation
 output/retransmission-device.html: IPLT
 output/retransmission-device.html: IPX
 output/retransmission-device.html: ITE
+output/retransmission-device.html: Ident
 output/retransmission-device.html: Interface’
 output/retransmission-device.html: Internetworking
 output/retransmission-device.html: Internodal
@@ -572,7 +570,6 @@ output/retransmission-device.html: Kryptolan
 output/retransmission-device.html: Kryptonet
 output/retransmission-device.html: LMS
 output/retransmission-device.html: LTE
-output/retransmission-device.html: Loggin
 output/retransmission-device.html: MACs
 output/retransmission-device.html: MFE
 output/retransmission-device.html: MGF1
@@ -656,6 +653,7 @@ output/retransmission-device.html: ffdhe6144
 output/retransmission-device.html: ffdhe8192
 output/retransmission-device.html: fulfil
 output/retransmission-device.html: hLen
+output/retransmission-device.html: ification
 output/retransmission-device.html: invocable
 output/retransmission-device.html: keystore
 output/retransmission-device.html: lifecycle
@@ -663,7 +661,6 @@ output/retransmission-device.html: lockscreen
 output/retransmission-device.html: log2
 output/retransmission-device.html: namespaces
 output/retransmission-device.html: nonrepeating
-output/retransmission-device.html: ons
 output/retransmission-device.html: pairs’
 output/retransmission-device.html: pluggable
 output/retransmission-device.html: pool’
