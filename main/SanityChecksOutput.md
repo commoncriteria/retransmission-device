@@ -3,26 +3,22 @@
         on-sel/PP[1]""/include-pkg[1]""/depends[2]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-itc-https from attribute
         on-sel/PP[1]""/include-pkg[2]""/depends[2]""/on-sel[1]""
-* Error: Detected dangling id-reference to  from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[1]""/depends[1]""/on-sel[1]""
-* Error: Detected dangling id-reference to  from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[1]""/depends[2]""/on-sel[1]""
 * Error: Detected dangling id-reference to fcs-stg-ext-1e2-sk from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/depends[1]""/on-sel[1]""
+        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/depends[3]""/on-sel[1]""
 * Error: Detected dangling id-reference to  from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[11]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to  from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[12]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-fdp-itc-ext-1e2-kw from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[16]""/depends[3]""/on-sel[1]""
+        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[16]""/depends[4]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-fdp-itc-ext-1e2-sig from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[23]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to  from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[24]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to ftp_trp.1 from attribute
-        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[8]""/f-component[10]""/depends[1]""/on[1]""
+        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[8]""/f-component[10]""/depends[3]""/on[1]""
 * Error: Detected dangling id-reference to ftp_trp.1 from attribute
-        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[8]""/f-component[12]""/depends[2]""/on[1]""
+        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[8]""/f-component[12]""/depends[4]""/on[1]""
 * Error: Detected dangling id-reference to sfr-ftp-trp-1 from attribute
         on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[10]""/f-component[3]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[5]""/depends[1]""/on-sfr[1]""
 * Error: Detected dangling id-reference to sfr-fia-trt-ext-1 from attribute
@@ -144,11 +140,6 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Configurations[1]""/sec:CU-Only_Configuration[1]"In the CU"/h:p[3]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Logical_Boundary[1]"The logic"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Physical_Boundary[1]"The TOE p"/sec:HWS-ERD_Physical_Boundary[1]"The TOE i"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The featu"/implements[1]""/feature[1]""/description[1]"A conform"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The featu"/implements[1]""/feature[2]""/description[1]"The TOE i"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The featu"/implements[1]""/feature[3]""/description[1]"The TOE i"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The featu"/implements[1]""/feature[5]""/description[1]"A conform"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The featu"/implements[1]""/feature[6]""/description[1]"A conform"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/note[1]"The ST Au"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/note[1]"The ST Au"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[2]""/note[1]"The ST Au"/h:p[3]""
