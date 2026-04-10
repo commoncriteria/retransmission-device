@@ -1087,7 +1087,7 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FTP_ITC_EXT.1 Physically Protected Channel <comment>Review offload audit data or if the platform is administered remotely</comment></h:td>
+					<h:td>FTP_ITC_EXT.1/Admin Physically Protected Channel <comment>Review offload audit data or if the platform is administered remotely</comment></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
@@ -1171,25 +1171,154 @@
 		<comment>This section needs to be updated and mapping completed.</comment>
     <sec:Threats>
 		<threats>
-			<threat name="T.TBD_TBD">
-				<description>TBD</description>
-			</threat>				
-		</threats>
+			<threat name="T.BASEBAND_PROCESSOR_COMPROMISE">
+				<description>The Baseband Processor (BP), which processes untrusted radio-frequency inputs (e.g., cellular, Wi-Fi, Bluetooth), may be exploited by an attacker
+					through malformed or malicious wireless signals. A successful compromise of the BP could allow an attacker to execute arbitrary code within the BP domain. 
+					An attacker controlling the BP may attempt to access or manipulate Application Processor (AP) resources without authorization.</description>
+				<addressed-by>FPT_BBD_EXT.1</addressed-by><rationale>Mitigates the threat by preventing the application processor's executable memory from being modified by the
+					baseband processor, containing an attacker’s control within the baseband processor domain and providing no direct access to application processor-controlled
+					resources, including sensitive data, system functions, security-critical components.
+					
+				</rationale>
+			</threat>
+			
+			<threat name="T.DATA_INTEGRITY">
+				<description>Devices on a protected network may be exposed to threats presented by devices located outside the protected network that may attempt to modify the 
+					data without authorization or determine the contents of secure communication. If known malicious external devices are able to communicate with devices on the
+					protected network or if devices on the protected network can communicate with those external devices, then the data contained in the communications may be
+					susceptible to a loss of integrity or confidentiality.</description>
+			</threat>
+			
+			<threat name="T.NETWORK_ACCESS">
+				<description>Devices located outside the protected network may seek to exercise services located on the protected network that are intended to only be accessed 
+					from inside the protected network or only accessed by entities using an authenticated path into the protected network. </description>
+			</threat>	
+			
+			<threat name="T.NETWORK_ATTACK">
+				<description>An attacker is positioned on a communications channel or elsewhere on the network infrastructure. Attackers may initiate communications with the
+					TOE or alter communications between the TOE and other endpoints in order to compromise the TOE. An attacker from off the TOE can attempt to compromise the
+					TOE through a network interface connected to an active TOE component, such as a management subsystem. These attacks include malicious software update of any
+					applications or system software on the device. An attacker is actively interacting with or altering network traffic to compromise the TOE. </description>
+			</threat>	
+			
+			<threat name="T.NETWORK_DISCLOSURE">
+				<description>Devices on a protected network may be exposed to threats presented by devices located outside the protected network, which may attempt to conduct
+					unauthorized activities. If malicious external devices are able to communicate with devices on the protected network, or if devices on the protected network
+					can establish communications with those external devices (e.g., as a result of nonexistent or insufficient data encryption that exposes the data in transit
+					to rogue elements), then those internal devices may be susceptible to the unauthorized disclosure of information.</description>
+			</threat>
+			
+			<threat name="T.NETWORK_EAVESDROP">
+				<description>An attacker is positioned on a communications channel or elsewhere on the network infrastructure. Attackers may monitor and gain access to data
+					exchanged between the TOE and other endpoints, resulting in modification or disclosure of sensitive communications. An attacker is listening to
+					communications to extract sensitive information.</description>
+			</threat>		
+				
+			<threat name="T.PERSISTENT_PRESENCE">
+				<description>Persistent presence on a device by an attacker implies that the device has lost integrity and cannot regain it. The device has likely lost this
+					integrity due to some other threat vector, yet the continued access by an attacker constitutes an ongoing threat in itself. In this case, the device and 
+					its data may be controlled by an adversary as well as by its legitimate owner.</description>
+			</threat>	
+			
+			<threat name="T.PHYSICAL_ACCESS">
+				<description>An attacker with physical access may attempt to access user data on the mobile device, including credentials. These physical access threats may 
+					involve attacks that attempt to access the device through external hardware ports, to impersonate the user authentication mechanisms through its user
+					interface, or through direct and possibly destructive access to its storage media. An attacker with physical access might also be able to compromise TOE
+					integrity, subvert TOE protections, or access tenant data through hardware attacks such as probing, physical manipulation, fault-injection, side-channel
+					analysis, environmental stress, or activating disabled features or pre-delivery services.</description>
+			</threat>	
+			
+			<threat name="T.REPLAY_ATTACK">
+				<description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a replay attack. This 
+					method of attack allows the individual to capture packets traversing the network and send the packets later, possibly unknown by the intended
+					receiver.</description>
+			</threat>
+			
+			<threat name="T.SECURITY_FUNCTIONALITY_FAILURE">
+				<description>An attacker could leverage failed or compromised security functionality to access, change, or modify tenant data, TOE data, or other security
+					functionality of the device.</description>
+			</threat>
+			
+			<threat name="T.SIDE_CHANNEL_LEAKAGE">
+				<description>An attacker running in a tenant context might be able to leverage physical effects caused by the operation of the TOE to derive sensitive
+					information about other tenants or the TOE.</description>
+			</threat>	
+			
+			<threat name="T.UNAUTHORIZED_PLATFORM_ADMINISTRATOR">
+    			<description>An attacker might be able to attain platform administrator status by defeating or bypassing authentication measures.</description>
+    		</threat>	
+    	
+    		<threat name="T.UNAUTHORIZED_RECONFIGURATION">
+    			<description>An attacker might be able to modify the configuration of the TOE and alter its functionality. This might include activating dormant subsystems,
+    			disabling hardware assists, or altering boot-time behaviors.</description>
+    		</threat>
+			    	
+    		<threat name="T.UPDATE_COMPROMISE">
+   		 		<description>An attacker may attempt to provide a compromised update of TOE firmware. Such updates can undermine the security functionality of the device if
+   		 			they are unauthorized, unauthenticated, or are improperly validated using non-secure or weak cryptography.</description>
+    	</threat>		
+    	
+		</threats>    	
     </sec:Threats>
-			
-			
 	
 	<!-- 3.2 Assumptions -->
 		
     <sec:Assumptions>
 		<comment>This section needs to be updated and mapping completed.</comment>
     	<assumptions>
-			<assumption name="A.TBD">
-				<description>TBD</description>
-				<objective-refer ref="OE.TBD">
-					<rationale>TBD</rationale>
+			<assumption name="A.CONFIG">
+				<description>It is assumed that the TOE’s security functions are configured correctly in a manner to ensure that the TOE security policies will be enforced on
+					all applicable network traffic flowing among the attached networks.</description>
+				<objective-refer ref="OE.CONFIG">
+					<rationale>The operational environment objective OE.CONFIG is realized through A.CONFIG.</rationale>
 				</objective-refer>
-			</assumption>			
+			</assumption>	
+    		
+    		<assumption name="A.NOTIFY">
+    			<description>It is assumed that the mobile user will immediately notify the administrator if the TOE is lost or stolen.</description>
+    			<objective-refer ref="OE.NOTIFY">
+    				<rationale>The operational environment objective OE.NOTIFY is realized through A.NOTIFY.</rationale>
+    			</objective-refer>
+    		</assumption>
+    		
+    		<assumption name="A.PRECAUTION">
+    			<description>It is assumed that the mobile user exercises precautions to reduce the risk of loss or theft of the TOE.</description>
+    			<objective-refer ref="OE.PRECAUTION">
+    				<rationale>The operational environment objective OE.PRECAUTION is realized through A.PRECAUTION.</rationale>
+    			</objective-refer>
+    		</assumption>
+    		
+    		<assumption name="A.PROPER_USER">
+    			<description>TOE users are not willfully negligent or hostile and use the device in compliance with a reasonable enterprise security policy.</description>
+    			<objective-refer ref="OE.PROPER_USER">
+    				<rationale>The operational environment objective OE.PROPER_USER is realized through A.PROPER_USER.</rationale>
+    			</objective-refer>
+    		</assumption>
+    		
+    		<assumption name="A.TRUSTED_ADMIN">
+    			<description>TOE security administrators are assumed to be trusted and to act in the best interest of security for the organization. The TOE is not expected to
+    				be capable of defending against a malicious administrator that actively works to bypass or compromise the security of the platform.</description>
+    			<objective-refer ref="OE.TRUSTED_ADMIN">
+    				<rationale>The operational environment objective A.TRUSTED_ADMIN is realized through OE.TRUSTED_ADMIN.</rationale>
+    			</objective-refer>
+    		</assumption>
+    		
+    		<assumption name="A.SUPPLY_CHAIN_SECURITY">
+    			<description>The hardware components that comprise the TOE are assumed to be non-hostile and not compromised at the time of TOE construction. Likewise, the TOE
+    				is assumed to retain its integrity throughout transportation until delivery to its operational site.</description>
+    			<objective-refer ref="OE.SUPPLY_CHAIN">
+    				<rationale>The operational environment objective A.SUPPLY_CHAIN_SECURITY is realized through OE.SUPPLY_CHAIN.</rationale>
+    			</objective-refer>
+    		</assumption>
+    		
+    		<assumption name="A.REGULAR_UPDATES">
+    			<description>It is assumed that the manufacturer provides updates to TOE firmware in a timely manner in response to known vulnerabilities, and that
+    				administrators apply these updates when they are received.</description>
+    			<objective-refer ref="OE.TRUSTED_ADMIN">
+    				<rationale>The operational environment objective A.REGULAR_UPDATES is realized through OE.TRUSTED_ADMIN.</rationale>
+    			</objective-refer>
+    		</assumption>
+    		
 		</assumptions>
     </sec:Assumptions>
 	
@@ -1204,10 +1333,32 @@
 		environment assist the TOE in correctly providing its security
 		functionality. These track with the assumptions about the environment. 
 		<SOEs>
-			<SOE name="OE.TBD">
-				<description>TBD</description>
+			<SOE name="OE.CONFIG">
+				<description>TOE administrators will configure the nobile device security functions correctly to create the intended security policy.</description>
 			</SOE>
 			
+			<SOE name="OE.NOTIFY">
+				<description>The TOE user will immediately notify the administrator if the TOE is lost or stolen.</description>
+			</SOE>
+			
+			<SOE name="OE.PRECAUTION">
+				<description>he TOE user exercises precautions to reduce the risk of loss or theft of the TOE.</description>
+			</SOE>
+			
+			<SOE name="OE.PROPER_USER">
+				<description>Administrators take measures to ensure that TOE users are adequately vetted against malicious intent and are made aware of the expectations for
+					appropriate use of the device.</description>
+			</SOE>
+			
+			<SOE name="OE.SUPPLY_CHAING">
+				<description>The manufacturer is expected to implement processes to ensure that TOE hardware and firmware are not compromised between time of TOE manufacture
+					and delivery to its operational site.</description>
+			</SOE>
+			
+			<SOE name="OE.TRUSTED_ADMIN">
+				<description>The administrator of the TOE is not careless, willfully negligent or hostile, and administers the platform in compliance with enterprise security
+					policy.</description>
+			</SOE>
 		</SOEs>
     </sec:Security_Objectives_for_the_Operational_Environment>
 	
@@ -1255,8 +1406,9 @@
 	 							for Objective requirements</selectable>
 	 						<selectable>Specifically defined auditable event in <xref g="t-audit-sel-based"/> 
 	 							for Selection-Based requirements</selectable>
-	 						<selectable>Additional information defined in the audit table for the <comment>TBD</comment></selectable>
-	 						<selectable>Additional information defined in the audit table for the <comment>TBD</comment></selectable>
+	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
+	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
+	 						<selectable>Additional information defined in the audit table for the <xref to="x509"/></selectable>
 	 						<selectable exclusive="yes">no additional auditable events</selectable>
 	 					</selectables>.</h:li>
 	 				</h:ol>
@@ -1274,8 +1426,9 @@
 	 						<selectable>Additional information defined in <xref g="t-audit-optional"/> for Strictly Optional SFRs</selectable>
 	 						<selectable>Additional information defined in <xref g="t-audit-objective"/> for Objective SFRs</selectable>
 	 						<selectable>Additional information defined in <xref g="t-audit-sel-based"/> for Selection-Based SFRs</selectable>
-	 						<selectable>Additional information defined in the audit table for the <comment>TBD</comment></selectable>
-	 						<selectable>Additional information defined in the audit table for the <comment>TBD</comment></selectable>
+	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
+	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
+	 						<selectable>Additional information defined in the audit table for the <xref to="x509"/></selectable>
 	 						<selectable exclusive="yes">no other information</selectable>
 	 					</selectables>.</refinement></h:li>
 	 				</h:ol>
@@ -1320,7 +1473,7 @@
 	 		<audit-event/>
 	 	</f-component>
 	 	
-	 	<f-component name="Auidt Data Generation" cc-id="fau_gen.1" iteration="PFED" status="feat-based">
+	 	<f-component name="Audit Data Generation" cc-id="fau_gen.1" iteration="PFED" status="feat-based">
 	 		<depends on="pfed"/>
 	 		<f-element id="fau-gen-1e1">
 	 			<title>
@@ -1374,9 +1527,7 @@
 	 		<f-element id="fau-sar-1e2">
 	 			<title>The TSF shall provide the audit data in a manner suitable for the <refinement>Administrator
 	 			</refinement> to interpret the information.</title>
-	 			<note role="application">
-	 				This SFR must be included in the ST if FAU_GEN.1 is claimed.
-	 			</note>
+	 			
 	 			<aactivity>
 	 				<TSS/>
 	 				<Guidance>The evaluator shall review the AGD for the procedure on how to review the audit 
@@ -1401,13 +1552,13 @@
 	 			<title>The TSF shall be able to<selectables>
 	 				<selectable>store audit data on the TOE itself</selectable>
 	 				<selectable>transmit audit data to an external IT entity using a trusted 
-	 					channel in accordance with FTP_ITC_EXT.1</selectable>
+	 					channel in accordance with FTP_ITC_EXT.1/Admin</selectable>
 	 				</selectables>  
 	 			</title>
 	 			<note role="application">
-	 				The ST Author selects "<h:i>trusted channel</h:i>" and includes FTP_ITC_EXT.1 in the ST if the TOE offloads
+	 				The ST Author selects "<h:i>trusted channel</h:i>" and includes FTP_ITC_EXT.1/Admin in the ST if the TOE offloads
 	 				audit data to external IT entity over a network connection. Protocols used for implementing the trusted
-	 				channel must be selected in FTP_ITC_EXT.1.  
+	 				channel must be selected in FTP_ITC_EXT.1/Admin.  
 	 			</note>
 	 			<aactivity level="element">
 	 				<TSS>
@@ -1477,8 +1628,7 @@
 	 				Deletion of audit data within the TOE is "authorized" if the deletion is initiated or performed by 
 	 				an Administrator.<h:p/>
 	 				Notwithstanding this requirement, audit records may be overwritten if local audit record storage is full
-	 				in accordance with FAU_STG.5.<h:p/>
-	 				This SFR must be included in the ST if FAU_GEN.1 is claimed.
+	 				in accordance with FAU_STG.5.<h:p/>	 				
 	 			</note>
 	 			<aactivity>
 	 				<TSS>
@@ -1844,7 +1994,7 @@
 					This SFR must also be claimed in the ST if FCS_IPSEC_EXT.1 is claimed, or if "causing the TOE to generate [asymmetric]
 					keys/secrets" is selected in FCS_STG_EXT.1.2.<h:p/>
 					
-					Furthermore, this SFR must be claimed if TLS or HTTPS is claimed in FTP_ITC_EXT.1.<h:p/>
+					Furthermore, this SFR must be claimed if TLS or HTTPS is claimed in FTP_ITC_EXT.1/Admin.<h:p/>
 					
 					If this SFR is included in the ST, then FCS_CKM.6 and FCS_RBG.1 must also be claimed.<h:p/>					
 					
@@ -2397,7 +2547,7 @@
 		<!-- FCS_CKM.2 -->
         <f-component cc-id="fcs_ckm.2" id="fcs-ckm-2" name="Cryptographic Key Distribution" status="sel-based">
         	<depends on="wlan"/>
-        	<depends on-sel="sfr-ftp-itc-ext-1"/>  
+        	<depends on-sel="sfr-ftp-itc-ext-admin-1"/>  
         	<depends on="sfr-fcs-cop-1-keyencap"/>
         	<depends on="sfr-fcs-cop-1-kw"/>
         	<depends on="ipsec"/>
@@ -2422,7 +2572,7 @@
 					list of standards.
 					</h:p>
 					<h:p>
-						If "encrypted channels" is selected, FTP_ITC_EXT.1 must be claimed.
+						If "encrypted channels" is selected, FTP_ITC_EXT.1/Admin must be claimed.
 					</h:p>
 				</note>
 				<aactivity level="element">
@@ -2765,7 +2915,8 @@
 					tenant software, or if they are used by the TOE itself to support or implement PP-specified security 
 					functionality.<h:p/> 
 					If this SFR is claimed, then FCS_CKM.6 an FCS_CKM.1/AKG must also be claimed.<h:p/>
-					This SFR has dependencies on FCS_COP.1/Hash and FCS_COP.1/XOF only if ML-KEM is selected.
+					This SFR has dependencies on FCS_COP.1/Hash and FCS_COP.1/XOF only if ML-KEM is selected.<h:p/>
+					This component must be included in the ST if the TOE implements any of the following features: IPsec.
 				</note>
 				
 				<aactivity>
@@ -5613,9 +5764,8 @@
 				<Tests/>
 			</aactivity>
 			</f-element>
-			<audit-event table="sel-based">
-				<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-			</audit-event>
+			<audit-event table="sel-based"/>
+			
 		</f-component>
 
         <f-component cc-id="fcs_rbg.3" name="Random Bit Generation (Internal Seeding - Single Source)" status="sel-based">
@@ -5656,9 +5806,8 @@
             </Tests>
           </aactivity>
                 </f-element>
-        	<audit-event table="sel-based">
-        		<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-        	</audit-event>
+        	<audit-event table="sel-based"/>
+        	
         </f-component>
 		
 		<f-component cc-id="fcs_rbg.4" name="Random Bit Generation (Internal Seeding - Multiple Sources)" status="sel-based">
@@ -5688,9 +5837,8 @@
             <Tests/>
           </aactivity>
           </f-element>
-			<audit-event table="sel-based">
-				<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-			</audit-event>
+			<audit-event table="sel-based"/>
+			
         </f-component>          
        
 		<f-component cc-id="fcs_rbg.5" name="Random Bit Generation (Combining Entropy Sources)" status="sel-based">
@@ -5735,9 +5883,8 @@
             the assignment.</Tests>
           </aactivity>
           </f-element>  
-			<audit-event table="sel-based">
-				<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-			</audit-event>
+			<audit-event table="sel-based"/>
+			
 		</f-component>  
 		
 		<!-- FCS_RBG.6 Random Bit Generation Service -->
@@ -5785,7 +5932,7 @@
 		</ext-comp-def>
 		
 		
-		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1" status="invisible">
+		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1"  iteration="PFED" status="invisible">
 			<comp-lev>requires the TSF to support session key recovery.</comp-lev>
 			<management>There are no management activities foreseen.</management>
 			<audit>There are no auditable events foreseen.</audit>
@@ -5800,7 +5947,7 @@
 					The TSF shall support session key recovery such that: <h:ul>
 					<h:li>EUD traffic is suppressed during recovery</h:li>
 					<h:li>Recovery keys are refreshed at the same rate as session keys</h:li>
-					<h:li>Recovery keys are derived via HKDF including the current session key</h:li>
+					<h:li>Recovery keys are derived via HKDF including the current session key and new session key</h:li>
 					<h:li>There must be at least two recovery keys</h:li>
 					<h:li>Only one recovery key can be derived at a time</h:li>
 					<h:li>Failure to converge causes session termination</h:li>
@@ -5834,7 +5981,10 @@
 						<h:li>using ML-KEM-1024 only</h:li>
 						<h:li>either synchronously or asynchronously with EUD traffic</h:li>.
 					</h:ul></title>
-				<note role="application">TBD</note>
+				<note role="application">
+					PFED rekey can be initiated by either the local PFED or a remote PFED so the entropy from the RNGs of both PFEDs contribute to the entropy of the active
+					session key as it ratchets.	
+				</note>
 				<aactivity>
 					<TSS>TBD</TSS>
 					<Guidance>TBD</Guidance>
@@ -6046,9 +6196,7 @@
 					<Tests/>
 				</aactivity>
 			</f-element>
-			<audit-event table="sel-based">
-				<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-			</audit-event>
+			<audit-event table="sel-based"/>
 		</f-component>
 		
 		<!-- FCS_STG_EXT.3 Key Integrity Protection  -->
@@ -6118,9 +6266,7 @@
 					<Tests/>
 				</aactivity>
 			</f-element>
-			<audit-event table="sel-based">
-				<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-			</audit-event>
+			<audit-event table="sel-based"/>
 		</f-component>		
     </section>    
 		
@@ -6345,21 +6491,9 @@
 				
 				<f-element id="fdp-iff-cu-1e2">
 					<title>
-						The TSF shall permit information flow between the Untrusted Interface and the Trusted Interface only if all of the following conditions
-						are met: <h:ul>
-							<h:li>The received Layer-2 frame is fully decapsulated, including removal of: <h:ul>
-								<h:li>Original MAC header</h:li>
-								<h:li>VLAN tags</h:li>
-								<h:li>Security headers</h:li>
-								<h:li>Any Layer-2 control protocol fields</h:li>
-							</h:ul></h:li>
-							<h:li>The TOE performs a complete re-origination of the Layer-2 header prior to transmission, such that: <h:ul>
-								<h:li>A newly generated source MAC address is used</h:li>
-								<h:li>The destination MAC address is derived from TOE forwarding logic</h:li>
-								<h:li>VLAN tagging is re-applied only according to TSF configuration</h:li>
-								<h:li>Security headers (if required) are newly generated</h:li>.
-							</h:ul></h:li>
-						</h:ul>
+						The TSF shall permit information flow between <h:b>the Untrusted Interface and the Trusted Interface</h:b> via a controlled operation if the following
+						rules hold: <assignable>for each operation, the security attribute-based relationship that hold between subject and information security
+							attributes</assignable>.
 					</title>
 				</f-element>
 				
@@ -6584,7 +6718,7 @@
 							<selectable id="key-wrap">integrity-providing encryption algorithm as specified in FCS_COP.1/KeyWrap</selectable>
 							<selectable id="sigver">digital signature as specified in FCS_COP.1/SigVer</selectable>
 							<selectable id="integ-verif">integrity verification provided through FCS_CKM.2</selectable>
-							<selectable id="key-dist-ftp-itc-ext-1">key distribution mechanisms, integrity verification supported by FTP_ITC_EXT.1</selectable>
+							<selectable id="key-dist-ftp-itc-ext-1">key distribution mechanisms, integrity verification supported by FTP_ITC_EXT.1/Admin</selectable>
 						</selectables>
 						</title>
 						<ext-comp-def-title>
@@ -6609,9 +6743,7 @@
 							</Tests>
 						</aactivity>
 					</f-element>
-					<audit-event table="sel-based">
-						<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-					</audit-event>					
+					<audit-event table="sel-based"/>
 				</f-component>			
 			
 			<ext-comp-def title="Protocol Break Enforcement" fam-id="FDP_PBR_EXT">
@@ -6625,7 +6757,7 @@
 				</fam-behavior>
 			</ext-comp-def>
 			
-			<f-component name="Layer-2 Protocol Break" cc-id="fdp_pbr_ext.1" status="sel-based">
+			<f-component name="Layer-2 Protocol Break" cc-id="fdp_pbr_ext.1" status="feat-based">
 				<depends on="cu-functionality"/>
 				<depends on="hws-erd"/>
 				<depends on-sel="selpfed"/>
@@ -6776,8 +6908,7 @@
 					</ext-comp-def-title>
 					<note role="application">
 						This SFR is included in the ST if the "<h:i>Administrator</h:i>" role is selected
-						in FMT_SMR.1, or if the "<h:i>Server-Class Platform, Basic</h:i>" or "<h:i>Server-Class Platform, Enhanced</h:i>"
-						use cases are selected.<h:p/>
+						in FMT_SMR.1.<h:p/>
 						If this SFR is included in the ST, then FCS_CKM.6 must also be claimed.<h:p/>
 						This SFR specifies the actions to be taken in the event of multiple authentication failures.<h:p/>
 						This requirement applies to both critical and non-critical authentication mechanisms. The difference 
@@ -6842,7 +6973,7 @@
 						desktops and notebooks) may need to implement this requirement.<h:p/>
 						The TOE may implement an Authentication Factor interface that precedes another Authentication Factor
 						interface in the boot sequence (for example, a volume DAR decryption interface which precedes the
-						lockscreen interface) before the user can access the GPCP. In this situation, because the user must
+						lockscreen interface) before the user can access the TOE. In this situation, because the user must
 						successfully authenticate to the first interface to access the second, the number of unsuccessful
 						authentication attempts need not be maintained for the second interface.
 					</note>
@@ -7053,9 +7184,7 @@
 						</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event>
-					<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-				</audit-event>
+				<audit-event/>
 			</f-component>
 			
 			<ext-comp-def title="Pre-Shared Key Composition" fam-id="FIA_PSK_EXT">
@@ -7184,8 +7313,10 @@
 					<title>
 						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 						The TOE shall support the following authentication mechanisms: <h:ul>
-							<h:li>Cryptographic mutual authentication using ML-DSA-87</h:li>
-							<h:li>User activation using <assignable>password, PIN, or CIK</assignable>.</h:li>
+							<h:li>Cryptographic mutual authentication using ML-DSA-87</h:li> and <selectables>
+								<selectable>User activation using <assignable>password, PIN, or CIK</assignable></selectable>
+								<selectable>No other mechanism</selectable>
+							</selectables>							
 						</h:ul>				
 					</title>
 					<note role="application">
@@ -7269,8 +7400,7 @@
 					</title>
 					<note role="application">
 						This SFR is included in the ST if the "<h:i>Administrator</h:i>" role is selected
-						in FMT_SMR.1, or if the "<h:i>Server-Class Platform, Basic</h:i>" or "<h:i>Server-Class Platform, Enhanced</h:i>"
-						use cases are selected.<h:p/>
+						in FMT_SMR.1.<h:p/>
 						This requirement applies to all authentication mechanisms specified in FIA_UAU.5.1 that provide 
 						feedback to a user or Administrator during authentication.<h:p/>
 						For authentication mechanisms that require the user or Administrator to enter a
@@ -7482,8 +7612,7 @@
 					</title>
 					<note role="application">
 						This SFR is included in the ST if the "<h:i>Administrator</h:i>" role is selected
-						in FMT_SMR.1, or if the "<h:i>Server-Class Platform, Basic</h:i>" or "<h:i>Server-Class Platform, Enhanced</h:i>"
-						use cases are selected.<h:p/>
+						in FMT_SMR.1.<h:p/>
 						Ordinary unprivileged users of the platform need not authenticate to the platform, though they
 						may well have to authenticate themselves to tenant software such as an Operating System. <h:p/>
 						The TSF-mediated management functions are listed in the management functions table 
@@ -7596,8 +7725,8 @@
 							<O ref="A"/>
 							<X ref="U"/>
 							<app-note>
-								Administration is considered “local” if the Administrator is physically present at the GPCP.<h:p/>
-								Administration is considered “remote” if communications between the Administrator and GPCP is over a network.<h:p/>
+								Administration is considered “local” if the Administrator is physically present at the TOE.<h:p/>
+								Administration is considered “remote” if communications between the administrator and TOE is over a network.<h:p/>
 								If "<h:i>locally</h:i>" is selected, then function <xref to="mf-auth-creds"/> is mandatory.<h:p/>
 								If "<h:i>remotely</h:i>" is selected, then FTP_TRP.1 must be claimed in the 
 								ST and functions <xref to="mf-support-channel"/>, <xref to="mf-auth-creds"/>, and <xref to="mf-config-ipsec-refid"/>
@@ -7943,12 +8072,12 @@
       			<title>The TSF shall be able to associate users with roles.</title>
       			<note role="application">
       				If "<h:i>administrator</h:i>" is selected, then the user authentication SFRs in FIA must be claimed.<h:p/>
-      				A user is a human who interacts with the GPCP through a user interface. Users do not
-      				authenticate themselves to the GPCP, though they may be authenticated by tenant
-      				software. The User role is considered to exist even if no humans normally interact with a GPCP.<h:p/>
-      				An administrator is a privileged user that must be authenticated by the GPCP in order 
-      				to administer the GPCP. This role is distinct from OS or VS administrators, who are
-      				may are authenticated to tenant software and are considered to be Users in the context of the GPCP.				
+      				A user is a human who interacts with the TOE through a user interface. Users do not
+      				authenticate themselves to the TOE, though they may be authenticated by tenant
+      				software. The user role is considered to exist even if no humans normally interact with a TOE.<h:p/>
+      				An administrator is a privileged user that must be authenticated by the TOE in order 
+      				to administer the TOE. This role is distinct from OS or VS administrators, who are
+      				may are authenticated to tenant software and are considered to be Users in the context of the TOE.				
       			</note>
       			<aactivity>
       				<TSS/>
@@ -8737,7 +8866,11 @@
     		
     		<f-element id="fel-pres-sec-state">
     			<title>
-    				The TSF shall preserve a secure state when the following types of failures occur: [<h:i>DRBG self-test failure</h:i>].              
+    				The TSF shall preserve a secure state <h:b>by terminating sessions </h:b>when the following types of failures occur: [<h:i><h:ul>
+    					<h:li>dead peer detected</h:li>
+    					<h:li>recovery failure</h:li>
+    					<h:li>provisioning faiure</h:li>
+    				</h:ul></h:i>].              
     			</title>
     			<note role="application">The intent of this requirement is to ensure that cryptographic services requiring random bit
     				generation cannot be performed if a failure of a self-test defined in FPT_TST.1 occurs.</note>
@@ -8762,7 +8895,7 @@
     		</audit-event>
     	</f-component>
     	
-    	<f-component name="Failure with Preservation of SEcure State" cc-id="fpt_fls.1" iteration="PFED" status="feat-based">
+    	<f-component name="Failure with Preservation of Secure State" cc-id="fpt_fls.1" iteration="PFED" status="feat-based">
     		<depends on="pfed"/>
     		<f-element id="fdp-fls-1e1">
     			<title>
@@ -8785,9 +8918,9 @@
     		
     	</f-component>
     
-    	<f-component name="Hardware Root of Trust" cc-id="fpt_hrt.1" iteration="PFED" status="feat-based">
+    	<f-component name="Hardware Root of Trust" cc-id="fpt_hrt.1" iteration="PFED" status="objective">
     		<depends on="pfed"/>
-    		<f-element id="fpt-hrt-2e1">
+    		<f-element id="fpt-hrt-1e1">
     			<title>
     				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
     				The TSF shall store a root key within a TPM 2.0 bound to a physical property of the platform and used only to unwrap other keys.				
@@ -8898,50 +9031,6 @@
     		
     	</f-component>
     	
-    	<f-component name="Basic Internal TSF Data Transfer Protection" cc-id="fpt_itt.1" iteration="HWS" status="feat-based">
-    		<depends on="pfed"/>
-    		<f-element id="ftp-itt-hws-1e1">
-    			<title>
-    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
-    				The TSF shall protect TSF data from disclosure and modification when transmitted between the EU and CU over the dedicated wired interface.		
-    			</title>
-    			<note role="application">
-    				TBD
-    			</note>
-    			<aactivity>
-    				<TSS>TBD</TSS>
-    				<Guidance>TBD</Guidance>
-    				<Tests>TBD</Tests>
-    			</aactivity>
-    		</f-element>
-    		<audit-event table="impl-dep">
-    			<audit-event-descr>TBD</audit-event-descr>
-    		</audit-event>
-    		
-    	</f-component>
-    	
-    	<f-component name="Basic Internal TSF Data Transfer Protection" cc-id="fpt_itt.1" iteration="PFED" status="feat-based">
-    		<depends on="pfed"/>
-    		<f-element id="fpt-itt-pfed-1e1">
-    			<title>
-    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
-    				The TSF shall protect the confidentiality and integrity of internal data transfers betwween the EU and CU using cryptographically protected,
-    				stateless message formats.				
-    			</title>
-    			<note role="application">
-    				TBD
-    			</note>
-    			<aactivity>
-    				<TSS>TBD</TSS>
-    				<Guidance>TBD</Guidance>
-    				<Tests>TBD</Tests>
-    			</aactivity>
-    		</f-element>
-    		<audit-event table="impl-dep">
-    			<audit-event-descr>TBD</audit-event-descr>
-    		</audit-event>
-    		
-    	</f-component>
     	
     	<ext-comp-def title="JTAG Disablement" fam-id="FPT_JTA_EXT">
     		<fam-behavior>
@@ -9200,7 +9289,7 @@
     	</f-component>
     	
     
-    	<f-component id="sfr-fpt-php-2" cc-id="fpt_php.2" name="Notification of Physical Attack">
+    	<f-component id="sfr-fpt-php-2" cc-id="fpt_php.2" name="Notification of Physical Attack" status="feat-based">
     		
     		<f-element id="fpt-php-2e1">
     			<title>The TSF shall provide unambiguous detection of physical tampering that
@@ -9261,7 +9350,7 @@
     	</f-component>
     	
     	<!-- FPT_PHP.3: Resistance to physical attack  -->
-    	<f-component id="sfr-fpt-php-3" cc-id="fpt_php.3" name="Resistance to Physical Attack">
+    	<f-component id="sfr-fpt-php-3" cc-id="fpt_php.3" name="Resistance to Physical Attack" status="feat-based">
     		
     		<f-element id="fpt-php-3e1">
     			<title>The TSF shall resist <assignable>physical tampering scenarios</assignable> to the
@@ -9800,7 +9889,7 @@
     		<fam-behavior>Components in this family define requirements for managing and protecting
     			TSF data, such as cryptographic keys.</fam-behavior>
     	</ext-comp-def>    
-    	<f-component cc-id="fpt_skp_ext.1" name="Protection of TSF Data (for reading of all symmetric keys">
+    	<f-component cc-id="fpt_skp_ext.1" name="Protection of TSF Data (for reading of all symmetric keys)">
     		<comp-lev>requires
     			preventing symmetric keys from being read by any user or subject.</comp-lev>
     		<management>There are no management activities foreseen.</management>
@@ -9918,28 +10007,6 @@
     		</audit-event>
     		
     	</f-component>
-    	
-    	<f-component name="Trusted Path" cc-id="ftp_trp.1" iteration="PFED" status="feat-based">
-    		<depends on="pfed"/>
-    		<f-element id="ftp-trp-1e1">
-    			<title>
-    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
-    				The TSF shall provide a trusted cryptographic channel between paired EUs for all session setup, rekey, and recovery transactions.				
-    			</title>
-    			<note role="application">
-    				TBD
-    			</note>
-    			<aactivity>
-    				<TSS>TBD</TSS>
-    				<Guidance>TBD</Guidance>
-    				<Tests>TBD</Tests>
-    			</aactivity>
-    		</f-element>
-    		<audit-event table="impl-dep">
-    			<audit-event-descr>TBD</audit-event-descr>
-    		</audit-event>
-    		
-    	</f-component>
 	      
     	<f-component cc-id="fpt_tst.1" name="TSF Self-Test">
     		<f-element id="fel-tsf-self-test">
@@ -9989,7 +10056,7 @@
     		</aactivity>
     		</f-element> 
     		<audit-event>
-    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+    			<audit-event-descr>Execution of self-tests.</audit-event-descr>
     		</audit-event>
     	</f-component>
     	
@@ -10839,7 +10906,7 @@
     		<f-element id="ftp-itc-pfed-1e1">
     			<title>
     				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
-    				The TSF shall provide a communication channel <h:b>using PFED in accordance with the PFED specification in Appendix X and PFED SFRs to</h:b>
+    				The TSF shall provide a communication channel <h:b>using PFED in accordance with the PFED specification in Appendix H and PFED SFRs to</h:b>
     				provide a <h:b>trusted</h:b> channel between itself and <h:b>a PFED peer</h:b> that is logically distinct from other communication channels and
     				provides assured identification of its endpoints and protection of the channel data from modification or disclosure.   				
     			</title>
@@ -10863,7 +10930,7 @@
     			data in transit between the TOE and its operational environment.</fam-behavior>
     	</ext-comp-def>    	
     	
-    	<f-component id="sfr-ftp-itc-ext-1" cc-id="ftp_itc_ext.1" name="Physically Protected Channel" status="sel-based">
+    	<f-component id="sfr-ftp-itc-ext-admin-1" cc-id="ftp_itc_ext.1" name="Physically Protected Channel" iteration="Admin" status="sel-based">
     		<depends on="ipsec"/>
     		<depends on-sel="sel-ckm-2-echan"/>
     		<depends on-sel="key-dist-ftp-itc-ext-1"/>
@@ -10885,35 +10952,26 @@
     			</h:ol>
     		</audit>
     		<dependencies>No dependencies.</dependencies>          
-    		<f-element id="ftp-itc-ext-1e1">
+    		<f-element id="ftp-itc-ext-admin-1e1">
     			<title>The TSF shall use
     				<selectables linebreak="yes">
-    					<selectable id="sel-itc-tls">TLS as conforming to the <xref to="pkg-tls"/> as a <selectables>
-    						<selectable>client</selectable>
-    						<selectable>server</selectable>
-    					</selectables></selectable>
-    					<selectable id="sel-itc-dtls">DTLS as conforming to the <xref to="pkg-tls"/> as a <selectables>
-    						<selectable>client</selectable>
-    						<selectable>server</selectable>
-    					</selectables></selectable>    					
-    					<selectable id="sel-itc-ipsec">IPsec as conforming to PP-Module for Virtual Private Network (VPN) Clients</selectable></selectables>
-    					and <selectables>
-    						<selectable id="sel-itc-ssh">SSH as conforming to the <xref to="pkg-ssh"/> as a <selectables>
-    							<selectable>client</selectable>
-    							<selectable>server</selectable>
-    						</selectables></selectable>
-    						<selectable>no other protocols</selectable>
+    					<selectable id="sel-itc-tls">TLS as conforming to the <xref to="tls"/></selectable>
+    					<selectable id="sel-itc-tls-https">TLS/HTTPS as conforming to FCS_HTTPS_EXT.1</selectable>    					
+    					<selectable id="sel-itc-ipsec">IPsec as conforming to PP-Module for Virtual Private Network (VPN) Clients</selectable>
+    					<selectable id="sel-itc-ssh">SSH as conforming to the <xref to="ssh"/></selectable>
     					</selectables>
-    				to provide a communication channel between itself and authorized IT entities supporting the following capabilities:
-    				<selectables linebreak="yes">
-    					<selectable>audit server</selectable>
-    					<selectable>authentication sever</selectable>
-    					<selectable>management server</selectable>
-    					<selectable><assignable>other capabilities</assignable></selectable>
-    				</selectables> using <selectables>
-    					<selectable>certificates as defined in Functional Package for X.509, version 1.0</selectable>
-    					<selectable>SSH host keys as defined in Functional Package for Secure Shell (SSH), version 2.0</selectable>
+    				protocols with <selectables choose-one-of="yes">
+    					<selectable>X.509 certificate-based authentication of the remote peer</selectable>
+    					<selectable>non-certificate-based authentication of the remote peer</selectable>
+    					<selectable>no authentication of the remote peer</selectable>
     				</selectables>
+    				to provide a communication channel between itself and 
+    				<selectables linebreak="yes">
+    					<selectable>audit server (as required by FAU_STG.1.1 if selected)</selectable>
+    					<selectable>remote administrators (as required by FTP_TRP.1.1 if selected in FMT_MOF.1)</selectable>
+    					<selectable><assignable>other capabilities</assignable></selectable>
+    					<selectable>no other capabilities</selectable>
+    				</selectables> 
     				that is logically distinct from other communication channels, provides assured 
     				identification of its end points, protects channel data from disclosure, and detects modification
     				of the channel data. 
@@ -10927,24 +10985,19 @@
     				of the channel data. 
     			</title></ext-comp-def-title>
     			<note role="application"> 
-    				This SFR is included in the ST if a trusted channel is used to offload audit data 
-    				or if the platform is administered remotely. That is, if "a trusted channel as specified in FTP_ITC_EXT.1" 
-    				is selected in FAU_STG.1.1, if "physically protected channels as specified in FTP_ITP_EXT.1" is 
-    				selected in FDP_ITC_EXT.1.1, or if "remotely" is selected in Management Function 1 in FMT_SMF.1.1.<h:p/>
-    				The ST author must include the security functional requirements for the trusted channel protocol selected in 
-    				FTP_ITC_EXT.1.1 as part of the TSF.<h:p/>
-    				If TLS or DTLS is selected, the TSF must be validated against the appropriate requirements in the Functional Package for Transport Layer Security (TLS),
-    				version 2.1.<h:p/>
-    				If IPsec as conforming to the PP-Module for Virtual Private Network (VPN) Clients is selected, then FDP_IFC_EXT.1 must be included in the ST.<h:p/>
-    				If SSH is selected, the TSF must be validated against the Functional Package for Secure Shell (SSH), version 2.0 and the corresponding selection is 
-    				expected to be made in FIA_UAU.5.1. The ST author must include the security functional requirements for the trusted channel protocol selected in
-    				FTP_ITC_EXT.1 as part of the TSF.<h:p/>	
-    				Claims from the Functional Package for X.509, version 1.0 are only required to the extent that they are needed to support the functionality required by
-    				the trusted protocols that are claimed.<h:p/>	
+    				This SFR is included in the ST if a trusted channel is used to offload audit data or if the platform is administered remotely. That is, if "a trusted
+    				channel as specified in FTP_ITC_EXT.1" is selected in FAU_STG.1.1, if "physically protected channels as specified in FTP_ITP_EXT.1" is selected in
+    				FDP_ITC_EXT.1.1, or if "remotely" is selected in Management Function 1 in FMT_SMF.1.1.<h:p/>
+    				If the ST Author selects either "TLS" or "HTTPS," the TOE must be validated against the Functional Package for Transport Layer Security (TLS), version 2.1.
+    				This PP does not mandate that a product implement TLS with mutual authentication, but if the product includes the capability to perform TLS with mutual
+    				authentication, then mutual authentication must be included within the TOE boundary.<h:p/>
+    				If the ST Author selects "SSH," the TOE must conform to Functional Package for Secure Shell (SSH), version 2.0.<h:p/>
+    				If the ST Author selects "certificate-based authentication of the remote peer," then the TOE must conform to Functional Package for X.509, version 1.0.<h:p/>    				Claims from this package are only required to the extent that they are needed to support the functionality required by the trusted protocols that are
+    				claimed.<h:p/>
     				If the TSF implements a protocol that requires the validation of a certificate presented by an external entity, FIA_X509_EXT.1 and FIA_X509_EXT.2 will be
-    				claimed, as will FIA_TSM_EXT.1 for management of the trust store.<h:p/>.
-    				If the TSF implements a protocol that requires the presentation of any certificates to an external entity, FIA_XCU_EXT.2 will be claimed. FIA_X509_EXT.3
-    				will also be claimed, along with any applicable dependencies, depending on how the certificates presented by the TOE are obtained.	
+    				claimed. FIA_TSM_EXT.1 may also be claimed if the TSF implements its own trust store. If the TSF implements a protocol that requires the presentation of 
+    				any certificates to an external entity, FIA_XCU_EXT.2 will be claimed. FIA_X509_EXT.3 will also be claimed, along with any applicable dependencies, 
+    				depending on how the certificates presented by the TOE are obtained.	
     			</note>
     			<aactivity>
     				<TSS>
@@ -10979,7 +11032,7 @@
     		</audit-event>    
     	</f-component>	
 		
-		<f-component name="Trusted Channel Communication" cc-id="ftp_itc_ext.1" iteration="IPsec" status="sel-based">
+		<f-component name="Trusted Channel Communication" cc-id="ftp_itc_ext.1" iteration="IPsec" status="feat-based">
     	<depends on="ipsec"/>
     	<f-element id="ftp-itc-ext-ipsec-1e1">
     		<title>The TSF shall use
@@ -11007,7 +11060,7 @@
     			maintain a trusted channel between the TOE and a VPN Gateway, or other trusted IT product.<h:p/>
     			
     			Appendix B - Selection-based Requirements contains the requirements for implementing each of the other optional trusted channel protocols. The ST
-    			author must include the security functional requirements for the trusted channel protocol selected in FTP_ITC_EXT.1 in the main body of the
+    			author must include the security functional requirements for the trusted channel protocol selected in FTP_ITC_EXT.1/Admin in the main body of the
     			ST.<h:p/>
     			Assured identification of endpoints is performed according to the authentication mechanisms used by the listed trusted channel protocols<h:p/>
     			Claims from the Functional Package for X.509, version 1.0 are only required to the extent that they are needed to support the functionality 
@@ -11037,7 +11090,7 @@
 			</audit-event>
 	</f-component>	
     	
-    	<f-component name="Trusted Channel Communication" cc-id="ftp_itc_ext.1" iteration="WLAN" status="sel-based">
+    	<f-component name="Trusted Channel Communication" cc-id="ftp_itc_ext.1" iteration="WLAN" status="feat-based">
     		<depends on="wlan"/>
     		<f-element id="ftp-itc-ext-wlan-1e1">
     			<title>The TSF shall use
@@ -11050,14 +11103,9 @@
     						2.0</h:i>]</selectable>
     					<selectable id="sel-itc-ipsec-wlan-mut-auth-tls">Mutually authenticated TLS in accordance with [<h:i>Functional Package for Transport Layer
     						Security (TLS), version 2.1</h:i>]</selectable>
-    				</selectables> and <selectables>
-    					<selectable id="sel-itc-ipsec-wlan-mut-auth-dtls">Mutually authenticated DTLS in accordance with [<h:i>Functional Package for Transport
-    						Layer Security (TLS), version 2.1</h:i>]</selectable>
-    					<selectable id="https">HTTPS</selectable>
-    				</selectables>
-    					protocols to provide a communication channel between itself and another trusted IT product using certificates as defined in 
+    				</selectables> protocols to provide a communication channel between itself and another trusted IT product using certificates as defined in 
     					[<h:i>Functional Package for X.509, version 1.0</h:i>] that is logically distinct from other communication channels, provides assured 
-    					identification of its end points, protects channel data from disclosure, and detects modification 	of the channel data. 
+    					identification of its end points, protects channel data from disclosure, and detects modification of the channel data. 
     			</title>
     			<ext-comp-def-title><title>
     				The TSF shall use <assignable>trusted channel protocols</assignable>    				
@@ -11069,16 +11117,34 @@
     			</title></ext-comp-def-title>
     			<note role="application"> 
     				The intent of the mandatory portion of the above requirement is to use the cryptographic protocols identified in the requirement to establish
-    				and 	maintain a trusted channel between the TOE and a VPN Gateway, or other trusted IT product.<h:p/>
+    				and maintain a trusted channel between the TOE and an access point, or other trusted IT product.<h:p/>
     				
     				Appendix B - Selection-based Requirements contains the requirements for implementing each of the other optional trusted channel protocols. 
-    				The ST author must include the security functional requirements for the trusted channel protocol selected in FTP_ITC_EXT.1 in the main body 
+    				The ST author must include the security functional requirements for the trusted channel protocol selected in FTP_ITC_EXT.1/Admin in the main body 
     				of the ST.<h:p/>
     				Assured identification of endpoints is performed according to the authentication mechanisms used by the listed trusted channel protocols<h:p/>
     				Claims from the Functional Package for X.509, version 1.0 are only required to the extent that they are needed to support the functionality 
-    				required by the trusted protocols that are claimed.
+    				required by the trusted protocols that are claimed.<h:p/>
+    				The TSF is mandated to support mutually authenticated TLS, which means that it implements a protocol that requires the validation of a certificate presented
+    				by an external entity. Therefore, FIA_X509_EXT.1 and FIA_X509_EXT.2 as defined in Functional Package for X.509, version 1.0 will be claimed, as will
+    				FIA_TSM_EXT.1 for management of the trust store.<h:p/>
+    				
+    				The requirement to implement mutually authenticated TLS also means that it implements a protocol that requires the presentation of any certificates to an
+    				external entity. Therefore, FIA_XCU_EXT.2 will be claimed. FIA_X509_EXT.6 will also be claimed, along with any applicable dependencies, depending on how the
+    				certificates presented by the TOE are obtained.
     			</note>
-    			<aactivity>
+    		</f-element>
+    		<f-element id="ftp-itc-ext-wlan-1e2">
+    			<title>The TSF shall permit the TSF to initiate communication via the trusted channel.</title>  
+    		</f-element>
+    		<f-element id="ftp-itc-ext-wlan-1e3">
+    			<title>The TSF shall initiate communication via the trusted channel for wireless access point connections, administrative communication, configured enterprise
+    				connections, and <selectables>
+    					<selectable>OTA updates</selectable>
+    					<selectable>no other connections</selectable>
+    				</selectables>
+    			</title>    		
+    		<aactivity>
     				<TSS>
     					The evaluator shall review the TSS to determine that it lists all trusted channels 
     					the TOE uses for remote communications, including both the external IT entities and 
@@ -11098,7 +11164,8 @@
     			</aactivity>
     		</f-element>
     		<audit-event table="sel-based">
-    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+    			<audit-event-descr>Initiation and termination of trusted channel</audit-event-descr>
+    			<audit-event-info>Trusted channel protocol, non-TOE endpoint of connection</audit-event-info>
     		</audit-event>
     	</f-component>
     	
@@ -11136,9 +11203,7 @@
     				<Tests/>
     			</aactivity>
     		</f-element>
-    		<audit-event>
-    			<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-    		</audit-event>
+    		<audit-event/>    		
     	</f-component>
     	
     	<f-component name="Trusted Path" cc-id="ftp_trp.1" status="sel-based">
@@ -11146,7 +11211,7 @@
     		<depends on-sel="sel-smf-remote-admin"/>    		
     		<f-element id="ftp-trp-1e1">
     			<title>
-    				The TSF shall <h:b>use a trusted channel as specified in FTP_ITC_EXT.1 to</h:b> provide a <h:b>trusted</h:b> communication path between itself
+    				The TSF shall <h:b>use a trusted channel as specified in FTP_ITC_EXT.1/Admin to</h:b> provide a <h:b>trusted</h:b> communication path between itself
     				and [<h:i>remote</h:i>] <h:b>administrators</h:b> that is logically distinct from other communication paths and provides assured identification
     				of its endpoints and protection of the communicated data from [<h:i>modification, disclosure</h:i>.
     			</title>
@@ -11163,10 +11228,10 @@
     			</title>
     			<note role="application">
     				This SFR is included in the ST if "remotely" is selected in Management Function 1 of FMT_SMF.1.1.<h:p/>
-    				Protocols used to implement the remote administration trusted channel must be selected in FTP_ITC_EXT.1.<h:p/>
+    				Protocols used to implement the remote administration trusted channel must be selected in FTP_ITC_EXT.1/Admin.<h:p/>
     				This requirement ensures that authorized remote Administrators initiate all communication with the TOE via a trusted path, and that all
     				communications with the TOE by remote Administrators is performed over this path. The data passed in this trusted communication channel are
-    				encrypted as defined the protocol chosen in the first selection in FTP_ITC_EXT.1.    				
+    				encrypted as defined the protocol chosen in the first selection in FTP_ITC_EXT.1/Admin.    				
     			</note>
     			<aactivity>
     				<TSS>
