@@ -10564,6 +10564,239 @@ The following sections list Common Criteria and technology terms used in this do
 					resources, including sensitive data, system functions, security-critical components.
 					
 				</td></tr>
+<tr class="major-row"><td rowspan="7"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a></td><td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a></td><td>Mitigates the threat by filtering traffic from outside the protected network.</td></tr>
+<tr><td><a href="#FTP_ITC_EXT.1/IPsec">FTP_ITC_EXT.1/IPsec</a></td><td>Mitigates the threat by transmitting data over a secure VPN connection protected from unauthorized 
+					disclosure.</td></tr>
+<tr><td><a href="#FTP_ITC.1/MACsec">FTP_ITC.1/MACsec</a></td><td>Mitigates the threat by transmitting data over a secure MACsec connection protected from unauthorized
+					disclosure.</td></tr>
+<tr><td><a href="#FTP_ITC.1/PFED">FTP_ITC.1/PFED</a></td><td>Mitigates the threat by transmitting data over a secure PFED connection protected from unauthorized
+					disclosure.</td></tr>
+<tr><td><a href="#FTP_ITC_EXT.1/WLAN">FTP_ITC_EXT.1/WLAN</a></td><td>Mitigates the threat by transmitting data over a secure WLAN connection protected from unauthorized
+					disclosure.</td></tr>
+<tr><td><a href="#FCS_REKEY_EXT.1/PFED">FCS_REKEY_EXT.1/PFED</a></td><td>Mitigates the threat by rekeying ensuring session keys are fresh and reduces the window for 
+					integrity compromise.</td></tr>
+<tr><td><a href="#FDP_IFC.1/HWS">FDP_IFC.1/HWS</a></td><td>Mitigates this threat by ensuring that only permitted information flows between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> are
+					allowed.</td></tr>
+<tr class="major-row"><td rowspan="2"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a></td><td><a href="#FDP_IFC.1/CU">FDP_IFC.1/CU</a></td><td>Mitigates this threat by enforcing policy on inbound traffic from untrusted networks
+					Preventing unauthorized entities from reaching internal services.					
+				</td></tr>
+<tr><td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a></td><td>Mitigates the threat by filtering traffic to disallow unauthorized access.</td></tr>
+<tr class="major-row"><td rowspan="43"><a href="#T.NETWORK_ATTACK">T.NETWORK_​ATTACK</a></td><td><a href="#FAU_GEN.1">FAU_GEN.1</a></td><td>Mitigates the threat by maintaining an audit trail of potential malicious activity.
+				</td></tr>
+<tr><td><a href="#FAU_SAR.1">FAU_SAR.1</a></td><td>Mitigates the threat by providing a mechanism to read the audit trail.
+				</td></tr>
+<tr><td><a href="#FAU_STG.1">FAU_STG.1</a></td><td>Mitigates the threat by using an external server to preserve audit data that may provide evidence of an
+					attack.</td></tr>
+<tr><td><a href="#FAU_STG.2">FAU_STG.2</a></td><td>Mitigates the threat by preventing audit records indicating a potential attack from being destroyed.</td></tr>
+<tr><td><a href="#FAU_STG.5">FAU_STG.5</a></td><td>Mitigates the threat by ensuring that exhaustion of audit storage does not prevent audit data indicating a
+					potential attack from being generated.</td></tr>
+<tr><td><a href="#FDP_STG_EXT.1">FDP_STG_EXT.1</a></td><td>Mitigate the threat by protecting the X.509 certificates used for trusted communications.</td></tr>
+<tr><td><a href="#FMT_SMF.1">FMT_SMF.1</a></td><td>Mitigates the threat by providing a list of specific management functions.</td></tr>
+<tr><td><a href="#FMT_SMR.1">FMT_SMR.1</a></td><td>Mitigates the threat by defining the management roles which can be used to grant access to management 
+					functions.</td></tr>
+<tr><td><a href="#FPT_STM.1">FPT_STM.1</a></td><td>Mitigates the threat by ensuring that audit data indicating a potential attack is accurately
+					timestamped.</td></tr>
+<tr><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat of a network attack by implementing a mechanism to detect when the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> may be failing to
+					generate secure cryptographic keys.</td></tr>
+<tr><td><a href="#FTA_TAB.1">FTA_TAB.1</a></td><td>Mitigated the threat by providing actionable consequences for misuse of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
+<tr><td><a href="#FTP_ITP_EXT.1">FTP_ITP_EXT.1</a></td><td>Mitigates the threat by using a physically protected channel to protect data in transit.</td></tr>
+<tr><td><a href="#FTP_ITC_EXT.1/IPsec">FTP_ITC_EXT.1/IPsec</a></td><td>Mitigates the threat by implementing IPsec as a means to protect data in transit.</td></tr>
+<tr><td><a href="#FTP_ITC.1/PFED">FTP_ITC.1/PFED</a></td><td>Mitigates the threat by implementing PFED as a means to protect data in transit.  </td></tr>
+<tr><td><a href="#FTP_ITC.1/MACsec">FTP_ITC.1/MACsec</a></td><td>Mitigates the threat by implementing MACsec as a means to protect data in transit.  </td></tr>
+<tr><td><a href="#FTP_ITC_EXT.1/WLAN">FTP_ITC_EXT.1/WLAN</a></td><td>Mitigates the threat by implementing WLAN as a means to protect data in transit.  </td></tr>
+<tr><td><a href="#FCS_CKM.1/AKG">FCS_CKM.1/AKG</a></td><td>Mitigates the threat by generating strong cryptographic asymmetric keys to protect data in
+					transit.</td></tr>
+<tr><td><a href="#FCS_CKM.1/SKG">FCS_CKM.1/SKG</a></td><td>Mitigates the threat by generating strong cryptographic symmetric keys to protect data in
+					transit.</td></tr>
+<tr><td><a href="#FCS_CKM.2">FCS_CKM.2</a></td><td>Mitigates the threat by implementing key establishment to negotiate trusted channels to protect data in 
+					transit.</td></tr>
+<tr><td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>Mitigates the threat by implementing key destruction to prevent the compromise of trusted channels.</td></tr>
+<tr><td><a href="#FCS_CKM_EXT.7">FCS_CKM_EXT.7</a></td><td>Mitigates the threat by implementing key agreement functions used for trusted communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/AEAD">FCS_COP.1/AEAD</a></td><td>Mitigates the threat by implementing AEAD functions used for trusted communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></td><td>Mitigates the threat by implementing CMAC functions used for trusted communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a></td><td>Mitigates the threat by implementing hash functions used for trusted communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></td><td>TBD</td></tr>
+<tr><td><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a></td><td>Mitigates the threat by implementing signature generation functions used for trusted
+					communications.</td></tr>
+<tr><td>FCS_COPO.1/SigVer</td><td>Mitigates the threat by implementing signature verification functions used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/SKC">FCS_COP.1/SKC</a></td><td>Mitigates the threat by implementing symmetric encryption functions used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/XOF">FCS_COP.1/XOF</a></td><td>Mitigates the threat by implementing extensible output functions used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_HTTPS_EXT.1">FCS_HTTPS_EXT.1</a></td><td>Mitigates the threat by implementing <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> as a means to protect data in transit.</td></tr>
+<tr><td><a href="#FCS_RBG.1">FCS_RBG.1</a></td><td>Mitigated the threat by ensuring that keys used for trusted communications are generated using a secure
+					<abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>.</td></tr>
+<tr><td><a href="#FCS_RBG.2">FCS_RBG.2</a></td><td>Mitigates the threat by ensuring that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> is seeded with sufficient entropy to ensure the generation
+					of strong cryptographic keys.</td></tr>
+<tr><td><a href="#FCS_RBG.3">FCS_RBG.3</a></td><td>Mitigate the threat by ensuring that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> is seeded with sufficient entropy to ensure the generation
+					of strong cryptographic keys.</td></tr>
+<tr><td><a href="#FCS_RBG.4">FCS_RBG.4</a></td><td>Mitigates the threat of a network attack by ensuring that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> is seeded with sufficient entropy to
+					ensure the generation of strong cryptographic keys.</td></tr>
+<tr><td><a href="#FCS_RBG.5">FCS_RBG.5</a></td><td>Mitigates the threat by ensuring that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> is seeded with sufficient entropy to ensure the generation
+					of strong cryptographic keys.</td></tr>
+<tr><td><a href="#FCS_RBG.6">FCS_RBG.6</a></td><td>Mitigates the threat by providing a secure <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> service for third-party applications running on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> which
+					may use this service to generate their own cryptographic keys for trusted communications.</td></tr>
+<tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>Mitigates the threat by ensuring that a malfunctioning <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> function cannot be used to generate potentially
+					insecure keys.</td></tr>
+<tr><td>FTP_ITC_EXT.1</td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement trusted protocols for network
+					communication.</td></tr>
+<tr><td><a href="#FTP_TRP.1">FTP_TRP.1</a></td><td>Mitigates the threat by ensuring that remote administration only uses trusted channels.</td></tr>
+<tr><td><a href="#FCS_REC_EXT.1/PFED">FCS_REC_EXT.1/PFED</a></td><td>Mitigates this threat by suppressing <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic during recovery, ensures sequential derivation of
+					recovery keys, and terminates sessions on failure to converge.</td></tr>
+<tr><td><a href="#FDP_IFC.1/PFED">FDP_IFC.1/PFED</a></td><td>Mitigates this threat by enforcing all <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic is blocked until a secure session is authenticated and
+					keyed, preventing attackers from injecting or tampering with traffic.</td></tr>
+<tr><td><a href="#FDP_IFF.1/PFED">FDP_IFF.1/PFED</a></td><td>Mitigates this threat by only expected packets are processed; malformed or injected packets are dropped,
+					preventing protocol-based attacks.</td></tr>
+<tr><td><a href="#FIA_PSK_EXT.1/PFED">FIA_PSK_EXT.1/PFED</a></td><td>Mitigates this threat by use is limited to tunnel-0 bootstrap, preventing attackers from exploiting 
+					PSK in other sessions.</td></tr>
+<tr class="major-row"><td rowspan="4"><a href="#T.NETWORK_DISCLOSURE">T.NETWORK_​DISCLOSURE</a></td><td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a></td><td></td></tr>
+<tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>Mitigates the threat by ceasing operations of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> if a test or security failure is detected, preventing a
+					failure in traffic filtering.</td></tr>
+<tr><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat by executing self tests in a specified, repeatable manner.</td></tr>
+<tr><td><a href="#FPT_TST_EXT.1">FPT_TST_EXT.1</a></td><td>Mitigates the threat by executing self tests in a specified, repeatable manner.</td></tr>
+<tr class="major-row"><td rowspan="16"><a href="#T.NETWORK_EAVESDROP">T.NETWORK_​EAVESDROP</a></td><td><a href="#FDP_STG_EXT.1">FDP_STG_EXT.1</a></td><td>Mitigate the threat by protecting the X.509 certificates used for trusted communications.</td></tr>
+<tr><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat by implementing a mechanism to detect when the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> may be failing to generate secure
+					cryptographic keys.</td></tr>
+<tr><td><a href="#FCS_CKM.1/AKG">FCS_CKM.1/AKG</a></td><td>Mitigates the threat by ensuring the generation of strong keys used for trusted communications.
+				</td></tr>
+<tr><td><a href="#FCS_CKM.1/SKG">FCS_CKM.1/SKG</a></td><td>Mitigates the threat by ensuring the generation of strong keys used for trusted communications.</td></tr>
+<tr><td><a href="#FCS_CKM.2">FCS_CKM.2</a></td><td>Mitigates the threat by implementing secure methods to perform key distribution for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/AEAD">FCS_COP.1/AEAD</a></td><td>Mitigates the threat by implementing a method to encrypt data in transit.</td></tr>
+<tr><td><a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a></td><td>Mitigates the threat by ensuring that secure hash algorithms are used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></td><td>Mitigates the threat by ensuring that secure <abbr class="dyn-abbr"><a href="#abbr_HMAC">HMAC</a></abbr> algorithms are used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a></td><td>Mitigates the threat by ensuring that secure digital signature algorithms are used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a></td><td>Mitigates the threat by ensuring that secure digital signature algorithms are used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_HTTPS_EXT.1">FCS_HTTPS_EXT.1</a></td><td>Mitigates the threat by implementing a secure protocol (<abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr>) for trusted communications.</td></tr>
+<tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>Mitigates the threat by ensuring that a malfunctioning <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> function cannot be used to generate potentially
+					insecure keys.</td></tr>
+<tr><td>FTP_ITC_EXT.1</td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement trusted protocols for network
+					communication.</td></tr>
+<tr><td><a href="#FCS_REC_EXT.1/PFED">FCS_REC_EXT.1/PFED</a></td><td>Mitigates the threat by requiring that recovery keys are derived using HKDF tied to the current 
+					session key and refreshed at the same rate as session keys, ensuring that even if recovery messages are observed, key material remains
+					confidential.</td></tr>
+<tr><td><a href="#FCS_REKEY_EXT.1/PFED">FCS_REKEY_EXT.1/PFED</a></td><td>Mitigates the threat by frequent rekeying reducing exposure of session keys to passive
+					attackers.</td></tr>
+<tr><td><a href="#FDP_IFC.1/PFED">FDP_IFC.1/PFED</a></td><td>Mitigates the threat by encryption ensuring confidentiality and integrity, preventing passive monitoring 
+					of sensitive data.</td></tr>
+<tr class="major-row"><td rowspan="10"><a href="#T.PERSISTENT_PRESENCE">T.PERSISTENT_​PRESENCE</a></td><td><a href="#FMT_MOF.1">FMT_MOF.1</a></td><td>Mitigates the threat by permitting management functions to be used only by authorized users.</td></tr>
+<tr><td><a href="#FMT_SMF.1">FMT_SMF.1</a></td><td>Mitigates the threat by defining the management functions that are supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
+<tr><td><a href="#FPT_NOT_EXT.1">FPT_NOT_EXT.1</a></td><td>Mitigate the threat by having the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enter a secure failure state when self-test integrity failures
+					occur.</td></tr>
+<tr><td><a href="#FPT_ROT_EXT.1">FPT_ROT_EXT.1</a></td><td>Mitigates the threat by providing platform integrity to prevent intrusion of a persistent presence on the
+					platform.</td></tr>
+<tr><td><a href="#FPT_TST_EXT.1">FPT_TST_EXT.1</a></td><td>Mitigates the threat by performing self-tests to verify the integrity of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
+<tr><td><a href="#FCS_COP.1/AEAD">FCS_COP.1/AEAD</a></td><td>Mitigates the threat by implementing mechanisms to detect integrity violations of <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data.</td></tr>
+<tr><td><a href="#FCS_COP.1/KeyWrap">FCS_COP.1/KeyWrap</a></td><td>Mitigates the threat by implementing mechanisms to detect integrity violations of <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data.</td></tr>
+<tr><td><a href="#FCS_STG_EXT.2">FCS_STG_EXT.2</a></td><td>Mitigates the threat by enforcing access control on key data to prevent its unauthorized
+					disclosure.</td></tr>
+<tr><td><a href="#FCS_STG_EXT.3">FCS_STG_EXT.3</a></td><td>Mitigates the threat by enforcing integrity protection on stored <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> data.</td></tr>
+<tr><td><a href="#FPT_RVR_EXT.1">FPT_RVR_EXT.1</a></td><td>Mitigates the threat with firmware recovery mechanism in case of failure.</td></tr>
+<tr class="major-row"><td rowspan="28"><a href="#T.PHYSICAL_ACCESS">T.PHYSICAL_​ACCESS</a></td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Mitigates the threat by implementing a secure key storage for keys used to protect data at rest and data in
+					transit.</td></tr>
+<tr><td><a href="#FIA_PMG_EXT.1">FIA_PMG_EXT.1</a></td><td>Mitigates the threat by defining strong password characteristics.</td></tr>
+<tr><td><a href="#FIA_TRT_EXT.1">FIA_TRT_EXT.1</a></td><td>Mitigates the threat by limiting the extent to which brute force authentication attempts to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can be
+					made.</td></tr>
+<tr><td><a href="#FIA_UAU_EXT.2">FIA_UAU_EXT.2</a></td><td>Mitigates the threat by requiring successful authentication before allowing the user to take action on the
+					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
+<tr><td><a href="#FPT_JTA_EXT.1">FPT_JTA_EXT.1</a></td><td>Mitigates the threat by specifying the mechanism used to control access to JTAG.
+				</td></tr>
+<tr><td><a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a></td><td>Mitigates the threat by ensuring plaintext key material is not stored in readable non-volatile memory.
+				</td></tr>
+<tr><td><a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a></td><td>Mitigates the threat of physical access by preventing transmission of plaintext key material outside the
+					secure boundary of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
+<tr><td><a href="#FPT_KST_EXT.3">FPT_KST_EXT.3</a></td><td>Mitigates the threat of physical access by ensuring <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> users cannot export plaintext keys.
+				</td></tr>
+<tr><td><a href="#FPT_PHP.1">FPT_PHP.1</a></td><td>Mitigates the threat by passively detecting physical tampering.</td></tr>
+<tr><td><a href="#FPT_PHP.2">FPT_PHP.2</a> (objective)</td><td>Mitigates the threat by providing methods to detect and report physical tampering.</td></tr>
+<tr><td><a href="#FPT_PHP.3">FPT_PHP.3</a> (objective)</td><td>Mitigates the threat by resisting physical tampering.</td></tr>
+<tr><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat by implementing a mechanism to detect when the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> may be failing to generate secure
+					cryptographic keys.</td></tr>
+<tr><td><a href="#FCS_CKM.2">FCS_CKM.2</a></td><td>Mitigates the threat by implementing secure methods to perform key distribution for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>Mitigates the threat by ensuring that keys used for trusted communications are destroyed in a secure
+					manner.</td></tr>
+<tr><td><a href="#FCS_COP.1/AEAD">FCS_COP.1/AEAD</a></td><td>Mitigates the threat by using AEAD encryption to protect data at rest.</td></tr>
+<tr><td><a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a></td><td>Mitigates the threat by implementing an integrity mechanism used to verify stored keys.</td></tr>
+<tr><td><a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></td><td>Mitigates the threat by implementing an integrity mechanism used to verify stored keys.
+				</td></tr>
+<tr><td><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a></td><td>Mitigates the threat by implementing an authenticity and integrity mechanism used to verify stored keys.
+				</td></tr>
+<tr><td><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a></td><td>Mitigates the threat by implementing an authenticity and integrity mechanism used to verify stored keys.
+				</td></tr>
+<tr><td><a href="#FCS_COP.1/SKC">FCS_COP.1/SKC</a></td><td>Mitigates the threat by using symmetric encryption to protect data at rest.
+				</td></tr>
+<tr><td><a href="#FCS_RBG.1">FCS_RBG.1</a></td><td>Mitigates the threat by ensuring that keys used for protected storage are generated using a secure
+					<abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>.</td></tr>
+<tr><td><a href="#FCS_STG_EXT.2">FCS_STG_EXT.2</a></td><td>Mitigates the threat by enforcing confidentiality for key storage.</td></tr>
+<tr><td><a href="#FCS_STG_EXT.3">FCS_STG_EXT.3</a></td><td>Mitigate the threat by enforcing integrity for key storage.</td></tr>
+<tr><td><a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a></td><td>Mitigates the threat by limiting the extent to which brute force authentication attempts to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can be
+					made.</td></tr>
+<tr><td><a href="#FIA_UAU.5">FIA_UAU.5</a></td><td>Mitigates the threat by defining the supported authentication mechanisms.</td></tr>
+<tr><td><a href="#FIA_UAU.7">FIA_UAU.7</a></td><td>Mitigates the threat by providing only limited information during authentication.</td></tr>
+<tr><td><a href="#FIA_UAU_EXT.1">FIA_UAU_EXT.1</a></td><td>Mitigates the threat by preventing decryption prior to proper authorization to the device.</td></tr>
+<tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>Mitigate the threat by ensuring that a malfunctioning <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> function cannot be used to generate potentially
+					insecure keys.</td></tr>
+<tr class="major-row"><td rowspan="4"><a href="#T.REPLAY_ATTACK">T.REPLAY_​ATTACK</a></td><td>FTP_ITC_EXT.1</td><td>Mitigates the threat by utilizing the IPsec protocol to encapsulate and encrypt channel data.</td></tr>
+<tr><td><a href="#FTP_ITC.1/PFED">FTP_ITC.1/PFED</a></td><td>Mitigates the threat by utilizing PFED encryption to encapsulate and encrypt channel data.</td></tr>
+<tr><td><a href="#FTP_ITC.1/MACsec">FTP_ITC.1/MACsec</a></td><td>Mitigates the threat by utilizing the MACsec protocol to encapsulate and encrypt channel
+					data.</td></tr>
+<tr><td><a href="#FTP_ITC_EXT.1/WLAN">FTP_ITC_EXT.1/WLAN</a></td><td>Mitigates the threat by utilizing the WLAN protocol to encapsulate and encrypt channel
+					data.</td></tr>
+<tr class="major-row"><td rowspan="17"><a href="#T.SECURITY_FUNCTIONALITY_FAILURE">T.SECURITY_​FUNCTIONALITY_​FAILURE</a></td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Mitigates the threat by generating keys and secrets and storing them in a secure manner, as well as
+					destroying them on request.</td></tr>
+<tr><td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>Mitigates the threat by using appropriate key destruction methods to protect the confidentiality of credential
+					data.</td></tr>
+<tr><td><a href="#FCS_COP.1/AEAD">FCS_COP.1/AEAD</a> (sel-based)</td><td>Mitigates the threat by implementing AEAD functions used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a> (sel-based)</td><td>Mitigates the threat by implementing CMAC functions used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/KeyEncap">FCS_COP.1/KeyEncap</a></td><td>Mitigates the threat by implementing key encapsulation functions used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/KeyWrap">FCS_COP.1/KeyWrap</a></td><td>Mitigates the threat by implementing key wrapping functions used for trusted communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a></td><td>Mitigates the threat by implementing signature generation functions used for trusted
+					communications.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a></td><td>Mitigates the threat by generating digital signatures with strong encryption.</td></tr>
+<tr><td><a href="#FCS_COP.1/SKC">FCS_COP.1/SKC</a></td><td>Mitigates the threat by establishing strong symmetric-key cryptography.</td></tr>
+<tr><td><a href="#FCS_RBG.1">FCS_RBG.1</a> (sel-based)</td><td>Mitigates the threat by performing random-bit generation with sufficient complexity.</td></tr>
+<tr><td><a href="#FCS_RBG.2">FCS_RBG.2</a> (sel-based)</td><td>Mitigates the threat by using an external seed source to ensure sufficiently strong random-bit
+					generation.</td></tr>
+<tr><td><a href="#FCS_RBG.3">FCS_RBG.3</a> (sel-based)</td><td>Mitigates the threat by using an internal seed source to ensure sufficiently strong random-bit
+					generation.</td></tr>
+<tr><td><a href="#FCS_RBG.4">FCS_RBG.4</a> (sel-based)</td><td>Mitigates the threat by using multiple internal seed sources to ensure sufficiently strong
+					random-bit generation.</td></tr>
+<tr><td><a href="#FCS_RBG.5">FCS_RBG.5</a> (sel-based)</td><td>Mitigates the threat by ensuring that each entropy source's random data is combined to ensure s
+					Strong entropy when multiple sources are used.</td></tr>
+<tr><td><a href="#FDP_ITC_EXT.1">FDP_ITC_EXT.1</a></td><td>Mitigates the threat by importing keys and credentials in a secure fashion.</td></tr>
+<tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>Mitigates the threat by ensuring a <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> self-test failure causes the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to enter an error state where it 
+					cannot perform secure functions using that <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>.</td></tr>
+<tr><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat by using self-tests to ensure correct operation of the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>.</td></tr>
+<tr class="major-row"><td rowspan="1"><a href="#T.SIDE_CHANNEL_LEAKAGE">T.SIDE_​CHANNEL_​LEAKAGE</a></td><td><a href="#FPT_TUD_EXT.1">FPT_TUD_EXT.1</a></td><td>Mitigates the threat of side channel leakage by providing trusted updates that are known to mitigate side channel attacks.</td></tr>
+<tr class="major-row"><td rowspan="6"><a href="#T.UNAUTHORIZED_PLATFORM_ADMINISTRATOR">T.UNAUTHORIZED_​PLATFORM_​ADMINISTRATOR</a></td><td><a href="#FIA_PMG_EXT.1">FIA_PMG_EXT.1</a></td><td>Mitigates the threat by enforcing password complexity requirements to prevent credentials from being easily guessed.</td></tr>
+<tr><td><a href="#FIA_TRT_EXT.1">FIA_TRT_EXT.1</a></td><td>Mitigates the threat by throttling authentication to prevent access via brute force.</td></tr>
+<tr><td><a href="#FPT_STM.1">FPT_STM.1</a></td><td>Mitigates the threat by ensuring that time-based authentication throttling or lockout is accurately enforced.</td></tr>
+<tr><td><a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a></td><td>Mitigates the threat by limiting further authentication attempts once a failure threshold of a critical authentication mechanism has been reached.</td></tr>
+<tr><td><a href="#FIA_UAU.5">FIA_UAU.5</a></td><td>Mitigates the threat by implementing multiple authentication mechanisms for accessing the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
+<tr><td><a href="#FIA_UAU.7">FIA_UAU.7</a></td><td>Mitigates the threat by preventing disclosure of authentication data during authentication attempts.</td></tr>
+<tr class="major-row"><td rowspan="5"><a href="#T.UNAUTHORIZED_RECONFIGURATION">T.UNAUTHORIZED_​RECONFIGURATION</a></td><td><a href="#FMT_MOF.1">FMT_MOF.1</a></td><td>Mitigates the threat by permitting management functions to be used only by authorized users.</td></tr>
+<tr><td><a href="#FMT_SMF.1">FMT_SMF.1</a></td><td>Mitigates the threat by specifying the management functions implemented by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
+<tr><td><a href="#FMT_SMR.1">FMT_SMR.1</a></td><td>Mitigates the threat by defining the management roles which can be used to grant access to management functions.    				</td></tr>
+<tr><td><a href="#FIA_UIA_EXT.1">FIA_UIA_EXT.1</a></td><td>Mitigates the threat by preventing the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> from being modified by an unauthenticated subject.</td></tr>
+<tr><td></td><td></td></tr>
+<tr class="major-row"><td rowspan="9"><a href="#T.UPDATE_COMPROMISE">T.UPDATE_​COMPROMISE</a></td><td><a href="#FPT_PPF_EXT.1">FPT_PPF_EXT.1</a></td><td>Mitigates the threat by using the official update process to be the only method to modify platform firmware.</td></tr>
+<tr><td><a href="#FPT_RBP_EXT.1">FPT_RBP_EXT.1</a></td><td>Mitigates this threat by protecting against a malicious or inadvertent downgrade of the software/firmware to an earlier version that may have security flaws not present in the more recent version.</td></tr>
+<tr><td><a href="#FPT_ROT_EXT.2">FPT_ROT_EXT.2</a></td><td>Mitigates the threat by providing a means to attest the validity of updates.</td></tr>
+<tr><td><a href="#FPT_TUD_EXT.1">FPT_TUD_EXT.1</a></td><td>Mitigates this threat by providing authorized users the ability to query the current version of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> software/firmware, initiate updates, and verify updates prior to installation using a manufacturer digital signature.</td></tr>
+<tr><td><a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a></td><td>Mitigates the threat by providing a means to validate the integrity of an update using a hash.</td></tr>
+<tr><td><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a></td><td>Mitigates the threat by providing a means to validate the integrity of an update using a digital signature verification.</td></tr>
+<tr><td><a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a></td><td>Mitigates the threat by using a digital signature mechanism to verify the integrity of updates and a rollback protection mechanism to prevent application of an unauthorized update.</td></tr>
+<tr><td><a href="#FPT_TUD_EXT.3">FPT_TUD_EXT.3</a></td><td>Mitigates the threat by using the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s root of trust to validate the authenticity and integrity of an update when it is applied.</td></tr>
+<tr><td><a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a></td><td>Mitigates the threat through an update mechanism that requires physical access to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to use.</td></tr>
 </table></p>  
 	  
 	  
