@@ -513,7 +513,7 @@
 				</description>
 				</feature>
 				<feature id="cu-functionality" title="CU Functionality">
-					<description>A conformant TOE claims to be a CU. This includes the TOE claiming to be only a CU or claiming to be a CU as part of a HWS-ERD configuration.
+					<description>A conformant TOE claims to be a CU. This includes the TOE claiming to be only a CU or claiming to be a CU as part of an HWS-ERD configuration.
 					</description>
 				</feature>
 				<feature id="hws-erd" title="Hardware-Separated Encrypting Retransmission Device (HWS-ERD)">
@@ -1616,10 +1616,6 @@
 			<audit-table id="at-mandatory" table="mandatory"/>
 		</section>
 		
-		<section id="sop-audit-table" title="Auditable Events for Optional SFRs">
-			<audit-table id="at-optional" table="optional"/>
-		</section>
-		
 		<section id="sop-audit-table" title="Auditable Events for Objective SFRs">
 			<audit-table id="at-objective" table="objective"/>
 		</section>
@@ -1648,7 +1644,7 @@
 	 							for Strictly Optional requirements</selectable>
 	 						<selectable>Specifically defined auditable event in <xref to="at-objective"/> 
 	 							for Objective requirements</selectable>
-	 						<selectable>Specifically defined auditable event in <xref to="at*sel-based"/> 
+	 						<selectable>Specifically defined auditable event in <xref to="at-sel-based"/> 
 	 							for Selection-Based requirements</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
@@ -1667,9 +1663,9 @@
 	 					<h:li>The outcome (success or failure) of the event</h:li>
 	 					<h:li>[<refinement>Additional information defined in <xref to="at-mandatory"/></refinement>]</h:li>
 	 					<h:li><refinement><selectables linebreak="yes">
-	 						<selectable>Additional information defined in <xref g="t-audit-optional"/> for Strictly Optional SFRs</selectable>
-	 						<selectable>Additional information defined in <xref g="t-audit-objective"/> for Objective SFRs</selectable>
-	 						<selectable>Additional information defined in <xref g="t-audit-sel-based"/> for Selection-Based SFRs</selectable>
+	 						<selectable>Additional information defined in <xref to="at-optional"/> for Strictly Optional SFRs</selectable>
+	 						<selectable>Additional information defined in <xref to="at-objective"/> for Objective SFRs</selectable>
+	 						<selectable>Additional information defined in <xref to="at-sel-based"/> for Selection-Based SFRs</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="x509"/></selectable>
@@ -3284,7 +3280,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event/>
+			<audit-event table="impl-dep"/>
 		</f-component>
 		
 		<!-- FCS_COP.1/AEAD Cryptographic Operation – Authenticated Encryption with Associated Data -->	
@@ -6978,6 +6974,7 @@
 			
 			<f-component name="Layer-2 Protocol Break" cc-id="fdp_pbr_ext.1" status="feat-based">
 				<depends on="cu-functionality"/>
+				<depends on="hws-erd"/>
 				<consistency-rationale></consistency-rationale>
 				<comp-lev> requires the TSF to ensure and manage the use of a Layer-2 protocol break.</comp-lev>
 				<management>TBD</management>
@@ -9085,7 +9082,7 @@
     				The TSF shall preserve a secure state <h:b>by terminating sessions </h:b>when the following types of failures occur: [<h:i><h:ul>
     					<h:li>dead peer detected</h:li>
     					<h:li>recovery failure</h:li>
-    					<h:li>provisioning faiure</h:li>
+    					<h:li>provisioning failure</h:li>
     				</h:ul></h:i>].              
     			</title>
     			<note role="application">The intent of this requirement is to ensure that cryptographic services requiring random bit
@@ -9712,6 +9709,7 @@
     				</Tests>
     			</aactivity>
     		</f-element>
+    		<audit-event/>
     	</f-component>
     	
     	<f-component name="Recovery Behavior" cc-id="fpt_rcv.1" iteration="PFED" status="feat-based">
@@ -10095,7 +10093,7 @@
     				<Tests>TBD</Tests>
     			</aactivity>
     		</f-element>
-    		<audit-event>
+    		<audit-event table="impl-dep">
     			<audit-event-descr>TBD</audit-event-descr>
     		</audit-event>
     		
@@ -10272,7 +10270,7 @@
     		</aactivity>
     		</f-element> 
     		<audit-event>
-    			<audit-event-descr>Execution of self-tests.</audit-event-descr>
+    			<audit-event-descr>Execution of self-tests</audit-event-descr>
     		</audit-event>
     	</f-component>
     	
@@ -11306,7 +11304,8 @@
     		</aactivity>
     	</f-element>
 			<audit-event table="sel-based">
-				<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
+				<audit-event-descr>Initiation and termination of trusted channel</audit-event-descr>
+				<audit-event-info>Trusted channel protocol, non-TOE endpoint of connection</audit-event-info>
 			</audit-event>
 	</f-component>	
     	
