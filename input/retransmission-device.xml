@@ -48,6 +48,14 @@
 		<depends on-sel="sel-itc-tls"/>
 		<depends on-sel="sel-itc-https"/>
 	</include-pkg>	 
+	
+	<include-pkg id="x509">
+		<git>
+			<url>https://github.com/commoncriteria/X509</url>
+			<branch>release-1.0</branch>
+		</git>
+		<url>https://www.niap-ccevs.org/static_html/protection-profile/511/Functional%20Package%20for%20X.509_v1.0.html</url>
+	</include-pkg>
 	<!-- 1.0 Introduction -->
 	<sec:Introduction>
 
@@ -1168,7 +1176,7 @@
 		is expected to enforce.
 		
 	<!-- 3.1 Threats -->	
-		<comment>This section needs to be updated and mapping completed.</comment>
+		
     <sec:Threats>
 		<threats>
 			<threat name="T.BASEBAND_PROCESSOR_COMPROMISE">
@@ -1497,7 +1505,7 @@
 	<!-- 3.2 Assumptions -->
 		
     <sec:Assumptions>
-		<comment>This section needs to be updated and mapping completed.</comment>
+		
     	<assumptions>
 			<assumption name="A.CONFIG">
 				<description>It is assumed that the TOE’s security functions are configured correctly in a manner to ensure that the TOE security policies will be enforced on
@@ -1528,11 +1536,11 @@
     			</objective-refer>
     		</assumption>
     		
-    		<assumption name="A.TRUSTED_ADMIN">
-    			<description>TOE security administrators are assumed to be trusted and to act in the best interest of security for the organization. The TOE is not expected to
-    				be capable of defending against a malicious administrator that actively works to bypass or compromise the security of the platform.</description>
+    		<assumption name="A.REGULAR_UPDATES">
+    			<description>It is assumed that the manufacturer provides updates to TOE firmware in a timely manner in response to known vulnerabilities, and that
+    				administrators apply these updates when they are received.</description>
     			<objective-refer ref="OE.TRUSTED_ADMIN">
-    				<rationale>The operational environment objective A.TRUSTED_ADMIN is realized through OE.TRUSTED_ADMIN.</rationale>
+    				<rationale>The operational environment objective A.REGULAR_UPDATES is realized through OE.TRUSTED_ADMIN.</rationale>
     			</objective-refer>
     		</assumption>
     		
@@ -1544,14 +1552,13 @@
     			</objective-refer>
     		</assumption>
     		
-    		<assumption name="A.REGULAR_UPDATES">
-    			<description>It is assumed that the manufacturer provides updates to TOE firmware in a timely manner in response to known vulnerabilities, and that
-    				administrators apply these updates when they are received.</description>
+    		<assumption name="A.TRUSTED_ADMIN">
+    			<description>TOE security administrators are assumed to be trusted and to act in the best interest of security for the organization. The TOE is not expected to
+    				be capable of defending against a malicious administrator that actively works to bypass or compromise the security of the platform.</description>
     			<objective-refer ref="OE.TRUSTED_ADMIN">
-    				<rationale>The operational environment objective A.REGULAR_UPDATES is realized through OE.TRUSTED_ADMIN.</rationale>
+    				<rationale>The operational environment objective A.TRUSTED_ADMIN is realized through OE.TRUSTED_ADMIN.</rationale>
     			</objective-refer>
     		</assumption>
-    		
 		</assumptions>
     </sec:Assumptions>
 	
@@ -1559,7 +1566,7 @@
 	
 	<!-- 4.0 Security Objectives -->
 	<sec:Security_Objectives>
-		<comment>This section needs to be updated and mapping completed.</comment>
+		
 		
     <sec:Security_Objectives_for_the_Operational_Environment>
 		The following security objectives for the operational
@@ -1583,7 +1590,7 @@
 					appropriate use of the device.</description>
 			</SOE>
 			
-			<SOE name="OE.SUPPLY_CHAING">
+			<SOE name="OE.SUPPLY_CHAIN">
 				<description>The manufacturer is expected to implement processes to ensure that TOE hardware and firmware are not compromised between time of TOE manufacture
 					and delivery to its operational site.</description>
 			</SOE>
@@ -1613,6 +1620,10 @@
 			<audit-table id="at-optional" table="optional"/>
 		</section>
 		
+		<section id="sop-audit-table" title="Auditable Events for Objective SFRs">
+			<audit-table id="at-objective" table="objective"/>
+		</section>
+		
 		<section id="sid-audit-table" title="Auditable Events for Implementation-Dependent SFRs">
 			<audit-table id="at-impl-dep" table="impl-dep"/>
 		</section>
@@ -1633,11 +1644,11 @@
 	 					<h:li>Start-up, shutdown, and reboot of the platform</h:li>
 	 					<h:li>Specifically defined auditable events in <xref to="at-mandatory"/></h:li>
 	 					<h:li><selectables linebreak="yes">
-	 						<selectable>Specifically defined auditable event in <xref g="t-audit-optional"/> 
+	 						<selectable>Specifically defined auditable event in <xref to="at-optional"/> 
 	 							for Strictly Optional requirements</selectable>
-	 						<selectable>Specifically defined auditable event in <xref g="t-audit-objective"/> 
+	 						<selectable>Specifically defined auditable event in <xref to="at-objective"/> 
 	 							for Objective requirements</selectable>
-	 						<selectable>Specifically defined auditable event in <xref g="t-audit-sel-based"/> 
+	 						<selectable>Specifically defined auditable event in <xref to="at*sel-based"/> 
 	 							for Selection-Based requirements</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
@@ -1667,7 +1678,7 @@
 	 				</h:ol>
 	 			</title>		
 	 			<note role="application">
-	 				The ST Author should include this SFR in the ST if the TOE generates audit events for integrity verification 
+	 				The ST author should include this SFR in the ST if the TOE generates audit events for integrity verification 
 	 				or boot failures as indicated by the appropriate selections in FPT_ROT_EXT.2, FPT_ROT_EXT.3,
 	 				FPT_TUD_EXT.2, or FPT_TUD_EXT.3.4.<h:p/>
 	 				If this SFR is included in the ST, then all the other FAU SFRs must also be claimed.<h:p/>
@@ -1753,12 +1764,12 @@
 	 	
 	 	<f-component id="sfr-fau-sar-1" cc-id="fau_sar.1" name="Audit Review">
 	 		<f-element id="fau-sar-1e1">
-	 			<title>The TSF shall provide <refinement>the Administrator</refinement> with the
+	 			<title>The TSF shall provide <refinement>the administrator</refinement> with the
 	 				capability to read <refinement>all audited events and record contents</refinement>
 	 				from the audit data.</title>
 	 		</f-element>
 	 		<f-element id="fau-sar-1e2">
-	 			<title>The TSF shall provide the audit data in a manner suitable for the <refinement>Administrator
+	 			<title>The TSF shall provide the audit data in a manner suitable for the <refinement>administrator
 	 			</refinement> to interpret the information.</title>
 	 			
 	 			<aactivity>
@@ -1789,7 +1800,7 @@
 	 				</selectables>  
 	 			</title>
 	 			<note role="application">
-	 				The ST Author selects "<h:i>trusted channel</h:i>" and includes FTP_ITC_EXT.1/Admin in the ST if the TOE offloads
+	 				The ST author selects "<h:i>trusted channel</h:i>" and includes FTP_ITC_EXT.1/Admin in the ST if the TOE offloads
 	 				audit data to external IT entity over a network connection. Protocols used for implementing the trusted
 	 				channel must be selected in FTP_ITC_EXT.1/Admin.  
 	 			</note>
@@ -1859,7 +1870,7 @@
 	 			</title>
 	 			<note role="application">
 	 				Deletion of audit data within the TOE is "authorized" if the deletion is initiated or performed by 
-	 				an Administrator.<h:p/>
+	 				an administrator.<h:p/>
 	 				Notwithstanding this requirement, audit records may be overwritten if local audit record storage is full
 	 				in accordance with FAU_STG.5.<h:p/>	 				
 	 			</note>
@@ -1922,7 +1933,7 @@
 	 		</f-element>
 	 		<audit-event>
 	 			<audit-event-descr>
-	 				<h:mark>Audit trail full. Overwrite of audit records is commencing.</h:mark>
+	 				Audit trail full. Overwrite of audit records is commencing.
 	 			</audit-event-descr>
 	 			<audit-event-info>None</audit-event-info>
 	 		</audit-event>
@@ -2668,30 +2679,7 @@
 			</audit-event>
 		</f-component>
 		
-		<f-component name="Cryptographic Symmetric Key Generation" cc-id="fcs_ckm.1" iteration="SK" status="feat-based">
-			<depends on="pfed"/>
-			<f-element >
-				<title>
-					<comment>Need to complete sections for EAs and audit events.</comment><h:p/>
-					The TSF shall generate <h:b>symmetric</h:b> cryptographic keys <h:b>using a Random Bit Generator as specified in FCS_RBG.1</h:b> and
-					specified cryptographic key sizes [<h:i>256-bit</h:i>.
-				</title>
-				<note role="application">
-					This requirement is dependent on selecting and AES selection in FCS_COP.1.1/SKC. Symmetric keys may be used to generate keys along the key
-					chain.
-				</note>
-				<aactivity>
-					<TSS>TBD</TSS>
-					<Guidance>TBD</Guidance>
-					<Tests>TBD</Tests>
-				</aactivity>
-			</f-element>
-			<audit-event table="impl-dep">
-				<audit-event-descr>TBD</audit-event-descr>
-			</audit-event>
-		</f-component>
-
-		<!-- FCS_CKM.1/SKG -->
+			<!-- FCS_CKM.1/SKG -->
 		<f-component cc-id="fcs_ckm.1" id="fcom_sym_key_gen" iteration="SKG" name="Cryptographic Key
 			Generation - Symmetric Key" status="sel-based">
 			<depends on="pfed"/>
@@ -4957,13 +4945,13 @@
 					This SFR must be included in the ST if digital signature verification is a service provided by 
 					the TOE to tenant software, or if digital signature verification is used by the TOE itself to 
 					support or implement PP-specified security functionality.<h:p/> 
-					Specifically, this SFR must be included if the ST Author chooses "<h:i>implement an authenticated platform
+					Specifically, this SFR must be included if the ST author chooses "<h:i>implement an authenticated platform
 					firmware update mechanism as described in FPT_TUD_EXT.2</h:i>" or "<h:i>implement a delayed-authentication platform
-					firmware update mechanism as described in FPT_TUD_EXT.3</h:i>" in FPT_TUD_EXT.1; or if the ST Author 
+					firmware update mechanism as described in FPT_TUD_EXT.3</h:i>" in FPT_TUD_EXT.1; or if the ST author 
 					selects "<h:i>verification of a digital signature by trusted code/data</h:i>" in FPT_ROT_EXT.2.<h:p/>	
 					If this SFR is included in the ST, then FCS_COP.1/Hash must also be claimed.<h:p/>
-					The ST Author should choose the algorithm implemented to perform verification of digital signatures. 
-					For the algorithm chosen, the ST Author should make the appropriate assignments/selections to specify the 
+					The ST author should choose the algorithm implemented to perform verification of digital signatures. 
+					For the algorithm chosen, the ST author should make the appropriate assignments/selections to specify the 
 					parameters that are implemented for that algorithm. In particular, if ECDSA is selected as one of the signature
 					algorithms, the key size specified must match the selection for the curve used in the algorithm.<h:p/>
 					For elliptic curve-based schemes, the key size refers to the binary logarithm (log2) of the order of the
@@ -6260,8 +6248,8 @@
 					</title>
 				</ext-comp-def-title>
 				<note role="application">
-					If the protected storage is implemented in software that is protected as required by FCS_STG_EXT.2, the ST Author is expected to select 
-					"software-based." If "software-based" is selected, the ST Author is expected to select "software-based key storage" in FCS_STG_EXT.2 and 
+					If the protected storage is implemented in software that is protected as required by FCS_STG_EXT.2, the ST author is expected to select 
+					"software-based." If "software-based" is selected, the ST author is expected to select "software-based key storage" in FCS_STG_EXT.2 and 
 					also claim FCS_STG_EXT.3.<h:p/>
 					If this SFR is included in the ST, then FCS_CKM.6 must also be claimed.
 				</note>
@@ -6853,8 +6841,6 @@
 			<f-component name="Layer-2 Isolation and Cryptographic Continuity Enforcement" cc-id="fdp_iso_ext.1" status="feat-based">
 				<depends on="cu-functionality"/>
 				<depends on="hws-erd"/>
-				<depends on="ftp_trp.1"/>
-				<depends on-sel="selpfed"/>
 				<consistency-rationale/>
 				<comp-lev> requires the TSF to ensure and manage the use of Layer-2 protocol.</comp-lev>
 				<management>TBD</management>
@@ -6992,9 +6978,6 @@
 			
 			<f-component name="Layer-2 Protocol Break" cc-id="fdp_pbr_ext.1" status="feat-based">
 				<depends on="cu-functionality"/>
-				<depends on="hws-erd"/>
-				<depends on-sel="selpfed"/>
-				<depends on="ftp_trp.1"/>
 				<consistency-rationale></consistency-rationale>
 				<comp-lev> requires the TSF to ensure and manage the use of a Layer-2 protocol break.</comp-lev>
 				<management>TBD</management>
@@ -7119,7 +7102,7 @@
 				<management>The following actions could be considered for the management functions in FMT:
 					<h:ul><h:li>Ability to set parameters for allowable number of authentication failures.</h:li></h:ul></management>
 				<audit>If FAU_GEN.1 is included in the ST, then the following audit events should be considered:
-					<h:ul><h:li>Failed attempt at Administrator authentication.</h:li></h:ul></audit>
+					<h:ul><h:li>Failed attempt at administrator authentication.</h:li></h:ul></audit>
 				<dependencies>FCS_CKM.6 Timing and Event of Cryptographic Key Destruction<h:br/>
 					FIA_SMF.1 Specification of Management Functions
 				</dependencies>
@@ -7140,7 +7123,7 @@
 						</title>
 					</ext-comp-def-title>
 					<note role="application">
-						This SFR is included in the ST if the "<h:i>Administrator</h:i>" role is selected
+						This SFR is included in the ST if the "<h:i>administrator</h:i>" role is selected
 						in FMT_SMR.1.<h:p/>
 						If this SFR is included in the ST, then FCS_CKM.6 must also be claimed.<h:p/>
 						This SFR specifies the actions to be taken in the event of multiple authentication failures.<h:p/>
@@ -7232,10 +7215,10 @@
 						TSF shall 
 						<selectables linebreak="yes">
 							<selectable>perform a wipe of all protected data</selectable>
-							<selectable>exclude the current Administrator from further authentication attempts</selectable>
-							<selectable>exclude the current Administrator from further authentication
+							<selectable>exclude the current administrator from further authentication attempts</selectable>
+							<selectable>exclude the current administrator from further authentication
 								attempts for <assignable>a period of time greater than zero seconds</assignable></selectable>
-							<selectable>exclude the current Administrator from further authentication
+							<selectable>exclude the current administrator from further authentication
 								attempts for <assignable>a period of time greater than the minimum boot time of the system</assignable></selectable>
 						</selectables>.
 					</title>
@@ -7245,8 +7228,8 @@
 							TSF shall <assignable>rules for unsuccessful authentication attemps</assignable>.</title>
 					</ext-comp-def-title>
 					<note role="application">
-						The "current Administrator" is the entity attempting to authenticate to the TOE that has run afoul of 
-						the limit on authentication attempts. For platforms that support multiple Administrator identities, only the
+						The "current administrator" is the entity attempting to authenticate to the TOE that has run afoul of 
+						the limit on authentication attempts. For platforms that support multiple administrator identities, only the
 						identity that has run afoul is punished. For platforms without such support, these actions
 						are effectively applied to the authentication mechanism rather than a specific user.<h:p/>
 						Wipe is performed in accordance with FCS_CKM.6. Protected data is all non-TSF data, 
@@ -7288,11 +7271,11 @@
 							TOE user if the authentication attempt was successful or not.
 						</TSS>
 						<Guidance>
-							The evaluator shall verify that the AGD describes how the Administrator configures
+							The evaluator shall verify that the AGD describes how the administrator configures
 							the maximum number of unique unsuccessful authentication attempts, and the lockout time period,
 							if applicable.<h:p/>
-							The evaluator shall verify that the AGD describes how an Administrator may recover from 
-							authentication failure when another Administrator is locked out.
+							The evaluator shall verify that the AGD describes how an administrator may recover from 
+							authentication failure when another administrator is locked out.
 						</Guidance>
 						<Tests>
 							The evaluator shall configure the device with all authentication mechanisms 
@@ -7311,15 +7294,15 @@
 								</test>
 								<test>
 									[conditional] If the mechanism is critical or if all authentication mechanisms are
-									exhausted, then if "<h:i>exclude the current User/Administrator from further authentication 
+									exhausted, then if "<h:i>exclude the current user/administrator from further authentication 
 										attempts</h:i>" is selected in FIA_AFL_EXT.1.5 the evaluator shall verify that 
-									the User/Administrator can make no further authentication attempts.
+									the user/administrator can make no further authentication attempts.
 								</test>
 								<test>
 									[conditional] If the mechanism is critical or if all authentication mechanisms are
-									exhausted, then if "<h:i>exclude the current User/Administrator from further authentication 
+									exhausted, then if "<h:i>exclude the current user/administrator from further authentication 
 										attempts for a period of [assignment: greater than zero seconds] time</h:i>" is selected in
-									FIA_AFL_EXT.1.5 the evaluator shall verify that the User/Administrator can make no further 
+									FIA_AFL_EXT.1.5 the evaluator shall verify that the user/administrator can make no further 
 									authentication attempts until the specified time period has expired.
 								</test>
 							</testlist>
@@ -7327,7 +7310,7 @@
 					</aactivity>
 				</f-element>
 				<audit-event table="sel-based">
-					<audit-event-descr>Failed attempt at Administrator authentication</audit-event-descr>
+					<audit-event-descr>Failed attempt at administrator authentication</audit-event-descr>
 					<audit-event-info>None</audit-event-info>
 				</audit-event>
 			</f-component>
@@ -7343,7 +7326,7 @@
 				<comp-lev>requires the TSF to support passwords with varying composition and length requirements.</comp-lev>
 				<management>The following actions could be considered for the management functions in FMT:
 					<h:ul><h:li>Ability to configure password composition and length requirements 
-						for authorization of Administrators.</h:li>
+						for authorization of administrators.</h:li>
 						<h:li>Ability to manage authentication methods and change default authorization factors</h:li>
 					</h:ul></management>
 				<audit/>
@@ -7391,10 +7374,10 @@
 						Encryption Key for DAR protection and key storage protection and the anti-hammer requirement (FIA_TRT_EXT.1)
 						addresses the threat of attackers with physical access using much smaller and less complex
 						passwords.<h:p/>
-						The ST Author selects the character set: either the upper and lower case Basic Latin letters 
+						The ST author selects the character set: either the upper and lower case Basic Latin letters 
 						or another assigned character set containing at least 52 characters. The assigned character
 						set must be well defined: either according to an international encoding standard (such as
-						Unicode) or defined in the assignment by the ST Author. The ST Author also selects the special
+						Unicode) or defined in the assignment by the ST author. The ST author also selects the special
 						characters that are supported by TOE; they may optionally list additional special characters
 						supported using the assignment.
 					</note>
@@ -7547,8 +7530,8 @@
 						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 						The TOE shall support the following authentication mechanisms: <h:ul>
 							<h:li>Cryptographic mutual authentication using ML-DSA-87</h:li> and <selectables>
-								<selectable>User activation using <assignable>password, PIN, or CIK</assignable></selectable>
-								<selectable>No other mechanism</selectable>
+								<selectable>user activation using <assignable>password, PIN, or CIK</assignable></selectable>
+								<selectable>no other mechanism</selectable>
 							</selectables>							
 						</h:ul>				
 					</title>
@@ -7578,8 +7561,8 @@
 					</selectables>] to support user authentication. 
 					</title>
 					<note role="application">
-						This SFR is included in the ST if the "Administrator" role is selected in FMT_SMR.1.<h:p/>
-						A "user" in the context of this SFR is an Administrator.<h:p/>
+						This SFR is included in the ST if the "administrator" role is selected in FMT_SMR.1.<h:p/>
+						A "user" in the context of this SFR is an administrator.<h:p/>
 						The TSF must support a Password Authentication Factor and may optionally implement a biometric authentication factor.<h:p/>
 						The Password Authentication Factor is configured according to FIA_PMG_EXT.1.<h:p/>
 						If "X.509 certificate-based authentication" is selected, then the ST must include FIA_X509_EXT.1 and FIA_X509_EXT.2 from.<h:p/>
@@ -7632,11 +7615,11 @@
 						while the authentication is in progress. 
 					</title>
 					<note role="application">
-						This SFR is included in the ST if the "<h:i>Administrator</h:i>" role is selected
+						This SFR is included in the ST if the "<h:i>administrator</h:i>" role is selected
 						in FMT_SMR.1.<h:p/>
 						This requirement applies to all authentication mechanisms specified in FIA_UAU.5.1 that provide 
-						feedback to a user or Administrator during authentication.<h:p/>
-						For authentication mechanisms that require the user or Administrator to enter a
+						feedback to a user or administrator during authentication.<h:p/>
+						For authentication mechanisms that require the user or administrator to enter a
 						password or PIN, the TSF may briefly (1 second or less) display each character or provide an option
 						to allow the user to unmask the user input; however, the user input must be obscured by default.<h:p/>
 						If a BAF is selected in FIA_UAU.5.1, the TSF must not display sensitive information regarding
@@ -7839,12 +7822,12 @@
 				<dependencies>FIA_UAU.5 Multiple Authentication Mechanisms</dependencies>
 				
 				<f-element id="fia-uia-ext-1e1">
-					<title>The TSF shall require Administrators to be successfully authenticated
+					<title>The TSF shall require administrators to be successfully authenticated
 						using one of the methods in FIA_UAU.5 before allowing any TSF-mediated management
-						function to be performed by that Administrator.
+						function to be performed by that administrator.
 					</title>
 					<note role="application">
-						This SFR is included in the ST if the "<h:i>Administrator</h:i>" role is selected
+						This SFR is included in the ST if the "<h:i>administrator</h:i>" role is selected
 						in FMT_SMR.1.<h:p/>
 						Ordinary unprivileged users of the platform need not authenticate to the platform, though they
 						may well have to authenticate themselves to tenant software such as an Operating System. <h:p/>
@@ -7884,15 +7867,15 @@
       				the functions [<h:i>listed in <xref to="t-manfunc"/></h:i>] to [<h:i>the roles 
       					indicated in <xref to="t-manfunc"/></h:i>]. 
       			</title>
-      			<note role="application"> There are two roles defined in this PP: Administrator and User
+      			<note role="application"> There are two roles defined in this PP: Administrator and user
       				(see FIA_SMR.1). Aministrators can perform most management functions on the platform, and only
-      				Administrators are required to authenticate themselves to the platform.<h:p/>
+      				administrators are required to authenticate themselves to the platform.<h:p/>
       				Users have a limited ability to select responses to certain events
       				as specified in the Management Functions table in FMT_SMF.1.<h:p/>
       			</note>
       			<aactivity>
       				<TSS>The evaluator shall verify that the TSS describes those management functions that
-      					may be performed by the Administrator, and those that can be performed by
+      					may be performed by the administrator, and those that can be performed by
       					ordinary users. The TSS also describes any functionality that is affected by 
       					administrator-configured policy and how. This activity will be performed in conjunction with
       					FMT_SMF.1.
@@ -7958,7 +7941,7 @@
 							<O ref="A"/>
 							<X ref="U"/>
 							<app-note>
-								Administration is considered “local” if the Administrator is physically present at the TOE.<h:p/>
+								Administration is considered “local” if the administrator is physically present at the TOE.<h:p/>
 								Administration is considered “remote” if communications between the administrator and TOE is over a network.<h:p/>
 								If "<h:i>locally</h:i>" is selected, then function <xref to="mf-auth-creds"/> is mandatory.<h:p/>
 								If "<h:i>remotely</h:i>" is selected, then FTP_TRP.1 must be claimed in the 
@@ -8025,7 +8008,7 @@
 						<management-function id="mf-auth-creds">	
 							<depends on-sfr="sfr-fia-uia-ext-1"/>
 							<text>
-								Ability to manage authentication credentials for Administrators.
+								Ability to manage authentication credentials for administrators.
 							</text>
 							<O ref="A"/>
 							<X ref="U"/>
@@ -8058,7 +8041,7 @@
 							<X ref="U"/>
                             <app-note>
 								This Function must be claimed if FIA_PMG_EXT.1 is claimed in the ST.<h:p/>
-								If password length and complexity are not configurable, then the Administrator 
+								If password length and complexity are not configurable, then the administrator 
 								Option should be denied.
 							</app-note>
 						</management-function>
@@ -8073,7 +8056,7 @@
 							<X ref="U"/>
                             <app-note>
 								This Function must be claimed if FIA_TRT_EXT.1 is claimed in the ST.<h:p/>
-								If authentication throttling policy is not configurable, then the Administrator 
+								If authentication throttling policy is not configurable, then the administrator 
 								Option should be denied.
 							</app-note>
 						</management-function>
@@ -8089,7 +8072,7 @@
 							<X ref="U"/>
                             <app-note>
 								This Function must be claimed if FIA_UAU.5 is claimed in the ST. <h:p/> 
-								If authentication methods are not configurable, then the Administrator 
+								If authentication methods are not configurable, then the administrator 
 								Option should be denied.
 							</app-note>
 						</management-function>
@@ -8105,7 +8088,7 @@
                             <app-note>
 								This function must be claimed if FIA_X509_EXT.1 is claimed in the ST (i.e., the TOE claims conformance to <xref to="pkg-x509"/>. <h:p/>
 								If TOE does not support configuration of certificate revocation checking methods,
-								then the Administrator option should be denied.
+								then the administrator option should be denied.
 							</app-note>
 						</management-function>
 
@@ -8149,7 +8132,7 @@
 							<O ref="A"/>
 							<X ref="U"/>
                             <app-note>
-								This Function must be claimed if "<h:i>in accordance with Administrator-configurable policy</h:i>" 
+								This Function must be claimed if "<h:i>in accordance with administrator-configurable policy</h:i>" 
 								is selected in FPT_ROT_EXT.2.2 or FPT_ROT_EXT.3.2.
 							</app-note>
 						</management-function>
@@ -8165,7 +8148,7 @@
 							<X ref="U"/>
                             <app-note>
 								This Function must be claimed if FPT_TUD_EXT.2 or FPT_TUD_EXT.3 is claimed in 
-								the ST and "<h:i>in accordance with Administrator-configurable policy</h:i>" 
+								the ST and "<h:i>in accordance with administrator-configurable policy</h:i>" 
 								is selected in FPT_TUD_EXT.2.5 or FPT_TUD_EXT.3.4.
 							</app-note>
 						</management-function>
@@ -8218,9 +8201,9 @@
 							</O>
                             <app-note>
 								This Function must be claimed if FPT_ROT_EXT.2 or FPT_ROT_EXT.3 is claimed in the ST.<h:p/>
-								The Administrator Option must be selected if "<h:i>by express determination of an [Administrator]</h:i>" is selected
+								The administrator option must be selected if "<h:i>by express determination of an [administrator]</h:i>" is selected
 								in FPT_ROT_EXT.2.2 or FPT_ROT_EXT.3.2.<h:p/>
-								The User Option must be selected if "<h:i>by express determination of an [User]</h:i>" is selected
+								The user option must be selected if "<h:i>by express determination of an [user]</h:i>" is selected
 								in FPT_ROT_EXT.2.2 or FPT_ROT_EXT.3.2.
 							</app-note>
 						</management-function>
@@ -8251,7 +8234,7 @@
 						and its associated actions. 
 					</TSS>
 					<Guidance>
-                       	The evaluator shall examine the AGD to ensure that it describes how the Administrator
+                       	The evaluator shall examine the AGD to ensure that it describes how the administrator
 						performs each management function that the ST claims the TOE supports.<h:p/>
                         The evaluator shall verify for each claimed management function that 
 						the guidance is sufficiently detailed to allow the function to be performed.
@@ -8310,7 +8293,7 @@
       				software. The user role is considered to exist even if no humans normally interact with a TOE.<h:p/>
       				An administrator is a privileged user that must be authenticated by the TOE in order 
       				to administer the TOE. This role is distinct from OS or VS administrators, who are
-      				may are authenticated to tenant software and are considered to be Users in the context of the TOE.				
+      				may are authenticated to tenant software and are considered to be users in the context of the TOE.				
       			</note>
       			<aactivity>
       				<TSS/>
@@ -8532,7 +8515,7 @@
     		<f-element id="fpf-rul-ext-1e5">
     			<title>
     				The TSF shall process the applicable packet filtering rules (as determined in accordance with FPF_RUL_EXT.1.4) in the following order: 
-    				[<h:li>Administrator-defined</h:li>].
+    				[<h:li>administrator-defined</h:li>].
     			</title>
     			
     			<ext-comp-def-title>
@@ -9133,7 +9116,7 @@
     		<f-element id="fdp-fls-1e1">
     			<title>
     				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
-    				The TSF shall preserve a secure state by terminating sessions and destroying keys when the following types of failures occur: [<h:i>Dead
+    				The TSF shall preserve a secure state by terminating sessions when the following types of failures occur: [<h:i>Dead
     				peer detected, Recovery failure, Provisioning failure</h:i>.				
     			</title>
     			<note role="application">
@@ -9505,7 +9488,7 @@
     				</TSS>
     				<Guidance>
     					The evaluator shall ensure that the AGD describes how the TOE indicates to users
-    					and Administrators that it has detected tampering. 
+    					and administrators that it has detected tampering. 
     				</Guidance>
     				<Tests>
     					The evaluator shall verify that attempts to open the TOE enclosure  
@@ -9522,7 +9505,7 @@
     	</f-component>
     	
     
-    	<f-component id="sfr-fpt-php-2" cc-id="fpt_php.2" name="Notification of Physical Attack" status="feat-based">
+    	<f-component id="sfr-fpt-php-2" cc-id="fpt_php.2" name="Notification of Physical Attack" status="objective">
     		
     		<f-element id="fpt-php-2e1">
     			<title>The TSF shall provide unambiguous detection of physical tampering that
@@ -9556,7 +9539,7 @@
     				</TSS>
     				<Guidance>
     					The evaluator shall ensure that the AGD describes how the TOE notifies users
-    					or Administrators that it has detected tampering.
+    					or administrators that it has detected tampering.
     				</Guidance>
     				<Tests>
     					The evaluator shall perform the following tests:
@@ -9583,7 +9566,7 @@
     	</f-component>
     	
     	<!-- FPT_PHP.3: Resistance to physical attack  -->
-    	<f-component id="sfr-fpt-php-3" cc-id="fpt_php.3" name="Resistance to Physical Attack" status="feat-based">
+    	<f-component id="sfr-fpt-php-3" cc-id="fpt_php.3" name="Resistance to Physical Attack" status="objective">
     		
     		<f-element id="fpt-php-3e1">
     			<title>The TSF shall resist <assignable>physical tampering scenarios</assignable> to the
@@ -9814,13 +9797,13 @@
     			<note role="application">
     				Roots of Trust are components that constitute a set of unconditionally trusted functions. The above are acceptable
     				roots of trust for platform firmware integrity.<h:p/>
-    				The ST Author must select the root of trust used to ensure the integrity of the first platform firmware that executes. The integrity
+    				The ST author must select the root of trust used to ensure the integrity of the first platform firmware that executes. The integrity
     				of subsequently executed platform firmware must be traceable back to this root or to some other root as specified in FPT_ROT_EXT.2.
     				This SFR should be iterated for additional TOE roots (for example, a management controller or firmware executed from 
     				an add-in card).<h:p/>
     				An "on-platform dedicated security component" could be, for example, a TPM or other secure element
     				that provides security services to the platform such as measurement or secure storage.<h:p/>
-    				Selection of "<h:i>a separate management controller...</h:i>" implies the existence of an Administrator role.
+    				Selection of "<h:i>a separate management controller...</h:i>" implies the existence of an administrator role.
     			</note>
     			<aactivity>
     				<TSS>The evaluator shall verify that the TSS describes the Root of Trust on which initial integrity 
@@ -9899,11 +9882,11 @@
     						</selectables>
     						<selectables linebreak="yes">
     							<selectable>automatically</selectable>
-    							<selectable id="sel-rot2-admin-config">in accordance with Administrator-configurable policy</selectable>
+    							<selectable id="sel-rot2-admin-config">in accordance with administrator-configurable policy</selectable>
     							<selectable>by express determination of an 
     								<selectables>
-    									<selectable id="sel-rot2-admin-det">Administrator</selectable>
-    									<selectable id="sel-rot2-user-det">User</selectable>
+    									<selectable id="sel-rot2-admin-det">administrator</selectable>
+    									<selectable id="sel-rot2-user-det">user</selectable>
     								</selectables>
     							</selectable>	
     						</selectables>
@@ -9916,8 +9899,8 @@
     						<selectable>Stop all execution, or</selectable>
     						<selectable>Notify an 
     							<selectables>
-    								<selectable id="sel-rot2-admin-notify">Administrator</selectable>
-    								<selectable>User</selectable>
+    								<selectable id="sel-rot2-admin-notify">administrator</selectable>
+    								<selectable>user</selectable>
     							</selectables> by
     							<selectables>
     								<selectable id="sel-rot2-audit">generating an audit event</selectable>
@@ -9931,11 +9914,11 @@
     							</selectables>
     							<selectables linebreak="yes">
     								<selectable>automatically</selectable>
-    								<selectable id="sel-rot2-admin-config">in accordance with Administrator-configurable policy</selectable>
+    								<selectable id="sel-rot2-admin-config">in accordance with administrator-configurable policy</selectable>
     								<selectable>by express determination of an 
     									<selectables>
-    										<selectable id="sel-rot2-admin-det">Administrator</selectable>
-    										<selectable id="sel-rot2-user-det">User</selectable>
+    										<selectable id="sel-rot2-admin-det">administrator</selectable>
+    										<selectable id="sel-rot2-user-det">user</selectable>
     									</selectables>
     								</selectable>	
     							</selectables>
@@ -9947,8 +9930,8 @@
     				Notification of an administrator can take many forms. For server-class platforms, such notification could take the form 
     				of administrator alerts or audit events. For platforms without management controllers, notification could be achieved, for
     				example, by blinking lights, beep codes, screen indications, or local logging.<h:p/>
-    				If "Administrator" is selected anywhere in FPT_ROT_EXT.2.2, or if "in accordance with Administrator-configurable
-    				policy" is selected, then all Administrator authentication requirements must be included in the ST
+    				If "administrator" is selected anywhere in FPT_ROT_EXT.2.2, or if "in accordance with administrator-configurable
+    				policy" is selected, then all administrator authentication requirements must be included in the ST
     				(FIA_UIA_EXT.1, FIA_UAU.5, FIA_PMG_EXT.1, FIA_AFL_EXT.1, FIA_UAU.7).<h:p/>
     				If "<h:i>generating an audit event</h:i>" is selected, then FAU_GEN.1, FAU_SAR.1, FAU_STG.1, FAU_STG.2, and FAU_STG.5 
     				must be claimed in the ST. This selection should be made only if the TOE is capable of generating an audit event, e.g.
@@ -10029,7 +10012,7 @@
     					<h:li>The TOE implements a recovery mechanism for firmware corruption not necessarily related to 
     						integrity or update failure.</h:li>
     				</h:ul>
-    				If the ST Author selects "<h:i>the secure local update mechanism described in FPT_TUD_EXT.4</h:i>," then 
+    				If the ST author selects "<h:i>the secure local update mechanism described in FPT_TUD_EXT.4</h:i>," then 
     				FPT_TUD_EXT.4 must be claimed in the ST.<h:p/>
     				As indicated above, in addition to integrity or update failure, the TOE may use a recovery 
     				mechanism to deal with non-security-related failures, such as a power outage during update or a 
@@ -10191,7 +10174,7 @@
     				</TSS>
     				<Guidance>
     					The evaluator shall examine the AGD to ensure it instructs the
-    					Administrator on any mechanisms for configuring the time source.
+    					administrator on any mechanisms for configuring the time source.
     				</Guidance>
     				<Tests>
     					The evaluator shall perform the following tests:<h:p/>
@@ -10426,22 +10409,22 @@
     			<note role="application">
     				The purpose of the platform firmware update mechanism is to ensure the authenticity and integrity of
     				platform firmware updates. <h:p/>
-    				If platform firmware is immutable (not updateable by any non-destructive means), then the ST Author selects 
+    				If platform firmware is immutable (not updateable by any non-destructive means), then the ST author selects 
     				"<h:i>no mechanism for platform firmware update</h:i>."<h:p/>
     				If the platform implements an update mechanism that does not require physical presence at the platform, and 
-    				that authenticates firmware updates prior to installing them, then the ST Author selects 
+    				that authenticates firmware updates prior to installing them, then the ST author selects 
     				"<h:i>an authenticated platform firmware update mechanism...</h:i>" and includes FPT_TUD_EXT.2 
     				and FCS_COP.1/SigVer in the ST.<h:p/>
     				If the platform implements an update mechanism that does not require physical presence at the
     				platform, and that does not authenticate firmware updates prior to installing them,
-    				then the ST Author selects "<h:i>a delayed-authentication platform firmware update mechanism...</h:i>" and 
+    				then the ST author selects "<h:i>a delayed-authentication platform firmware update mechanism...</h:i>" and 
     				includes FPT_TUD_EXT.3 and FCS_COP.1/SigVer in the ST.<h:p/>
     				If platform firmware is modifiable only through a local update requiring physical presence at the platform,
-    				then the ST Author must select "<h:i>a secure local platform firmware update mechanism...</h:i>" and include FPT_TUD_EXT.4 in the ST.
+    				then the ST author must select "<h:i>a secure local platform firmware update mechanism...</h:i>" and include FPT_TUD_EXT.4 in the ST.
     			</note>
     			<aactivity>
     				<TSS>
-    					If the ST Author selects "<h:i>no provision for platform firmware update</h:i>," then the 
+    					If the ST author selects "<h:i>no provision for platform firmware update</h:i>," then the 
     					evaluator shall examine the TSS to ensure that it explains all ways of modifying platform 
     					firmware in the absence of any provided mechanism. For example, breaking open the case
     					and prying a chip off the motherboard and then reprogramming the chip. The purpose of this
@@ -10450,11 +10433,11 @@
     					This requirement is met if the platform implements no means for updating platform firmware
     					and the TSS describes a method for updating or replacing platform firmware that involves
     					potentially destroying or damaging the TOE or some of its components.<h:p/>
-    					If the ST Author selects "<h:i>an authenticated platform firmware update mechanism...</h:i>," then this requirement is 
+    					If the ST author selects "<h:i>an authenticated platform firmware update mechanism...</h:i>," then this requirement is 
     					satisfied if FPT_TUD_EXT.2 is satisfied. <h:p/>
-    					If the ST Author selects "<h:i>a delayed-authentication platform firmware update mechanism...</h:i>," then this requirement is 
+    					If the ST author selects "<h:i>a delayed-authentication platform firmware update mechanism...</h:i>," then this requirement is 
     					satisfied if FPT_TUD_EXT.3 is satisfied. <h:p/>
-    					If the ST Author selects "<h:i>a secure local platform firmware update mechanism...</h:i>," then this requirement is 
+    					If the ST author selects "<h:i>a secure local platform firmware update mechanism...</h:i>," then this requirement is 
     					satisfied if FPT_TUD_EXT.4 is satisfied.
     				</TSS>
     				<Guidance/>
@@ -10520,9 +10503,9 @@
 				</title>
 				</ext-comp-def-title>
 				<note role="application">
-					The ST Author should select "<h:i>the version number...</h:i>" if the TSF supports rollback prevention. That is, the TSF
+					The ST author should select "<h:i>the version number...</h:i>" if the TSF supports rollback prevention. That is, the TSF
 					does not allow "update" to an older version of the platform firmware. In general, rollback should be permitted
-					only through a secure local update mechanism at the express direction of an physically present Administrator or User.
+					only through a secure local update mechanism at the express direction of an physically present administrator or user.
 				</note>
 			</f-element>
 			<f-element id="fpt-tud-ext-2e3">
@@ -10557,7 +10540,7 @@
 					<selectables linebreak="yes" onlyone="yes">
 						<selectable>automatically</selectable>
 						<selectable id="sel-tud2-admin-config">in accordance with administrator-configurable policy</selectable>
-						<selectable>by express determination of a User</selectable>
+						<selectable>by express determination of a user</selectable>
 					</selectables>.
 				</title>
 				<ext-comp-def-title>
@@ -10575,8 +10558,8 @@
 					</selectables>			
 					<selectables linebreak="yes" onlyone="yes">
 						<selectable>automatically</selectable>
-						<selectable>in accordance with Administrator-configurable policy</selectable>
-						<selectable>by express determination of a User</selectable>
+						<selectable>in accordance with administrator-configurable policy</selectable>
+						<selectable>by express determination of a user</selectable>
 					</selectables>.
 				</title>
 				</ext-comp-def-title>
@@ -10589,14 +10572,14 @@
 					A hash of the public key may be stored if a copy of the public key is provided with firmware
 					update images. In this case, the update mechanism hashes the public key provided with the update 
 					image, and ensure that it matches a hash which appears in the key store before using the provided public 
-					key to verify the signature of the update image. If the hash of the public key is selected, the ST Author may
+					key to verify the signature of the update image. If the hash of the public key is selected, the ST author may
 					iterate the FCS_COP.1/Hash requirement to specify the hashing functions used.<h:p/>
 					An indication of success or failure can be generation of an audit event by a management subsystem, a beep code,
 					an updated version number on a splash screen, or simple failure to continue functioning.<h:p/>
-					If the update mechanism generates audit events, the ST Author must make the appropriate selections
+					If the update mechanism generates audit events, the ST author must make the appropriate selections
 					from the audit events table (<xref g="t-audit-sel-based"/>).<h:p/>
-					In the selection "by express determination of a User," the "User" could be more properly expressed as 
-					the "operator." It can be either a User or an Administrator, but the distinction is not important in the
+					In the selection "by express determination of a user," the "user" could be more properly expressed as 
+					the "operator." It can be either a user or an administrator, but the distinction is not important in the
 					context of this requirement.
 				</note>
 				<aactivity>
@@ -10690,7 +10673,7 @@
 					being executed or used. This update mechanism takes advantage of the existing FPT_ROT_EXT.2
 					requirement to avoid having to verify the integrity and authenticity of an update package
 					at install time.<h:p/>
-					The ST Author should select "<h:i>the version number of the platform firmware update is more recent than 
+					The ST author should select "<h:i>the version number of the platform firmware update is more recent than 
 					the version number of the previously installed platform firmware</h:i>" if the TSF supports rollback prevention.
 				</note>
 			</f-element>
@@ -10723,7 +10706,7 @@
 					<selectables linebreak="yes" onlyone="yes">
 						<selectable>automatically</selectable>
 						<selectable id="sel-tud3-admin-config">in accordance with administrator-configurable policy</selectable>
-						<selectable>by express determination of a User</selectable>
+						<selectable>by express determination of a user</selectable>
 					</selectables>.
 				</title>
 				<ext-comp-def-title>
@@ -10738,7 +10721,7 @@
 					<selectables linebreak="yes" onlyone="yes">
 						<selectable>automatically</selectable>
 						<selectable>in accordance with administrator-configurable policy</selectable>
-						<selectable>by express determination of a User</selectable>
+						<selectable>by express determination of a user</selectable>
 					</selectables>.
 				</title>
 				</ext-comp-def-title>
@@ -10753,8 +10736,8 @@
 					updated firmware is executed or used.<h:p/>
 					Likewise, if the TSF implements rollback prevention, this check must be made before the newly installed
 					firmware is executed.<h:p/>
-					In the selection "by express determination of a User," the "User" could be more properly expressed as 
-					the "operator." It can be either a User or an Administrator, but the distinction is not important in the
+					In the selection "by express determination of a user," the "user" could be more properly expressed as 
+					the "operator." It can be either a user or an administrator, but the distinction is not important in the
 					context of this requirement.
 				</note>
 				<aactivity>
@@ -11161,14 +11144,10 @@
     	<ext-comp-def title="Trusted Channel Communications" fam-id="FTP_ITC_EXT">
     		<fam-behavior>This family defines requirements for protection of
     			data in transit between the TOE and its operational environment.</fam-behavior>
-    	</ext-comp-def>    	
-    	
-    	<f-component id="sfr-ftp-itc-ext-admin-1" cc-id="ftp_itc_ext.1" name="Physically Protected Channel" iteration="Admin" status="sel-based">
-    		<depends on="ipsec"/>
-    		<depends on-sel="sel-ckm-2-echan"/>
-    		<depends on-sel="key-dist-ftp-itc-ext-1"/>
-    		<depends on-sel="sel-smf-remote-admin"/>
-    		<consistency-rationale/>
+    	</ext-comp-def>
+			
+			<f-component name="Physically Protected Channel" iteration="Admin" cc-id="ftp_itc_ext.1" status="invisible">
+				<consistency-rationale/>
     		<comp-lev>requires the TSF to implement one or more cryptographic protocols
     			to secure connectivity between the TSF and various external entities.</comp-lev>
     		<management>The following actions could be considered for the management functions in FMT:
@@ -11184,7 +11163,15 @@
     				<h:li>Failures of the trusted path functions.</h:li>
     			</h:ol>
     		</audit>
-    		<dependencies>No dependencies.</dependencies>          
+    		<dependencies>No dependencies.</dependencies>
+			</f-component>
+    	
+    	<f-component id="sfr-ftp-itc-ext-admin-1" cc-id="ftp_itc_ext.1" name="Physically Protected Channel" iteration="Admin" status="sel-based">
+    		<depends on="ipsec"/>
+    		<depends on-sel="sel-ckm-2-echan"/>
+    		<depends on-sel="key-dist-ftp-itc-ext-1"/>
+    		<depends on-sel="sel-smf-remote-admin"/>
+    		        
     		<f-element id="ftp-itc-ext-admin-1e1">
     			<title>The TSF shall use
     				<selectables linebreak="yes">
@@ -11200,7 +11187,7 @@
     				</selectables>
     				to provide a communication channel between itself and 
     				<selectables linebreak="yes">
-    					<selectable>audit server (as required by FAU_STG.1.1 if selected)</selectable>
+    					<selectable>audit servers (as required by FAU_STG.1.1 if selected)</selectable>
     					<selectable>remote administrators (as required by FTP_TRP.1.1 if selected in FMT_MOF.1)</selectable>
     					<selectable><assignable>other capabilities</assignable></selectable>
     					<selectable>no other capabilities</selectable>
@@ -11221,11 +11208,11 @@
     				This SFR is included in the ST if a trusted channel is used to offload audit data or if the platform is administered remotely. That is, if "a trusted
     				channel as specified in FTP_ITC_EXT.1" is selected in FAU_STG.1.1, if "physically protected channels as specified in FTP_ITP_EXT.1" is selected in
     				FDP_ITC_EXT.1.1, or if "remotely" is selected in Management Function 1 in FMT_SMF.1.1.<h:p/>
-    				If the ST Author selects either "TLS" or "HTTPS," the TOE must be validated against the Functional Package for Transport Layer Security (TLS), version 2.1.
+    				If the ST author selects either "TLS" or "HTTPS," the TOE must be validated against the Functional Package for Transport Layer Security (TLS), version 2.1.
     				This PP does not mandate that a product implement TLS with mutual authentication, but if the product includes the capability to perform TLS with mutual
     				authentication, then mutual authentication must be included within the TOE boundary.<h:p/>
-    				If the ST Author selects "SSH," the TOE must conform to Functional Package for Secure Shell (SSH), version 2.0.<h:p/>
-    				If the ST Author selects "certificate-based authentication of the remote peer," then the TOE must conform to Functional Package for X.509, version 1.0.<h:p/>    				Claims from this package are only required to the extent that they are needed to support the functionality required by the trusted protocols that are
+    				If the ST author selects "SSH," the TOE must conform to Functional Package for Secure Shell (SSH), version 2.0.<h:p/>
+    				If the ST author selects "certificate-based authentication of the remote peer," then the TOE must conform to Functional Package for X.509, version 1.0.<h:p/>    				Claims from this package are only required to the extent that they are needed to support the functionality required by the trusted protocols that are
     				claimed.<h:p/>
     				If the TSF implements a protocol that requires the validation of a certificate presented by an external entity, FIA_X509_EXT.1 and FIA_X509_EXT.2 will be
     				claimed. FIA_TSM_EXT.1 may also be claimed if the TSF implements its own trust store. If the TSF implements a protocol that requires the presentation of 
@@ -11462,8 +11449,8 @@
     			<note role="application">
     				This SFR is included in the ST if "remotely" is selected in Management Function 1 of FMT_SMF.1.1.<h:p/>
     				Protocols used to implement the remote administration trusted channel must be selected in FTP_ITC_EXT.1/Admin.<h:p/>
-    				This requirement ensures that authorized remote Administrators initiate all communication with the TOE via a trusted path, and that all
-    				communications with the TOE by remote Administrators is performed over this path. The data passed in this trusted communication channel are
+    				This requirement ensures that authorized remote administrators initiate all communication with the TOE via a trusted path, and that all
+    				communications with the TOE by remote administrators is performed over this path. The data passed in this trusted communication channel are
     				encrypted as defined the protocol chosen in the first selection in FTP_ITC_EXT.1/Admin.    				
     			</note>
     			<aactivity>
