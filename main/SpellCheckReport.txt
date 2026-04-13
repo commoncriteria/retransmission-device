@@ -210,7 +210,6 @@ output/retransmission-device-release-linkable.html: decapsulation
 output/retransmission-device-release-linkable.html: eTSS
 output/retransmission-device-release-linkable.html: ek
 output/retransmission-device-release-linkable.html: enquiries
-output/retransmission-device-release-linkable.html: faiure
 output/retransmission-device-release-linkable.html: ffdhe3072
 output/retransmission-device-release-linkable.html: ffdhe4096
 output/retransmission-device-release-linkable.html: ffdhe6144
@@ -430,7 +429,6 @@ output/retransmission-device-release.html: eTSS
 output/retransmission-device-release.html: ek
 output/retransmission-device-release.html: enquiries
 output/retransmission-device-release.html: evaluator’s
-output/retransmission-device-release.html: faiure
 output/retransmission-device-release.html: ffdhe3072
 output/retransmission-device-release.html: ffdhe4096
 output/retransmission-device-release.html: ffdhe6144
@@ -556,6 +554,7 @@ output/retransmission-device.html: INformation
 output/retransmission-device.html: IPLT
 output/retransmission-device.html: IPX
 output/retransmission-device.html: ITE
+output/retransmission-device.html: Iden
 output/retransmission-device.html: Interface’
 output/retransmission-device.html: Internetworking
 output/retransmission-device.html: Internodal
@@ -647,7 +646,6 @@ output/retransmission-device.html: decapsulation
 output/retransmission-device.html: eTSS
 output/retransmission-device.html: ek
 output/retransmission-device.html: evaluator’s
-output/retransmission-device.html: faiure
 output/retransmission-device.html: ffdhe3072
 output/retransmission-device.html: ffdhe4096
 output/retransmission-device.html: ffdhe6144
@@ -676,6 +674,7 @@ output/retransmission-device.html: sk
 output/retransmission-device.html: subcommands
 output/retransmission-device.html: syslog
 output/retransmission-device.html: teardown
+output/retransmission-device.html: tification
 output/retransmission-device.html: unauthorised
 output/retransmission-device.html: uninstantiating
 output/retransmission-device.html: unobscured
