@@ -556,7 +556,6 @@ output/retransmission-device.html: INformation
 output/retransmission-device.html: IPLT
 output/retransmission-device.html: IPX
 output/retransmission-device.html: ITE
-output/retransmission-device.html: Ident
 output/retransmission-device.html: Interface’
 output/retransmission-device.html: Internetworking
 output/retransmission-device.html: Internodal
@@ -655,7 +654,6 @@ output/retransmission-device.html: ffdhe6144
 output/retransmission-device.html: ffdhe8192
 output/retransmission-device.html: fulfil
 output/retransmission-device.html: hLen
-output/retransmission-device.html: ification
 output/retransmission-device.html: invocable
 output/retransmission-device.html: keystore
 output/retransmission-device.html: lifecycle
