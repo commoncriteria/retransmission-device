@@ -1196,27 +1196,27 @@
 					protected network or if devices on the protected network can communicate with those external devices, then the data contained in the communications may be
 					susceptible to a loss of integrity or confidentiality.</description>
 				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale>Mitigates the threat by filtering traffic from outside the protected network.</rationale>
-				<addressed-by>FTP_ITC_EXT.1/IPsec</addressed-by><rationale>Mitigates the threat by transmitting data over a secure VPN connection protected from unauthorized 
-					disclosure.</rationale>
-				<addressed-by>FTP_ITC.1/MACsec</addressed-by><rationale>Mitigates the threat by transmitting data over a secure MACsec connection protected from unauthorized
-					disclosure.</rationale>
-				<addressed-by>FTP_ITC.1/PFED</addressed-by><rationale>Mitigates the threat by transmitting data over a secure PFED connection protected from unauthorized
-					disclosure.</rationale>
-				<addressed-by>FTP_ITC_EXT.1/WLAN</addressed-by><rationale>Mitigates the threat by transmitting data over a secure WLAN connection protected from unauthorized
-					disclosure.</rationale>
-				<addressed-by>FCS_REKEY_EXT.1/PFED</addressed-by><rationale>Mitigates the threat by rekeying ensuring session keys are fresh and reduces the window for 
+				<addressed-by>FCS_REKEY_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by rekeying ensuring session keys are fresh and reduces the window for 
 					integrity compromise.</rationale>
-				<addressed-by>FDP_IFC.1/HWS</addressed-by><rationale>Mitigates this threat by ensuring that only permitted information flows between the EU and CU are
+				<addressed-by>FDP_IFC.1/HWS (impl-dep)</addressed-by><rationale>Mitigates this threat by ensuring that only permitted information flows between the EU and CU are
 					allowed.</rationale>
+				<addressed-by>FTP_ITC.1/MACsec (impl-dep)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure MACsec connection protected from unauthorized
+					disclosure.</rationale>
+				<addressed-by>FTP_ITC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure PFED connection protected from unauthorized
+					disclosure.</rationale>				
+				<addressed-by>FTP_ITC_EXT.1/IPsec (sel-based)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure VPN connection protected from unauthorized 
+					disclosure.</rationale>				
+				<addressed-by>FTP_ITC_EXT.1/WLAN (sel-based)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure WLAN connection protected from unauthorized
+					disclosure.</rationale	>			
 			</threat>
 			
 			<threat name="T.NETWORK_ACCESS">
 				<description>Devices located outside the protected network may seek to exercise services located on the protected network that are intended to only be accessed 
 					from inside the protected network or only accessed by entities using an authenticated path into the protected network. </description>
-				<addressed-by>FDP_IFC.1/CU</addressed-by><rationale>Mitigates this threat by enforcing policy on inbound traffic from untrusted networks
-					Preventing unauthorized entities from reaching internal services.					
-				</rationale>
 				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale>Mitigates the threat by filtering traffic to disallow unauthorized access.</rationale>
+				<addressed-by>FDP_IFC.1/CU (impl-dep)</addressed-by><rationale>Mitigates this threat by enforcing policy on inbound traffic from untrusted networks
+					Preventing unauthorized entities from reaching internal services.					
+				</rationale>			
 			</threat>	
 			
 			<threat name="T.NETWORK_ATTACK">
@@ -1230,7 +1230,8 @@
 				</rationale>
 				<addressed-by>FAU_STG.1</addressed-by><rationale>Mitigates the threat by using an external server to preserve audit data that may provide evidence of an
 					attack.</rationale>
-				<addressed-by>FAU_STG.2</addressed-by><rationale>Mitigates the threat by preventing audit records indicating a potential attack from being destroyed.</rationale>				<addressed-by>FAU_STG.5</addressed-by><rationale>Mitigates the threat by ensuring that exhaustion of audit storage does not prevent audit data indicating a
+				<addressed-by>FAU_STG.2</addressed-by><rationale>Mitigates the threat by preventing audit records indicating a potential attack from being destroyed.</rationale>						
+				<addressed-by>FAU_STG.5</addressed-by><rationale>Mitigates the threat by ensuring that exhaustion of audit storage does not prevent audit data indicating a
 					potential attack from being generated.</rationale>
 				<addressed-by>FDP_STG_EXT.1</addressed-by><rationale>Mitigate the threat by protecting the X.509 certificates used for trusted communications.</rationale>
 				<addressed-by>FMT_SMF.1</addressed-by><rationale>Mitigates the threat by providing a list of specific management functions.</rationale>
@@ -1242,56 +1243,57 @@
 					generate secure cryptographic keys.</rationale>
 				<addressed-by>FTA_TAB.1</addressed-by><rationale>Mitigated the threat by providing actionable consequences for misuse of the TSF.</rationale>
 				<addressed-by>FTP_ITP_EXT.1</addressed-by><rationale>Mitigates the threat by using a physically protected channel to protect data in transit.</rationale>
-				<addressed-by>FTP_ITC_EXT.1/IPsec</addressed-by><rationale>Mitigates the threat by implementing IPsec as a means to protect data in transit.</rationale>
-				<addressed-by>FTP_ITC.1/PFED</addressed-by><rationale>Mitigates the threat by implementing PFED as a means to protect data in transit.  </rationale>
-				<addressed-by>FTP_ITC.1/MACsec</addressed-by><rationale>Mitigates the threat by implementing MACsec as a means to protect data in transit.  </rationale>
-				<addressed-by>FTP_ITC_EXT.1/WLAN</addressed-by><rationale>Mitigates the threat by implementing WLAN as a means to protect data in transit.  </rationale>
-				<addressed-by>FCS_CKM.1/AKG</addressed-by><rationale>Mitigates the threat by generating strong cryptographic asymmetric keys to protect data in
-					transit.</rationale>
-				<addressed-by>FCS_CKM.1/SKG</addressed-by><rationale>Mitigates the threat by generating strong cryptographic symmetric keys to protect data in
-					transit.</rationale>
-				<addressed-by>FCS_CKM.2</addressed-by><rationale>Mitigates the threat by implementing key establishment to negotiate trusted channels to protect data in 
-					transit.</rationale>
-				<addressed-by>FCS_CKM.6</addressed-by><rationale>Mitigates the threat by implementing key destruction to prevent the compromise of trusted channels.</rationale>
-				<addressed-by>FCS_CKM_EXT.7</addressed-by><rationale>Mitigates the threat by implementing key agreement functions used for trusted communications.</rationale>
-				<addressed-by>FCS_COP.1/AEAD</addressed-by><rationale>Mitigates the threat by implementing AEAD functions used for trusted communications.</rationale>
-				<addressed-by>FCS_COP.1/CMAC</addressed-by><rationale>Mitigates the threat by implementing CMAC functions used for trusted communications.</rationale>
-				<addressed-by>FCS_COP.1/Hash</addressed-by><rationale>Mitigates the threat by implementing hash functions used for trusted communications.</rationale>
-				<addressed-by>FCS_COP.1/KeyedHash</addressed-by><rationale>TBD</rationale>
-				<addressed-by>FCS_COP.1/SigGen</addressed-by><rationale>Mitigates the threat by implementing signature generation functions used for trusted
-					communications.</rationale>
-				<addressed-by>FCS_COPO.1/SigVer</addressed-by><rationale>Mitigates the threat by implementing signature verification functions used for trusted
-					communications.</rationale>
-				<addressed-by>FCS_COP.1/SKC</addressed-by><rationale>Mitigates the threat by implementing symmetric encryption functions used for trusted
-					communications.</rationale>
-				<addressed-by>FCS_COP.1/XOF</addressed-by><rationale>Mitigates the threat by implementing extensible output functions used for trusted
-					communications.</rationale>
-				<addressed-by>FCS_HTTPS_EXT.1</addressed-by><rationale>Mitigates the threat by implementing HTTPS as a means to protect data in transit.</rationale>
-				<addressed-by>FCS_RBG.1</addressed-by><rationale>Mitigated the threat by ensuring that keys used for trusted communications are generated using a secure
-					DRBG.</rationale>
-				<addressed-by>FCS_RBG.2</addressed-by><rationale>Mitigates the threat by ensuring that the TOE's DRBG is seeded with sufficient entropy to ensure the generation
-					of strong cryptographic keys.</rationale>
-				<addressed-by>FCS_RBG.3</addressed-by><rationale>Mitigate the threat by ensuring that the TOE's DRBG is seeded with sufficient entropy to ensure the generation
-					of strong cryptographic keys.</rationale>
-				<addressed-by>FCS_RBG.4</addressed-by><rationale>Mitigates the threat of a network attack by ensuring that the TOE's DRBG is seeded with sufficient entropy to
-					ensure the generation of strong cryptographic keys.</rationale>
-				<addressed-by>FCS_RBG.5</addressed-by><rationale>Mitigates the threat by ensuring that the TOE's DRBG is seeded with sufficient entropy to ensure the generation
-					of strong cryptographic keys.</rationale>
-				<addressed-by>FCS_RBG.6</addressed-by><rationale>Mitigates the threat by providing a secure DRBG service for third-party applications running on the TOE which
-					may use this service to generate their own cryptographic keys for trusted communications.</rationale>
-				<addressed-by>FPT_FLS.1</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
-					insecure keys.</rationale>
-				<addressed-by>FTP_ITC_EXT.1</addressed-by><rationale>Mitigates the threat by requiring the TSF to implement trusted protocols for network
-					communication.</rationale>
-				<addressed-by>FTP_TRP.1</addressed-by><rationale>Mitigates the threat by ensuring that remote administration only uses trusted channels.</rationale>
-				<addressed-by>FCS_REC_EXT.1/PFED</addressed-by><rationale>Mitigates this threat by suppressing EUD traffic during recovery, ensures sequential derivation of
+				<addressed-by>FCS_CKM.6 (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing key destruction to prevent the compromise of trusted channels.</rationale>
+				<addressed-by>FCS_CKM_EXT.7 (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing key agreement functions used for trusted communications.</rationale>
+				<addressed-by>FCS_REC_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by suppressing EUD traffic during recovery, ensures sequential derivation of
 					recovery keys, and terminates sessions on failure to converge.</rationale>
-				<addressed-by>FDP_IFC.1/PFED</addressed-by><rationale>Mitigates this threat by enforcing all EUD traffic is blocked until a secure session is authenticated and
+				<addressed-by>FDP_IFC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by enforcing all EUD traffic is blocked until a secure session is authenticated and
 					keyed, preventing attackers from injecting or tampering with traffic.</rationale>
-				<addressed-by>FDP_IFF.1/PFED</addressed-by><rationale>Mitigates this threat by only expected packets are processed; malformed or injected packets are dropped,
+				<addressed-by>FDP_IFF.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by only expected packets are processed; malformed or injected packets are dropped,
 					preventing protocol-based attacks.</rationale>
-				<addressed-by>FIA_PSK_EXT.1/PFED</addressed-by><rationale>Mitigates this threat by use is limited to tunnel-0 bootstrap, preventing attackers from exploiting 
-					PSK in other sessions.</rationale>
+				<addressed-by>FIA_PSK_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by use is limited to tunnel-0 bootstrap, preventing attackers from exploiting 
+					PSK in other sessions.</rationale>				
+				<addressed-by>FTP_ITC_EXT.1/IPsec (sel-based)</addressed-by><rationale>Mitigates the threat by implementing IPsec as a means to protect data in transit.</rationale>
+				<addressed-by>FTP_ITC.1/MACsec (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing MACsec as a means to protect data in transit.  </rationale>
+				<addressed-by>FTP_ITC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing PFED as a means to protect data in transit.  </rationale>
+				<addressed-by>FCS_CKM.1/AKG (sel-based)</addressed-by><rationale>Mitigates the threat by generating strong cryptographic asymmetric keys to protect data in
+					transit.</rationale>
+				<addressed-by>FCS_CKM.1/SKG (sel-based)</addressed-by><rationale>Mitigates the threat by generating strong cryptographic symmetric keys to protect data in
+					transit.</rationale>
+				<addressed-by>FCS_CKM.2 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing key establishment to negotiate trusted channels to protect data in 
+					transit.</rationale>
+				
+				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by implementing AEAD functions used for trusted communications.</rationale>
+				<addressed-by>FCS_COP.1/CMAC (sel-based)</addressed-by><rationale>Mitigates the threat by implementing CMAC functions used for trusted communications.</rationale>
+				<addressed-by>FCS_COP.1/Hash (sel-based)</addressed-by><rationale>Mitigates the threat by implementing hash functions used for trusted communications.</rationale>
+				<addressed-by>FCS_COP.1/KeyedHash (sel-based)</addressed-by><rationale>TBD</rationale>
+				<addressed-by>FCS_COP.1/SigGen (sel-based)</addressed-by><rationale>Mitigates the threat by implementing signature generation functions used for trusted
+					communications.</rationale>
+				<addressed-by>FCS_COP.1/SigVer (sel-based)</addressed-by><rationale>Mitigates the threat by implementing signature verification functions used for trusted
+					communications.</rationale>
+				<addressed-by>FCS_COP.1/SKC (sel-based)</addressed-by><rationale>Mitigates the threat by implementing symmetric encryption functions used for trusted
+					communications.</rationale>
+				<addressed-by>FCS_COP.1/XOF (sel-based)</addressed-by><rationale>Mitigates the threat by implementing extensible output functions used for trusted
+					communications.</rationale>
+				<addressed-by>FCS_HTTPS_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing HTTPS as a means to protect data in transit.</rationale>
+				<addressed-by>FCS_RBG.1 (sel-based)</addressed-by><rationale>Mitigated the threat by ensuring that keys used for trusted communications are generated using a secure
+					DRBG.</rationale>
+				<addressed-by>FCS_RBG.2 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that the TOE's DRBG is seeded with sufficient entropy to ensure the generation
+					of strong cryptographic keys.</rationale>
+				<addressed-by>FCS_RBG.3 (sel-based)</addressed-by><rationale>Mitigate the threat by ensuring that the TOE's DRBG is seeded with sufficient entropy to ensure the generation
+					of strong cryptographic keys.</rationale>
+				<addressed-by>FCS_RBG.4 (sel-based)</addressed-by><rationale>Mitigates the threat of a network attack by ensuring that the TOE's DRBG is seeded with sufficient entropy to
+					ensure the generation of strong cryptographic keys.</rationale>
+				<addressed-by>FCS_RBG.5 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that the TOE's DRBG is seeded with sufficient entropy to ensure the generation
+					of strong cryptographic keys.</rationale>
+				<addressed-by>FCS_RBG.6 (sel-based)</addressed-by><rationale>Mitigates the threat by providing a secure DRBG service for third-party applications running on the TOE which
+					may use this service to generate their own cryptographic keys for trusted communications.</rationale>
+				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
+					insecure keys.</rationale>
+				<addressed-by>FTP_ITC_EXT.1/Admin (sel-based)</addressed-by><rationale>Mitigates the threat by requiring the TSF to implement trusted protocols for network
+					communication.</rationale>
+				<addressed-by>FTP_ITC_EXT.1/WLAN (sel-based)</addressed-by><rationale>Mitigates the threat by implementing WLAN as a means to protect data in transit.  </rationale>
+				<addressed-by>FTP_TRP.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that remote administration only uses trusted channels.</rationale>				
 			</threat>	
 			
 			<threat name="T.NETWORK_DISCLOSURE">
@@ -1300,10 +1302,11 @@
 					can establish communications with those external devices (e.g., as a result of nonexistent or insufficient data encryption that exposes the data in transit
 					to rogue elements), then those internal devices may be susceptible to the unauthorized disclosure of information.</description>
 				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale></rationale>
-				<addressed-by>FPT_FLS.1</addressed-by><rationale>Mitigates the threat by ceasing operations of the TSF if a test or security failure is detected, preventing a
-					failure in traffic filtering.</rationale>
 				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat by executing self tests in a specified, repeatable manner.</rationale>
 				<addressed-by>FPT_TST_EXT.1</addressed-by><rationale>Mitigates the threat by executing self tests in a specified, repeatable manner.</rationale>
+				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ceasing operations of the TSF if a test or security failure is detected, preventing a
+					failure in traffic filtering.</rationale>
+				
 			</threat>
 			
 			<threat name="T.NETWORK_EAVESDROP">
@@ -1313,39 +1316,39 @@
 				<addressed-by>FDP_STG_EXT.1</addressed-by><rationale>Mitigate the threat by protecting the X.509 certificates used for trusted communications.</rationale>
 				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat by implementing a mechanism to detect when the DRBG may be failing to generate secure
 					cryptographic keys.</rationale>
-				<addressed-by>FCS_CKM.1/AKG</addressed-by><rationale>Mitigates the threat by ensuring the generation of strong keys used for trusted communications.
-				</rationale>
-				<addressed-by>FCS_CKM.1/SKG</addressed-by><rationale>Mitigates the threat by ensuring the generation of strong keys used for trusted communications.</rationale>
-				<addressed-by>FCS_CKM.2</addressed-by><rationale>Mitigates the threat by implementing secure methods to perform key distribution for trusted
-					communications.</rationale>
-				<addressed-by>FCS_COP.1/AEAD</addressed-by><rationale>Mitigates the threat by implementing a method to encrypt data in transit.</rationale>
-				<addressed-by>FCS_COP.1/Hash</addressed-by><rationale>Mitigates the threat by ensuring that secure hash algorithms are used for trusted
-					communications.</rationale>
-				<addressed-by>FCS_COP.1/KeyedHash</addressed-by><rationale>Mitigates the threat by ensuring that secure HMAC algorithms are used for trusted
-					communications.</rationale>
-				<addressed-by>FCS_COP.1/SigGen</addressed-by><rationale>Mitigates the threat by ensuring that secure digital signature algorithms are used for trusted
-					communications.</rationale>
-				<addressed-by>FCS_COP.1/SigVer</addressed-by><rationale>Mitigates the threat by ensuring that secure digital signature algorithms are used for trusted
-					communications.</rationale>
-				<addressed-by>FCS_HTTPS_EXT.1</addressed-by><rationale>Mitigates the threat by implementing a secure protocol (HTTPS) for trusted communications.</rationale>
-				<addressed-by>FPT_FLS.1</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
-					insecure keys.</rationale>
-				<addressed-by>FTP_ITC_EXT.1</addressed-by><rationale>Mitigates the threat by requiring the TSF to implement trusted protocols for network
-					communication.</rationale>
-				<addressed-by>FCS_REC_EXT.1/PFED</addressed-by><rationale>Mitigates the threat by requiring that recovery keys are derived using HKDF tied to the current 
+				<addressed-by>FCS_REC_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by requiring that recovery keys are derived using HKDF tied to the current 
 					session key and refreshed at the same rate as session keys, ensuring that even if recovery messages are observed, key material remains
 					confidential.</rationale>
-				<addressed-by>FCS_REKEY_EXT.1/PFED</addressed-by><rationale>Mitigates the threat by frequent rekeying reducing exposure of session keys to passive
+				<addressed-by>FCS_REKEY_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by frequent rekeying reducing exposure of session keys to passive
 					attackers.</rationale>
-				<addressed-by>FDP_IFC.1/PFED</addressed-by><rationale>Mitigates the threat by encryption ensuring confidentiality and integrity, preventing passive monitoring 
+				<addressed-by>FDP_IFC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by encryption ensuring confidentiality and integrity, preventing passive monitoring 
 					of sensitive data.</rationale>
+				<addressed-by>FCS_CKM.1/AKG (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring the generation of strong keys used for trusted communications.
+				</rationale>
+				<addressed-by>FCS_CKM.1/SKG (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring the generation of strong keys used for trusted communications.</rationale>
+				<addressed-by>FCS_CKM.2 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing secure methods to perform key distribution for trusted
+					communications.</rationale>
+				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by implementing a method to encrypt data in transit.</rationale>
+				<addressed-by>FCS_COP.1/Hash (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that secure hash algorithms are used for trusted
+					communications.</rationale>
+				<addressed-by>FCS_COP.1/KeyedHash (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that secure HMAC algorithms are used for trusted
+					communications.</rationale>
+				<addressed-by>FCS_COP.1/SigGen (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that secure digital signature algorithms are used for trusted
+					communications.</rationale>
+				<addressed-by>FCS_COP.1/SigVer (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that secure digital signature algorithms are used for trusted
+					communications.</rationale>
+				<addressed-by>FCS_HTTPS_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing a secure protocol (HTTPS) for trusted communications.</rationale>
+				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
+					insecure keys.</rationale>
+				<addressed-by>FTP_ITC_EXT.1/Admin (sel-based)</addressed-by><rationale>Mitigates the threat by requiring the TSF to implement trusted protocols for network
+					communication.</rationale>
+				
 			</threat>		
 				
 			<threat name="T.PERSISTENT_PRESENCE">
 				<description>Persistent presence on a device by an attacker implies that the device has lost integrity and cannot regain it. The device has likely lost this
 					integrity due to some other threat vector, yet the continued access by an attacker constitutes an ongoing threat in itself. In this case, the device and 
-					its data may be controlled by an adversary as well as by its legitimate owner.</description>
-				
+					its data may be controlled by an adversary as well as by its legitimate owner.</description>				
 				<addressed-by>FMT_MOF.1</addressed-by><rationale>Mitigates the threat by permitting management functions to be used only by authorized users.</rationale>
 				<addressed-by>FMT_SMF.1</addressed-by><rationale>Mitigates the threat by defining the management functions that are supported by the TOE.</rationale>
 				<addressed-by>FPT_NOT_EXT.1</addressed-by><rationale>Mitigate the threat by having the TOE enter a secure failure state when self-test integrity failures
@@ -1353,12 +1356,12 @@
 				<addressed-by>FPT_ROT_EXT.1</addressed-by><rationale>Mitigates the threat by providing platform integrity to prevent intrusion of a persistent presence on the
 					platform.</rationale>
 				<addressed-by>FPT_TST_EXT.1</addressed-by><rationale>Mitigates the threat by performing self-tests to verify the integrity of the TSF.</rationale>
-				<addressed-by>FCS_COP.1/AEAD</addressed-by><rationale>Mitigates the threat by implementing mechanisms to detect integrity violations of TSF data.</rationale>
-				<addressed-by>FCS_COP.1/KeyWrap</addressed-by><rationale>Mitigates the threat by implementing mechanisms to detect integrity violations of TSF data.</rationale>
-				<addressed-by>FCS_STG_EXT.2</addressed-by><rationale>Mitigates the threat by enforcing access control on key data to prevent its unauthorized
+				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by implementing mechanisms to detect integrity violations of TSF data.</rationale>
+				<addressed-by>FCS_COP.1/KeyWrap (sel-based)</addressed-by><rationale>Mitigates the threat by implementing mechanisms to detect integrity violations of TSF data.</rationale>
+				<addressed-by>FCS_STG_EXT.2 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing access control on key data to prevent its unauthorized
 					disclosure.</rationale>
-				<addressed-by>FCS_STG_EXT.3</addressed-by><rationale>Mitigates the threat by enforcing integrity protection on stored TSF data.</rationale>
-				<addressed-by>FPT_RVR_EXT.1</addressed-by><rationale>Mitigates the threat with firmware recovery mechanism in case of failure.</rationale>				
+				<addressed-by>FCS_STG_EXT.3 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing integrity protection on stored TSF data.</rationale>
+				<addressed-by>FPT_RVR_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat with firmware recovery mechanism in case of failure.</rationale>				
 			</threat>	
 			
 			<threat name="T.PHYSICAL_ACCESS">
@@ -1383,46 +1386,46 @@
 				<addressed-by>FPT_KST_EXT.3</addressed-by><rationale>Mitigates the threat of physical access by ensuring TOE users cannot export plaintext keys.
 				</rationale>
 				<addressed-by>FPT_PHP.1</addressed-by><rationale>Mitigates the threat by passively detecting physical tampering.</rationale>
-				<addressed-by>FPT_PHP.2 (objective)</addressed-by><rationale>Mitigates the threat by providing methods to detect and report physical tampering.</rationale>
-				<addressed-by>FPT_PHP.3 (objective)</addressed-by><rationale>Mitigates the threat by resisting physical tampering.</rationale>
 				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat by implementing a mechanism to detect when the DRBG may be failing to generate secure
 					cryptographic keys.</rationale>
-				<addressed-by>FCS_CKM.2</addressed-by><rationale>Mitigates the threat by implementing secure methods to perform key distribution for trusted
-					communications.</rationale>
-				<addressed-by>FCS_CKM.6</addressed-by><rationale>Mitigates the threat by ensuring that keys used for trusted communications are destroyed in a secure
-					manner.</rationale>
-				<addressed-by>FCS_COP.1/AEAD</addressed-by><rationale>Mitigates the threat by using AEAD encryption to protect data at rest.</rationale>
-				<addressed-by>FCS_COP.1/Hash</addressed-by><rationale>Mitigates the threat by implementing an integrity mechanism used to verify stored keys.</rationale>
-				<addressed-by>FCS_COP.1/KeyedHash</addressed-by><rationale>Mitigates the threat by implementing an integrity mechanism used to verify stored keys.
+				<addressed-by>FPT_PHP.2 (objective)</addressed-by><rationale>Mitigates the threat by providing methods to detect and report physical tampering.</rationale>
+				<addressed-by>FPT_PHP.3 (objective)</addressed-by><rationale>Mitigates the threat by resisting physical tampering.</rationale>
+				<addressed-by>FCS_CKM.6 (impl-dep)</addressed-by><rationale>Mitigates the threat by ensuring that keys used for trusted communications are destroyed in a secure
+					manner.</rationale>				
+				<addressed-by>FCS_CKM.2 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing secure methods to perform key distribution for trusted
+					communications.</rationale>				
+				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by using AEAD encryption to protect data at rest.</rationale>
+				<addressed-by>FCS_COP.1/Hash (sel-based)</addressed-by><rationale>Mitigates the threat by implementing an integrity mechanism used to verify stored keys.</rationale>
+				<addressed-by>FCS_COP.1/KeyedHash (sel-based)</addressed-by><rationale>Mitigates the threat by implementing an integrity mechanism used to verify stored keys.
 				</rationale>
-				<addressed-by>FCS_COP.1/SigGen</addressed-by><rationale>Mitigates the threat by implementing an authenticity and integrity mechanism used to verify stored keys.
+				<addressed-by>FCS_COP.1/SigGen (sel-based)</addressed-by><rationale>Mitigates the threat by implementing an authenticity and integrity mechanism used to verify stored keys.
 				</rationale>
-				<addressed-by>FCS_COP.1/SigVer</addressed-by><rationale>Mitigates the threat by implementing an authenticity and integrity mechanism used to verify stored keys.
+				<addressed-by>FCS_COP.1/SigVer (sel-based)</addressed-by><rationale>Mitigates the threat by implementing an authenticity and integrity mechanism used to verify stored keys.
 				</rationale>
-				<addressed-by>FCS_COP.1/SKC</addressed-by><rationale>Mitigates the threat by using symmetric encryption to protect data at rest.
+				<addressed-by>FCS_COP.1/SKC (sel-based)</addressed-by><rationale>Mitigates the threat by using symmetric encryption to protect data at rest.
 				</rationale>
-				<addressed-by>FCS_RBG.1</addressed-by><rationale>Mitigates the threat by ensuring that keys used for protected storage are generated using a secure
+				<addressed-by>FCS_RBG.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that keys used for protected storage are generated using a secure
 					DRBG.</rationale>
-				<addressed-by>FCS_STG_EXT.2</addressed-by><rationale>Mitigates the threat by enforcing confidentiality for key storage.</rationale>
-				<addressed-by>FCS_STG_EXT.3</addressed-by><rationale>Mitigate the threat by enforcing integrity for key storage.</rationale>
-				<addressed-by>FIA_AFL_EXT.1</addressed-by><rationale>Mitigates the threat by limiting the extent to which brute force authentication attempts to the TOE can be
+				<addressed-by>FCS_STG_EXT.2 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing confidentiality for key storage.</rationale>
+				<addressed-by>FCS_STG_EXT.3 (sel-based)</addressed-by><rationale>Mitigate the threat by enforcing integrity for key storage.</rationale>
+				<addressed-by>FIA_AFL_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by limiting the extent to which brute force authentication attempts to the TOE can be
 					made.</rationale>
-				<addressed-by>FIA_UAU.5</addressed-by><rationale>Mitigates the threat by defining the supported authentication mechanisms.</rationale>
-				<addressed-by>FIA_UAU.7</addressed-by><rationale>Mitigates the threat by providing only limited information during authentication.</rationale>
-				<addressed-by>FIA_UAU_EXT.1</addressed-by><rationale>Mitigates the threat by preventing decryption prior to proper authorization to the device.</rationale>
-				<addressed-by>FPT_FLS.1</addressed-by><rationale>Mitigate the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
+				<addressed-by>FIA_UAU.5 (sel-based)</addressed-by><rationale>Mitigates the threat by defining the supported authentication mechanisms.</rationale>
+				<addressed-by>FIA_UAU.7 (sel-based)</addressed-by><rationale>Mitigates the threat by providing only limited information during authentication.</rationale>
+				<addressed-by>FIA_UAU_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by preventing decryption prior to proper authorization to the device.</rationale>
+				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigate the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
 					insecure keys.</rationale>
 			</threat>	
 			
 			<threat name="T.REPLAY_ATTACK">
 				<description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a replay attack. This 
 					method of attack allows the individual to capture packets traversing the network and send the packets later, possibly unknown by the intended
-					receiver.</description>				
-				<addressed-by>FTP_ITC_EXT.1</addressed-by><rationale>Mitigates the threat by utilizing the IPsec protocol to encapsulate and encrypt channel data.</rationale>
-				<addressed-by>FTP_ITC.1/PFED</addressed-by><rationale>Mitigates the threat by utilizing PFED encryption to encapsulate and encrypt channel data.</rationale>
-				<addressed-by>FTP_ITC.1/MACsec</addressed-by><rationale>Mitigates the threat by utilizing the MACsec protocol to encapsulate and encrypt channel
+					receiver.</description>
+				<addressed-by>FTP_ITC.1/MACsec (impl-dep)</addressed-by><rationale>Mitigates the threat by utilizing the MACsec protocol to encapsulate and encrypt channel
 					data.</rationale>
-				<addressed-by>FTP_ITC_EXT.1/WLAN</addressed-by><rationale>Mitigates the threat by utilizing the WLAN protocol to encapsulate and encrypt channel
+				<addressed-by>FTP_ITC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by utilizing PFED encryption to encapsulate and encrypt channel data.</rationale>
+				<addressed-by>FTP_ITC_EXT.1/Admin (sel-based)</addressed-by><rationale>Mitigates the threat by utilizing the IPsec protocol to encapsulate and encrypt channel data.</rationale>				
+				<addressed-by>FTP_ITC_EXT.1/WLAN (sel-based)</addressed-by><rationale>Mitigates the threat by utilizing the WLAN protocol to encapsulate and encrypt channel
 					data.</rationale>
 			</threat>
 			
@@ -1431,18 +1434,20 @@
 					functionality of the device.</description>				
 				<addressed-by>FCS_STG_EXT.1</addressed-by><rationale>Mitigates the threat by generating keys and secrets and storing them in a secure manner, as well as
 					destroying them on request.</rationale>
-				<addressed-by>FCS_CKM.6</addressed-by><rationale>Mitigates the threat by using appropriate key destruction methods to protect the confidentiality of credential
+				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat by using self-tests to ensure correct operation of the DRBG.</rationale>		
+				<addressed-by>FCS_CKM.6 (impl-dep)</addressed-by><rationale>Mitigates the threat by using appropriate key destruction methods to protect the confidentiality of credential
 					data.</rationale>				
 				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by implementing AEAD functions used for trusted
 					communications.</rationale>
 				<addressed-by>FCS_COP.1/CMAC (sel-based)</addressed-by><rationale>Mitigates the threat by implementing CMAC functions used for trusted
 					communications.</rationale>
-				<addressed-by>FCS_COP.1/KeyEncap</addressed-by><rationale>Mitigates the threat by implementing key encapsulation functions used for trusted
+				<addressed-by>FCS_COP.1/KeyEncap (sel-based)</addressed-by><rationale>Mitigates the threat by implementing key encapsulation functions used for trusted
 					communications.</rationale>
-				<addressed-by>FCS_COP.1/KeyWrap</addressed-by><rationale>Mitigates the threat by implementing key wrapping functions used for trusted communications.</rationale>				<addressed-by>FCS_COP.1/SigGen</addressed-by><rationale>Mitigates the threat by implementing signature generation functions used for trusted
+				<addressed-by>FCS_COP.1/KeyWrap (sel-based)</addressed-by><rationale>Mitigates the threat by implementing key wrapping functions used for trusted communications.</rationale>
+				<addressed-by>FCS_COP.1/SigGen (sel-based)</addressed-by><rationale>Mitigates the threat by implementing signature generation functions used for trusted
 					communications.</rationale>
-				<addressed-by>FCS_COP.1/SigVer</addressed-by><rationale>Mitigates the threat by generating digital signatures with strong encryption.</rationale>
-				<addressed-by>FCS_COP.1/SKC</addressed-by><rationale>Mitigates the threat by establishing strong symmetric-key cryptography.</rationale>
+				<addressed-by>FCS_COP.1/SigVer (sel-based)</addressed-by><rationale>Mitigates the threat by generating digital signatures with strong encryption.</rationale>
+				<addressed-by>FCS_COP.1/SKC (sel-based)</addressed-by><rationale>Mitigates the threat by establishing strong symmetric-key cryptography.</rationale>
 				<addressed-by>FCS_RBG.1 (sel-based)</addressed-by><rationale>Mitigates the threat by performing random-bit generation with sufficient complexity.</rationale>
 				<addressed-by>FCS_RBG.2 (sel-based)</addressed-by><rationale>Mitigates the threat by using an external seed source to ensure sufficiently strong random-bit
 					generation.</rationale>
@@ -1452,10 +1457,9 @@
 					random-bit generation.</rationale>
 				<addressed-by>FCS_RBG.5 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that each entropy source's random data is combined to ensure s
 					Strong entropy when multiple sources are used.</rationale>
-				<addressed-by>FDP_ITC_EXT.1</addressed-by><rationale>Mitigates the threat by importing keys and credentials in a secure fashion.</rationale>
-				<addressed-by>FPT_FLS.1</addressed-by><rationale>Mitigates the threat by ensuring a DRBG self-test failure causes the TOE to enter an error state where it 
-					cannot perform secure functions using that DRBG.</rationale>
-				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat by using self-tests to ensure correct operation of the DRBG.</rationale>				
+				<addressed-by>FDP_ITC_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by importing keys and credentials in a secure fashion.</rationale>
+				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring a DRBG self-test failure causes the TOE to enter an error state where it 
+					cannot perform secure functions using that DRBG.</rationale>						
 			</threat>
 			
 			<threat name="T.SIDE_CHANNEL_LEAKAGE">
@@ -1469,19 +1473,19 @@
 				<addressed-by>FIA_PMG_EXT.1</addressed-by><rationale>Mitigates the threat by enforcing password complexity requirements to prevent credentials from being easily guessed.</rationale>
 				<addressed-by>FIA_TRT_EXT.1</addressed-by><rationale>Mitigates the threat by throttling authentication to prevent access via brute force.</rationale>
 				<addressed-by>FPT_STM.1</addressed-by><rationale>Mitigates the threat by ensuring that time-based authentication throttling or lockout is accurately enforced.</rationale>
-				<addressed-by>FIA_AFL_EXT.1</addressed-by><rationale>Mitigates the threat by limiting further authentication attempts once a failure threshold of a critical authentication mechanism has been reached.</rationale>
-				<addressed-by>FIA_UAU.5</addressed-by><rationale>Mitigates the threat by implementing multiple authentication mechanisms for accessing the TSF.</rationale>
-				<addressed-by>FIA_UAU.7</addressed-by><rationale>Mitigates the threat by preventing disclosure of authentication data during authentication attempts.</rationale>
+				<addressed-by>FIA_AFL_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by limiting further authentication attempts once a failure threshold of a critical authentication mechanism has been
+					reached.</rationale>
+				<addressed-by>FIA_UAU.5 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing multiple authentication mechanisms for accessing the TSF.</rationale>
+				<addressed-by>FIA_UAU.7 (sel-based)</addressed-by><rationale>Mitigates the threat by preventing disclosure of authentication data during authentication attempts.</rationale>
     		</threat>	
     	
     		<threat name="T.UNAUTHORIZED_RECONFIGURATION">
     			<description>An attacker might be able to modify the configuration of the TOE and alter its functionality. This might include activating dormant subsystems,
-    			disabling hardware assists, or altering boot-time behaviors.</description>
-    			
+    			disabling hardware assists, or altering boot-time behaviors.</description>    			
     			<addressed-by>FMT_MOF.1</addressed-by><rationale>Mitigates the threat by permitting management functions to be used only by authorized users.</rationale>
     			<addressed-by>FMT_SMF.1</addressed-by><rationale>Mitigates the threat by specifying the management functions implemented by the TSF.</rationale>
     			<addressed-by>FMT_SMR.1</addressed-by><rationale>Mitigates the threat by defining the management roles which can be used to grant access to management functions.    				</rationale>
-    			<addressed-by>FIA_UIA_EXT.1</addressed-by><rationale>Mitigates the threat by preventing the TSF from being modified by an unauthenticated subject.</rationale>
+    			<addressed-by>FIA_UIA_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by preventing the TSF from being modified by an unauthenticated subject.</rationale>
     			<addressed-by></addressed-by><rationale></rationale>
     		</threat>
 			    	
@@ -1489,14 +1493,17 @@
    		 		<description>An attacker may attempt to provide a compromised update of TOE firmware. Such updates can undermine the security functionality of the device if
    		 			they are unauthorized, unauthenticated, or are improperly validated using non-secure or weak cryptography.</description>
     			<addressed-by>FPT_PPF_EXT.1</addressed-by><rationale>Mitigates the threat by using the official update process to be the only method to modify platform firmware.</rationale>
-    			<addressed-by>FPT_RBP_EXT.1</addressed-by><rationale>Mitigates this threat by protecting against a malicious or inadvertent downgrade of the software/firmware to an earlier version that may have security flaws not present in the more recent version.</rationale>
+    			<addressed-by>FPT_RBP_EXT.1</addressed-by><rationale>Mitigates this threat by protecting against a malicious or inadvertent downgrade of the software/firmware to an earlier version that may have security
+    				flaws not present in the more recent version.</rationale>
     			<addressed-by>FPT_ROT_EXT.2</addressed-by><rationale>Mitigates the threat by providing a means to attest the validity of updates.</rationale>
-    			<addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>Mitigates this threat by providing authorized users the ability to query the current version of the TOE software/firmware, initiate updates, and verify updates prior to installation using a manufacturer digital signature.</rationale>
-    			<addressed-by>FCS_COP.1/Hash</addressed-by><rationale>Mitigates the threat by providing a means to validate the integrity of an update using a hash.</rationale>
-    			<addressed-by>FCS_COP.1/SigVer</addressed-by><rationale>Mitigates the threat by providing a means to validate the integrity of an update using a digital signature verification.</rationale>
-    			<addressed-by>FPT_TUD_EXT.2</addressed-by><rationale>Mitigates the threat by using a digital signature mechanism to verify the integrity of updates and a rollback protection mechanism to prevent application of an unauthorized update.</rationale>
-    			<addressed-by>FPT_TUD_EXT.3</addressed-by><rationale>Mitigates the threat by using the TOE's root of trust to validate the authenticity and integrity of an update when it is applied.</rationale>
-    			<addressed-by>FPT_TUD_EXT.4</addressed-by><rationale>Mitigates the threat through an update mechanism that requires physical access to the TOE to use.</rationale>
+    			<addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>Mitigates this threat by providing authorized users the ability to query the current version of the TOE software/firmware, initiate updates, and verify
+    				updates prior to installation using a manufacturer digital signature.</rationale>
+    			<addressed-by>FCS_COP.1/Hash (sel-based)</addressed-by><rationale>Mitigates the threat by providing a means to validate the integrity of an update using a hash.</rationale>
+    			<addressed-by>FCS_COP.1/SigVer (sel-based)</addressed-by><rationale>Mitigates the threat by providing a means to validate the integrity of an update using a digital signature verification.</rationale>
+    			<addressed-by>FPT_TUD_EXT.2 (sel-based)</addressed-by><rationale>Mitigates the threat by using a digital signature mechanism to verify the integrity of updates and a rollback protection mechanism to prevent
+    				application of an unauthorized update.</rationale>
+    			<addressed-by>FPT_TUD_EXT.3 (sel-based)</addressed-by><rationale>Mitigates the threat by using the TOE's root of trust to validate the authenticity and integrity of an update when it is applied.</rationale>
+    			<addressed-by>FPT_TUD_EXT.4 (sel-based)</addressed-by><rationale>Mitigates the threat through an update mechanism that requires physical access to the TOE to use.</rationale>
     	</threat>		
     	
 		</threats>    	
@@ -1640,8 +1647,8 @@
 	 					<h:li>Start-up, shutdown, and reboot of the platform</h:li>
 	 					<h:li>Specifically defined auditable events in <xref to="at-mandatory"/></h:li>
 	 					<h:li><selectables linebreak="yes">
-	 						<selectable>Specifically defined auditable event in <xref to="at-optional"/> 
-	 							for Strictly Optional requirements</selectable>
+	 						<selectable>Specifically defined auditable event in <xref to="at-impl-dep"/> 
+	 							for Implementation-Dependent requirements</selectable>
 	 						<selectable>Specifically defined auditable event in <xref to="at-objective"/> 
 	 							for Objective requirements</selectable>
 	 						<selectable>Specifically defined auditable event in <xref to="at-sel-based"/> 
@@ -1663,7 +1670,7 @@
 	 					<h:li>The outcome (success or failure) of the event</h:li>
 	 					<h:li>[<refinement>Additional information defined in <xref to="at-mandatory"/></refinement>]</h:li>
 	 					<h:li><refinement><selectables linebreak="yes">
-	 						<selectable>Additional information defined in <xref to="at-optional"/> for Strictly Optional SFRs</selectable>
+	 						<selectable>Additional information defined in <xref to="at-at-impl-dep"/> for Implementation-Dependent SFRs</selectable>
 	 						<selectable>Additional information defined in <xref to="at-objective"/> for Objective SFRs</selectable>
 	 						<selectable>Additional information defined in <xref to="at-sel-based"/> for Selection-Based SFRs</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
@@ -1813,7 +1820,7 @@
 	 				</Guidance>
 	 				<Tests>
 	 					If "trusted channel" is selected above, testing of the trusted channel mechanism itself is to be performed as specified in the 
-	 					evaluation activities for FTP_ITC_EXT.1. In addition, the evaluator must perform the
+	 					evaluation activities for FTP_ITC_EXT.1/Admin. In addition, the evaluator must perform the
 	 					following test:<h:p/>
 	 					The evaluator shall establish a session between the TOE and the audit server according to the configuration guidance provided. 
 	 					The evaluator shall then examine the traffic that passes between the audit server and the TOE during several activities of the 
@@ -2807,7 +2814,7 @@
 					</Guidance>
 					<Tests>
 						Specific testing for this component is covered by testing for the claimed components in
-						FCS_COP.1/KeyEncap, FCS_COP.1/KeyWrap, or FTP_ITC_EXT.1.
+						FCS_COP.1/KeyEncap, FCS_COP.1/KeyWrap, or FTP_ITC_EXT.1/Admin.
 					</Tests>
 				</aactivity>
 			</f-element>
@@ -6146,15 +6153,7 @@
 		
 		<ext-comp-def title="Periodic Rekey" fam-id="FCS_REKEY_EXT">
 			<fam-behavior>This family defines requirements for session rekeying.</fam-behavior>
-		</ext-comp-def>
-		
-		
-		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1"  iteration="PFED" status="invisible">
-			<comp-lev>requires the TSF to support session key recovery.</comp-lev>
-			<management>There are no management activities foreseen.</management>
-			<audit>There are no auditable events foreseen.</audit>
-			<dependencies>No dependencies.</dependencies>
-		</f-component>
+		</ext-comp-def>		
 		
 		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1" iteration="PFED" status="feat-based">
 			<depends on="pfed"/>
@@ -9576,7 +9575,7 @@
     					<h:li>Tactical EUD</h:li></h:ul>
     			</note>
     			<aactivity>
-    				<TSS>
+    				<TSS> 
     					The evaluator shall examine the TSS to ensure it describes the methods used by the
     					TOE to detect physical tampering and how the TOE will respond when physical
     					tampering has been detected such that SFRs are always enforced.
@@ -10189,7 +10188,7 @@
     		<fam-behavior>This family defines requirements for controlling transactions.</fam-behavior>
     	</ext-comp-def>
     	
-    	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" iteration="PFED" status="invisible">
+    	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" status="invisible">
     		<f-element>
     			<title>The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.</title>
     		</f-element>
@@ -11144,7 +11143,7 @@
     			data in transit between the TOE and its operational environment.</fam-behavior>
     	</ext-comp-def>
 			
-			<f-component name="Physically Protected Channel" iteration="Admin" cc-id="ftp_itc_ext.1" status="invisible">
+			<f-component name="Physically Protected Channel" cc-id="ftp_itc_ext.1" status="invisible">
 				<consistency-rationale/>
     		<comp-lev>requires the TSF to implement one or more cryptographic protocols
     			to secure connectivity between the TSF and various external entities.</comp-lev>
@@ -11204,7 +11203,7 @@
     			</title></ext-comp-def-title>
     			<note role="application"> 
     				This SFR is included in the ST if a trusted channel is used to offload audit data or if the platform is administered remotely. That is, if "a trusted
-    				channel as specified in FTP_ITC_EXT.1" is selected in FAU_STG.1.1, if "physically protected channels as specified in FTP_ITP_EXT.1" is selected in
+    				channel as specified in FTP_ITC_EXT.1/Admin" is selected in FAU_STG.1.1, if "physically protected channels as specified in FTP_ITP_EXT.1" is selected in
     				FDP_ITC_EXT.1.1, or if "remotely" is selected in Management Function 1 in FMT_SMF.1.1.<h:p/>
     				If the ST author selects either "TLS" or "HTTPS," the TOE must be validated against the Functional Package for Transport Layer Security (TLS), version 2.1.
     				This PP does not mandate that a product implement TLS with mutual authentication, but if the product includes the capability to perform TLS with mutual
