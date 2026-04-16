@@ -77,7 +77,6 @@ output/retransmission-device-release-linkable.html: CEM
 output/retransmission-device-release-linkable.html: CFTP
 output/retransmission-device-release-linkable.html: CIK
 output/retransmission-device-release-linkable.html: CNSA
-output/retransmission-device-release-linkable.html: COPO
 output/retransmission-device-release-linkable.html: CPUs
 output/retransmission-device-release-linkable.html: CSP
 output/retransmission-device-release-linkable.html: CSPs
@@ -216,6 +215,7 @@ output/retransmission-device-release-linkable.html: ffdhe6144
 output/retransmission-device-release-linkable.html: ffdhe8192
 output/retransmission-device-release-linkable.html: fulfil
 output/retransmission-device-release-linkable.html: hLen
+output/retransmission-device-release-linkable.html: impl
 output/retransmission-device-release-linkable.html: invocable
 output/retransmission-device-release-linkable.html: keystore
 output/retransmission-device-release-linkable.html: lifecycle
@@ -292,7 +292,6 @@ output/retransmission-device-release.html: CEM
 output/retransmission-device-release.html: CFTP
 output/retransmission-device-release.html: CIK
 output/retransmission-device-release.html: CNSA
-output/retransmission-device-release.html: COPO
 output/retransmission-device-release.html: CPUs
 output/retransmission-device-release.html: CSPs
 output/retransmission-device-release.html: CSP’
@@ -435,6 +434,7 @@ output/retransmission-device-release.html: ffdhe6144
 output/retransmission-device-release.html: ffdhe8192
 output/retransmission-device-release.html: fulfil
 output/retransmission-device-release.html: hLen
+output/retransmission-device-release.html: impl
 output/retransmission-device-release.html: invocable
 output/retransmission-device-release.html: keystore
 output/retransmission-device-release.html: lifecycle
@@ -509,7 +509,6 @@ output/retransmission-device.html: CEM
 output/retransmission-device.html: CFTP
 output/retransmission-device.html: CIK
 output/retransmission-device.html: CNSA
-output/retransmission-device.html: COPO
 output/retransmission-device.html: CPUs
 output/retransmission-device.html: CSPs
 output/retransmission-device.html: CSP’
@@ -652,6 +651,7 @@ output/retransmission-device.html: ffdhe6144
 output/retransmission-device.html: ffdhe8192
 output/retransmission-device.html: fulfil
 output/retransmission-device.html: hLen
+output/retransmission-device.html: impl
 output/retransmission-device.html: invocable
 output/retransmission-device.html: keystore
 output/retransmission-device.html: lifecycle

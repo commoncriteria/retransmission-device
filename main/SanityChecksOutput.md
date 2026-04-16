@@ -638,10 +638,10 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[30]""/f-element[1]""/note[1]"The ST au"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[31]""/f-element[1]""/note[1]"This SFR "/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[31]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[33]""/f-element[1]""/title[1]"The TSF s"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[35]""/f-element[1]""/title[1]"The TSF s"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[36]""/f-element[1]""/note[1]"If the pr"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[36]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[32]""/f-element[1]""/title[1]"The TSF s"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[34]""/f-element[1]""/title[1]"The TSF s"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[35]""/f-element[1]""/note[1]"If the pr"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[35]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[8]""/f-component[1]""/f-element[1]""/title[1]""/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[8]""/f-component[2]""/f-element[1]""/title[1]""/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[8]""/f-component[3]""/f-element[1]""/title[1]""/h:p[1]""
@@ -869,8 +869,7 @@
 * Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[12]"The TOE e"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[12]"The TOE e"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[13]"The TOE e"/h:p[1]""
- Failed to find a reference to at-optional.
- Failed to find a reference to at-optional.
+ Failed to find a reference to at-at-impl-dep.
  Failed to find a reference to mf-audioVisual.
  Failed to find a reference to pkg-x509.
  Failed to find a reference to pkg-x509.
