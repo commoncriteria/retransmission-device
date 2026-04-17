@@ -101,9 +101,8 @@
         <term abbr="CRL" full="Certificate Revocation List"/>
         <term abbr="CSA" full="Computer Security Act"/>
     	<term abbr="CU" full="Communication Unit">
-    		A lightweight computing device that acts as both a retransmission device and a boundary. 
-    		The RD sits between an EUD and the untrusted transport network. The interconnect between the 
-    		EUD and the RD is always a wired connection.<comment>Review definition for accuracy.</comment></term>
+    		A retransmission device (RD) component whose primary purpose is to provide network transport and simple isolation for an End User Device (EUD) or Encryption Unit
+    		(EU) when communicating with an untrusted transport network. The interconnect between the EUD or EU and the CU is always over a dedicated wired interconnect.</term>
         <term full="Data Execution Prevention" abbr="DEP">
             An anti-exploitation feature of modern operating systems executing on
             modern computer hardware, which enforces a non-execute permission on pages of memory.
@@ -126,9 +125,7 @@
         <term abbr="ECDSA" full="Elliptic Curve Digital Signature Algorithm"/>
         <term abbr="EMET" full="Enhanced Mitigation Experience Toolkit"/>
 		<term abbr="EU" full="Encryption Unit">
-			An RD with the additional capability to encrypt all traffic from the EUD through the 
-			LAN interface to form an encrypted tunnel to another encryption end-point through the 
-			ERD’s WAN interface. <comment>Review definition for accuracy.</comment></term>
+			A retransmission device component whose primary purpose is to provide an independent layer of encryption for an EUD on top of the existing network transport.</term>
         <term abbr="EST" full="Enrollment over Secure Transport"/>
 		<term abbr="EUD" full="End-User Device"/>
         <term abbr="FIPS" full="Federal Information Processing Standards"/>
@@ -779,7 +776,7 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FIA_AFL_EXT.1 Authentication Failure Handling <comment>Review App Notes</comment></h:td>
+					<h:td>FIA_AFL_EXT.1 Authentication Failure Handling</h:td>
 					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center">SB</h:td>
@@ -839,13 +836,6 @@
 					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center">M</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
-					<h:td>FMT_MSA.3 Static Attributes</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">O</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1073,8 +1063,7 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FTA_SSL_EXT.1 TSF- and TSF-Initiated Session Blocking
-					<comment>Review verbiage</comment></h:td>
+					<h:td>FTA_SSL_EXT.1 TSF- and TSF-Initiated Session Blocking</h:td>
 					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center">M</h:td>
@@ -1095,14 +1084,14 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FTP_ITC_EXT.1/Admin Physically Protected Channel <comment>Review offload audit data or if the platform is administered remotely</comment></h:td>
+					<h:td>FTP_ITC_EXT.1/Admin Physically Protected Channel</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FTP_ITC_EXT.1/IPsec Trusted Channel Communication <comment>Review App Notes</comment></h:td>
+					<h:td>FTP_ITC_EXT.1/IPsec Trusted Channel Communication</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">X (IPsec)</h:td>
 					<h:td style="text-align: center">SB</h:td>
@@ -1130,7 +1119,7 @@
 				</h:tr>
 
 				<h:tr style="text-align: center">
-					<h:td>FTP_ITP_EXT.1 Physically Protected Channel <comment>Review</comment></h:td>
+					<h:td>FTP_ITP_EXT.1 Physically Protected Channel</h:td>
 					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1155,13 +1144,14 @@
 			<cc-pt3-conf>extended</cc-pt3-conf>
 			<cc-pp-conf/>
 			<cc-pp-config-with>       
-				<Mod-cc-ref>PP-Module for MACsec Ethernet Encryption, Version 1.0</Mod-cc-ref>
+				<Mod-cc-ref>PP-Module for MACsec Ethernet Encryption, Version 2.0</Mod-cc-ref>
 				<Mod-cc-ref>PP-Module for VPN Client, Version 3.0</Mod-cc-ref>
-				<Mod-cc-ref>PP-Module for WLAN Clients, Version 1.0</Mod-cc-ref>
+				<Mod-cc-ref>PP-Module for WLAN Clients, Version 2.0</Mod-cc-ref>
 			</cc-pp-config-with>
 			<cc-pkg-claim>
 				<FP-cc-ref conf="conformant">Functional Package for Secure Shell (SSH), Version 2.0</FP-cc-ref>
-				<FP-cc-ref conf="conformant">Functional Package for Transport Layer Security (TLS), Version 2.0</FP-cc-ref>				
+				<FP-cc-ref conf="conformant">Functional Package for Transport Layer Security (TLS), Version 2.0</FP-cc-ref>
+				<FP-cc-ref conf="conformant">Functional Package for X.509, Version 1.0</FP-cc-ref>				
 			</cc-pkg-claim>
 		</CClaimsInfo>	
 		
@@ -1241,8 +1231,7 @@
 					timestamped.</rationale>
 				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat of a network attack by implementing a mechanism to detect when the DRBG may be failing to
 					generate secure cryptographic keys.</rationale>
-				<addressed-by>FTA_TAB.1</addressed-by><rationale>Mitigated the threat by providing actionable consequences for misuse of the TSF.</rationale>
-				<addressed-by>FTP_ITP_EXT.1</addressed-by><rationale>Mitigates the threat by using a physically protected channel to protect data in transit.</rationale>
+				<addressed-by>FTA_TAB.1</addressed-by><rationale>Mitigated the threat by providing actionable consequences for misuse of the TSF.</rationale>				
 				<addressed-by>FCS_CKM.6 (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing key destruction to prevent the compromise of trusted channels.</rationale>
 				<addressed-by>FCS_CKM_EXT.7 (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing key agreement functions used for trusted communications.</rationale>
 				<addressed-by>FCS_REC_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by suppressing EUD traffic during recovery, ensures sequential derivation of
@@ -1253,16 +1242,15 @@
 					preventing protocol-based attacks.</rationale>
 				<addressed-by>FIA_PSK_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by use is limited to tunnel-0 bootstrap, preventing attackers from exploiting 
 					PSK in other sessions.</rationale>				
-				<addressed-by>FTP_ITC_EXT.1/IPsec (sel-based)</addressed-by><rationale>Mitigates the threat by implementing IPsec as a means to protect data in transit.</rationale>
 				<addressed-by>FTP_ITC.1/MACsec (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing MACsec as a means to protect data in transit.  </rationale>
 				<addressed-by>FTP_ITC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing PFED as a means to protect data in transit.  </rationale>
+				<addressed-by>FTP_ITC_EXT.1/IPsec (sel-based)</addressed-by><rationale>Mitigates the threat by implementing IPsec as a means to protect data in transit.</rationale>				
 				<addressed-by>FCS_CKM.1/AKG (sel-based)</addressed-by><rationale>Mitigates the threat by generating strong cryptographic asymmetric keys to protect data in
 					transit.</rationale>
 				<addressed-by>FCS_CKM.1/SKG (sel-based)</addressed-by><rationale>Mitigates the threat by generating strong cryptographic symmetric keys to protect data in
 					transit.</rationale>
 				<addressed-by>FCS_CKM.2 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing key establishment to negotiate trusted channels to protect data in 
-					transit.</rationale>
-				
+					transit.</rationale>				
 				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by implementing AEAD functions used for trusted communications.</rationale>
 				<addressed-by>FCS_COP.1/CMAC (sel-based)</addressed-by><rationale>Mitigates the threat by implementing CMAC functions used for trusted communications.</rationale>
 				<addressed-by>FCS_COP.1/Hash (sel-based)</addressed-by><rationale>Mitigates the threat by implementing hash functions used for trusted communications.</rationale>
@@ -1293,6 +1281,7 @@
 				<addressed-by>FTP_ITC_EXT.1/Admin (sel-based)</addressed-by><rationale>Mitigates the threat by requiring the TSF to implement trusted protocols for network
 					communication.</rationale>
 				<addressed-by>FTP_ITC_EXT.1/WLAN (sel-based)</addressed-by><rationale>Mitigates the threat by implementing WLAN as a means to protect data in transit.  </rationale>
+				<addressed-by>FTP_ITP_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by using a physically protected channel to protect data in transit.</rationale>
 				<addressed-by>FTP_TRP.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that remote administration only uses trusted channels.</rationale>				
 			</threat>	
 			
@@ -1647,10 +1636,10 @@
 	 					<h:li>Start-up, shutdown, and reboot of the platform</h:li>
 	 					<h:li>Specifically defined auditable events in <xref to="at-mandatory"/></h:li>
 	 					<h:li><selectables linebreak="yes">
-	 						<selectable>Specifically defined auditable event in <xref to="at-impl-dep"/> 
-	 							for Implementation-Dependent requirements</selectable>
 	 						<selectable>Specifically defined auditable event in <xref to="at-objective"/> 
 	 							for Objective requirements</selectable>
+	 						<selectable>Specifically defined auditable event in <xref to="at-impl-dep"/> 
+	 							for Implementation-Dependent requirements</selectable>	 						
 	 						<selectable>Specifically defined auditable event in <xref to="at-sel-based"/> 
 	 							for Selection-Based requirements</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
@@ -1670,8 +1659,8 @@
 	 					<h:li>The outcome (success or failure) of the event</h:li>
 	 					<h:li>[<refinement>Additional information defined in <xref to="at-mandatory"/></refinement>]</h:li>
 	 					<h:li><refinement><selectables linebreak="yes">
-	 						<selectable>Additional information defined in <xref to="at-at-impl-dep"/> for Implementation-Dependent SFRs</selectable>
 	 						<selectable>Additional information defined in <xref to="at-objective"/> for Objective SFRs</selectable>
+	 						<selectable>Additional information defined in <xref to="at-impl-dep"/> for Implementation-Dependent SFRs</selectable>	 						
 	 						<selectable>Additional information defined in <xref to="at-sel-based"/> for Selection-Based SFRs</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
@@ -1953,7 +1942,6 @@
 				
 				<f-element>
 					<title>
-						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 						The TSF shall be able to generate evidence of origin for transmitted <assignable>list of information types</assignable> at the
 						request of the <selectables>
 							<selectable>originator</selectable>
@@ -1977,17 +1965,30 @@
 						</selectables> given <assignable>limitations on the evidence of origin</assignable>.
 					</title>
 					<note role="application">
-						TBD
+						The intent of this requirement is for the TOE to provide verifiable evidence that specified transmitted information originated from the claimed source
+						and was generated by the TOE acting on behalf of that source. The ST author identifies the types of data for which proof of origin is provided (e.g.,
+						control messages, management communications, or selected user data flows).<h:p/>
+						Typical implementations rely on digital signatures or message authentication codes (MACs) bound to the originator. The mechanism is expected to prevent 							forgery and replay.
 					</note>
 					<aactivity level="component">
-						<TSS>TBD</TSS>
-						<Guidance>TBD</Guidance>
-						<Tests>TBD</Tests>
+						<TSS>The evaluator shall examine the TSS to determine that it:<h:ul>
+							<h:li>Identifies each transmitted information type for which the TOE generates evidence of origin.</h:li>
+							<h:li>Describes the specific mechanism used to generate the evidence of origin for each claimed information type.</h:li>
+							<h:li>Identifies the originator attributes and information fields that are bound to the evidence of origin. </h:li>
+							<h:li>Describes how the TOE ensures the integrity of the binding between the originator-related attributes, the identified information fields, and the resulting evidence of origin.</h:li>
+							<h:li>Identifies the entities that are able to request generation of the evidence and the entities that are able to verify it.</h:li>
+							<h:li>Describes all claimed limitations on verification, including any dependence on trusted channels, cryptographic keys, certificates, time, retained state, or message freshness information.</h:li>
+							<h:li>Describes how the TOE handles failed verification, missing required attributes or fields, unsupported information types, and attempts to verify evidence outside the stated limitations.</h:li>
+							<h:li>If the TOE supports multiple protocols or message formats for this requirement, describes the behavior for each claimed protocol or format.</h:li>
+						</h:ul> 
+							The evaluator shall also examine the TSS to ensure that the claimed evidence of origin is based on TOE-controlled data and TOE-enforced security functionality, and not solely on unauthenticated or externally asserted metadata that the TOE does not validate.
+						</TSS>
+						<Guidance/>
+						<Tests/>
 					</aactivity>
 				</f-element>
-				<audit-event>
-					<audit-event-descr>TBD</audit-event-descr>
-				</audit-event>
+				
+				<audit-event/>
 			</f-component>
 			
 			<f-component name="Selective Proof of Receipt" cc-id="fco_nrr.1">
@@ -1996,7 +1997,6 @@
 					Base-PP. </consistency-rationale>
 				<f-element>
 					<title>
-						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 						The TSF shall be able to generate evidence of receipt for received <assignable>list of information types</assignable>at the request
 						of the <selectables>
 							<selectable>originator</selectable>
@@ -2020,17 +2020,27 @@
 						</selectables> given <assignable>limitations on the evidence of receipt</assignable>.
 					</title>	
 					<note role="application">
-						TBD
+						The intent of this requirement is for the TOE to provide verifiable evidence that specified information was received by the claimed recipient and that the evidence was generated by the TOE acting on behalf of that recipient. The ST author defines the conditions under which proof of receipt is generated.<h:p/>
+						Proof of receipt is commonly realized through authenticated acknowledgements. These acknowledgements are expected to include integrity protection and resistance to replay.
+						
 					</note>
 					<aactivity level="component">
-						<TSS>TBD</TSS>
-						<Guidance>TBD</Guidance>
-						<Tests>TBD</Tests>
+						<TSS>The evaluator shall examine the TSS to determine that it:<h:ul>
+							<h:li>Identifies each received information type for which the TOE generates evidence of receipt.</h:li>
+							<h:li>Describes the specific mechanism used to generate the evidence of receipt for each claimed information type.</h:li>
+							<h:li>Identifies the recipient attributes and information fields that are bound to the evidence of receipt.</h:li>
+							<h:li>Describes how the TOE ensures the integrity of the binding between the recipient-related attributes, the identified information fields, and the resulting evidence of receipt.</h:li>
+							<h:li>Identifies the entities that are able to request generation of the evidence and the entities that are able to verify it.</h:li>
+							<h:li>Describes all claimed limitations on verification, including any dependence on trusted channels, cryptographic keys, certificates, time, retained state, or message freshness information.</h:li>
+							<h:li>Describes how the TOE handles failed verification, missing required attributes or fields, unsupported information types, and attempts to verify evidence outside the stated limitations.</h:li>
+							<h:li>If the TOE supports multiple protocols or message formats for this requirement, describes the behavior for each claimed protocol or format.</h:li>
+						</h:ul> 
+							The evaluator shall also examine the TSS to ensure that the claimed evidence of receipt is based on TOE-controlled data and TOE-enforced security functionality, and not solely on unauthenticated or externally asserted metadata that the TOE does not validate.</TSS>
+						<Guidance/>
+						<Tests/>
 					</aactivity>
 				</f-element>				
-				<audit-event>
-					<audit-event-descr>TBD</audit-event-descr>
-				</audit-event>
+				<audit-event/>
 			</f-component>
 		</section>
 	
@@ -5637,7 +5647,7 @@
 			
 			<f-element id="fel-https-how">
 				<title>The TSF shall implement the HTTPS protocol that complies with RFC 2818. </title>
-				<note role="application">This SFR is included in the ST if the ST author selections"HTTPS" in FTP_ITP_EXT.1.1.</note>
+				<note role="application">This SFR is included in the ST if the ST author selects "HTTPS" in FTP_ITP_EXT.1.1.</note>
 			</f-element>
 			
 			<f-element id="fel-https-tls">
@@ -6603,7 +6613,6 @@
 			<f-component name="Complete Information Flow Control" cc-id="fdp_ifc.2">
 				<f-element id="fdp-ifc-2e1">
 					<title>
-						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 						The TSF shall enforce the <assignable>information flow control SFP</assignable> on <assignable>list of
 						subjects and information</assignable> and all operations that cause that information to flow to and from
 						subjects covered by the SFP.
@@ -6627,24 +6636,34 @@
 						<assignable>rules, based on security attributes, that explicitly deny information
 							flows</assignable>.</title>
 					<note role="application">
-						TBD
+						The intent of this requirement is for the TOE to ensure that every operation that causes information to flow to or from a TOE subject is governed by one or more TOE-enforced information flow control Security Function Policies (SFPs), and that no information flow occurs outside that control. For a retransmission device, this requirement is intended to ensure that all traffic forwarding, relaying, routing, protocol handling, retransmission, and other TOE-mediated data movement are subject to explicit flow control policies rather than ad hoc or bypass behavior.<h:p/>
+						The TOE’s design is expected to ensure that no data path bypasses enforcement, including user data, control traffic, and management communications.<h:p></h:p>
+						The ST author also describes how all interfaces and communication paths are brought under policy control.
+						
 					</note>
 					<aactivity>
-						<TSS>TBD</TSS>
-						<Guidance>TBD</Guidance>
-						<Tests>TBD</Tests>
+						<TSS>The evaluator shall examine the TSS to determine that it:<h:ul>
+							<h:li>Identifies the information flow control SFP or SFPs enforced by the TOE. </h:li>
+							<h:li>Identifies the subjects, information, and operations covered by each SFP.</h:li>
+							<h:li>Describes how the TOE ensures that all operations causing information to flow to or from TOE subjects are covered by one or more SFPs.</h:li>
+							<h:li>Describes the complete set of operational information flows within the claimed TOE configuration and maps those flows to the applicable SFPs.</h:li>
+							<h:li>Identifies the security attributes used by the TOE to make authorization and denial decisions for information flow.</h:li>
+							<h:li>Describes the additional SFP rules enforced by the TOE under FDP_IFC.2.3.</h:li>
+							<h:li>Describes the explicit authorization rules enforced by the TOE under FDP_IFC.2.4.</h:li>
+							<h:li>Describes the explicit denial rules enforced by the TOE under FDP_IFC.2.5.</h:li>
+						</h:ul>
+							The evaluator shall also verify that the authorization and denial rules are based on attributes that are available to the TOE and can be enforced by the TOE.
+						</TSS>
+						<Guidance/>
+						<Tests/>
 					</aactivity>
 				</f-element>
-				<audit-event>
-					<audit-event-descr>TBD</audit-event-descr>
-				</audit-event>
-				
+				<audit-event/>
 			</f-component>
 				
 			<f-component name="Information Flow Control Functions" cc-id="fdp_iff.1">
 				<f-element>
 					<title>
-						<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 						The TSF shall enforce the <assignable>information flow control SFP</assignable> based on the following types of subject and
 						information security attributes: <assignable>list of subjects and information controlled under the indicated SFP, 
 							and for each, the security attributes</assignable>.</title>
@@ -6667,17 +6686,25 @@
 						<assignable>based on security attributes, that explicitly deny information flows</assignable>.
 					</title>
 					<note role="application">
-						TBD
+						The intent of this requirement is for the TOE to enforce an information flow control Security Function Policy (SFP) by making permit or deny decisions based on defined security attributes of subjects and information. For a retransmission device, this requirement focuses on the decision function itself: the TOE is expected to evaluate security-relevant attributes associated with TOE-controlled subjects, information, and operations, and to permit or deny information flow only in accordance with the configured or defined policy rules. The ST author specifies security attributes associated with subjects and information (e.g., interfaces, VLAN identifiers, session state, cryptographic context), and the conditions governing whether flows are permitted or denied. Flow evaluation is expected to occur prior to transmission, with behavior typically following a default-deny model unless explicitly permitted.
 					</note>
 					<aactivity>
-						<TSS>TBD</TSS>
-						<Guidance>TBD</Guidance>
-						<Tests>TBD</Tests>
+						<TSS>The evaluator shall examine the TSS to determine that it:<h:ul>
+							<h:li>Identifies the information flow control SFP enforced by the TOE. </h:li>
+							<h:li>Identifies the controlled subjects, information, and operations to which the SFP applies.</h:li>
+							<h:li>Identifies the subject security attributes and information security attributes used by the TOE to make information flow decisions.</h:li>
+							<h:li>Describes how the TOE obtains, maintains, or derives those attributes for use in policy enforcement.</h:li>
+							<h:li>Describes the attribute-based relationships required for a flow to be permitted for each claimed controlled operation.</h:li>
+							<h:li>Describes the additional information flow control rules enforced by the TOE under FDP_IFF.1.3.</h:li>
+							<h:li>Describes the explicit authorization rules enforced by the TOE under FDP_IFF.1.4.</h:li>
+							<h:li>Describes the explicit denial rules enforced by the TOE under FDP_IFF.1.5.</h:li>
+							</h:ul>
+							The evaluator shall examine the TSS to ensure that the security attributes named in the ST are attributes the TOE can actually evaluate and enforce, and that the described permit and deny logic is specific enough to support repeatable testing.</TSS>
+						<Guidance/>
+						<Tests/>
 					</aactivity>
 				</f-element>
-				<audit-event>
-					<audit-event-descr>TBD</audit-event-descr>
-				</audit-event>
+				<audit-event/>
 				
 			</f-component>
 			
@@ -6913,9 +6940,9 @@
 				</dependencies>
 					<f-element id="fdp-itc-1e1">
 						<title>The TSF shall support importing keys/key material using <selectables>
-							<selectable>physically protected channels as specified in 
+							<selectable id="phys-prot-ch">physically protected channels as specified in 
 							FTP_ITP_EXT.1</selectable>
-							<selectable>encrypted data buffers as specified in FTP_ITE_EXT.1</selectable>
+							<selectable id="data-buffers">encrypted data buffers as specified in FTP_ITE_EXT.1</selectable>
 							<selectable>key distribution mechanisms as specified in 
 							FCS_CKM.2</selectable>
 						</selectables> 
@@ -7411,7 +7438,6 @@
 			<dependencies>No dependencies.</dependencies>
 			<f-element id="fia-psk-ext-1e1">
 				<title>
-					<comment>Need to complete sections for EAs, and audit events.</comment><h:p/>
 					The TSF shall be able to use pre-shared keys that conform to RFC 8784 for IPsec</title>
 			</f-element>
 			<f-element id="fia-psk-ext-1e2">
@@ -7424,14 +7450,13 @@
 					Generated PSKs are expected to be shared between components via an out-of-band mechanism.
 				</note>
 				<aactivity>
-					<TSS>TBD</TSS>
-					<Guidance>TBD</Guidance>
-					<Tests>TBD</Tests>
+					<TSS/>
+					<Guidance/>
+					<Tests/>
 				</aactivity>
 			</f-element>
-			<audit-event>
-				<audit-event-descr>TBD</audit-event-descr>
-			</audit-event>
+			<audit-event/>
+			
 			
 						
 		</f-component>
@@ -7883,35 +7908,7 @@
       		<audit-event/>
       	</f-component>
       	
-		<f-component name="Static Attributes" cc-id="fmt_msa.3">
-			<f-element>
-				<title><comment>Decide whether we are using and completed unfinished fields (EAs, App Notes, etc.)</comment>
-					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
-					The TSF shall enforce the <assignable>access control SFP, information flow control SFP</assignable> to provide <selectables choose-one-of="yes">
-					<selectable>restrictive</selectable>
-					<selectable>permissive</selectable>
-					<selectable><assignable>other property</assignable></selectable>
-				</selectables> default values for security attributes that are used to enforce the SFP. </title>				
-			</f-element>
-			<f-element>
-				<title>The TSF shall allow the <assignable>the authorized identified roles</assignable> to specify alternative
-				initial values to override the default values when an object or information is created.</title>
-				<note role="application">
-					TBD
-				</note>
-				<aactivity>
-					<TSS>TBD</TSS>
-					<Guidance>TBD</Guidance>
-					<Tests>TBD</Tests>
-				</aactivity>
-			</f-element>
-			<audit-event>
-				<audit-event-descr>TBD</audit-event-descr>
-			</audit-event>
-			
-		</f-component>      	
-
-        <f-component id="sfr-fmt-smf-1" cc-id="fmt_smf.1" name="Specification of Management Functions">
+		<f-component id="sfr-fmt-smf-1" cc-id="fmt_smf.1" name="Specification of Management Functions">
 			<f-element id="fmt-smf-est-1e1">
 				<title>The TSF shall be capable of performing the following management functions: [<h:p/>
 					
@@ -9155,7 +9152,6 @@
     	<f-component name="TSF Initialization" cc-id="fpt_ini.1">
     		<f-element>
     			<title>
-    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
     			The TOE shall provide an initialization function which is self-protected for integrity and authenticity.
     			</title>
     		</f-element>
@@ -9181,16 +9177,45 @@
     			<title>The TOE initialization function shall only interact with the TSF in <assignable>defined methods</assignable> during initialization.
     			</title>
     			<note role="application">
-    				TBD
+    				The intent of this requirement is to ensure that the TOE reaches a secure initial state only through an initialization function whose integrity and authenticity are protected, and that initialization does not establish the TSF unless the required preconditions for secure startup have been satisfied. This SFR relates to the TOE initialization process and its resulting security posture. The ST author describes how the TOE transitions into an operational state, including any environmental assumptions.
     			</note>
     			<aactivity>
-    				<TSS>TBD</TSS>
-    				<Guidance>TBD</Guidance>
-    				<Tests>TBD</Tests>
+    				<TSS>The evaluator shall examine the TSS to determine that it:<h:ul>
+    					<h:li>Describes the TOE initialization function and where it occurs in the TOE startup or bring-up sequence. </h:li>
+    					<h:li>Describes how the TOE protects the initialization function for integrity and authenticity.</h:li>
+    					<h:li>Identifies the mechanism or mechanisms by which the TOE detects unauthorized modification or unauthorized substitution of the initialization function.</h:li>
+    					<h:li>Identifies the elements and properties that apply to the TOE under FPT_INI.1.2.</h:li>
+    					<h:li>Describes how the TOE determines that each applicable property holds immediately before establishing the TSF in a secure initial state. </h:li>
+    					<h:li>Describes what constitutes establishment of the TSF in a secure initial state for the TOE.</h:li>
+    					<h:li>Describes the error and failure conditions that may arise during initialization and the TOE response for each, consistent with the selection made in FPT_INI.1.3.</h:li>
+    					<h:li>If the TOE claims successful completion of initialization with reduced functionality, signaling of an error state, or other actions, describes those behaviors in sufficient detail to determine that they preserve security.</h:li>
+    					<h:li>Identifies the defined methods by which the initialization function interacts with the TSF during initialization, as required by FPT_INI.1.4.</h:li>
+    				</h:ul>
+    				
+    				</TSS>
+    				<Guidance/>
+    				<Tests>The evaluator shall perform the following tests. Where direct manipulation of low-level initialization conditions is not practical on production
+    					hardware, the evaluator may use developer-provided test mechanisms or representative test configurations sufficient to exercise the claimed behavior.
+    					<testlist>
+    						<test>Successful initialization to secure initial state: The evaluator shall initialize or power on the TOE in its claimed configuration and verify that the TOE completes initialization and establishes the TSF in the secure initial state described in the TSS. The evaluator shall verify that the TOE behavior is consistent with the applicable Table 2 properties claimed for the TOE.</test>
+    						<test>Initialization function integrity/authenticity protection: 
+    					The evaluator shall attempt, using an appropriate developer-supported test method or representative test setup, to cause execution of a modified, substituted, or otherwise unauthentic initialization function. The evaluator shall verify that the TOE detects the condition and responds in accordance with FPT_INI.1.3 rather than establishing the TSF in a secure initial state.</test>
+    						<test>Failure of a required initialization property: 
+    					The evaluator shall cause one applicable property identified under FPT_INI.1.2 not to hold immediately before establishment of the secure initial state. The evaluator shall verify that the TOE detects the condition and responds in accordance with the selected failure behavior in FPT_INI.1.3.</test>
+    						<test>Verification of failure response behavior: 
+    					The evaluator shall induce one or more initialization errors or failures described in the TSS and verify that the TOE either:<h:ul>
+    						<h:li>halts, or</h:li>
+    						<h:li>completes initialization only with the claimed reduced functionality, signaling of an error state, or other claimed actions.</h:li>
+    					</h:ul>The evaluator shall verify that the observed behavior is consistent with the TSS and does not result in operation inconsistent with the claimed secure state.</test>
+    						<test>Restriction of TSF interaction during initialization: 
+    					The evaluator shall examine available interfaces and observable TOE behavior during initialization and verify that the initialization function interacts with the TSF only through the defined methods identified in the TSS. The evaluator shall verify that unrestricted or normal operational TSF services are not made available before the secure initial state is established, except as explicitly claimed in the ST for reduced-functionality or error-state handling.</test>
+    					</testlist>
+    				</Tests>
     			</aactivity>
     		</f-element>
     		<audit-event>
-    			<audit-event-descr>TBD</audit-event-descr>
+    			<audit-event-descr>Detection of an initialization error or failure; entry into halted, reduced-functionality, or error-signaling state due to initialization failure; successful initialization, if audited by the TOE</audit-event-descr>
+    			<audit-event-info>Result, state entered, affected property or element if available, and reason for failure if available</audit-event-info>
     		</audit-event>
     		
     	</f-component>
@@ -11081,10 +11106,9 @@
     				identification of its endpoints, <h:b>protects channel data from disclosure, and detects modification of the channel data</h:b>.
     			</title>
     			<note role="application">
-    				Assured identification of endpoints is performed according to the authentication mechanisms used by the listed trusted channel
-    				protocols.<h:p/>
-    				Claims from the Functional Package for X.509, version 1.0 are only required to the extent that they are needed to support the functionality 
-    				required by the trusted protocols that are claimed.    				
+    				The intent of this requirement is to ensure that the TOE provides a trusted communication channel using MACsec between itself and a MACsec peer, and that 
+    				this channel is logically distinct from other communication channels. For this requirement, the TOE uses MACsec in accordance with the PP-Module for MACsec
+    				Ethernet Encryption.    				
     			</note>
     		</f-element>
     		
@@ -11110,7 +11134,8 @@
     			</aactivity>
     		</f-element>
     		<audit-event table="impl-dep">
-			<audit-event-descr><comment>This needs to be completed.</comment></audit-event-descr>
+			<audit-event-descr>Initiation and termination of trusted channel</audit-event-descr>
+    			<audit-event-info>Trusted channel protocol, non-TOE endpoint of connection</audit-event-info>
 		</audit-event>    		
     	</f-component>
     	
@@ -11392,7 +11417,9 @@
     			mechanisms.</fam-behavior>
     	</ext-comp-def>
     	
-    	<f-component id="sfr-ftp-itp-ext-1" cc-id="ftp_itp_ext.1" name="Physically Protected Channel">
+    	<f-component id="sfr-ftp-itp-ext-1" cc-id="ftp_itp_ext.1" name="Physically Protected Channel" status="sel-based">
+    		<depends on-sel="phys-prot-ch"/>
+    		<depends on-sel=""></depends>
     		<consistency-rationale/>
     		<comp-lev>requires the TSF to use a physically protected
     			channel for transmission of data to an external entity.</comp-lev>
@@ -11407,9 +11434,8 @@
     			<note role="application">
     				This SFR focuses on persistent internal communication channels and does not apply to communication channels intended
     				for use with external media, ephemeral devices, or peripherals. This SFR must be claimed if
-    				"<h:i>physically protected channels as specified in FTP_ITP_EXT.1</h:i>" is selected in either
-    				FDP_ITC_EXT.1, or if "<h:i>Keys exchanged using a physically protected communication mechanism
-    					conformant with FTP_ITP_EXT.1</h:i>" is selected in FTP_ITE_EXT.1.1.
+    				"<h:i>physically protected channels as specified in FTP_ITP_EXT.1</h:i>" is selected in 
+    				FDP_ITC_EXT.1.
     			</note>
     			<aactivity>
     				<TSS>
@@ -11421,7 +11447,7 @@
     				<Tests/>
     			</aactivity>
     		</f-element>
-    		<audit-event/>    		
+    		<audit-event table="sel-based"/>    		
     	</f-component>
     	
     	<f-component name="Trusted Path" cc-id="ftp_trp.1" status="sel-based">
