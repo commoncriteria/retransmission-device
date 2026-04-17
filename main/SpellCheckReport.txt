@@ -165,6 +165,7 @@ output/retransmission-device-release-linkable.html: RSK
 output/retransmission-device-release-linkable.html: SATNET
 output/retransmission-device-release-linkable.html: SCPS
 output/retransmission-device-release-linkable.html: SFP
+output/retransmission-device-release-linkable.html: SFPs
 output/retransmission-device-release-linkable.html: SHA3
 output/retransmission-device-release-linkable.html: SHAKE128
 output/retransmission-device-release-linkable.html: SHAKE256
@@ -188,6 +189,7 @@ output/retransmission-device-release-linkable.html: TTP
 output/retransmission-device-release-linkable.html: UCL
 output/retransmission-device-release-linkable.html: UDPLite
 output/retransmission-device-release-linkable.html: UTI
+output/retransmission-device-release-linkable.html: VLAN
 output/retransmission-device-release-linkable.html: VMTP
 output/retransmission-device-release-linkable.html: VarKey
 output/retransmission-device-release-linkable.html: VarTxt
@@ -197,6 +199,7 @@ output/retransmission-device-release-linkable.html: Winternitz
 output/retransmission-device-release-linkable.html: XCU
 output/retransmission-device-release-linkable.html: XMSS
 output/retransmission-device-release-linkable.html: XTP
+output/retransmission-device-release-linkable.html: acknowledgements
 output/retransmission-device-release-linkable.html: attemps
 output/retransmission-device-release-linkable.html: authorised
 output/retransmission-device-release-linkable.html: behaviour
@@ -308,7 +311,6 @@ output/retransmission-device-release.html: EMCON
 output/retransmission-device-release.html: ERB
 output/retransmission-device-release.html: ERD
 output/retransmission-device-release.html: ERDs
-output/retransmission-device-release.html: ERD’s
 output/retransmission-device-release.html: EUDs
 output/retransmission-device-release.html: EUs
 output/retransmission-device-release.html: EXPAK
@@ -383,6 +385,7 @@ output/retransmission-device-release.html: RSK
 output/retransmission-device-release.html: SATNET
 output/retransmission-device-release.html: SCPS
 output/retransmission-device-release.html: SFP
+output/retransmission-device-release.html: SFPs
 output/retransmission-device-release.html: SHA3
 output/retransmission-device-release.html: SHAKE128
 output/retransmission-device-release.html: SHAKE256
@@ -406,6 +409,7 @@ output/retransmission-device-release.html: TTP
 output/retransmission-device-release.html: UCL
 output/retransmission-device-release.html: UDPLite
 output/retransmission-device-release.html: UTI
+output/retransmission-device-release.html: VLAN
 output/retransmission-device-release.html: VMTP
 output/retransmission-device-release.html: VarKey
 output/retransmission-device-release.html: VarTxt
@@ -415,6 +419,7 @@ output/retransmission-device-release.html: Winternitz
 output/retransmission-device-release.html: XCU
 output/retransmission-device-release.html: XMSS
 output/retransmission-device-release.html: XTP
+output/retransmission-device-release.html: acknowledgements
 output/retransmission-device-release.html: attemps
 output/retransmission-device-release.html: authorised
 output/retransmission-device-release.html: behaviour
@@ -525,7 +530,6 @@ output/retransmission-device.html: EMCON
 output/retransmission-device.html: ERB
 output/retransmission-device.html: ERD
 output/retransmission-device.html: ERDs
-output/retransmission-device.html: ERD’s
 output/retransmission-device.html: EUDs
 output/retransmission-device.html: EUs
 output/retransmission-device.html: EXPAK
@@ -601,6 +605,7 @@ output/retransmission-device.html: RSK
 output/retransmission-device.html: SATNET
 output/retransmission-device.html: SCPS
 output/retransmission-device.html: SFP
+output/retransmission-device.html: SFPs
 output/retransmission-device.html: SHA3
 output/retransmission-device.html: SHAKE128
 output/retransmission-device.html: SHAKE256
@@ -624,6 +629,7 @@ output/retransmission-device.html: TTP
 output/retransmission-device.html: UCL
 output/retransmission-device.html: UDPLite
 output/retransmission-device.html: UTI
+output/retransmission-device.html: VLAN
 output/retransmission-device.html: VMTP
 output/retransmission-device.html: VarKey
 output/retransmission-device.html: VarTxt
@@ -633,6 +639,7 @@ output/retransmission-device.html: Winternitz
 output/retransmission-device.html: XCU
 output/retransmission-device.html: XMSS
 output/retransmission-device.html: XTP
+output/retransmission-device.html: acknowledgements
 output/retransmission-device.html: attemps
 output/retransmission-device.html: authorised
 output/retransmission-device.html: behaviour
