@@ -1712,8 +1712,7 @@
 	 	<f-component name="Audit Data Generation" cc-id="fau_gen.1" iteration="PFED" status="feat-based">
 	 		<depends on="pfed"/>
 	 		<f-element id="fau-gen-1e1">
-	 			<title>
-	 				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+	 			<title>>
 	 				The TOE shall generate audit records for the following events:<h:ul>
 	 					<h:li>Provisioning</h:li>
 	 					<h:li>Session setup and termination</h:li>
@@ -1722,36 +1721,92 @@
 	 				</h:ul>.				
 	 			</title>
 	 			<note role="application">
-	 				TBD
+	 				The intent of this requirement is to ensure that PFED-relevant security events are recorded so that establishment, maintenance, and recovery of the protected PFED session can be reconstructed and reviewed.<h:p/>
+	 				These events align with the PFED operational lifecycle described in Appendix H. The lifecycle of a PFED pair consists of provisioning the cryptographic pair-wise association between two EU’s and managing the subsequent sessions and session keys using transaction events. Provisioning establishes the initial keystore and is expected to run once at the beginning of life for the pair. Once provisioned, an EU-to-EU session must be established before EUD traffic can flow. There is a rekey event during session setup and periodically afterwards until one end goes offline. If a session key gets out of sync between the EU’s, the pair will detect and then initiate a key recovery. It is not expected that EU logs are accessible while the crypto is active. The PFED appendix currently states that the TOE maintains separate logs for the EU and CU, and specifically describes EU logging for these events.	 				
 	 			</note>	 			
 	 			<aactivity>
-	 				<TSS>TBD</TSS>
-	 				<Guidance>TBD</Guidance>
-	 				<Tests>TBD</Tests>
+	 				<TSS>
+	 					The evaluator shall examine the TSS to determine that it:<h:ul>
+	 						<h:li>Identifies the PFED audit events for which the TOE generates records:</h:li><h:ul>
+	 							<h:li>provisioning,</h:li>
+	 							<h:li>session setup,</h:li>
+	 							<h:li>session termination,</h:li>
+	 							<h:li>rekey, and</h:li>
+	 							<h:li>key recovery.</h:li>
+	 					</h:ul>
+	 						<h:li>Describes what constitutes an auditable occurrence of each event type.</h:li>
+	 						<h:li>Describes the contents of the audit record generated for each event type.</h:li>	
+	 					</h:ul>
+	 					The evaluator shall determine that the TSS is consistent with the PFED appendix logging description for provisioning, session setup, session termination, rekey, and key recovery.	 					
+	 				</TSS>
+	 				<Guidance/>
+	 				<Tests>
+	 					The evaluator shall perform the following tests.
+	 					<testlist>
+	 						<test>
+	 					Provisioning audit generation: The evaluator shall cause PFED provisioning to occur and verify that the TOE generates an audit record for the
+	 					provisioning event.</test>
+	 							<test>Session setup and termination audit generation: The evaluator shall cause a PFED session to be established and terminated, and then verify
+	 								the TOE generates audit records for session setup and session termination.</test>
+	 						<test>Rekey audit generation: The evaluator shall cause a PFED rekey event to occur and verify the TOE generates an audit record for the rekey
+	 							event.</test>
+	 							<test>Key recovery audit generation: The evaluator shall cause a PFED key recovery event to occur and verify the TOE generates an audit
+	 								record for the key recovery event.</test>
+	 							<test>Audit record review: The evaluator shall review the generated audit records and verify the records can be distinguished by event type
+	 								and are consistent with the TSS and guidance.</test>
+	 			</testlist>		
+	 				</Tests>
 	 			</aactivity>
 	 		</f-element>
-	 		<audit-event table="impl-dep"><audit-event-descr>TBD</audit-event-descr>
-	 		</audit-event>
+	 		<audit-event table="impl-dep"/>
 	 	</f-component>
 	 	
 	 	<f-component name="User Identity Association" cc-id="fau_gen.2" iteration="PFED" status="feat-based">
 	 		<depends on="pfed"/>
 	 		<f-element id="fau-gen-2e1">
 	 			<title>
-	 				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
-	 				The TOE shall associate audit records with the initiating ERD identity.
+	 				The TOE shall associate audit records with the initiating EU+CU identity.
 	 			</title>
 	 			<note role="application">
-	 				TBD
+	 				The intent of this requirement is to ensure that PFED audit records can be tied to the EU+CU identity that initiated the audited action or session, so that the audit trail reflects which EU was responsible for the event.<h:p/>
+	 				For this requirement, “initiating EU+CU identity” is the identity of the peer or local EU+CU instance on whose behalf the auditable PFED event was initiated, as represented by the TOE’s PFED identity model. The ST author should describe the form of that identity in TOE-specific terms.	 				
 	 			</note>
 	 			<aactivity>
-	 				<TSS>TBD</TSS>
-	 				<Guidance>TBD</Guidance>
-	 				<Tests>TBD</Tests>
+	 				<TSS>
+	 					The evaluator shall examine the TSS to determine that it:<h:ul>
+	 						<h:li>Identifies the PFED audit records to which initiating EU+CU identity association applies.</h:li> 
+	 						<h:li>Defines the initiating EU identity used by the TOE for those audit records.</h:li> 
+	 						<h:li>Describes how the TOE obtains, derives, or assigns the initiating EU+CU identity for PFED events.</h:li> 
+	 						<h:li>Describes how the TOE associates the initiating EU+CU identity with each applicable audit record.</h:li> 
+	 						<h:li>Describes when, during provisioning, session setup, rekey, key recovery, or session termination, the initiating EU+CU identity becomes available for audit association.</h:li>
+	 					</h:ul>
+	 					The evaluator shall determine that the TSS is consistent with the PFED audit model described in Appendix H and that the association mechanism is sufficient to attribute applicable PFED audit records to the initiating EU identity.	 					
+	 				</TSS>
+	 				<Guidance/>
+	 				<Tests>
+	 					The evaluator shall perform the following tests.
+	 					<testlist>
+	 						<test>
+	 							Provisioning identity association: The evaluator shall cause PFED provisioning to occur and verify that the generated audit record is associated with the initiating EU+CU identity in accordance with the TSS and guidance.	 							
+	 						</test>
+	 						<test>
+	 							Session setup identity association: The evaluator shall cause PFED session setup to occur and verify that the generated audit record is associated with the initiating EU+CU identity.	 							
+	 						</test>
+	 						<test>
+	 							Rekey or key recovery identity association: The evaluator shall cause a PFED rekey event or key recovery event to occur and verify that the generated audit record is associated with the initiating EU+CU identity.	 							
+	 						</test>
+	 						<test>
+	 							Session termination identity association: The evaluator shall cause a PFED session termination event to occur and verify that the generated audit record is associated with the initiating EU+CU identity.	 							
+	 						</test>
+	 						<test>
+	 							Audit review consistency: The evaluator shall review the generated audit records and verify that the recorded ERD identity is presented consistently enough to distinguish the initiating EU+CU for the applicable PFED events.	 							
+	 						</test>	 						
+	 					</testlist>
+	 				</Tests>
 	 			</aactivity>
 	 		</f-element>
-	 		<audit-event table="impl-dep"><audit-event-descr>TBD</audit-event-descr>
-	 		</audit-event>
+	 		<audit-event table="impl-dep"/>
+	 		
 	 	</f-component>
 	 	
 	 	<f-component id="sfr-fau-sar-1" cc-id="fau_sar.1" name="Audit Review">
@@ -1831,20 +1886,39 @@
 	 		<depends on="pfed"/>
 	 		<f-element id="fau-stg-1e1">
 	 			<title>
-	 				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 	 				The TOE shall protect stored audit records from unauthorized modification and deletion.
 	 			</title>
 	 			<note role="application">
-	 				TBD
+	 				The intent of this requirement is to ensure that PFED audit records, once generated and stored, cannot be altered or removed by unauthorized entities.<h:p/>
+	 				For this requirement, “unauthorized modification and deletion” means that the TOE enforces access controls, storage protections, or other TOE security mechanisms such that only authorized TOE functions or authorized administrative actions may affect stored audit records in the ways permitted by the TOE design. 				
 	 			</note>
 	 			<aactivity>
-	 				<TSS>TBD</TSS>
-	 				<Guidance>TBD</Guidance>
-	 				<Tests>TBD</Tests>
+	 				<TSS>
+	 					The evaluator shall examine the TSS to determine that it:<h:ul>
+	 						<h:li>Identifies the storage location or locations used for PFED audit records.</h:li> 
+	 						<h:li>Describes how stored PFED audit records are protected from unauthorized modification.</h:li> 
+	 						<h:li>Describes how stored PFED audit records are protected from unauthorized deletion.</h:li> 
+	 						<h:li>Identifies the TOE roles, services, or internal processes that are authorized to modify, rotate, archive, export, or delete PFED audit records.</h:li> 
+	 					</h:ul>
+	 				</TSS>
+	 				<Guidance/>
+	 				<Tests>
+	 					The evaluator shall perform the following tests:
+	 					<testlist>
+	 						<test>
+	 							Stored audit record generation and persistence: The evaluator shall cause one or more PFED auditable events to occur and verify that corresponding audit records are stored in the PFED audit storage described in the TSS and guidance.	 							
+	 						</test>
+	 						<test>
+	 							Protection against unauthorized modification: Using available interfaces and roles, the evaluator shall attempt to modify stored PFED audit records in a manner not authorized by the TOE. The evaluator shall verify that the TOE prevents the unauthorized modification.	 							
+	 						</test>
+	 						<test>
+	 							Protection against unauthorized deletion: Using available interfaces and roles, the evaluator shall attempt to delete stored PFED audit records in a manner not authorized by the TOE. The evaluator shall verify that the TOE prevents the unauthorized deletion.	 							
+	 						</test>
+	 					</testlist>
+	 				</Tests>
 	 			</aactivity>
 	 		</f-element>
-	 		<audit-event table="impl-dep"><audit-event-descr>TBD</audit-event-descr>
-	 		</audit-event>
+	 		<audit-event table="impl-dep"/>
 	 	</f-component>
 	 	
 	 	<!-- FAU_STG.2 Protected Audit Trail Storage -->
@@ -2671,7 +2745,6 @@
 			<depends on="pfed"/>
 			<f-element >
 				<title>
-					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 					The TSF shall generate <h:b>asymmetric</h:b> cryptographic keys in accordance with a specified cryptographic key generation algorithm: 
 					[<h:i><selectables>
 						<selectable>ML-KEM <h:b>using the parameter set</h:b> [ML-KEM-1024] that meets the following: [NIST FIPS PUB 203]</selectable>
@@ -2679,17 +2752,71 @@
 					</selectables></h:i> 
 				</title>
 				<note role="application">
-					TBD
-				</note>
+					The intent of this requirement is to ensure that the TOE generates asymmetric cryptographic keys in accordance with the specified approved cryptographic key generation algorithms and parameter sets required for PFED operations.<h:p/>
+					ML-KEM key pairs are generated within the EU and are never exported. They are also ephemeral. A TOE will have the following different ways to handle signatures<h:ul>
+						<h:li>ML-DSA key pair is burned in at the factory</h:li>
+						<h:li>A user can generate a key pair off platform and the TOE has a method to import it</h:li>
+					</h:ul></note>
 				<aactivity>
-					<TSS>TBD</TSS>
-					<Guidance>TBD</Guidance>
-					<Tests>TBD</Tests>
+					<TSS>The evaluator shall examine the TSS to verify that it describes how the TOE generates a key based on output from a random bit generator as specified in FCS_RBG.1. The evaluator shall review the TSS to verify that it describes how the functionality described by FCS_RBG.1 is invoked.<h:p/>
+						The evaluator shall examine the TSS to verify that it identifies the usage and key lifecycle for keys generated using each selected algorithm.<h:p/>
+						The evaluator shall examine the TSS to verify that any one-time values such as nonces or masks are constructed in accordance with the relevant standards.<h:p/>
+						If the TOE uses the generated key in a key chain/hierarchy, then the evaluator shall verify that the TSS describes how the key is used as part of the key chain/hierarchy.
+					</TSS>
+					<Guidance>
+						The evaluator shall verify that the Guidance instructs the administrator how to configure the TOE to generate keys for the selected key generation algorithms for all key types and uses identified in the TSS.
+					</Guidance>
+					<Tests>
+						The evaluator shall perform the following test or witness respective tests executed by the developer. The tests must be executed on a platform that is as close as practically possible to the operational platform (but which may be instrumented in terms of, for example, use of a debug mode). Where the test is not carried out on the TOE itself, the test platform shall be identified and the differences between test environment and TOE execution environment shall be described.<h:p/>
+						<h:b>ML-KEM Key Generation</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Key Generation Algorithm</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">ML-KEM</h:td>
+								<h:td valign="top">ML-KEM Key Generation</h:td>
+								<h:td valign="top">Parameter set = [ML-KEM-1024]</h:td>
+								<h:td valign="top">NIST FIPS PUB 203 (Section 7.1)</h:td>
+							</h:tr>
+						</h:table><h:p/>
+						To test the TOE’s ability to generate asymmetric cryptographic keys using ML-KEM, the evaluator shall perform the Algorithm Functional Test using the following input parameters.<h:ul>
+							<h:li>Parameter set [ML-KEM-1024]</h:li>
+							<h:li>Random seed d [32 bytes]</h:li>
+							<h:li>Random seed z [32 bytes]</h:li>
+						</h:ul>
+						<h:b>Algorithm Functional Test</h:b>
+						For each supported parameter set the evaluator shall require the implementation under test to generate 25 key pairs using 25 different randomly generated pairs of 32-byte seed values (d, z). To determine correctness, the evaluator shall compare the resulting key pairs (ek, dk) with those generated using a known-good implementation using the same inputs.<h:p/>
+						<h:b>ML-DSA Key Generation</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Key Generation Algorithm</h:td>
+								<h:td valign="top">Cryptographic Algorithm Parameters</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">ML-DSA</h:td>
+								<h:td valign="top">ML-DSA Key Generation</h:td>
+								<h:td valign="top">Parameter set = ML-DSA-87</h:td>
+								<h:td valign="top">NIST FIPS PUB 204 (Section 5.1)</h:td>
+							</h:tr>
+						</h:table><h:p/>
+						To test the TOE’s ability to generate asymmetric cryptographic keys using ML-DSA, the evaluator shall perform the Algorithm Functional Test using the following input parameters.<h:ul>
+							<h:li>Parameter set [ML-DSA-87]</h:li>
+							<h:li>Random seed [32 bytes]</h:li>
+						</h:ul>
+						<h:b>Algorithm Functional Test</h:b>
+						For each supported parameter set the evaluator shall require the implementation under test to generate 25 key pairs using 25 different randomly generated 32-byte seed values. To determine correctness, the evaluator shall compare the resulting key pairs with those generated using a known-good implementation using the same inputs.
+						
+					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep">
-				<audit-event-descr>TBD</audit-event-descr>
-			</audit-event>
+			<audit-event table="impl-dep"/>
+			
 		</f-component>
 		
 			<!-- FCS_CKM.1/SKG -->
@@ -2837,7 +2964,6 @@
 			<depends on="pfed"/>
 			<f-element >
 				<title>
-					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 					The TSF shall <h:b>perform cryptographic key establishment</h:b> in accordance with a specified cryptographic key <h:b>establishment</h:b>
 					method: <selectables>
 						<selectable>key encapsulation</selectable>
@@ -2845,24 +2971,48 @@
 					</selectables>.
 				</title>
 				<note role="application">
-					TBD
+					The intent of this requirement is to ensure that the TOE performs PFED cryptographic key establishment only by one of the claimed and defined methods: key encapsulation or encrypted channel. The ST author should select the method or methods actually implemented by the TOE for PFED key establishment.<h:p/>
+					For PFED, the selected method should be described consistently with the PFED lifecycle in Appendix H. During initial bonding, the TOE uses a temporary secure tunnel (tunnel-0) established using a pre-shared key. During provisioning completion, the TOE exchanges ML-DSA-87 public keys and performs authentication and rekey transactions. Prior to permitting EUD traffic, session setup requires a mandatory session rekey using ML-KEM-1024. Later rekey and recovery operations update or restore keying state using newly derived shared secrets and existing protected key state.<h:p/>
+					Key Encapsulation should follow the ML-KEM-1024 protocol where A generates an ephemeral ML-KEM-1024 key pair (P/p), sends the public P to B, B encrypts a random value with P and encapsulates a response to A. The encrypted channel method should encrypt a random key with a shared Key Encrypting Key using GCM AES 256 with integrity checking.
+					
 				</note>
 				<aactivity>
-					<TSS>TBD</TSS>
-					<Guidance>TBD</Guidance>
-					<Tests>TBD</Tests>
+					<TSS>
+						The evaluator shall examine the TSS to determine that it:<h:ul>
+							<h:li>Identifies which selection or selections are claimed in FCS_CKM.2.1/PFED:<h:ul>
+								<h:li>key encapsulation,</h:li>
+								<h:li>encrypted channel,</h:li>
+								<h:li>or both, if supported by the TOE.</h:li>
+							</h:ul></h:li>							
+							<h:li>Describes the PFED key-establishment process or processes that use each claimed method.</h:li>
+							<h:li>Identifies the PFED phase or phases in which each claimed method is used, such as provisioning, session setup, rekey, or recovery.</h:li>
+							<h:li>Identifies the cryptographic mechanisms underlying each claimed method.</h:li>
+							<h:li>Describes the keying material established by each claimed method.</h:li>
+							<h:li>If key encapsulation is claimed, describes the encapsulation-based method used for PFED and how it is integrated into PFED operation.</h:li>
+							<h:li>If encrypted channel is claimed, describes the encrypted channel used for PFED key establishment and how the channel protects the establishment of keying material.</h:li>
+						</h:ul>
+						The evaluator shall determine that the TSS description is consistent with the PFED appendix, including the PSK-based temporary provisioning tunnel, ML-DSA public-key exchange during provisioning completion, mandatory ML-KEM-1024 rekey during session setup, and subsequent rekey/recovery behavior using newly derived shared secrets.
+					</TSS>
+					<Guidance/>
+					<Tests>The evaluator shall perform the following tests according to the selections claimed in the ST.
+					<testlist>
+						<test>
+							Key encapsulation selection: If the TOE claims key encapsulation, the evaluator shall invoke or otherwise cause the TOE to perform PFED key establishment using the claimed encapsulation-based method and verify that the TOE uses key encapsulation for the PFED transaction or phase identified in the TSS. Where the PFED design relies on ML-KEM during session setup, the evaluator shall verify that the observed TOE behavior is consistent with that claim.							
+						</test>
+						<test>Encrypted channel selection: If the TOE claims encrypted channel, the evaluator shall invoke or otherwise cause the TOE to perform PFED key establishment over the claimed encrypted channel and verify that the TOE uses that encrypted channel for the PFED transaction or phase identified in the TSS. Where the TOE relies on the temporary PSK-based provisioning tunnel, the evaluator shall verify that the observed TOE behavior is consistent with that claim.
+						</test>
+					</testlist>
+					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep">
-				<audit-event-descr>TBD</audit-event-descr>
-			</audit-event>
+			<audit-event table="impl-dep"/>
+			
 		</f-component>
 		
 		<f-component name="Cryptographic Key Derivation" cc-id="fcs_ckm.5" iteration="PFED" status="feat-based">
 			<depends on="pfed"/>
 			<f-element >
 				<title>
-					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 					The TSF shall derive [<h:i>all session and recovery keys</h:i> from [<h:i>existing key store material, newly derived shared secrets,
 					hardware-based RBG entropy as defined in FCS_RBG.1</h:i>] in accordance with a specified key derivation algorithm [Hash Key Derivation
 					Function using <selectables>
@@ -2874,17 +3024,29 @@
 					</selectables> that meet the following [<h:i>NIST SP 800-56C Revision 2 (Section 4.1, Option 1)</h:i>].
 				</title>
 				<note role="application">
-					TBD
+					The intent of this requirement is to ensure that the TOE derives PFED keying material only from the claimed sources of keying material and entropy, and only by means of the claimed key derivation method. If the TOE derives different PFED keys in different phases, such as session setup, rekey, or recovery, the TSS should describe the derivation inputs and outputs for each phase separately.
 				</note>
 				<aactivity>
-					<TSS>TBD</TSS>
-					<Guidance>TBD</Guidance>
-					<Tests>TBD</Tests>
+					<TSS>The evaluator shall examine the TSS to determine that it:<h:ul>
+						<h:li>Identifies the PFED keys derived under this requirement, including any session keys, recovery keys, or other operational keys claimed to be covered. </h:li>
+						<h:li>States that the TOE uses a Hash Key Derivation Function for the claimed PFED key derivation. </h:li>
+						<h:li>Identifies whether the TOE uses SHA-384, SHA-512, or both as the underlying hash for the claimed derivation. </h:li>
+						<h:li>Identifies the claimed derived key size or sizes, 384 bits or 512 bits, corresponding to the selected hash function. </h:li>
+						<h:li>Describes the input material used for derivation, including: <h:ul>
+							<h:li>existing key store material,</h:li>
+							<h:li>newly derived shared secrets, and </h:li>
+							<h:li>hardware-based RBG entropy as defined in FCS_RBG.1.</h:li> </h:ul></h:li>
+						<h:li>Describes which of those inputs are used for each PFED derivation phase, such as initial session derivation, rekey, and recovery.</h:li>
+						<h:li>Describes how the TOE performs derivation in a manner consistent with NIST SP 800-56C Rev. 2, Section 4.1, Option 1.</h:li>
+					</h:ul>
+						The evaluator shall determine that the TSS is consistent with the posted PFED appendix text stating that PFED uses HKDF, that HKDF input includes hardware RNG entropy, and that rekey derives final session keys from current key-store material and newly derived shared secrets.
+					</TSS>
+					<Guidance/>
+					<Tests/>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep">
-				<audit-event-descr>TBD</audit-event-descr>
-			</audit-event>
+			<audit-event table="impl-dep"/>
+			
 		</f-component>
 		
 		<f-component cc-id="fcs_ckm.6" name="Timing and Event of Cryptographic Key Destruction" status="sel-based">		
@@ -3032,7 +3194,6 @@
 			<depends on="pfed"/>
 			<f-element >
 				<title>
-					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 					The TSF shall destroy [<h:i><h:ul>
 						<h:li>the PSK immediately after teardown of tunnel-0</h:li>
 						<h:li>any replaced session key immediately after a successful rekey</h:li>
@@ -3040,17 +3201,49 @@
 					</h:ul></h:i>.]
 				</title>
 				<note role="application">
-					TBD
+					The intent of this requirement is to ensure that PFED keying material is destroyed promptly when it is no longer needed for its intended security function, so that superseded or transitional keys cannot continue to be used or recovered after the TOE has moved to the next protected state. For PFED, this includes destruction of the temporary provisioning PSK, destruction of superseded session keys after successful rekey, and destruction of obsolete recovery keys after replacement. Destruction mechanisms typically include zeroization and prevention of key recovery.<h:p/>
+					For the first bullet, the ST author should describe the TOE behavior that causes the PSK used for tunnel-0 to be destroyed immediately after teardown of tunnel-0. This should be written consistently with Appendix H, which states that tunnel-0 is terminated and the PSK is cryptographically destroyed following successful completion of the ML-KEM-1024 transaction and transition to tunnel-1. <h:p/>
+					For the second bullet, “any replaced session key immediately after a successful rekey” means that once the TOE has successfully established and activated the replacement session key, the previously active session key is destroyed without unnecessary delay. The TSS should make clear what the TOE considers a successful rekey, when the new session key becomes active, and at what point the replaced key is destroyed. <h:p/>
+					For the third bullet, “any obsolete recovery key immediately after replacement” means that once the TOE has established the replacement recovery key material, the prior recovery key that is no longer needed for recovery operations is destroyed without unnecessary delay.					
 				</note>
 				<aactivity>
-					<TSS>TBD</TSS>
-					<Guidance>TBD</Guidance>
-					<Tests>TBD</Tests>
+					<TSS>
+						The evaluator shall examine the TSS to determine that it:<h:ul>
+							<h:li>Identifies each PFED key type covered by this requirement:<h:ul>
+								<h:li>the tunnel-0 PSK,</h:li>
+								<h:li>replaced session keys, and </h:li>
+								<h:li>obsolete recovery keys.</h:li>
+							</h:ul></h:li>							
+							<h:li>Describes where each such key exists within the TOE while active or stored.</h:li>
+							<h:li>Describes the event that triggers destruction for each covered key type.</h:li>
+							<h:li>Describes when destruction occurs relative to the triggering event for each covered key type.</h:li>
+							<h:li>Describes how the TOE ensures that the destroyed key is no longer available for operational use after destruction.</h:li>
+							<h:li>For the tunnel-0 PSK, describes behavior consistent with Appendix H, including teardown of tunnel-0 and destruction of the PSK after successful transition away from the temporary provisioning tunnel.</h:li>
+							<h:li>For replaced session keys, describes what constitutes a successful rekey and when the replaced session key is destroyed.</h:li>
+							<h:li>For obsolete recovery keys, describes what constitutes replacement of the recovery key and when the obsolete recovery key is destroyed.</h:li>
+						</h:ul>	
+					</TSS>
+					<Guidance/>
+					<Tests>The evaluator shall perform the following tests. Where direct observation of low-level key material is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, developer evidence, or other evaluation evidence sufficient to determine that destruction occurred at the claimed point.
+						<testlist>
+							<test>
+								Tunnel-0 PSK destruction: The evaluator shall cause the TOE to complete the PFED flow that transitions from tunnel-0 to tunnel-1 and verify that the TOE behavior is consistent with:<h:ul>
+						<h:li>teardown of tunnel-0, and</h:li> 
+						<h:li>destruction of the tunnel-0 PSK immediately after teardown of tunnel-0: This test shall be consistent with the Appendix H behavior stating that, after successful ML-KEM-1024 completion, tunnel-0 is terminated and the PSK is cryptographically destroyed.</h:li>
+								</h:ul>
+							</test>
+							<test>
+								Replaced session key destruction: The evaluator shall cause a successful PFED rekey operation and verify that the TOE destroys the replaced session key immediately after the successful rekey.
+							</test>
+							<test>
+								Obsolete recovery key destruction: The evaluator shall cause a recovery-key replacement event and verify that the TOE destroys the obsolete recovery key immediately after replacement.
+							</test>
+						</testlist>
+					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep">
-				<audit-event-descr>TBD</audit-event-descr>
-			</audit-event>
+			<audit-event table="impl-dep"/>
+			
 		</f-component>
 		
 		<!-- FCS_CKM_EXT.7 Cryptographic Key Agreement -->
@@ -4193,18 +4386,75 @@
 			<depends on="pfed"/>
 			<f-element >
 				<title>
-					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 					The TSF shall perform [<h:i>encryption and decryption</h:i>] in accordance with a specified cryptographic algorithms [<h:i>AES operating in
 					GCM mode as defined in FCS_COP.1/AEAD</h:i>] and cryptographic key size [<h:i>256 bits</h:i>] that meet the following: [<h:i>AES as
 					specified in FIPS PUB 197, GCM as specified in NIST SP 800-38D</h:i>].
 				</title>
 				<note role="application">
-					TBD
+					This SFR covers implementation of AES for encryption and decryption. The ST specifies supported modes and key sizes required for PFED operations. The intent of this requirement is to ensure that the TOE performs the claimed PFED encryption and decryption operations using AES in GCM mode with a 256-bit key. This requirement should be read consistently with FCS_COP.1/AEAD. The selected algorithm here is not a separate AES mode family; it is specifically AES-GCM as defined by the base AEAD requirement. The ST author should therefore describe the PFED usage of AES-GCM-256 in a way that is consistent with the TOE’s claimed AEAD implementation and PFED operational context.
 				</note>
 				<aactivity>
-					<TSS>TBD</TSS>
-					<Guidance>TBD</Guidance>
-					<Tests>TBD</Tests>
+					<TSS>
+						The evaluator shall examine the TSS to ensure that it describes the construction of any IVs, nonces, and tags in conformance with the relevant specifications. The evaluator shall examine the TOE summary specification to confirm that it describes how the IV is generated and that the same IV is never reused to encrypt different plaintext pairs under the same key. The evaluator shall also confirm that for each invocation of GCM, the length of the plaintext is at most (232)-2 blocks.
+					</TSS>
+					<Guidance/>
+					<Tests>
+						The following tests may require the developer to provide access to a test platform that provides the evaluator with tools that are typically not found on factory products. The evaluator shall perform the following test or witness respective tests executed by the developer. The tests must be executed on a platform that is as close as practically possible to the operational platform (but which may be instrumented in terms of, for example, use of a debug mode). Where the test is not carried out on the TOE itself, the test platform shall be identified and the differences between test environment and TOE execution environment shall be described.
+						<h:b>AES-GCM</h:b><h:p/>
+						<h:table border="1">
+							<h:tr class="header" bgcolor="#cccccc">
+								<h:td valign="top">Identifier</h:td>
+								<h:td valign="top">Cryptographic Algorithm</h:td>
+								<h:td valign="top">Cryptographic Key Sizes</h:td>
+								<h:td valign="top">List of Standards</h:td>
+							</h:tr>
+							<h:tr>
+								<h:td valign="top">AES-GCM</h:td>
+								<h:td valign="top">AES in GCM mode with nonrepeating IVs using <selectables>
+									<selectable>deterministic</selectable>
+									<selectable>RBG-based</selectable>
+								</selectables> IV construction; the tag must be of length<selectables>
+									<selectable>96</selectable>
+									<selectable>104</selectable>
+									<selectable>112</selectable>
+									<selectable>120</selectable>
+									<selectable>128</selectable>
+								</selectables> bits.</h:td>
+								<h:td valign="top">256 bits</h:td>
+								<h:td valign="top"><selectables>
+									<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable>
+									<selectable>FIPS PUB 197</selectable>
+								</selectables>
+								[AES]
+								<selectables>
+									<selectable>ISO/IEC 19772:202 (Clause 10)</selectable>
+									<selectable>NIST SP 800-38D</selectable>
+								</selectables>
+								[GCM]</h:td>
+							</h:tr>
+						</h:table><h:p/>
+						To test the TOE’s implementation of AES-GCM authenticated encryption functionality, the evaluator shall perform the Encryption Algorithm Functional Tests and Decryption Algorithm Functional Tests as described below using the following input parameters:<h:ul>
+							<h:li>Key Size [256] bits</h:li>
+							<h:li>Associated data size [0-65536] bits</h:li>
+							<h:li>Payload size [0-65536] bits</h:li>
+							<h:li>IV size [96] bits</h:li>
+							<h:li>Tag size [96, 104, 112, 120, 128] bits</h:li>
+						</h:ul>
+						<h:b>Encryption Algorithm Functional Tests</h:b><h:p/>
+						The evaluator shall generate 15 test cases using random data for each combination of the above parameters as follows:<h:ul>
+							<h:li>Each claimed key size,</h:li>
+							<h:li>Each supported tag size,</h:li>
+							<h:li>Four supported non-zero payload sizes, such that two are multiples of 128 bits and two are not multiples of 128 bits,</h:li>
+							<h:li>Four supported non-zero associated data sizes, such that two are multiples of 128 bits and two are not multiples of 128 bits, and</h:li>
+							<h:li>An associated data size of zero, if supported.</h:li>
+						</h:ul>
+						Note that the IV size is always 96 bits.<h:p/>
+						The evaluator shall compare the output from each test case against results generated by a known- good implementation with the same input parameters.<h:p/>
+						<h:b>Decryption Algorithm Functional Tests</h:b><h:p/>
+						The evaluator shall test the authenticated decrypt functionality of AES-GCM by supplying 15 test cases for the supported combinations of the parameters as described above. For each parameter combination the evaluator shall introduce an error into either the ciphertext or tag such that approximately half of the cases are correct and half the cases contain errors.
+						<h:b>PFED Functional Test</h:b><h:p/>
+						Provision a pair of PFED’s (A1 and B1) and attach EUD’s A and B to A1 and B1. Send data between A and B (e.g. ping). Modify the encrypted portion of packets on the black network and observe if the pings stop. Capture and resend packets on the black network and see if duplicates arrive at the destination EUD.
+					</Tests>
 				</aactivity>
 			</f-element>
 			<audit-event table="impl-dep">
@@ -4216,24 +4466,74 @@
 			<depends on="pfed"/>
 			<f-element >
 				<title>
-					<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 					The TSF shall perform [<h:i>cryptographic hashing</h:i> in accordance with a specified cryptographic algorithm <selectables>
 						<selectable>SHA-384</selectable>
 						<selectable>SHA-512</selectable>
 					</selectables> that meet the following [<h:i>FIPS PUB 180-4</h:i>].
 				</title>
 				<note role="application">
-					TBD
+					The intent of this requirement is to ensure that the TOE performs the claimed PFED cryptographic hashing operation only with the selected approved hash algorithm. The ST specifies the algorithms used that are required for PFED operations.
 				</note>
 				<aactivity>
-					<TSS>TBD</TSS>
-					<Guidance>TBD</Guidance>
-					<Tests>TBD</Tests>
+					<TSS>
+						The evaluator shall examine the TSS to determine that it:<h:ul>
+							<h:li>Identifies the PFED function or functions performed under this requirement.</h:li>
+							<h:li>Identifies whether the TOE performs cryptographic hashing using SHA-384, SHA-512, or both. </h:li>
+							<h:li>States that the claimed hash algorithm or algorithms conform to FIPS PUB 180-4.</h:li>
+							<h:li>Describes the TOE service, interface, or PFED phase in which the claimed hash operation is used.</h:li>
+							<h:li>If both SHA-384 and SHA-512 are claimed, distinguishes the TOE behavior for each algorithm sufficiently to support testing.</h:li>
+						</h:ul>
+					</TSS>
+					<Guidance/>
+					<Tests>
+						The following tests may require the developer to provide access to a test platform that provides the evaluator with tools that are typically not found on factory products.<h:p/>
+						The following tests are conditional based on the selections made in the SFR. The evaluator shall perform the following test or witness respective tests executed by the developer. The tests must be executed on a platform that is as close as practically possible to the operational platform (but which may be instrumented in terms of, for example, use of a debug mode). Where the test is not carried out on the TOE itself, the test platform shall be identified and the differences between test environment and TOE execution environment shall be described..<h:p/>
+						<h:b>SHA-384, SHA-512</h:b>.<h:p/>
+						To test the TOE’s ability to generate hash digests using SHA2 the evaluator shall perform the Algorithm Functional Test, Monte Carlo Test, and Large Data Test for each claimed SHA2 algorithm..<h:p/>
+						<h:b>Algorithm Functional Test.</h:b><h:p/>
+						The evaluator shall generate a number of test cases equal to the block size of the hash (512 for SHA2-256; 1024 for the other SHA2 algorithms).<h:p/>
+						Each test case is to consist of random data of a random length between 0 and 65536 bits, or the largest size supported.<h:p/>
+						
+						<h:b>Monte Carlo Test</h:b><h:p/>
+						Monte Carlo tests begin with a single seed and run 100 iterations of the chained computation.<h:p/>
+						There are two versions of the Monte Carlo test for SHA-1 and SHA-2. Either one is acceptable. For the Standard Monte Carlo test the message hashed is always three times the length of the initial seed.<h:p/>
+						For j = 0 to 99
+						A = B = C = SEED
+						For i = 0 to 999
+						MSG = A || B || C
+						MD = SHA(MSG)
+						A = B
+						B = C
+						C = MD
+						Output MD
+						SEED = MD
+						<h:p/>
+						For the alternate version of the Monte Carlo Test, the hashed message is always the same length as the seed.<h:p/>
+						INITIAL_SEED_LENGTH = LEN(SEED)<h:p/>
+						For j = 0 to 99
+						A = B = C = SEED
+						For i = 0 to 999
+						MSG = A || B || C
+						if LEN(MSG) >= INITIAL_SEED_LENGTH:
+						MSG = leftmost INITIAL_SEED_LENGTH bits of MSG
+						else:
+						MSG = MSG || INITIAL_SEED_LENGTH - LEN(MSG) 0 bits
+						MD = SHA(MSG)
+						A = B
+						B = C
+						C = MD
+						Output MD
+						SEED = MD	
+						<h:p/>
+						The evaluator shall compare the output against results generated by a known-good implementation with the same input.
+						Large Data Test<h:p/>
+						The implementation must be tested against one test case each on large data messages of 1GB, 2GB, 4GB, and 8GB of data as supported. The data need not be random. It may, for example, consist of a repeated pattern of 64 bits.<h:p/>
+						The evaluator shall compare the output against results generated by a known-good implementation with the same input.						
+					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep">
-				<audit-event-descr>TBD</audit-event-descr>
-			</audit-event>
+			<audit-event table="impl-dep"/>
+			
 		</f-component>
 		
 		<f-component name="Cryptographic Operation - Key Encapsulation" cc-id="fcs_cop.1" iteration="PFEDKeyEncap" status="feat-based">
@@ -9131,21 +9431,28 @@
     		<depends on="pfed"/>
     		<f-element id="fpt-hrt-1e1">
     			<title>
-    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
     				The TSF shall store a root key within a TPM 2.0 bound to a physical property of the platform and used only to unwrap other keys.				
     			</title>
     			<note role="application">
-    				TBD
+    				The intent of this requirement is to ensure that the TOE anchors key protection in a hardware root of trust implemented by a TPM 2.0, such that the root key is bound to the physical platform and is not available for general cryptographic use. This SFR addresses the use of a hardware root of trust to establish confidence in the TOE environment.<h:p/>
+    				“Bound to a physical property of the platform” means that the protection of the root key depends on platform-specific hardware characteristics or a TPM-resident binding that ties use of the key to the intended platform instance. The ST author should describe the relevant binding in TOE terms without disclosing sensitive implementation details that would weaken security.<h:p/>
+    				“Used only to unwrap other keys” means the root key is not used directly as a traffic-encryption key, message-authentication key, signing key, general-purpose data-protection key, or for any purpose other than protecting access to subordinate keying material. The subordinate keys unwrapped by the root key may then be used by other TOE functions according to their respective SFRs.    				
     			</note>
     			<aactivity>
-    				<TSS>TBD</TSS>
-    				<Guidance>TBD</Guidance>
-    				<Tests>TBD</Tests>
+    				<TSS>
+    					The evaluator shall examine the TSS to determine that it:<h:ul>
+    						<h:li>Identifies the TPM 2.0 used as the hardware root of trust for this requirement.</h:li>
+    						<h:li>Describes the root key stored within the TPM 2.0.</h:li>
+    						<h:li>Describes how the root key is bound to a physical property of the platform.</h:li>
+    						<h:li>Describes how the TOE ensures that the root key is used only to unwrap other keys.</h:li>
+    						<h:li>Describes the types of subordinate keys that may be unwrapped using the root key.</h:li>
+    					</h:ul>
+    				</TSS>
+    				<Guidance/>
+    				<Tests/>
     			</aactivity>
     		</f-element>
-    		<audit-event table="impl-dep">
-    			<audit-event-descr>TBD</audit-event-descr>
-    		</audit-event>
+    		<audit-event table="impl-dep"/>   		
     		
     	</f-component>
     
@@ -9772,21 +10079,70 @@
     	<f-component name="Automated Recovery" cc-id="fpt_rcv.2">
     		<f-element>
     			<title>
-    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
     				When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
     				maintenance mode where the ability to return to a secure state is provided.
     			</title>
     			<note role="application">
-    				TBD
+    				The intent of this requirement is to ensure that when the TOE cannot automatically recover from specified failures or service discontinuities, it does not resume or continue normal operation in an uncontrolled state. Instead, the TOE should enter a maintenance mode that preserves the ability to return the TOE to a secure state.<h:p/>
+    				The ST author should identify the failures or service discontinuities from which automated recovery is not possible. These should be limited to conditions relevant to the claimed TOE design and operational use. Examples may include persistent boot or integrity-check failures, unrecoverable cryptographic subsystem errors, repeated failure of required internal health checks, corruption of critical TSF data, failure of required protected communications between TOE components, exhaustion or corruption of required initialization state, or other service discontinuities that prevent automatic restoration of the TOE to a secure operational condition. “Maintenance mode” in this requirement is a constrained TOE state in which normal security-relevant operational services are not provided, but the TOE preserves the ability to perform the actions necessary to restore a secure state.    				
     			</note>
     			<aactivity>
-    				<TSS>TBD</TSS>
-    				<Guidance>TBD</Guidance>
-    				<Tests>TBD</Tests>
+    				<TSS>
+    					The evaluator shall examine the TSS to determine that it:<h:ul>
+    						<h:li>Identifies the failures or service discontinuities from which automated recovery is not possible.</h:li>
+    						<h:li>Describes how the TOE detects each such failure or discontinuity.</h:li>
+    						<h:li>Describes the conditions under which the TOE enters maintenance mode.</h:li>
+    						<h:li>Describes the maintenance mode provided by the TOE, including the functionality that remains available and the functionality that is not available while in that mode.</h:li>
+    						<h:li>Describes how maintenance mode preserves the ability to return the TOE to a secure state. </h:li>
+    						<h:li>Describes the process or mechanisms by which the TOE exits maintenance mode and returns to a secure state.</h:li>
+    						<h:li>Describes any differences in TOE behavior for different claimed failure or discontinuity conditions.</h:li>
+    						<h:li>Describes how the TOE prevents normal operational use or insecure service continuation while in maintenance mode.</h:li>
+    					</h:ul>
+    					The evaluator shall determine that the TSS description is sufficient to show that maintenance mode is a controlled state intended for secure restoration and not simply degraded normal operation.    					
+    				</TSS>
+    				<Guidance>
+    					The evaluator shall examine the operational guidance to determine that it:<h:ul>
+    						<h:li>Describes the failures or service discontinuities that may cause the TOE to enter maintenance mode. </h:li>
+    						<h:li>Describes how an administrator can determine that the TOE has entered maintenance mode. </h:li>
+    						<h:li>Describes the functionality available to the administrator while the TOE is in maintenance mode.</h:li>
+    						<h:li>Describes the steps required to restore the TOE to a secure state and return it to normal operation.</h:li> 
+    						<h:li>Describes any restrictions, cautions, or prerequisites applicable while the TOE is in maintenance mode.</h:li> 
+    						<h:li>Describes any audit records, status indications, alerts, or logs associated with entry into maintenance mode, recovery actions, and return to service, if such records or indications are provided by the TOE.</h:li>
+    					</h:ul>
+    				</Guidance>
+    				<Tests>
+    					The evaluator shall perform the following tests. Where inducing a specific low-level failure is not practical on production hardware or software, the
+    					evaluator may use developer-supported test mechanisms or representative test configurations sufficient to demonstrate the claimed behavior.
+    					<testlist>
+    						<test>
+    							Entry into maintenance mode when automated recovery is not possible: For one or more claimed failures or service discontinuities from which
+    							automated recovery is not possible, the evaluator shall induce the condition and verify that the TOE enters maintenance mode.
+    						</test>
+    						<test>
+    							Maintenance mode restricts normal operation: After the TOE enters maintenance mode, the evaluator shall verify that normal operational
+    							functionality that would be inconsistent with the TOE being in a secure state is not available, and that the TOE behavior is consistent with the
+    							TSS and guidance description of maintenance mode.
+    						</test>
+    						<test>
+    							Maintenance mode provides a path to secure restoration: While the TOE is in maintenance mode, the evaluator shall verify that the TOE provides
+    							the claimed ability to return to a secure state, such as secure recovery, trusted restoration, reinitialization, administrator-guided
+    							remediation, or other claimed mechanism.
+    						</test>
+    						<test>
+    							Return from maintenance mode to secure state: The evaluator shall perform the documented recovery steps and verify that the TOE can return from
+    							maintenance mode to the claimed secure operational state in accordance with the TSS and guidance.</test>
+    					</testlist>
+    				</Tests>
     			</aactivity>
     		</f-element>
     		<audit-event>
-    			<audit-event-descr>TBD</audit-event-descr>
+    			<audit-event-descr><h:ul>
+    				<h:li>Entry into maintenance mode due to a failure or service discontinuity from which automated recovery is not possible</h:li>
+    				<h:li>If audited by the TOE, attempt to return the TOE to a secure state from maintenance mode</h:li>
+    				<h:li>If audited by the TOE, successful return to a secure state</h:li>
+    			</h:ul>
+    			</audit-event-descr>
+    			<audit-event-info>Failure/discontinuity type if available, recovery action if available, state entered, and result</audit-event-info>
     		</audit-event>
     		
     	</f-component>
@@ -10907,23 +11263,46 @@
 	    	<f-component name="TSF-Initiated Termination" cc-id="fta_ssl.3">
 	    		<f-element>
 	    			<title>
-	    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 	    				The TSF shall terminate a remote interactive session after a security
 	    				administrator-configurable time interval of session inactivity</title>
 	    			
 	    		<note role="application">
 	    			An interactive session governed by this SFR is a session in which an authenticated state is achieved and then preserved across multiple
-	    			commands. By contrast, if authentication accompanies each individual command (without preservation of the same authenticated state) then this
-	    			is not considered an interactive session.
+	    			commands. By contrast, if authentication accompanies each individual command, without preservation of the same authenticated state, then this
+	    			is not considered an interactive session.<h:p/>
+	    			The intent of this requirement is to ensure that a remote interactive administrative session is not left active indefinitely when the administrator is no
+	    			longer using it. The TOE is requred to terminate the session after a security administrator-configurable period of inactivity.
 	    		</note>
 	    			<aactivity>
-	    				<TSS>TBD</TSS>
-	    				<Guidance>TBD</Guidance>
-	    				<Tests>TBD</Tests>
+	    				<TSS>
+	    					The evaluator shall determine that the TSS is consistent with the requirement that termination is TSF-initiated and occurs after a security
+	    					administrator-configurable period of session inactivity.
+	    				</TSS>
+	    				<Guidance>
+	    					The evaluator shall examine the operational guidance to determine that it:<h:ul>
+	    						<h:li>Describes how an administrator configures the inactivity timeout for remote interactive sessions.</h:li>
+	    						<h:li>Describes the allowable values or range of values for the timeout, if applicable.</h:li>
+	    						<h:li>Describes the effect of the timeout on an inactive remote interactive session.</h:li>
+	    					</h:ul>
+	    				</Guidance>
+	    				<Tests>
+	    					The evaluator shall perform the following tests for each claimed remote interactive administrative session type, or for a representative set where
+	    					the TSS and guidance show that the same mechanism is used.
+	    					<testlist>
+	    						<test>
+	    							Timeout configuration: The evaluator shall configure the inactivity timeout for a remote interactive administrative session in accordance
+	    							with the operational guidance and verify that the TOE accepts the configured value.	    							
+	    						</test>
+	    						<test>
+	    							TSF-initiated termination after inactivity: The evaluator shall establish a remote interactive administrative session, leave the session
+	    							inactive, and verify that the TOE terminates the session after the configured inactivity interval.	    							
+	    						</test>
+	    					</testlist>
+	    				</Tests>
 	    			</aactivity>
 	    		</f-element>
 	    		<audit-event>
-	    			<audit-event-descr>TBD</audit-event-descr>
+	    			<audit-event-descr>TSF-initiated termination of a remote interactive session due to inactivity</audit-event-descr>
 	    		</audit-event>
 	    		
 	    	</f-component>
@@ -10931,21 +11310,40 @@
 	    	<f-component name="User-Initiated Termination" cc-id="fta_ssl.4">
 	    		<f-element>
 	    			<title>
-	    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
 	    				The TSF shall allow administrator-initiated termination of the
 	    				administrator's
 	    				own interactive session.</title>	
 	    			<note role="application">
-	    				TBD
+	    				This SFR addresses the ability for users to terminate their own sessions. Session termination is expected to occur promptly, with no residual session
+	    				data remaining accessible. “Allow administrator-initiated termination” means the TOE provides a mechanism by which the authenticated administrator can
+	    				explicitly end the current interactive session. This may be accomplished through a logout, exit, disconnect, session-close, or equivalent
+	    				administrator-invoked action provided by the TOE interface.
 	    			</note>	    			
 	    			<aactivity>
-	    				<TSS>TBD</TSS>
-	    				<Guidance>TBD</Guidance>
-	    				<Tests>TBD</Tests>
+	    				<TSS>
+	    					The evaluator shall determine that the TSS is consistent with the requirement that the TOE provides a mechanism for an administrator to terminate 
+	    					the administrator’s own interactive session.
+	    				</TSS>
+	    				<Guidance>
+	    					The evaluator shall examine the operational guidance to determine that it:<h:ul>
+	    						<h:li>Describes how an administrator terminates the administrator’s own interactive session for each applicable interface.</h:li>
+	    						<h:li>Describes the expected TOE behavior following administrator-initiated session termination.</h:li>
+	    					</h:ul>
+	    				</Guidance>
+	    				<Tests>
+	    					The evaluator shall perform the following tests for each claimed administrator interactive session type, or for a representative set where the TSS
+	    					and guidance show that the same mechanism is used.
+	    					<testlist>
+	    						<test>Administrator-initiated session termination: The evaluator shall establish an administrator interactive session and invoke the documented mechanism to terminate that session. The evaluator shall verify that the TOE terminates the session.</test>
+	    						<test>Terminated session cannot continue to be used: Following administrator-initiated termination of the session, the evaluator shall verify that the prior session can no longer be used as an authenticated interactive session without establishing a new authenticated session.</test>
+	    					</testlist>
+	    					
+	    					Where appropriate, Tests 1 and 2 may be combined.	    					
+	    				</Tests>
 	    			</aactivity>
 	    		</f-element>
 	    		<audit-event>
-	    			<audit-event-descr>TBD</audit-event-descr>
+	    			<audit-event-descr>Administrator-initiated termination of an interactive session</audit-event-descr>
 	    		</audit-event>
 	    		
 	    	</f-component>
@@ -10994,8 +11392,7 @@
 	    						state</assignable>.</h:li>
 	    				</h:ul>
 	    			</title>
-	    			<note role="application">
-	    				<comment>Needs to be completed.</comment>
+	    			<note role="application">The intent of this requirement is to ensure that a local interactive administrative session does not remain exposed when left unattended, and that either the administrator or the TSF can place the session into a protected locked state. For local interactive sessions, the TOE either locks the session or terminates the session after a security administrator-specified period of inactivity, as selected in FTA_SSL_EXT.1.1. When the session is locked, the TOE shall restrict activity so that the session cannot continue to be used until it is properly unlocked.
 	    			</note>
 	    			<aactivity>
 	    				<TSS>The evaluator shall verify the TSS describes the actions performed upon
@@ -11054,7 +11451,7 @@
 	  
       <f-component name="Inter-TSF Trusted Channel" cc-id="ftp_itc.1">
       	<f-element id="ftp-itc-1e1">
-      		<title> <comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
+      		<title> 
       			The TSF shall <h:b>be capable of using <selectables>
       				<selectable>IPsec</selectable>
       				<selectable>MACsec</selectable>
@@ -11083,16 +11480,44 @@
       			communications</h:b></assignable>.
       		</title>
       		<note role="application">
-      			TBD
+      			The intent of this requirement is for the TOE to establish and use a trusted communication channel between itself and another trusted authorized IT entity for the specific capabilities identified in the ST. The trusted channel must be logically distinct from other communication channels and must provide assured identification of its endpoints, protection of channel data from disclosure, and detection of modification of channel data.<h:p/>
+      			The ST author should select the trusted-channel mechanism used by the TOE from the choices provided in FTP_ITC.1.1 and shall identify the trusted authorized IT entities and the capabilities supported over that channel. In this PP, those capabilities include at least an audit server and may also include an authentication server or other specifically identified capabilities, as claimed in the ST. Where the selected trusted-channel mechanism has its own detailed PP, PP-Module, Functional Package, or appendix-defined behavior, the ST author should ensure that the FTP_ITC.1 claim is aligned with those more detailed requirements. 
+      			
       		</note>
       		<aactivity>
-      			<TSS>TBD</TSS>
-      			<Guidance>TBD</Guidance>
-      			<Tests>TBD</Tests>
+      			<TSS>
+      				The evaluator shall examine the TSS to determine that it:<h:ul>
+      					<h:li>Identifies the trusted-channel mechanism selected in FTP_ITC.1.1. </h:li>
+      					<h:li>Identifies the trusted authorized IT entities with which the TOE establishes the trusted channel.</h:li>
+      					<h:li>Identifies the capabilities supported over that trusted channel, including audit server and any other claimed capabilities.</h:li>
+      					<h:li>Describes how the TOE ensures that the trusted channel is logically distinct from other communication channels. </h:li>
+      					<h:li>Describes how the TOE assures identification of the trusted channel endpoints.</h:li>
+      					<h:li>Describes how the selected trusted-channel mechanism protects channel data from disclosure and detects modification of channel data.</h:li>
+      					<h:li>Identifies which party is permitted to initiate communication via the trusted channel, consistent with FTP_ITC.1.2.</h:li>
+      					<h:li>Identifies the services for which the TOE initiates communication via the trusted channel, consistent with FTP_ITC.1.3.</h:li>
+      				</h:ul>
+      				Where the selected mechanism is defined in another PP, PP-Module, Functional Package, or appendix-defined protocol treatment, the evaluator shall verify that the TSS is consistent with those claims and that the protocol-specific requirements needed to support the trusted channel are also claimed in the ST.
+      			</TSS>
+      			<Guidance/>
+      			<Tests>
+      				The evaluator shall perform the following tests for each claimed trusted-channel mechanism, or for a representative set where the TSS and guidance show that the same mechanism is used.
+      				<testlist>
+      				<test>Trusted-channel establishment to each claimed endpoint type: The evaluator shall configure the TOE to communicate with each trusted authorized IT entity type identified in the TSS and shall verify that the TOE establishes the selected trusted channel for the claimed capability or capabilities. Where protocol-specific evaluation activities already exist for the selected mechanism, those activities may satisfy or contribute to this test.</test>
+      					<test>Test 2: TOE or peer initiation behavior: The evaluator shall verify that communication via the trusted channel can be initiated only by the party or parties selected in FTP_ITC.1.2. If the ST claims TOE initiation, the evaluator shall verify TOE-initiated trusted-channel establishment for at least one claimed service. If the ST claims authorized-IT-entity initiation, the evaluator shall verify that behavior as well.</test>
+      					<test>Test 3: TOE-initiated services: The evaluator shall verify that the TOE initiates communication via the trusted channel for each service identified in FTP_ITC.1.3, such as audit transmission or other claimed TOE-initiated trusted communications.</test>
+      					<test>Test 4: Logical distinction from other communication channels: The evaluator shall examine the TOE behavior and, where appropriate, observe communications to verify that trusted-channel traffic is separated from other communication channels in the manner described in the TSS and is not exposed as unprotected ordinary traffic.</test>
+      				One or more of these tests may be combined where appropriate.
+      				</testlist>
+      			</Tests>
       		</aactivity>
       	</f-element>
       	<audit-event>
-      		<audit-event-descr>TBD</audit-event-descr>
+      		<audit-event-descr><h:ul>
+      			<h:li>Establishment of a trusted channel</h:li>
+      			<h:li>Failure to establish or use a trusted channel for a claimed capability of service</h:li>
+      			<h:li>TOE-initiated communication over a trusted channel for a claimed service</h:li>
+      		</h:ul></audit-event-descr>
+      		<audit-event-info>Trusted-channel mechanism, peer or endpoint identity if available, claimed capability or initiated service, result, and reason for failure if available</audit-event-info>
       	</audit-event>
       	
       </f-component>
