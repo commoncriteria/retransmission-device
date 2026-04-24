@@ -11307,7 +11307,6 @@
     		
     		<f-element id="fpt-sep-ext-1e1">
     			<title>
-    				<comment>Need to complete sections for App Note, EAs, and audit events.</comment><h:p/>
     				The TSF shall maintain a security domain for the Encryption Unit (EU) and a separate security domain for the Communication Unit (CU) within the
     				TOE.			
     			</title>
@@ -11487,7 +11486,6 @@
     		</dependencies>
     		<f-element id="fdp-tran-ext-1e1">
     			<title>
-    				<comment>Need to complete sections for management, audit, dependencies, app note, EAs, and audit events.</comment><h:p/>
     				The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.	
     			</title>
     			<note role="application">
