@@ -148,7 +148,6 @@ output/retransmission-device-release-linkable.html: MACs
 output/retransmission-device-release-linkable.html: MFE
 output/retransmission-device-release-linkable.html: MGF1
 output/retransmission-device-release-linkable.html: MKA
-output/retransmission-device-release-linkable.html: MOF1
 output/retransmission-device-release-linkable.html: MPLS
 output/retransmission-device-release-linkable.html: MTU
 output/retransmission-device-release-linkable.html: MaxOutBytes
@@ -170,7 +169,6 @@ output/retransmission-device-release-linkable.html: Pluribus
 output/retransmission-device-release-linkable.html: QNX
 output/retransmission-device-release-linkable.html: R1
 output/retransmission-device-release-linkable.html: R2
-output/retransmission-device-release-linkable.html: RBGH
 output/retransmission-device-release-linkable.html: RBGs
 output/retransmission-device-release-linkable.html: RCC
 output/retransmission-device-release-linkable.html: RGB
@@ -188,6 +186,7 @@ output/retransmission-device-release-linkable.html: SHAKE256
 output/retransmission-device-release-linkable.html: SIPP
 output/retransmission-device-release-linkable.html: SKs
 output/retransmission-device-release-linkable.html: SP800
+output/retransmission-device-release-linkable.html: SPD
 output/retransmission-device-release-linkable.html: SSCOPMCE
 output/retransmission-device-release-linkable.html: Shim6
 output/retransmission-device-release-linkable.html: Silverlight
@@ -389,7 +388,6 @@ output/retransmission-device-release.html: MACs
 output/retransmission-device-release.html: MFE
 output/retransmission-device-release.html: MGF1
 output/retransmission-device-release.html: MKA
-output/retransmission-device-release.html: MOF1
 output/retransmission-device-release.html: MPLS
 output/retransmission-device-release.html: MTU
 output/retransmission-device-release.html: MaxOutBytes
@@ -413,7 +411,6 @@ output/retransmission-device-release.html: QNX
 output/retransmission-device-release.html: Q’
 output/retransmission-device-release.html: R1
 output/retransmission-device-release.html: R2
-output/retransmission-device-release.html: RBGH
 output/retransmission-device-release.html: RBGs
 output/retransmission-device-release.html: RCC
 output/retransmission-device-release.html: RGB
@@ -431,6 +428,7 @@ output/retransmission-device-release.html: SHAKE256
 output/retransmission-device-release.html: SIPP
 output/retransmission-device-release.html: SKs
 output/retransmission-device-release.html: SP800
+output/retransmission-device-release.html: SPD
 output/retransmission-device-release.html: SSCOPMCE
 output/retransmission-device-release.html: Shim6
 output/retransmission-device-release.html: Silverlight
@@ -633,7 +631,6 @@ output/retransmission-device.html: MACs
 output/retransmission-device.html: MFE
 output/retransmission-device.html: MGF1
 output/retransmission-device.html: MKA
-output/retransmission-device.html: MOF1
 output/retransmission-device.html: MPLS
 output/retransmission-device.html: MTU
 output/retransmission-device.html: MaxOutBytes
@@ -657,7 +654,6 @@ output/retransmission-device.html: QNX
 output/retransmission-device.html: Q’
 output/retransmission-device.html: R1
 output/retransmission-device.html: R2
-output/retransmission-device.html: RBGH
 output/retransmission-device.html: RBGs
 output/retransmission-device.html: RCC
 output/retransmission-device.html: RGB
@@ -675,6 +671,7 @@ output/retransmission-device.html: SHAKE256
 output/retransmission-device.html: SIPP
 output/retransmission-device.html: SKs
 output/retransmission-device.html: SP800
+output/retransmission-device.html: SPD
 output/retransmission-device.html: SSCOPMCE
 output/retransmission-device.html: Shim6
 output/retransmission-device.html: Silverlight
