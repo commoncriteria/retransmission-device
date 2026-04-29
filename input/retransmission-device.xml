@@ -6769,6 +6769,17 @@
 			<management>There are no management activities foreseen.</management>
 			<audit>There are no auditable events foreseen.</audit>
 			<dependencies>No dependencies.</dependencies>
+		<f-element>
+					<title>The TSF shall support session key recovery such that:<h:ul>
+						<h:li>EUD traffic is suppressed during recovery</h:li>
+						<h:li>Recovery keys are refreshed at the same rate as session keys</h:li>
+						<h:li>Recovery keys are derived via HKDF including the current session key and new session key</h:li>
+						<h:li>There must be at least two recovery keys</h:li>
+						<h:li>Only one recovery key can be derived at a time</h:li>
+						<h:li>Failure to converge causes session termination</h:li>
+					</h:ul>.
+					</title>
+				</f-element>
 		</f-component>
 		
 		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1" iteration="PFED" status="feat-based">
@@ -6782,19 +6793,8 @@
 					<h:li>There must be at least two recovery keys</h:li>
 					<h:li>Only one recovery key can be derived at a time</h:li>
 					<h:li>Failure to converge causes session termination</h:li>
-				</h:ul>.</title>
+				</h:ul>.</title>			
 				
-				<ext-comp-def-title>
-					<title>The TSF shall support session key recovery such that:<h:ul>
-						<h:li>EUD traffic is suppressed during recovery</h:li>
-						<h:li>Recovery keys are refreshed at the same rate as session keys</h:li>
-						<h:li>Recovery keys are derived via HKDF including the current session key and new session key</h:li>
-						<h:li>There must be at least two recovery keys</h:li>
-						<h:li>Only one recovery key can be derived at a time</h:li>
-						<h:li>Failure to converge causes session termination</h:li>
-					</h:ul>.
-					</title>
-				</ext-comp-def-title>
 				<note role="application">
 					The intent of this requirement is to ensure that the TOE supports a controlled session key recovery process for PFED when session state diverges, while preventing use of potentially inconsistent or stale keying material during that recovery.<h:p/>
 					The TSS should describe the PFED recovery process in TOE-specific terms and should align that description with Appendix H, which says that during key recovery EUD traffic is suppressed, recovery keys are periodically refreshed using HKDF, recovery keys are not static values, and after successful resynchronization the TOE performs a new session setup transaction and replaces the prior recovery key before resuming EUD traffic.<h:p/>
@@ -10358,6 +10358,14 @@
     			FAU_GEN.1 Audit Data Generation<h:p/>
     			No other dependencies    		
     		</dependencies>
+    		<f-element>
+    				<title>The TSF shall ensure:<h:ul>
+    					<h:li>EU and CU do not share computation resources</h:li>
+    					<h:li>EU interfaces are non-addressable and stateless</h:li>
+    					<h:li>Network namespaces are isolated.</h:li>
+    					<h:li>Only a connectionless bus is shared</h:li>
+    				</h:ul>.</title>
+    			</f-element>
     	</f-component>
     	
     	<f-component name="EU and CU Isolation" cc-id="fpt_iso_ext.1" iteration="PFED" status="feat-based">
@@ -10373,14 +10381,7 @@
     					<h:li>Only a connectionless bus is shared</h:li>
     				</h:ul>.				
     			</title>
-    			<ext-comp-def-title>
-    				<title>The TSF shall ensure:<h:ul>
-    					<h:li>EU and CU do not share computation resources</h:li>
-    					<h:li>EU interfaces are non-addressable and stateless</h:li>
-    					<h:li>Network namespaces are isolated.</h:li>
-    					<h:li>Only a connectionless bus is shared</h:li>
-    				</h:ul>.</title>
-    			</ext-comp-def-title>
+    			
     			<note role="application">
     				The intent of this requirement is to ensure that the PFED TOE maintains strict architectural separation between the EU and CU so that the communication unit cannot become an alternate computation or state-sharing environment for the encryption unit, and so that intercomponent interaction is narrowly constrained to the intended minimal communication path.<h:p/>
     				“EU and CU do not share computation resources” means the TOE does not rely on shared execution environments, shared processing contexts, or equivalent shared computation infrastructure across the EU/CU boundary. <h:p/>
@@ -11468,14 +11469,8 @@
     	</ext-comp-def>
     	
     	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" status="invisible">
-    		<f-element>
-    			<title>The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.</title>
-    		</f-element>
-    	</f-component>
-    	
-    	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" iteration="PFED" status="feat-based">
-    		<depends on="pfed"/>
-    		<consistency-rationale/>
+    		
+    	<consistency-rationale/>
     		<comp-lev>requires that the TSF allow only one transaction at a time.</comp-lev>
     		<management>The following actions could be considered for the management functions in FMT:<h:ul>
     			<h:li>Ability to configure or verify the transaction-control policy that limits the TOE to one active PFED transaction at a time. </h:li>
@@ -11494,6 +11489,14 @@
     			FAU_GEN.1 Audit Data Generation<h:p/>
     			No other dependencies
     		</dependencies>
+    	<f-element>
+    			<title>The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.</title>
+    		</f-element>
+    	</f-component>
+    	
+    	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" iteration="PFED" status="feat-based">
+    		<depends on="pfed"/>
+    		
     		<f-element id="fdp-tran-ext-1e1">
     			<title>
     				The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.	
@@ -12576,7 +12579,7 @@
     			</aactivity>
     		</f-element>
     		<audit-event table="impl-dep">
-    			<audit-event-descr></audit-event-descr>
+    			<audit-event-descr><comment>Needs to be completed</comment></audit-event-descr>
     		</audit-event>
     		
     	</f-component>
