@@ -8339,14 +8339,59 @@
 			
 			<ext-comp-def title="Pre-Shared Key Composition" fam-id="FIA_PSK_EXT">
 				<fam-behavior>This family defines requirements for the use of pre-shared keys.</fam-behavior>
+				
 			</ext-comp-def>
 		
-		<f-component name="Pre-Shared Key Composition" cc-id="fia_psk_ext.1">
+		<f-component name="Pre-Shared Key Composition" cc-id="fia_psk_ext.1" status="invisible">
 			<consistency-rationale/>
 			<comp-lev>requires the TSF to allow the use of pre-shared keys and the ability to accept and generate them.</comp-lev>
 			<management/>
 			<audit/>
 			<dependencies>No dependencies.</dependencies>
+			<f-element id="fia-psk-ext-1e1">
+				<title>
+					The TSF shall be able to use pre-shared keys that conform to RFC 8784 for IPsec</title>
+			</f-element>
+			<f-element id="fia-psk-ext-1e2">
+				<title>The TSF shall be able to <selectables>
+					<selectable>accept externally generated pre-shared keys</selectable>
+					<selectable>generate 256 bit-based pre-shared keys via FCS_RBG.1</selectable>
+				</selectables>.
+				</title>
+			</f-element>
+			</f-component>
+			
+			<f-component name="Isolation" cc-id="fpt_iso_ext.1" status="invisible">
+				<comp-lev> requires the TSF to ensure the use of EU and CU.</comp-lev>
+				<management>
+					The following actions could be considered for the management functions in FMT:<h:ul>
+						<h:li>Ability to configure or verify the deployment mode or TOE configuration that enforces PFED EU/CU isolation. </h:li>
+						<h:li>Ability to manage or verify interface exposure such that EU interfaces remain non-addressable and stateless in the claimed operational configuration.
+						</h:li>
+						<h:li>Ability to manage or verify network-namespace isolation where such configuration is exposed by the TOE. </h:li>
+						<h:li>Ability to manage or verify the allowed intercomponent communication path such that only the claimed connectionless bus is shared. </h:li>
+					</h:ul>    			
+				</management>
+				<audit>
+					The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
+						<h:li>Changes to configuration affecting EU/CU isolation properties. </h:li>
+						<h:li>Detection of an attempt to violate network-namespace isolation, if such detection is exposed by the TOE. </h:li>
+						<h:li>Detection of an attempt to use a communication path other than the shared connectionless bus between EU and CU, if such detection is exposed by the
+							TOE. </h:li>
+					</h:ul>    			
+				</audit>
+				<dependencies>FMT_SMF.1 Specification of Management Functions<h:p/>
+					FAU_GEN.1 Audit Data Generation<h:p/>
+					No other dependencies    		
+				</dependencies>
+				<f-element>
+					<title>The TSF shall ensure:<h:ul>
+						<h:li>EU and CU do not share computation resources</h:li>
+						<h:li>EU interfaces are non-addressable and stateless</h:li>
+						<h:li>Network namespaces are isolated.</h:li>
+						<h:li>Only a connectionless bus is shared</h:li>
+					</h:ul>.</title>
+				</f-element>
 			<f-element id="fia-psk-ext-1e1">
 				<title>
 					The TSF shall be able to use pre-shared keys that conform to RFC 8784 for IPsec</title>
@@ -8378,6 +8423,13 @@
 					<title>
 						The TOE shall support a PSK exclusively for tunnel-0 bootstrap.				
 					</title>
+				</f-element>
+					<f-element id="fia-psk-pfed-ext-1e2">
+						<title>The TSF shall be able to <selectables>
+							<selectable>accept externally generated pre-shared keys</selectable>
+							<selectable>generate 256 bit-based pre-shared keys via FCS_RBG.1</selectable>
+						</selectables>.
+						</title>
 					<note role="application">
 						The intent of this requirement is to ensure that any pre-shared key used by the TOE in the PFED design is constrained to the temporary bootstrap phase only and is not used as a general-purpose or long-lived session authentication mechanism.<h:p/>
 						For this requirement, the TOE shall support a PSK exclusively for tunnel-0 bootstrap. This is consistent with Appendix H.3.1, which states that initial bonding is performed during provisioning using a temporary secure tunnel, tunnel-0, established using a PSK, and with Appendix H.3.2, which states that after successful ML-KEM-1024 completion, tunnel-0 is terminated and the PSK is cryptographically destroyed. <h:p/>
