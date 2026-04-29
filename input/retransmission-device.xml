@@ -1126,14 +1126,14 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FTP_ITC_EXT.1/IPsec Trusted Channel Communication</h:td>
+					<h:td>FTP_ITC_EXT.1/IPsec Trusted Channel Communication - IPsec</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">X (IPsec)</h:td>
 					<h:td style="text-align: center">SB</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FTP_ITC_EXT.1/WLAN Trusted Channel Communication (Wireless LAN)</h:td>
+					<h:td>FTP_ITC_EXT.1/WLAN Trusted Channel Communication - WLAN</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">X (WLAN, EU-only)</h:td>
 					<h:td style="text-align: center">SB</h:td>
@@ -7271,7 +7271,7 @@
 				</audit-event>
 			</f-component>
 			
-			<f-component name="Subset Information Flow Control" cc-id="fdp_ifc.1" iteration="CU" status="feat-based">
+			<f-component name="Subset Information Flow Control (CU)" cc-id="fdp_ifc.1" iteration="CU" status="feat-based">
 				<depends on="cu-functionality"/>
 				<depends on="pfed"/>
 				<f-element>
@@ -7325,7 +7325,7 @@
 				
 			</f-component>				
 			
-			<f-component name="Subset Information Flow Control" cc-id="fdp_ifc.1" iteration="HWS" status="feat-based">
+			<f-component name="Subset Information Flow Control (HWS)" cc-id="fdp_ifc.1" iteration="HWS" status="feat-based">
 				<depends on="hws-erd"/>
 				<depends on="pfed"/>
 				<f-element id="fdp-ifc-hws-1e1">
@@ -7514,7 +7514,7 @@
 				
 			</f-component>
 			
-			<f-component name="Simple Security Attributes" cc-id="fdp_iff.1" iteration="CU" status="feat-based">
+			<f-component name="Simple Security Attributes (CU)" cc-id="fdp_iff.1" iteration="CU" status="feat-based">
 				<depends on="cu-functionality"/>
 				<depends on="pfed"/>
 				<f-element id="fdp-iff-cu-1e1">
@@ -7613,7 +7613,7 @@
 				
 			</f-component>
 			
-			<f-component name="Simple Security Attributes" cc-id="fdp_iff.1" iteration="HWS" status="feat-based">
+			<f-component name="Simple Security Attributes (HWS)" cc-id="fdp_iff.1" iteration="HWS" status="feat-based">
 				<depends on="hws-erd"/>
 				<depends on="pfed"/>
 				<f-element id="fdp-iff-hws-1e1">
@@ -12490,7 +12490,7 @@
       	
       </f-component>
     	
-    	<f-component name="Trusted Channel Communication" cc-id="ftp_itc.1" iteration="MACsec" status="feat-based">
+    	<f-component name="Trusted Channel Communication - MACsec" cc-id="ftp_itc.1" iteration="MACsec" status="feat-based">
     		<depends on="macsec"/>
     		<f-element id="ftp-itc-macsec-1e1">
     			<title>
@@ -12532,7 +12532,7 @@
 		</audit-event>    		
     	</f-component>
     	
-    	<f-component name="Trusted Channel Communication" cc-id="ftp_itc.1" iteration="PFED" status="feat-based">
+    	<f-component name="Trusted Channel Communication - PFED" cc-id="ftp_itc.1" iteration="PFED" status="feat-based">
     		<depends on="pfed"/>
     		<f-element id="ftp-itc-pfed-1e1">
     			<title>
@@ -12698,7 +12698,7 @@
     		</audit-event>    
     	</f-component>	
 		
-		<f-component name="Trusted Channel Communication" cc-id="ftp_itc_ext.1" iteration="IPsec" status="feat-based">
+		<f-component name="Trusted Channel Communication - IPsec" cc-id="ftp_itc_ext.1" iteration="IPsec" status="feat-based">
     	<depends on="ipsec"/>
     	<f-element id="ftp-itc-ext-ipsec-1e1">
     		<title>The TSF shall use
@@ -12750,7 +12750,7 @@
 			</audit-event>
 	</f-component>	
     	
-    	<f-component name="Trusted Channel Communication" cc-id="ftp_itc_ext.1" iteration="WLAN" status="feat-based">
+    	<f-component name="Trusted Channel Communication - WLAN" cc-id="ftp_itc_ext.1" iteration="WLAN" status="feat-based">
     		<depends on="wlan"/>
     		<f-element id="ftp-itc-ext-wlan-1e1">
     			<title>The TSF shall use
