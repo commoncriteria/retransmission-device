@@ -115,18 +115,6 @@
 * Error: Detected multiple elements with an id of 'sel-exp-skg-256'.
 * Error: Detected multiple elements with an id of 'fia-uau-pfed-2e1'.
 * Error: Detected multiple elements with an id of 'fia-uau-pfed-2e1'.
-* Error: Detected multiple elements with an id of 'sel-rot2-admin-notify'.
-* Error: Detected multiple elements with an id of 'sel-rot2-audit'.
-* Error: Detected multiple elements with an id of 'sel-rot2-recovery'.
-* Error: Detected multiple elements with an id of 'sel-rot2-admin-config'.
-* Error: Detected multiple elements with an id of 'sel-rot2-admin-det'.
-* Error: Detected multiple elements with an id of 'sel-rot2-user-det'.
-* Error: Detected multiple elements with an id of 'sel-rot2-admin-notify'.
-* Error: Detected multiple elements with an id of 'sel-rot2-audit'.
-* Error: Detected multiple elements with an id of 'sel-rot2-recovery'.
-* Error: Detected multiple elements with an id of 'sel-rot2-admin-config'.
-* Error: Detected multiple elements with an id of 'sel-rot2-admin-det'.
-* Error: Detected multiple elements with an id of 'sel-rot2-user-det'.
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[3]""

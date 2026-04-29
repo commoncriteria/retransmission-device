@@ -241,7 +241,6 @@ output/retransmission-device-release-linkable.html: lockscreen
 output/retransmission-device-release-linkable.html: log2
 output/retransmission-device-release-linkable.html: namespace
 output/retransmission-device-release-linkable.html: namespaces
-output/retransmission-device-release-linkable.html: nonrepeating
 output/retransmission-device-release-linkable.html: pluggable
 output/retransmission-device-release-linkable.html: pseudocode
 output/retransmission-device-release-linkable.html: reauthenticate
@@ -484,7 +483,6 @@ output/retransmission-device-release.html: lockscreen
 output/retransmission-device-release.html: log2
 output/retransmission-device-release.html: namespace
 output/retransmission-device-release.html: namespaces
-output/retransmission-device-release.html: nonrepeating
 output/retransmission-device-release.html: pairs’
 output/retransmission-device-release.html: peers’
 output/retransmission-device-release.html: pluggable
@@ -726,7 +724,6 @@ output/retransmission-device.html: lockscreen
 output/retransmission-device.html: log2
 output/retransmission-device.html: namespace
 output/retransmission-device.html: namespaces
-output/retransmission-device.html: nonrepeating
 output/retransmission-device.html: pairs’
 output/retransmission-device.html: peers’
 output/retransmission-device.html: pluggable
