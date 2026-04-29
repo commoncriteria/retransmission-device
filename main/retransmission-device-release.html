@@ -1663,14 +1663,14 @@ The following sections list Common Criteria and technology terms used in this do
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTP_ITC_EXT.1/IPsec">FTP_ITC_EXT.1/IPsec</a> Trusted Channel Communication</td>
+					<td><a href="#FTP_ITC_EXT.1/IPsec">FTP_ITC_EXT.1/IPsec</a> Trusted Channel Communication - IPsec</td>
 					<td style="text-align: center"></td>
 					<td style="text-align: center">X (IPsec)</td>
 					<td style="text-align: center">SB</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTP_ITC_EXT.1/WLAN">FTP_ITC_EXT.1/WLAN</a> Trusted Channel Communication (Wireless LAN)</td>
+					<td><a href="#FTP_ITC_EXT.1/WLAN">FTP_ITC_EXT.1/WLAN</a> Trusted Channel Communication - WLAN</td>
 					<td style="text-align: center"></td>
 					<td style="text-align: center">X (WLAN, <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-only)</td>
 					<td style="text-align: center">SB</td>
@@ -6960,7 +6960,7 @@ The following sections list Common Criteria and technology terms used in this do
 								<li class="test-"><a id="_t_46" class="defined" href="#_t_46">Test FDP_BRINGUP_EXT.1:5</a>:
       PFED Functional Test:  Provision a pair of PFED’s (A1 and B1). With <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>’s A and B attached to A1/B1, attempt to reach B from A while power cycling A1 or B1 once without entering credentials (if that’s implemented). Verify that A and B are not communicating. Then enter the credential and observe if A finally connects to B.</li><p></p>
 							</ul></span>
-						</div></div></div></div></div><div class="comp" id="FDP_IFC.1/CU"><h4>FDP_IFC.1/CU Subset Information Flow Control</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#pfed">PFED</a></i></b></li><li><b><i><a href="#cu-functionality">CU Functionality</a></i></b></li></ul></div>
+						</div></div></div></div></div><div class="comp" id="FDP_IFC.1/CU"><h4>FDP_IFC.1/CU Subset Information Flow Control (CU)</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#pfed">PFED</a></i></b></li><li><b><i><a href="#cu-functionality">CU Functionality</a></i></b></li></ul></div>
 				
 				
 				<div class="element"><div class="reqid" id="FDP_IFC.1.1/CU"><a href="#FDP_IFC.1.1/CU" class="abbr">FDP_IFC.1.1/CU</a></div><div class="reqdesc">
@@ -7011,7 +7011,7 @@ The following sections list Common Criteria and technology terms used in this do
       PFED Functional Test: Provision a pair of PFED’s (A1 and B1). Assume EU1 in A1 begins the session setup, so block and capture the first packet of the session setup. This would normally go to an interface associated with the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> that has been established during provisioning (e.g., a protocol (e.g., UDP), a port (e.g., 443) an <abbr class="dyn-abbr"><a href="#abbr_IP">IP</a></abbr> address (e.g., 192.168.0.40), etc.). Modify and send the packet to a different interface on <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> of B1. See if there’s a response. </li><p></p><p></p>
 							These tests may be combined where appropriate. The purpose of this evaluation is to confirm that the covered <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> packet flows fall within the scope of <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-enforced information flow control, not to exhaustively test all attribute-based permit and deny logic that is addressed by the related <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> function requirements.
 							</ul></span>
-						</div></div></div></div></div><div class="comp" id="FDP_IFC.1/HWS"><h4>FDP_IFC.1/HWS Subset Information Flow Control</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#pfed">PFED</a></i></b></li><li><b><i><a href="#hws-erd">Hardware-Separated Encrypting Retransmission Device (HWS-ERD)</a></i></b></li></ul></div>
+						</div></div></div></div></div><div class="comp" id="FDP_IFC.1/HWS"><h4>FDP_IFC.1/HWS Subset Information Flow Control (HWS)</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#pfed">PFED</a></i></b></li><li><b><i><a href="#hws-erd">Hardware-Separated Encrypting Retransmission Device (HWS-ERD)</a></i></b></li></ul></div>
 				
 				
 				<div class="element"><div class="reqid" id="FDP_IFC.1.1/HWS"><a href="#FDP_IFC.1.1/HWS" class="abbr">FDP_IFC.1.1/HWS</a></div><div class="reqdesc">
@@ -7100,7 +7100,7 @@ The following sections list Common Criteria and technology terms used in this do
 							</ul></span>
 							These tests may be combined where appropriate. The purpose of this evaluation is to confirm that PFED <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic is both tunnel-constrained and blocked until the required session-protection prerequisites are complete.
 							
-						</div></div></div></div></div><div class="comp" id="FDP_IFF.1/CU"><h4>FDP_IFF.1/CU Simple Security Attributes</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#pfed">PFED</a></i></b></li><li><b><i><a href="#cu-functionality">CU Functionality</a></i></b></li></ul></div>
+						</div></div></div></div></div><div class="comp" id="FDP_IFF.1/CU"><h4>FDP_IFF.1/CU Simple Security Attributes (CU)</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#pfed">PFED</a></i></b></li><li><b><i><a href="#cu-functionality">CU Functionality</a></i></b></li></ul></div>
 				
 				
 				<div class="element"><div class="reqid" id="FDP_IFF.1.1/CU"><a href="#FDP_IFF.1.1/CU" class="abbr">FDP_IFF.1.1/CU</a></div><div class="reqdesc">
@@ -7193,7 +7193,7 @@ The following sections list Common Criteria and technology terms used in this do
 							</ul></span>
 							These tests may be combined where appropriate. The purpose of this evaluation is to confirm that the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> uses the listed subject and information attributes to enforce explicit permit and deny logic on the covered packet flows.
 							
-						</div></div></div></div></div><div class="comp" id="FDP_IFF.1/HWS"><h4>FDP_IFF.1/HWS Simple Security Attributes</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#pfed">PFED</a></i></b></li><li><b><i><a href="#hws-erd">Hardware-Separated Encrypting Retransmission Device (HWS-ERD)</a></i></b></li></ul></div>
+						</div></div></div></div></div><div class="comp" id="FDP_IFF.1/HWS"><h4>FDP_IFF.1/HWS Simple Security Attributes (HWS)</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#pfed">PFED</a></i></b></li><li><b><i><a href="#hws-erd">Hardware-Separated Encrypting Retransmission Device (HWS-ERD)</a></i></b></li></ul></div>
 				
 				
 				<div class="element"><div class="reqid" id="FDP_IFF.1.1/HWS"><a href="#FDP_IFF.1.1/HWS" class="abbr">FDP_IFF.1.1/HWS</a></div><div class="reqdesc">
@@ -8087,7 +8087,7 @@ The following sections list Common Criteria and technology terms used in this do
     					</ul></span>
     					Where direct observation of low-level self-test behavior is not practical, the evaluator may rely on observable <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, supported test interfaces, status indications, developer evidence, or other evaluation evidence sufficient to determine that the claimed initialization self-tests are performed.
     					
-    				</div></div></div></div></div><h3 id="ftp-feat-based" class="indexable" data-level="3">A.3.7 Class FTP: Trusted Path/Channel</h3><div class="comp" id="FTP_ITC.1/MACsec"><h4>FTP_ITC.1/MACsec Trusted Channel Communication</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#macsec">MACsec</a></i></b></li></ul></div>
+    				</div></div></div></div></div><h3 id="ftp-feat-based" class="indexable" data-level="3">A.3.7 Class FTP: Trusted Path/Channel</h3><div class="comp" id="FTP_ITC.1/MACsec"><h4>FTP_ITC.1/MACsec Trusted Channel Communication - MACsec</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#macsec">MACsec</a></i></b></li></ul></div>
     		
     		<div class="element"><div class="reqid" id="FTP_ITC.1.1/MACsec"><a href="#FTP_ITC.1.1/MACsec" class="abbr">FTP_ITC.1.1/MACsec</a></div><div class="reqdesc">
     				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>use MACsec in accordance with the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for MACsec Ethernet Encryption, version 2.0</b> to provide a communication
@@ -8115,7 +8115,7 @@ The following sections list Common Criteria and technology terms used in this do
     					The evaluator shall apply the test activities for FCS_MACSEC_EXT.1, FCS_MACSEC_EXT.2, FCS_MACSEC_EXT.3, and FCS_MACSEC_EXT.4 as defined in
     					the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for MACsec Ethernet Encryption.
     				<br/><br/>
-    			</div></div></div><div class="comp" id="FTP_ITC.1/PFED"><h4>FTP_ITC.1/PFED Trusted Channel Communication</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#pfed">PFED</a></i></b></li></ul></div>
+    			</div></div></div><div class="comp" id="FTP_ITC.1/PFED"><h4>FTP_ITC.1/PFED Trusted Channel Communication - PFED</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#pfed">PFED</a></i></b></li></ul></div>
     		
     		<div class="element"><div class="reqid" id="FTP_ITC.1.1/PFED"><a href="#FTP_ITC.1.1/PFED" class="abbr">FTP_ITC.1.1/PFED</a></div><div class="reqdesc">
     				The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a communication channel <b>using PFED in accordance with the PFED specification in Appendix H and PFED <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> to</b>
@@ -8166,7 +8166,7 @@ The following sections list Common Criteria and technology terms used in this do
     					</ul></span>
     					Where direct observation of low-level channel internals is not practical, the evaluator may rely on observable <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, packet traces, supported test interfaces, or developer evidence sufficient to determine that the claimed PFED trusted channel is established and provides the claimed protections.
     					
-    				</div></div></div></div></div><div class="comp" id="FTP_ITC_EXT.1/IPsec"><h4>FTP_ITC_EXT.1/IPsec Trusted Channel Communication</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#ipsec">IPsec</a></i></b></li></ul></div>
+    				</div></div></div></div></div><div class="comp" id="FTP_ITC_EXT.1/IPsec"><h4>FTP_ITC_EXT.1/IPsec Trusted Channel Communication - IPsec</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#ipsec">IPsec</a></i></b></li></ul></div>
     	
     	<div class="element"><div class="reqid" id="FTP_ITC_EXT.1.1/IPsec"><a href="#FTP_ITC_EXT.1.1/IPsec" class="abbr">FTP_ITC_EXT.1.1/IPsec</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use
     			[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="sel-itc-ipsec-vpn-3.0">IPsec in accordance with the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Virtual Private Network (VPN) Clients, version
@@ -8208,7 +8208,7 @@ The following sections list Common Criteria and technology terms used in this do
     				traffic while the VS performs communication with each of these destinations. The evaluator will ensure
     				that for each session a trusted channel was established in conformance with the protocols identified 
     				in the selection.
-    			</div></div></div></div></div><div class="comp" id="FTP_ITC_EXT.1/WLAN"><h4>FTP_ITC_EXT.1/WLAN Trusted Channel Communication</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#wlan">WLAN</a></i></b></li></ul></div>
+    			</div></div></div></div></div><div class="comp" id="FTP_ITC_EXT.1/WLAN"><h4>FTP_ITC_EXT.1/WLAN Trusted Channel Communication - WLAN</h4><div class="statustag"><b><i>This component must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements any of the following features:</i></b><br/><ul><li><b><i><a href="#wlan">WLAN</a></i></b></li></ul></div>
     		
     		<div class="element"><div class="reqid" id="FTP_ITC_EXT.1.1/WLAN"><a href="#FTP_ITC_EXT.1.1/WLAN" class="abbr">FTP_ITC_EXT.1.1/WLAN</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use
     				[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="sel-itc-ipsec-wlan-802.11">802.11-2012 in accordance with the [<i><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Wireless LAN Clients, version
