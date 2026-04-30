@@ -523,19 +523,19 @@
 		<section id="sfrappl" title="SFR Applicability">
 			The following table depicts how each SFR is applicable to CU and EU.<h:p/>
 			
-			<h:b><ctr id="t-sfrapp" ctr-type="Table">: SFR Applicability</ctr></h:b><h:p/> 
-			Status Markers:<h:br/>
+			<h:b>Status Markers:</h:b><h:p/>
 			M - Mandatory<h:br/>
-			C - Conditional/Selection-Based<h:br/>
 			Ob - Objective<h:br/>
-			N/A - Not applicable<h:br/>
+			ID - Implementation-Dependent<h:br/>
+			SB - Selection-Based<h:br/>			
+			N/A - Not applicable<h:br/><h:p/>
 			
-			<h:b><ctr id="t-appmean" ctr-type="Table">: Applicability Meaning</ctr></h:b><h:p/> 
+			<h:b>Applicability Meaning</h:b><h:p/> 
 			All - Applies to every TOE<h:br/>
 			CU - Applies when TOE includes Communication Unit functionality<h:br/>
 			EU - Applies when TOE includes Encryption Unit functionality<h:br/>
 			HWS - Applies when TOE claims HWS-ERD<h:br/>
-			Trigger/Notes - Protocol or implementation condition<h:br/>
+			Trigger/Notes - Protocol or implementation condition<h:br/><h:p/>
 			
 			<h:b>Applicability Rules</h:b><h:p/>
 			<h:ul>
@@ -580,7 +580,6 @@
 				<h:tr style="text-align: center">
 					<h:td>FAU_STG.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
@@ -10896,7 +10895,7 @@
     				</Tests>
     			</aactivity>
     		</f-element>
-    		<audit-event type="optional">
+    		<audit-event>
     			<audit-event-descr>Detection of intrusion.</audit-event-descr>
     			<audit-event-info>None.</audit-event-info>
     		</audit-event>
@@ -10957,7 +10956,7 @@
     				</Tests>
     			</aactivity>
     		</f-element>
-    		<audit-event type="optional">
+    		<audit-event>
     			<audit-event-descr>Detection of intrusion</audit-event-descr>
     			<audit-event-info>None</audit-event-info>
     		</audit-event>
