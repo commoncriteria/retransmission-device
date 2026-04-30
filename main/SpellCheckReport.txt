@@ -163,6 +163,7 @@ output/retransmission-device-release-linkable.html: PGM
 output/retransmission-device-release-linkable.html: PNNI
 output/retransmission-device-release-linkable.html: PRF
 output/retransmission-device-release-linkable.html: PSK0
+output/retransmission-device-release-linkable.html: PSKs
 output/retransmission-device-release-linkable.html: PSS
 output/retransmission-device-release-linkable.html: Pluribus
 output/retransmission-device-release-linkable.html: QNX
@@ -402,6 +403,7 @@ output/retransmission-device-release.html: PGM
 output/retransmission-device-release.html: PNNI
 output/retransmission-device-release.html: PRF
 output/retransmission-device-release.html: PSK0
+output/retransmission-device-release.html: PSKs
 output/retransmission-device-release.html: PSS
 output/retransmission-device-release.html: Pluribus
 output/retransmission-device-release.html: QNX
@@ -643,6 +645,7 @@ output/retransmission-device.html: PGM
 output/retransmission-device.html: PNNI
 output/retransmission-device.html: PRF
 output/retransmission-device.html: PSK0
+output/retransmission-device.html: PSKs
 output/retransmission-device.html: PSS
 output/retransmission-device.html: Pluribus
 output/retransmission-device.html: QNX
