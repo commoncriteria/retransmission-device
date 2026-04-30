@@ -579,11 +579,12 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FAU_STG.1</h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td>Audit storage location required for every TOE.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -749,6 +750,7 @@
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td></h:td>
+				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_HTTPS_EXT.1 HTTPS Protocol</h:td>
@@ -865,6 +867,7 @@
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td></h:td>
+				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_IFF.1 Information Flow Control Functions</h:td>
