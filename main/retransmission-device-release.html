@@ -1060,11 +1060,10 @@ The following sections list Common Criteria and technology terms used in this do
 		<h2 class="indexable" data-level="2" id="sfrappl">1.6 SFR Applicability</h2>
 			The following table depicts how each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is applicable to <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.<p></p>
 			
-			<b>Status Markers:</b><p></p>
+			<b>Status Markers</b><p></p>
 			M - Mandatory<br/>
+			C - Conditional/Selection-Based<br/>
 			Ob - Objective<br/>
-			ID - Implementation-Dependent<br/>
-			SB - Selection-Based<br/>			
 			N/A - Not applicable<br/><p></p>
 			
 			<b>Applicability Meaning</b><p></p> 
@@ -1106,6 +1105,24 @@ The following sections list Common Criteria and technology terms used in this do
 				</tr>
 				
 				<tr style="text-align: center">
+					<td><a href="#FAU_GEN.1/PFED">FAU_GEN.1/PFED</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory for PFED-triggered audit events for the <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FAU_GEN.2/PFED">FAU_GEN.2/PFED</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory for PFED.</td>
+				</tr>
+				
+				<tr style="text-align: center">
 					<td><a href="#FAU_SAR.1">FAU_SAR.1</a></td>
 					<td style="text-align: center">M</td>
 					<td style="text-align: center">N/A</td>
@@ -1124,771 +1141,1056 @@ The following sections list Common Criteria and technology terms used in this do
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FAU_STG.2">FAU_STG.2</a> Protected Audit Trail Storage</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
+					<td><a href="#FAU_STG.1/PFED">FAU_STG.1/PFED</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory for PFED.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
+					<td><a href="#FAU_STG.2">FAU_STG.2</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Protected audit trail storage.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCO_NRO.1">FCO_NRO.1</a> Selective Proof of Origin</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
+					<td><a href="#FAU_STG.5">FAU_STG.5</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Audit data loss behavior.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
+					<td><a href="#FCO_NRO.1">FCO_NRO.1</a></td>
+					<td style="text-align: center">Ob</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Objective unless a selected protocol requires proof of receipt.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_CKM.1/AKG">FCS_CKM.1/AKG</a> Cryptographic Key Generation - Asymmetric Key</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-				</tr>				
-				
-				<tr style="text-align: center">
-					<td><a href="#FCS_CKM.1/SKG">FCS_CKM.1/SKG</a> Cryptographic Key Generation - Symmetric Key</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
+					<td><a href="#FCO_NRR.1">FCO_NRR.1</a></td>
+					<td style="text-align: center">Ob</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Objective unless a selected protocol requres proof of receipt.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_CKM.2">FCS_CKM.2</a> Cryptographic Key Distribution</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
+					<td><a href="#FCS_CKM.1/AKG">FCS_CKM.1/AKG</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol-triggered; mandatory for IPsec if asymmetrik key generation is used.</td>
+				</tr>		
+				
+				<tr style="text-align: center">
+					<td><a href="#FCS_CKM.1/PFEDAKG">FCS_CKM.1/PFEDAKG</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> generates PFED asymmetric keys.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_CKM.6">FCS_CKM.6</a> Timing and Event for Cryptographic Key Destruction</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
+					<td><a href="#FCS_CKM.1/SKG">FCS_CKM.1/SKG</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol-triggered; required when <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generates symmetric/session keys; mandatory for PFED.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_CKM_EXT.7">FCS_CKM_EXT.7</a> Cryptographic Key Agreement</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
+					<td><a href="#FCS_CKM.2">FCS_CKM.2</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol-triggered; IPsec/WLAN/MACsec where <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> establishes or distributes keys.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_CKM.2/PFED">FCS_CKM.2/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory for PFED; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> performs PFED key establishment.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_CKM.5/PFED">FCS_CKM.5/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> performs PFED key derivation.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_CKM.6">FCS_CKM.6</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> baseline for traffic keys; <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> only if <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> stores or handles secrets.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FCS_CKM.6/PFED">FCS_CKM.6/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> destroys PFED keys.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FCS_CKM_EXT.7">FCS_CKM_EXT.7</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol-triggered; IPsec key agreement.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FCS_COP.1/AEAD">FCS_COP.1/AEAD</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol-triggered; IPsec/MACsec/WLAN as applicable.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Required only if selected algorithm suite uses CMAC.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td>FCS_COP.1/HASH</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base if used for update/integrity; otherwise, protocol-triggered.</td>
 				</tr>
 								
 				<tr style="text-align: center">
-					<td><a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a> Cryptographic Operation - Keyed Hash</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/KeyedHash">FCS_COP.1/KeyedHash</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol-triggered; IPsec or selected protocol use.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_COP.1/KeyEncap">FCS_COP.1/KeyEncap</a> Cryptographic Operation - Key Encapsulation</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/KeyEncap">FCS_COP.1/KeyEncap</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol-triggered; KEM/hybrid KEM use.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/KeyWrap">FCS_COP.1/KeyWrap</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Required only if key wrapping is used.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a> Cryptographic Operation - Signature Generation</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/PFEDAES">FCS_COP.1/PFEDAES</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> performs PFED <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> operation.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a> Cryptographic Operation - Signature Verification</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/PFEDHash">FCS_COP.1/PFEDHash</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> performs PFED hashing.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_COP.1/SKC">FCS_COP.1/SKC</a> Cryptographic Operation - Symmetric Key Encryption and Decryption</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/PFEDKeyEncap">FCS_COP.1/PFEDKeyEncap</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> performs PFED key encapsulation.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_COP.1/XOF">FCS_COP.1/XOF</a> Cryptographic Operation - Extendable-Output Function</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/PFEDSigGen">FCS_COP.1/PFEDSigGen</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> performs PFED signature generation.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_HTTPS_EXT.1">FCS_HTTPS_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> Protocol</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/PFEDSigVer">FCS_COP.1/PFEDSigVer</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> performs PFED signature verification.</td>
+				</tr>				
+				
+				<tr style="text-align: center">
+					<td><a href="#FCS_COP.1/SigGen">FCS_COP.1/SigGen</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base if used for update/auth; otherwise, protocol-triggered.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_RBG.1">FCS_RBG.1</a> Random Bit Generation (<abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>)</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/SigVer">FCS_COP.1/SigVer</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base for trusted update verification if applicable; protocol-triggered otherwise.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_RBG.2">FCS_RBG.2</a> Random Bit Generation (External Seeding)</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/SKC">FCS_COP.1/SKC</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol/storage-triggered symmetric crypto.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_RBG.3">FCS_RBG.3</a> Random Bit Generation (Internal Seeding - Single Source</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_COP.1/XOF">FCS_COP.1/XOF</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Required only if selected algorithm suite uses XOF.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_RBG.4">FCS_RBG.4</a> Random Bit Generation (Internal Seeding - Multiple Sources)</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_HTTPS_EXT.1">FCS_HTTPS_EXT.1</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Required only if <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> is used for admin/update/management.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_RBG.5">FCS_RBG.5</a> Random Bit Generation (Combining Entropy Sources)</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_RBG.1">FCS_RBG.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> baseline when crypto values are generated; <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> only if <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> generates secrets; mandatory for PFED.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_RBG.6">FCS_RBG.6</a> Random Bit Generation Service</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_RBG.2">FCS_RBG.2</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Entropy-design dependent.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a> Protected Storage</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_RBG.3">FCS_RBG.3</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Entropy-design dependent.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_STG_EXT.2">FCS_STG_EXT.2</a> Encrypted Cryptographic Key Storage</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_RBG.4">FCS_RBG.4</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Entropy-design dependent; if PFED requires this <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> construction, it applies to the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FCS_STG_EXT.3">FCS_STG_EXT.3</a> Key Integrity Protection</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_RBG.5">FCS_RBG.5</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Entropy-design dependent; if PFED requires this <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> construction, it applies to the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FDP_IFC.1/CU">FDP_IFC.1/CU</a> Subset Information Flow Control</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_RBG.6">FCS_RBG.6</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Required only if <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> exposes or relies on an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> service interface.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FDP_IFC.1/HWS">FDP_IFC.1/HWS</a> Subset Information Flow Control</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_REC_EXT.1/PFED">FCS_REC_EXT.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> performs PFED key recovery.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FDP_IFC.2">FDP_IFC.2</a> Complete Information Flow Control</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_REKEY_EXT.1/PFED">FCS_REKEY_EXT.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED_triggered; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> performs PFED periodic rekey.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FDP_IFF.1">FDP_IFF.1</a> Information Flow Control Functions</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Protected storage for credentials, secrets, config, and audit-supporting data.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FDP_ITC_EXT.1">FDP_ITC_EXT.1</a> Key/Credential Import</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FCS_STG_EXT.2">FCS_STG_EXT.2</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Required where encrypted persistent key storage is used; applies to <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> for PFED if PFED keys are persistently stored.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FCS_STG_EXT.3">FCS_STG_EXT.3</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Required where persistent key integrity protection is used; applies to <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> for PFED if applicable.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_BRINGUP_EXT.1">FDP_BRINGUP_EXT.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td>Mandatory when PFED-triggered secure bring-up for the <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_IFC.1/CU">FDP_IFC.1/CU</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> flow control; HWS includes <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_IFC.1/HWS">FDP_IFC.1/HWS</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td>HWS <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> boundary flow control.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_IFC.1/PFED">FDP_IFC.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> plaintext/ciphertext PFED flow control.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_IFC.2">FDP_IFC.2</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Complete base information-flow control/no bypass.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_IFF.1">FDP_IFF.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base information-flow rules.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_IFF.1/CU">FDP_IFF.1/CU</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> flow-control rules; HWS includes <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_IFF.1/HWS">FDP_IFF.1/HWS</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td>HWS <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> boundary rules.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_IFF.1/PFED">FDP_IFF.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> PFED flow rules.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_ITC_EXT.1">FDP_ITC_EXT.1</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Required only if <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> imports keys/credentials; applies to <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> for PFED key/credential import if applicable.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FDP_PBR_EXT.1">FDP_PBR_EXT.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">M</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>/HWS protocol break; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> only if <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> enforces protocol break behavior.</td>
 				</tr>
 				
 				<tr style="text-align: center">
 					<td><a href="#FDP_STG_EXT.1">FDP_STG_EXT.1</a> User Data Storage</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Required only if <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> stores user/security data beyond transient forwarding.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a> Authentication Failure Handling</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_AFL.1/PFED">FIA_AFL.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> authentication failure handling.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FIA_PMG_EXT.1">FIA_PMG_EXT.1</a> Password Management</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Administrator authentication failure handling.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a> Pre-Shared Key Composition</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_PMG_EXT.1">FIA_PMG_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Administrator password management.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FIA_TRT_EXT.1">FIA_TRT_EXT.1</a> Authentication Throttling</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Protocol-triggered; IPsec PSK only if selected.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FIA_UAU.5">FIA_UAU.5</a> Multiple Authentication Mechanisms</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_PSK_EXT.1/PFED">FIA_PSK_EXT.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> provisioning/tunnel-0 PSK.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FIA_UAU.7">FIA_UAU.7</a> Protected Authentication Feedback</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_TRT_EXT.1">FIA_TRT_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Administrator authentication throttling.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FIA_UAU_EXT.1">FIA_UAU_EXT.1</a> Authentication for Cryptographic Operation</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_UAU.2/PFED">FIA_UAU.2/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> authentication before PFED action.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FIA_UAU_EXT.2">FIA_UAU_EXT.2</a> Timing of Authentication</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_UAU.3/PFED">FIA_UAU.3/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> unforgeable authentication.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td>FMT_MOF Management of Security FUnctions Behavior</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_UAU.5">FIA_UAU.5</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory only if all <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> must support multiple administrator authentication mechanisms; otherwise, keep conditional or remove.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FMT_SMF.1">FMT_SMF.1</a> Specification of Management Functions</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_UAU.7">FIA_UAU.7</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Protected administrator authentication feedback.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FMT_SMR.1">FMT_SMR.1</a> Security Roles</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_UAU_EXT.1">FIA_UAU_EXT.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol/credential-use dependent.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a> Packet Filtering Rules</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_UAU_EXT.2">FIA_UAU_EXT.2</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Administrator authentication before security management.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a> Packet Filtering Rules</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
-				</tr>				
-				
-				<tr style="text-align: center">
-					<td><a href="#FPT_APW_EXT.1">FPT_APW_EXT.1</a> Protection of Administrator Password</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FIA_UIA_EXT.1">FIA_UIA_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Administrator identification and authentication.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_BBD_EXT.1">FPT_BBD_EXT.1</a> Application Processor Mediation</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td>FMT_MOF</td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Management of security functions behavior.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_FLS.1">FPT_FLS.1</a> Failure with Preservation of Secure State</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FMT_SMF.1">FMT_SMF.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Specification of management functions.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_INI.1">FPT_INI.1</a> <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Initialization</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FMT_SMF.1/PFED">FMT_SMF.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> PFED management functions.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_JTA_EXT.1">FPT_JTA_EXT.1</a> JTAG Disablement</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FMT_SMR.1">FMT_SMR.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Security roles.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a> Key Storage</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">M</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> packet filtering; <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> only if <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> performs L2/L3 filtering.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a> No Key Transmission</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_APW_EXT.1">FPT_APW_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Protection of administrator passwords.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_KST_EXT.3">FPT_KST_EXT.3</a> No Plaintext Key Export</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_BBD_EXT.1">FPT_BBD_EXT.1</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">C</td>
+					<td>Conditional on baseband/cellular processor.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_NOT_EXT.1">FPT_NOT_EXT.1</a> Self-Test Notification</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_DPD_EXT.1">FPT_DPD_EXT.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory for PFED.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_PHP.1">FPT_PHP.1</a> Passive Detection of Physical Attack</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_FLS.1">FPT_FLS.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol-triggered fail-secure behavior.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_PHP.2">FPT_PHP.2</a> Notification of Physical Attack</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_FLS.1/PFED">FPT_FLS.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td>Mandatory when PFED-triggered fail-secure state for the full <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_PHP.3">FPT_PHP.3</a> Resistance to Physical Attack</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_HRT.1/PFED">FPT_HRT.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> use of hardware root of trust.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_PPF_EXT.1">FPT_PPF_EXT.1</a> Protection of Platform Firmware and Critical Data</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_INI.1">FPT_INI.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> initialization.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_RBP_EXT.1">FPT_RBP_EXT.1</a> Rollback Protection</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_ISO_EXT.1/PFED">FPT_ISO_EXT.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> isolation; HWS boundary requirement.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_RCV.2">FPT_RCV.2</a> Automated Recovery</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_JTA_EXT.1">FPT_JTA_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base JTAG disablement.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_ROT_EXT.1">FPT_ROT_EXT.1</a> Platform Integrity Root</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Baseline for stored keys/secrets.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_ROT_EXT.2">FPT_ROT_EXT.2</a> Platform Integrity Extension</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> baseline no key transmission; <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> conditional.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_RVR_EXT.1">FPT_RVR_EXT.1</a> Platform Firmware Recovery</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_KST_EXT.3">FPT_KST_EXT.3</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> baseline no plaintext key export; <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> conditional.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_SEP_EXT.1">FPT_SEP_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Domain Separation</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_NOT_EXT.1">FPT_NOT_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base self-test notification.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_SKP_EXT.1">FPT_SKP_EXT.1</a> Protection of <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Data (for reading of all symmetric keys)</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_PHP.1">FPT_PHP.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base passive physical attack detection.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_STM.1">FPT_STM.1</a> Reliable Time Stamps</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_PHP.2">FPT_PHP.2</a></td>
+					<td style="text-align: center">Ob</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Objective</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_TST.1">FPT_TST.1</a> <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Self-Test</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_PHP.3">FPT_PHP.3</a></td>
+					<td style="text-align: center">Ob</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Objective</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_TST_EXT.1">FPT_TST_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Testing</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_PPF_EXT.1">FPT_PPF_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base platform firmware and critical data protection.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_TUD_EXT.1">FPT_TUD_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Firmware Update</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_RBP_EXT.1">FPT_RBP_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base rollback protection.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a> Platform Firmware Authenticated Update Mechanism</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_RCV.1/PFED">FPT_RCV.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when  PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> cryptographic/session recovery, unless <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> text governs full <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> recovery.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_TUD_EXT.3">FPT_TUD_EXT.3</a> Platform Firmware Delayed - Authentication Update Mechanism</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_RCV.2">FPT_RCV.2</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Automated recovery.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a> Secure Local Platform Firmware Update Mechanism</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_ROT_EXT.1">FPT_ROT_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base platform integrity root.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTA_SSL.3">FTA_SSL.3</a> <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-Initiated Termination</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_ROT_EXT.2">FPT_ROT_EXT.2</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Platform integrity extension.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTA_SSL.4">FTA_SSL.4</a> User-Initiated Termination</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_RVR_EXT.1">FPT_RVR_EXT.1</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Conditional on platform firmware recovery.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTA_SSL_EXT.1">FTA_SSL_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>- and <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-Initiated Session Blocking</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_SEP_EXT.1">FPT_SEP_EXT.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td>HWS hardware-enforced <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> separation; PFED inherits this.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTA_TAB.1">FTA_TAB.1</a> Default <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Access Banners</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_SKP_EXT.1">FPT_SKP_EXT.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> baseline for private/symmetric keys; <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> conditional.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTP_ITC.1">FTP_ITC.1</a> Inter-TSF Trusted Channel</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_STM.1">FPT_STM.1</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Conditional on wall-clock timestamps; allow counter-based audit alternative whwere appropriate.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTP_ITC.1/MACsec">FTP_ITC.1/MACsec</a> Trusted Channel Communication - MACsec</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_TRAN_EXT.1/PFED">FPT_TRAN_EXT.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol transaction control.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTP_ITC_EXT.1/Admin">FTP_ITC_EXT.1/Admin</a> Physically Protected Channel</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_TST.1">FPT_TST.1</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Conditional on crypto/<abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> health testing.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTP_ITC_EXT.1/IPsec">FTP_ITC_EXT.1/IPsec</a> Trusted Channel Communication - IPsec</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_TST.1/PFED">FPT_TST.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> cryptographic/protocol self-test.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTP_ITC_EXT.1/WLAN">FTP_ITC_EXT.1/WLAN</a> Trusted Channel Communication - WLAN</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FPT_TST_EXT.1">FPT_TST_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> testing.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FPT_TUD_EXT.1">FPT_TUD_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Base <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Conditional on selection in <a href="#FPT_TUD_EXT.1">FPT_TUD_EXT.1</a>.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FPT_TUD_EXT.3">FPT_TUD_EXT.3</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Conditional if delayed authentication update is supported.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Conditional if secure local update is supported.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FTA_SSL.3">FTA_SSL.3</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-initiated administrator session termination.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FTA_SSL.4">FTA_SSL.4</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Administrator-initiated session termination.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FTA_SSL_EXT.1">FTA_SSL_EXT.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Administrator session locking/blocking.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FTA_TAB.1">FTA_TAB.1</a></td>
+					<td style="text-align: center">M</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Default administrator access banner.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FTP_ITC.1">FTP_ITC.1</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Generic <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> trusted channel; prefer protocol-specific iterations.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FTP_ITC.1/MACsec">FTP_ITC.1/MACsec</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> selects MACsec.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FTP_ITC.1/PFED">FTP_ITC.1/PFED</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when PFED-triggered <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> trusted chhannel for PFED-protected communication.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FTP_ITC_EXT.1/Admin">FTP_ITC_EXT.1/Admin</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Protected administrator communications channel.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FTP_ITC_EXT.1/IPsec">FTP_ITC_EXT.1/IPsec</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> selects IPsec.</td>
+				</tr>
+				
+				<tr style="text-align: center">
+					<td><a href="#FTP_ITC_EXT.1/WLAN">FTP_ITC_EXT.1/WLAN</a></td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td>Mandatory when <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> selects WLAN.</td>
 				</tr>
 
 				<tr style="text-align: center">
-					<td><a href="#FTP_ITP_EXT.1">FTP_ITP_EXT.1</a> Physically Protected Channel</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FTP_ITP_EXT.1">FTP_ITP_EXT.1</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">M</td>
+					<td>Physically protected admin path if used; HWS for <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-CU physical channel.</td>
 				</tr>
 				
 				<tr style="text-align: center">
-					<td><a href="#FTP_TRP.1">FTP_TRP.1</a> Trusted Path</td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td style="text-align: center"></td>
-					<td></td>
+					<td><a href="#FTP_TRP.1">FTP_TRP.1</a></td>
+					<td style="text-align: center">C</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td style="text-align: center">N/A</td>
+					<td>Trusted path for administrator access.</td>
 				</tr>
 			</table>
 			
