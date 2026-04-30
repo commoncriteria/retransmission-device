@@ -521,31 +521,66 @@
 		</section>
 		
 		<section id="sfrappl" title="SFR Applicability">
-			The following table depicts how each SFR is applicable to CU and EU.
+			The following table depicts how each SFR is applicable to CU and EU.<h:p/>
+			
+			<h:b><ctr id="t-sfrapp" ctr-type="Table">: SFR Applicability</ctr></h:b><h:p/> 
+			Status Markers:<h:br/>
+			M - Mandatory<h:br/>
+			C - Conditional/Selection-Based<h:br/>
+			Ob - Objective<h:br/>
+			N/A - Not applicable<h:br/>
+			
+			<h:b><ctr id="t-appmean" ctr-type="Table">: Applicability Meaning</ctr></h:b><h:p/> 
+			All - Applies to every TOE<h:br/>
+			CU - Applies when TOE includes Communication Unit functionality<h:br/>
+			EU - Applies when TOE includes Encryption Unit functionality<h:br/>
+			HWS - Applies when TOE claims HWS-ERD<h:br/>
+			Trigger/Notes - Protocol or implementation condition<h:br/>
+			
+			<h:b>Applicability Rules</h:b><h:p/>
+			<h:ul>
+				<h:li><h:b>CU-only TOE</h:b> claims: All + CU.</h:li>
+				<h:li><h:b>EU-only TOE</h:b> claims: All + EU + one complete EU protocol package, such as IPsec, MACsec, or WLAN.</h:li>
+				<h:li><h:b>HWS-ERD TOE</h:b> claims: All + CU + EU + HWS + one complete EU protocol package.</h:li>
+				<h:li><h:b>PFED TOE</h:b> claims: All + CU + EU + HWS + all PFED-triggered rows. PFED is HWS-only, but PFED cryptography applies to the EU. PFED-specific
+				cryptographic SFRs are marked with a PFED-triggered note.</h:li>
+				<h:li>Hardware-separation, isolation, and EU/CU boundary SFRs are marked HWS = M.</h:li>
+				<h:li>Conditional requirements apply only when the TOE implements the corresponding function, interface, authentication method, cryptographic mechanism, storage
+					mechanism, update mechanism, or managed path.</h:li>
+			</h:ul>
+			
 			<h:table>
 				<h:tr style="text-align: center">
 					<h:th>SFR</h:th>
+					<h:th>All</h:th>
 					<h:th>CU</h:th>
 					<h:th>EU</h:th>
-					<h:th>Mandatory (M), Objective (Ob), Optional (Op), Selection-Based (SB)</h:th>
+					<h:th>HWS</h:th>
+					<h:th>Trigger/Notes</h:th>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FAU_GEN.1 Audit Data Generation</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
+					<h:td>FAU_GEN.1</h:td>
 					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td>Base audit generation.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FAU_SAR.1 Audit Review</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
+					<h:td>FAU_SAR.1</h:td>
 					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td>Audit review.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FAU_STG.1 Audit Data Storage Location</h:td>
+					<h:td>FAU_STG.1</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -553,142 +588,175 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FAU_STG.2 Protected Audit Trail Storage</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FAU_STG.5 Prevention of Audit Data Loss</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCO_NRO.1 Selective Proof of Origin</h:td>
-					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">O</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FCO_NRR.1 Selective Proof of Receipt</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">O</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.1/AKG Cryptographic Key Generation - Asymmetric Key</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 				</h:tr>				
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.1/SKG Cryptographic Key Generation - Symmetric Key</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.2 Cryptographic Key Distribution</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.6 Timing and Event for Cryptographic Key Destruction</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM_EXT.7 Cryptographic Key Agreement</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
-					<h:td>FCS_COP.1/AEAD Cryptographic Operation - Authenticated Encryption with Associated Data</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
-					<h:td>FCS_COP.1/CMAC Cryptographic Operation - CMAC</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB (FCS_CKM.5.1, FCS_STG_EXT.3.1)</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FCS_COP.1/Hash Cryptographic Operation - Hashing</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
+				</h:tr>
+				
+				<h:tr style="text-align: center">
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
+				</h:tr>
+				
+				<h:tr style="text-align: center">
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 								
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/KeyedHash Cryptographic Operation - Keyed Hash</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/KeyEncap Cryptographic Operation - Key Encapsulation</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FCS_COP.1/KeyWrap Cryptographic Operation - Hashing</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/SigGen Cryptographic Operation - Signature Generation</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/SigVer Cryptographic Operation - Signature Verification</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/SKC Cryptographic Operation - Symmetric Key Encryption and Decryption</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/XOF Cryptographic Operation - Extendable-Output Function</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
-				</h:tr>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_HTTPS_EXT.1 HTTPS Protocol</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -696,461 +764,592 @@
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.2 Random Bit Generation (External Seeding)</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.3 Random Bit Generation (Internal Seeding - Single Source</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.4 Random Bit Generation (Internal Seeding - Multiple Sources)</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.5 Random Bit Generation (Combining Entropy Sources)</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.6 Random Bit Generation Service</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_STG_EXT.1 Protected Storage</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_STG_EXT.2 Encrypted Cryptographic Key Storage</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB (FCS_STG_EXT.1.1)</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_STG_EXT.3 Key Integrity Protection</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB (FCS_STG_EXT.1.1)</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_IFC.1/CU Subset Information Flow Control</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">O</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_IFC.1/HWS Subset Information Flow Control</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">O</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_IFC.2 Complete Information Flow Control</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M - EUs, O - CUs</h:td>
-				</h:tr>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_IFF.1 Information Flow Control Functions</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M - EUs, O - CUs</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_ITC_EXT.1 Key/Credential Import</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB (FCS_STG_EXT.1.2</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_STG_EXT.1 User Data Storage</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_AFL_EXT.1 Authentication Failure Handling</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_PMG_EXT.1 Password Management</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_PSK_EXT.1 Pre-Shared Key Composition</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB (IPsec only)</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_TRT_EXT.1 Authentication Throttling</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UAU.5 Multiple Authentication Mechanisms</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UAU.7 Protected Authentication Feedback</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UAU_EXT.1 Authentication for Cryptographic Operation</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UAU_EXT.2 Timing of Authentication</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FMT_MOF Management of Security FUnctions Behavior</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FMT_SMF.1 Specification of Management Functions</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FMT_SMR.1 Security Roles</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPF_RUL_EXT.1 Packet Filtering Rules</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPF_RUL_EXT.1 Packet Filtering Rules</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>				
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_APW_EXT.1 Protection of Administrator Password</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_BBD_EXT.1 Application Processor Mediation</h:td>
-					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_FLS.1 Failure with Preservation of Secure State</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_INI.1 TSF Initialization</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_JTA_EXT.1 JTAG Disablement</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_KST_EXT.1 Key Storage</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_KST_EXT.2 No Key Transmission</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_KST_EXT.3 No Plaintext Key Export</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_NOT_EXT.1 Self-Test Notification</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_PHP.1 Passive Detection of Physical Attack</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_PHP.2 Notification of Physical Attack</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">Ob</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_PHP.3 Resistance to Physical Attack</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">Ob</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_PPF_EXT.1 Protection of Platform Firmware and Critical Data</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_RBP_EXT.1 Rollback Protection</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_RCV.2 Automated Recovery</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_ROT_EXT.1 Platform Integrity Root</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_ROT_EXT.2 Platform Integrity Extension</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_RVR_EXT.1 Platform Firmware Recovery</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_SEP_EXT.1 TSF Domain Separation</h:td>
-					<h:td style="text-align: center">X</h:td>f
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_SKP_EXT.1 Protection of TSF Data (for reading of all symmetric keys)</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_STM.1 Reliable Time Stamps</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TST.1 TSF Self-Test</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TST_EXT.1 TSF Testing</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TUD_EXT.1 TOE Firmware Update</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TUD_EXT.2 Platform Firmware Authenticated Update Mechanism</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TUD_EXT.3 Platform Firmware Delayed - Authentication Update Mechanism</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TUD_EXT.4 Secure Local Platform Firmware Update Mechanism</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTA_SSL.3 TSF-Initiated Termination</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTA_SSL.4 User-Initiated Termination</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTA_SSL_EXT.1 TSF- and TSF-Initiated Session Blocking</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTA_TAB.1 Default TOE Access Banners</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTP_ITC.1 Inter-TSF Trusted Channel</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTP_ITC.1/MACsec Trusted Channel Communication - MACsec</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X (MACsec)</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTP_ITC_EXT.1/Admin Physically Protected Channel</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTP_ITC_EXT.1/IPsec Trusted Channel Communication - IPsec</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X (IPsec)</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTP_ITC_EXT.1/WLAN Trusted Channel Communication - WLAN</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">X (WLAN, EU-only)</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 
 				<h:tr style="text-align: center">
 					<h:td>FTP_ITP_EXT.1 Physically Protected Channel</h:td>
-					<h:td style="text-align: center">X</h:td>
-					<h:td style="text-align: center">X</h:td>
 					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTP_TRP.1 Trusted Path</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">SB (FMT_SMF.1.1)</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td></h:td>
 				</h:tr>
 			</h:table>
 			
@@ -8361,37 +8560,8 @@
 			</f-element>
 			</f-component>
 			
-			<f-component name="Isolation" cc-id="fpt_iso_ext.1" status="invisible">
-				<comp-lev> requires the TSF to ensure the use of EU and CU.</comp-lev>
-				<management>
-					The following actions could be considered for the management functions in FMT:<h:ul>
-						<h:li>Ability to configure or verify the deployment mode or TOE configuration that enforces PFED EU/CU isolation. </h:li>
-						<h:li>Ability to manage or verify interface exposure such that EU interfaces remain non-addressable and stateless in the claimed operational configuration.
-						</h:li>
-						<h:li>Ability to manage or verify network-namespace isolation where such configuration is exposed by the TOE. </h:li>
-						<h:li>Ability to manage or verify the allowed intercomponent communication path such that only the claimed connectionless bus is shared. </h:li>
-					</h:ul>    			
-				</management>
-				<audit>
-					The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
-						<h:li>Changes to configuration affecting EU/CU isolation properties. </h:li>
-						<h:li>Detection of an attempt to violate network-namespace isolation, if such detection is exposed by the TOE. </h:li>
-						<h:li>Detection of an attempt to use a communication path other than the shared connectionless bus between EU and CU, if such detection is exposed by the
-							TOE. </h:li>
-					</h:ul>    			
-				</audit>
-				<dependencies>FMT_SMF.1 Specification of Management Functions<h:p/>
-					FAU_GEN.1 Audit Data Generation<h:p/>
-					No other dependencies    		
-				</dependencies>
-				<f-element>
-					<title>The TSF shall ensure:<h:ul>
-						<h:li>EU and CU do not share computation resources</h:li>
-						<h:li>EU interfaces are non-addressable and stateless</h:li>
-						<h:li>Network namespaces are isolated.</h:li>
-						<h:li>Only a connectionless bus is shared</h:li>
-					</h:ul>.</title>
-				</f-element>
+			
+			<f-component name="Pre-Shared Key Composition" cc-id="fia_psk_ext.1">	
 			<f-element id="fia-psk-ext-1e1">
 				<title>
 					The TSF shall be able to use pre-shared keys that conform to RFC 8784 for IPsec</title>
@@ -8412,9 +8582,6 @@
 				</aactivity>
 			</f-element>
 			<audit-event/>
-			
-			
-						
 		</f-component>
 			
 			<f-component name="PSK Bootstrap Authentication" cc-id="fia_psk_ext.1" iteration="PFED" status="feat-based">
@@ -10414,9 +10581,10 @@
     				<title>The TSF shall ensure:<h:ul>
     					<h:li>EU and CU do not share computation resources</h:li>
     					<h:li>EU interfaces are non-addressable and stateless</h:li>
-    					<h:li>Network namespaces are isolated.</h:li>
+    					<h:li>Network namespaces are isolated</h:li>
     					<h:li>Only a connectionless bus is shared</h:li>
-    				</h:ul>.</title>
+    				</h:ul>
+    				</title>
     			</f-element>
     	</f-component>
     	
@@ -10466,14 +10634,11 @@
     						<test> No alternate shared path: The evaluator shall verify that no additional shared channel, stateful shared service, or alternate communication path exists between the EU and CU beyond the claimed shared bus. </test><h:p/>
     						<test> PFED Functional Test: To show isolation of network namespace: provision a pair of PFED’s A1 and B1 and attach EUD A and B to them respectively. Assign the IPs of the EUDs to the same subnet as the CUs. For example, CU1 and A = 192.168.0.1 and CU2 and B == 192.168.0.2. Attach EUD C to the network switch that CU1 and CU2 communicate. Assign C == 192.168.0.3. Attach a sniffer on the wire between A and A1, B and B1, and to the switch. From C, ping 192.168.0.2. You should not see ICMP or reply emerge to EUD B. And you should see ICMP between CU2 and C. Similarly, from EUD A, ping 192.168.0.2. You should only see ICMP on the sniffer between B1 and B and A1 and A. And finally, from either A or B attempt to ping C at 192.168.0.3 and it should fail. </test><h:p/>
     					</testlist>
-    					Where direct observation of low-level platform behavior is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, architectural evidence, or developer evidence sufficient to determine that the claimed PFED isolation model is implemented.
-    					
+    					Where direct observation of low-level platform behavior is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, architectural evidence, or developer evidence sufficient to determine that the claimed PFED isolation model is implemented.    					
     				</Tests>
     			</aactivity>
     		</f-element>
     		<audit-event table="impl-dep"/>
-    		
-    		
     	</f-component>
     	
     	
