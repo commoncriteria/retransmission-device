@@ -569,7 +569,7 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FAU_GEN.1/PFED</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">C</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
@@ -636,7 +636,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Objective unless a selected protocol requires proof of receipt.</h:td>
+					<h:td>Objective unless a selected protocol requires proof of origin.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -645,7 +645,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Objective unless a selected protocol requres proof of receipt.</h:td>
+					<h:td>Objective unless a selected protocol requires proof of receipt.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -654,7 +654,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">C</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>EU protocol-triggered; mandatory for IPsec if asymmetrik key generation is used.</h:td>
+					<h:td>EU protocol-triggered; mandatory for IPsec if asymmetric key generation is used.</h:td>
 				</h:tr>		
 				
 				<h:tr style="text-align: center">
@@ -681,7 +681,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">C</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>EU protocol-triggered; IPsec/WLAN/MACsec where TOE establishes or distributes keys.</h:td>
+					<h:td>EU protocol-triggered; IPsec/MACsec/WLAN where TOE establishes or distributes keys.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -748,7 +748,7 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FCS_COP.1/HASH</h:td>
+					<h:td>FCS_COP.1/Hash</h:td>
 					<h:td style="text-align: center">C</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">C</h:td>
@@ -942,7 +942,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">C</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Mandatory when PFED_triggered; EU performs PFED periodic rekey.</h:td>
+					<h:td>Mandatory when PFED-triggered; EU performs PFED periodic rekey.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1072,7 +1072,7 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FDP_STG_EXT.1 User Data Storage</h:td>
+					<h:td>FDP_STG_EXT.1</h:td>
 					<h:td style="text-align: center">C</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
@@ -1198,7 +1198,7 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FMT_MOF</h:td>
+					<h:td>FMT_MOF.1</h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
@@ -1374,7 +1374,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Objective</h:td>
+					<h:td>Objective.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1383,7 +1383,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Objective</h:td>
+					<h:td>Objective.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1473,7 +1473,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Conditional on wall-clock timestamps; allow counter-based audit alternative whwere appropriate.</h:td>
+					<h:td>Conditional on wall-clock timestamps; allow counter-based audit alternative where appropriate.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1608,7 +1608,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">C</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Mandatory when PFED-triggered EU trusted chhannel for PFED-protected communication.</h:td>
+					<h:td>Mandatory when PFED-triggered EU trusted channel for PFED-protected communication.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
