@@ -2533,7 +2533,7 @@
 	 </section>
 		
 		<section title="Class FCO: Communications" id="fco">
-			<f-component name="Selective Proof of Origin" cc-id="fco_nro.1">
+			<f-component name="Selective Proof of Origin" cc-id="fco_nro.1" status="objective">
 				<consistency-rationale>
 					
 					This SFR applies to the implementation of the supported authentication protocol, which is beyond the original 
@@ -2590,7 +2590,7 @@
 				<audit-event/>
 			</f-component>
 			
-			<f-component name="Selective Proof of Receipt" cc-id="fco_nrr.1">
+			<f-component name="Selective Proof of Receipt" cc-id="fco_nrr.1" status="objective">
 				<consistency-rationale>
 					This SFR applies to the implementation of the supported authentication protocol, which is beyond the original scope of the
 					Base-PP. </consistency-rationale>
