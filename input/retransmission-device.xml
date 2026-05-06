@@ -1757,7 +1757,7 @@
 				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat of a network attack by implementing a mechanism to detect when the DRBG may be failing to
 					generate secure cryptographic keys.</rationale>
 				<addressed-by>FTA_TAB.1</addressed-by><rationale>Mitigated the threat by providing actionable consequences for misuse of the TSF.</rationale>				
-				<addressed-by>FCS_CKM.6 (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing key destruction to prevent the compromise of trusted channels.</rationale>
+				
 				<addressed-by>FCS_CKM_EXT.7 (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing key agreement functions used for trusted communications.</rationale>
 				<addressed-by>FCS_REC_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by suppressing EUD traffic during recovery, ensures sequential derivation of
 					recovery keys, and terminates sessions on failure to converge.</rationale>
@@ -1775,7 +1775,8 @@
 				<addressed-by>FCS_CKM.1/SKG (sel-based)</addressed-by><rationale>Mitigates the threat by generating strong cryptographic symmetric keys to protect data in
 					transit.</rationale>
 				<addressed-by>FCS_CKM.2 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing key establishment to negotiate trusted channels to protect data in 
-					transit.</rationale>				
+					transit.</rationale>	
+				<addressed-by>FCS_CKM.6 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing key destruction to prevent the compromise of trusted channels.</rationale>
 				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by implementing AEAD functions used for trusted communications.</rationale>
 				<addressed-by>FCS_COP.1/CMAC (sel-based)</addressed-by><rationale>Mitigates the threat by implementing CMAC functions used for trusted communications.</rationale>
 				<addressed-by>FCS_COP.1/Hash (sel-based)</addressed-by><rationale>Mitigates the threat by implementing hash functions used for trusted communications.</rationale>
@@ -1905,10 +1906,11 @@
 					cryptographic keys.</rationale>
 				<addressed-by>FPT_PHP.2 (objective)</addressed-by><rationale>Mitigates the threat by providing methods to detect and report physical tampering.</rationale>
 				<addressed-by>FPT_PHP.3 (objective)</addressed-by><rationale>Mitigates the threat by resisting physical tampering.</rationale>
-				<addressed-by>FCS_CKM.6 (impl-dep)</addressed-by><rationale>Mitigates the threat by ensuring that keys used for trusted communications are destroyed in a secure
-					manner.</rationale>				
+							
 				<addressed-by>FCS_CKM.2 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing secure methods to perform key distribution for trusted
-					communications.</rationale>				
+					communications.</rationale>	
+				<addressed-by>FCS_CKM.6 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that keys used for trusted communications are destroyed in a secure
+					manner.</rationale>	
 				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by using AEAD encryption to protect data at rest.</rationale>
 				<addressed-by>FCS_COP.1/Hash (sel-based)</addressed-by><rationale>Mitigates the threat by implementing an integrity mechanism used to verify stored keys.</rationale>
 				<addressed-by>FCS_COP.1/KeyedHash (sel-based)</addressed-by><rationale>Mitigates the threat by implementing an integrity mechanism used to verify stored keys.
@@ -1950,7 +1952,7 @@
 				<addressed-by>FCS_STG_EXT.1</addressed-by><rationale>Mitigates the threat by generating keys and secrets and storing them in a secure manner, as well as
 					destroying them on request.</rationale>
 				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat by using self-tests to ensure correct operation of the DRBG.</rationale>		
-				<addressed-by>FCS_CKM.6 (impl-dep)</addressed-by><rationale>Mitigates the threat by using appropriate key destruction methods to protect the confidentiality of credential
+				<addressed-by>FCS_CKM.6 (sel-based)</addressed-by><rationale>Mitigates the threat by using appropriate key destruction methods to protect the confidentiality of credential
 					data.</rationale>				
 				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by implementing AEAD functions used for trusted
 					communications.</rationale>
@@ -3713,7 +3715,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep"/>
+			<audit-event table="sel-based"/>
 		</f-component>
 		
 		<f-component name="Timing and Event of Cryptographic Key Destruction" cc-id="fcs_ckm.6" iteration="PFED" status="feat-based">
