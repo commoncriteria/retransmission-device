@@ -113,7 +113,6 @@ output/retransmission-device-release-linkable.html: Fi
 output/retransmission-device-release-linkable.html: Fibre
 output/retransmission-device-release-linkable.html: GFSBox
 output/retransmission-device-release-linkable.html: GMTP
-output/retransmission-device-release-linkable.html: GenerationZ
 output/retransmission-device-release-linkable.html: HKDF
 output/retransmission-device-release-linkable.html: IC1
 output/retransmission-device-release-linkable.html: IC3
@@ -354,7 +353,6 @@ output/retransmission-device-release.html: Fi
 output/retransmission-device-release.html: Fibre
 output/retransmission-device-release.html: GFSBox
 output/retransmission-device-release.html: GMTP
-output/retransmission-device-release.html: GenerationZ
 output/retransmission-device-release.html: HKDF
 output/retransmission-device-release.html: IC1
 output/retransmission-device-release.html: IC3
@@ -599,7 +597,6 @@ output/retransmission-device.html: Fi
 output/retransmission-device.html: Fibre
 output/retransmission-device.html: GFSBox
 output/retransmission-device.html: GMTP
-output/retransmission-device.html: GenerationZ
 output/retransmission-device.html: HKDF
 output/retransmission-device.html: IC1
 output/retransmission-device.html: IC3
