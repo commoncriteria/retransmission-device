@@ -3790,15 +3790,15 @@
 				</h:ul>
 			</audit>
 			<dependencies>
-				<h:br/>[FDP_ITC.1 Import of user data without security attributes, or
-				<h:br/>FDP_ITC.2 Import of user data with security attributes],
-				<h:br/>[FCS_CKM.1 Cryptographic key generation, or
-				<h:br/>FCS_CKM.5 Cryptographic key derivation, or
-				<h:br/>FCS_CKM_EXT.8 Password-based key derivation] and
-				<h:br/>[FCS_CKM.2 Cryptographic key distribution, or
-				<h:br/>FCS_COP.1 Cryptographic operation] and
-				<h:br/>FCS_CKM.6 Timing and event of cryptographic key destruction and
-				<h:br/>[FCS_COP.1 Cryptographic operation, or
+				<h:br/>[FDP_ITC.1 Import of User Data without Security Attributes, or
+				<h:br/>FDP_ITC.2 Import of User Data with Security Attributes],
+				<h:br/>[FCS_CKM.1 Cryptographic Key Generation, or
+				<h:br/>FCS_CKM.5 Cryptographic Key Derivation, or
+				<h:br/>FCS_CKM_EXT.8 Password-Based Key Derivation] and
+				<h:br/>[FCS_CKM.2 Cryptographic Key Distribution, or
+				<h:br/>FCS_COP.1 Cryptographic Operation] and
+				<h:br/>FCS_CKM.6 Timing and Event of Cryptographic Key Destruction and
+				<h:br/>[FCS_COP.1 Cryptographic Operation, or
 				<h:br/>no other dependencies]
 			</dependencies>
 			
@@ -7270,7 +7270,7 @@
 			<fam-behavior>This family defines requirements for session rekeying.</fam-behavior>
 		</ext-comp-def>		
 		
-		<f-component name="Periodic Rekey" cc-id="fcs_rec_ext.1" status="invisible">
+		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1" status="invisible">
 			<comp-lev>requires the TSF to perform session rekey under specific circumstances.</comp-lev>
 			<management>There are no management activities foreseen.</management>
 			<audit>There are no auditable events foreseen.</audit>
@@ -7594,7 +7594,7 @@
 							<selectable>long-term trusted channel key material</selectable>
 							<selectable id="sel-stg2-sw-based">all software-based key storage</selectable>
 							<selectable exclusive="yes">no other keys</selectable>
-						</selectables></h:i>] using Key Wrapping as defined in FCS_COP.1/KeyWrap.
+						</selectables></h:i>] using [<h:i>Key Wrapping as defined in FCS_COP.1/KeyWrap</h:i>.
 				</title>
 				<ext-comp-def-title><title>
 					The TSF shall encrypt <assignable>types of key material</assignable> using 
@@ -7714,8 +7714,8 @@
 					</h:ul>
 				</audit>
 				<dependencies>
-					FIA_UAU.2/PFED Mutual Authentication Before Any Action<h:p/>
-					FIA_UAU.3/PFED Multiple Authentication Mechanisms<h:p/>
+					FIA_UAU.2 Mutual Authentication Before Any Action<h:p/>
+					FIA_UAU.3 Multiple Authentication Mechanisms<h:p/>
 					No other dependencies
 				</dependencies>
 						
@@ -7784,7 +7784,7 @@
 					<title>
 						The TSF shall enforce the [<h:i>CU Information Flow Control Policy</h:i>] on: [<h:ul><h:i>
 							<h:li>Packets received on an untrusted black Transport Network interface and destined for a trusted interface; and</h:li>
-							<h:li>Packets received on a trusted interface and destined for an untrusted black Transport Network interface.</h:li></h:i>]
+							<h:li>Packets received on a trusted interface and destined for an untrusted black transport network interface.</h:li></h:i>]
 						</h:ul>
 					</title>
 					<note role="application">
@@ -7801,7 +7801,7 @@
 								<h:li>Identifies the interfaces treated as untrusted black transport network interfaces in the claimed TOE configuration.</h:li> 
 								<h:li>Describes the packet flows covered by this requirement, namely: <h:ul>
 									<h:li>Packets received on an untrusted black transport network interface and destined for a trusted interface; and</h:li>  
-									<h:li>Packets received on a trusted interface and destined for an untrusted black Transport Network interface.</h:li>  
+									<h:li>Packets received on a trusted interface and destined for an untrusted black transport network interface.</h:li>  
 								</h:ul></h:li>
 								<h:li>Describes the TOE operations that cause those packet flows to occur, such as receiving, forwarding, routing, relaying, or transmitting packets between the covered interfaces.</h:li> 
 								<h:li>Describes how the TOE ensures that those covered flows are mediated by the TSF and are subject to the CU Information Flow Control Policy.</h:li>
@@ -8054,7 +8054,7 @@
 				
 				<f-element id="fdp-iff-cu-1e3">
 					<title>
-						The TSF shall deny an information flow between an untrusted black Transport Network interface and a trusted interface if the packet does							not match an explicitly configured allow rule.
+						The TSF shall deny an information flow between an untrusted black transport network interface and a trusted interface if the packet does							not match an explicitly configured allow rule.
 					</title>
 				</f-element>
 				
@@ -8298,7 +8298,7 @@
 							<selectable id="sigver">digital signature as specified in FCS_COP.1/SigVer</selectable>
 							<selectable id="integ-verif">integrity verification provided through FCS_CKM.2</selectable>
 							<selectable id="key-dist-ftp-itc-ext-1">key distribution mechanisms, integrity verification supported by FTP_ITC_EXT.1/Admin</selectable>
-						</selectables>
+						</selectables>.
 						</title>
 						<ext-comp-def-title>
 							<title>The TSF shall verify the integrity of imported keys/key material using <assignable>method of integrity verification</assignable>.</title>
@@ -8327,7 +8327,7 @@
 			
 			<ext-comp-def title="Protocol Break Enforcement" fam-id="FDP_PBR_EXT">
 				<fam-behavior>
-					This family defines requirements for enforcing a Layer-2 protocol break when forwarding traffic between untrusted black Transport Networks
+					This family defines requirements for enforcing a Layer-2 protocol break when forwarding traffic between untrusted black transport networks
 					and trusted components. A protocol break prevents transparent Layer-2 bridging across trust boundaries.<h:p/>
 					A Layer-2 protocol break is defined as the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when forwarding
 					traffic between interfaces, preventing transparent bridging across trust boundaries.<h:p/>
@@ -8362,7 +8362,7 @@
 				
 				<f-element id="fdp-pbr-ext-1e1">
 					<title>
-						The TSF shall ensure that all traffic forwarded between an untrusted black Transport Network interface and a trusted interface undergoes							a Layer-2 protocol break.
+						The TSF shall ensure that all traffic forwarded between an untrusted black transport network interface and a trusted interface undergoes							a Layer-2 protocol break.
 					</title>
 				</f-element>
 				
@@ -8378,7 +8378,7 @@
 				
 				<f-element id="fdp-pbr-ext-1e3">
 					<title>
-						The TSF shall prevent transparent Layer-2 bridging between untrusted black Transport Network interfaces and trusted interfaces.
+						The TSF shall prevent transparent Layer-2 bridging between untrusted black transport network interfaces and trusted interfaces.
 					</title>
 				</f-element>
 				<f-element id="fdp-pbr-ext-1e4">
@@ -8401,14 +8401,14 @@
 					<aactivity>
 						<TSS>
 							The evaluator shall examine the TSS to determine that it:<h:ul>
-							<h:li>Identifies the trusted interfaces and untrusted black Transport Network interfaces relevant to this component.</h:li> 
+							<h:li>Identifies the trusted interfaces and untrusted black transport network interfaces relevant to this component.</h:li> 
 							<h:li>Describes the traffic-forwarding paths that cross that trust boundary. </h:li>
 							<h:li>Describes how the TOE ensures that all forwarded traffic between those interface classes undergoes a Layer-2 protocol break, except where the traffic is already protected at Ethernet layer and is handled under the continuity-preserving rules in FDP_PBR_EXT.1.4 and FDP_PBR_EXT.1.5. </h:li> 
 							<h:li>Describes the protocol-break operation for traffic not protected by Ethernet-layer cryptographic mechanisms, including: <h:ul> 
 								<h:li>removal of the complete incoming Layer-2 header and associated Layer-2 control information, and</h:li> 
 								<h:li>construction and application of a new Layer-2 header prior to transmission on the egress interface. </h:li> 
 							</h:ul></h:li>
-							<h:li>Describes how the TOE prevents transparent Layer-2 bridging between untrusted black Transport Network interfaces and trusted interfaces. </h:li> 
+							<h:li>Describes how the TOE prevents transparent Layer-2 bridging between untrusted black transport network interfaces and trusted interfaces. </h:li> 
 							<h:li>Describes the traffic to which FDP_PBR_EXT.1.4 applies, namely Ethernet frames that already contain cryptographic protection applied by a trusted component. </h:li> 
 							<h:li>Describes how the TOE forwards such protected Ethernet frames without removing, modifying, or replacing the protected Layer-2 header. </h:li> 
 							<h:li>Describes how the TOE ensures it does not terminate, decrypt, inspect as a cryptographic endpoint, or re-originate cryptographic protection for that protected user data traffic. </h:li>
@@ -9932,7 +9932,13 @@
     						<h:li>source port</h:li>
     						<h:li>destination port</h:li></h:ul></h:li>  					    					
     				</h:ul></h:i>]    				
-    			</title>    			
+    			</title>    	
+    			
+    			<ext-comp-def-title>
+    				<title>The TSF shall allow the definition of packet filtering rules using the following network protocols and protocol fields: <assignable>supported network
+    					protocols and protocol fields.</assignable></title>
+    			</ext-comp-def-title>
+    			
     			<note role="application">
     				This element identifies the protocols and references the protocol definitions that serve to define to what extent the 
     				network traffic can be interpreted by the TOE when importing (receiving network traffic or ingress) and exporting 
@@ -11125,7 +11131,7 @@
     				<h:li>Measurement of TSF software.</h:li>
     			</h:ul>
     		</audit>
-    		<dependencies>FPT_TST_EXT.1 TSF Cryptographic Functionality Testing</dependencies>
+    		<dependencies>FPT_TST_EXT.1 TSF TSF Testing</dependencies>
     		
     		<f-element id="fel-selftest-trans">
     			<title>The TSF shall transition to non-operational mode and <selectables>
@@ -11629,8 +11635,13 @@
     				</selectables>.
     			</title>
     			<ext-comp-def-title>
-    				<title>The integrity of all mutable platform firmware outside of the platform integrity root specified in FPT_ROT_EXT.1 shall be verified 
-    					prior to execution or use through:
+    				<title>The integrity of all mutable platform firmware outside of the platform integrity root specified in FPT_ROT_EXT.1 shall be verified prior to
+    					<selectables>
+    						<selectable>execution</selectable>
+    						<selectable>use</selectable>
+    						<selectable>or access to TSF data</selectable>
+    					</selectables>
+    					through:
     					<assignable>method for extending the platform integrity root</assignable>.
     				</title>
     			</ext-comp-def-title>
@@ -11743,7 +11754,7 @@
     		<management>The following actions could be considered for the management functions in FMT:<h:ul>
     			<h:li>Configuration of action to take on integrity failure.</h:li></h:ul></management>
     		<audit/>
-    		<dependencies>FPT_TUD_EXT.4 Secure Local Update Mechanism</dependencies>
+    		<dependencies>FPT_TUD_EXT.4 Secure Local Platform Firmware Update Mechanism</dependencies>
     		<f-element id="fpt-rvr-ext-1e1">
     			<title>
     				The TSF shall implement a mechanism for recovering from boot firmware failure consisting of 
@@ -12196,7 +12207,7 @@
     					<selectable>start-up</selectable>
     					<selectable>on-demand</selectable>
     					<selectable>continuous</selectable>
-    					<selectable>at the conditions <assignable>conditions under which self-tests should occur</assignable> self tests<assignable> 'list an
+    					<selectable>at the conditions <assignable>conditions under which self-tests should occur</assignable> self tests <assignable> 'list an
     						identifier for each self-test that is additional to those identified in the first two bullet points'</assignable></selectable>
     				</selectables></h:li>
     			</h:ul> 
