@@ -124,13 +124,12 @@
         <term abbr="ECDHE" full="Elliptic Curve Diffie-Hellman Ephemeral"/>
         <term abbr="ECDSA" full="Elliptic Curve Digital Signature Algorithm"/>
         <term abbr="EMET" full="Enhanced Mitigation Experience Toolkit"/>
-		<term abbr="EU" full="Encryption Unit">
-			A retransmission device component whose primary purpose is to provide an independent layer of encryption for an EUD on top of the existing network transport.</term>
         <term abbr="EST" full="Enrollment over Secure Transport"/>
 		<term abbr="EUD" full="End-User Device"/>
         <term abbr="FIPS" full="Federal Information Processing Standards"/>
         <term abbr="ELF" full="Executable and Linkable Format"/>
-		<term abbr="EU" full="Encryption Unit"/>
+		<term abbr="EU" full="Encryption Unit">
+			A retransmission device component whose primary purpose is to provide an independent layer of encryption for an EUD on top of the existing network transport.</term>
         <term abbr="GPS" full="Global Positioning System"/>
         <term abbr="HMAC" full="Hash-based Message Authentication Code"/>
         <term abbr="HTTP" full="Hypertext Transfer Protocol"/>
@@ -186,6 +185,7 @@
         </term>
         <term abbr="PDF" full="Portable Document Format"/>
 	    <term abbr="PE" full="Portable Executable"/>
+		<term abbr="PFED" full="Protocol Free Encrypting Device"/>
         <term abbr="PID" full="Process Identifier"/>
         <term abbr="PKG" full="Package file"/>
         <term abbr="PKI" full="Public Key Infrastructure"/>
