@@ -400,7 +400,6 @@ output/retransmission-device-release.html: OSPFIGP
 output/retransmission-device-release.html: OTA
 output/retransmission-device-release.html: PFEDS
 output/retransmission-device-release.html: PFEDs
-output/retransmission-device-release.html: PFED’s
 output/retransmission-device-release.html: PGM
 output/retransmission-device-release.html: PNNI
 output/retransmission-device-release.html: PRF
@@ -644,7 +643,6 @@ output/retransmission-device.html: OSPFIGP
 output/retransmission-device.html: OTA
 output/retransmission-device.html: PFEDS
 output/retransmission-device.html: PFEDs
-output/retransmission-device.html: PFED’s
 output/retransmission-device.html: PGM
 output/retransmission-device.html: PNNI
 output/retransmission-device.html: PRF
