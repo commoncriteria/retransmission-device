@@ -535,7 +535,7 @@
 			</sec:Platform_and_Operational_Environment_Enforcement>
 			
 			<sec:Bring-Up_and_Multi-Factor_Activation>
-			<h:p>The TOE enforces PIN- or CIK-based gating such that no traffic flows until activation credentials are provided.</h:p>
+			<h:p>The TOE enforces PIN- or CIK-based gating such that no traffic flows until activation credentials are provided.</h:p>  
 			Multi-factor activation includes the following.<h:ul>
 			<h:li>A user password to activate EU cryptographic functions.</h:li>
 			<h:li>A removable media or keyboard entry combined with device authentication to boot the CU.</h:li>
