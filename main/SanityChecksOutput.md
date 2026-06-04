@@ -1,3 +1,5 @@
+compilation error: file transforms/xsl/boilerplates.xsl line 113 element apply-template
+xsltStylePreCompute: unknown xsl:apply-template
 * Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to sel-fia-uau-5-ssh from attribute
         on-sel/PP[1]""/include-pkg[1]""/depends[2]""/on-sel[1]""
@@ -1136,30 +1138,6 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[14]""/f-component[9]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/h:p[3]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[14]""/f-component[9]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/h:p[4]""
 * Warning: Detected an empty _p_ element./PP[1]""/appendix[3]"This appe"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[2]"The TOE i"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[3]""/section[1]"The TOE r"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[3]""/section[1]"The TOE r"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[3]""/section[1]"The TOE r"/h:p[3]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[3]""/section[2]"Upon succ"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[4]"During tu"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[4]"During tu"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[5]""/section[1]"The TOE d"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[5]""/section[1]"The TOE d"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[5]""/section[2]"The TOE i"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[6]"Prior to "/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[7]""/section[1]"Following"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[7]""/section[2]"The TOE s"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[8]"The TOE s"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[8]"The TOE s"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[8]"The TOE s"/h:p[3]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[8]"The TOE s"/h:p[4]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[9]"The TOE e"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[10]"Each EU i"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[10]"Each EU i"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[11]"The TOE m"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[12]"The TOE e"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[12]"The TOE e"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/appendix[5]""/section[13]"The TOE e"/h:p[1]""
  Failed to find a reference to mf-audioVisual.
  Failed to find a reference to pkg-x509.
  Failed to find a reference to pkg-x509.

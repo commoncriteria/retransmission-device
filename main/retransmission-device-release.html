@@ -645,11 +645,11 @@ function showTarget(id){
           }
     </style></head><body onLoad="init()"><div id="commmentbox-"><a href="#Comment-1-">Comment: Comment-1-</a><br/><a href="#Comment-2-">Comment: Comment-2-</a><br/><a href="#Comment-3-">Comment: Comment-3-</a><br/><a href="#Comment-4-">Comment: Comment-4-</a><br/><a href="#Comment-5-">Comment: Comment-5-</a><br/><a href="#Comment-6-">Comment: Comment-6-</a><br/></div><h1 class="title" style="page-break-before:auto;">Protection Profile for Retransmission Device</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
       Version: 1.0<br/>2025-05-15<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>v 1.0</td><td>2024-12-30</td><td>Initial release</td></tr>
-</table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#TOEdescription" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Overview" style="text-indent:20px">1.3.1<span>TOE Overview</span></a><a href="#TOE_Configurations" style="text-indent:20px">1.3.2<span>TOE Configurations</span></a><a href="#CU-Only_Configuration" style="text-indent:30px">1.3.2.1<span>CU-Only Configuration</span></a><a href="#EU-Only_Configuration" style="text-indent:30px">1.3.2.2<span>EU-Only Configuration</span></a><a href="#HWS-ERD_Configuration" style="text-indent:30px">1.3.2.3<span>HWS-ERD Configuration</span></a><a href="#TOE_Logical_Boundary" style="text-indent:20px">1.3.3<span>TOE Logical Boundary</span></a><a href="#Security_Isolation" style="text-indent:30px">1.3.3.1<span>Security Isolation</span></a><a href="#Traffic_Forwarding_and_Routing_-_CU-Only_and_HWS-ERD" style="text-indent:30px">1.3.3.2<span>Traffic Forwarding and Routing - CU-Only and HWS-ERD</span></a><a href="#Cryptographic_Processing_-_EU-Only_and_HWS-ERD" style="text-indent:30px">1.3.3.3<span>Cryptographic Processing - EU-Only and HWS-ERD</span></a><a href="#Security_Management" style="text-indent:30px">1.3.3.4<span>Security Management</span></a><a href="#TOE_Physical_Boundary" style="text-indent:20px">1.3.4<span>TOE Physical Boundary</span></a><a href="#CU-Only_Physical_Boundary" style="text-indent:30px">1.3.4.1<span>CU-Only Physical Boundary</span></a><a href="#EU-Only_Physical_Boundary" style="text-indent:30px">1.3.4.2<span>EU-Only Physical Boundary</span></a><a href="#HWS-ERD_Physical_Boundary" style="text-indent:30px">1.3.4.3<span>HWS-ERD Physical Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#sec-features" style="text-indent:10px">1.5<span>Product Features Mapped to Implementation-Dependent Requirements</span></a><a href="#ipsec" style="text-indent:20px">1.5.1<span>IPsec</span></a><a href="#macsec" style="text-indent:20px">1.5.2<span>MACsec</span></a><a href="#pfed" style="text-indent:20px">1.5.3<span>PFED</span></a><a href="#wlan" style="text-indent:20px">1.5.4<span>WLAN</span></a><a href="#cu-functionality" style="text-indent:20px">1.5.5<span>CU Functionality</span></a><a href="#hws-erd" style="text-indent:20px">1.5.6<span>Hardware-Separated Encrypting Retransmission Device (HWS-ERD)</span></a><a href="#sfrappl" style="text-indent:10px">1.6<span>SFR Applicability</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#req" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#SFRs" style="text-indent:10px">5.1<span>Security Functional Requirements</span></a><a href="#ss-audit-table" style="text-indent:20px">5.1.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#sop-audit-table" style="text-indent:20px">5.1.2<span>Auditable Events for Objective SFRs</span></a><a href="#sid-audit-table" style="text-indent:20px">5.1.3<span>Auditable Events for Implementation-Dependent SFRs</span></a><a href="#ssb-audit-table" style="text-indent:20px">5.1.4<span>Auditable Events for Selection-Based SFRs</span></a><a href="#fau" style="text-indent:20px">5.1.5<span>Class FAU: Security Audit</span></a><a href="#fcs" style="text-indent:20px">5.1.6<span>Class FCS: Cryptographic Support</span></a><a href="#fdp" style="text-indent:20px">5.1.7<span>Class FDP: User Data Protection</span></a><a href="#fia" style="text-indent:20px">5.1.8<span>Class FIA: Identification and Authentication</span></a><a href="#fmt" style="text-indent:20px">5.1.9<span>Class FMT: Security Management</span></a><a href="#fpf" style="text-indent:20px">5.1.10<span>Class FPF: Packet Filtering</span></a><a href="#fpt" style="text-indent:20px">5.1.11<span>Class FPT: Protection of the TSF</span></a><a href="#fta" style="text-indent:20px">5.1.12<span>Class FTA: TOE Access</span></a><a href="#ftp" style="text-indent:20px">5.1.13<span>Class FTP: Trusted Path/Channel</span></a><a href="#obj-req-map" style="text-indent:20px">5.1.14<span>TOE Security Functional Requirements Rationale</span></a><a href="#SARs" style="text-indent:10px">5.2<span>Security Assurance Requirements</span></a><a href="#ase" style="text-indent:20px">5.2.1<span>Class ASE: Security Target</span></a><a href="#adv" style="text-indent:20px">5.2.2<span>Class ADV: Development</span></a><a href="#agd" style="text-indent:20px">5.2.3<span>Class AGD: Guidance Documentation</span></a><a href="#alc" style="text-indent:20px">5.2.4<span>Class ALC: Life-cycle Support</span></a><a href="#ate" style="text-indent:20px">5.2.5<span>Class ATE: Tests</span></a><a href="#ava" style="text-indent:20px">5.2.6<span>Class AVA: Vulnerability Assessment</span></a><a href="#opt-app" style="text-indent:0px">Appendix A - <span>Optional Requirements</span></a><a href="#optional-reqs" style="text-indent:10px">A.1<span>Strictly Optional  Requirements
+</table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#TOEdescription" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Overview" style="text-indent:20px">1.3.1<span>TOE Overview</span></a><a href="#TOE_Configurations" style="text-indent:20px">1.3.2<span>TOE Configurations</span></a><a href="#CU-Only_Configuration" style="text-indent:30px">1.3.2.1<span>CU-Only Configuration</span></a><a href="#EU-Only_Configuration" style="text-indent:30px">1.3.2.2<span>EU-Only Configuration</span></a><a href="#HWS-ERD_Configuration" style="text-indent:30px">1.3.2.3<span>HWS-ERD Configuration</span></a><a href="#PFED_Configuration" style="text-indent:30px">1.3.2.4<span>PFED Configuration</span></a><a href="#Principles_Behind_HWS-ERD_PFED" style="text-indent:40px">1.3.2.4.1<span>Principles Behind HWS-ERD PFED</span></a><a href="#Cryptographic_Algorithms_and_Parameters" style="text-indent:40px">1.3.2.4.2<span>Cryptographic Algorithms and Parameters</span></a><a href="#EU_Pair_Provisioning_and_Cryptographic_Bonding" style="text-indent:40px">1.3.2.4.3<span>EU Pair Provisioning and Cryptographic Bonding</span></a><a href="#Provisioining_Completion_and_Key_Material_Generation" style="text-indent:40px">1.3.2.4.4<span>Provisioining Completion and Key Material Generation</span></a><a href="#Key_Derivation_and_Key_Storage" style="text-indent:40px">1.3.2.4.5<span>Key Derivation and Key Storage</span></a><a href="#Session_Setup_and_Mutual_Authentication" style="text-indent:40px">1.3.2.4.6<span>Session Setup and Mutual Authentication</span></a><a href="#Rekey_Operations" style="text-indent:40px">1.3.2.4.7<span>Rekey Operations</span></a><a href="#Session_Key_Recovery" style="text-indent:40px">1.3.2.4.8<span>Session Key Recovery</span></a><a href="#Traffic_Isolation_and_Interface_Filtering" style="text-indent:40px">1.3.2.4.9<span>Traffic Isolation and Interface Filtering</span></a><a href="#Dead_Peer_Detection_and_Persona_Enforcement" style="text-indent:40px">1.3.2.4.10<span>Dead Peer Detection and Persona Enforcement</span></a><a href="#Logging_and_Audit" style="text-indent:40px">1.3.2.4.11<span>Logging and Audit</span></a><a href="#Platform_and_Operational_Environment_Enforcement" style="text-indent:40px">1.3.2.4.12<span>Platform and Operational Environment Enforcement</span></a><a href="#Bring-Up_and_Multi-Factor_Activation" style="text-indent:40px">1.3.2.4.13<span>Bring-Up and Multi-Factor Activation</span></a><a href="#TOE_Logical_Boundary" style="text-indent:20px">1.3.3<span>TOE Logical Boundary</span></a><a href="#Security_Isolation" style="text-indent:30px">1.3.3.1<span>Security Isolation</span></a><a href="#Traffic_Forwarding_and_Routing_-_CU-Only_and_HWS-ERD" style="text-indent:30px">1.3.3.2<span>Traffic Forwarding and Routing - CU-Only and HWS-ERD</span></a><a href="#Cryptographic_Processing_-_EU-Only_and_HWS-ERD" style="text-indent:30px">1.3.3.3<span>Cryptographic Processing - EU-Only and HWS-ERD</span></a><a href="#Security_Management" style="text-indent:30px">1.3.3.4<span>Security Management</span></a><a href="#TOE_Physical_Boundary" style="text-indent:20px">1.3.4<span>TOE Physical Boundary</span></a><a href="#CU-Only_Physical_Boundary" style="text-indent:30px">1.3.4.1<span>CU-Only Physical Boundary</span></a><a href="#EU-Only_Physical_Boundary" style="text-indent:30px">1.3.4.2<span>EU-Only Physical Boundary</span></a><a href="#HWS-ERD_Physical_Boundary" style="text-indent:30px">1.3.4.3<span>HWS-ERD Physical Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#sec-features" style="text-indent:10px">1.5<span>Product Features Mapped to Implementation-Dependent Requirements</span></a><a href="#ipsec" style="text-indent:20px">1.5.1<span>IPsec</span></a><a href="#macsec" style="text-indent:20px">1.5.2<span>MACsec</span></a><a href="#pfed" style="text-indent:20px">1.5.3<span>PFED</span></a><a href="#wlan" style="text-indent:20px">1.5.4<span>WLAN</span></a><a href="#cu-functionality" style="text-indent:20px">1.5.5<span>CU Functionality</span></a><a href="#hws-erd" style="text-indent:20px">1.5.6<span>Hardware-Separated Encrypting Retransmission Device (HWS-ERD)</span></a><a href="#sfrappl" style="text-indent:10px">1.6<span>SFR Applicability</span></a><a href="#Conformance_Claims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#req" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#SFRs" style="text-indent:10px">5.1<span>Security Functional Requirements</span></a><a href="#ss-audit-table" style="text-indent:20px">5.1.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#sop-audit-table" style="text-indent:20px">5.1.2<span>Auditable Events for Objective SFRs</span></a><a href="#sid-audit-table" style="text-indent:20px">5.1.3<span>Auditable Events for Implementation-Dependent SFRs</span></a><a href="#ssb-audit-table" style="text-indent:20px">5.1.4<span>Auditable Events for Selection-Based SFRs</span></a><a href="#fau" style="text-indent:20px">5.1.5<span>Class FAU: Security Audit</span></a><a href="#fcs" style="text-indent:20px">5.1.6<span>Class FCS: Cryptographic Support</span></a><a href="#fdp" style="text-indent:20px">5.1.7<span>Class FDP: User Data Protection</span></a><a href="#fia" style="text-indent:20px">5.1.8<span>Class FIA: Identification and Authentication</span></a><a href="#fmt" style="text-indent:20px">5.1.9<span>Class FMT: Security Management</span></a><a href="#fpf" style="text-indent:20px">5.1.10<span>Class FPF: Packet Filtering</span></a><a href="#fpt" style="text-indent:20px">5.1.11<span>Class FPT: Protection of the TSF</span></a><a href="#fta" style="text-indent:20px">5.1.12<span>Class FTA: TOE Access</span></a><a href="#ftp" style="text-indent:20px">5.1.13<span>Class FTP: Trusted Path/Channel</span></a><a href="#obj-req-map" style="text-indent:20px">5.1.14<span>TOE Security Functional Requirements Rationale</span></a><a href="#SARs" style="text-indent:10px">5.2<span>Security Assurance Requirements</span></a><a href="#ase" style="text-indent:20px">5.2.1<span>Class ASE: Security Target</span></a><a href="#adv" style="text-indent:20px">5.2.2<span>Class ADV: Development</span></a><a href="#agd" style="text-indent:20px">5.2.3<span>Class AGD: Guidance Documentation</span></a><a href="#alc" style="text-indent:20px">5.2.4<span>Class ALC: Life-cycle Support</span></a><a href="#ate" style="text-indent:20px">5.2.5<span>Class ATE: Tests</span></a><a href="#ava" style="text-indent:20px">5.2.6<span>Class AVA: Vulnerability Assessment</span></a><a href="#opt-app" style="text-indent:0px">Appendix A - <span>Optional Requirements</span></a><a href="#optional-reqs" style="text-indent:10px">A.1<span>Strictly Optional  Requirements
     </span></a><a href="#alc-optional" style="text-indent:20px">A.1.1<span>Class ALC: Life-cycle Support</span></a><a href="#objective-reqs" style="text-indent:10px">A.2<span>Objective  Requirements
     </span></a><a href="#fco-objective" style="text-indent:20px">A.2.1<span>Class FCO: Communications</span></a><a href="#fpt-objective" style="text-indent:20px">A.2.2<span>Class FPT: Protection of the TSF</span></a><a href="#feat-based-reqs" style="text-indent:10px">A.3<span>Implementation-dependent  Requirements
     </span></a><a href="#fau-feat-based" style="text-indent:20px">A.3.1<span>Class FAU: Security Audit</span></a><a href="#fcs-feat-based" style="text-indent:20px">A.3.2<span>Class FCS: Cryptographic Support</span></a><a href="#fdp-feat-based" style="text-indent:20px">A.3.3<span>Class FDP: User Data Protection</span></a><a href="#fia-feat-based" style="text-indent:20px">A.3.4<span>Class FIA: Identification and Authentication</span></a><a href="#fmt-feat-based" style="text-indent:20px">A.3.5<span>Class FMT: Security Management</span></a><a href="#fpt-feat-based" style="text-indent:20px">A.3.6<span>Class FPT: Protection of the TSF</span></a><a href="#ftp-feat-based" style="text-indent:20px">A.3.7<span>Class FTP: Trusted Path/Channel</span></a><a href="#sel-based-reqs" style="text-indent:0px">Appendix B - <span>Selection-based  Requirements
-    </span></a><a href="#fcs-sel-based" style="text-indent:10px">B.1<span>Class FCS: Cryptographic Support</span></a><a href="#fdp-sel-based" style="text-indent:10px">B.2<span>Class FDP: User Data Protection</span></a><a href="#fia-sel-based" style="text-indent:10px">B.3<span>Class FIA: Identification and Authentication</span></a><a href="#fpt-sel-based" style="text-indent:10px">B.4<span>Class FPT: Protection of the TSF</span></a><a href="#ftp-sel-based" style="text-indent:10px">B.5<span>Class FTP: Trusted Path/Channel</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.1<span>Class FCS: Cryptographic Support</span></a><a href="#ext-comp-FCS_CKM_EXT" style="text-indent:30px">C.2.1.1<span>FCS_CKM_EXT Cryptographic Key Management</span></a><a href="#ext-comp-FCS_HTTPS_EXT" style="text-indent:30px">C.2.1.2<span>FCS_HTTPS_EXT HTTPS Protocol</span></a><a href="#ext-comp-FCS_REC_EXT" style="text-indent:30px">C.2.1.3<span>FCS_REC_EXT Key Recovery</span></a><a href="#ext-comp-FCS_REKEY_EXT" style="text-indent:30px">C.2.1.4<span>FCS_REKEY_EXT Periodic Rekey</span></a><a href="#ext-comp-FCS_STG_EXT" style="text-indent:30px">C.2.1.5<span>FCS_STG_EXT Key Storage and Protection</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.2<span>Class FDP: User Data Protection</span></a><a href="#ext-comp-FDP_BRINGUP_EXT" style="text-indent:30px">C.2.2.1<span>FDP_BRINGUP_EXT Secure Bring-Up</span></a><a href="#ext-comp-FDP_ITC_EXT" style="text-indent:30px">C.2.2.2<span>FDP_ITC_EXT Key/Credential Import</span></a><a href="#ext-comp-FDP_PBR_EXT" style="text-indent:30px">C.2.2.3<span>FDP_PBR_EXT Protocol Break Enforcement</span></a><a href="#ext-comp-FDP_STG_EXT" style="text-indent:30px">C.2.2.4<span>FDP_STG_EXT User Data Storage</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.3<span>Class FIA: Identification and Authentication</span></a><a href="#ext-comp-FIA_AFL_EXT" style="text-indent:30px">C.2.3.1<span>FIA_AFL_EXT Authentication Failure Handling</span></a><a href="#ext-comp-FIA_PMG_EXT" style="text-indent:30px">C.2.3.2<span>FIA_PMG_EXT Password Management</span></a><a href="#ext-comp-FIA_PSK_EXT" style="text-indent:30px">C.2.3.3<span>FIA_PSK_EXT Pre-Shared Key Composition</span></a><a href="#ext-comp-FIA_TRT_EXT" style="text-indent:30px">C.2.3.4<span>FIA_TRT_EXT Authentication Throttling</span></a><a href="#ext-comp-FIA_UAU_EXT" style="text-indent:30px">C.2.3.5<span>FIA_UAU_EXT User Authentication</span></a><a href="#ext-comp-FIA_UIA_EXT" style="text-indent:30px">C.2.3.6<span>FIA_UIA_EXT Administrator Authentication</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.4<span>Class FPF: Packet Filtering</span></a><a href="#ext-comp-FPF_RUL_EXT" style="text-indent:30px">C.2.4.1<span>FPF_RUL_EXT Packet Filtering</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.5<span>Class FPT: Protection of the TSF</span></a><a href="#ext-comp-FPT_APW_EXT" style="text-indent:30px">C.2.5.1<span>FPT_APW_EXT Protection of Administrator Password</span></a><a href="#ext-comp-FPT_BBD_EXT" style="text-indent:30px">C.2.5.2<span>FPT_BBD_EXT Baseband Processing</span></a><a href="#ext-comp-FPT_DPD_EXT" style="text-indent:30px">C.2.5.3<span>FPT_DPD_EXT Baseband Processing</span></a><a href="#ext-comp-FPT_ISO_EXT" style="text-indent:30px">C.2.5.4<span>FPT_ISO_EXT EU and CU Isolation</span></a><a href="#ext-comp-FPT_JTA_EXT" style="text-indent:30px">C.2.5.5<span>FPT_JTA_EXT JTAG Disablement</span></a><a href="#ext-comp-FPT_KST_EXT" style="text-indent:30px">C.2.5.6<span>FPT_KST_EXT Key Storage</span></a><a href="#ext-comp-FPT_NOT_EXT" style="text-indent:30px">C.2.5.7<span>FPT_NOT_EXT Self-Test Notification</span></a><a href="#ext-comp-FPT_PPF_EXT" style="text-indent:30px">C.2.5.8<span>FPT_PPF_EXT Protection of Platform Firmware</span></a><a href="#ext-comp-FPT_RBP_EXT" style="text-indent:30px">C.2.5.9<span>FPT_RBP_EXT Rollback Protection</span></a><a href="#ext-comp-FPT_ROT_EXT" style="text-indent:30px">C.2.5.10<span>FPT_ROT_EXT Platform Integrity</span></a><a href="#ext-comp-FPT_RVR_EXT" style="text-indent:30px">C.2.5.11<span>FPT_RVR_EXT Platform Firmware Recovery</span></a><a href="#ext-comp-FPT_SEP_EXT" style="text-indent:30px">C.2.5.12<span>FPT_SEP_EXT Hardware-Enforced Separation Between TOE Subsystems</span></a><a href="#ext-comp-FPT_SKP_EXT" style="text-indent:30px">C.2.5.13<span>FPT_SKP_EXT Protection of TSF Data</span></a><a href="#ext-comp-FPT_TRAN_EXT" style="text-indent:30px">C.2.5.14<span>FPT_TRAN_EXT Transaction Control</span></a><a href="#ext-comp-FPT_TST_EXT" style="text-indent:30px">C.2.5.15<span>FPT_TST_EXT TSF Testing</span></a><a href="#ext-comp-FPT_TUD_EXT" style="text-indent:30px">C.2.5.16<span>FPT_TUD_EXT Trusted Updates</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.6<span>Class FTA: TOE Access</span></a><a href="#ext-comp-FTA_SSL_EXT" style="text-indent:30px">C.2.6.1<span>FTA_SSL_EXT Session Locking and Termination</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.7<span>Class FTP: Trusted Path/Channel</span></a><a href="#ext-comp-FTP_ITC_EXT" style="text-indent:30px">C.2.7.1<span>FTP_ITC_EXT Trusted Channel Communications</span></a><a href="#ext-comp-FTP_ITP_EXT" style="text-indent:30px">C.2.7.2<span>FTP_ITP_EXT Physically Protected Channel</span></a><a href="#entropyappendix" style="text-indent:0px">Appendix D - <span>Entropy Documentation and Assessment</span></a><a href="#entropydesign" style="text-indent:10px">D.1<span>Design Description</span></a><a href="#entropyjustification" style="text-indent:10px">D.2<span>Entropy Justification</span></a><a href="#entropyoperatingconditions" style="text-indent:10px">D.3<span>Operating Conditions</span></a><a href="#entropyhealthtesting" style="text-indent:10px">D.4<span>Health Testing</span></a><a href="#valguide" style="text-indent:0px">Appendix E - <span>Validation Guidelines</span></a><a href="#impsatreq" style="text-indent:0px">Appendix F - <span>Implicitly Satisfied Requirements</span></a><a href="#usecase" style="text-indent:0px">Appendix G - <span>Use Case Templates</span></a><a href="#pfedspec" style="text-indent:0px">Appendix H - <span>PFED Specification</span></a><a href="#toe-boun-over" style="text-indent:10px">H.1<span>TOE Cryptographic Boundary and Overview</span></a><a href="#crypto-alg-para" style="text-indent:10px">H.2<span>Cryptographic Algorithms and Parameters</span></a><a href="#erd-pair-prov-crypto-bond" style="text-indent:10px">H.3<span>ERD Pair Provisioning and Cryptographic Bonding</span></a><a href="#tunnel-0" style="text-indent:20px">H.3.1<span>Tunnel-0 Establishment Using a Pre-Shared Key</span></a><a href="#trans-tunnel-1" style="text-indent:20px">H.3.2<span>Transition to Tunnel-1 and PSK Destruction</span></a><a href="#prov-comp-genz" style="text-indent:10px">H.4<span>Provisioning Completion and Key Material Generation</span></a><a href="#key-der-stor" style="text-indent:10px">H.5<span>Key Derivation and Key Storage</span></a><a href="#key-der" style="text-indent:20px">H.5.1<span>Key Derivation</span></a><a href="#hw-rot" style="text-indent:20px">H.5.2<span>Hardware Root of Trust</span></a><a href="#sess-set-mut-auth" style="text-indent:10px">H.6<span>Session Setup and Mutual Authentication</span></a><a href="#rekey-op" style="text-indent:10px">H.7<span>Rekey Operations</span></a><a href="#rekey-sched" style="text-indent:20px">H.7.1<span>Rekey Scheduling</span></a><a href="#rekey-modes" style="text-indent:20px">H.7.2<span>Rekey Modes</span></a><a href="#sess-key-rec" style="text-indent:10px">H.8<span>Session Key Recovery</span></a><a href="#traf-iso-inter-filt" style="text-indent:10px">H.9<span>Traffic Isolation and Interface Filtering</span></a><a href="#dead-peer-det-persona-enf" style="text-indent:10px">H.10<span>Dead Peer Detection and Persona Enforcement</span></a><a href="#Log-audit" style="text-indent:10px">H.11<span>Logging and Audit</span></a><a href="#plat-oe-enforc" style="text-indent:10px">H.12<span>Platform and Operational Environment Enforcement</span></a><a href="#bring-up-multi-act" style="text-indent:10px">H.13<span>Bring-Up and Multi-Factor Activation</span></a><a href="#acronyms" style="text-indent:0px">Appendix I - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix J - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
+    </span></a><a href="#fcs-sel-based" style="text-indent:10px">B.1<span>Class FCS: Cryptographic Support</span></a><a href="#fdp-sel-based" style="text-indent:10px">B.2<span>Class FDP: User Data Protection</span></a><a href="#fia-sel-based" style="text-indent:10px">B.3<span>Class FIA: Identification and Authentication</span></a><a href="#fpt-sel-based" style="text-indent:10px">B.4<span>Class FPT: Protection of the TSF</span></a><a href="#ftp-sel-based" style="text-indent:10px">B.5<span>Class FTP: Trusted Path/Channel</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.1<span>Class FCS: Cryptographic Support</span></a><a href="#ext-comp-FCS_CKM_EXT" style="text-indent:30px">C.2.1.1<span>FCS_CKM_EXT Cryptographic Key Management</span></a><a href="#ext-comp-FCS_HTTPS_EXT" style="text-indent:30px">C.2.1.2<span>FCS_HTTPS_EXT HTTPS Protocol</span></a><a href="#ext-comp-FCS_REC_EXT" style="text-indent:30px">C.2.1.3<span>FCS_REC_EXT Key Recovery</span></a><a href="#ext-comp-FCS_REKEY_EXT" style="text-indent:30px">C.2.1.4<span>FCS_REKEY_EXT Periodic Rekey</span></a><a href="#ext-comp-FCS_STG_EXT" style="text-indent:30px">C.2.1.5<span>FCS_STG_EXT Key Storage and Protection</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.2<span>Class FDP: User Data Protection</span></a><a href="#ext-comp-FDP_BRINGUP_EXT" style="text-indent:30px">C.2.2.1<span>FDP_BRINGUP_EXT Secure Bring-Up</span></a><a href="#ext-comp-FDP_ITC_EXT" style="text-indent:30px">C.2.2.2<span>FDP_ITC_EXT Key/Credential Import</span></a><a href="#ext-comp-FDP_PBR_EXT" style="text-indent:30px">C.2.2.3<span>FDP_PBR_EXT Protocol Break Enforcement</span></a><a href="#ext-comp-FDP_STG_EXT" style="text-indent:30px">C.2.2.4<span>FDP_STG_EXT User Data Storage</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.3<span>Class FIA: Identification and Authentication</span></a><a href="#ext-comp-FIA_AFL_EXT" style="text-indent:30px">C.2.3.1<span>FIA_AFL_EXT Authentication Failure Handling</span></a><a href="#ext-comp-FIA_PMG_EXT" style="text-indent:30px">C.2.3.2<span>FIA_PMG_EXT Password Management</span></a><a href="#ext-comp-FIA_PSK_EXT" style="text-indent:30px">C.2.3.3<span>FIA_PSK_EXT Pre-Shared Key Composition</span></a><a href="#ext-comp-FIA_TRT_EXT" style="text-indent:30px">C.2.3.4<span>FIA_TRT_EXT Authentication Throttling</span></a><a href="#ext-comp-FIA_UAU_EXT" style="text-indent:30px">C.2.3.5<span>FIA_UAU_EXT User Authentication</span></a><a href="#ext-comp-FIA_UIA_EXT" style="text-indent:30px">C.2.3.6<span>FIA_UIA_EXT Administrator Authentication</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.4<span>Class FPF: Packet Filtering</span></a><a href="#ext-comp-FPF_RUL_EXT" style="text-indent:30px">C.2.4.1<span>FPF_RUL_EXT Packet Filtering</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.5<span>Class FPT: Protection of the TSF</span></a><a href="#ext-comp-FPT_APW_EXT" style="text-indent:30px">C.2.5.1<span>FPT_APW_EXT Protection of Administrator Password</span></a><a href="#ext-comp-FPT_BBD_EXT" style="text-indent:30px">C.2.5.2<span>FPT_BBD_EXT Baseband Processing</span></a><a href="#ext-comp-FPT_DPD_EXT" style="text-indent:30px">C.2.5.3<span>FPT_DPD_EXT Baseband Processing</span></a><a href="#ext-comp-FPT_ISO_EXT" style="text-indent:30px">C.2.5.4<span>FPT_ISO_EXT EU and CU Isolation</span></a><a href="#ext-comp-FPT_JTA_EXT" style="text-indent:30px">C.2.5.5<span>FPT_JTA_EXT JTAG Disablement</span></a><a href="#ext-comp-FPT_KST_EXT" style="text-indent:30px">C.2.5.6<span>FPT_KST_EXT Key Storage</span></a><a href="#ext-comp-FPT_NOT_EXT" style="text-indent:30px">C.2.5.7<span>FPT_NOT_EXT Self-Test Notification</span></a><a href="#ext-comp-FPT_PPF_EXT" style="text-indent:30px">C.2.5.8<span>FPT_PPF_EXT Protection of Platform Firmware</span></a><a href="#ext-comp-FPT_RBP_EXT" style="text-indent:30px">C.2.5.9<span>FPT_RBP_EXT Rollback Protection</span></a><a href="#ext-comp-FPT_ROT_EXT" style="text-indent:30px">C.2.5.10<span>FPT_ROT_EXT Platform Integrity</span></a><a href="#ext-comp-FPT_RVR_EXT" style="text-indent:30px">C.2.5.11<span>FPT_RVR_EXT Platform Firmware Recovery</span></a><a href="#ext-comp-FPT_SEP_EXT" style="text-indent:30px">C.2.5.12<span>FPT_SEP_EXT Hardware-Enforced Separation Between TOE Subsystems</span></a><a href="#ext-comp-FPT_SKP_EXT" style="text-indent:30px">C.2.5.13<span>FPT_SKP_EXT Protection of TSF Data</span></a><a href="#ext-comp-FPT_TRAN_EXT" style="text-indent:30px">C.2.5.14<span>FPT_TRAN_EXT Transaction Control</span></a><a href="#ext-comp-FPT_TST_EXT" style="text-indent:30px">C.2.5.15<span>FPT_TST_EXT TSF Testing</span></a><a href="#ext-comp-FPT_TUD_EXT" style="text-indent:30px">C.2.5.16<span>FPT_TUD_EXT Trusted Updates</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.6<span>Class FTA: TOE Access</span></a><a href="#ext-comp-FTA_SSL_EXT" style="text-indent:30px">C.2.6.1<span>FTA_SSL_EXT Session Locking and Termination</span></a><a href="#ext-comp-" style="text-indent:20px">C.2.7<span>Class FTP: Trusted Path/Channel</span></a><a href="#ext-comp-FTP_ITC_EXT" style="text-indent:30px">C.2.7.1<span>FTP_ITC_EXT Trusted Channel Communications</span></a><a href="#ext-comp-FTP_ITP_EXT" style="text-indent:30px">C.2.7.2<span>FTP_ITP_EXT Physically Protected Channel</span></a><a href="#entropyappendix" style="text-indent:0px">Appendix D - <span>Entropy Documentation and Assessment</span></a><a href="#entropydesign" style="text-indent:10px">D.1<span>Design Description</span></a><a href="#entropyjustification" style="text-indent:10px">D.2<span>Entropy Justification</span></a><a href="#entropyoperatingconditions" style="text-indent:10px">D.3<span>Operating Conditions</span></a><a href="#entropyhealthtesting" style="text-indent:10px">D.4<span>Health Testing</span></a><a href="#valguide" style="text-indent:0px">Appendix E - <span>Validation Guidelines</span></a><a href="#impsatreq" style="text-indent:0px">Appendix F - <span>Implicitly Satisfied Requirements</span></a><a href="#usecase" style="text-indent:0px">Appendix G - <span>Use Case Templates</span></a><a href="#acronyms" style="text-indent:0px">Appendix H - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix I - <span>Bibliography</span></a></div><h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
 
 	
     <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
@@ -900,6 +900,199 @@ The following sections list Common Criteria and technology terms used in this do
 			</ul>
 			Plaintext traffic does not traverse the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> or any black interface, i.e., there may be no cryptographic bypass capability between the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or trusted
 			network and <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> or between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.			
+		
+		
+		<h4 class="indexable" data-level="4" id="PFED_Configuration">1.3.2.4 PFED Configuration</h4>
+			<p>A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that claims Protocol Free Encrypting Device (<abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr>) functionality implements <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> as a specialized form of the <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> configuration. A <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr>-conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>				therefore consists of the hardware-separated <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> configuration described in Section 1.3.2.3, with the additional <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr>-specific properties, cryptographic
+			behavior, provisioning behavior, isolation rules, and operational requirements described in this section.</p>
+			<p>A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claiming <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> as its trusted channel must implement an <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>, including the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, and all required <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> for a combined implementation. All
+			communication between paired ERDs is protected by an <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-based secure session tunnel implemented by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not rely on external key management
+			protocols. When MACsec encapsulation is used, the IEEE 802.1X MACsec Key Agreement (MKA) protocol is not implemented or invoked.</p>
+			<h5 class="indexable" data-level="5" id="Principles_Behind_HWS-ERD_PFED">1.3.2.4.1 Principles Behind <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr></h5>
+				<p>An <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> has unique properties that are not normally present in traditional encryption systems. The security function of separating Red and Black
+					within any ERD must work correctly, and to work correctly it must be completely understandable. The separation of functions into an <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> allows the
+					security examination to narrow to the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> IC1 and IC3 interfaces as shown in Figure 4.</p>
+				<p>The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> is a figurative bump on the wire and operates at Layer 2 of the network stack. <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> packets are simply frames from the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>’s perspective. The payload
+					is not inspected from or to IC1. There is no cryptographic bypass. All packets from the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> are forwarded through the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> to the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>. Packets that emerge from
+					the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> on IC3 cannot be routable across a Layer 3 network without a <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>. If they are routable without a <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, then the device is not considered a
+					<abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr>.</p>
+				<p>The purpose of having two independent hardware devices, namely a stateless <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and a stateful <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, is to move complex stateful processing outside of the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>
+					and preserve only stateless processing inside the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>. The Layer 3 complexity necessary to traverse any typical transport is removed from the security
+					argument and safely remains outside the trust boundary of the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>. This isolates and simplifies the policy enforcement performed by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> interfaces on IC3
+					and IC1. This translates directly into a simplified understanding of the isolation argument for an <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> protected by an ERD, both for a user and for an
+					evaluator. In a <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> context, all packets going to or from the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> will always pass through the black-box <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> to a peer <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</p>
+				<p>Hardware separation significantly reduces the attack surface of any <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> protected by an ERD. Measuring the <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> attack surface can be summarized as
+					follows.</p>
+					<b>Attack surface = complexity of the interface code at a stateless <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-IC3 × 1/2^256</b>
+					<p>The ERD attack surface can be summarized as follows.</p>
+					<p>Attack surface = complexity of the stateful network interface and cryptographic code handling of <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-IC2 × 1/2^256</p>
+					<p>The size of a stateful space in this context dwarfs the size of a stateless space. Smaller is better.</p>
+					<p>Inherent to the <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> is an almost perfect firewall. It is a rule of one, and this rule is not a configurable parameter. This is because the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>
+						must translate the Layer 3 packet on IC2 into a Layer 2 packet on IC3, where that Layer 2 packet is a fixed type that the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> expects. Any other packet
+						type is easily dismissed before it can be further processed by more sophisticated logic. The formula implemented by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> to dismiss packets can easily
+						be verified.</p>
+					<p>if (packet != type X) {drop}</p>
+					<p>There is no negotiation between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> regarding what X can be. Enforcement is completely removed from a possibly misconfigured <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> due to
+						hardware separation. Additionally, the payload of the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>-translated Layer 2 frame must pass the authentication and integrity checking of <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM-256 in
+						the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>, or it is dropped. This combination protocol break ensures that only the peer <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> could possibly succeed at sending a packet to the
+						receiving <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> unless the key was somehow compromised.</p>
+						<p>The <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> may include a firewall, but it is embedded in a complex environment that has never been shown to be impervious to failure and therefore
+							cannot be trusted by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> to be active or correct. Imposing a security requirement on the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> would be unrealistic when the black transport can be
+							almost anything. While a <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> firewall may be useful, it is not required to be correct for the isolation or confidentiality security argument of the
+							<abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> to be enforced.</p>
+						<p>A packet that emerges from the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> may be labeled, where the label is also cryptographically authenticated. A <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> must maintain the label between									each <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>. This may be considered a channel. There may be more than one channel in an <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr>. Each channel is a unique cryptographic bond
+							between two EUs. When a channel is established, one <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> acts as the client and the other acts as the server for session management that must occur									between EUs. Transactions such as rekey or dead peer detection may originate from either <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</p>
+			
+			<h5 class="indexable" data-level="5" id="Cryptographic_Algorithms_and_Parameters">1.3.2.4.2 Cryptographic Algorithms and Parameters</h5>
+				<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements a secure session tunnel using <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in Galois/Counter Mode (<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM) with a 256-bit key size. <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM provides confidentiality, integrity
+			protection, data origin authentication, and anti-replay protection for all session traffic.</p>
+			<p>All cryptographic operations are implemented within the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>. No cryptographic keys are available to or processed by the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.</p>
+			
+			<h5 class="indexable" data-level="5" id="EU_Pair_Provisioning_and_Cryptographic_Bonding">1.3.2.4.3 <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> Pair Provisioning and Cryptographic Bonding</h5>
+				<b>Tunnel-0_Establishment_Using_a_Pre-Shared_Key</b><br/>
+					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> requires an <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> pair to be cryptographically bonded prior to the transmission of any End User Data (<abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>). Initial bonding is performed during
+					provisioning using a temporary secure tunnel, referred to as tunnel-0. Tunnel-0 is established using a Pre-Shared Key (PSK) that is either:<ul>
+						<li>Injected during manufacturing, or</li>
+						<li>Entered by the system owner through a trusted <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> entry interface.</li>
+					</ul>
+					
+					<p>The PSK is used exclusively for tunnel-0 and is not retained after provisioning.</p>
+					During tunnel-0 operation, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces a packet allowlist. Only the following packet types are accepted and processed by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>:<ul>
+						<li>HELLO</li>
+						<li>HELLO-ACK</li>
+						<li>A single ML-KEM-1024 key encapsulation transaction</li>
+					</ul>
+					All other packets received during tunnel-0 are dropped by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> prior to protocol stack processing.
+					
+					<b>Transition_to_Tunnel-1_and_PSK_Destruction</b><br/>
+						Upon successful completion of the ML-KEM-1024 transaction, the following occurs:<ul>
+							<li>Tunnel-0 is terminated.</li>
+							<li>The PSK is cryptographically destroyed.</li>
+							<li>A new secure tunnel, referred to as tunnel-1, is established using the shared secret derived from the ML-KEM-1024 transaction.</li>
+					</ul>
+						Tunnel-1 is used to complete the remainder of the provisioning process.
+			
+			<h5 class="indexable" data-level="5" id="Provisioining_Completion_and_Key_Material_Generation">1.3.2.4.4 Provisioining Completion and Key Material Generation</h5>
+				During tunnel-1, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs the following provisioning operations:<ul>
+				<li>Generation of an ML-DSA-87 public and private key pair</li>
+				<li>Secure exchange of ML-DSA-87 public keys with the peer</li>
+				<li>Exchange of link parameters, including MTU and event timing values, such as rekey intervals</li>
+				<li>Execution of at least one authentication transaction</li>
+				<li>Execution of at least one operational rekey transaction</li>
+				</ul>
+					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not permit <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic until all provisioning steps have successfully completed. Upon completion of provisioning, the active <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> keystore
+					contains the following:<ul>
+				<li>Transmit (TX) session key</li>
+				<li>Receive (RX) session key</li>
+				<li>Recovery Key 1</li>
+				<li>Recovery Key 2</li>
+				<li>ML-DSA-87 private key</li>
+				<li>Peer ML-DSA-87 public key</li>
+					</ul>
+			
+			<h5 class="indexable" data-level="5" id="Key_Derivation_and_Key_Storage">1.3.2.4.5 Key Derivation and Key Storage</h5>
+				<b>Key Derivation</b><br/>
+					<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> derives all session keys, recovery keys, and operational keys using a Hash-Based Key Derivation Function (HKDF). HKDF input material includes
+						entropy generated by the hardware random number generator (<abbr class="dyn-abbr"><a href="#abbr_RNG">RNG</a></abbr>) of each <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</p>
+					<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-384 or <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-512 as the underlying hash function for HKDF operations.</p>
+					<p>When session keys are replaced, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> ensures that superseded keys are securely destroyed.</p>
+			
+				<b>Hardware Root of Trust</b><br/>
+					<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements a hardware root of trust using a TPM 2.0, either as a discrete device or as a firmware-based implementation.</p>
+					<p>A Root Key is stored within the TPM and is cryptographically bound to physical properties of the platform. The Root Key is used only to unwrap
+						subordinate keys and is not exportable.</p>
+						
+			
+			<h5 class="indexable" data-level="5" id="Session_Setup_and_Mutual_Authentication">1.3.2.4.6 Session Setup and Mutual Authentication</h5>
+				Prior to permitting <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> requires successful completion of a session setup transaction. Session setup includes the following.<ul>
+					<li>Mutual authentication between EUs using ML-DSA-87 exclusively.</li>
+					<li>A mandatory session rekey using ML-KEM-1024 exclusively.</li>
+				</ul>
+					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces the completion of both steps before transitioning the session to an operational state. Until session setup completes, the following applies.				<ul>
+				<li>All <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> packets are dropped by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</li>
+				<li>All non-transaction packets received from the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> are dropped.</li>
+			</ul>
+			
+			<h5 class="indexable" data-level="5" id="Rekey_Operations">1.3.2.4.7 Rekey Operations</h5>
+			<b>Rekey Scheduling</b><br/>
+			<p>Following session establishment, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces periodic rekey operations at configurable intervals between 2 and 30 minutes.</p>
+			Rekey operations may be initiated by either <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and may be performed by either of the following methods:<ul>
+				<li>Asynchronously while <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic continues.</li>
+				<li>Synchronously with <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic paused.</li>
+			</ul>
+			
+			<b>Rekey Modes</b><br/>
+				The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports the following rekey mechanisms.<ul>
+					<li>Dual rekey transactions initiated independently by each <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and combined using HKDF</li>
+					<li>Alternating rekey transactions, where EUs take turns initiating rekey operations</li>
+				</ul>
+				In all cases, the following applies.<ul>
+					<li>The final session key is derived from the current key store and newly derived shared secrets.</li>
+					<li>The replaced session key is securely destroyed.</li>
+				</ul>			
+			
+			<h5 class="indexable" data-level="5" id="Session_Key_Recovery">1.3.2.4.8 Session Key Recovery</h5>
+			<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports a session key recovery transaction to resynchronize session state in the event of key divergence.</p>
+			During key recovery, the following applies.<ul>
+				<li><abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic is suppressed.</li>
+				<li>Recovery keys are periodically refreshed using HKDF.</li>
+				<li>Recovery keys are not static values.</li>
+			</ul>
+				Upon successful resynchronization, the following applies.<ul>
+				<li>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs a new session setup transaction.</li>
+				<li>A new recovery key replaces the previous recovery key prior to resuming <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic.</li></ul>
+				<p>If key recovery does not converge within a defined timeout, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> terminates the session.</p>
+				<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not provide any mechanism to offload cryptographic keys. Channel recovery is performed only through reprovisioning or ERD replacement.</p>
+			
+			<h5 class="indexable" data-level="5" id="Traffic_Isolation_and_Interface_Filtering">1.3.2.4.9 Traffic Isolation and Interface Filtering</h5>
+			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces strict isolation between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, and <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> interfaces.<ul>
+			<li><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> interfaces IC1 and IC3 are non-addressable.</li>
+			<li>The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> accepts only a single, fixed-offset packet signature from the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.</li>
+			<li>All unexpected or malformed packets are dropped prior to reaching the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol stack.</li>
+			<li>The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> does not respond to invalid packets from the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>.</li>
+			<li>All packets received from the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> are encapsulated and forwarded to the peer <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</li>
+			</ul>
+			
+			
+			<h5 class="indexable" data-level="5" id="Dead_Peer_Detection_and_Persona_Enforcement">1.3.2.4.10 Dead Peer Detection and Persona Enforcement</h5>
+				<p>Each <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> implements dead peer detection using either <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3706 mechanisms or a keep-alive beacon.</p>
+				<p>When a dead peer is detected, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> transitions to a session setup state.</p>
+			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> persona roles as follows.<ul>
+				<li>A client persona initiates session setup.</li>
+				<li>A server persona waits for session initiation.</li>
+			</ul>
+			
+			
+			<h5 class="indexable" data-level="5" id="Logging_and_Audit">1.3.2.4.11 Logging and Audit</h5>
+			<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> maintains separate logs for the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.</p>
+			<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> logs are as follows.<ul>
+				<li>Timestamped</li>
+				<li>Stored on persistent storage</li>
+				<li>Record the execution of provisioning, session setup, session termination, rekey, and key recovery</li>
+				<li>Size-limited and rotated</li>
+				<li>Conform to <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3194, <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5424, or an equivalent syslog standard</li>
+				<li>May be streamed via a console interface or retrieved using a vendor-defined mechanism</li>
+			</ul>
+			
+			<h5 class="indexable" data-level="5" id="Platform_and_Operational_Environment_Enforcement">1.3.2.4.12 Platform and Operational Environment Enforcement</h5>
+			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces platform separation such that the following is true:<ul>
+			<li>The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> do not share computation infrastructure.</li>
+			<li>Only a stateless, connectionless bus is shared.</li>
+			<li>Bus mastering is controlled by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</li>
+			</ul>
+				<p>The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> executes transaction processing at non-root privilege on a minimal operating system providing only timers, interface handling, and
+					inter-process</p>
+				communication.
+				<p>Unused peripherals are disabled, unused pins are terminated, and power supplies are isolated or filtered.</p>
+			
+			
+			<h5 class="indexable" data-level="5" id="Bring-Up_and_Multi-Factor_Activation">1.3.2.4.13 Bring-Up and Multi-Factor Activation</h5>
+			<p>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces PIN- or CIK-based gating such that no traffic flows until activation credentials are provided.</p>  
+			Multi-factor activation includes the following.<ul>
+			<li>A user password to activate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> cryptographic functions.</li>
+			<li>A removable media or keyboard entry combined with device authentication to boot the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.</li>
+				</ul>
+			
 		
 	
 		 	
@@ -2217,9 +2410,9 @@ The following sections list Common Criteria and technology terms used in this do
 				</dd><p></p><dd>The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a 
 					<abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>:
 					<ul><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for MACsec Ethernet Encryption, Version 2.0</li><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for VPN Client, Version 3.0</li><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for WLAN Clients, Version 2.0</li></ul></dd><dt>Package Claim</dt><p></p><dd><ul><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is 
-					    Functional Package for Secure Shell (<abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr>), Version 2.0 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is 
-					    Functional Package for Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>), Version 2.0 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is 
-					    Functional Package for X.509, Version 1.0 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not conform to any 
+					Functional Package for Secure Shell (<abbr class="dyn-abbr"><a href="#abbr_SSH">SSH</a></abbr>), Version 2.0 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is 
+					Functional Package for Transport Layer Security (<abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr>), Version 2.0 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is 
+					Functional Package for X.509, Version 1.0 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not conform to any 
 						assurance packages.</li></ul></dd><p></p><dd>
 		The functional packages to which the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> conforms may include <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that are not mandatory 
 		to claim for the sake of conformance. An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims one or more of these functional 
@@ -2599,7 +2792,9 @@ The following sections list Common Criteria and technology terms used in this do
 	 					administrator to delete audit records, if such a capability is implemented.
 	 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 	 					The evaluator shall perform the following tests:
-	 					<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FAU_STG.2:1</a>:
+	 					:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FAU_STG.2:1</a>:
       
 	 							[conditional] If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements an audit record deletion capability, then
 	 							the evaluator shall attempt to delete the audit trail in a manner that the access 
@@ -2816,7 +3011,9 @@ The following sections list Common Criteria and technology terms used in this do
 						operations are treated in the same manner. The devices used with the tooling may
 						need to be non-production devices in order to enable the execution of testing and gathering of
 						evidence.<p></p>
-						<span class="testlist-"><p></p><p></p><p></p><ul><li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FCS_STG_EXT.1:1</a>:
+						:
+
+    <span class="testlist-"><p></p><p></p><p></p><ul><li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FCS_STG_EXT.1:1</a>:
       
 								The evaluator shall import or generate keys and secrets of each supported type
 								according to the operational guidance. The evaluator shall write, or the developer
@@ -3477,7 +3674,9 @@ The following sections list Common Criteria and technology terms used in this do
     					The operational guidance associated with this requirement is assessed in the subsequent test EAs.
     				</div>
     				<div class="eacategory">Tests</div><div class="ea">
-    					<span class="testlist-"><p></p><p></p>
+    					:
+
+    <span class="testlist-"><p></p><p></p>
     						Note: The remaining testing associated with application of the ruleset is addressed in the subsequent test EAs.
     					<ul><li class="test-"><a id="_t_110" class="defined" href="#_t_110">Test FPF_RUL_EXT.1.1:1</a>:
       
@@ -3557,7 +3756,9 @@ The following sections list Common Criteria and technology terms used in this do
     					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> evaluation.
     				</div>
     				<div class="eacategory">Tests</div><div class="ea">
-    					<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_112" class="defined" href="#_t_112">Test FPF_RUL_EXT.1.4:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_112" class="defined" href="#_t_112">Test FPF_RUL_EXT.1.4:1</a>:
       
     							The evaluator shall use the instructions in the operational guidance to test that packet filter rules can be created that permit, 
     							discard, and log packets for each of the following attributes:
@@ -3600,7 +3801,9 @@ The following sections list Common Criteria and technology terms used in this do
     					provides the necessary instructions so that an administrator can configure the order of rule processing.
     				</div>
     				<div class="eacategory">Tests</div><div class="ea">
-    					<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_114" class="defined" href="#_t_114">Test FPF_RUL_EXT.1.5:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_114" class="defined" href="#_t_114">Test FPF_RUL_EXT.1.5:1</a>:
       
     							The evaluator shall devise two equal packet filtering rules with alternate operations – permit and discard. The rules
     							should then be deployed in two distinct orders and in each case the evaluator shall ensure that the first rule is enforced
@@ -3626,7 +3829,9 @@ The following sections list Common Criteria and technology terms used in this do
 						guidance describes the range of IPv4 and IPv6 protocols supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
 					</div>
     				<div class="eacategory">Tests</div><div class="ea">
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_116" class="defined" href="#_t_116">Test FPF_RUL_EXT.1.6:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_116" class="defined" href="#_t_116">Test FPF_RUL_EXT.1.6:1</a>:
       
     							The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to permit and log each supported IPv4 Transport Layer Protocol (see <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> Values for 
     							IPv4 and IPv6 table for full possible list) in conjunction with a specific source address and specific destination address,
@@ -4008,7 +4213,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following test:
-    					<span class="testlist-"><p></p><ul><li class="test-"><a id="_t_126" class="defined" href="#_t_126">Test FPT_APW_EXT.1:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><ul><li class="test-"><a id="_t_126" class="defined" href="#_t_126">Test FPT_APW_EXT.1:1</a>:
        
     							The evaluator shall use forensic tools to search storage media
     							to verify that passwords cannot be found in an unobscured (e.g.,
@@ -4123,7 +4330,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall perform the following tests. Where direct manipulation of low-level initialization conditions is not practical on production
     					hardware, the evaluator may use developer-provided test mechanisms or representative test configurations sufficient to exercise the claimed behavior.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_136" class="defined" href="#_t_136">Test FPT_INI.1:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_136" class="defined" href="#_t_136">Test FPT_INI.1:1</a>:
       Successful initialization to secure initial state: The evaluator shall initialize or power on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in its claimed configuration and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> completes initialization and establishes the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> in the secure initial state described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior is consistent with the applicable Table 2 properties claimed for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</li><li class="test-"><a id="_t_137" class="defined" href="#_t_137">Test FPT_INI.1:2</a>:
       Initialization function integrity/authenticity protection: 
     					The evaluator shall attempt, using an appropriate developer-supported test method or representative test setup, to cause execution of a modified, substituted, or otherwise unauthentic initialization function. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> detects the condition and responds in accordance with <a href="#FPT_INI.1.3">FPT_INI.1.3</a> rather than establishing the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> in a secure initial state.</li><li class="test-"><a id="_t_138" class="defined" href="#_t_138">Test FPT_INI.1:3</a>:
@@ -4168,7 +4377,9 @@ The following sections list Common Criteria and technology terms used in this do
     					If control access by a signing key is selected: The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine how access to the JTAG is controlled by a 							signing key. The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine when the JTAG can be accessed, i.e., what has the access to the signing key.
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-    					<span class="testlist-"><p></p><ul><li class="test-"><a id="_t_147" class="defined" href="#_t_147">Test FPT_JTA_EXT.1:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><ul><li class="test-"><a id="_t_147" class="defined" href="#_t_147">Test FPT_JTA_EXT.1:1</a>:
       
     							<b>Evaluation Activity Note:</b> The following test requires the developer to provide access to a test platform that provides 
     							the evaluator with chip level access.<p></p>
@@ -4313,7 +4524,9 @@ The following sections list Common Criteria and technology terms used in this do
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					<b>Evaluation Activity Note:</b> The following test require the developer to
     					provide access to a test platform that provides the evaluator with tools that are
-    					typically not found on consumer Mobile Device products. <span class="testlist-"><p></p><ul><li class="test-"><a id="_t_148" class="defined" href="#_t_148">Test FPT_NOT_EXT.1:1</a>:
+    					typically not found on consumer Mobile Device products. :
+
+    <span class="testlist-"><p></p><ul><li class="test-"><a id="_t_148" class="defined" href="#_t_148">Test FPT_NOT_EXT.1:1</a>:
       The evaluator shall use a tool provided by the developer to modify files and
     							processes in the system that correspond to critical failures specified in the
     							second list. The evaluator shall verify that creating these critical failures
@@ -4451,7 +4664,9 @@ The following sections list Common Criteria and technology terms used in this do
     					The evaluator shall ensure that a description is provided on how the user should interpret the error codes.
     				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following test:
-    					<span class="testlist-"><p></p><ul><li class="test-"><a id="_t_151" class="defined" href="#_t_151">Test FPT_RBP_EXT.1:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><ul><li class="test-"><a id="_t_151" class="defined" href="#_t_151">Test FPT_RBP_EXT.1:1</a>:
       
     							The evaluator shall try installing a lower security version number upgrade (either by just modifying the
     							version number or by using an upgrade provided by the vendor) and will verify that the lower version cannot
@@ -4502,7 +4717,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests. Where inducing a specific low-level failure is not practical on production hardware or software, the
     					evaluator may use developer-supported test mechanisms or representative test configurations sufficient to demonstrate the claimed behavior.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_157" class="defined" href="#_t_157">Test FPT_RCV.2:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_157" class="defined" href="#_t_157">Test FPT_RCV.2:1</a>:
       
     							Entry into maintenance mode when automated recovery is not possible: For one or more claimed failures or service discontinuities from which
     							automated recovery is not possible, the evaluator shall induce the condition and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enters maintenance mode.
@@ -4677,7 +4894,9 @@ The following sections list Common Criteria and technology terms used in this do
     					support this requirement.
     				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following test:
-    					<span class="testlist-"><p></p><ul><li class="test-"><a id="_t_169" class="defined" href="#_t_169">Test FPT_SKP_EXT.1:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><ul><li class="test-"><a id="_t_169" class="defined" href="#_t_169">Test FPT_SKP_EXT.1:1</a>:
       
     							The evaluator shall assume each of the non-administrator
     							roles supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and shall attempt to use the available
@@ -4917,7 +5136,9 @@ The following sections list Common Criteria and technology terms used in this do
 	    				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 	    					The evaluator shall perform the following tests for each claimed remote interactive administrative session type, or for a representative set where
 	    					the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance show that the same mechanism is used.
-	    					<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_190" class="defined" href="#_t_190">Test FTA_SSL.3:1</a>:
+	    					:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_190" class="defined" href="#_t_190">Test FTA_SSL.3:1</a>:
       
 	    							Timeout configuration: The evaluator shall configure the inactivity timeout for a remote interactive administrative session in accordance
 	    							with the operational guidance and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> accepts the configured value.	    							
@@ -4957,7 +5178,9 @@ The following sections list Common Criteria and technology terms used in this do
 	    				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 	    					The evaluator shall perform the following tests for each claimed administrator interactive session type, or for a representative set where the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
 	    					and guidance show that the same mechanism is used.
-	    					<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_192" class="defined" href="#_t_192">Test FTA_SSL.4:1</a>:
+	    					:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_192" class="defined" href="#_t_192">Test FTA_SSL.4:1</a>:
       Administrator-initiated session termination: The evaluator shall establish an administrator interactive session and invoke the documented mechanism to terminate that session. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> terminates the session.</li><li class="test-"><a id="_t_193" class="defined" href="#_t_193">Test FTA_SSL.4:2</a>:
       Terminated session cannot continue to be used: Following administrator-initiated termination of the session, the evaluator shall verify that the prior session can no longer be used as an authenticated interactive session without establishing a new authenticated session.</li></ul></span>
 	    					
@@ -5005,7 +5228,9 @@ The following sections list Common Criteria and technology terms used in this do
 	    					setting the inactivity interval and of commanding a lock. The evaluator shall verify
 	    					that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the information allowed to be displayed to unauthorized
 	    					users.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-	    					<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_194" class="defined" href="#_t_194">Test FTA_SSL_EXT.1:1</a>:
+	    					:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_194" class="defined" href="#_t_194">Test FTA_SSL_EXT.1:1</a>:
       The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to transition to the locked state
 	    							after a time of inactivity (FMT_SMF_EXT.1) according to the AGD guidance. The
 	    							evaluator shall wait until the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> locks and verify that the display is cleared
@@ -5031,7 +5256,9 @@ The following sections list Common Criteria and technology terms used in this do
 	    				
 	    				
 	    				
-	    			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea"> The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> shall describe when the banner is displayed.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance evaluation activities for this component.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> The evaluator shall also perform the following test: <span class="testlist-"><p></p><ul><li class="test-"><a id="_t_196" class="defined" href="#_t_196">Test FTA_TAB.1:1</a>:
+	    			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea"> The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> shall describe when the banner is displayed.</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance evaluation activities for this component.</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> The evaluator shall also perform the following test: :
+
+    <span class="testlist-"><p></p><ul><li class="test-"><a id="_t_196" class="defined" href="#_t_196">Test FTA_TAB.1:1</a>:
       The evaluator follows the operational guidance to configure a notice and
 	    						consent warning message. The evaluator shall then start up or unlock the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
 	    						The evaluator shall verify that the notice and consent warning message is
@@ -5085,7 +5312,9 @@ The following sections list Common Criteria and technology terms used in this do
       			</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
       				The evaluator shall perform the following tests for each claimed trusted-channel mechanism, or for a representative set where the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance show that the same mechanism is used.
-      				<span class="testlist-"><p></p><p></p><p></p><p></p>
+      				:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p>
       				One or more of these tests may be combined where appropriate.
       				<ul><li class="test-"><a id="_t_197" class="defined" href="#_t_197">Test FTP_ITC.1:1</a>:
       Trusted-channel establishment to each claimed endpoint type: The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to communicate with each trusted authorized <abbr class="dyn-abbr"><a href="#abbr_IT">IT</a></abbr> entity type identified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> establishes the selected trusted channel for the claimed capability or capabilities. Where protocol-specific evaluation activities already exist for the selected mechanism, those activities may satisfy or contribute to this test.</li><li class="test-"><a id="_t_198" class="defined" href="#_t_198">Test FTP_ITC.1:2</a>:
@@ -6140,7 +6369,9 @@ The following sections list Common Criteria and technology terms used in this do
     					or administrators that it has detected tampering.
     				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests:
-    					<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_149" class="defined" href="#_t_149">Test FPT_PHP.2:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_149" class="defined" href="#_t_149">Test FPT_PHP.2:1</a>:
       
     							The evaluator shall verify that attempts to open the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enclosure  
     							result in indications consistent with the operational guidance. Such indications 
@@ -6219,7 +6450,9 @@ The following sections list Common Criteria and technology terms used in this do
 	 				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 	 					The evaluator shall perform the following tests.
-	 					<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FAU_GEN.1/PFED:1</a>:
+	 					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FAU_GEN.1/PFED:1</a>:
       
 	 					Provisioning audit generation: The evaluator shall cause <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning to occur and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generates an audit record for the
 	 					provisioning event.</li><li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FAU_GEN.1/PFED:2</a>:
@@ -6259,7 +6492,9 @@ The following sections list Common Criteria and technology terms used in this do
 	 				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 	 					The evaluator shall perform the following tests.
-	 					<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FAU_GEN.2/PFED:1</a>:
+	 					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FAU_GEN.2/PFED:1</a>:
       
 	 							Provisioning identity association: The evaluator shall cause <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning to occur and verify that the generated audit record is associated with the initiating <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> identity in accordance with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance.	 							
 	 						</li><li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FAU_GEN.2/PFED:2</a>:
@@ -6300,7 +6535,9 @@ The following sections list Common Criteria and technology terms used in this do
 	 				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 	 					The evaluator shall perform the following tests:
-	 					<span class="testlist-"><p></p><p></p><p></p><ul><li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FAU_STG.1/PFED:1</a>:
+	 					:
+
+    <span class="testlist-"><p></p><p></p><p></p><ul><li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FAU_STG.1/PFED:1</a>:
       
 	 							Stored audit record generation and persistence: The evaluator shall cause one or more <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> auditable events to occur and verify that corresponding audit records are stored in the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> audit storage described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance.	 							
 	 						</li><li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FAU_STG.1/PFED:2</a>:
@@ -6417,7 +6654,9 @@ The following sections list Common Criteria and technology terms used in this do
 						The evaluator shall determine that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> description is consistent with the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> appendix, including the PSK-based temporary provisioning tunnel, ML-DSA public-key exchange during provisioning completion, mandatory ML-KEM-1024 rekey during session setup, and subsequent rekey/recovery behavior using newly derived shared secrets.
 					</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall perform the following tests according to the selections claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.
-					<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCS_CKM.2/PFED:1</a>:
+					:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCS_CKM.2/PFED:1</a>:
       
 							Key encapsulation selection: If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims key encapsulation, the evaluator shall invoke or otherwise cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to perform <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> key establishment using the claimed encapsulation-based method and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses key encapsulation for the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> transaction or phase identified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>. Where the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> design relies on ML-KEM during session setup, the evaluator shall verify that the observed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior is consistent with that claim.							
 						</li><li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FCS_CKM.2/PFED:2</a>:
@@ -6494,7 +6733,9 @@ The following sections list Common Criteria and technology terms used in this do
 						</ul>	
 					</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall perform the following tests. Where direct observation of low-level key material is not practical, the evaluator may rely on observable <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, supported test interfaces, developer evidence, or other evaluation evidence sufficient to determine that destruction occurred at the claimed point.
-						<span class="testlist-"><p></p><p></p><p></p><ul><li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FCS_CKM.6/PFED:1</a>:
+						:
+
+    <span class="testlist-"><p></p><p></p><p></p><ul><li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FCS_CKM.6/PFED:1</a>:
       
 								Tunnel-0 PSK destruction: The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to complete the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> flow that transitions from tunnel-0 to tunnel-1 and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior is consistent with:<ul>
 						<li>teardown of tunnel-0, and</li> 
@@ -7221,7 +7462,9 @@ The following sections list Common Criteria and technology terms used in this do
 					</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following tests.
-						<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FCS_REC_EXT.1/PFED:1</a>:
+						:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FCS_REC_EXT.1/PFED:1</a>:
       Entry into recovery and traffic suppression: The evaluator shall cause a <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> condition requiring session key recovery, such as session key divergence as described by the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> recovery model and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enters recovery and suppresses <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic during the recovery process.</li><li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FCS_REC_EXT.1/PFED:2</a>:
       Recovery-key refresh behavior: The evaluator shall observe or otherwise verify, through <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, supported interfaces, traces, or developer evidence, that recovery keys are refreshed at the same rate as session keys and are not static values.</li><li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FCS_REC_EXT.1/PFED:3</a>:
       Recovery-key derivation inputs: The evaluator shall verify, through <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, supported interfaces, traces, or developer evidence, that recovery keys are derived via HKDF and that the derivation includes the current session key and new session key, as claimed in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and required by the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>.</li><li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_REC_EXT.1/PFED:4</a>:
@@ -7280,7 +7523,9 @@ The following sections list Common Criteria and technology terms used in this do
 						</ul>
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following tests.
-						<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FCS_REKEY_EXT.1/PFED:1</a>:
+						:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FCS_REKEY_EXT.1/PFED:1</a>:
       Rekey interval configuration: The evaluator shall configure the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> rekey interval in accordance with the operational guidance and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> accepts only values within the claimed range of 2 to 30 minutes. The evaluator shall also verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> rejects values outside the claimed range, if configuration validation is exposed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</li><li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FCS_REKEY_EXT.1/PFED:2</a>:
       Periodic rekey occurrence: The evaluator shall cause a <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session to be established, configure a rekey interval within the claimed range, and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs periodic rekey in accordance with that configured interval.</li><li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FCS_REKEY_EXT.1/PFED:3</a>:
       ML-KEM-1024-only rekey: The evaluator shall verify, through <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, supported interfaces, traces, metadata, or developer evidence, that <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> rekey uses ML-KEM-1024 and does not rely on a different algorithm or ML-KEM parameter set to satisfy this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. </li><li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FCS_REKEY_EXT.1/PFED:4</a>:
@@ -7338,7 +7583,9 @@ The following sections list Common Criteria and technology terms used in this do
 							</ul>
 						</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests.
-							<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FDP_BRINGUP_EXT.1:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FDP_BRINGUP_EXT.1:1</a>:
       Traffic blocked before credential provision: The evaluator shall place the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in a pre-bring-up state and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> prevents traffic flow before the required PIN or CIK credential is supplied. This aligns with the requirement text and Appendix H’s statement that no traffic flows until activation credentials are provided. </li><li class="test-"><a id="_t_43" class="defined" href="#_t_43">Test FDP_BRINGUP_EXT.1:2</a>:
       Traffic remains blocked until session setup and authentication complete: After providing the required PIN or CIK credential, the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> continues to prevent traffic flow until session setup and authentication complete. This aligns with the requirement text and the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> mutual-authentication requirement elsewhere in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.</li><li class="test-"><a id="_t_44" class="defined" href="#_t_44">Test FDP_BRINGUP_EXT.1:3</a>:
       Traffic permitted after successful bring-up: The evaluator shall provide the required credential and cause session setup and authentication to complete successfully, then verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> permits traffic flow only after those conditions have been satisfied.</li><li class="test-"><a id="_t_45" class="defined" href="#_t_45">Test FDP_BRINGUP_EXT.1:4</a>:
@@ -7381,7 +7628,9 @@ The following sections list Common Criteria and technology terms used in this do
 						</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests.
-							<span class="testlist-"><p></p><p></p><p></p><p></p>
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p>
 							If <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> is implemented by <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>: <p></p><p></p><p></p>
 							These tests may be combined where appropriate. The purpose of this evaluation is to confirm that the covered <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> packet flows fall within the scope of <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-enforced information flow control, not to exhaustively test all attribute-based permit and deny logic that is addressed by the related <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> function requirements.
 							<ul><li class="test-"><a id="_t_47" class="defined" href="#_t_47">Test FDP_IFC.1/CU:1</a>:
@@ -7465,7 +7714,9 @@ The following sections list Common Criteria and technology terms used in this do
 						</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests.
-							<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_52" class="defined" href="#_t_52">Test FDP_IFC.1/PFED:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_52" class="defined" href="#_t_52">Test FDP_IFC.1/PFED:1</a>:
       <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic blocked before session readiness: The evaluator shall place the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in a <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> pre-operational state and verify that <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic is blocked before authentication and the required rekey complete.</li><li class="test-"><a id="_t_53" class="defined" href="#_t_53">Test FDP_IFC.1/PFED:2</a>:
       <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic released only after authentication and rekey complete: The evaluator shall complete the claimed <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> authentication and required rekey steps and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> permits <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic only after those conditions have been satisfied.</li><li class="test-"><a id="_t_54" class="defined" href="#_t_54">Test FDP_IFC.1/PFED:3</a>:
       <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic confined to protected tunnel: The evaluator shall cause <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic to flow through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> after secure session readiness is achieved and verify that the traffic is carried within the claimed <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM-256 protected session tunnel, consistent with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance.</li><li class="test-"><a id="_t_55" class="defined" href="#_t_55">Test FDP_IFC.1/PFED:4</a>:
@@ -7552,7 +7803,9 @@ The following sections list Common Criteria and technology terms used in this do
 							</ul>
 						</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests.
-							<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_57" class="defined" href="#_t_57">Test FDP_IFF.1/CU:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_57" class="defined" href="#_t_57">Test FDP_IFF.1/CU:1</a>:
       Permit rule enforcement: The evaluator shall configure one or more explicit allow rules using the claimed <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> policy attributes and generate packets whose ingress interface, egress interface, source address, destination address, protocol, and ports, if applicable, satisfy those rules. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> permits the information flow between the untrusted interface and the trusted interface only when the claimed attribute relationships hold.</li><li class="test-"><a id="_t_58" class="defined" href="#_t_58">Test FDP_IFF.1/CU:2</a>:
       Deny on no allow-rule match: The evaluator shall generate packets received on an untrusted black transport network interface and destined for a trusted interface that do not match any explicitly configured allow rule. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> denies the information flow, as required by <a href="#FDP_IFF.1.3/CU">FDP_IFF.1.3/CU</a>.</li><li class="test-"><a id="_t_59" class="defined" href="#_t_59">Test FDP_IFF.1/CU:3</a>:
       Attribute variation: For one or more representative allow rules, the evaluator shall vary one or more attributes while keeping the others constant, such as ingress interface, destination address, protocol, or transport-layer port, and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s permit or deny decision changes only in accordance with the configured policy.</li><li class="test-"><a id="_t_60" class="defined" href="#_t_60">Test FDP_IFF.1/CU:4</a>:
@@ -7622,7 +7875,9 @@ The following sections list Common Criteria and technology terms used in this do
 						</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests.
-							<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_62" class="defined" href="#_t_62">Test FDP_IFF.1/HWS:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_62" class="defined" href="#_t_62">Test FDP_IFF.1/HWS:1</a>:
       Dedicated wired interface exclusivity: The evaluator shall verify that communication between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> occurs only over the dedicated wired interface identified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and that no other interface is permitted for that information flow. </li><li class="test-"><a id="_t_63" class="defined" href="#_t_63">Test FDP_IFF.1/HWS:2</a>:
       No shared memory path: The evaluator shall verify, through examination of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, configuration, supported test interfaces, or developer evidence, that the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> do not communicate through logical or physical shared memory. </li><li class="test-"><a id="_t_64" class="defined" href="#_t_64">Test FDP_IFF.1/HWS:3</a>:
       Independent processor execution: The evaluator shall verify, through examination of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, configuration, supported test interfaces, or developer evidence, that the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> execute on independent processors as claimed in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>. </li><li class="test-"><a id="_t_65" class="defined" href="#_t_65">Test FDP_IFF.1/HWS:4</a>:
@@ -7669,7 +7924,9 @@ The following sections list Common Criteria and technology terms used in this do
 						</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests.
-							<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_68" class="defined" href="#_t_68">Test FDP_IFF.1/PFED:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_68" class="defined" href="#_t_68">Test FDP_IFF.1/PFED:1</a>:
       Acceptance of only the expected packet type: The evaluator shall present the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> with a packet matching the claimed expected packet type at the claimed fixed offsets and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> accepts that packet for the intended <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> processing path.</li><li class="test-"><a id="_t_69" class="defined" href="#_t_69">Test FDP_IFF.1/PFED:2</a>:
       Rejection of malformed, unexpected, or out-of-context packets: The evaluator shall present malformed packets, unexpected packet types, and out-of-context packets on the covered interface or path and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> drops them. </li><li class="test-"><a id="_t_70" class="defined" href="#_t_70">Test FDP_IFF.1/PFED:3</a>:
       Pre-stack rejection behavior: The evaluator shall verify, through <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, supported test interfaces, traces, or developer evidence that rejected packets are dropped prior to reaching the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol stack or equivalent higher-layer packet processing path. </li><li class="test-"><a id="_t_71" class="defined" href="#_t_71">Test FDP_IFF.1/PFED:4</a>:
@@ -7741,7 +7998,9 @@ The following sections list Common Criteria and technology terms used in this do
 						</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests.
-							<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_74" class="defined" href="#_t_74">Test FDP_PBR_EXT.1:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_74" class="defined" href="#_t_74">Test FDP_PBR_EXT.1:1</a>:
       Layer-2 protocol break for unprotected traffic: The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to forward traffic that is not protected by Ethernet-layer cryptographic mechanisms between an untrusted black transport network interface and a trusted interface and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs a Layer-2 protocol break. The evaluator shall verify that the incoming Layer-2 header and associated Layer-2 control information are removed and that a new Layer-2 header is applied before transmission on the egress interface. </li><li class="test-"><a id="_t_75" class="defined" href="#_t_75">Test FDP_PBR_EXT.1:2</a>:
       No transparent Layer-2 bridging: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not transparently bridge unprotected traffic between trusted and untrusted black-side interfaces without the required protocol break. This may be combined with Test 1 if the observed behavior is sufficient to show that unchanged Layer-2 forwarding is not performed. </li><li class="test-"><a id="_t_76" class="defined" href="#_t_76">Test FDP_PBR_EXT.1:3</a>:
       Forwarding of already protected Ethernet traffic: The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to forward Ethernet frames that contain cryptographic protection applied by a trusted component and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> forwards them without removing, modifying, or replacing the protected Layer-2 header. </li><li class="test-"><a id="_t_77" class="defined" href="#_t_77">Test FDP_PBR_EXT.1:4</a>:
@@ -7789,7 +8048,9 @@ The following sections list Common Criteria and technology terms used in this do
 							
 						</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests.
-							<span class="testlist-"><p></p><p></p><p></p><ul><li class="test-"><a id="_t_79" class="defined" href="#_t_79">Test FIA_AFL.1/PFED:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><ul><li class="test-"><a id="_t_79" class="defined" href="#_t_79">Test FIA_AFL.1/PFED:1</a>:
       Client persona initiates session setup: The evaluator shall configure or place the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in a client persona role and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> initiates session setup in accordance with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance.</li><li class="test-"><a id="_t_80" class="defined" href="#_t_80">Test FIA_AFL.1/PFED:2</a>:
       Server persona waits for initiation: The evaluator shall configure or place the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in a server persona role and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> waits for session setup initiation and does not initiate session setup on its own. </li><li class="test-"><a id="_t_81" class="defined" href="#_t_81">Test FIA_AFL.1/PFED:3</a>:
       Persona enforcement after session reset or dead-peer event: If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims persona enforcement after dead-peer detection or session reset, the evaluator shall cause such a condition and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> continues to enforce the assigned persona behavior during the resulting session setup state. </li></ul></span>							
@@ -7840,7 +8101,9 @@ The following sections list Common Criteria and technology terms used in this do
 							
 						</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests.
-							<span class="testlist-"><p></p><p></p><p></p>
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p>
 								Where direct observation of low-level PSK lifecycle behavior is not practical, the evaluator may rely on observable <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, supported test interfaces, traces, or developer evidence sufficient to determine that PSK support is limited to the tunnel-0 bootstrap role.
 							<ul><li class="test-"><a id="_t_86" class="defined" href="#_t_86">Test FIA_PSK_EXT.1/PFED:1</a>:
        PSK use for tunnel-0 bootstrap: The evaluator shall configure or provision the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> bootstrap and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports use of the PSK to establish tunnel-0 for the bootstrap phase. This aligns with Appendix H.3.1. </li><li class="test-"><a id="_t_87" class="defined" href="#_t_87">Test FIA_PSK_EXT.1/PFED:2</a>:
@@ -7881,7 +8144,9 @@ The following sections list Common Criteria and technology terms used in this do
 							
 						</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-							<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_89" class="defined" href="#_t_89">Test FIA_UAU.2/PFED:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_89" class="defined" href="#_t_89">Test FIA_UAU.2/PFED:1</a>:
       Successful mutual authentication before <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic: The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to perform <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session setup and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> completes mutual authentication between <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> peers using ML-DSA-87 before permitting <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic. This test shall confirm that <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic is not released prior to successful completion of the authentication step.</li><li class="test-"><a id="_t_90" class="defined" href="#_t_90">Test FIA_UAU.2/PFED:2</a>:
       Authentication failure blocks <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic: The evaluator shall cause the mutual-authentication step to fail or remain incomplete and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not permit <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic. </li><li class="test-"><a id="_t_91" class="defined" href="#_t_91">Test FIA_UAU.2/PFED:3</a>:
       Mutual, not unilateral, authentication: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> requires successful authentication of both <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> peers and does not treat one-way or partial authentication success as sufficient to permit <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic. </li><li class="test-"><a id="_t_92" class="defined" href="#_t_92">Test FIA_UAU.2/PFED:4</a>:
@@ -7934,7 +8199,9 @@ The following sections list Common Criteria and technology terms used in this do
 							
 						</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests.
-							<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_94" class="defined" href="#_t_94">Test FIA_UAU.3/PFED:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_94" class="defined" href="#_t_94">Test FIA_UAU.3/PFED:1</a>:
       ML-DSA-87 mutual-authentication mechanism supported: The evaluator shall invoke or otherwise cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to perform the claimed <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> mutual-authentication function and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports cryptographic mutual authentication using ML-DSA-87, consistent with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. This aligns with the posted <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> appendix session-setup section.</li><li class="test-"><a id="_t_95" class="defined" href="#_t_95">Test FIA_UAU.3/PFED:2</a>:
       Test 2: Additional user-activation mechanism supported: If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims an additional user-activation mechanism, the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports the selected mechanism, namely password, PIN, or CIK, consistent with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. This aligns with the posted <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> bring-up and multi-factor activation section. </li><li class="test-"><a id="_t_96" class="defined" href="#_t_96">Test FIA_UAU.3/PFED:3</a>:
       No unclaimed additional mechanism relied upon: If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> selects no other mechanism, the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not rely on an additional claimed user-activation mechanism to satisfy this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>.</li><li class="test-"><a id="_t_97" class="defined" href="#_t_97">Test FIA_UAU.3/PFED:4</a>:
@@ -7987,7 +8254,9 @@ The following sections list Common Criteria and technology terms used in this do
       					
       				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
       					The evaluator shall perform the following tests.
-      					<span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_106" class="defined" href="#_t_106">Test FMT_SMF.1/PFED:1</a>:
+      					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_106" class="defined" href="#_t_106">Test FMT_SMF.1/PFED:1</a>:
       Test 1: Provisioning management capability: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> provides the claimed capability to perform <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning management in accordance with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. </li><li class="test-"><a id="_t_107" class="defined" href="#_t_107">Test FMT_SMF.1/PFED:2</a>:
       Session setup management capability: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> provides the claimed capability to perform or control <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session setup in accordance with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance.</li><li class="test-"><a id="_t_108" class="defined" href="#_t_108">Test FMT_SMF.1/PFED:3</a>:
       Rekey configuration management capability: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> provides the claimed capability to configure or manage <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> rekey behavior in accordance with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance.</li><li class="test-"><a id="_t_109" class="defined" href="#_t_109">Test FMT_SMF.1/PFED:4</a>:
@@ -8038,7 +8307,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_127" class="defined" href="#_t_127">Test FPT_DPD_EXT.1:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_127" class="defined" href="#_t_127">Test FPT_DPD_EXT.1:1</a>:
        Peer failure detection: The evaluator shall cause peer failure or loss of liveness in the claimed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> context and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> detects the failure using the claimed mechanism, namely <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3706 or keep-alive beacons, consistent with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. The <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> appendix expressly permits either mechanism.</li><li class="test-"><a id="_t_128" class="defined" href="#_t_128">Test FPT_DPD_EXT.1:2</a>:
       Reconnect trigger on failure detection: Following peer-failure detection, the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> triggers session reconnect behavior in accordance with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. Where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> describes this as transition to a session setup state, the evaluator shall verify that behavior. The posted <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> appendix states that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> transitions to session setup after dead-peer detection.</li><li class="test-"><a id="_t_129" class="defined" href="#_t_129">Test FPT_DPD_EXT.1:3</a>:
       Disconnect-notification handling: If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> distinguishes a disconnect notification from ordinary liveness failure, the evaluator shall cause that condition and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> triggers session reconnect behavior as described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance.</li><li class="test-"><a id="_t_130" class="defined" href="#_t_130">Test FPT_DPD_EXT.1:4</a>:
@@ -8082,7 +8353,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_132" class="defined" href="#_t_132">Test FPT_FLS.1/PFED:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_132" class="defined" href="#_t_132">Test FPT_FLS.1/PFED:1</a>:
        Dead peer detected: The evaluator shall cause a dead-peer condition in the claimed <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> context and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> preserves a secure state by terminating the affected session. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> transitions to session setup following dead-peer detection, the evaluator shall verify that the prior session is no longer active for protected traffic use.</li><li class="test-"><a id="_t_133" class="defined" href="#_t_133">Test FPT_FLS.1/PFED:2</a>:
        Recovery failure: The evaluator shall cause <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> recovery not to converge in accordance with the claimed recovery-failure condition and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> terminates the affected session. </li><li class="test-"><a id="_t_134" class="defined" href="#_t_134">Test FPT_FLS.1/PFED:3</a>:
        Provisioning failure: The evaluator shall cause <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning to fail and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> terminates the affected bootstrap, provisional, or session state so that no protected operational session remains active. </li><li class="test-"><a id="_t_135" class="defined" href="#_t_135">Test FPT_FLS.1/PFED:4</a>:
@@ -8156,7 +8429,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_141" class="defined" href="#_t_141">Test FPT_ISO_EXT.1/PFED:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_141" class="defined" href="#_t_141">Test FPT_ISO_EXT.1/PFED:1</a>:
        No shared computation resources: The evaluator shall verify, through <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, supported interfaces, configuration evidence, or developer evidence, that the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> do not share computation resources in a manner inconsistent with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.</li><li class="test-"><a id="_t_142" class="defined" href="#_t_142">Test FPT_ISO_EXT.1/PFED:2</a>:
        <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> interfaces non-addressable and stateless: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> interfaces relevant to the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> design are non-addressable and stateless as described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. </li><li class="test-"><a id="_t_143" class="defined" href="#_t_143">Test FPT_ISO_EXT.1/PFED:3</a>:
        Network namespace isolation: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces isolated network namespaces between <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> consistent with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. </li><li class="test-"><a id="_t_144" class="defined" href="#_t_144">Test FPT_ISO_EXT.1/PFED:4</a>:
@@ -8211,7 +8486,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_152" class="defined" href="#_t_152">Test FPT_RCV.1/PFED:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_152" class="defined" href="#_t_152">Test FPT_RCV.1/PFED:1</a>:
        Dead peer causes secure recovery state: The evaluator shall cause a dead-peer condition in the claimed <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> context and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enters the secure recovery state. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> expresses that recovery state as or through transition to session setup, the evaluator shall verify that behavior is consistent with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. The posted <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> appendix states that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> transitions to session setup after dead-peer detection. </li><li class="test-"><a id="_t_153" class="defined" href="#_t_153">Test FPT_RCV.1/PFED:2</a>:
        Session key divergence causes secure recovery state: The evaluator shall cause or simulate session key divergence in the claimed <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> context and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enters the secure recovery state. </li><li class="test-"><a id="_t_154" class="defined" href="#_t_154">Test FPT_RCV.1/PFED:3</a>:
        Failed rekey causes secure recovery state: The evaluator shall cause a <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> rekey transaction to fail and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enters the secure recovery state. </li><li class="test-"><a id="_t_155" class="defined" href="#_t_155">Test FPT_RCV.1/PFED:4</a>:
@@ -8276,7 +8553,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_163" class="defined" href="#_t_163">Test FPT_SEP_EXT.1:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_163" class="defined" href="#_t_163">Test FPT_SEP_EXT.1:1</a>:
        Distinct processor enforcement: The evaluator shall verify, through <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> behavior, supported interfaces, platform evidence, or developer evidence, that the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> executes on a processor physically distinct from the processor used by the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>. </li><li class="test-"><a id="_t_164" class="defined" href="#_t_164">Test FPT_SEP_EXT.1:2</a>:
       Distinct memory enforcement: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> use physically distinct volatile and non-volatile memory resources. </li><li class="test-"><a id="_t_165" class="defined" href="#_t_165">Test FPT_SEP_EXT.1:3</a>:
       No shared memory: The evaluator shall verify that no shared memory exists between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>. </li><li class="test-"><a id="_t_166" class="defined" href="#_t_166">Test FPT_SEP_EXT.1:4</a>:
@@ -8322,7 +8601,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_170" class="defined" href="#_t_170">Test FPT_TRAN_EXT.1/PFED:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_170" class="defined" href="#_t_170">Test FPT_TRAN_EXT.1/PFED:1</a>:
        One transaction at a time: The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to begin one <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> transaction and then attempt to begin a second <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> transaction before the first has completed. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not allow both transactions to proceed concurrently. </li><li class="test-"><a id="_t_171" class="defined" href="#_t_171">Test FPT_TRAN_EXT.1/PFED:2</a>:
        No nested transactions: The evaluator shall attempt to invoke a <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> transaction while another <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> transaction is active in a way that would constitute nesting and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> prohibits the nested transaction. </li><li class="test-"><a id="_t_172" class="defined" href="#_t_172">Test FPT_TRAN_EXT.1/PFED:3</a>:
        Reaper timer enforcement: The evaluator shall cause a <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> transaction to remain incomplete past the claimed timeout condition and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces the reaper timer behavior described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. </li><li class="test-"><a id="_t_173" class="defined" href="#_t_173">Test FPT_TRAN_EXT.1/PFED:4</a>:
@@ -8361,7 +8642,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_175" class="defined" href="#_t_175">Test FPT_TST.1/PFED:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_175" class="defined" href="#_t_175">Test FPT_TST.1/PFED:1</a>:
       Cryptographic self-tests during initialization: The evaluator shall initialize or restart the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs the claimed self-tests of <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> cryptographic functions during initialization, consistent with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. </li><li class="test-"><a id="_t_176" class="defined" href="#_t_176">Test FPT_TST.1/PFED:2</a>:
       Hardware root-of-trust self-test during initialization: The evaluator shall initialize or restart the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs the claimed self-test or verification of the hardware root of trust during initialization, consistent with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. </li><li class="test-"><a id="_t_177" class="defined" href="#_t_177">Test FPT_TST.1/PFED:3</a>:
       Operational gating until self-tests complete: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not treat the covered <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> cryptographic functions or hardware root of trust as operationally available before the claimed initialization self-tests have completed successfully. </li><li class="test-"><a id="_t_178" class="defined" href="#_t_178">Test FPT_TST.1/PFED:4</a>:
@@ -8433,7 +8716,9 @@ The following sections list Common Criteria and technology terms used in this do
     				</ul>
     				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_201" class="defined" href="#_t_201">Test FTP_ITC.1/PFED:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_201" class="defined" href="#_t_201">Test FTP_ITC.1/PFED:1</a>:
       Establishment of <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> trusted channel: The evaluator shall configure or provision the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in accordance with the operational guidance and verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> establishes the claimed <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> trusted channel with a <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> peer consistent with the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. This test shall be consistent with the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> specification in Appendix H and the claimed <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> set. </li><li class="test-"><a id="_t_202" class="defined" href="#_t_202">Test FTP_ITC.1/PFED:2</a>:
       Logical distinction from other channels: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> trusted channel is logically distinct from other communication channels in the manner described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and guidance. </li><li class="test-"><a id="_t_203" class="defined" href="#_t_203">Test FTP_ITC.1/PFED:3</a>:
       Endpoint identification: The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> provides assured identification of the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> trusted-channel endpoints, consistent with the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> mutual-authentication model described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> and Appendix H. Appendix H.6 describes mutual authentication between ERDs using ML-DSA-87 as part of session setup. </li><li class="test-"><a id="_t_204" class="defined" href="#_t_204">Test FTP_ITC.1/PFED:4</a>:
@@ -9256,7 +9541,9 @@ The following sections list Common Criteria and technology terms used in this do
 							the evaluator shall utilize an appropriate development environment (e.g., a virtual machine) and development tools (debuggers,
 							simulators, etc.) to test that keys are cleared, including all copies of the key that may have been created internally by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 							during normal cryptographic processing with that key.</p>
-						<span class="testlist-"><p></p><p></p><p></p><ul><li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FCS_CKM.6:1</a>:
+						:
+
+    <span class="testlist-"><p></p><p></p><p></p><ul><li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FCS_CKM.6:1</a>:
        Applied to each key held as plaintext in volatile memory and subject to
 								destruction by overwrite by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (whether or not the plaintext value is
 								subsequently encrypted for storage in volatile or non-volatile memory). In the
@@ -11368,7 +11655,9 @@ The following sections list Common Criteria and technology terms used in this do
 				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">
 			There are no additional <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> evaluation activities for this component.<br/></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-						<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FCS_HTTPS_EXT.1:1</a>:
+						:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FCS_HTTPS_EXT.1:1</a>:
       The evaluator shall attempt to establish an <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr> connection with a
 								webserver, observe the traffic with a packet analyzer, and verify that the
 								connection succeeds and that the traffic is identified as <abbr class="dyn-abbr"><a href="#abbr_TLS">TLS</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_HTTPS">HTTPS</a></abbr>.<p></p>
@@ -12049,7 +12338,9 @@ The following sections list Common Criteria and technology terms used in this do
 							The evaluator shall configure the device with all authentication mechanisms 
 							selected in <a href="#FIA_UAU.5.1">FIA_UAU.5.1</a>, and configure a maximum number of unsuccessful authentication
 							attempts for each mechanism.<p></p>
-							<span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_82" class="defined" href="#_t_82">Test FIA_AFL_EXT.1:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_82" class="defined" href="#_t_82">Test FIA_AFL_EXT.1:1</a>:
       The evaluator shall for each authentication mechanism make 
 									unsuccessful authentication attempts until the maximum is exceeded and verify that
 									the number of failures corresponds to the configured maximum and that no further 
@@ -12113,7 +12404,9 @@ The following sections list Common Criteria and technology terms used in this do
 						</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 							The evaluator shall verify that configuration information for each authentication mechanism is addressed in the AGD guidance.
 						</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-							<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_99" class="defined" href="#_t_99">Test FIA_UAU.5:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_99" class="defined" href="#_t_99">Test FIA_UAU.5:1</a>:
       
 									For each authentication mechanism selected in <a href="#FIA_UAU.5.1">FIA_UAU.5.1</a>, the evaluator shall enable that mechanism and verify that it can be used to authenticate the user at the specified authentication factor interfaces.
 								</li><li class="test-"><a id="_t_100" class="defined" href="#_t_100">Test FIA_UAU.5:2</a>:
@@ -12159,7 +12452,9 @@ The following sections list Common Criteria and technology terms used in this do
 							AGD guidance and that user authentication input is obscured by default.
 						</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 							The evaluator shall perform the following tests:
-							<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_101" class="defined" href="#_t_101">Test FIA_UAU.7:1</a>:
+							:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_101" class="defined" href="#_t_101">Test FIA_UAU.7:1</a>:
       
 									The evaluator shall enter passwords on the device, including at least the Password
 									Authentication Factor at lockscreen, and verify that the password is not displayed
@@ -12213,7 +12508,9 @@ The following sections list Common Criteria and technology terms used in this do
 							<b>Evaluation Activity Note:</b> The following test require the developer to
 							provide access to a test platform that provides the evaluator with tools that are
 							typically not found on consumer Mobile Device products. <p></p>
-							<span class="testlist-"><p></p><br/><p></p><br/><p></p><ul><li class="test-"><a id="_t_103" class="defined" href="#_t_103">Test FIA_UAU_EXT.1:1</a>:
+							:
+
+    <span class="testlist-"><p></p><br/><p></p><br/><p></p><ul><li class="test-"><a id="_t_103" class="defined" href="#_t_103">Test FIA_UAU_EXT.1:1</a>:
       The evaluator shall enable encryption of protected data and require user
 									authentication according to the AGD guidance. The evaluator shall write, or the
 									developer shall provide access to, an application that includes a unique string
@@ -12354,7 +12651,9 @@ The following sections list Common Criteria and technology terms used in this do
     					conditions under which the recovery mechanism is initiated (if configurable).
     				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall perform the following tests:
-    					<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_161" class="defined" href="#_t_161">Test FPT_RVR_EXT.1:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_161" class="defined" href="#_t_161">Test FPT_RVR_EXT.1:1</a>:
       To test this requirement, the evaluator shall trigger the recovery process
     							either by forcing an update error or a boot integrity failure and observing that 
     							the recovery process has been initiated.</li><li class="test-"><a id="_t_162" class="defined" href="#_t_162">Test FPT_RVR_EXT.1:2</a>:
@@ -12459,7 +12758,9 @@ The following sections list Common Criteria and technology terms used in this do
 						of update success or failure, and that it describes how to access the platform firmware version indicators.
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following tests:
-						<span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_179" class="defined" href="#_t_179">Test FPT_TUD_EXT.2:1</a>:
+						:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_179" class="defined" href="#_t_179">Test FPT_TUD_EXT.2:1</a>:
       The evaluator determines the current version of the platform firmware, and obtains or 
 								produces a valid, authentic, and permissible update image of platform firmware. The evaluator 
 								initiates an update using this image through the process described in the operational guidance.
@@ -12559,7 +12860,9 @@ The following sections list Common Criteria and technology terms used in this do
 						of update success or failure, and that it describes how to access the platform firmware version indicators.
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following tests:
-						<span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_184" class="defined" href="#_t_184">Test FPT_TUD_EXT.3:1</a>:
+						:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_184" class="defined" href="#_t_184">Test FPT_TUD_EXT.3:1</a>:
       The evaluator determines the current version of the platform firmware, and obtains or 
 								produces a valid, authentic, and permissible update image of platform firmware. The evaluator 
 								initiates an update using this image through the process described in the operational guidance.
@@ -12632,7 +12935,9 @@ The following sections list Common Criteria and technology terms used in this do
 					using the local update mechanism, and how to validate that the update was successful.	
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> 
 						The evaluator shall perform the following tests:
-					<span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_188" class="defined" href="#_t_188">Test FPT_TUD_EXT.4:1</a>:
+					:
+
+    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_188" class="defined" href="#_t_188">Test FPT_TUD_EXT.4:1</a>:
       The evaluator tests the secure local update by following the instructions provided in the operational 
 					guidance to update the platform firmware image. The update must succeed.<p></p>
 						</li><li class="test-"><a id="_t_189" class="defined" href="#_t_189">Test FPT_TUD_EXT.4:2</a>:
@@ -12764,7 +13069,9 @@ The following sections list Common Criteria and technology terms used in this do
     					method.
     				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
     					The evaluator shall also perform the following tests.
-    					<span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_206" class="defined" href="#_t_206">Test FTP_TRP.1:1</a>:
+    					:
+
+    <span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_206" class="defined" href="#_t_206">Test FTP_TRP.1:1</a>:
       
     							Test <a href="#FTP_TRP.1">FTP_TRP.1</a>:1: The evaluator shall ensure that communications using each specified (in the AGD) remote administration method is
     							tested during the course of the evaluation, setting up the connections as described in the AGD and ensuring that communication is
@@ -13549,188 +13856,7 @@ The following sections list Common Criteria and technology terms used in this do
 		This information benefits systems engineering activities which call for inclusion of particular security controls. Evaluation against the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> provides evidence that these			controls are present and have been evaluated.		
 	<h1 id="usecase" class="indexable" data-level="A">Appendix G -  Use Case Templates</h1>
 		<span style="" class="comment " id="Comment-6-">Needs to be completed.</span>
-	<h1 id="pfedspec" class="indexable" data-level="A">Appendix H -  PFED Specification</h1>
-		<h2 class="indexable" data-level="2" id="toe-boun-over">H.1 TOE Cryptographic Boundary and Overview</h2>
-			A <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claiming <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> as its trusted channel must also implement a Hardware Separated Encrypted Retransmission Device, including <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> and all required <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> for a
-			combined implementation. In addition, a <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr>-conformant <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must adhere to the additional requirements outlined below."<br/>
-			
-			All communication between paired ERDs is protected by an <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-based secure session tunnel implemented by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not rely on external key management
-			protocols. When MACsec encapsulation is used, the IEEE 802.1X MACsec Key Agreement (MKA) protocol is not implemented or invoked.			
-		
-		
-		<h2 class="indexable" data-level="2" id="crypto-alg-para">H.2 Cryptographic Algorithms and Parameters</h2>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements a secure session tunnel using <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in Galois/Counter Mode (<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM) with a 256-bit key size. <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM provides confidentiality, integrity
-			protection, data origin authentication, and anti-replay protection for all session traffic.<p></p>
-			
-			All cryptographic operations are implemented within the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>. No cryptographic keys are available to or processed by the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.
-		
-		
-		<h2 class="indexable" data-level="2" id="erd-pair-prov-crypto-bond">H.3 ERD Pair Provisioning and Cryptographic Bonding</h2>
-			<h3 class="indexable" data-level="3" id="tunnel-0">H.3.1 Tunnel-0 Establishment Using a Pre-Shared Key</h3>
-				The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> requires an ERD pair to be cryptographically bonded prior to the transmission of any End User Data (<abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>). Initial bonding is performed during
-				provisioning using a temporary secure tunnel (tunnel-0).
-				Tunnel-0 is established using a Pre-Shared Key (PSK) that is either:<ul>
-					<li>Injected during manufacturing, or</li>
-					<li>Entered by the system owner through a trusted <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> entry interface.</li>
-				</ul><p></p>
-				
-				The PSK is used exclusively for tunnel-0 and is not retained after provisioning.<p></p>
-				During tunnel-0 operation, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces a packet allowlist. Only the following packet types are accepted and processed by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.<ul>
-					<li>HELLO</li>
-					<li>HELLO-ACK</li>
-					<li>A single ML-KEM-1024 key encapsulation transaction</li>
-				</ul><p></p>
-				All other packets received during tunnel-0 are dropped by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> prior to protocol stack processing.				
-			
-			
-			<h3 class="indexable" data-level="3" id="trans-tunnel-1">H.3.2 Transition to Tunnel-1 and PSK Destruction</h3>
-				Upon successful completion of the ML-KEM-1024 transaction, the following occurs.<ul>
-					<li>Tunnel-0 is terminated.</li>
-					<li>The PSK is cryptographically destroyed.</li>
-					<li>A new secure tunnel (tunnel-1) is established using the shared secret derived from the ML-KEM-1024 transaction.</li>
-				</ul><p></p>
-				Tunnel-1 is used to complete the remainder of the provisioning process.
-						
-		
-		
-		<h2 class="indexable" data-level="2" id="prov-comp-genz">H.4 Provisioning Completion and Key Material Generation</h2>
-			During tunnel-1, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs the following provisioning operations.<ul>
-				<li>Generation of an ML-DSA-87 public and private key pair</li>
-				<li>Secure exchange of ML-DSA-87 public keys with the peer</li>
-				<li>Exchange of link parameters, including MTU and event timing values (e.g., rekey intervals)</li>
-				<li>Execution of at least one authentication transaction</li>
-				<li>Execution of at least one operational rekey transaction</li>
-			</ul><p></p>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not permit <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic until all provisioning steps have successfully completed.
-			Upon completion of provisioning, the active <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> keystore contains the following.<ul>
-				<li>Transmit (TX) session key</li>
-				<li>Receive (RX) session key</li>
-				<li>Recovery Key 1</li>
-				<li>Recovery Key 2</li>
-				<li>ML-DSA-87 private key</li>
-				<li>Peer ML-DSA-87 public key</li>
-			</ul><p></p>
-		
-		
-		<h2 class="indexable" data-level="2" id="key-der-stor">H.5 Key Derivation and Key Storage</h2>
-			<h3 class="indexable" data-level="3" id="key-der">H.5.1 Key Derivation</h3>
-				The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> derives all session keys, recovery keys, and operational keys using a Hash-Based Key Derivation Function (HKDF). HKDF input material includes entropy
-				generated by the hardware random number generator (<abbr class="dyn-abbr"><a href="#abbr_RNG">RNG</a></abbr>) of each ERD.<p></p>
-				The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-384 or <abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-512 as the underlying hash function for HKDF operations.<p></p>
-				When session keys are replaced, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> ensures that superseded keys are securely destroyed.				
-		
-			
-			<h3 class="indexable" data-level="3" id="hw-rot">H.5.2 Hardware Root of Trust</h3>
-				The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements a hardware root of trust using a TPM 2.0, either as a discrete device or as a firmware-based implementation.<p></p>
-				
-				A Root Key is stored within the TPM and is cryptographically bound to physical properties of the platform. The Root Key is used only to unwrap subordinate
-				keys and is not exportable.
-		
-		
-		
-		<h2 class="indexable" data-level="2" id="sess-set-mut-auth">H.6 Session Setup and Mutual Authentication</h2>
-			Prior to permitting <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> requires successful completion of a session setup transaction. Session setup includes the following.<ol>
-				<li>Mutual authentication between ERDs using ML-DSA-87 exclusively.</li>
-				<li>A mandatory session rekey using ML-KEM-1024 exclusively.</li>
-			</ol><p></p>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces the completion of both steps before transitioning the session to an operational state. Until session setup completes, the following
-			applies.<ul>
-				<li>All <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> packets are dropped by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</li>
-				<li>All non-transaction packets received from the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> are dropped.</li>
-			</ul>
-		
-		
-		<h2 class="indexable" data-level="2" id="rekey-op">H.7 Rekey Operations</h2>
-			<h3 class="indexable" data-level="3" id="rekey-sched">H.7.1 Rekey Scheduling</h3>
-				Following session establishment, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces periodic rekey operations at configurable intervals between 2 and 30 minutes.<p></p>
-				Rekey operations may be initiated by either ERD, and may be performed by either of the following.<ul>
-					<li>Asynchronously while <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic continues.</li>
-					<li>Synchronously with <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic paused.</li>
-				</ul>
-			
-			
-			<h3 class="indexable" data-level="3" id="rekey-modes">H.7.2 Rekey Modes</h3>
-				The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports the following rekey mechanisms.<ul>
-					<li>Dual rekey transactions initiated independently by each ERD and combined using HKDF</li>
-					<li>Alternating rekey transactions, where ERDs take turns initiating rekey operations</li>
-				</ul><p></p>
-				
-				In all cases, the following applies.<ul>
-					<li>The final session key is derived from the current key store and newly derived shared secrets.</li>
-					<li>The replaced session key is securely destroyed.</li>
-				</ul>
-				
-			
-		
-		
-		<h2 class="indexable" data-level="2" id="sess-key-rec">H.8 Session Key Recovery</h2>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports a session key recovery transaction to resynchronize session state in the event of key divergence.<p></p>
-			During key recovery, the following applies.<ul>
-				<li><abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic is suppressed.</li>
-				<li>Recovery keys are periodically refreshed using HKDF.</li>
-				<li>Recovery keys are not static values.</li>
-			</ul><p></p>
-			Upon successful resynchronization, the following applies.<ul>
-				<li>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> performs a new session setup transaction.</li>
-				<li>A new recovery key replaces the previous recovery key prior to resuming <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic.</li>				
-			</ul><p></p>
-			If key recovery does not converge within a defined timeout, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> terminates the session.<p></p>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not provide any mechanism to offload cryptographic keys. Channel recovery is performed only through reprovisioning or ERD replacement.			
-		
-		
-		<h2 class="indexable" data-level="2" id="traf-iso-inter-filt">H.9 Traffic Isolation and Interface Filtering</h2>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces strict isolation between the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, and <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> interfaces.<ul>
-				<li><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> interfaces IC1 and IC3 are non-addressable.</li>
-				<li>The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> accepts only a single, fixed-offset packet signature from the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.</li>
-				<li>All unexpected or malformed packets are dropped prior to reaching the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol stack.</li>
-				<li>The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> does not respond to invalid packets from the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>.</li>
-			</ul><p></p>
-			All packets received from the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> are encapsulated and forwarded to the peer <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.
-			
-		
-		
-		<h2 class="indexable" data-level="2" id="dead-peer-det-persona-enf">H.10 Dead Peer Detection and Persona Enforcement</h2>
-			Each <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> implements dead peer detection using either <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3706 mechanisms or a keep-alive beacon.<p></p>
-			When a dead peer is detected, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> transitions to a session setup state.<p></p>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces ERD persona roles as follows.<ul>
-				<li>A client persona initiates session setup.</li>
-				<li>A server persona waits for session initiation.</li>
-			</ul>
-		
-		
-		<h2 class="indexable" data-level="2" id="Log-audit">H.11 Logging and Audit</h2>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> maintains separate logs for the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.<p></p>
-			<abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> logs are as follows.<ul>
-				<li>Timestamped</li>
-				<li>Stored on persistent storage</li>
-				<li>Record the execution of provisioning, session setup, session termination, rekey, and key recovery</li>
-				<li>Size-limited and rotated</li>
-				<li>Conform to <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 3194, <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 5424, or an equivalent syslog standard</li>
-				<li>May be streamed via a console interface or retrieved using a vendor-defined mechanism</li>
-			</ul>
-		
-		
-		<h2 class="indexable" data-level="2" id="plat-oe-enforc">H.12 Platform and Operational Environment Enforcement</h2>
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces platform separation such that the following is true.<ul>
-				<li>The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> do not share computation infrastructure.</li>
-				<li>Only a stateless, connectionless bus is shared.</li>
-				<li>Bus mastering is controlled by the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</li>
-			</ul><p></p>
-			The <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> executes transaction processing at non-root privilege on a minimal operating system providing only timers, interface handling, and inter-process
-			communication.<p></p>
-			Unused peripherals are disabled, unused pins are terminated, and power supplies are isolated or filtered.
-			
-		
-		
-		<h2 class="indexable" data-level="2" id="bring-up-multi-act">H.13 Bring-Up and Multi-Factor Activation</h2>			
-			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> enforces PIN- or CIK-based gating such that no traffic flows until activation credentials are provided.<p></p>
-			Multi-factor activation includes the following.<ul>
-				<li>A user password to activate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> cryptographic functions.</li>
-				<li>A removable media or keyboard entry combined with device authentication to boot the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>.</li>
-			</ul>
-				
-		
-	<h1 id="acronyms" class="indexable" data-level="A">Appendix I -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">24</span></span>: Acronyms
+	<h1 id="acronyms" class="indexable" data-level="A">Appendix H -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">24</span></span>: Acronyms
 		</caption><tr class="header"><th>Acronym</th><th>Meaning</th></tr><tr><td><span class="term" id="abbr_AES"><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr></span></td><td><span id="long_abbr_AES">Advanced Encryption Standard</span></td></tr>
 <tr><td><span class="term" id="abbr_ANSI"><abbr class="dyn-abbr"><a href="#abbr_ANSI">ANSI</a></abbr></span></td><td><span id="long_abbr_ANSI">American National Standards Institute</span></td></tr>
 <tr><td><span class="term" id="abbr_API"><abbr class="dyn-abbr"><a href="#abbr_API">API</a></abbr></span></td><td><span id="long_abbr_API">Application Programming Interface</span></td></tr>
@@ -13830,7 +13956,7 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><span class="term" id="abbr_USB"><abbr class="dyn-abbr"><a href="#abbr_USB">USB</a></abbr></span></td><td><span id="long_abbr_USB">Universal Serial Bus</span></td></tr>
 <tr><td><span class="term" id="abbr_XCCDF"><abbr class="dyn-abbr"><a href="#abbr_XCCDF">XCCDF</a></abbr></span></td><td><span id="long_abbr_XCCDF">eXtensible Configuration Checklist Description Format</span></td></tr>
 <tr><td><span class="term" id="abbr_XOR"><abbr class="dyn-abbr"><a href="#abbr_XOR">XOR</a></abbr></span></td><td><span id="long_abbr_XOR">Exclusive Or</span></td></tr>
-</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix J -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">25</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
+</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix I -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">25</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
             <li><a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART1R1.pdf">Part 1: 
 				Introduction and general model</a>, CCMB-2022-11-001, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART2R1.pdf">Part 2: 
@@ -13844,7 +13970,10 @@ The following sections list Common Criteria and technology terms used in this do
           </ul></span></td></tr><tr><td><span id="bibCEM">[<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>]</span></td><td><span class="description">Common Methodology for Information Technology Security Evaluation - <ul>
             <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">
                  Evaluation methodology</a>, CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
-          </ul></span></td></tr><tr><td><span id="bibOMB">[<abbr class="dyn-abbr"><a href="#abbr_OMB">OMB</a></abbr>]</span></td><td><span class="description">
+          </ul></span></td></tr><tr><td><span id="bibERRv12">[ERR]</span></td><td><span class="description"><a href="https://www.commoncriteriaportal.org/files/ccfiles/CCMB-2025-001-v1_2-Errata_Interpretation_CC_CEM_2022.pdf">
+              Errata and Interpretation for CC:2022 (Release 1) and CEM:2022 (Release 1), Version 1.2</a>, 
+			  CCMB-2025-02-001, 15 October 2025.
+        </span></td></tr><tr><td><span id="bibOMB">[<abbr class="dyn-abbr"><a href="#abbr_OMB">OMB</a></abbr>]</span></td><td><span class="description">
         	<a href="https://georgewbush-whitehouse.archives.gov/omb/memoranda/fy2006/m06-19.pdf">Reporting Incidents Involving Personally Identifiable Information and Incorporating the
             Cost for Security in Agency Information Technology Investments</a>, <abbr class="dyn-abbr"><a href="#abbr_OMB">OMB</a></abbr> M-06-19, July
           12, 2006. </span></td></tr></table></body></html>

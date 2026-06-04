@@ -115,6 +115,7 @@ output/retransmission-device-release-linkable.html: GFSBox
 output/retransmission-device-release-linkable.html: GMTP
 output/retransmission-device-release-linkable.html: HKDF
 output/retransmission-device-release-linkable.html: IC1
+output/retransmission-device-release-linkable.html: IC2
 output/retransmission-device-release-linkable.html: IC3
 output/retransmission-device-release-linkable.html: ICMP
 output/retransmission-device-release-linkable.html: IDA1
@@ -166,6 +167,7 @@ output/retransmission-device-release-linkable.html: PSK0
 output/retransmission-device-release-linkable.html: PSKs
 output/retransmission-device-release-linkable.html: PSS
 output/retransmission-device-release-linkable.html: Pluribus
+output/retransmission-device-release-linkable.html: Provisioining
 output/retransmission-device-release-linkable.html: QNX
 output/retransmission-device-release-linkable.html: R1
 output/retransmission-device-release-linkable.html: R2
@@ -249,6 +251,7 @@ output/retransmission-device-release-linkable.html: reinitialization
 output/retransmission-device-release-linkable.html: rekey0
 output/retransmission-device-release-linkable.html: rekeying
 output/retransmission-device-release-linkable.html: reprovisioning
+output/retransmission-device-release-linkable.html: routable
 output/retransmission-device-release-linkable.html: ruleset
 output/retransmission-device-release-linkable.html: sLen
 output/retransmission-device-release-linkable.html: sel
@@ -355,6 +358,7 @@ output/retransmission-device-release.html: GFSBox
 output/retransmission-device-release.html: GMTP
 output/retransmission-device-release.html: HKDF
 output/retransmission-device-release.html: IC1
+output/retransmission-device-release.html: IC2
 output/retransmission-device-release.html: IC3
 output/retransmission-device-release.html: ICMP
 output/retransmission-device-release.html: IDA1
@@ -407,6 +411,7 @@ output/retransmission-device-release.html: PSK0
 output/retransmission-device-release.html: PSKs
 output/retransmission-device-release.html: PSS
 output/retransmission-device-release.html: Pluribus
+output/retransmission-device-release.html: Provisioining
 output/retransmission-device-release.html: QNX
 output/retransmission-device-release.html: Q’
 output/retransmission-device-release.html: R1
@@ -495,6 +500,7 @@ output/retransmission-device-release.html: reinitialization
 output/retransmission-device-release.html: rekey0
 output/retransmission-device-release.html: rekeying
 output/retransmission-device-release.html: reprovisioning
+output/retransmission-device-release.html: routable
 output/retransmission-device-release.html: ruleset
 output/retransmission-device-release.html: sLen
 output/retransmission-device-release.html: sel
@@ -591,13 +597,13 @@ output/retransmission-device.html: Enctrypytion
 output/retransmission-device.html: EtherType
 output/retransmission-device.html: FB
 output/retransmission-device.html: FFC
-output/retransmission-device.html: Failu
 output/retransmission-device.html: Fi
 output/retransmission-device.html: Fibre
 output/retransmission-device.html: GFSBox
 output/retransmission-device.html: GMTP
 output/retransmission-device.html: HKDF
 output/retransmission-device.html: IC1
+output/retransmission-device.html: IC2
 output/retransmission-device.html: IC3
 output/retransmission-device.html: ICMP
 output/retransmission-device.html: IDA1
@@ -650,6 +656,7 @@ output/retransmission-device.html: PSK0
 output/retransmission-device.html: PSKs
 output/retransmission-device.html: PSS
 output/retransmission-device.html: Pluribus
+output/retransmission-device.html: Provisioining
 output/retransmission-device.html: QNX
 output/retransmission-device.html: Q’
 output/retransmission-device.html: R1
@@ -737,6 +744,7 @@ output/retransmission-device.html: reinitialization
 output/retransmission-device.html: rekey0
 output/retransmission-device.html: rekeying
 output/retransmission-device.html: reprovisioning
+output/retransmission-device.html: routable
 output/retransmission-device.html: ruleset
 output/retransmission-device.html: sLen
 output/retransmission-device.html: sel
