@@ -347,6 +347,201 @@
 			Plaintext traffic does not traverse the CU or any black interface, i.e., there may be no cryptographic bypass capability between the EUD or trusted
 			network and EU or between the EU and CU.			
 		</sec:HWS-ERD_Configuration>
+		
+		<sec:PFED_Configuration>
+			<h:p>A TOE that claims Protocol Free Encrypting Device (PFED) functionality implements PFED as a specialized form of the HWS-ERD configuration. A PFED-conformant TOE				therefore consists of the hardware-separated EU and CU configuration described in Section 1.3.2.3, with the additional PFED-specific properties, cryptographic
+			behavior, provisioning behavior, isolation rules, and operational requirements described in this section.</h:p>
+			<h:p>A TOE claiming PFED as its trusted channel must implement an HWS-ERD, including the EU, CU, and all required SFRs for a combined implementation. All
+			communication between paired ERDs is protected by an AES-based secure session tunnel implemented by the EU. The TOE does not rely on external key management
+			protocols. When MACsec encapsulation is used, the IEEE 802.1X MACsec Key Agreement (MKA) protocol is not implemented or invoked.</h:p>
+			<sec:Principles_Behind_HWS-ERD_PFED>
+				<h:p>An HWS-ERD PFED has unique properties that are not normally present in traditional encryption systems. The security function of separating Red and Black
+					within any ERD must work correctly, and to work correctly it must be completely understandable. The separation of functions into an EU and CU allows the
+					security examination to narrow to the EU IC1 and IC3 interfaces as shown in Figure 4.</h:p>
+				<h:p>The EU is a figurative bump on the wire and operates at Layer 2 of the network stack. EUD packets are simply frames from the EU’s perspective. The payload
+					is not inspected from or to IC1. There is no cryptographic bypass. All packets from the EUD are forwarded through the EU to the CU. Packets that emerge from
+					the EU on IC3 cannot be routable across a Layer 3 network without a CU. If they are routable without a CU, then the device is not considered a
+					HWS-ERD PFED.</h:p>
+				<h:p>The purpose of having two independent hardware devices, namely a stateless EU and a stateful CU, is to move complex stateful processing outside of the EU
+					and preserve only stateless processing inside the EU. The Layer 3 complexity necessary to traverse any typical transport is removed from the security
+					argument and safely remains outside the trust boundary of the EU. This isolates and simplifies the policy enforcement performed by the EU interfaces on IC3
+					and IC1. This translates directly into a simplified understanding of the isolation argument for an EUD protected by an ERD, both for a user and for an
+					evaluator. In a HWS-ERD/PFED context, all packets going to or from the EUD will always pass through the black-box EU to a peer EU.</h:p>
+				<h:p>Hardware separation significantly reduces the attack surface of any EUD protected by an ERD. Measuring the HWS-ERD/PFED attack surface can be summarized as
+					follows.</h:p>
+					<h:b>Attack surface = complexity of the interface code at a stateless EU-IC3 × 1/2^256</h:b>
+					<h:p>The ERD attack surface can be summarized as follows.</h:p>
+					<h:p>Attack surface = complexity of the stateful network interface and cryptographic code handling of EU-IC2 × 1/2^256</h:p>
+					<h:p>The size of a stateful space in this context dwarfs the size of a stateless space. Smaller is better.</h:p>
+					<h:p>Inherent to the HWS-ERD PFED is an almost perfect firewall. It is a rule of one, and this rule is not a configurable parameter. This is because the CU
+						must translate the Layer 3 packet on IC2 into a Layer 2 packet on IC3, where that Layer 2 packet is a fixed type that the EU expects. Any other packet
+						type is easily dismissed before it can be further processed by more sophisticated logic. The formula implemented by the EU to dismiss packets can easily
+						be verified.</h:p>
+					<h:p>if (packet != type X) {drop}</h:p>
+					<h:p>There is no negotiation between the EU and the CU regarding what X can be. Enforcement is completely removed from a possibly misconfigured CU due to
+						hardware separation. Additionally, the payload of the CU-translated Layer 2 frame must pass the authentication and integrity checking of AES-GCM-256 in
+						the EU, or it is dropped. This combination protocol break ensures that only the peer HWS-ERD/PFED could possibly succeed at sending a packet to the
+						receiving EUD unless the key was somehow compromised.</h:p>
+						<h:p>The CU may include a firewall, but it is embedded in a complex environment that has never been shown to be impervious to failure and therefore
+							cannot be trusted by the EU to be active or correct. Imposing a security requirement on the CU would be unrealistic when the black transport can be
+							almost anything. While a CU firewall may be useful, it is not required to be correct for the isolation or confidentiality security argument of the
+							EUD to be enforced.</h:p>
+						<h:p>A packet that emerges from the EU may be labeled, where the label is also cryptographically authenticated. A CU must maintain the label between									each EU. This may be considered a channel. There may be more than one channel in an HWS-ERD PFED. Each channel is a unique cryptographic bond
+							between two EUs. When a channel is established, one EU acts as the client and the other acts as the server for session management that must occur									between EUs. Transactions such as rekey or dead peer detection may originate from either EU.</h:p>
+			</sec:Principles_Behind_HWS-ERD_PFED>
+			<sec:Cryptographic_Algorithms_and_Parameters>
+				<h:p>The TOE implements a secure session tunnel using AES in Galois/Counter Mode (AES-GCM) with a 256-bit key size. AES-GCM provides confidentiality, integrity
+			protection, data origin authentication, and anti-replay protection for all session traffic.</h:p>
+			<h:p>All cryptographic operations are implemented within the EU. No cryptographic keys are available to or processed by the CU.</h:p>
+			</sec:Cryptographic_Algorithms_and_Parameters>
+			<sec:EU_Pair_Provisioning_and_Cryptographic_Bonding>
+				<sec:Tunnel-0_Establishment_Using_a_Pre-Shared_Key>
+					The TOE requires an EU pair to be cryptographically bonded prior to the transmission of any End User Data (EUD). Initial bonding is performed during
+					provisioning using a temporary secure tunnel, referred to as tunnel-0. Tunnel-0 is established using a Pre-Shared Key (PSK) that is either:<h:ul>
+						<h:li>Injected during manufacturing, or</h:li>
+						<h:li>Entered by the system owner through a trusted EU entry interface.</h:li>
+					</h:ul>
+					
+					<h:p>The PSK is used exclusively for tunnel-0 and is not retained after provisioning.</h:p>
+					During tunnel-0 operation, the TOE enforces a packet allowlist. Only the following packet types are accepted and processed by the EU:<h:ul>
+						<h:li>HELLO</h:li>
+						<h:li>HELLO-ACK</h:li>
+						<h:li>A single ML-KEM-1024 key encapsulation transaction</h:li>
+					</h:ul>
+					All other packets received during tunnel-0 are dropped by the EU prior to protocol stack processing.
+					
+					<sec:Transition_to_Tunnel-1_and_PSK_Destruction>
+						Upon successful completion of the ML-KEM-1024 transaction, the following occurs:<h:ul>
+							<h:li>Tunnel-0 is terminated.</h:li>
+							<h:li>The PSK is cryptographically destroyed.</h:li>
+							<h:li>A new secure tunnel, referred to as tunnel-1, is established using the shared secret derived from the ML-KEM-1024 transaction.</h:li>
+					</h:ul>
+						Tunnel-1 is used to complete the remainder of the provisioning process.
+					</sec:Transition_to_Tunnel-1_and_PSK_Destruction>
+				</sec:Tunnel-0_Establishment_Using_a_Pre-Shared_Key>
+			</sec:EU_Pair_Provisioning_and_Cryptographic_Bonding>
+			<sec:Provisioining_Completion_and_Key_Material_Generation>
+				During tunnel-1, the TOE performs the following provisioning operations:<h:ul>
+				<h:li>Generation of an ML-DSA-87 public and private key pair</h:li>
+				<h:li>Secure exchange of ML-DSA-87 public keys with the peer</h:li>
+				<h:li>Exchange of link parameters, including MTU and event timing values, such as rekey intervals</h:li>
+				<h:li>Execution of at least one authentication transaction</h:li>
+				<h:li>Execution of at least one operational rekey transaction</h:li>
+				</h:ul>
+					The TOE does not permit EUD traffic until all provisioning steps have successfully completed. Upon completion of provisioning, the active EU keystore
+					contains the following:<h:ul>
+				<h:li>Transmit (TX) session key</h:li>
+				<h:li>Receive (RX) session key</h:li>
+				<h:li>Recovery Key 1</h:li>
+				<h:li>Recovery Key 2</h:li>
+				<h:li>ML-DSA-87 private key</h:li>
+				<h:li>Peer ML-DSA-87 public key</h:li>
+					</h:ul>
+			</sec:Provisioining_Completion_and_Key_Material_Generation>
+			<sec:Key_Derivation_and_Key_Storage>
+				<sec:Key_Derivation>
+					<h:p>The TOE derives all session keys, recovery keys, and operational keys using a Hash-Based Key Derivation Function (HKDF). HKDF input material includes
+						entropy generated by the hardware random number generator (RNG) of each EU.</h:p>
+					<h:p>The TOE uses SHA-384 or SHA-512 as the underlying hash function for HKDF operations.</h:p>
+					<h:p>When session keys are replaced, the TOE ensures that superseded keys are securely destroyed.</h:p>
+			</sec:Key_Derivation>
+				<sec:Hardware_Root_of_Trust>
+					<h:p>The TOE implements a hardware root of trust using a TPM 2.0, either as a discrete device or as a firmware-based implementation.</h:p>
+					<h:p>A Root Key is stored within the TPM and is cryptographically bound to physical properties of the platform. The Root Key is used only to unwrap
+						subordinate keys and is not exportable.</h:p>
+				</sec:Hardware_Root_of_Trust>			
+			</sec:Key_Derivation_and_Key_Storage>
+			<sec:Session_Setup_and_Mutual_Authentication>
+				Prior to permitting EUD traffic, the TOE requires successful completion of a session setup transaction. Session setup includes the following.<h:ul>
+					<h:li>Mutual authentication between EUs using ML-DSA-87 exclusively.</h:li>
+					<h:li>A mandatory session rekey using ML-KEM-1024 exclusively.</h:li>
+				</h:ul>
+					The TOE enforces the completion of both steps before transitioning the session to an operational state. Until session setup completes, the following applies.				<h:ul>
+				<h:li>All EUD packets are dropped by the EU.</h:li>
+				<h:li>All non-transaction packets received from the CU are dropped.</h:li>
+			</h:ul>
+			</sec:Session_Setup_and_Mutual_Authentication>
+			<sec:Rekey_Operations>
+			<sec:Rekey_Scheduling>
+			<h:p>Following session establishment, the TOE enforces periodic rekey operations at configurable intervals between 2 and 30 minutes.</h:p>
+			Rekey operations may be initiated by either EU and may be performed by either of the following methods:<h:ul>
+				<h:li>Asynchronously while EUD traffic continues.</h:li>
+				<h:li>Synchronously with EUD traffic paused.</h:li>
+			</h:ul>
+			</sec:Rekey_Scheduling>
+			<sec:Rekey_Modes>
+				The TOE supports the following rekey mechanisms.<h:ul>
+					<h:li>Dual rekey transactions initiated independently by each EU and combined using HKDF</h:li>
+					<h:li>Alternating rekey transactions, where EUs take turns initiating rekey operations</h:li>
+				</h:ul>
+				In all cases, the following applies.<h:ul>
+					<h:li>The final session key is derived from the current key store and newly derived shared secrets.</h:li>
+					<h:li>The replaced session key is securely destroyed.</h:li>
+				</h:ul></sec:Rekey_Modes>			
+			</sec:Rekey_Operations>
+			<sec:Session_Key_Recovery>
+			<h:p>The TOE supports a session key recovery transaction to resynchronize session state in the event of key divergence.</h:p>
+			During key recovery, the following applies.<h:ul>
+				<h:li>EUD traffic is suppressed.</h:li>
+				<h:li>Recovery keys are periodically refreshed using HKDF.</h:li>
+				<h:li>Recovery keys are not static values.</h:li>
+			</h:ul>
+				Upon successful resynchronization, the following applies.<h:ul>
+				<h:li>The TOE performs a new session setup transaction.</h:li>
+				<h:li>A new recovery key replaces the previous recovery key prior to resuming EUD traffic.</h:li></h:ul>
+				<h:p>If key recovery does not converge within a defined timeout, the TOE terminates the session.</h:p>
+				<h:p>The TOE does not provide any mechanism to offload cryptographic keys. Channel recovery is performed only through reprovisioning or ERD replacement.</h:p>
+			</sec:Session_Key_Recovery>
+			<sec:Traffic_Isolation_and_Interface_Filtering>
+			The TOE enforces strict isolation between the EU, CU, and EUD interfaces.<h:ul>
+			<h:li>EU interfaces IC1 and IC3 are non-addressable.</h:li>
+			<h:li>The EU accepts only a single, fixed-offset packet signature from the CU.</h:li>
+			<h:li>All unexpected or malformed packets are dropped prior to reaching the EU protocol stack.</h:li>
+			<h:li>The EU does not respond to invalid packets from the CU or EUD.</h:li>
+			<h:li>All packets received from the EUD are encapsulated and forwarded to the peer EU.</h:li>
+			</h:ul>
+			</sec:Traffic_Isolation_and_Interface_Filtering>
+			
+			<sec:Dead_Peer_Detection_and_Persona_Enforcement>
+				<h:p>Each EU implements dead peer detection using either RFC 3706 mechanisms or a keep-alive beacon.</h:p>
+				<h:p>When a dead peer is detected, the TOE transitions to a session setup state.</h:p>
+			The TOE enforces EU persona roles as follows.<h:ul>
+				<h:li>A client persona initiates session setup.</h:li>
+				<h:li>A server persona waits for session initiation.</h:li>
+			</h:ul>
+			</sec:Dead_Peer_Detection_and_Persona_Enforcement>
+			
+			<sec:Logging_and_Audit></sec:Logging_and_Audit>
+			<h:p>The TOE maintains separate logs for the EU and CU.</h:p>
+			EU logs are as follows.<h:ul>
+				<h:li>Timestamped</h:li>
+				<h:li>Stored on persistent storage</h:li>
+				<h:li>Record the execution of provisioning, session setup, session termination, rekey, and key recovery</h:li>
+				<h:li>Size-limited and rotated</h:li>
+				<h:li>Conform to RFC 3194, RFC 5424, or an equivalent syslog standard</h:li>
+				<h:li>May be streamed via a console interface or retrieved using a vendor-defined mechanism</h:li>
+			</h:ul>
+			
+			<sec:Platform_and_Operational_Environment_Enforcement>
+			The TOE enforces platform separation such that the following is true:<h:ul>
+			<h:li>The EU and CU do not share computation infrastructure.</h:li>
+			<h:li>Only a stateless, connectionless bus is shared.</h:li>
+			<h:li>Bus mastering is controlled by the EU.</h:li>
+			</h:ul>
+				<h:p>The EU executes transaction processing at non-root privilege on a minimal operating system providing only timers, interface handling, and
+					inter-process</h:p>
+				communication.
+				<h:p>Unused peripherals are disabled, unused pins are terminated, and power supplies are isolated or filtered.</h:p>
+			</sec:Platform_and_Operational_Environment_Enforcement>
+			
+			<sec:Bring-Up_and_Multi-Factor_Activation>
+			<h:p>The TOE enforces PIN- or CIK-based gating such that no traffic flows until activation credentials are provided.</h:p>
+			Multi-factor activation includes the following.<h:ul>
+			<h:li>A user password to activate EU cryptographic functions.</h:li>
+			<h:li>A removable media or keyboard entry combined with device authentication to boot the CU.</h:li>
+				</h:ul>
+			</sec:Bring-Up_and_Multi-Factor_Activation>
+		</sec:PFED_Configuration>
 	</sec:TOE_Configurations>
 		 	
 	<sec:TOE_Logical_Boundary>
@@ -14384,190 +14579,7 @@
 		<comment>Needs to be completed.</comment>
 	</appendix>
 	
-	<appendix id="pfedspec" title="PFED Specification">
-		<section id="toe-boun-over" title="TOE Cryptographic Boundary and Overview">
-			A TOE claiming PFED as its trusted channel must also implement a Hardware Separated Encrypted Retransmission Device, including EU+CU and all required SFRs for a
-			combined implementation. In addition, a PFED-conformant HWS-ERD TOE must adhere to the additional requirements outlined below."<h:br/>
-			
-			All communication between paired ERDs is protected by an AES-based secure session tunnel implemented by the EU. The TOE does not rely on external key management
-			protocols. When MACsec encapsulation is used, the IEEE 802.1X MACsec Key Agreement (MKA) protocol is not implemented or invoked.			
-		</section>
-		
-		<section id="crypto-alg-para" title="Cryptographic Algorithms and Parameters">
-			The TOE implements a secure session tunnel using AES in Galois/Counter Mode (AES-GCM) with a 256-bit key size. AES-GCM provides confidentiality, integrity
-			protection, data origin authentication, and anti-replay protection for all session traffic.<h:p/>
-			
-			All cryptographic operations are implemented within the EU. No cryptographic keys are available to or processed by the CU.
-		</section>
-		
-		<section id="erd-pair-prov-crypto-bond" title="ERD Pair Provisioning and Cryptographic Bonding">
-			<section id="tunnel-0" title="Tunnel-0 Establishment Using a Pre-Shared Key">
-				The TOE requires an ERD pair to be cryptographically bonded prior to the transmission of any End User Data (EUD). Initial bonding is performed during
-				provisioning using a temporary secure tunnel (tunnel-0).
-				Tunnel-0 is established using a Pre-Shared Key (PSK) that is either:<h:ul>
-					<h:li>Injected during manufacturing, or</h:li>
-					<h:li>Entered by the system owner through a trusted EU entry interface.</h:li>
-				</h:ul><h:p/>
-				
-				The PSK is used exclusively for tunnel-0 and is not retained after provisioning.<h:p/>
-				During tunnel-0 operation, the TOE enforces a packet allowlist. Only the following packet types are accepted and processed by the EU.<h:ul>
-					<h:li>HELLO</h:li>
-					<h:li>HELLO-ACK</h:li>
-					<h:li>A single ML-KEM-1024 key encapsulation transaction</h:li>
-				</h:ul><h:p/>
-				All other packets received during tunnel-0 are dropped by the EU prior to protocol stack processing.				
-			</section>
-			
-			<section id="trans-tunnel-1" title="Transition to Tunnel-1 and PSK Destruction">
-				Upon successful completion of the ML-KEM-1024 transaction, the following occurs.<h:ul>
-					<h:li>Tunnel-0 is terminated.</h:li>
-					<h:li>The PSK is cryptographically destroyed.</h:li>
-					<h:li>A new secure tunnel (tunnel-1) is established using the shared secret derived from the ML-KEM-1024 transaction.</h:li>
-				</h:ul><h:p/>
-				Tunnel-1 is used to complete the remainder of the provisioning process.
-			</section>			
-		</section>
-		
-		<section id="prov-comp-genz" title="Provisioning Completion and Key Material Generation">
-			During tunnel-1, the TOE performs the following provisioning operations.<h:ul>
-				<h:li>Generation of an ML-DSA-87 public and private key pair</h:li>
-				<h:li>Secure exchange of ML-DSA-87 public keys with the peer</h:li>
-				<h:li>Exchange of link parameters, including MTU and event timing values (e.g., rekey intervals)</h:li>
-				<h:li>Execution of at least one authentication transaction</h:li>
-				<h:li>Execution of at least one operational rekey transaction</h:li>
-			</h:ul><h:p/>
-			The TOE does not permit EUD traffic until all provisioning steps have successfully completed.
-			Upon completion of provisioning, the active EU keystore contains the following.<h:ul>
-				<h:li>Transmit (TX) session key</h:li>
-				<h:li>Receive (RX) session key</h:li>
-				<h:li>Recovery Key 1</h:li>
-				<h:li>Recovery Key 2</h:li>
-				<h:li>ML-DSA-87 private key</h:li>
-				<h:li>Peer ML-DSA-87 public key</h:li>
-			</h:ul><h:p/>
-		</section>
-		
-		<section id="key-der-stor" title="Key Derivation and Key Storage">
-			<section id="key-der" title="Key Derivation">
-				The TOE derives all session keys, recovery keys, and operational keys using a Hash-Based Key Derivation Function (HKDF). HKDF input material includes entropy
-				generated by the hardware random number generator (RNG) of each ERD.<h:p/>
-				The TOE uses SHA-384 or SHA-512 as the underlying hash function for HKDF operations.<h:p/>
-				When session keys are replaced, the TOE ensures that superseded keys are securely destroyed.				
-		</section>
-			
-			<section id="hw-rot" title="Hardware Root of Trust">
-				The TOE implements a hardware root of trust using a TPM 2.0, either as a discrete device or as a firmware-based implementation.<h:p/>
-				
-				A Root Key is stored within the TPM and is cryptographically bound to physical properties of the platform. The Root Key is used only to unwrap subordinate
-				keys and is not exportable.
-		</section>
-		</section>
-		
-		<section id="sess-set-mut-auth" title="Session Setup and Mutual Authentication">
-			Prior to permitting EUD traffic, the TOE requires successful completion of a session setup transaction. Session setup includes the following.<h:ol>
-				<h:li>Mutual authentication between ERDs using ML-DSA-87 exclusively.</h:li>
-				<h:li>A mandatory session rekey using ML-KEM-1024 exclusively.</h:li>
-			</h:ol><h:p/>
-			The TOE enforces the completion of both steps before transitioning the session to an operational state. Until session setup completes, the following
-			applies.<h:ul>
-				<h:li>All EUD packets are dropped by the EU.</h:li>
-				<h:li>All non-transaction packets received from the CU are dropped.</h:li>
-			</h:ul>
-		</section>
-		
-		<section id="rekey-op" title="Rekey Operations">
-			<section id="rekey-sched" title="Rekey Scheduling">
-				Following session establishment, the TOE enforces periodic rekey operations at configurable intervals between 2 and 30 minutes.<h:p/>
-				Rekey operations may be initiated by either ERD, and may be performed by either of the following.<h:ul>
-					<h:li>Asynchronously while EUD traffic continues.</h:li>
-					<h:li>Synchronously with EUD traffic paused.</h:li>
-				</h:ul>
-			</section>
-			
-			<section id="rekey-modes" title="Rekey Modes">
-				The TOE supports the following rekey mechanisms.<h:ul>
-					<h:li>Dual rekey transactions initiated independently by each ERD and combined using HKDF</h:li>
-					<h:li>Alternating rekey transactions, where ERDs take turns initiating rekey operations</h:li>
-				</h:ul><h:p/>
-				
-				In all cases, the following applies.<h:ul>
-					<h:li>The final session key is derived from the current key store and newly derived shared secrets.</h:li>
-					<h:li>The replaced session key is securely destroyed.</h:li>
-				</h:ul>
-				
-			</section>
-		</section>
-		
-		<section id="sess-key-rec" title="Session Key Recovery">
-			The TOE supports a session key recovery transaction to resynchronize session state in the event of key divergence.<h:p/>
-			During key recovery, the following applies.<h:ul>
-				<h:li>EUD traffic is suppressed.</h:li>
-				<h:li>Recovery keys are periodically refreshed using HKDF.</h:li>
-				<h:li>Recovery keys are not static values.</h:li>
-			</h:ul><h:p/>
-			Upon successful resynchronization, the following applies.<h:ul>
-				<h:li>The TOE performs a new session setup transaction.</h:li>
-				<h:li>A new recovery key replaces the previous recovery key prior to resuming EUD traffic.</h:li>				
-			</h:ul><h:p/>
-			If key recovery does not converge within a defined timeout, the TOE terminates the session.<h:p/>
-			The TOE does not provide any mechanism to offload cryptographic keys. Channel recovery is performed only through reprovisioning or ERD replacement.			
-		</section>
-		
-		<section id="traf-iso-inter-filt" title="Traffic Isolation and Interface Filtering">
-			The TOE enforces strict isolation between the EU, CU, and EUD interfaces.<h:ul>
-				<h:li>EU interfaces IC1 and IC3 are non-addressable.</h:li>
-				<h:li>The EU accepts only a single, fixed-offset packet signature from the CU.</h:li>
-				<h:li>All unexpected or malformed packets are dropped prior to reaching the EU protocol stack.</h:li>
-				<h:li>The EU does not respond to invalid packets from the CU or EUD.</h:li>
-			</h:ul><h:p/>
-			All packets received from the EUD are encapsulated and forwarded to the peer EU.
-			
-		</section>
-		
-		<section id="dead-peer-det-persona-enf" title="Dead Peer Detection and Persona Enforcement">
-			Each EU implements dead peer detection using either RFC 3706 mechanisms or a keep-alive beacon.<h:p/>
-			When a dead peer is detected, the TOE transitions to a session setup state.<h:p/>
-			The TOE enforces ERD persona roles as follows.<h:ul>
-				<h:li>A client persona initiates session setup.</h:li>
-				<h:li>A server persona waits for session initiation.</h:li>
-			</h:ul>
-		</section>
-		
-		<section id="Log-audit" title="Logging and Audit">
-			The TOE maintains separate logs for the EU and CU.<h:p/>
-			EU logs are as follows.<h:ul>
-				<h:li>Timestamped</h:li>
-				<h:li>Stored on persistent storage</h:li>
-				<h:li>Record the execution of provisioning, session setup, session termination, rekey, and key recovery</h:li>
-				<h:li>Size-limited and rotated</h:li>
-				<h:li>Conform to RFC 3194, RFC 5424, or an equivalent syslog standard</h:li>
-				<h:li>May be streamed via a console interface or retrieved using a vendor-defined mechanism</h:li>
-			</h:ul>
-		</section>
-		
-		<section id="plat-oe-enforc" title="Platform and Operational Environment Enforcement">
-			The TOE enforces platform separation such that the following is true.<h:ul>
-				<h:li>The EU and CU do not share computation infrastructure.</h:li>
-				<h:li>Only a stateless, connectionless bus is shared.</h:li>
-				<h:li>Bus mastering is controlled by the EU.</h:li>
-			</h:ul><h:p/>
-			The EU executes transaction processing at non-root privilege on a minimal operating system providing only timers, interface handling, and inter-process
-			communication.<h:p/>
-			Unused peripherals are disabled, unused pins are terminated, and power supplies are isolated or filtered.
-			
-		</section>
-		
-		<section id="bring-up-multi-act" title="Bring-Up and Multi-Factor Activation">			
-			The TOE enforces PIN- or CIK-based gating such that no traffic flows until activation credentials are provided.<h:p/>
-			Multi-factor activation includes the following.<h:ul>
-				<h:li>A user password to activate EU cryptographic functions.</h:li>
-				<h:li>A removable media or keyboard entry combined with device authentication to boot the CU.</h:li>
-			</h:ul>
-				
-		</section>
-	</appendix>
-
-    <bibliography>
+	<bibliography>
 	  <cc-entry/>
       <entry id="bibOMB">
         <tag>OMB</tag>
