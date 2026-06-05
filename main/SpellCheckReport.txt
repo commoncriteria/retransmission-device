@@ -99,7 +99,6 @@ output/retransmission-device-release-linkable.html: EMCON
 output/retransmission-device-release-linkable.html: ERB
 output/retransmission-device-release-linkable.html: ERD
 output/retransmission-device-release-linkable.html: ERDs
-output/retransmission-device-release-linkable.html: EU1
 output/retransmission-device-release-linkable.html: EUDs
 output/retransmission-device-release-linkable.html: EUs
 output/retransmission-device-release-linkable.html: EXPAK
@@ -199,7 +198,6 @@ output/retransmission-device-release-linkable.html: SpectraLink
 output/retransmission-device-release-linkable.html: Subclause
 output/retransmission-device-release-linkable.html: TBD
 output/retransmission-device-release-linkable.html: TCF
-output/retransmission-device-release-linkable.html: TEst
 output/retransmission-device-release-linkable.html: TP
 output/retransmission-device-release-linkable.html: TSM
 output/retransmission-device-release-linkable.html: TTP
@@ -342,7 +340,6 @@ output/retransmission-device-release.html: EMCON
 output/retransmission-device-release.html: ERB
 output/retransmission-device-release.html: ERD
 output/retransmission-device-release.html: ERDs
-output/retransmission-device-release.html: EU1
 output/retransmission-device-release.html: EUDs
 output/retransmission-device-release.html: EUs
 output/retransmission-device-release.html: EXPAK
@@ -444,7 +441,6 @@ output/retransmission-device-release.html: SpectraLink
 output/retransmission-device-release.html: Subclause
 output/retransmission-device-release.html: TBD
 output/retransmission-device-release.html: TCF
-output/retransmission-device-release.html: TEst
 output/retransmission-device-release.html: TP
 output/retransmission-device-release.html: TSM
 output/retransmission-device-release.html: TTP
@@ -587,7 +583,6 @@ output/retransmission-device.html: EMCON
 output/retransmission-device.html: ERB
 output/retransmission-device.html: ERD
 output/retransmission-device.html: ERDs
-output/retransmission-device.html: EU1
 output/retransmission-device.html: EUDs
 output/retransmission-device.html: EUs
 output/retransmission-device.html: EXPAK
@@ -689,7 +684,6 @@ output/retransmission-device.html: SpectraLink
 output/retransmission-device.html: Subclause
 output/retransmission-device.html: TBD
 output/retransmission-device.html: TCF
-output/retransmission-device.html: TEst
 output/retransmission-device.html: TP
 output/retransmission-device.html: TSM
 output/retransmission-device.html: TTP
