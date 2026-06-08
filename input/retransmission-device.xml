@@ -798,15 +798,6 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FAU_STG.1/PFED</h:td>
-					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Mandatory for PFED.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
 					<h:td>FAU_STG.2</h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">N/A</h:td>
@@ -1284,15 +1275,6 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FIA_UAU.3/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Mandatory when PFED-triggered EU unforgeable authentication.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
 					<h:td>FIA_UAU.5</h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center">N/A</h:td>
@@ -1416,15 +1398,6 @@
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td>EU protocol-triggered fail-secure behavior.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
-					<h:td>FPT_FLS.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">IMP</h:td>
-					<h:td>Mandatory when PFED-triggered fail-secure state for the full HWS-ERD TOE.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1743,15 +1716,6 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FTP_ITC.1/MACsec</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Mandatory when EU selects MACsec.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
 					<h:td>FTP_ITC.1/PFED</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
@@ -1862,7 +1826,7 @@
 				<addressed-by>FCS_REKEY_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by rekeying ensuring session keys are fresh and reduces the window for 
 					integrity compromise.</rationale>
 				
-				<addressed-by>FTP_ITC.1/MACsec (impl-dep)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure MACsec connection protected from unauthorized
+				<addressed-by>FTP_ITC.1 (impl-dep)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure MACsec connection protected from unauthorized
 					disclosure.</rationale>
 				<addressed-by>FTP_ITC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure PFED connection protected from unauthorized
 					disclosure.</rationale>				
@@ -1911,7 +1875,7 @@
 					preventing protocol-based attacks.</rationale>
 				<addressed-by>FIA_PSK_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by use is limited to tunnel-0 bootstrap, preventing attackers from exploiting 
 					PSK in other sessions.</rationale>				
-				<addressed-by>FTP_ITC.1/MACsec (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing MACsec as a means to protect data in transit.  </rationale>
+				<addressed-by>FTP_ITC.1 (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing MACsec as a means to protect data in transit.  </rationale>
 				<addressed-by>FTP_ITC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing PFED as a means to protect data in transit.  </rationale>
 								
 				<addressed-by>FCS_CKM.1/AKG (sel-based)</addressed-by><rationale>Mitigates the threat by generating strong cryptographic asymmetric keys to protect data in
@@ -2081,7 +2045,7 @@
 				<description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a replay attack. This 
 					method of attack allows the individual to capture packets traversing the network and send the packets later, possibly unknown by the intended
 					receiver.</description>
-				<addressed-by>FTP_ITC.1/MACsec (impl-dep)</addressed-by><rationale>Mitigates the threat by utilizing the MACsec protocol to encapsulate and encrypt channel
+				<addressed-by>FTP_ITC.1 (impl-dep)</addressed-by><rationale>Mitigates the threat by utilizing the MACsec protocol to encapsulate and encrypt channel
 					data.</rationale>
 				<addressed-by>FTP_ITC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by utilizing PFED encryption to encapsulate and encrypt channel data.</rationale>
 				<addressed-by>FTP_ITC_EXT.1/Admin (sel-based)</addressed-by><rationale>Mitigates the threat by utilizing the IPsec protocol to encapsulate and encrypt channel data.</rationale>				
@@ -2515,16 +2479,30 @@
 	 				<selectable>store audit data on the TOE itself</selectable>
 	 				<selectable>transmit audit data to an external IT entity using a trusted 
 	 					channel in accordance with FTP_ITC_EXT.1/Admin</selectable>
+	 				<selectable>protect stored audit records from unauthorized modification and deletion.</selectable>
 	 				</selectables>  
 	 			</title>
 	 			<note role="application">
 	 				The ST author selects "<h:i>trusted channel</h:i>" and includes FTP_ITC_EXT.1/Admin in the ST if the TOE offloads
 	 				audit data to external IT entity over a network connection. Protocols used for implementing the trusted
-	 				channel must be selected in FTP_ITC_EXT.1/Admin.  
+	 				channel must be selected in FTP_ITC_EXT.1/Admin.<h:p/>
+	 				For PFED, the intent is is to ensure that PFED audit records, once generated and stored, cannot be altered or removed by unauthorized
+	 				entities.<h:p/>
+	 				For this requirement, “unauthorized modification and deletion” means that the TOE enforces access controls, storage protections, or other
+	 				TOE security mechanisms such that only authorized TOE functions or authorized administrative actions may affect stored audit records in the
+	 				ways permitted by the TOE design.
 	 			</note>
 	 			<aactivity level="element">
 	 				<TSS>
-	 					The evaluator shall examine the TSS to ensure it describes the means by which the audit data are transferred to the external audit server.
+	 					The evaluator shall examine the TSS to ensure it describes the means by which the audit data are transferred to the external audit
+	 					server.<h:p/>
+	 					For PFED, the evaluator shall examine the TSS to determine that it:<h:ul>
+	 						<h:li>Identifies the storage location or locations used for PFED audit records.</h:li> 
+	 						<h:li>Describes how stored PFED audit records are protected from unauthorized modification.</h:li> 
+	 						<h:li>Describes how stored PFED audit records are protected from unauthorized deletion.</h:li> 
+	 						<h:li>Identifies the TOE roles, services, or internal processes that are authorized to modify, rotate, archive, export, or delete
+	 							PFED audit records.</h:li> 
+	 					</h:ul>
 	 				</TSS>
 	 				<Guidance>
 	 					If "trusted channel" is selected above, the evaluator shall examine the AGD to ensure it describes how to establish the 
@@ -2541,7 +2519,24 @@
 	 					The evaluator shall then examine the traffic that passes between the audit server and the TOE during several activities of the 
 	 					evaluator’s choice designed to generate audit data to be transferred to the audit server. The evaluator shall observe that these
 	 					data are not able to be viewed in the clear during this transfer, and that they are successfully received by the audit server. 
-	 					The evaluator shall record the particular software (name, version) used on the audit server during testing.	 					
+	 					The evaluator shall record the particular software (name, version) used on the audit server during testing.<h:p/>
+
+						<h:b>For PFED</h:b><h:br/>
+							The evaluator shall perform the following tests:
+	 					<testlist>
+	 						<test>
+	 							Stored audit record generation and persistence: The evaluator shall cause one or more PFED auditable events to occur and verify 								that corresponding audit records are stored in the PFED audit storage described in the TSS and guidance.	 													</test>
+	 						<test>
+	 							Protection against unauthorized modification: Using available interfaces and roles, the evaluator shall attempt to modify
+	 							stored PFED audit records in a manner not authorized by the TOE. The evaluator shall verify that the TOE prevents the
+	 							unauthorized modification.	 							
+	 						</test>
+	 						<test>
+	 							Protection against unauthorized deletion: Using available interfaces and roles, the evaluator shall attempt to delete stored
+	 							PFED audit records in a manner not authorized by the TOE. The evaluator shall verify that the TOE prevents the unauthorized
+	 							deletion.	 							
+	 						</test>
+	 					</testlist>
 	 				</Tests>
 	 			</aactivity>
 	 		</f-element>
@@ -2551,46 +2546,7 @@
 	 			</audit-event-descr>
 	 			<audit-event-info>None</audit-event-info>
 	 		</audit-event>
-	 	</f-component>        
-	 	
-	 	<f-component name="Protected Audit Trail Storage" cc-id="fau_stg.1" iteration="PFED" status="feat-based">
-	 		<depends on="pfed"/>
-	 		<f-element id="fau-stg-1e1">
-	 			<title>
-	 				The TOE shall protect stored audit records from unauthorized modification and deletion.
-	 			</title>
-	 			<note role="application">
-	 				The intent of this requirement is to ensure that PFED audit records, once generated and stored, cannot be altered or removed by unauthorized entities.<h:p/>
-	 				For this requirement, “unauthorized modification and deletion” means that the TOE enforces access controls, storage protections, or other TOE security mechanisms such that only authorized TOE functions or authorized administrative actions may affect stored audit records in the ways permitted by the TOE design. 				
-	 			</note>
-	 			<aactivity>
-	 				<TSS>
-	 					The evaluator shall examine the TSS to determine that it:<h:ul>
-	 						<h:li>Identifies the storage location or locations used for PFED audit records.</h:li> 
-	 						<h:li>Describes how stored PFED audit records are protected from unauthorized modification.</h:li> 
-	 						<h:li>Describes how stored PFED audit records are protected from unauthorized deletion.</h:li> 
-	 						<h:li>Identifies the TOE roles, services, or internal processes that are authorized to modify, rotate, archive, export, or delete PFED audit records.</h:li> 
-	 					</h:ul>
-	 				</TSS>
-	 				<Guidance/>
-	 				<Tests>
-	 					The evaluator shall perform the following tests:
-	 					<testlist>
-	 						<test>
-	 							Stored audit record generation and persistence: The evaluator shall cause one or more PFED auditable events to occur and verify that corresponding audit records are stored in the PFED audit storage described in the TSS and guidance.	 							
-	 						</test><h:p/>
-	 						<test>
-	 							Protection against unauthorized modification: Using available interfaces and roles, the evaluator shall attempt to modify stored PFED audit records in a manner not authorized by the TOE. The evaluator shall verify that the TOE prevents the unauthorized modification.	 							
-	 						</test><h:p/>
-	 						<test>
-	 							Protection against unauthorized deletion: Using available interfaces and roles, the evaluator shall attempt to delete stored PFED audit records in a manner not authorized by the TOE. The evaluator shall verify that the TOE prevents the unauthorized deletion.	 							
-	 						</test><h:p/>
-	 					</testlist>
-	 				</Tests>
-	 			</aactivity>
-	 		</f-element>
-	 		<audit-event table="impl-dep"/>
-	 	</f-component>
+	 	</f-component>       
 	 	
 	 	<!-- FAU_STG.2 Protected Audit Trail Storage -->
 	 	
@@ -7857,7 +7813,7 @@
 				</audit>
 				<dependencies>
 					FIA_UAU.2 Mutual Authentication Before Any Action<h:p/>
-					FIA_UAU.3 Multiple Authentication Mechanisms<h:p/>
+					FIA_UAU.5 Multiple Authentication Mechanisms<h:p/>
 					No other dependencies
 				</dependencies>
 						
@@ -7972,13 +7928,13 @@
 				
 			<f-component name="Information Flow Control Functions" cc-id="fdp_iff.1">
 				<f-element id="fdp-iff-1e1">
-					<title>
+					<title> <comment>We need to make this extended and define all information that goes along with that.</comment><h:br/>
 						The TSF shall enforce the <selectables>
-							<selectable>CU Information Flow Control Policy</selectable>
+							<selectable>CU information flow control policy</selectable>
 							<selectable>information flow control policy</selectable>
 						</selectables> based on the following types of subject and
-						information security attributes:<selectables>
-							<selectable>For "CU Information Flow Control Policy":<h:ul>
+						information security attributes:<selectables linebreak="yes">
+							<selectable>For "CU information flow control policy":<h:ul>
 								<h:li>Subject Security Attributes<h:ul>
 									<h:li>Ingress interface identifier</h:li>
 									<h:li>Egress interface identifier</h:li>
@@ -7994,7 +7950,7 @@
 								<h:li>The source domain (EU or CU)</h:li>
 								<h:li>The destination domain (EU or CU)</h:li>
 								<h:li>The communication interface (dedicated wired interface)
-									].</h:li>
+									.</h:li>
 							</h:ul></selectable>
 						</selectables>
 						<assignable>list of subjects and information controlled under the indicated SFP, 
@@ -8002,12 +7958,14 @@
 				</f-element>
 				<f-element id="fdp-iff-1e2">
 					<title>The TSF shall permit an information flow between <selectables choose-one-of="yes">
-						<selectable>the Untrusted Interface and the Trusted Interface</selectable>
+						<selectable>a controlled subject and controlled information</selectable>
+						<selectable>the untrusted interface and the trusted interface</selectable>
 						<selectable>subjects only if all of the following rules are satisfied</selectable>
-					</selectables>via a controlled subject and controlled information via a controlled 
-						operation if the following rules hold: <selectables>
-							<selectable><assignable>for each operation, the security attribute-based relationship that
-						hold between subject and information security attributes</assignable></selectable>
+					</selectables> via a controlled operation if the following rules hold: <selectables linebreak="yes">
+						<selectable><assignable>list of subjects and information controlled under the indicated SFP, and for each, the security
+							attributes</assignable></selectable>	
+						<selectable><assignable>for each operation, the security attribute-based relationship that hold between subject and information
+							security attributes</assignable></selectable>
 						<selectable><h:ul>
 							<h:li>Information exchange between the EU and CU occurs exclusively over the dedicated wired interface.</h:li>
 							<h:li>No logical or physical shared memory exists between the EU and CU.</h:li>
@@ -8018,11 +7976,11 @@
 						</selectables>.</title>
 				</f-element>
 				<f-element id="fdp-iff-1e3">
-					<title>The TSF shall enforce the <selectables>
-						<selectable>denial of information flow between an untrusted black transport network interface and a trusted interface if the packet does not match an
-							explicitly configured allow rule</selectable>
+					<title>The TSF shall enforce the <selectables linebreak="yes">
+						<selectable>denial of information flow between an untrusted black transport network interface and a trusted interface if the packet 
+							does not match an explicitly configured allow rule</selectable>
 						<selectable>following additional information flow control rules: [<h:i>None</h:i>]</selectable>
-					</selectables>.</title>
+						</selectables>.</title>
 				</f-element>
 				<f-element id="fdp-iff-1e4">
 					<title>The TSF shall explicitly <h:b><selectables>
@@ -8030,7 +7988,8 @@
 						<selectable>ensure</selectable>						
 					</selectables></h:b> an information flow based on the following rules:<selectables>
 						<selectable><assignable>rules, based on security attributes, that explicitly authorize information flows</assignable></selectable>
-						<selectable>between untrusted interfaces and are mediated by the TSF and are subject to the CU INformation Flow Control Policy</selectable>
+						<selectable>between untrusted interfaces and are mediated by the TSF and are subject to the CU Information Flow Control
+							Policy</selectable>
 					</selectables>.
 					</title>
 				</f-element>
@@ -8041,8 +8000,25 @@
 					</selectables>.
 					</title>
 					<note role="application">
-						The intent of this requirement is for the TOE to enforce an information flow control Security Function Policy (SFP) by making permit or deny decisions based on defined security attributes of subjects and information. For a retransmission device, this requirement focuses on the decision function itself: the TOE is expected to evaluate security-relevant attributes associated with TOE-controlled subjects, information, and operations, and to permit or deny information flow only in accordance with the configured or defined policy rules. The ST author specifies security attributes associated with subjects and information (e.g., interfaces, VLAN identifiers, session state, cryptographic context), and the conditions governing whether flows are permitted or denied. Flow evaluation is expected to occur prior to transmission, with behavior typically following a default-deny model unless explicitly permitted.
+						The intent of this requirement is for the TOE to enforce an information flow control Security Function Policy (SFP) by making
+							permit or
+						deny decisions based on defined security attributes of subjects and information. For a retransmission device, this requirement focuses
+						on the decision function itself: the TOE is expected to evaluate security-relevant attributes associated with TOE-controlled subjects,
+						information, and operations, and to permit or deny information flow only in accordance with the configured or defined policy rules. The
+						ST author specifies security attributes associated with subjects and information (e.g., interfaces, VLAN identifiers, session state,
+						cryptographic context), and the conditions governing whether flows are permitted or denied. Flow evaluation is expected to occur prior
+						to transmission, with behavior typically following a default-deny model unless explicitly permitted.<h:p/>
 						
+						For CU, the intent of this requirement is to ensure that the CU enforces its information flow control policy by making permit and deny
+						decisions using specific subject and information security attributes for packet flows between the trusted side of the TOE and the
+						untrusted black transport network side. The CU-specific decision function companion to the CU subset information flow control
+						requirement, identifies the attributes used in policy decisions, requires explicit permit logic, requires deny behavior for packets that							do not match an allow rule, and requires TSF mediation of all covered flows. The ST author should identify the CU information flow	
+						control policy and use the listed subject and information security attributes as the basis for policy decisions.<h:p/>
+	
+	For HWS-only, the intent of this requirement is to ensure that in the HWS-ERD configuration, the TSF enforces a narrowly defined information flow control policy on communications between the EU and CU using domain- and path-based attributes. This requirement is about the HWS architectural information flow function between the EU and CU. It is narrower than a general packet-policy rule set and should be read as enforcing domain separation and a single permitted communications path in the HWS-ERD design.<h:p/>
+						
+								For PFED implementations, the link between the EU and the CU is a stateless link between two non-addressable passive interfaces. The
+								payload from an outgoing EU to CU frame persists and the payload from an incoming CU to EU frame persists after the immediate processing							of that frame. The CU can act as a secondary firewall to enforce the egress of specific EU frame types.<h:p/>		
 						
 						If the TOE claims CU only, the ST author should select the following. <h:ul>
 							<h:li>"CU Information Flow Control Policy" and the lists for "Subject Security Attributes" and "Information Security Attributes" in
@@ -8055,79 +8031,29 @@
 							<h:li>"the information flow control policy" and the list under "For "information flow control policy"" in FDP_IFF.1.1</h:li>
 							<h:li>"subjects only if all... and the list beginning with "Information exchange between..." in FDP_IFF.1.2</h:li>
 							<h:li>"following additional information..." in FDP_IFF.1.3</h:li>
-						</h:ul>
+						</h:ul>				
+						
 					</note>
 					<aactivity>
 						<TSS>The evaluator shall examine the TSS to determine that it:<h:ul>
 							<h:li>Identifies the information flow control SFP enforced by the TOE. </h:li>
 							<h:li>Identifies the controlled subjects, information, and operations to which the SFP applies.</h:li>
-							<h:li>Identifies the subject security attributes and information security attributes used by the TOE to make information flow decisions.</h:li>
+							<h:li>Identifies the subject security attributes and information security attributes used by the TOE to make information flow
+								decisions.</h:li>
 							<h:li>Describes how the TOE obtains, maintains, or derives those attributes for use in policy enforcement.</h:li>
 							<h:li>Describes the attribute-based relationships required for a flow to be permitted for each claimed controlled operation.</h:li>
 							<h:li>Describes the additional information flow control rules enforced by the TOE under FDP_IFF.1.3.</h:li>
 							<h:li>Describes the explicit authorization rules enforced by the TOE under FDP_IFF.1.4.</h:li>
 							<h:li>Describes the explicit denial rules enforced by the TOE under FDP_IFF.1.5.</h:li>
 							</h:ul>
-							The evaluator shall examine the TSS to ensure that the security attributes named in the ST are attributes the TOE can actually evaluate and enforce, and that the described permit and deny logic is specific enough to support repeatable testing.</TSS>
-						<Guidance/>
-						<Tests/>
-					</aactivity>
-				</f-element>
-				<audit-event/>
-				
-			</f-component>
-			
-			<f-component name="Simple Security Attributes (CU)" cc-id="fdp_iff.1" iteration="CU" status="feat-based">
-				<depends on="cu-functionality"/>
-				<depends on="pfed"/>
-				<f-element id="fdp-iff-cu-1e1">
-					<title>
-						The TSF shall enforce the [<h:i>CU Information Flow Control Policy</h:i>] based on the following types subject and information security
-						attributes:
-						[<h:ul><h:i>
-							<h:li>Subject Security Attributes<h:ul>
-								<h:li>Ingress interface identifier</h:li>
-								<h:li>Egress interface identifier</h:li>
-							</h:ul></h:li>
-							<h:li>Information Security Attributes<h:ul>
-								<h:li>Source IP address</h:li>
-								<h:li>Destination IP address</h:li>
-								<h:li>IP protocol type</h:li>
-								<h:li>Source transport-layer port (if applicable)</h:li>
-								<h:li>Destination transport-layer port (if applicable)</h:li>
-							</h:ul></h:li>
-						</h:i>].
-						</h:ul>
-					</title>
-				</f-element>
-				
-				<f-element id="fdp-iff-cu-1e2">
-					<title>
-						The TSF shall permit information flow between <h:b>the Untrusted Interface and the Trusted Interface</h:b> via a controlled operation if the following
-						rules hold: <assignable>for each operation, the security attribute-based relationship that hold between subject and information security
-							attributes</assignable>.
-					</title>
-				</f-element>
-				
-				<f-element id="fdp-iff-cu-1e3">
-					<title>
-						The TSF shall deny an information flow between an untrusted black transport network interface and a trusted interface if the packet does							not match an explicitly configured allow rule.
-					</title>
-				</f-element>
-				
-				<f-element id="fdp-iff-cu-1e4">
-					<title>
-						The TSF shall ensure that all information flows between untrusted interfaces and are mediated by the TSF and are subject to the 
-						CU INformation Flow Control Policy.</title>
-					<note role="application">
-						The intent of this requirement is to ensure that the CU enforces its information flow control policy by making permit and deny decisions using specific subject and information security attributes for packet flows between the trusted side of the TOE and the untrusted black transport network side. This requirement is the CU-specific decision function companion to the CU subset information flow control requirement. It identifies the attributes used in policy decisions, requires explicit permit logic, requires deny behavior for packets that do not match an allow rule, and requires TSF mediation of all covered flows. The ST author should identify the CU Information Flow Control Policy and use the listed subject and information security attributes as the basis for policy decisions.<h:p/>
-						For PFED implementations, the link between the EU and the CU is a stateless link between two non-addressable passive interfaces. The payload from an outgoing EU to CU frame persists and the payload from an incoming CU to EU frame persists after the immediate processing of that frame. The CU can act as a secondary firewall to enforce the egress of specific EU frame types.						
-					</note>
-					<aactivity>
-						<TSS>
+							The evaluator shall examine the TSS to ensure that the security attributes named in the ST are attributes the TOE can actually
+							evaluate and enforce, and that the described permit and deny logic is specific enough to support repeatable testing.
+						
+						<h:b>For CU-only</h:b><h:br/>
 							The evaluator shall examine the TSS to determine that it:<h:ul>
 							<h:li>Identifies the CU Information Flow Control Policy enforced by the TOE.</h:li> 
-							<h:li>Identifies the CU packet flows to which the policy applies, consistent with the covered trusted interface and untrusted black transport network interface flows. </h:li>
+							<h:li>Identifies the CU packet flows to which the policy applies, consistent with the covered trusted interface and untrusted black
+								transport network interface flows. </h:li>
 							<h:li>Identifies the subject security attributes used by the TOE for CU information flow decisions:<h:ul> 
 								<h:li>Ingress interface identifier</h:li> 
 								<h:li>Egress interface identifier</h:li>
@@ -8141,120 +8067,77 @@
 							</h:ul></h:li> 
 							<h:li>Describes how the TOE obtains or evaluates those attributes for each covered packet flow.</h:li> 
 							<h:li>Describes the controlled operations for which permit decisions are made under FDP_IFF.1.2/CU.</h:li> 
-							<h:li>Describes the attribute-based relationships that must hold for the TOE to permit information flow between the untrusted interface and the trusted interface.</h:li> 
-							<h:li>Describes the deny behavior required by FDP_IFF.1.3/CU, including that packets received on an untrusted black transport network interface and destined for a trusted interface are denied if they do not match an explicitly configured allow rule.</h:li> 
-							<h:li>Describes how the TOE ensures that all covered information flows are mediated by the TSF and subject to the CU Information Flow Control Policy, consistent with FDP_IFF.1.4/CU.</h:li> 
-							<h:li>Describes any differences in handling among supported CU interfaces, deployment modes, or packet-processing paths relevant to this requirement.</h:li> </h:ul>
-							The evaluator shall determine that the TSS is consistent with the posted CU-specific component text and that the CU decision function is based on the listed interface and packet attributes, uses explicit allow-rule matching for the claimed permit behavior, and prevents bypass of TSF mediation for covered flows.
-						</TSS>
-						<Guidance>
-							The evaluator shall examine the operational guidance to determine that it:<h:ul>
-								<h:li>Describes how an administrator identifies or configures the trusted and untrusted CU interfaces, if configurable.</h:li> 
-								<h:li>Describes how an administrator configures explicitly allowed packet flows using the claimed CU attributes.</h:li> 
-								<h:li>Describes how an administrator can determine whether a packet flow should be permitted or denied based on the configured CU policy.</h:li> 								    <h:li>Describes any direction-specific behavior for traffic flowing from trusted to untrusted or from untrusted to trusted interfaces.</h:li> `
-								<h:li>Describes any audit records associated with permitted flows, denied flows, or CU policy decisions, if such records are generated by the TOE.</h:li> 
-								<h:li>Describes any policy-management behavior relevant to maintaining the explicitly configured allow rules.</h:li>
-							</h:ul>
-						</Guidance>
-						<Tests>
-							The evaluator shall perform the following tests.
-							<testlist>
-								<test>Permit rule enforcement: The evaluator shall configure one or more explicit allow rules using the claimed CU policy attributes and generate packets whose ingress interface, egress interface, source address, destination address, protocol, and ports, if applicable, satisfy those rules. The evaluator shall verify that the TOE permits the information flow between the untrusted interface and the trusted interface only when the claimed attribute relationships hold.</test><h:p/>
-								<test>Deny on no allow-rule match: The evaluator shall generate packets received on an untrusted black transport network interface and destined for a trusted interface that do not match any explicitly configured allow rule. The evaluator shall verify that the TOE denies the information flow, as required by FDP_IFF.1.3/CU.</test><h:p/>
-								<test>Attribute variation: For one or more representative allow rules, the evaluator shall vary one or more attributes while keeping the others constant, such as ingress interface, destination address, protocol, or transport-layer port, and verify that the TOE’s permit or deny decision changes only in accordance with the configured policy.</test><h:p/>
-								<test>TSF mediation of covered flows: The evaluator shall verify, for both covered directions as applicable to the TOE design, that packet flows between the trusted and untrusted black-side interfaces are mediated by the TSF and are subject to the CU Information Flow Control Policy rather than bypassing policy enforcement.</test><h:p/>
-								<test>Directional policy behavior: If the TOE claims differing permit logic for the two flow directions, the evaluator shall test representative cases in each direction and verify that the TOE behavior matches the TSS and guidance.</test><h:p/>
-							</testlist>
-							These tests may be combined where appropriate. The purpose of this evaluation is to confirm that the CU uses the listed subject and information attributes to enforce explicit permit and deny logic on the covered packet flows.
+							<h:li>Describes the attribute-based relationships that must hold for the TOE to permit information flow between the untrusted
+								interface and the trusted interface.</h:li> 
+							<h:li>Describes the deny behavior required by FDP_IFF.1.3/CU, including that packets received on an untrusted black transport
+								network interface and destined for a trusted interface are denied if they do not match an explicitly configured allow
+								rule.</h:li> 
+							<h:li>Describes how the TOE ensures that all covered information flows are mediated by the TSF and subject to the CU Information
+								Flow Control Policy, consistent with FDP_IFF.1.4/CU.</h:li> 
+							<h:li>Describes any differences in handling among supported CU interfaces, deployment modes, or packet-processing paths relevant to
+								this requirement.</h:li> </h:ul>
+							<h:p>The evaluator shall determine that the TSS is consistent with the posted CU-specific component text and that the CU decision
+							function is based on the listed interface and packet attributes, uses explicit allow-rule matching for the claimed permit behavior,
+							and prevents bypass of TSF mediation for covered flows.</h:p>	
 							
-						</Tests>
-					</aactivity>
-				</f-element>
-				<audit-event table="impl-dep">
-					<audit-event-descr>Denial of a CU packet flow because it does not match an explicitly configured allow rule</audit-event-descr>
-				</audit-event>
-				
-			</f-component>
-			
-			<f-component name="Simple Security Attributes (HWS)" cc-id="fdp_iff.1" iteration="HWS" status="feat-based">
-				<depends on="hws-erd"/>
-				<depends on="pfed"/>
-				<f-element id="fdp-iff-hws-1e1">
-					<title>
-						The TSF shall enforce [<h:i>the information flow control policy</h:i>] based on the following types of 
-						subject and information security attributes: [<h:i><h:ul>
-							<h:li>The source domain (EU or CU)</h:li>
-							<h:li>The destination domain (EU or CU)</h:li>
-							<h:li>The communication interface (dedicated wired interface)</h:li>].
-						</h:ul></h:i>				
-					</title>					
-				</f-element>
-				
-				<f-element id="fdp-iff-hws-1e2">
-					<title>
-						The TSF shall permit an information flow between <h:b>subjects only if all of the following rules are satisfied:</h:b> [<h:i><h:ul>
-							<h:li>Information exchange between the EU and CU occurs exclusively over the dedicated wired interface.</h:li>
-							<h:li>No logical or physical shared memory exists between the EU and CU.</h:li>
-							<h:li>The EU and CU execute on independent processors.</h:li>
-							<h:li>The EU and CU access only their own dedicated memory resources.</h:li>
-							<h:li>No alternate communication path exists between the EU and CU.</h:li>							
-						</h:ul></h:i>].
-					</title>
-				</f-element>
-				
-				<f-element id="fdp-iff-hws-1e3">
-					<title>						
-						The TSF shall enforce the <h:b>following additional information flow control rules:</h:b> [<h:i>None</h:i>].
-					</title>
-				</f-element>
-				
-				<f-element id="fdp-iff-hws-1e4">
-					<title>
-						The TSF shall explicitly <h:b>deny</h:b> an information flow based on the following rules: [<h:i>Any information flow not explicitly
-						permitted in FDP_IFF.1.2</h:i>].
-					</title>
-					<note role="application">
-						The intent of this requirement is to ensure that in the HWS-ERD configuration, the TSF enforces a narrowly defined information flow control policy on communications between the EU and CU using domain- and path-based attributes. This requirement is about the HWS architectural information flow function between the EU and CU. It is narrower than a general packet-policy rule set and should be read as enforcing domain separation and a single permitted communications path in the HWS-ERD design.
-					</note>
-					<aactivity>
-						<TSS>
+							<h:b>For HWS-only</h:b><h:br/>
 							The evaluator shall examine the TSS to determine that it:<h:ul>
 								<h:li>Identifies the information flow control policy enforced for the HWS-ERD EU/CU boundary.</h:li> 
 								<h:li>Identifies the subject and information security attributes used by the TOE for this requirement:<h:ul> 
 									<h:li>source domain,</h:li>  
 									<h:li>destination domain, and</h:li>  
 									<h:li>communication interface.</h:li> 
-							</h:ul></h:li>  
-							<h:li>Describes the dedicated wired interface used for permitted communication between the EU and CU. </h:li>  
-							<h:li>Describes how the TOE ensures that information exchange between the EU and CU occurs exclusively over that dedicated wired interface.</h:li>  
-							<h:li>Describes how the TOE ensures that no logical or physical shared memory exists between the EU and CU. </h:li>
-							<h:li>Describes how the TOE ensures that the EU and CU execute on independent processors.</h:li>
-							<h:li>Describes how the TOE ensures that the EU and CU access only their own dedicated memory resources. </h:li>  
-							<h:li>Describes how the TOE ensures that no alternate communication path exists between the EU and CU. </h:li>  
-							<h:li>States that no additional information flow control rules are claimed under FDP_IFF.1.3/HWS. </h:li> 
-							<h:li>Describes how the TOE explicitly denies any information flow not permitted by the conditions in FDP_IFF.1.2/HWS. </h:li>
+								</h:ul></h:li>  
+								<h:li>Describes the dedicated wired interface used for permitted communication between the EU and CU. </h:li>  
+								<h:li>Describes how the TOE ensures that information exchange between the EU and CU occurs exclusively over that dedicated wired interface.</h:li>  
+								<h:li>Describes how the TOE ensures that no logical or physical shared memory exists between the EU and CU. </h:li>
+								<h:li>Describes how the TOE ensures that the EU and CU execute on independent processors.</h:li>
+								<h:li>Describes how the TOE ensures that the EU and CU access only their own dedicated memory resources. </h:li>  
+								<h:li>Describes how the TOE ensures that no alternate communication path exists between the EU and CU. </h:li>  
+								<h:li>States that no additional information flow control rules are claimed under FDP_IFF.1.3/HWS. </h:li> 
+								<h:li>Describes how the TOE explicitly denies any information flow not permitted by the conditions in FDP_IFF.1.2/HWS. </h:li>
 							</h:ul>
-							The evaluator shall determine that the TSS is consistent with the HWS-ERD design described by the PP, which requires physical and logical separation between the EU and CU components.
-							
+							<h:p>The evaluator shall determine that the TSS is consistent with the HWS-ERD design described by the PP, which requires physical and logical separation between the EU and CU components.</h:p>
 						</TSS>
-						<Guidance/>
+						<Guidance>
+							<h:b>For CU-only</h:b><h:br/>
+							The evaluator shall examine the operational guidance to determine that it:<h:ul>
+								<h:li>Describes how an administrator identifies or configures the trusted and untrusted CU interfaces, if configurable.</h:li> 
+								<h:li>Describes how an administrator configures explicitly allowed packet flows using the claimed CU attributes.</h:li> 
+								<h:li>Describes how an administrator can determine whether a packet flow should be permitted or denied based on the configured
+									CU policy.</h:li>
+								<h:li>Describes any direction-specific behavior for traffic flowing from trusted to untrusted or from untrusted to trusted
+									interfaces.</h:li>
+								<h:li>Describes any audit records associated with permitted flows, denied flows, or CU policy decisions, if such records are
+									generated by the TOE.</h:li> 
+								<h:li>Describes any policy-management behavior relevant to maintaining the explicitly configured allow rules.</h:li>
+							</h:ul>
+							
+							<h:b>For HWS-only</h:b><h:br/>
+							
+						</Guidance>
 						<Tests>
 							The evaluator shall perform the following tests.
 							<testlist>
-								<test>Dedicated wired interface exclusivity: The evaluator shall verify that communication between the EU and CU occurs only over the dedicated wired interface identified in the TSS and that no other interface is permitted for that information flow. </test><h:p/>
-								<test>No shared memory path: The evaluator shall verify, through examination of TOE behavior, configuration, supported test interfaces, or developer evidence, that the EU and CU do not communicate through logical or physical shared memory. </test><h:p/>
-								<test>Independent processor execution: The evaluator shall verify, through examination of TOE behavior, configuration, supported test interfaces, or developer evidence, that the EU and CU execute on independent processors as claimed in the TSS. </test><h:p/>
-								<test>Dedicated memory-resource access: The evaluator shall verify, through examination of TOE behavior, configuration, supported test interfaces, or developer evidence, that the EU and CU access only their own dedicated memory resources. </test><h:p/>
-								<test>No alternate communication path: The evaluator shall verify that no alternate communication path exists between the EU and CU beyond the dedicated wired interface claimed in the TSS. </test><h:p/>
-								<test>Deny behavior: The evaluator shall verify that any attempted information flow between the EU and CU that does not satisfy all of the conditions in FDP_IFF.1.2/HWS is denied by the TOE. </test><h:p/>
-							</testlist>
-							These tests may be combined where appropriate. The purpose of this evaluation is to confirm that the HWS design enforces the claimed allowlist architecture for EU/CU communication and denies all other information flows.
-							
+								<test> [CU-only] Permit rule enforcement: The evaluator shall configure one or more explicit allow rules using the claimed CU policy attributes and generate packets whose ingress interface, egress interface, source address, destination address, protocol, and ports, if applicable, satisfy those rules. The evaluator shall verify that the TOE permits the information flow between the untrusted interface and the trusted interface only when the claimed attribute relationships hold.</test><h:p/>
+								<test>[CU-only] Deny on no allow-rule match: The evaluator shall generate packets received on an untrusted black transport network interface and destined for a trusted interface that do not match any explicitly configured allow rule. The evaluator shall verify that the TOE denies the information flow, as required by FDP_IFF.1.3/CU.</test><h:p/>
+								<test>[CU-only] Attribute variation: For one or more representative allow rules, the evaluator shall vary one or more attributes while keeping the others constant, such as ingress interface, destination address, protocol, or transport-layer port, and verify that the TOE’s permit or deny decision changes only in accordance with the configured policy.</test><h:p/>
+								<test>[CU-only] TSF mediation of covered flows: The evaluator shall verify, for both covered directions as applicable to the TOE design, that packet flows between the trusted and untrusted black-side interfaces are mediated by the TSF and are subject to the CU Information Flow Control Policy rather than bypassing policy enforcement.</test><h:p/>
+								<test>[CU-only] Directional policy behavior: If the TOE claims differing permit logic for the two flow directions, the evaluator shall test representative cases in each direction and verify that the TOE behavior matches the TSS and guidance.</test><h:p/>								
+									<test>[HWS-only] Dedicated wired interface exclusivity: The evaluator shall verify that communication between the EU and CU occurs only over the dedicated wired interface identified in the TSS and that no other interface is permitted for that information flow. </test><h:p/>
+									<test>[HWS-only] No shared memory path: The evaluator shall verify, through examination of TOE behavior, configuration, supported test interfaces, or developer evidence, that the EU and CU do not communicate through logical or physical shared memory. </test><h:p/>
+									<test>[HWS-only] Independent processor execution: The evaluator shall verify, through examination of TOE behavior, configuration, supported test interfaces, or developer evidence, that the EU and CU execute on independent processors as claimed in the TSS. </test><h:p/>
+									<test>[HWS-only] Dedicated memory-resource access: The evaluator shall verify, through examination of TOE behavior, configuration, supported test interfaces, or developer evidence, that the EU and CU access only their own dedicated memory resources. </test><h:p/>
+									<test>[HWS-only] No alternate communication path: The evaluator shall verify that no alternate communication path exists between the EU and CU beyond the dedicated wired interface claimed in the TSS. </test><h:p/>
+									<test>[HWS-only] Deny behavior: The evaluator shall verify that any attempted information flow between the EU and CU that does not satisfy all of the conditions in FDP_IFF.1.2/HWS is denied by the TOE. </test><h:p/>
+								</testlist>
+								The tests for either CU or HWS may be combined where appropriate. The purpose of the CU-only evaluation is to confirm that the CU uses the listed subject and information attributes to enforce explicit permit and deny logic on the covered packet flows. The purpose of the HWS-only evaluation is to confirm that the HWS design enforces the claimed allowlist architecture for EU/CU communication and denies all other information flows.	
 						</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event table="impl-dep"/>			
-				
+				<audit-event table="impl-dep">
+					<audit-event-descr>Denial of a CU packet flow because it does not match an explicitly configured allow rule</audit-event-descr>
+				</audit-event>				
 			</f-component>
 			
 			<f-component name="Simple Security Attributes" cc-id="fdp_iff.1" iteration="PFED" status="feat-based">
@@ -9049,72 +8932,7 @@
 						<h:li>Successful PFED mutual authentication, if audited</h:li>
 						<h:li>failed PFED mutual authentication</h:li>
 					</h:ul></audit-event-descr>
-				</audit-event>
-				
-			</f-component>
-			
-			<f-component name="Multiple Authentication Mechanisms" cc-id="fia_uau.3" iteration="PFED" status="feat-based">
-				<depends on="pfed"/>
-				<f-element id="fia-uau-pfed-3e1">
-					<title>
-						The TOE shall support the following authentication mechanisms: <h:ul>
-							<h:li>Cryptographic mutual authentication using ML-DSA-87</h:li> and <selectables>
-								<selectable>user activation using <assignable>password, PIN, or CIK</assignable></selectable>
-								<selectable>no other mechanism</selectable>
-							</selectables>							
-						</h:ul>				
-					</title>
-					<note role="application">
-						The intent of this requirement is to ensure that the TOE supports a PFED authentication model consisting of both a cryptographic peer-authentication mechanism and, where claimed, an additional user-activation mechanism. If the ST author selects user activation using password, PIN, or CIK, the TSS should identify exactly which of those activation mechanisms is supported by the TOE. The TSS should also describe when that mechanism is used in the PFED lifecycle and how it relates to session bring-up or protected operation.<h:p/>
-						Mutual authentication using the ML-DSA key pair only authenticates an EU-to-EU association. This does not authenticate the user in possession of the EU. A user supplied credential can be combined with the ML-DSA-87 mutual authentication or supplied in establishing any subsequent session after an ML-DSA-87 mutual authentication has happened at least once.
-						
-					</note>
-					<aactivity>
-						<TSS>
-							The evaluator shall examine the TSS to determine that it:<h:ul>
-								<h:li>Identifies the PFED authentication mechanisms supported by the TOE under this requirement.</h:li> 
-								<h:li>States that the TOE supports cryptographic mutual authentication using ML-DSA-87. </h:li>  
-								<h:li>If an additional user-activation mechanism is claimed, identifies whether that mechanism is:<h:ul> 
-									<h:li>a password, </h:li>  
-									<h:li>PIN, </h:li>
-									<h:li>CIK, or </h:li>
-									<h:li>more than one of those, if the ST author instantiates the assignment accordingly. </h:li>  </h:ul></h:li>
-									<h:li>If no other mechanism is selected, states that no additional authentication mechanism is claimed under this requirement. </h:li>  
-									<h:li>Describes the PFED role or phase in which the ML-DSA-87 mutual-authentication mechanism is used. </h:li>
-									<h:li>If an additional user-activation mechanism is claimed, describes the PFED role or phase in which that mechanism is used. </h:li>  
-									<h:li>Describes how the TOE distinguishes the cryptographic mutual-authentication mechanism from the user-activation mechanism, if both are claimed. </h:li>
-							</h:ul>
-							
-						</TSS>
-						<Guidance>
-							The evaluator shall examine the operational guidance to determine that it:<h:ul>
-								<h:li>Describes any administrator-visible prerequisites for the PFED mutual-authentication mechanism. </h:li> 
-								<h:li>If an additional user-activation mechanism is claimed, describes how that mechanism is provisioned, entered, or activated. </h:li> 
-								<h:li>Describes any administrator-visible indication of successful or failed use of the claimed PFED authentication mechanisms, if such indication is provided by the TOE. </h:li>
-							</h:ul>
-							
-						</Guidance>
-						<Tests>
-							The evaluator shall perform the following tests.
-							<testlist>
-								<test>ML-DSA-87 mutual-authentication mechanism supported: The evaluator shall invoke or otherwise cause the TOE to perform the claimed PFED mutual-authentication function and verify that the TOE supports cryptographic mutual authentication using ML-DSA-87, consistent with the TSS and guidance. This aligns with the posted PFED appendix session-setup section.</test><h:p/> 
-								<test>Test 2: Additional user-activation mechanism supported: If the TOE claims an additional user-activation mechanism, the evaluator shall verify that the TOE supports the selected mechanism, namely password, PIN, or CIK, consistent with the TSS and guidance. This aligns with the posted PFED bring-up and multi-factor activation section. </test><h:p/>
-								<test>No unclaimed additional mechanism relied upon: If the ST selects no other mechanism, the evaluator shall verify that the TOE does not rely on an additional claimed user-activation mechanism to satisfy this SFR.</test><h:p/>
-								<test>Claimed mechanism set consistency: If both the cryptographic mutual-authentication mechanism and a user-activation mechanism are claimed, the evaluator shall verify that the TOE supports both mechanisms in the PFED roles or phases described in the TSS. </test><h:p/>
-								<test>PFED Functional Test: Provision a pair of PFEDS A1 and B1. This will also create the credential needed by the user to authenticate. Attempt to use the authentication method (password, PIN, CIK, etc) to complete a session. This should succeed. Then attempt to use an incorrect value (password, PIN, CIK, etc). This should fail. </test><h:p/>
-							</testlist>
-							Where direct observation of low-level authentication processing is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, traces, or developer evidence sufficient to determine that the claimed mechanism set is implemented.
-							
-						</Tests>
-					</aactivity>
-				</f-element>
-				<audit-event table="impl-dep">
-					<audit-event-descr><h:ul>
-						<h:li>Successful or failed PFED mutual authentication</h:li>
-						<h:li>Successful of failed PFED user activation, if claimed and audited</h:li>
-					</h:ul></audit-event-descr>
-				</audit-event>
-				
+				</audit-event>				
 			</f-component>
 			
 			<f-component name="Multiple Authentication Mechanisms" cc-id="fia_uau.5" status="sel-based">
@@ -9124,16 +8942,28 @@
 						<selectable>certificate-based authentication</selectable>
 						<selectable>public key-based authentication</selectable>
 						<selectable>biometric authentication</selectable>
+						<selectable>support for cryptographic mutual authentication using ML-DSA-87 and user activation using <assignable>password, PIN, or
+							CIK</assignable></selectable>							
 						<selectable>no other mechanism</selectable>
 					</selectables>] to support user authentication. 
 					</title>
 					<note role="application">
 						This SFR is included in the ST if the "administrator" role is selected in FMT_SMR.1.<h:p/>
 						A "user" in the context of this SFR is an administrator.<h:p/>
-						The TSF must support a Password Authentication Factor and may optionally implement a biometric authentication factor.<h:p/>
-						The Password Authentication Factor is configured according to FIA_PMG_EXT.1.<h:p/>
-						If "<h:i>X.509 certificate-based authentication</h:i>" is selected, then the ST must include FIA_X509_EXT.1 and FIA_X509_EXT.2 from.<h:p/>
-						If "<h:i>public key-based authentication</h:i>" is selected, then the ST must claim the.						
+						The TSF must support a password authentication factor and may optionally implement a biometric authentication factor.<h:p/>
+						The password authentication factor is configured according to FIA_PMG_EXT.1.<h:p/>
+						If "<h:i>certificate-based authentication</h:i>" is selected, then the ST must include FIA_X509_EXT.1 and FIA_X509_EXT.2
+						from <xref to="X509"/>.<h:p/>
+						If "<h:i>public key-based authentication</h:i>" is selected, then the ST must claim the <xref to="SSH"/>.	
+						
+						If "support for cryptographic mutual authentication using ML-DSA-87..." is selected, the intent is to ensure that the TOE supports a
+						PFED authentication model consisting of both a cryptographic peer-authentication mechanism and, where claimed, an additional
+						user-activation mechanism. If the ST author selects user activation using password, PIN, or CIK, the TSS should identify exactly which
+						of those activation mechanisms is supported by the TOE. The TSS should also describe when that mechanism is used in the PFED lifecycle
+						and how it relates to session bring-up or protected operation.<h:p/>
+						Mutual authentication using the ML-DSA key pair only authenticates an EU-to-EU association. This does not authenticate the user in
+						possession of the EU. A user supplied credential can be combined with the ML-DSA-87 mutual authentication or supplied in establishing
+						any subsequent session after an ML-DSA-87 mutual authentication has happened at least once.
 					</note>
 				</f-element>
 				
@@ -9154,24 +8984,76 @@
 							authentication (i.e., is the user input used to derive or unlock a key) and which authentication mechanism can be used at which
 							authentication factor interfaces (i.e., if there are times, for example, after a reboot, that only specific authentication
 							mechanisms can be used). If multiple Biometric Authentication Factors (BAF) are supported per FIA_UAU.5.1, the interaction 
-							between the BAFs must be described. For example, whether the multiple BAFs can be enabled at the same time.							
+							between the BAFs must be described. For example, whether the multiple BAFs can be enabled at the same time.<h:p/>
+
+							<h:b>For PFED</h:b>
+							The evaluator shall examine the TSS to determine that it:<h:ul>
+								<h:li>Identifies the PFED authentication mechanisms supported by the TOE under this requirement.</h:li> 
+								<h:li>States that the TOE supports cryptographic mutual authentication using ML-DSA-87. </h:li>  
+								<h:li>If an additional user-activation mechanism is claimed, identifies whether that mechanism is:<h:ul> 
+									<h:li>a password, </h:li>  
+									<h:li>PIN, </h:li>
+									<h:li>CIK, or </h:li>
+									<h:li>more than one of those, if the ST author instantiates the assignment accordingly. </h:li>  </h:ul></h:li>
+								<h:li>If no other mechanism is selected, states that no additional authentication mechanism is claimed under this requirement.
+								</h:li>  
+								<h:li>Describes the PFED role or phase in which the ML-DSA-87 mutual-authentication mechanism is used. </h:li>
+								<h:li>If an additional user-activation mechanism is claimed, describes the PFED role or phase in which that mechanism is used.
+								</h:li>  
+								<h:li>Describes how the TOE distinguishes the cryptographic mutual-authentication mechanism from the user-activation mechanism,
+									if both are claimed. </h:li>
+								</h:ul>							
 						</TSS>
 						<Guidance>
 							The evaluator shall verify that configuration information for each authentication mechanism is addressed in the AGD guidance.
+							
+							<h:b>For PFED</h:b>
+							The evaluator shall examine the operational guidance to determine that it:<h:ul>
+								<h:li>Describes any administrator-visible prerequisites for the PFED mutual-authentication mechanism. </h:li> 
+								<h:li>If an additional user-activation mechanism is claimed, describes how that mechanism is provisioned, entered, or activated.									</h:li>
+								<h:li>Describes any administrator-visible indication of successful or failed use of the claimed PFED authentication mechanisms,
+									if such indication is provided by the TOE. </h:li>
+							</h:ul>							
 						</Guidance>
 						<Tests>
 							<testlist>
 								<test>
-									For each authentication mechanism selected in FIA_UAU.5.1, the evaluator shall enable that mechanism and verify that it can be used to authenticate the user at the specified authentication factor interfaces.
-								</test><h:p/>
+									For each authentication mechanism selected in FIA_UAU.5.1, the evaluator shall enable that mechanism and verify that it can
+									be used to authenticate the user at the specified authentication factor interfaces.
+								</test>
 								<test>
 									For each authentication mechanism rule, the evaluator shall ensure that the authentication mechanism behaves accordingly.
-								</test><h:p/>
+								</test>
 							</testlist>
+							<h:b>For PFED</h:b>
+							The evaluator shall perform the following tests.
+							<testlist>
+								<test>ML-DSA-87 mutual-authentication mechanism supported: The evaluator shall invoke or otherwise cause the TOE to perform the
+									claimed PFED mutual-authentication function and verify that the TOE supports cryptographic mutual authentication using
+									ML-DSA-87, consistent with the TSS and guidance. This aligns with the posted PFED appendix session-setup
+									section.</test> 
+								<test>Additional user-activation mechanism supported: If the TOE claims an additional user-activation mechanism, the
+									evaluator shall verify that the TOE supports the selected mechanism, namely password, PIN, or CIK, consistent with the TSS
+									and guidance. This aligns with the posted PFED bring-up and multi-factor activation section.</test>
+								<test>No unclaimed additional mechanism relied upon: If the ST selects no other mechanism, the evaluator shall verify that the
+									TOE does not rely on an additional claimed user-activation mechanism to satisfy this SFR.</test>
+								<test>Claimed mechanism set consistency: If both the cryptographic mutual-authentication mechanism and a user-activation
+									mechanism are claimed, the evaluator shall verify that the TOE supports both mechanisms in the PFED roles or phases
+									described in the TSS. </test>
+								<test>PFED Functional Test: Provision a pair of PFEDS A1 and B1. This will also create the credential needed by the user to
+									authenticate. Attempt to use the authentication method (password, PIN, CIK, etc) to complete a session. This should
+									succeed. Then attempt to use an incorrect value (password, PIN, CIK, etc). This should fail. </test>
+							</testlist>
+							Where direct observation of low-level authentication processing is not practical, the evaluator may rely on observable TOE behavior,								supported test interfaces, traces, or developer evidence sufficient to determine that the claimed mechanism set is implemented.
 						</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event table="sel-based"/>
+				<audit-event table="sel-based">
+						<audit-event-descr><h:ul>
+							<h:li>Successful or failed PFED mutual authentication</h:li>
+							<h:li>Successful of failed PFED user activation, if claimed and audited</h:li>
+						</h:ul></audit-event-descr>					
+				</audit-event>
 			</f-component>
 		
 			<f-component id="sfr-fia-uau-7" cc-id="fia_uau.7" name="Protected Authentication Feedback" status="sel-based">
@@ -10740,6 +10622,7 @@
     		<depends on-incl="fcom_sym_key_gen"/>
     		<depends on-incl="fcs_sign_gen"/>    		
     		<depends on-="ipsec"/>
+    		<depends on="pfed"/>
     		
     		<f-element id="fel-pres-sec-state">
     			<title>
@@ -10750,42 +10633,15 @@
     				</h:ul></h:i>].              
     			</title>
     			<note role="application">The intent of this requirement is to ensure that cryptographic services requiring random bit
-    				generation cannot be performed if a failure of a self-test defined in FPT_TST.1 occurs.</note>
+    				generation cannot be performed if a failure of a self-test defined in FPT_TST.1 occurs.<h:p/>
+    			<h:b>For PFED</h:b>
+    				The intent of this requirement is to ensure that when specified PFED failures occur, the TOE preserves a secure state by terminating the affected session rather than allowing continued operation with uncertain peer state, incomplete provisioning state, or failed recovery state.<h:p/>
+    				These failures can happen due to honest or malicious events. EU-to-EU session re-establishment restores a secure state. Any new session must restart from the previous known good session key and migrate to a new ephemeral session key through a rekey transaction before restoring EUD-to-EUD traffic.</note>
     			<aactivity>              
     				<TSS>
     					The evaluator shall verify that the TSF describes how the TOE enters an error state in the event of a DRBG 
-    					self-test failure.
-    				</TSS>
-    				<Guidance>
-    					The evaluator shall verify that the guidance documentation describes the error state that results from a 
-    					DRBG self-test failure and the actions that a user or administrator should take in response to attempt to 
-    					resolve the error state.
-    				</Guidance>
-    				<Tests/>
-    			</aactivity>
-    		</f-element>
-    		<audit-event table="sel-based">
-    			<audit-event-descr>
-    				Failure of the TSF
-    			</audit-event-descr>
-    			<audit-event-info>None</audit-event-info>
-    		</audit-event>
-    	</f-component>
-    	
-    	<f-component name="Failure with Preservation of Secure State" cc-id="fpt_fls.1" iteration="PFED" status="feat-based">
-    		<depends on="pfed"/>
-    		<f-element id="fdp-fls-1e1">
-    			<title>
-    				The TSF shall preserve a secure state by terminating sessions when the following types of failures occur: [<h:i>dead
-    				peer detected, recovery failure, provisioning failure</h:i>.				
-    			</title>
-    			<note role="application">
-    				The intent of this requirement is to ensure that when specified PFED failures occur, the TOE preserves a secure state by terminating the affected session rather than allowing continued operation with uncertain peer state, incomplete provisioning state, or failed recovery state.<h:p/>
-    				These failures can happen due to honest or malicious events. EU-to-EU session re-establishment restores a secure state. Any new session must restart from the previous known good session key and migrate to a new ephemeral session key through a rekey transaction before restoring EUD-to-EUD traffic.
-    				
-    			</note>
-    			<aactivity>
-    				<TSS>
+    					self-test failure.<h:p/>
+    					<h:b>For PFED</h:b>
     					The evaluator shall examine the TSS to determine that it:<h:ul>
     						<h:li>Identifies the PFED failures covered by this requirement: <h:ul>
     							<h:li>dead peer detected,</h:li>
@@ -10800,10 +10656,14 @@
     						<h:li>For provisioning failure, describes how the TOE handles incomplete or failed provisioning so that no insecure partially provisioned session remains active. </h:li>
     					</h:ul> 
     					The evaluator shall determine that the TSS is consistent with the posted PFED appendix, including recovery termination on failure to converge and dead-peer handling in the PFED lifecycle.
-    					
     				</TSS>
-    				<Guidance/>
+    				<Guidance>
+    					The evaluator shall verify that the guidance documentation describes the error state that results from a 
+    					DRBG self-test failure and the actions that a user or administrator should take in response to attempt to 
+    					resolve the error state.
+    				</Guidance>
     				<Tests>
+    					<h:b>For PFED</h:b>
     					The evaluator shall perform the following tests.
     					<testlist>
     						<test> Dead peer detected: The evaluator shall cause a dead-peer condition in the claimed PFED context and verify that the TOE preserves a secure state by terminating the affected session. If the TOE transitions to session setup following dead-peer detection, the evaluator shall verify that the prior session is no longer active for protected traffic use.</test><h:p/>
@@ -10812,14 +10672,18 @@
     						<test> Secure-state preservation: For one or more of the above failure cases, the evaluator shall verify that after termination the TOE does not continue to permit traffic or otherwise behave as though the affected PFED session remains valid. </test><h:p/>
     					</testlist>
     					These tests may be combined where appropriate.
-    					
     				</Tests>
     			</aactivity>
     		</f-element>
-    		<audit-event table="impl-dep">
-    			<audit-event-descr>Session termination due to dead peer detection, recovery failure, or provisioning failure</audit-event-descr>
+    		<audit-event table="sel-based">
+    			<audit-event-descr>
+    				Failure of the TSF
+    			</audit-event-descr>
+    			<audit-event-info>None</audit-event-info>
     		</audit-event>
-    		
+    		<audit-event>
+    		<audit-event-descr>Session termination due to dead peer detection, recovery failure, or provisioning failure</audit-event-descr>
+    		</audit-event>
     	</f-component>
     
     	<f-component name="Hardware Root of Trust" cc-id="fpt_hrt.1" iteration="PFED" status="feat-based">
