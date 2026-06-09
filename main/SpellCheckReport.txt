@@ -18,6 +18,7 @@ output/retransmission-device-esr.html: IC2
 output/retransmission-device-esr.html: IC3
 output/retransmission-device-esr.html: IoT
 output/retransmission-device-esr.html: LTE
+output/retransmission-device-esr.html: MACsec
 output/retransmission-device-esr.html: RJ45
 output/retransmission-device-esr.html: SoC’s
 output/retransmission-device-esr.html: UAV
@@ -145,7 +146,9 @@ output/retransmission-device-release-linkable.html: L2
 output/retransmission-device-release-linkable.html: L3
 output/retransmission-device-release-linkable.html: LMS
 output/retransmission-device-release-linkable.html: LTE
+output/retransmission-device-release-linkable.html: MACSEC
 output/retransmission-device-release-linkable.html: MACs
+output/retransmission-device-release-linkable.html: MACsec
 output/retransmission-device-release-linkable.html: MFE
 output/retransmission-device-release-linkable.html: MGF1
 output/retransmission-device-release-linkable.html: MKA
@@ -387,7 +390,9 @@ output/retransmission-device-release.html: L2
 output/retransmission-device-release.html: L3
 output/retransmission-device-release.html: LMS
 output/retransmission-device-release.html: LTE
+output/retransmission-device-release.html: MACSEC
 output/retransmission-device-release.html: MACs
+output/retransmission-device-release.html: MACsec
 output/retransmission-device-release.html: MFE
 output/retransmission-device-release.html: MGF1
 output/retransmission-device-release.html: MKA
@@ -629,7 +634,9 @@ output/retransmission-device.html: L2
 output/retransmission-device.html: L3
 output/retransmission-device.html: LMS
 output/retransmission-device.html: LTE
+output/retransmission-device.html: MACSEC
 output/retransmission-device.html: MACs
+output/retransmission-device.html: MACsec
 output/retransmission-device.html: MFE
 output/retransmission-device.html: MGF1
 output/retransmission-device.html: MKA
