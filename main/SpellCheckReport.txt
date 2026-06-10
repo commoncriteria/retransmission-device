@@ -236,7 +236,6 @@ output/retransmission-device-release-linkable.html: ffdhe6144
 output/retransmission-device-release-linkable.html: ffdhe8192
 output/retransmission-device-release-linkable.html: fulfil
 output/retransmission-device-release-linkable.html: hLen
-output/retransmission-device-release-linkable.html: href
 output/retransmission-device-release-linkable.html: impl
 output/retransmission-device-release-linkable.html: intercomponent
 output/retransmission-device-release-linkable.html: invocable
