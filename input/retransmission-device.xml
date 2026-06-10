@@ -758,16 +758,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Base audit generation.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
-					<h:td>FAU_GEN.1/PFED</h:td>
-					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Mandatory for PFED-triggered audit events for the HWS-ERD TOE.</h:td>
+					<h:td>Base audit generation. Mandatory for PFED-triggered audit events for the HWS-ERD TOE.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1712,16 +1703,8 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Generic EU trusted channel; prefer protocol-specific iterations.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
-					<h:td>FTP_ITC.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Mandatory when PFED-triggered EU trusted channel for PFED-protected communication.</h:td>
+					<h:td>Generic EU trusted channel; prefer protocol-specific iterations. Mandatory when PFED-triggered EU trusted channel for PFED-protected
+						communication.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1826,14 +1809,8 @@
 				<addressed-by>FCS_REKEY_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by rekeying ensuring session keys are fresh and reduces the window for 
 					integrity compromise.</rationale>
 				
-				<addressed-by>FTP_ITC.1 (impl-dep)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure MACsec connection protected from unauthorized
-					disclosure.</rationale>
-				<addressed-by>FTP_ITC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure PFED connection protected from unauthorized
-					disclosure.</rationale>				
-				<addressed-by>FTP_ITC_EXT.1/IPsec (sel-based)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure VPN connection protected from unauthorized 
-					disclosure.</rationale>				
-				<addressed-by>FTP_ITC_EXT.1/WLAN (sel-based)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure WLAN connection protected from unauthorized
-					disclosure.</rationale	>			
+				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by transmitting data over a secure connection protected from unauthorized
+					disclosure.</rationale>		
 			</threat>
 			
 			<threat name="T.NETWORK_ACCESS">
@@ -1875,9 +1852,7 @@
 					preventing protocol-based attacks.</rationale>
 				<addressed-by>FIA_PSK_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by use is limited to tunnel-0 bootstrap, preventing attackers from exploiting 
 					PSK in other sessions.</rationale>				
-				<addressed-by>FTP_ITC.1 (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing MACsec as a means to protect data in transit.  </rationale>
-				<addressed-by>FTP_ITC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing PFED as a means to protect data in transit.  </rationale>
-								
+				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by implementing a specified protocol as a means to protect data in transit.  </rationale>		
 				<addressed-by>FCS_CKM.1/AKG (sel-based)</addressed-by><rationale>Mitigates the threat by generating strong cryptographic asymmetric keys to protect data in
 					transit.</rationale>
 				<addressed-by>FCS_CKM.1/SKG (sel-based)</addressed-by><rationale>Mitigates the threat by generating strong cryptographic symmetric keys to protect data in
@@ -2045,12 +2020,9 @@
 				<description>If an unauthorized individual successfully gains access to the system, the adversary may have the opportunity to conduct a replay attack. This 
 					method of attack allows the individual to capture packets traversing the network and send the packets later, possibly unknown by the intended
 					receiver.</description>
-				<addressed-by>FTP_ITC.1 (impl-dep)</addressed-by><rationale>Mitigates the threat by utilizing the MACsec protocol to encapsulate and encrypt channel
+				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by using a specified protocol to encapsulate and encrypt channel
 					data.</rationale>
-				<addressed-by>FTP_ITC.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by utilizing PFED encryption to encapsulate and encrypt channel data.</rationale>
-				<addressed-by>FTP_ITC_EXT.1/Admin (sel-based)</addressed-by><rationale>Mitigates the threat by utilizing the IPsec protocol to encapsulate and encrypt channel data.</rationale>				
-				<addressed-by>FTP_ITC_EXT.1/WLAN (sel-based)</addressed-by><rationale>Mitigates the threat by utilizing the WLAN protocol to encapsulate and encrypt channel
-					data.</rationale>
+				<addressed-by>FTP_ITC_EXT.1/Admin (sel-based)</addressed-by><rationale>Mitigates the threat by using the IPsec protocol to encapsulate and encrypt channel data.</rationale>
 			</threat>
 			
 			<threat name="T.SECURITY_FUNCTIONALITY_FAILURE">
@@ -2302,6 +2274,12 @@
 	 						<selectable>Additional information defined in the audit table for the <xref to="x509"/></selectable>
 	 						<selectable exclusive="yes">no other information</selectable>
 	 					</selectables>.</refinement></h:li>
+	 					<h:li><h:b>For PFED, the TOE shall generate audit records for the following events.<h:ul>
+	 						<h:li>Provisioning</h:li>
+	 						<h:li>Session setup and termination</h:li>
+	 						<h:li>Rekey</h:li>
+	 						<h:li>Key recovery</h:li>
+	 					</h:ul></h:b></h:li>
 	 				</h:ol>
 	 			</title>		
 	 			<note role="application">
@@ -2312,13 +2290,36 @@
 	 				Appropriate entries from <xref g="t-audit-optional"/>, <xref g="t-audit-objective"/>, and
 	 				<xref g="t-audit-sel-based"/> should be included in the ST if the 
 	 				associated SFRs and selections are included.<h:p/>
+	 				For PFED, the intent of this requirement is to ensure that PFED-relevant security events are recorded so that establishment, maintenance,
+	 				and recovery of the protected PFED session can be reconstructed and reviewed.<h:p/>
+	 				The lifecycle of a PFED pair consists of provisioning the cryptographic pair-wise association between two EU’s and managing the subsequent
+	 				sessions and session keys using transaction events. Provisioning establishes the initial keystore and is expected to run once at the
+	 				beginning of life for the pair. Once provisioned, an EU-to-EU session must be established before EUD traffic can flow. There is a rekey
+	 				event during session setup and periodically afterwards until one end goes offline. If a session key gets out of sync between the EU’s, the
+	 				pair will detect and then initiate a key recovery. It is not expected that EU logs are accessible while the crypto is active. The PFED
+	 				appendix currently states that the TOE maintains separate logs for the EU and CU, and specifically describes EU logging for these
+	 				events.<h:p/>
 	 				Specific auditable events required for SFRs from the functional packages are defined in the respective packages.<h:p/>
 	 			</note>
 	 			<aactivity>
 	 				<TSS>
 	 					The evaluator shall check the TSS and ensure that it lists all of the auditable events 
 	 					and provides a format for audit records. Each audit record format type shall be covered, along with a 
-	 					brief description of each field.
+	 					brief description of each field.<h:p/>
+	 					
+	 					<h:b>For PFED</h:b><h:br/>
+	 					The evaluator shall examine the TSS to determine that it:<h:ul>
+	 						<h:li>Identifies the PFED audit events for which the TOE generates records:</h:li><h:ul>
+	 							<h:li>provisioning,</h:li>
+	 							<h:li>session setup,</h:li>
+	 							<h:li>session termination,</h:li>
+	 							<h:li>rekey, and</h:li>
+	 							<h:li>key recovery.</h:li>
+	 					</h:ul>
+	 						<h:li>Describes what constitutes an auditable occurrence of each event type.</h:li>
+	 						<h:li>Describes the contents of the audit record generated for each event type.</h:li>	
+	 					</h:ul>
+	 					The evaluator shall determine that the TSS is consistent with the PFED appendix logging description for provisioning, session setup, session termination, rekey, and key recovery.
 	 				</TSS>
 	 				<Guidance>
 	 					The evaluator shall also make a determination of the administrative actions that are relevant in the 
@@ -2338,64 +2339,32 @@
 	 					administrative guide, and that the fields in each audit record have the proper entries.<h:p/>
 	 					Note that the testing here can be accomplished in conjunction with the testing of the security mechanisms 
 	 					directly.<h:p/>
+	 					
+	 					<h:b>For PFED</h:b><h:br/>
+	 					The evaluator shall perform the following tests.
+	 					<testlist>
+	 						<test>
+	 							Provisioning audit generation: The evaluator shall cause PFED provisioning to occur and verify that the TOE generates an audit
+	 							record for the 	provisioning event.
+	 						</test><h:p/>
+	 						<test>
+	 							Session setup and termination audit generation: The evaluator shall cause a PFED session to be established and terminated, and	 									then verify 	the TOE generates audit records for session setup and session termination.
+	 						</test><h:p/>
+	 						<test>Rekey audit generation: The evaluator shall cause a PFED rekey event to occur and verify the TOE generates an audit record for 								the rekey event.
+	 						</test><h:p/>
+	 						<test>Key recovery audit generation: The evaluator shall cause a PFED key recovery event to occur and verify the TOE generates an
+	 							audit record for the key recovery event.
+	 						</test><h:p/>
+	 						<test>Audit record review: The evaluator shall review the generated audit records and verify the records can be distinguished by
+	 							event type and are consistent with the TSS and guidance.
+	 						</test><h:p/>
+	 			</testlist>		
 	 				</Tests>   
 	 			</aactivity>
 	 		</f-element>
 	 		<audit-event/>
 	 	</f-component>
-	 	
-	 	<f-component name="Audit Data Generation" cc-id="fau_gen.1" iteration="PFED" status="feat-based">
-	 		<depends on="pfed"/>
-	 		<f-element id="fau-gen-1e1">
-	 			<title>
-	 				The TOE shall generate audit records for the following events.<h:ul>
-	 					<h:li>Provisioning</h:li>
-	 					<h:li>Session setup and termination</h:li>
-	 					<h:li>Rekey</h:li>
-	 					<h:li>Key recovery</h:li>
-	 				</h:ul>				
-	 			</title>
-	 			<note role="application">
-	 				The intent of this requirement is to ensure that PFED-relevant security events are recorded so that establishment, maintenance, and recovery of the protected PFED session can be reconstructed and reviewed.<h:p/>
-	 				These events align with the PFED operational lifecycle described in Appendix H. The lifecycle of a PFED pair consists of provisioning the cryptographic pair-wise association between two EU’s and managing the subsequent sessions and session keys using transaction events. Provisioning establishes the initial keystore and is expected to run once at the beginning of life for the pair. Once provisioned, an EU-to-EU session must be established before EUD traffic can flow. There is a rekey event during session setup and periodically afterwards until one end goes offline. If a session key gets out of sync between the EU’s, the pair will detect and then initiate a key recovery. It is not expected that EU logs are accessible while the crypto is active. The PFED appendix currently states that the TOE maintains separate logs for the EU and CU, and specifically describes EU logging for these events.	 				
-	 			</note>	 			
-	 			<aactivity>
-	 				<TSS>
-	 					The evaluator shall examine the TSS to determine that it:<h:ul>
-	 						<h:li>Identifies the PFED audit events for which the TOE generates records:</h:li><h:ul>
-	 							<h:li>provisioning,</h:li>
-	 							<h:li>session setup,</h:li>
-	 							<h:li>session termination,</h:li>
-	 							<h:li>rekey, and</h:li>
-	 							<h:li>key recovery.</h:li>
-	 					</h:ul>
-	 						<h:li>Describes what constitutes an auditable occurrence of each event type.</h:li>
-	 						<h:li>Describes the contents of the audit record generated for each event type.</h:li>	
-	 					</h:ul>
-	 					The evaluator shall determine that the TSS is consistent with the PFED appendix logging description for provisioning, session setup, session termination, rekey, and key recovery.	 					
-	 				</TSS>
-	 				<Guidance/>
-	 				<Tests>
-	 					The evaluator shall perform the following tests.
-	 					<testlist>
-	 						<test>
-	 					Provisioning audit generation: The evaluator shall cause PFED provisioning to occur and verify that the TOE generates an audit record for the
-	 					provisioning event.</test><h:p/>
-	 							<test>Session setup and termination audit generation: The evaluator shall cause a PFED session to be established and terminated, and then verify
-	 								the TOE generates audit records for session setup and session termination.</test><h:p/>
-	 						<test>Rekey audit generation: The evaluator shall cause a PFED rekey event to occur and verify the TOE generates an audit record for the rekey
-	 							event.</test><h:p/>
-	 							<test>Key recovery audit generation: The evaluator shall cause a PFED key recovery event to occur and verify the TOE generates an audit
-	 								record for the key recovery event.</test><h:p/>
-	 							<test>Audit record review: The evaluator shall review the generated audit records and verify the records can be distinguished by event type
-	 								and are consistent with the TSS and guidance.</test><h:p/>
-	 			</testlist>		
-	 				</Tests>
-	 			</aactivity>
-	 		</f-element>
-	 		<audit-event table="impl-dep"/>
-	 	</f-component>
-	 	
+	 			
 	 	<f-component name="User Identity Association" cc-id="fau_gen.2" iteration="PFED" status="feat-based">
 	 		<depends on="pfed"/>
 	 		<f-element id="fau-gen-2e1">
@@ -7886,20 +7855,7 @@
 				<f-element id="fdp-ifc-2e2">
 					<title>The TSF shall ensure that all operations that cause any information in the TOE to flow
 						to and from any subject in the TOE are covered by an information flow control SFP.</title>
-				</f-element>
-				<f-element id="fdp-ifc-2e3">
-					<title>The TSF shall enforce the <assignable>additional information flow control SFP
-						rules</assignable>.</title>
-				</f-element>
-				<f-element id="fdp-ifc-2e4">
-					<title>The TSF shall explicitly authorize an information flow based on the following rules:
-						<assignable>rules, based on security attributes, that explicitly authorize information
-							flows</assignable>.</title>
-				</f-element>
-				<f-element id="fdp-ifc-2e5">
-					<title>The TSF shall explicitly deny an information flow based on the following rules:
-						<assignable>rules, based on security attributes, that explicitly deny information
-							flows</assignable>.</title>
+				
 					<note role="application">
 						The intent of this requirement is for the TOE to ensure that every operation that causes information to flow to or from a TOE subject is governed by one or more TOE-enforced information flow control Security Function Policies (SFPs), and that no information flow occurs outside that control. For a retransmission device, this requirement is intended to ensure that all traffic forwarding, relaying, routing, protocol handling, retransmission, and other TOE-mediated data movement are subject to explicit flow control policies rather than ad hoc or bypass behavior.<h:p/>
 						The TOE’s design is expected to ensure that no data path bypasses enforcement, including user data, control traffic, and management communications.<h:p></h:p>
@@ -7913,9 +7869,7 @@
 							<h:li>Describes how the TOE ensures that all operations causing information to flow to or from TOE subjects are covered by one or more SFPs.</h:li>
 							<h:li>Describes the complete set of operational information flows within the claimed TOE configuration and maps those flows to the applicable SFPs.</h:li>
 							<h:li>Identifies the security attributes used by the TOE to make authorization and denial decisions for information flow.</h:li>
-							<h:li>Describes the additional SFP rules enforced by the TOE under FDP_IFC.2.3.</h:li>
-							<h:li>Describes the explicit authorization rules enforced by the TOE under FDP_IFC.2.4.</h:li>
-							<h:li>Describes the explicit denial rules enforced by the TOE under FDP_IFC.2.5.</h:li>
+							
 						</h:ul>
 							The evaluator shall also verify that the authorization and denial rules are based on attributes that are available to the TOE and can be enforced by the TOE.
 						</TSS>
@@ -8066,14 +8020,14 @@
 								<h:li>Destination transport-layer port, if applicable</h:li>
 							</h:ul></h:li> 
 							<h:li>Describes how the TOE obtains or evaluates those attributes for each covered packet flow.</h:li> 
-							<h:li>Describes the controlled operations for which permit decisions are made under FDP_IFF.1.2/CU.</h:li> 
+							<h:li>Describes the controlled operations for which permit decisions are made under FDP_IFF.1.2.</h:li> 
 							<h:li>Describes the attribute-based relationships that must hold for the TOE to permit information flow between the untrusted
 								interface and the trusted interface.</h:li> 
-							<h:li>Describes the deny behavior required by FDP_IFF.1.3/CU, including that packets received on an untrusted black transport
+							<h:li>Describes the deny behavior required by FDP_IFF.1.3, including that packets received on an untrusted black transport
 								network interface and destined for a trusted interface are denied if they do not match an explicitly configured allow
 								rule.</h:li> 
 							<h:li>Describes how the TOE ensures that all covered information flows are mediated by the TSF and subject to the CU Information
-								Flow Control Policy, consistent with FDP_IFF.1.4/CU.</h:li> 
+								Flow Control Policy, consistent with FDP_IFF.1.4.</h:li> 
 							<h:li>Describes any differences in handling among supported CU interfaces, deployment modes, or packet-processing paths relevant to
 								this requirement.</h:li> </h:ul>
 							<h:p>The evaluator shall determine that the TSS is consistent with the posted CU-specific component text and that the CU decision
@@ -8094,8 +8048,8 @@
 								<h:li>Describes how the TOE ensures that the EU and CU execute on independent processors.</h:li>
 								<h:li>Describes how the TOE ensures that the EU and CU access only their own dedicated memory resources. </h:li>  
 								<h:li>Describes how the TOE ensures that no alternate communication path exists between the EU and CU. </h:li>  
-								<h:li>States that no additional information flow control rules are claimed under FDP_IFF.1.3/HWS. </h:li> 
-								<h:li>Describes how the TOE explicitly denies any information flow not permitted by the conditions in FDP_IFF.1.2/HWS. </h:li>
+								<h:li>States that no additional information flow control rules are claimed under FDP_IFF.1.3. </h:li> 
+								<h:li>Describes how the TOE explicitly denies any information flow not permitted by the conditions in FDP_IFF.1.2. </h:li>
 							</h:ul>
 							<h:p>The evaluator shall determine that the TSS is consistent with the HWS-ERD design described by the PP, which requires physical and logical separation between the EU and CU components.</h:p>
 						</TSS>
@@ -8120,7 +8074,7 @@
 							The evaluator shall perform the following tests.
 							<testlist>
 								<test> [CU-only] Permit rule enforcement: The evaluator shall configure one or more explicit allow rules using the claimed CU policy attributes and generate packets whose ingress interface, egress interface, source address, destination address, protocol, and ports, if applicable, satisfy those rules. The evaluator shall verify that the TOE permits the information flow between the untrusted interface and the trusted interface only when the claimed attribute relationships hold.</test><h:p/>
-								<test>[CU-only] Deny on no allow-rule match: The evaluator shall generate packets received on an untrusted black transport network interface and destined for a trusted interface that do not match any explicitly configured allow rule. The evaluator shall verify that the TOE denies the information flow, as required by FDP_IFF.1.3/CU.</test><h:p/>
+								<test>[CU-only] Deny on no allow-rule match: The evaluator shall generate packets received on an untrusted black transport network interface and destined for a trusted interface that do not match any explicitly configured allow rule. The evaluator shall verify that the TOE denies the information flow, as required by FDP_IFF.1.3.</test><h:p/>
 								<test>[CU-only] Attribute variation: For one or more representative allow rules, the evaluator shall vary one or more attributes while keeping the others constant, such as ingress interface, destination address, protocol, or transport-layer port, and verify that the TOE’s permit or deny decision changes only in accordance with the configured policy.</test><h:p/>
 								<test>[CU-only] TSF mediation of covered flows: The evaluator shall verify, for both covered directions as applicable to the TOE design, that packet flows between the trusted and untrusted black-side interfaces are mediated by the TSF and are subject to the CU Information Flow Control Policy rather than bypassing policy enforcement.</test><h:p/>
 								<test>[CU-only] Directional policy behavior: If the TOE claims differing permit logic for the two flow directions, the evaluator shall test representative cases in each direction and verify that the TOE behavior matches the TSS and guidance.</test><h:p/>								
@@ -8129,7 +8083,7 @@
 									<test>[HWS-only] Independent processor execution: The evaluator shall verify, through examination of TOE behavior, configuration, supported test interfaces, or developer evidence, that the EU and CU execute on independent processors as claimed in the TSS. </test><h:p/>
 									<test>[HWS-only] Dedicated memory-resource access: The evaluator shall verify, through examination of TOE behavior, configuration, supported test interfaces, or developer evidence, that the EU and CU access only their own dedicated memory resources. </test><h:p/>
 									<test>[HWS-only] No alternate communication path: The evaluator shall verify that no alternate communication path exists between the EU and CU beyond the dedicated wired interface claimed in the TSS. </test><h:p/>
-									<test>[HWS-only] Deny behavior: The evaluator shall verify that any attempted information flow between the EU and CU that does not satisfy all of the conditions in FDP_IFF.1.2/HWS is denied by the TOE. </test><h:p/>
+									<test>[HWS-only] Deny behavior: The evaluator shall verify that any attempted information flow between the EU and CU that does not satisfy all of the conditions in FDP_IFF.1.2 is denied by the TOE. </test><h:p/>
 								</testlist>
 								The tests for either CU or HWS may be combined where appropriate. The purpose of the CU-only evaluation is to confirm that the CU uses the listed subject and information attributes to enforce explicit permit and deny logic on the covered packet flows. The purpose of the HWS-only evaluation is to confirm that the HWS design enforces the claimed allowlist architecture for EU/CU communication and denies all other information flows.	
 						</Tests>
@@ -9305,6 +9259,25 @@
 					<audit-event-descr>All use of the authentication mechanism</audit-event-descr>
 					<audit-event-info>Provided user identity, origin of the attempt (e.g., console, remote IP address)</audit-event-info>
 				</audit-event> 
+			</f-component>
+			
+			<f-component name="Timing of Identification" cc-id="fia_uid.1" id="sfr-fia-uid-1">
+				<f-element>
+					<title><comment>Need to complete App Note, EAs, and auditable events.</comment><h:br/>
+						The TSF shall allow <assignable>list of TSF-mediated actions</assignable> on behalf of the user to be performed before the user is identified.</title>
+				</f-element>
+				<f-element>
+					<title>The TSF shall require each user to be successfully identified before allowing any TSF-mediated actions on behalf of that user.</title>
+					<note>TBD</note>
+					<aactivity>
+						<TSS>TBD</TSS>
+						<Guidance>TBD</Guidance>
+						<Tests>TBD</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>TBD</audit-event-descr>
+				</audit-event>
 			</f-component>
 		</section>
 		
