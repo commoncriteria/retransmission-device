@@ -238,6 +238,7 @@ output/retransmission-device-release-linkable.html: fulfil
 output/retransmission-device-release-linkable.html: hLen
 output/retransmission-device-release-linkable.html: impl
 output/retransmission-device-release-linkable.html: intercomponent
+output/retransmission-device-release-linkable.html: interprocess
 output/retransmission-device-release-linkable.html: invocable
 output/retransmission-device-release-linkable.html: keystore
 output/retransmission-device-release-linkable.html: lifecycle
@@ -483,6 +484,7 @@ output/retransmission-device-release.html: fulfil
 output/retransmission-device-release.html: hLen
 output/retransmission-device-release.html: impl
 output/retransmission-device-release.html: intercomponent
+output/retransmission-device-release.html: interprocess
 output/retransmission-device-release.html: invocable
 output/retransmission-device-release.html: keystore
 output/retransmission-device-release.html: lifecycle
@@ -726,6 +728,7 @@ output/retransmission-device.html: fulfil
 output/retransmission-device.html: hLen
 output/retransmission-device.html: impl
 output/retransmission-device.html: intercomponent
+output/retransmission-device.html: interprocess
 output/retransmission-device.html: invocable
 output/retransmission-device.html: keystore
 output/retransmission-device.html: lifecycle
