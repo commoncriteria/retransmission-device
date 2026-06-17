@@ -101,8 +101,7 @@
         <term abbr="CRL" full="Certificate Revocation List"/>
         <term abbr="CSA" full="Computer Security Act"/>
     	<term abbr="CU" full="Communication Unit">
-    		A retransmission device (RD) component whose primary purpose is to provide network transport and simple isolation for an End User Device (EUD) or Encryption Unit
-    		(EU) when communicating with an untrusted transport network. The interconnect between the EUD or EU and the CU is always over a dedicated wired interconnect.</term>
+    		A retransmission device (RD) component whose primary purpose is to provide network transport and simple isolation for an EUD or EU when communicating with an untrusted transport network. The interconnect between the EUD or EU and the CU is always over a dedicated wired interconnect.</term>
         <term full="Data Execution Prevention" abbr="DEP">
             An anti-exploitation feature of modern operating systems executing on
             modern computer hardware, which enforces a non-execute permission on pages of memory.
@@ -136,7 +135,7 @@
         <term abbr="HTTPS" full="Hypertext Transfer Protocol Secure"/>
 		<term abbr="HWS-ERD" full="Hardware Separated Encrypting Retransmission Device">
 			An HWS-ERD will encrypt traffic between two endpoints while maintaining a defined physical 
-			and logical protocol break between the trusted and the untrusted trusted domains. The 
+			and logical protocol break between the trusted and the untrusted domains. The 
 			protocol break will be both physically and logically enforced.
 			</term>
         <term abbr="IANA" full="Internet Assigned Number Authority"/>
@@ -229,7 +228,7 @@
 		 <section title="Compliant Targets of Evaluation" id="TOEdescription">
 		 	
 		 <sec:TOE_Overview>
-		 	The primary TOE for this PP is a retransmission device, herein referred to as a CU, that is designed to provide hardware isolation and other security features to
+		 	The primary TOE for this PP is a retransmission device, herein referred to as a CU that is designed to provide hardware isolation and other security features to
 		 	protect communication between trusted EUDs or networks and unrestricted (black) transport networks.<h:p/>
 		 	
 		 	In addition, this PP supports the specification, evaluation, and certification of other related components, either independently or in combination,
@@ -304,7 +303,7 @@
 		
 		<sec:EU-Only_Configuration>
 			In the EU-Only configuration, the TOE does the following.<h:ul>
-				<h:li>Provides hardware isolation between the EUD and black transport networks (e.g., WLAN or Tactical Radio) or CU</h:li>
+				<h:li>Provides hardware isolation between the EUD and black transport networks (e.g., WLAN or tactical radio) or CU</h:li>
 				<h:li>Encrypts all EUD traffic to form an encrypted tunnel to an authorized encryption endpoint.</h:li>
 				<h:li>Implements one selectable encryption option from the following set.</h:li><h:ul>
 					<h:li>IPsec</h:li>
@@ -336,7 +335,7 @@
 				<h:li>Are independently administered via physically separated and isolated interfaces</h:li>
 				<h:li>Pass payload data exclusively via dedicated wired interfaces.</h:li>
 			</h:ul>
-			The EU is solely responsible for:<h:ul>
+			The EU is solely responsible for the following.<h:ul>
 				<h:li>Cryptographic processing of EUD or trusted network payload data</h:li>
 				<h:li>Ensuring plaintext is not exposed beyond trusted interfaces</h:li>
 			</h:ul>
@@ -360,18 +359,18 @@
 					security examination to narrow to the EU IC1 and IC3 interfaces as shown in Figure 4.</h:p>
 				<h:p>The EU is a figurative bump on the wire and operates at Layer 2 of the network stack. EUD packets are simply frames from the EU’s perspective. The payload
 					is not inspected from or to IC1. There is no cryptographic bypass. All packets from the EUD are forwarded through the EU to the CU. Packets that emerge from
-					the EU on IC3 cannot be routable across a Layer 3 network without a CU. If they are routable without a CU, then the device is not considered a
+					the EU on IC3 cannot be routable across a Layer 3 network without a CU. If they are routable without a CU, then the device is not considered an
 					HWS-ERD PFED.</h:p>
 				<h:p>The purpose of having two independent hardware devices, namely a stateless EU and a stateful CU, is to move complex stateful processing outside of the EU
 					and preserve only stateless processing inside the EU. The Layer 3 complexity necessary to traverse any typical transport is removed from the security
 					argument and safely remains outside the trust boundary of the EU. This isolates and simplifies the policy enforcement performed by the EU interfaces on IC3
 					and IC1. This translates directly into a simplified understanding of the isolation argument for an EUD protected by an ERD, both for a user and for an
-					evaluator. In a HWS-ERD/PFED context, all packets going to or from the EUD will always pass through the black-box EU to a peer EU.</h:p>
+					evaluator. In an HWS-ERD/PFED context, all packets going to or from the EUD will always pass through the black-box EU to a peer EU.</h:p>
 				<h:p>Hardware separation significantly reduces the attack surface of any EUD protected by an ERD. Measuring the HWS-ERD/PFED attack surface can be summarized as
 					follows.</h:p>
 					<h:p><h:b>Attack surface = complexity of the interface code at a stateless EU-IC3 × 1/2^256</h:b></h:p>
 					<h:p>The ERD attack surface can be summarized as follows.</h:p>
-					<h:p>Attack surface = complexity of the stateful network interface and cryptographic code handling of EU-IC2 × 1/2^256</h:p>
+				<h:p><h:b>Attack surface = complexity of the stateful network interface and cryptographic code handling of EU-IC2 × 1/2^256</h:b></h:p>
 					<h:p>The size of a stateful space in this context dwarfs the size of a stateless space. Smaller is better.</h:p>
 					<h:p>Inherent to the HWS-ERD PFED is an almost perfect firewall. It is a rule of one, and this rule is not a configurable parameter. This is because the CU
 						must translate the Layer 3 packet on IC2 into a Layer 2 packet on IC3, where that Layer 2 packet is a fixed type that the EU expects. Any other packet
@@ -396,7 +395,7 @@
 			</sec:Cryptographic_Algorithms_and_Parameters>
 			<sec:EU_Pair_Provisioning_and_Cryptographic_Bonding>
 				<h:p><h:b>Tunnel-0 Establishment Using a Pre-Shared Key</h:b></h:p>
-					The TOE requires an EU pair to be cryptographically bonded prior to the transmission of any End User Data (EUD). Initial bonding is performed during
+					The TOE requires an EU pair to be cryptographically bonded prior to the transmission of any EUD. Initial bonding is performed during
 					provisioning using a temporary secure tunnel, referred to as tunnel-0. Tunnel-0 is established using a Pre-Shared Key (PSK) that is either:<h:ul>
 						<h:li>Injected during manufacturing, or</h:li>
 						<h:li>Entered by the system owner through a trusted EU entry interface.</h:li>
@@ -411,7 +410,7 @@
 					<h:p>All other packets received during tunnel-0 are dropped by the EU prior to protocol stack processing.</h:p>
 					
 					<h:p><h:b>Transition to Tunnel-1 and PSK Destruction</h:b></h:p>
-						Upon successful completion of the ML-KEM-1024 transaction, the following occurs:<h:ul>
+						Upon successful completion of the ML-KEM-1024 transaction, the following occurs.<h:ul>
 							<h:li>Tunnel-0 is terminated.</h:li>
 							<h:li>The PSK is cryptographically destroyed.</h:li>
 							<h:li>A new secure tunnel, referred to as tunnel-1, is established using the shared secret derived from the ML-KEM-1024 transaction.</h:li>
@@ -419,7 +418,7 @@
 						Tunnel-1 is used to complete the remainder of the provisioning process.
 			</sec:EU_Pair_Provisioning_and_Cryptographic_Bonding>
 			<sec:Provisioining_Completion_and_Key_Material_Generation>
-				During tunnel-1, the TOE performs the following provisioning operations:<h:ul>
+				During tunnel-1, the TOE performs the following provisioning operations.<h:ul>
 				<h:li>Generation of an ML-DSA-87 public and private key pair</h:li>
 				<h:li>Secure exchange of ML-DSA-87 public keys with the peer</h:li>
 				<h:li>Exchange of link parameters, including MTU and event timing values, such as rekey intervals</h:li>
@@ -427,7 +426,7 @@
 				<h:li>Execution of at least one operational rekey transaction</h:li>
 				</h:ul>
 					The TOE does not permit EUD traffic until all provisioning steps have successfully completed. Upon completion of provisioning, the active EU keystore
-					contains the following:<h:ul>
+					contains the following.<h:ul>
 				<h:li>Transmit (TX) session key</h:li>
 				<h:li>Receive (RX) session key</h:li>
 				<h:li>Recovery Key 1</h:li>
@@ -462,9 +461,9 @@
 			<sec:Rekey_Operations>
 				<h:p><h:b>Rekey Scheduling</h:b></h:p>
 			<h:p>Following session establishment, the TOE enforces periodic rekey operations at configurable intervals between 2 and 30 minutes.</h:p>
-			Rekey operations may be initiated by either EU and may be performed by either of the following methods:<h:ul>
-				<h:li>Asynchronously while EUD traffic continues.</h:li>
-				<h:li>Synchronously with EUD traffic paused.</h:li>
+			Rekey operations may be initiated by either EU and may be performed by either of the following methods.<h:ul>
+				<h:li>Asynchronously while EUD traffic continues</h:li>
+				<h:li>Synchronously with EUD traffic paused</h:li>
 			</h:ul>
 			
 				<h:p><h:b>Rekey Modes</h:b></h:p>
@@ -527,7 +526,7 @@
 			<h:li>Bus mastering is controlled by the EU.</h:li>
 			</h:ul>
 				<h:p>The EU executes transaction processing at non-root privilege on a minimal operating system providing only timers, interface handling, and
-					inter-process communication.</h:p>
+					interprocess communication.</h:p>
 				
 				<h:p>Unused peripherals are disabled, unused pins are terminated, and power supplies are isolated or filtered.</h:p>
 			</sec:Platform_and_Operational_Environment_Enforcement>
@@ -725,8 +724,8 @@
 			
 			<h:b>Applicability Meaning</h:b><h:p/> 
 			All - Applies to every TOE<h:br/>
-			CU - Applies when TOE includes Communication Unit functionality<h:br/>
-			EU - Applies when TOE includes Encryption Unit functionality<h:br/>
+			CU - Applies when TOE includes CU functionality<h:br/>
+			EU - Applies when TOE includes EU functionality<h:br/>
 			HWS - Applies when TOE claims HWS-ERD<h:br/>
 			Trigger/Notes - Protocol or implementation condition<h:br/><h:p/>
 			
@@ -2185,7 +2184,7 @@
 			</SOE>
 			
 			<SOE name="OE.PRECAUTION">
-				<description>he TOE user exercises precautions to reduce the risk of loss or theft of the TOE.</description>
+				<description>The TOE user exercises precautions to reduce the risk of loss or theft of the TOE.</description>
 			</SOE>
 			
 			<SOE name="OE.PROPER_USER">
@@ -2199,7 +2198,7 @@
 			</SOE>
 			
 			<SOE name="OE.TRUSTED_ADMIN">
-				<description>The administrator of the TOE is not careless, willfully negligent or hostile, and administers the platform in compliance with enterprise security
+				<description>The administrator of the TOE administers the platform in compliance with enterprise security
 					policy.</description>
 			</SOE>
 		</SOEs>
@@ -2416,8 +2415,7 @@
 	 	<f-component id="sfr-fau-sar-1" cc-id="fau_sar.1" name="Audit Review">
 	 		<f-element id="fau-sar-1e1">
 	 			<title>The TSF shall provide <refinement>the administrator</refinement> with the
-	 				capability to read <refinement>all audited events and record contents</refinement>
-	 				from the audit data.</title>
+	 				capability to read [<h:i>all audited events and record contents</h:i>] from the audit data.</title>
 	 		</f-element>
 	 		<f-element id="fau-sar-1e2">
 	 			<title>The TSF shall provide the audit data in a manner suitable for the <refinement>administrator
@@ -2444,12 +2442,12 @@
 	 		
 	 		<consistency-rationale/>
 	 		<f-element id="fau-stg-1e1">
-	 			<title>The TSF shall be able to<selectables>
+	 			<title>The TSF shall be able to [<selectables>
 	 				<selectable>store audit data on the TOE itself</selectable>
 	 				<selectable>transmit audit data to an external IT entity using a trusted 
 	 					channel in accordance with FTP_ITC_EXT.1/Admin</selectable>
 	 				<selectable>protect stored audit records from unauthorized modification and deletion.</selectable>
-	 				</selectables>  
+	 				</selectables>]  
 	 			</title>
 	 			<note role="application">
 	 				The ST author selects "<h:i>trusted channel</h:i>" and includes FTP_ITC_EXT.1/Admin in the ST if the TOE offloads
@@ -2511,7 +2509,7 @@
 	 		</f-element>
 	 		<audit-event>
 	 			<audit-event-descr>
-	 				On failure of logging function, capture record of failure and record upon restart of logging function.
+	 				On failure of logging function, capture record of failure, and record upon restart of logging function.
 	 			</audit-event-descr>
 	 			<audit-event-info>None</audit-event-info>
 	 		</audit-event>
@@ -3344,7 +3342,7 @@
 					[<h:i><selectables>
 						<selectable>ML-KEM <h:b>using the parameter set</h:b> [ML-KEM-1024] that meets the following: [NIST FIPS PUB 203]</selectable>
 						<selectable>ML-DSA <h:b>using the parameter set</h:b> [ML-DSA-87] that meets the following [NIST FIPS PUB 204]</selectable>
-					</selectables></h:i> 
+					</selectables></h:i>] 
 				</title>
 				<note role="application">
 					The intent of this requirement is to ensure that the TOE generates asymmetric cryptographic keys in accordance with the specified approved cryptographic key generation algorithms and parameter sets required for PFED operations.<h:p/>
@@ -3609,14 +3607,14 @@
 			<f-element >
 				<title>
 					The TSF shall derive [<h:i>all session and recovery keys</h:i>] from [<h:i>existing key store material, newly derived shared secrets,
-					hardware-based RBG entropy as defined in FCS_RBG.1</h:i>] in accordance with a specified key derivation algorithm [Hash Key Derivation
+					hardware-based RBG entropy as defined in FCS_RBG.1</h:i>] in accordance with a specified key derivation algorithm [<h:i>Hash Key Derivation
 					Function using <selectables>
 						<selectable>SHA-384</selectable>
 						<selectable>SHA-512</selectable>
 					</selectables>, and cryptographic key sizes <selectables>
 						<selectable>384</selectable>
 						<selectable>512</selectable>
-					</selectables> that meet the following [<h:i>NIST SP 800-56C Revision 2 (Section 4.1, Option 1)</h:i>].
+					</selectables> that meet the following [NIST SP 800-56C Revision 2 (Section 4.1, Option 1)]</h:i>].
 				</title>
 				<note role="application">
 					The intent of this requirement is to ensure that the TOE derives PFED keying material only from the claimed sources of keying material and entropy, and only by means of the claimed key derivation method. If the TOE derives different PFED keys in different phases, such as session setup, rekey, or recovery, the TSS should describe the derivation inputs and outputs for each phase separately.
@@ -3716,7 +3714,7 @@
 							typically not found on the end consumer version of the TOE.</h:p>
 						<h:p>
 							The evaluator shall perform the following tests for all keys and key material subject to destruction by the TOE. For these tests,
-							the evaluator shall utilize an appropriate development environment (e.g., a virtual machine) and development tools (debuggers,
+							the evaluator shall use an appropriate development environment (e.g., a virtual machine) and development tools (debuggers,
 							simulators, etc.) to test that keys are cleared, including all copies of the key that may have been created internally by the TOE
 							during normal cryptographic processing with that key.</h:p>
 						<testlist>
@@ -3774,7 +3772,7 @@
 										key from Step #1.</h:li>
 									<h:li>Cause the TOE to clear the key.</h:li>
 									<h:li>Read the storage location in Step #1 of non-volatile memory to ensure
-										the appropriate pattern is utilized. </h:li>
+										the appropriate pattern is used. </h:li>
 								</h:ol>
 								<h:br/> The test succeeds if correct pattern is used to overwrite the key in
 								the memory location. If the pattern is not found the test fails. </test><h:p/>
@@ -4981,7 +4979,7 @@
 			<depends on="pfed"/>
 			<f-element >
 				<title>
-					The TSF shall perform [<h:i>encryption and decryption</h:i>] in accordance with a specified cryptographic algorithms [<h:i>AES operating in
+					The TSF shall perform [<h:i>encryption and decryption</h:i>] in accordance with a specified cryptographic algorithm [<h:i>AES operating in
 					GCM mode as defined in FCS_COP.1/AEAD</h:i>] and cryptographic key size [<h:i>256 bits</h:i>] that meet the following: [<h:i>AES as
 					specified in FIPS PUB 197, GCM as specified in NIST SP 800-38D</h:i>].
 				</title>
@@ -7416,7 +7414,15 @@
 				<comp-lev><comment>Need to complete comp level, management, audit, and dependencies</comment>.</comp-lev>
 				<management>TBD</management>
 				<audit>TBD</audit>
-				<dependencies>TBD</dependencies>				
+				<dependencies>TBD</dependencies>
+
+			<f-element>
+				<title>The TSF shall perform session rekey: <h:ul>
+					<h:li>At a configurable interval <assignable>between 2 and 30 minutes</assignable></h:li>
+					<h:li>Using ML-KEM-1024 only</h:li>
+					<h:li>Either synchronously or asynchronously with EUD traffic</h:li>.
+				</h:ul></title>
+			</f-element>
 			</f-component>
 		
 		<f-component name="Periodic Rekey" cc-id="fcs_rekey_ext.1" iteration="PFED" status="feat-based">
@@ -7887,7 +7893,7 @@
 							<selectable>CU information flow control policy</selectable>
 							<selectable>information flow control policy</selectable>
 						</selectables> based on the following types of subject and
-						information security attributes:<selectables linebreak="yes">
+						information security attributes: <selectables linebreak="yes">
 							<selectable>For "CU information flow control policy":<h:ul>
 								<h:li>Subject Security Attributes<h:ul>
 									<h:li>Ingress interface identifier</h:li>
@@ -7903,30 +7909,29 @@
 							<selectable>For "information flow control policy":<h:ul>
 								<h:li>The source domain (EU or CU)</h:li>
 								<h:li>The destination domain (EU or CU)</h:li>
-								<h:li>The communication interface (dedicated wired interface)
-									.</h:li>
-							</h:ul></selectable>
+								<h:li>The communication interface (dedicated wired interface)</h:li>
+							</h:ul>
+							</selectable>
 						</selectables>
-						<assignable>list of subjects and information controlled under the indicated SFP, 
-							and for each, the security attributes</assignable>.</title>
+						</title>
 				</f-element>
 				<f-element id="fdp-iff-1e2">
-					<title>The TSF shall permit an information flow between <selectables choose-one-of="yes">
+					<title>The TSF shall permit an information flow between <h:b><selectables choose-one-of="yes" linebreak="yes">
 						<selectable>a controlled subject and controlled information</selectable>
 						<selectable>the untrusted interface and the trusted interface</selectable>
-						<selectable>subjects only if all of the following rules are satisfied</selectable>
-					</selectables> via a controlled operation if the following rules hold: <selectables linebreak="yes">
-						<selectable><assignable>list of subjects and information controlled under the indicated SFP, and for each, the security
-							attributes</assignable></selectable>	
-						<selectable><assignable>for each operation, the security attribute-based relationship that hold between subject and information
-							security attributes</assignable></selectable>
-						<selectable><h:ul>
+						<selectable>subjects only if all of the following rules are satisfied: <h:ul>
 							<h:li>Information exchange between the EU and CU occurs exclusively over the dedicated wired interface.</h:li>
 							<h:li>No logical or physical shared memory exists between the EU and CU.</h:li>
 							<h:li>The EU and CU execute on independent processors.</h:li>
 							<h:li>The EU and CU access only their own dedicated memory resources.</h:li>
 							<h:li>No alternate communication path exists between the EU and CU.</h:li>
-						</h:ul></selectable>
+						</h:ul>
+						</selectable>
+					</selectables></h:b> via a controlled operation if the following rules hold: <selectables linebreak="yes">
+						<selectable><assignable>list of subjects and information controlled under the indicated SFP, and for each, the security
+							attributes</assignable></selectable>	
+						<selectable><assignable>for each operation, the security attribute-based relationship that hold between subject and information
+							security attributes</assignable></selectable>						
 						</selectables>.</title>
 				</f-element>
 				<f-element id="fdp-iff-1e3">
@@ -8089,7 +8094,7 @@
 						</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event table="impl-dep">
+				<audit-event>
 					<audit-event-descr>Denial of a CU packet flow because it does not match an explicitly configured allow rule</audit-event-descr>
 				</audit-event>				
 			</f-component>
@@ -8444,7 +8449,7 @@
 						authentication system increments the counter twice.<h:p/>
 						If the TOE supports multiple authentication mechanisms per FIA_UAU.5.1, this element applies
 						to all authentication mechanisms. It is acceptable for each authentication mechanism to
-						utilize an independent counter or for multiple authentication mechanisms to utilize a shared 
+						use an independent counter or for multiple authentication mechanisms to use a shared 
 						counter. The interaction between the authentication factors with regard to the authentication
 						counter must be in accordance with FIA_UAU.5.2.<h:p/>
 						If the TOE implements multiple Authentication Factor interfaces (for example, a DAR decryption 
@@ -8546,9 +8551,9 @@
 							If the TOE supports multiple authentication mechanisms, the evaluator shall ensure that
 							this description also includes how the unsuccessful authentication attempts for each
 							mechanism selected in FIA_UAU.5.1 is handled. The evaluator shall verify that the TSS 
-							describes if each authentication mechanism utilizes its own counter or if multiple 
-							authentication mechanisms utilize a shared counter. If multiple authentication mechanisms
-							utilize a shared counter, the evaluator shall verify that the TSS describes this 
+							describes if each authentication mechanism uses its own counter or if multiple 
+							authentication mechanisms use a shared counter. If multiple authentication mechanisms
+							use a shared counter, the evaluator shall verify that the TSS describes this 
 							interaction.<h:p/>
 							The evaluator shall confirm that the TSS describes how the process used to determine if 
 							the authentication attempt was successful. The evaluator shall ensure that the counter
@@ -8884,7 +8889,7 @@
 				<audit-event table="impl-dep">
 					<audit-event-descr><h:ul>
 						<h:li>Successful PFED mutual authentication, if audited</h:li>
-						<h:li>failed PFED mutual authentication</h:li>
+						<h:li>Failed PFED mutual authentication</h:li>
 					</h:ul></audit-event-descr>
 				</audit-event>				
 			</f-component>
@@ -9005,7 +9010,7 @@
 				<audit-event table="sel-based">
 						<audit-event-descr><h:ul>
 							<h:li>Successful or failed PFED mutual authentication</h:li>
-							<h:li>Successful of failed PFED user activation, if claimed and audited</h:li>
+							<h:li>Successful or failed PFED user activation, if claimed and audited</h:li>
 						</h:ul></audit-event-descr>					
 				</audit-event>
 			</f-component>
@@ -9667,7 +9672,7 @@
 								This function must be claimed if FCS_STG_EXT.1 is claimed in the ST.
 							</app-note>
 						</management-function>
-					</management-function-set>
+					</management-function-set>]
 				</title>
 
 				<note role="application">
@@ -9700,12 +9705,12 @@
       		<depends on="pfed"/>
       		<f-element id="fmt-smf-1e1">
       			<title>
-      				The TSF shall be capable of performing the following management functions:<h:ul>
+      				The TSF shall be capable of performing the following management functions:[<h:i><h:ul>
       					<h:li>Provisioning</h:li>
       					<h:li>Session setup</h:li>
       					<h:li>Rekey configuration</h:li>
       					<h:li>Log management</h:li>
-      				</h:ul>.				
+      				</h:ul></h:i>].				
       			</title>
       			<note role="application">
       				The intent of this requirement is to ensure that the TOE provides the management capabilities necessary to control the PFED operational lifecycle.<h:p/>
@@ -9851,8 +9856,7 @@
     			</title>    	
     			
     			<ext-comp-def-title>
-    				<title>The TSF shall allow the definition of packet filtering rules using the following network protocols and protocol fields: <assignable>supported network
-    					protocols and protocol fields.</assignable></title>
+    				<title>The TSF shall allow the definition of packet filtering rules using the following network protocols and protocol fields: <assignable>supported network protocols and protocol fields.</assignable></title>
     			</ext-comp-def-title>
     			
     			<note role="application">
@@ -10538,7 +10542,7 @@
     			<title>
     				The TSF shall detect peer failure using: <selectables>
     					<selectable>RFC 3706 mechanisms or keep-alive beacons</selectable>
-    					<selectable>Trigger session reconnect upon failure or disconnect notification</selectable>
+    					<selectable>trigger session reconnect upon failure or disconnect notification</selectable>
     					<selectable><assignable>other method of detecting dead peers</assignable></selectable>
     				</selectables>.
     			</title>
@@ -11107,8 +11111,8 @@
     			</aactivity>
     		</f-element>
     		<audit-event>
-    			<audit-event-descr>Detection of intrusion.</audit-event-descr>
-    			<audit-event-info>None.</audit-event-info>
+    			<audit-event-descr>Detection of intrusion</audit-event-descr>
+    			<audit-event-info>None</audit-event-info>
     		</audit-event>
     	</f-component>
     	
@@ -11850,7 +11854,7 @@
     		<dependencies>No dependencies.</dependencies>
     		<f-element>
     			<title>
-    				The TSF shall prevent reading of all pre-shared, symmetric keys, and private keys.
+    				The TSF shall prevent reading of all pre-shared, symmetric, and private keys.
     			</title>
     			<note role="application">
     				The intent of this requirement is for the device to protect keys, key material, and authentication credentials from unauthorised 
@@ -12155,7 +12159,7 @@
     			<note role="application">This requirement may be met by performing known answer tests
     				or pair-wise consistency tests. The self-tests must be performed before the
     				cryptographic functionality is exercised (for example, during the initialization of a
-    				process that utilizes the functionality). <h:p/> The cryptographic
+    				process that uses the functionality). <h:p/> The cryptographic
     				functionality includes the cryptographic operations in FCS_COP, the key generation
     				functions in FCS_CKM, and the random bit generation in FCS_RBG.1.</note>
     			<aactivity>
@@ -12704,8 +12708,8 @@
 	    	<f-component name="TSF-Initiated Termination" cc-id="fta_ssl.3">
 	    		<f-element>
 	    			<title>
-	    				The TSF shall terminate a remote interactive session after a security
-	    				administrator-configurable time interval of session inactivity</title>
+	    				The TSF shall terminate a remote interactive session after a <h:b>security
+	    					administrator-configurable</h:b> <assignable>time interval of <h:b>session</h:b> inactivity</assignable>.</title>
 	    			
 	    		<note role="application">
 	    			An interactive session governed by this SFR is a session in which an authenticated state is achieved and then preserved across multiple
@@ -12829,7 +12833,7 @@
 	    			<title>The TSF shall, upon transitioning to the locked state, perform the following
 	    				operations: <h:ul>
 	    					<h:li>Clearing or overwriting display devices, obscuring the previous contents; </h:li>
-	    					<h:li><assignable>Other actions performed upon transitioning to the locked
+	    					<h:li><assignable>other actions performed upon transitioning to the locked
 	    						state</assignable>.</h:li>
 	    				</h:ul>
 	    			</title>
@@ -12905,8 +12909,8 @@
       				<selectable><assignable>other capabilities</assignable></selectable>
       				<selectable>no other capabilities</selectable>
       			</selectables></h:b></selectable>
-      				<selectable>a MACsec peer</selectable>
-      				<selectable>a PFED peer</selectable>
+      				<selectable><h:b>a MACsec peer</h:b></selectable>
+      				<selectable><h:b>a PFED peer</h:b></selectable>
       			</selectables> <h:s>product</h:s> that is logically distinct from other communication channels and provides assured
       			identification of its end points and protection of the channel data from <h:b>disclosure and detection of modification of the channel
       				data</h:b>.
