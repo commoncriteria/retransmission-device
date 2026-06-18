@@ -3448,7 +3448,7 @@
 								<selectable id="sel-exp-skg-256">384</selectable>
 								<selectable id="sel-exp-skg-512">512</selectable></selectables> bits
 							</col>
-							<col>NIST SP 800-133 Revision 2 (Section 6.1)[Direct generation of symmetric keys]</col>
+							<col>NIST SP 800-133 Revision 2 (Section 6.1) [Direct generation of symmetric keys]</col>
 						</selectable>
 					</selectables>
 				</title>
@@ -3654,25 +3654,25 @@
 					parameters (CSPs)</h:i>] when 
 					<selectables>
 						<selectable>no longer needed</selectable>
-						<selectable><assignable>other circumstances for destruction</assignable></selectable>
+						<selectable><assignable>other circumstances for key or keying material destruction</assignable></selectable>
 					</selectables>.
 				</title>
 			</f-element>
 			<f-element id="fel-key-kill-how">
-				<title> The TSF shall destroy <h:b>plaintext</h:b> keying material <h:b>and critical security parameters</h:b> by 
-					implementing key destruction in accordance with the following rules: [<h:i><h:ul>
+				<title> The TSF shall destroy <h:b>plaintext</h:b> keying material <h:b>and critical security parameters by 
+					implementing</h:b> key destruction <h:b>in accordance with the following rules:</h:b> [<h:i><h:ul>
 						<h:li>For volatile memory, the destruction shall be executed by a single direct overwrite consisting of <selectables>
 							<selectable>a pseudo-random pattern using a TSF DRBG (as specified in FCS_RBG.1)</selectable>
 							<selectable>zeroes</selectable>
 						</selectables></h:li>
 						<h:li>For non-volatile EEPROM, the destruction shall be executed by a single direct overwrite consisting of a pseudo-random pattern using a 
 							TSF DRBG (as specified in FCS_RBG.1), followed by a read-verify.</h:li>
-						<h:li>For non-volatile flash memory, that is not wear-leveled, the destruction shall be executed by<selectables>
+						<h:li>For non-volatile flash memory, that is not wear-leveled, the destruction shall be executed by <selectables>
 							<selectable>a single direct overwrite consisting of zeros followed by a read-verify</selectable>
 							<selectable>a block erase that erases the reference to memory that stores data as well as the data itself</selectable>
 						</selectables>
 						</h:li>
-						<h:li>For non-volatile flash memory that is wear-leveled, the destruction shall be executed by<selectables>
+						<h:li>For non-volatile flash memory that is wear-leveled, the destruction shall be executed by <selectables>
 							<selectable>a single direct overwrite consisting of zeros</selectable>
 							<selectable>a block erase</selectable>
 						</selectables></h:li>
@@ -4826,7 +4826,7 @@
 								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable>
 								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/>
 								<selectables>
-									<selectable>ISO/IEC 19772:2020 (clause 6)</selectable>
+									<selectable>ISO/IEC 19772:2020 (Clause 6)</selectable>
 									<selectable>NIST SP 800-38F (Section 6.2)</selectable> 
 								</selectables> [KW mode]</col>
 						</selectable>
@@ -4914,7 +4914,7 @@
 								<h:td valign="top">256 bits</h:td>
 								<h:td valign="top">[<h:i><h:b>selection:</h:b> ISO/IEC 18033-3:2010 (Subclause 5.2),
 									FIPS PUB 197</h:i>] [AES]<h:p/>
-									[<h:i><h:b>selection:</h:b> ISO/IEC 19772:2020 (clause 6), 
+									[<h:i><h:b>selection:</h:b> ISO/IEC 19772:2020 (Clause 6), 
 									NIST SP 800-38F (Section 6.2)</h:i>] [KW mode] </h:td>
 							</h:tr>
 						</h:table><h:p/>	
@@ -6052,7 +6052,7 @@
 							</selectables></col>
 							<col><selectables>
 									<selectable>ISO/IEC 14888-3:2018 (Subclause 6.6)</selectable>
-									<selectable>FIPS PUB 186-5 (Section 6.4.2)</selectable>
+									<selectable>FIPS PUB 186-5 (Section 6.4.2) </selectable>
 								</selectables>[ECDSA]<h:p/>
 									NIST SP-800 186 (Section 4) [NIST Curves]
 							</col>
@@ -6465,7 +6465,7 @@
 							<col><selectables>
 								<selectable>ISO/IEC 18033-3:2010 (Subclause 5.2)</selectable> 
 								<selectable>FIPS PUB 197</selectable></selectables> [AES]<h:p/><selectables>
-									<selectable>: ISO/IEC 10116:2017 (Clause 10)</selectable> 
+									<selectable>ISO/IEC 10116:2017 (Clause 10)</selectable> 
 									<selectable>NIST SP 800-38A</selectable></selectables> [CBC]
 							</col>
 						</selectable>
@@ -6889,7 +6889,7 @@
 						<tabularize id="fcs-rbg-1-sels" title="Allowable choices for FCS_RBG.1.1">
 							<textcol>Identifier</textcol>
 							<reqtext></reqtext>
-							<selectcol>DRBG Algorithm</selectcol>
+							<selectcol><assignable>DRBG Algorithm</assignable></selectcol>
 							<reqtext> in accordance with </reqtext>
 							<selectcol>List of standards</selectcol>
 							<reqtext>after initialization.<h:p/><h:p/>The following table provides the allowable choices for
@@ -6954,13 +6954,13 @@
 			<f-element id="fcs-rbg-1e2">
 				<title>
 					The TSF shall use a <selectables>
-						<selectable id="sel-drbg-internal-seed">TSF entropy source <assignable>name of entropy
+						<selectable id="sel-drbg-internal-seed">TSF <h:b>entropy</h:b> source <assignable>name of entropy
 							source</assignable> </selectable>
-						<selectable id="sel-drbg-multiple-sources"><h:b>multiple TSF entropy sources <assignable>name of
+						<selectable id="sel-drbg-multiple-sources"><h:b>multiple TSF <h:b>entropy</h:b> sources <assignable>name of
 							entropy sources</assignable></h:b> </selectable>
 						<selectable id="sel-drbg-external-seed">TSF interface for seeding</selectable>
 					</selectables>
-					for initialization and reseeding.
+					for <h:b>initialization and reseeding</h:b>.
 				</title>
 				<note role="application">
 					<h:p>
@@ -6991,13 +6991,13 @@
 			
 			<f-element id="fcs-rbg-1e3">
 				<title>
-					The TSF shall update the DRBG state by <selectables>
+					The TSF shall update the <h:b>D</h:b>RBG state by <selectables>
 						<selectable>reseeding</selectable>
 						<selectable>uninstantiating and re-instantiating</selectable>
 					</selectables> using a <selectables>
-						<selectable>TSF entropy source <assignable>name of entropy source</assignable></selectable>
-						<selectable><h:b>multiple TSF entropy sources <assignable>name of entropy sources</assignable></h:b> </selectable>
-						<selectable>TSF interface for obtaining entropy <assignable>name of the interface</assignable></selectable></selectables>
+						<selectable>TSF <h:b>entropy</h:b> source <assignable>name of entropy source</assignable></selectable>
+						<selectable><h:b>multiple TSF <h:b>entropy</h:b> sources <assignable>name of entropy sources</assignable></h:b> </selectable>
+						<selectable>TSF interface for <h:b>obtaining entropy <assignable>name of the interface</assignable></h:b></selectable></selectables>
 					in the following situations: <selectables linebreak="yes">
 						<selectable>never</selectable>
 						<selectable>on demand</selectable>
@@ -7219,7 +7219,7 @@
 			<depends on-sel="sel-drbg-multiple-sources"/>
           <f-element id="fel-rbg-seed-int-mult">
             <title>
-              The TSF shall be able to seed the DRBG using <selectables>
+              The TSF shall be able to seed the <h:b>D</h:b>RBG using <selectables>
                 <selectable><assignable>number</assignable> TSF software-based entropy sources</selectable>
                 <selectable><assignable>number</assignable> TSF hardware-based entropy sources</selectable>
               </selectables>.
@@ -7300,7 +7300,7 @@
 						<selectable>hardware</selectable>
 						<selectable>software</selectable>
 						<selectable><assignable>other interface type</assignable></selectable> </selectables>
-					interface to make the DRBG output, as specified in FCS_RBG.1 Random Bit Generation (RBG), 
+					interface to make the <h:b>D</h:b>RBG output, as specified in FCS_RBG.1 Random Bit Generation (RBG), 
 					available as a service to entities outside of the TOE.
 				</title> 
 				<note role="application">
