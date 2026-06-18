@@ -3608,7 +3608,7 @@ The following sections list Common Criteria and technology terms used in this do
 						
 						
 						<tr><td>RSK</td><td>Direct Generation from a Random Bit Generator as specified in <a href="#FCS_RBG.1">FCS_RBG.1</a></td><td>[<b>selection</b>: <span class="selectable-content" id="sel-exp-skg-256">256</span>, <span class="selectable-content" id="sel-exp-skg-256">384</span>, <span class="selectable-content" id="sel-exp-skg-512">512</span>] bits
-							</td><td><abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SP">SP</a></abbr> 800-133 Revision 2 (Section 6.1)[Direct generation of symmetric keys]</td></tr>
+							</td><td><abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SP">SP</a></abbr> 800-133 Revision 2 (Section 6.1) [Direct generation of symmetric keys]</td></tr>
 
 					</table><div class="appnote"><span class="note-header">Application
       Note:
@@ -3803,16 +3803,16 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="element"><div class="reqid" id="FCS_CKM.6.1"><a href="#FCS_CKM.6.1" class="abbr">FCS_CKM.6.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy [<i>all plaintext keying material and critical security
 					parameters (CSPs)</i>] when 
 					[<b>selection</b>: <span class="selectable-content" id="_s_110">no longer needed</span>, <span class="selectable-content" id="_s_111">[<b>assignment</b>: 
-     <span class="assignable-content">other circumstances for destruction</span>]</span>].
+     <span class="assignable-content">other circumstances for key or keying material destruction</span>]</span>].
 				</div></div>
-			<div class="element"><div class="reqid" id="FCS_CKM.6.2"><a href="#FCS_CKM.6.2" class="abbr">FCS_CKM.6.2</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy <b>plaintext</b> keying material <b>and critical security parameters</b> by 
-					implementing key destruction in accordance with the following rules: [<i><ul>
+			<div class="element"><div class="reqid" id="FCS_CKM.6.2"><a href="#FCS_CKM.6.2" class="abbr">FCS_CKM.6.2</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy <b>plaintext</b> keying material <b>and critical security parameters by 
+					implementing</b> key destruction <b>in accordance with the following rules:</b> [<i><ul>
 						<li>For volatile memory, the destruction shall be executed by a single direct overwrite consisting of [<b>selection</b>: <span class="selectable-content" id="_s_112">a pseudo-random pattern using a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> (as specified in <a href="#FCS_RBG.1">FCS_RBG.1</a>)</span>, <span class="selectable-content" id="_s_113">zeroes</span>]</li>
 						<li>For non-volatile EEPROM, the destruction shall be executed by a single direct overwrite consisting of a pseudo-random pattern using a 
 							<abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> (as specified in <a href="#FCS_RBG.1">FCS_RBG.1</a>), followed by a read-verify.</li>
-						<li>For non-volatile flash memory, that is not wear-leveled, the destruction shall be executed by[<b>selection</b>: <span class="selectable-content" id="_s_114">a single direct overwrite consisting of zeros followed by a read-verify</span>, <span class="selectable-content" id="_s_115">a block erase that erases the reference to memory that stores data as well as the data itself</span>]
+						<li>For non-volatile flash memory, that is not wear-leveled, the destruction shall be executed by [<b>selection</b>: <span class="selectable-content" id="_s_114">a single direct overwrite consisting of zeros followed by a read-verify</span>, <span class="selectable-content" id="_s_115">a block erase that erases the reference to memory that stores data as well as the data itself</span>]
 						</li>
-						<li>For non-volatile flash memory that is wear-leveled, the destruction shall be executed by[<b>selection</b>: <span class="selectable-content" id="_s_116">a single direct overwrite consisting of zeros</span>, <span class="selectable-content" id="_s_117">a block erase</span>]</li>
+						<li>For non-volatile flash memory that is wear-leveled, the destruction shall be executed by [<b>selection</b>: <span class="selectable-content" id="_s_116">a single direct overwrite consisting of zeros</span>, <span class="selectable-content" id="_s_117">a block erase</span>]</li>
 						<li>For non-volatile memory other than EEPROM and flash, the destruction shall be executed by a single direct overwrite with a random pattern that 
 							is changed before each write.</li></ul></i>]
 				<div class="appnote"><span class="note-header">Application
@@ -4949,7 +4949,7 @@ The following sections list Common Criteria and technology terms used in this do
 						
 						
 						<tr><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-KW</td><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in KW mode</td><td>256 bits</td><td>[<b>selection</b>: <span class="selectable-content" id="_s_180"><abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 18033-3:2010 (Subclause 5.2)</span>, <span class="selectable-content" id="_s_181"><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 197</span>] [<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>]<p></p>
-								[<b>selection</b>: <span class="selectable-content" id="_s_182"><abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 19772:2020 (clause 6)</span>, <span class="selectable-content" id="_s_183"><abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SP">SP</a></abbr> 800-38F (Section 6.2)</span>] [KW mode]</td></tr>
+								[<b>selection</b>: <span class="selectable-content" id="_s_182"><abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 19772:2020 (Clause 6)</span>, <span class="selectable-content" id="_s_183"><abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SP">SP</a></abbr> 800-38F (Section 6.2)</span>] [KW mode]</td></tr>
 
 						
 						
@@ -5010,7 +5010,7 @@ The following sections list Common Criteria and technology terms used in this do
 								<td valign="top">256 bits</td>
 								<td valign="top">[<i><b>selection:</b> <abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 18033-3:2010 (Subclause 5.2),
 									<abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 197</i>] [<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>]<p></p>
-									[<i><b>selection:</b> <abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 19772:2020 (clause 6), 
+									[<i><b>selection:</b> <abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 19772:2020 (Clause 6), 
 									<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SP">SP</a></abbr> 800-38F (Section 6.2)</i>] [KW mode] </td>
 							</tr>
 						</table><p></p>	
@@ -6055,7 +6055,7 @@ The following sections list Common Criteria and technology terms used in this do
 							</td></tr>
 
 						
-						<tr><td><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr></td><td><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr></td><td>Elliptic Curve [<b>selection</b>: <span class="selectable-content" id="_s_283">P-384</span>, <span class="selectable-content" id="_s_284">P-521</span>] using hash [<b>selection</b>: <span class="selectable-content" id="_s_285"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-384</span>, <span class="selectable-content" id="_s_286"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-512</span>]</td><td>[<b>selection</b>: <span class="selectable-content" id="_s_287"><abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 14888-3:2018 (Subclause 6.6)</span>, <span class="selectable-content" id="_s_288"><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5 (Section 6.4.2)</span>][<abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr>]<p></p>
+						<tr><td><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr></td><td><abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr></td><td>Elliptic Curve [<b>selection</b>: <span class="selectable-content" id="_s_283">P-384</span>, <span class="selectable-content" id="_s_284">P-521</span>] using hash [<b>selection</b>: <span class="selectable-content" id="_s_285"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-384</span>, <span class="selectable-content" id="_s_286"><abbr class="dyn-abbr"><a href="#abbr_SHA">SHA</a></abbr>-512</span>]</td><td>[<b>selection</b>: <span class="selectable-content" id="_s_287"><abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 14888-3:2018 (Subclause 6.6)</span>, <span class="selectable-content" id="_s_288"><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 186-5 (Section 6.4.2) </span>][<abbr class="dyn-abbr"><a href="#abbr_ECDSA">ECDSA</a></abbr>]<p></p>
 									<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SP">SP</a></abbr>-800 186 (Section 4) [<abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> Curves]
 							</td></tr>
 
@@ -6425,7 +6425,7 @@ The following sections list Common Criteria and technology terms used in this do
 						
 						
 						<tr><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-CTR</td><td><abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr> in Counter Mode with a non-repeating initial counter and with no repeated
-								use of counter values across multiple messages with the same secret key</td><td>256 bits</td><td>[<b>selection</b>: <span class="selectable-content" id="_s_322"><abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 18033-3:2010 (Subclause 5.2)</span>, <span class="selectable-content" id="_s_323"><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 197</span>] [<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>]<p></p>[<b>selection</b>: <span class="selectable-content" id="_s_324">: <abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 10116:2017 (Clause 10)</span>, <span class="selectable-content" id="_s_325"><abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SP">SP</a></abbr> 800-38A</span>] [CBC]
+								use of counter values across multiple messages with the same secret key</td><td>256 bits</td><td>[<b>selection</b>: <span class="selectable-content" id="_s_322"><abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 18033-3:2010 (Subclause 5.2)</span>, <span class="selectable-content" id="_s_323"><abbr class="dyn-abbr"><a href="#abbr_FIPS">FIPS</a></abbr> PUB 197</span>] [<abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>]<p></p>[<b>selection</b>: <span class="selectable-content" id="_s_324"><abbr class="dyn-abbr"><a href="#abbr_ISO">ISO</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_IEC">IEC</a></abbr> 10116:2017 (Clause 10)</span>, <span class="selectable-content" id="_s_325"><abbr class="dyn-abbr"><a href="#abbr_NIST">NIST</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SP">SP</a></abbr> 800-38A</span>] [CBC]
 							</td></tr>
 
 						
@@ -6840,7 +6840,8 @@ The following sections list Common Criteria and technology terms used in this do
 							
 							
     [<b>selection</b>: 
-    <span class="selectable-content"><abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> Algorithm</span>]
+    <span class="selectable-content">[<b>assignment</b>: 
+     <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> Algorithm</span>]</span>]
 							 in accordance with 
 							
     [<b>selection</b>: 
@@ -6852,7 +6853,8 @@ The following sections list Common Criteria and technology terms used in this do
 						<tr>
 							<th>Identifier</th>
 							
-							<th><abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> Algorithm</th>
+							<th>[<b>assignment</b>: 
+     <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> Algorithm</span>]</th>
 							
 							<th>List of standards</th>
 							
@@ -6893,12 +6895,12 @@ The following sections list Common Criteria and technology terms used in this do
 					If "<i><abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr></i>" is included, you must select "<abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>
 				</span></div></div></div>
 			<div class="element"><div class="reqid" id="FCS_RBG.1.2"><a href="#FCS_RBG.1.2" class="abbr">FCS_RBG.1.2</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use a [<b>selection</b>: <span class="selectable-content" id="sel-drbg-internal-seed"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> entropy source [<b>assignment</b>: 
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use a [<b>selection</b>: <span class="selectable-content" id="sel-drbg-internal-seed"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <b>entropy</b> source [<b>assignment</b>: 
      <span class="assignable-content">name of entropy
-							source</span>]</span>, <span class="selectable-content" id="sel-drbg-multiple-sources"><b>multiple <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> entropy sources [<b>assignment</b>: 
+							source</span>]</span>, <span class="selectable-content" id="sel-drbg-multiple-sources"><b>multiple <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <b>entropy</b> sources [<b>assignment</b>: 
      <span class="assignable-content">name of
 							entropy sources</span>]</b></span>, <span class="selectable-content" id="sel-drbg-external-seed"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> interface for seeding</span>]
-					for initialization and reseeding.
+					for <b>initialization and reseeding</b>.
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -6928,10 +6930,10 @@ The following sections list Common Criteria and technology terms used in this do
 				</span></div></div></div>
 			
 			<div class="element"><div class="reqid" id="FCS_RBG.1.3"><a href="#FCS_RBG.1.3" class="abbr">FCS_RBG.1.3</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall update the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> state by [<b>selection</b>: <span class="selectable-content" id="_s_348">reseeding</span>, <span class="selectable-content" id="_s_349">uninstantiating and re-instantiating</span>] using a [<b>selection</b>: <span class="selectable-content" id="_s_350"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> entropy source [<b>assignment</b>: 
-     <span class="assignable-content">name of entropy source</span>]</span>, <span class="selectable-content" id="_s_351"><b>multiple <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> entropy sources [<b>assignment</b>: 
-     <span class="assignable-content">name of entropy sources</span>]</b></span>, <span class="selectable-content" id="_s_352"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> interface for obtaining entropy [<b>assignment</b>: 
-     <span class="assignable-content">name of the interface</span>]</span>]
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall update the <b>D</b><abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> state by [<b>selection</b>: <span class="selectable-content" id="_s_348">reseeding</span>, <span class="selectable-content" id="_s_349">uninstantiating and re-instantiating</span>] using a [<b>selection</b>: <span class="selectable-content" id="_s_350"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <b>entropy</b> source [<b>assignment</b>: 
+     <span class="assignable-content">name of entropy source</span>]</span>, <span class="selectable-content" id="_s_351"><b>multiple <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> <b>entropy</b> sources [<b>assignment</b>: 
+     <span class="assignable-content">name of entropy sources</span>]</b></span>, <span class="selectable-content" id="_s_352"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> interface for <b>obtaining entropy [<b>assignment</b>: 
+     <span class="assignable-content">name of the interface</span>]</b></span>]
 					in the following situations: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_353">never</span></li><li style=""><span class="selectable-content" id="_s_354">on demand</span></li><li style=""><span class="selectable-content" id="_s_355">on the condition: [<b>assignment</b>: 
      <span class="assignable-content">condition</span>]</span></li><li style=""><span class="selectable-content" id="_s_356">after [<b>assignment</b>: 
      <span class="assignable-content">time</span>]</span></li></ul>]
@@ -7151,7 +7153,7 @@ The following sections list Common Criteria and technology terms used in this do
 			
 			
           <div class="element"><div class="reqid" id="FCS_RBG.4.1"><a href="#FCS_RBG.4.1" class="abbr">FCS_RBG.4.1</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to seed the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> using [<b>selection</b>: <span class="selectable-content" id="_s_359">[<b>assignment</b>: 
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to seed the <b>D</b><abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> using [<b>selection</b>: <span class="selectable-content" id="_s_359">[<b>assignment</b>: 
      <span class="assignable-content">number</span>] <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> software-based entropy sources</span>, <span class="selectable-content" id="_s_360">[<b>assignment</b>: 
      <span class="assignable-content">number</span>] <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> hardware-based entropy sources</span>].
             <div class="appnote"><span class="note-header">Application
@@ -7220,7 +7222,7 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="element"><div class="reqid" id="FCS_RBG.6.1"><a href="#FCS_RBG.6.1" class="abbr">FCS_RBG.6.1</a></div><div class="reqdesc">
 					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a [<b>selection</b>: <span class="selectable-content" id="_s_370">hardware</span>, <span class="selectable-content" id="_s_371">software</span>, <span class="selectable-content" id="_s_372">[<b>assignment</b>: 
      <span class="assignable-content">other interface type</span>]</span>]
-					interface to make the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> output, as specified in <a href="#FCS_RBG.1">FCS_RBG.1</a> Random Bit Generation (<abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>), 
+					interface to make the <b>D</b><abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> output, as specified in <a href="#FCS_RBG.1">FCS_RBG.1</a> Random Bit Generation (<abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>), 
 					available as a service to entities outside of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
 				<div class="appnote"><span class="note-header">Application
       Note:
