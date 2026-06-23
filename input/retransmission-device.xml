@@ -2218,15 +2218,15 @@
 			<audit-table id="at-mandatory" table="mandatory"/>
 		</section>
 		
-		<section id="sop-audit-table" title="Auditable Events for Objective SFRs">
+		<section id="sec-obj-audit-table" title="Auditable Events for Objective SFRs">
 			<audit-table id="at-objective" table="objective"/>
 		</section>
 		
-		<section id="sid-audit-table" title="Auditable Events for Implementation-Dependent SFRs">
-			<audit-table id="at-impl-dep" table="impl-dep"/>
+		<section id="sec-imp-audit-table" title="Auditable Events for Implementation-Dependent SFRs">
+			<audit-table id="at-feat-based" table="feat-based"/>
 		</section>
 		
-		<section id="ssb-audit-table" title="Auditable Events for Selection-Based SFRs">
+		<section id="sec-sel-audit-table" title="Auditable Events for Selection-Based SFRs">
 			<audit-table id="at-sel-based" table="sel-based"/>
 		</section>
 		
@@ -2236,15 +2236,15 @@
 	 	<f-component id="sfr-fau-gen-1" cc-id="fau_gen.1" name="Audit Data Generation">
 	 		<f-element id="fau-gen-1e1">
 	 			<title>The TSF shall be able to generate audit data of the following auditable events:
-	 				<h:ol type="1">
+	 				<h:ol type="a">
 	 					<h:li>Start-up and shutdown of the audit functions</h:li>
-	 					<h:li>All administrative actions</h:li>
-	 					<h:li>Start-up, shutdown, and reboot of the platform</h:li>
-	 					<h:li>Specifically defined auditable events in <xref to="at-mandatory"/></h:li>
+	 					<h:b><h:li>All administrative actions</h:li>
+	 					<h:li>Start-up, shutdown, and reboot of the platform</h:li></h:b>
+	 					[<h:li>Specifically defined auditable events in <xref to="at-mandatory"/></h:li>
 	 					<h:li><selectables linebreak="yes">
 	 						<selectable>Specifically defined auditable event in <xref to="at-objective"/> 
 	 							for Objective requirements</selectable>
-	 						<selectable>Specifically defined auditable event in <xref to="at-impl-dep"/> 
+	 						<selectable>Specifically defined auditable event in <xref to="at-feat-based"/> 
 	 							for Implementation-Dependent requirements</selectable>	 						
 	 						<selectable>Specifically defined auditable event in <xref to="at-sel-based"/> 
 	 							for Selection-Based requirements</selectable>
@@ -2253,20 +2253,21 @@
 	 						<selectable>Additional information defined in the audit table for the <xref to="x509"/></selectable>
 	 						<selectable exclusive="yes">no additional auditable events</selectable>
 	 					</selectables>.</h:li>
-	 				</h:ol>
+	 				</h:ol>]
 	 			</title>
 	 		</f-element>
 	 		<f-element id="fau-gen-1e2">
 	 			<title>The TSF shall record within the audit data at least the following information:
 	 				<h:ol type="a">
-	 					<h:li>Date and time of the event</h:li>
+	 					<h:li>Date and time of the auditable event</h:li>
 	 					<h:li>Type of event</h:li>
-	 					<h:li>Subject and object identity (if applicable)</h:li>
+	 					<h:li>Subject <h:b>and object</h:b> identity (if applicable)</h:li>
 	 					<h:li>The outcome (success or failure) of the event</h:li>
-	 					<h:li>[<refinement>Additional information defined in <xref to="at-mandatory"/></refinement>]</h:li>
+	 					<h:li>[For each auditable event type, based on the auditable event definitions of the functional components included in the PP, PP-Module, functional
+	 						package or ST, <refinement>Additional information defined in <xref to="at-mandatory"/></refinement>]</h:li>
 	 					<h:li><refinement><selectables linebreak="yes">
 	 						<selectable>Additional information defined in <xref to="at-objective"/> for Objective SFRs</selectable>
-	 						<selectable>Additional information defined in <xref to="at-impl-dep"/> for Implementation-Dependent SFRs</selectable>	 						
+	 						<selectable>Additional information defined in <xref to="at-feat-based"/> for Implementation-Dependent SFRs</selectable>	 						
 	 						<selectable>Additional information defined in <xref to="at-sel-based"/> for Selection-Based SFRs</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
@@ -2368,7 +2369,7 @@
 	 		<depends on="pfed"/>
 	 		<f-element id="fau-gen-2e1">
 	 			<title>
-	 				The TOE shall associate audit records with the initiating EU+CU identity.
+	 				For audit events resulting from actions of identified users, the <h:b>TOE</h:b> shall be able to associate <h:b>audit records with the initiating EU+CU		 				identity.</h:b>
 	 			</title>
 	 			<note role="application">
 	 				The intent of this requirement is to ensure that PFED audit records can be tied to the EU+CU identity that initiated the audited action or session, so that the audit trail reflects which EU was responsible for the event.<h:p/>
@@ -2408,7 +2409,7 @@
 	 				</Tests>
 	 			</aactivity>
 	 		</f-element>
-	 		<audit-event table="impl-dep"/>
+	 		<audit-event table="feat-based"/>
 	 		
 	 	</f-component>
 	 	
@@ -3408,7 +3409,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep"/>
+			<audit-event table="feat-based"/>
 			
 		</f-component>
 		
@@ -3598,7 +3599,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep"/>
+			<audit-event table="feat-based"/>
 			
 		</f-component>
 		
@@ -3638,7 +3639,7 @@
 					<Tests/>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep"/>
+			<audit-event table="feat-based"/>
 			
 		</f-component>
 		
@@ -3835,7 +3836,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep"/>
+			<audit-event table="feat-based"/>
 			
 		</f-component>
 		
@@ -4083,7 +4084,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep"/>
+			<audit-event table="feat-based"/>
 		</f-component>
 		
 		<!-- FCS_COP.1/AEAD Cryptographic Operation – Authenticated Encryption with Associated Data -->	
@@ -5050,7 +5051,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep">
+			<audit-event table="feat-based">
 				<audit-event-descr><comment>TBD</comment></audit-event-descr>
 			</audit-event>
 		</f-component>
@@ -5127,7 +5128,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep"/>
+			<audit-event table="feat-based"/>
 			
 		</f-component>
 		
@@ -5197,7 +5198,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep"/>			
+			<audit-event table="feat-based"/>			
 		</f-component>
 		
 		<f-component name="Cryptographic Operation - Signature Generation" cc-id="fcs_cop.1" iteration="PFEDSigGen" status="feat-based">
@@ -5401,7 +5402,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep"/>			
+			<audit-event table="feat-based"/>			
 		</f-component>
 		
 		<f-component name="Cryptographic Operation - Signature Verification" cc-id="fcs_cop.1" iteration="PFEDSigVer" status="feat-based">
@@ -5470,7 +5471,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-			<audit-event table="impl-dep"/>			
+			<audit-event table="feat-based"/>			
 		</f-component>
 		
 	    <!-- FCS_COP.1/SigGen (formerly FCS_COP.1/3) -->
@@ -7406,7 +7407,7 @@
 					</Tests>
 				</aactivity>				
 			</f-element>
-			<audit-event table="impl-dep"/>						
+			<audit-event table="feat-based"/>						
 		</f-component>
 		
 			<f-component name="Periodic Rekey" cc-id="fcs_rekey_ext.1" status="invisible">
@@ -7477,7 +7478,7 @@
 					</Tests>
 				</aactivity>				
 			</f-element>
-			<audit-event table="impl-dep">
+			<audit-event table="feat-based">
 				<audit-event-descr><h:ul>
 					<h:li>PFED rekey initiation, if audited</h:li>
 					<h:li>Successful PFED rekey, if audited;</h:li>
@@ -7841,7 +7842,7 @@
 						</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event table="impl-dep">
+				<audit-event table="feat-based">
 					<audit-event-descr><h:ul>
 						<h:li>Secure bring-up credential provision, if audited</h:li>
 						<h:li>Successful secure bring-up</h:li>
@@ -8147,7 +8148,7 @@
 						</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event table="impl-dep"/>
+				<audit-event table="feat-based"/>
 			</f-component>
 			
 			
@@ -8799,7 +8800,7 @@
 						</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event table="impl-dep"/>
+				<audit-event table="feat-based"/>
 				
 			</f-component>
 			
@@ -8886,7 +8887,7 @@
 						</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event table="impl-dep">
+				<audit-event table="feat-based">
 					<audit-event-descr><h:ul>
 						<h:li>Successful PFED mutual authentication, if audited</h:li>
 						<h:li>Failed PFED mutual authentication</h:li>
@@ -9102,7 +9103,7 @@
 							<selectable>long-term trusted channel key material</selectable>
 							<selectable>all software-based key storage</selectable>
 							<selectable exclusive="yes">no other keys</selectable>
-						</selectables> at startup. </title>
+						</selectables> <h:b>at startup</h:b>. </title>
 					
 					<ext-comp-def-title>
 						<title>The TSF shall require the user to present the Password Authentication Factor
@@ -9754,7 +9755,7 @@
       				</Tests>
       			</aactivity>
       		</f-element>
-      		<audit-event table="impl-dep"/>
+      		<audit-event table="feat-based"/>
       		
       	</f-component>
       	
@@ -10583,7 +10584,7 @@
     				</Tests>
     			</aactivity>
     		</f-element>
-    		<audit-event table="impl-dep">
+    		<audit-event table="feat-based">
     			<audit-event-descr><h:ul>    				
     			<h:li>Detection of peer failure or disconnect</h:li>
     			<h:li>Triggering of session reconnect</h:li>
@@ -10688,7 +10689,7 @@
     				<Tests/>
     			</aactivity>
     		</f-element>
-    		<audit-event table="impl-dep"/>   		
+    		<audit-event table="feat-based"/>   		
     		
     	</f-component>
     
@@ -10855,7 +10856,7 @@
     				</Tests>
     			</aactivity>
     		</f-element>
-    		<audit-event table="impl-dep"/>
+    		<audit-event table="feat-based"/>
     	</f-component>
     	
     	
@@ -11342,16 +11343,24 @@
 				</audit-event>
 			</f-component>
 			
+			<f-component name="Recovery Behavior" cc-id="fpt_rcv_ext.1" status="invisible">
+				
+				<consistency-rationale/>
+				<comp-lev>require using a secure recovery state.</comp-lev>
+				<management>There are no management activities foreseen.</management>
+				<audit>There are no auditable events foreseen.</audit>
+				<dependencies>No dependencies.</dependencies>
+				
+			</f-component>
+			
+			
 			<ext-comp-def title="Recovery Behavior" fam-id="FPT_RCV_EXT">
 				<fam-behavior>This family defines requirements for using a secure recovery state and suppressing traffic.</fam-behavior>				
 			</ext-comp-def>
     	
     	<f-component name="Recovery Behavior" cc-id="fpt_rcv_ext.1" iteration="PFED" status="feat-based">
     		<depends on="pfed"/>
-    		<comp-lev>require using a secure recovery state.</comp-lev>
-    		<management>There are no management activities foreseen.</management>
-    		<audit>There are no auditable events foreseen.</audit>
-    		<dependencies>No dependencies.</dependencies>
+    		
     		<f-element id="fpt-rcv-ext-pfed-1e1">
     			<title>
     				The TOE shall enter a secure recovery state upon detection of: <selectables>
@@ -11411,7 +11420,7 @@
     				</Tests>
     			</aactivity>
     		</f-element>
-    		<audit-event table="impl-dep">
+    		<audit-event table="feat-based">
     			<audit-event-descr>Entry into secure recovery state due to dead peer detection, session key divergence, failed rekey, or failed recovery</audit-event-descr>
     		</audit-event>
     		
@@ -11603,9 +11612,9 @@
     							<selectable><assignable>other notification methods</assignable></selectable>
     						</selectables>, and
     						<selectables linebreak="yes">
-    							<selectable>Stop all execution</selectable>
-    							<selectable>Shut down, or</selectable>
-    							<selectable id="sel-rot2-recovery">Initiate a recovery process as specified in FPT_RVR_EXT.1</selectable>
+    							<selectable>stop all execution</selectable>
+    							<selectable>shut down, or</selectable>
+    							<selectable id="sel-rot2-recovery">initiate a recovery process as specified in FPT_RVR_EXT.1</selectable>
     							<selectable>Skip all instructions that failed the integrity check and continue execution</selectable>
     						</selectables>
     						<selectables linebreak="yes">
@@ -11837,7 +11846,7 @@
     				</Tests>
     			</aactivity>
     		</f-element>
-    		<audit-event table="impl-dep"/>
+    		<audit-event table="feat-based"/>
     		
     		
     	</f-component>
@@ -12002,7 +12011,7 @@
     				</Tests>
     			</aactivity>
     		</f-element>
-    		<audit-event table="impl-dep"/>
+    		<audit-event table="feat-based"/>
     		
     		
     	</f-component>
@@ -12110,7 +12119,7 @@
     				</Tests>
     			</aactivity>
     		</f-element>
-    		<audit-event table="impl-dep">
+    		<audit-event table="feat-based">
     			<audit-event-descr><h:ul>
     				<h:li>Successful completion of initialization self-test</h:li>
     				<h:li>Failure of initialization self-test of a PFED cryptographic function</h:li>
@@ -13311,7 +13320,7 @@
     		</f-element>
     		<f-element id="ftp-trp-1e3">
     			<title>
-    				The TSF shall require the use of the trusted path for [<h:i>[all remote administrator actions]</h:i>]
+    				The TSF shall require the use of the trusted path for [<h:i>[all remote administrator actions]</h:i>].
     			</title>
     			<note role="application">
     				This SFR is included in the ST if "<h:i>remotely</h:i>" is selected in Management Function 1 of FMT_SMF.1.1.<h:p/>
