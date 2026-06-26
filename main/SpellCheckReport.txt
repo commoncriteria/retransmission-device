@@ -75,14 +75,12 @@ output/retransmission-device-release-linkable.html: BAF
 output/retransmission-device-release-linkable.html: BAFs
 output/retransmission-device-release-linkable.html: BBN
 output/retransmission-device-release-linkable.html: BNA
-output/retransmission-device-release-linkable.html: BPs
 output/retransmission-device-release-linkable.html: CBT
 output/retransmission-device-release-linkable.html: CCTL
 output/retransmission-device-release-linkable.html: CEM
 output/retransmission-device-release-linkable.html: CFTP
 output/retransmission-device-release-linkable.html: CIK
 output/retransmission-device-release-linkable.html: CNSA
-output/retransmission-device-release-linkable.html: CPUs
 output/retransmission-device-release-linkable.html: CSP
 output/retransmission-device-release-linkable.html: CSPs
 output/retransmission-device-release-linkable.html: CU1
@@ -93,7 +91,6 @@ output/retransmission-device-release-linkable.html: DDX
 output/retransmission-device-release-linkable.html: DEKs
 output/retransmission-device-release-linkable.html: DMA
 output/retransmission-device-release-linkable.html: DRBGs
-output/retransmission-device-release-linkable.html: DSPs
 output/retransmission-device-release-linkable.html: Decapsulation
 output/retransmission-device-release-linkable.html: E2E
 output/retransmission-device-release-linkable.html: EIGRP
@@ -114,6 +111,7 @@ output/retransmission-device-release-linkable.html: Fi
 output/retransmission-device-release-linkable.html: Fibre
 output/retransmission-device-release-linkable.html: GFSBox
 output/retransmission-device-release-linkable.html: GMTP
+output/retransmission-device-release-linkable.html: GPOS
 output/retransmission-device-release-linkable.html: HKDF
 output/retransmission-device-release-linkable.html: HWS
 output/retransmission-device-release-linkable.html: IC1
@@ -145,10 +143,10 @@ output/retransmission-device-release-linkable.html: Kryptonet
 output/retransmission-device-release-linkable.html: L2
 output/retransmission-device-release-linkable.html: L3
 output/retransmission-device-release-linkable.html: LMS
-output/retransmission-device-release-linkable.html: LTE
 output/retransmission-device-release-linkable.html: MACSEC
 output/retransmission-device-release-linkable.html: MACs
 output/retransmission-device-release-linkable.html: MACsec
+output/retransmission-device-release-linkable.html: MDF
 output/retransmission-device-release-linkable.html: MFE
 output/retransmission-device-release-linkable.html: MGF1
 output/retransmission-device-release-linkable.html: MKA
@@ -196,8 +194,6 @@ output/retransmission-device-release-linkable.html: SSCOPMCE
 output/retransmission-device-release-linkable.html: Shim6
 output/retransmission-device-release-linkable.html: Silverlight
 output/retransmission-device-release-linkable.html: Sitara
-output/retransmission-device-release-linkable.html: SoC
-output/retransmission-device-release-linkable.html: SoCs
 output/retransmission-device-release-linkable.html: SpectraLink
 output/retransmission-device-release-linkable.html: Subclause
 output/retransmission-device-release-linkable.html: TBD
@@ -222,7 +218,6 @@ output/retransmission-device-release-linkable.html: acknowledgements
 output/retransmission-device-release-linkable.html: authorised
 output/retransmission-device-release-linkable.html: behaviour
 output/retransmission-device-release-linkable.html: ciphertexts
-output/retransmission-device-release-linkable.html: codecs
 output/retransmission-device-release-linkable.html: config
 output/retransmission-device-release-linkable.html: configurability
 output/retransmission-device-release-linkable.html: connectionless
@@ -256,6 +251,7 @@ output/retransmission-device-release-linkable.html: rekeying
 output/retransmission-device-release-linkable.html: reprovisioning
 output/retransmission-device-release-linkable.html: routable
 output/retransmission-device-release-linkable.html: ruleset
+output/retransmission-device-release-linkable.html: rulesets
 output/retransmission-device-release-linkable.html: sLen
 output/retransmission-device-release-linkable.html: sel
 output/retransmission-device-release-linkable.html: sk
@@ -318,14 +314,12 @@ output/retransmission-device-release.html: BAF
 output/retransmission-device-release.html: BAFs
 output/retransmission-device-release.html: BBN
 output/retransmission-device-release.html: BNA
-output/retransmission-device-release.html: BPs
 output/retransmission-device-release.html: CBT
 output/retransmission-device-release.html: CCTL
 output/retransmission-device-release.html: CEM
 output/retransmission-device-release.html: CFTP
 output/retransmission-device-release.html: CIK
 output/retransmission-device-release.html: CNSA
-output/retransmission-device-release.html: CPUs
 output/retransmission-device-release.html: CSPs
 output/retransmission-device-release.html: CSP’
 output/retransmission-device-release.html: CU1
@@ -336,7 +330,6 @@ output/retransmission-device-release.html: DDX
 output/retransmission-device-release.html: DEKs
 output/retransmission-device-release.html: DMA
 output/retransmission-device-release.html: DRBGs
-output/retransmission-device-release.html: DSPs
 output/retransmission-device-release.html: Decapsulation
 output/retransmission-device-release.html: E2E
 output/retransmission-device-release.html: EIGRP
@@ -357,6 +350,7 @@ output/retransmission-device-release.html: Fi
 output/retransmission-device-release.html: Fibre
 output/retransmission-device-release.html: GFSBox
 output/retransmission-device-release.html: GMTP
+output/retransmission-device-release.html: GPOS
 output/retransmission-device-release.html: HKDF
 output/retransmission-device-release.html: HWS
 output/retransmission-device-release.html: IC1
@@ -389,10 +383,10 @@ output/retransmission-device-release.html: Kryptonet
 output/retransmission-device-release.html: L2
 output/retransmission-device-release.html: L3
 output/retransmission-device-release.html: LMS
-output/retransmission-device-release.html: LTE
 output/retransmission-device-release.html: MACSEC
 output/retransmission-device-release.html: MACs
 output/retransmission-device-release.html: MACsec
+output/retransmission-device-release.html: MDF
 output/retransmission-device-release.html: MFE
 output/retransmission-device-release.html: MGF1
 output/retransmission-device-release.html: MKA
@@ -441,8 +435,6 @@ output/retransmission-device-release.html: SSCOPMCE
 output/retransmission-device-release.html: Shim6
 output/retransmission-device-release.html: Silverlight
 output/retransmission-device-release.html: Sitara
-output/retransmission-device-release.html: SoC
-output/retransmission-device-release.html: SoCs
 output/retransmission-device-release.html: SpectraLink
 output/retransmission-device-release.html: Subclause
 output/retransmission-device-release.html: TBD
@@ -467,7 +459,6 @@ output/retransmission-device-release.html: acknowledgements
 output/retransmission-device-release.html: authorised
 output/retransmission-device-release.html: behaviour
 output/retransmission-device-release.html: ciphertexts
-output/retransmission-device-release.html: codecs
 output/retransmission-device-release.html: config
 output/retransmission-device-release.html: configurability
 output/retransmission-device-release.html: connectionless
@@ -505,6 +496,7 @@ output/retransmission-device-release.html: rekeying
 output/retransmission-device-release.html: reprovisioning
 output/retransmission-device-release.html: routable
 output/retransmission-device-release.html: ruleset
+output/retransmission-device-release.html: rulesets
 output/retransmission-device-release.html: sLen
 output/retransmission-device-release.html: sel
 output/retransmission-device-release.html: sk
@@ -563,14 +555,12 @@ output/retransmission-device.html: BAF
 output/retransmission-device.html: BAFs
 output/retransmission-device.html: BBN
 output/retransmission-device.html: BNA
-output/retransmission-device.html: BPs
 output/retransmission-device.html: CBT
 output/retransmission-device.html: CCTL
 output/retransmission-device.html: CEM
 output/retransmission-device.html: CFTP
 output/retransmission-device.html: CIK
 output/retransmission-device.html: CNSA
-output/retransmission-device.html: CPUs
 output/retransmission-device.html: CSPs
 output/retransmission-device.html: CSP’
 output/retransmission-device.html: CU1
@@ -581,7 +571,6 @@ output/retransmission-device.html: DDX
 output/retransmission-device.html: DEKs
 output/retransmission-device.html: DMA
 output/retransmission-device.html: DRBGs
-output/retransmission-device.html: DSPs
 output/retransmission-device.html: Decapsulation
 output/retransmission-device.html: E2E
 output/retransmission-device.html: EIGRP
@@ -602,6 +591,7 @@ output/retransmission-device.html: Fi
 output/retransmission-device.html: Fibre
 output/retransmission-device.html: GFSBox
 output/retransmission-device.html: GMTP
+output/retransmission-device.html: GPOS
 output/retransmission-device.html: HKDF
 output/retransmission-device.html: HWS
 output/retransmission-device.html: IC1
@@ -634,10 +624,10 @@ output/retransmission-device.html: Kryptonet
 output/retransmission-device.html: L2
 output/retransmission-device.html: L3
 output/retransmission-device.html: LMS
-output/retransmission-device.html: LTE
 output/retransmission-device.html: MACSEC
 output/retransmission-device.html: MACs
 output/retransmission-device.html: MACsec
+output/retransmission-device.html: MDF
 output/retransmission-device.html: MFE
 output/retransmission-device.html: MGF1
 output/retransmission-device.html: MKA
@@ -686,8 +676,6 @@ output/retransmission-device.html: SSCOPMCE
 output/retransmission-device.html: Shim6
 output/retransmission-device.html: Silverlight
 output/retransmission-device.html: Sitara
-output/retransmission-device.html: SoC
-output/retransmission-device.html: SoCs
 output/retransmission-device.html: SpectraLink
 output/retransmission-device.html: Subclause
 output/retransmission-device.html: TBD
@@ -712,7 +700,6 @@ output/retransmission-device.html: acknowledgements
 output/retransmission-device.html: authorised
 output/retransmission-device.html: behaviour
 output/retransmission-device.html: ciphertexts
-output/retransmission-device.html: codecs
 output/retransmission-device.html: config
 output/retransmission-device.html: configurability
 output/retransmission-device.html: connectionless
@@ -749,6 +736,7 @@ output/retransmission-device.html: rekeying
 output/retransmission-device.html: reprovisioning
 output/retransmission-device.html: routable
 output/retransmission-device.html: ruleset
+output/retransmission-device.html: rulesets
 output/retransmission-device.html: sLen
 output/retransmission-device.html: sel
 output/retransmission-device.html: sk
