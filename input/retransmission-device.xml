@@ -1310,12 +1310,39 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
+					<h:td>FIA_UID.1</h:td>
+					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td>Timing of identification.</h:td>
+				</h:tr>
+				
+				<h:tr style="text-align: center">
 					<h:td>FMT_MOF.1</h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td>Management of security functions behavior.</h:td>
+				</h:tr>
+				
+				<h:tr style="text-align: center">
+					<h:td>FMT_MSA.1</h:td>
+					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td>Management of security attributes.</h:td>
+				</h:tr>
+				
+				<h:tr style="text-align: center">
+					<h:td>FMT_MSA.3</h:td>
+					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td>Static attribute initialization.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -2287,8 +2314,8 @@
 	 				or boot failures as indicated by the appropriate selections in FPT_ROT_EXT.2, FPT_ROT_EXT.3,
 	 				FPT_TUD_EXT.2, or FPT_TUD_EXT.3.4.<h:p/>
 	 				If this SFR is included in the ST, then all the other FAU SFRs must also be claimed.<h:p/>
-	 				Appropriate entries from <xref g="t-audit-optional"/>, <xref g="t-audit-objective"/>, and
-	 				<xref g="t-audit-sel-based"/> should be included in the ST if the 
+	 				Appropriate entries from <xref to="at-objective"/>, <xref to="at-feat-based"/>, and
+	 				<xref to="at-sel-based"/> should be included in the ST if the 
 	 				associated SFRs and selections are included.<h:p/>
 	 				For PFED, the intent of this requirement is to ensure that PFED-relevant security events are recorded so that establishment, maintenance,
 	 				and recovery of the protected PFED session can be reconstructed and reviewed.<h:p/>
@@ -2319,7 +2346,7 @@
 	 						<h:li>Describes what constitutes an auditable occurrence of each event type.</h:li>
 	 						<h:li>Describes the contents of the audit record generated for each event type.</h:li>	
 	 					</h:ul>
-	 					The evaluator shall determine that the TSS is consistent with the PFED appendix logging description for provisioning, session setup, session termination, rekey, and key recovery.
+	 					The evaluator shall determine that the TSS is consistent with the PFED Configuration section logging description for provisioning, session setup, session termination, rekey, and key recovery.
 	 				</TSS>
 	 				<Guidance>
 	 					The evaluator shall also make a determination of the administrative actions that are relevant in the 
@@ -2341,7 +2368,7 @@
 	 					directly.<h:p/>
 	 					
 	 					<h:b>For PFED</h:b><h:br/>
-	 					The evaluator shall perform the following tests.
+	 					The evaluator shall perform the following tests
 	 					<testlist>
 	 						<test>
 	 							Provisioning audit generation: The evaluator shall cause PFED provisioning to occur and verify that the TOE generates an audit
@@ -2384,7 +2411,7 @@
 	 						<h:li>Describes how the TOE associates the initiating EU+CU identity with each applicable audit record.</h:li> 
 	 						<h:li>Describes when, during provisioning, session setup, rekey, key recovery, or session termination, the initiating EU+CU identity becomes available for audit association.</h:li>
 	 					</h:ul>
-	 					The evaluator shall determine that the TSS is consistent with the PFED audit model described in Appendix H and that the association mechanism is sufficient to attribute applicable PFED audit records to the initiating EU identity.	 					
+	 					The evaluator shall determine that the TSS is consistent with the PFED audit model described in the PFED Configuration section and that the association mechanism is sufficient to attribute applicable PFED audit records to the initiating EU identity.	 					
 	 				</TSS>
 	 				<Guidance/>
 	 				<Tests>
@@ -2451,12 +2478,12 @@
 	 				</selectables>]  
 	 			</title>
 	 			<note role="application">
-	 				The ST author selects "<h:i>trusted channel</h:i>" and includes FTP_ITC_EXT.1/Admin in the ST if the TOE offloads
+	 				The ST author selects "<h:i>transmits audit data to an external...</h:i>" and includes FTP_ITC_EXT.1/Admin in the ST if the TOE offloads
 	 				audit data to external IT entity over a network connection. Protocols used for implementing the trusted
 	 				channel must be selected in FTP_ITC_EXT.1/Admin.<h:p/>
-	 				For PFED, the intent is is to ensure that PFED audit records, once generated and stored, cannot be altered or removed by unauthorized
+	 				For PFED, the intent is to ensure that PFED audit records, once generated and stored, cannot be altered or removed by unauthorized
 	 				entities.<h:p/>
-	 				For this requirement, “unauthorized modification and deletion” means that the TOE enforces access controls, storage protections, or other
+	 				For this requirement, "<h:i>protect stored audit records from...</h:i>” means that the TOE enforces access controls, storage protections, or other
 	 				TOE security mechanisms such that only authorized TOE functions or authorized administrative actions may affect stored audit records in the
 	 				ways permitted by the TOE design.
 	 			</note>
@@ -2530,7 +2557,7 @@
 	 				in the audit trail.
 	 			</title>
 	 			<note role="application">
-	 				Deletion of audit data within the TOE is "authorized" if the deletion is initiated or performed by 
+	 				Deletion of audit data within the TOE is authorized if the deletion is initiated or performed by 
 	 				an administrator.<h:p/>
 	 				Notwithstanding this requirement, audit records may be overwritten if local audit record storage is full
 	 				in accordance with FAU_STG.5.<h:p/>	 				
@@ -2541,11 +2568,11 @@
 	 					controls of those files such that unauthorized modification and deletion are prevented.
 	 				</TSS>
 	 				<Guidance>
-	 					The evaluator shall ensure that the Guidance describes the steps necessary for an authorized 
+	 					The evaluator shall ensure that the guidance describes the steps necessary for an authorized 
 	 					administrator to delete audit records, if such a capability is implemented.
 	 				</Guidance>
 	 				<Tests>
-	 					The evaluator shall perform the following tests:
+	 					The evaluator shall perform the following tests
 	 					<testlist>
 	 						<test>
 	 							[conditional] If the TOE implements an audit record deletion capability, then
@@ -2587,7 +2614,7 @@
 	 				<Tests>
 	 					The evaluator shall cause audit records to be written until the size limits are met and exceeded.
 	 					The evaluator shall verify that the overwrite function works as described in the TSS and that the 
-	 					indication of full audit trail is evident as described in the AGD.
+	 					indication of a full audit trail is evident as described in the guidance.
 	 				</Tests>
 	 			</aactivity>
 	 		</f-element>
@@ -3566,7 +3593,7 @@
 				</title>
 				<note role="application">
 					The intent of this requirement is to ensure that the TOE performs PFED cryptographic key establishment only by one of the claimed and defined methods: key encapsulation or encrypted channel. The ST author should select the method or methods actually implemented by the TOE for PFED key establishment.<h:p/>
-					For PFED, the selected method should be described consistently with the PFED lifecycle in Appendix H. During initial bonding, the TOE uses a temporary secure tunnel (tunnel-0) established using a pre-shared key. During provisioning completion, the TOE exchanges ML-DSA-87 public keys and performs authentication and rekey transactions. Prior to permitting EUD traffic, session setup requires a mandatory session rekey using ML-KEM-1024. Later rekey and recovery operations update or restore keying state using newly derived shared secrets and existing protected key state.<h:p/>
+					For PFED, the selected method should be described consistently with the PFED lifecycle in the PFED Configuration section. During initial bonding, the TOE uses a temporary secure tunnel (tunnel-0) established using a pre-shared key. During provisioning completion, the TOE exchanges ML-DSA-87 public keys and performs authentication and rekey transactions. Prior to permitting EUD traffic, session setup requires a mandatory session rekey using ML-KEM-1024. Later rekey and recovery operations update or restore keying state using newly derived shared secrets and existing protected key state.<h:p/>
 					Key Encapsulation should follow the ML-KEM-1024 protocol where A generates an ephemeral ML-KEM-1024 key pair (P/p), sends the public P to B, B encrypts a random value with P and encapsulates a response to A. The encrypted channel method should encrypt a random key with a shared Key Encrypting Key using GCM AES 256 with integrity checking.
 					
 				</note>
@@ -3585,7 +3612,7 @@
 							<h:li>If key encapsulation is claimed, describes the encapsulation-based method used for PFED and how it is integrated into PFED operation.</h:li>
 							<h:li>If encrypted channel is claimed, describes the encrypted channel used for PFED key establishment and how the channel protects the establishment of keying material.</h:li>
 						</h:ul>
-						The evaluator shall determine that the TSS description is consistent with the PFED appendix, including the PSK-based temporary provisioning tunnel, ML-DSA public-key exchange during provisioning completion, mandatory ML-KEM-1024 rekey during session setup, and subsequent rekey/recovery behavior using newly derived shared secrets.
+						The evaluator shall determine that the TSS description is consistent with the PFED Configuration section, including the PSK-based temporary provisioning tunnel, ML-DSA public-key exchange during provisioning completion, mandatory ML-KEM-1024 rekey during session setup, and subsequent rekey/recovery behavior using newly derived shared secrets.
 					</TSS>
 					<Guidance/>
 					<Tests>The evaluator shall perform the following tests according to the selections claimed in the ST.
@@ -3633,7 +3660,7 @@
 						<h:li>Describes which of those inputs are used for each PFED derivation phase, such as initial session derivation, rekey, and recovery.</h:li>
 						<h:li>Describes how the TOE performs derivation in a manner consistent with NIST SP 800-56C Rev. 2, Section 4.1, Option 1.</h:li>
 					</h:ul>
-						The evaluator shall determine that the TSS is consistent with the posted PFED appendix text stating that PFED uses HKDF, that HKDF input includes hardware RNG entropy, and that rekey derives final session keys from current key-store material and newly derived shared secrets.
+						The evaluator shall determine that the TSS is consistent with the posted PFED Configuration section text stating that PFED uses HKDF, that HKDF input includes hardware RNG entropy, and that rekey derives final session keys from current key-store material and newly derived shared secrets.
 					</TSS>
 					<Guidance/>
 					<Tests/>
@@ -3796,7 +3823,7 @@
 				</title>
 				<note role="application">
 					The intent of this requirement is to ensure that PFED keying material is destroyed promptly when it is no longer needed for its intended security function, so that superseded or transitional keys cannot continue to be used or recovered after the TOE has moved to the next protected state. For PFED, this includes destruction of the temporary provisioning PSK, destruction of superseded session keys after successful rekey, and destruction of obsolete recovery keys after replacement. Destruction mechanisms typically include zeroization and prevention of key recovery.<h:p/>
-					For the first bullet, the ST author should describe the TOE behavior that causes the PSK used for tunnel-0 to be destroyed immediately after teardown of tunnel-0. This should be written consistently with Appendix H, which states that tunnel-0 is terminated and the PSK is cryptographically destroyed following successful completion of the ML-KEM-1024 transaction and transition to tunnel-1. <h:p/>
+					For the first bullet, the ST author should describe the TOE behavior that causes the PSK used for tunnel-0 to be destroyed immediately after teardown of tunnel-0. This should be written consistently with the PFED Configuration section, which states that tunnel-0 is terminated and the PSK is cryptographically destroyed following successful completion of the ML-KEM-1024 transaction and transition to tunnel-1. <h:p/>
 					For the second bullet, “any replaced session key immediately after a successful rekey” means that once the TOE has successfully established and activated the replacement session key, the previously active session key is destroyed without unnecessary delay. The TSS should make clear what the TOE considers a successful rekey, when the new session key becomes active, and at what point the replaced key is destroyed. <h:p/>
 					For the third bullet, “any obsolete recovery key immediately after replacement” means that once the TOE has established the replacement recovery key material, the prior recovery key that is no longer needed for recovery operations is destroyed without unnecessary delay.					
 				</note>
@@ -3812,7 +3839,7 @@
 							<h:li>Describes the event that triggers destruction for each covered key type.</h:li>
 							<h:li>Describes when destruction occurs relative to the triggering event for each covered key type.</h:li>
 							<h:li>Describes how the TOE ensures that the destroyed key is no longer available for operational use after destruction.</h:li>
-							<h:li>For the tunnel-0 PSK, describes behavior consistent with Appendix H, including teardown of tunnel-0 and destruction of the PSK after successful transition away from the temporary provisioning tunnel.</h:li>
+							<h:li>For the tunnel-0 PSK, describes behavior consistent with the PFED Configuration section, including teardown of tunnel-0 and destruction of the PSK after successful transition away from the temporary provisioning tunnel.</h:li>
 							<h:li>For replaced session keys, describes what constitutes a successful rekey and when the replaced session key is destroyed.</h:li>
 							<h:li>For obsolete recovery keys, describes what constitutes replacement of the recovery key and when the obsolete recovery key is destroyed.</h:li>
 						</h:ul>	
@@ -3823,7 +3850,7 @@
 							<test>
 								Tunnel-0 PSK destruction: The evaluator shall cause the TOE to complete the PFED flow that transitions from tunnel-0 to tunnel-1 and verify that the TOE behavior is consistent with:<h:ul>
 						<h:li>teardown of tunnel-0, and</h:li> 
-						<h:li>destruction of the tunnel-0 PSK immediately after teardown of tunnel-0: This test shall be consistent with the Appendix H behavior stating that, after successful ML-KEM-1024 completion, tunnel-0 is terminated and the PSK is cryptographically destroyed.</h:li>
+						<h:li>destruction of the tunnel-0 PSK immediately after teardown of tunnel-0: This test shall be consistent with the PFED Configuration section behavior stating that, after successful ML-KEM-1024 completion, tunnel-0 is terminated and the PSK is cryptographically destroyed.</h:li>
 								</h:ul>
 							</test><h:p/>
 							<test>
@@ -7369,7 +7396,7 @@
 				
 				<note role="application">
 					The intent of this requirement is to ensure that the TOE supports a controlled session key recovery process for PFED when session state diverges, while preventing use of potentially inconsistent or stale keying material during that recovery.<h:p/>
-					The TSS should describe the PFED recovery process in TOE-specific terms and should align that description with Appendix H, which says that during key recovery EUD traffic is suppressed, recovery keys are periodically refreshed using HKDF, recovery keys are not static values, and after successful resynchronization the TOE performs a new session setup transaction and replaces the prior recovery key before resuming EUD traffic.<h:p/>
+					The TSS should describe the PFED recovery process in TOE-specific terms and should align that description with the PFED Configuration section, which says that during key recovery EUD traffic is suppressed, recovery keys are periodically refreshed using HKDF, recovery keys are not static values, and after successful resynchronization the TOE performs a new session setup transaction and replaces the prior recovery key before resuming EUD traffic.<h:p/>
 					“Recovery keys are refreshed at the same rate as session keys” means the TOE does not allow recovery keys to age more slowly than the active session keys they support. “There must be at least two recovery keys” means the TOE maintains a sufficient recovery-key state to support the claimed recovery design without relying on a single static fallback value. “Only one recovery key can be derived at a time” means the TOE serializes recovery-key derivation so that concurrent derivation does not produce an ambiguous or conflicting recovery state.<h:p/>
 					Key Recovery keys are temporary session keys for when an EU fails to decrypt some number of sequential packets. Recovery keys cannot be static values to prevent an adversary in the middle to downgrade the session tunnel to a potentially knowable key. There must be two recovery keys (R1 and R2) to ensure if whatever caused a recovery key to be not matched, there is a second one as backup. When a session is in key recovery, R1 is used to beacon a message to the peer at least the number of times the original session key failed to decrypt. If R1 does not converge then R2 is used to beacon a recovery message the same number of times. If that does not converge, retry R1, and so on. This flip flop between both recovery keys should happen several times before a node terminates the session.
 					
@@ -7389,7 +7416,7 @@
 							<h:li>Describes how failure to converge causes session termination.</h:li>
 							<h:li>Describes the TOE behavior after successful recovery, including replacement of the previous recovery key and any new session setup behavior before EUD traffic resumes.</h:li>
 						</h:ul>
-						The evaluator shall determine that the TSS is consistent with the posted PFED requirement text and Appendix H, including suppression of EUD traffic during recovery, HKDF-based recovery-key refresh, replacement of the previous recovery key upon successful resynchronization, and session termination when recovery fails to converge within the defined timeout.						
+						The evaluator shall determine that the TSS is consistent with the posted PFED requirement text and the PFED Configuration section, including suppression of EUD traffic during recovery, HKDF-based recovery-key refresh, replacement of the previous recovery key upon successful resynchronization, and session termination when recovery fails to converge within the defined timeout.						
 					</TSS>
 					<Guidance/>
 					<Tests>
@@ -7399,8 +7426,8 @@
 							<test>Recovery-key refresh behavior: The evaluator shall observe or otherwise verify, through TOE behavior, supported interfaces, traces, or developer evidence, that recovery keys are refreshed at the same rate as session keys and are not static values.</test><h:p/> 
 							<test>Recovery-key derivation inputs: The evaluator shall verify, through TOE behavior, supported interfaces, traces, or developer evidence, that recovery keys are derived via HKDF and that the derivation includes the current session key and new session key, as claimed in the TSS and required by the SFR.</test><h:p/> 
 							<test>Recovery-key cardinality and serialization: The evaluator shall verify that the TOE supports at least two recovery keys and that only one recovery key derivation can be in progress at a time.</test><h:p/>
-							<test>Successful recovery behavior: The evaluator shall cause a recoverable divergence condition and verify that, upon successful resynchronization, the TOE performs the claimed post-recovery actions, including replacement of the previous recovery key and any required new session setup behavior before EUD traffic resumes. Appendix H states that successful resynchronization results in a new session setup transaction and replacement of the previous recovery key before EUD traffic resumes.</test><h:p/> 
-							<test>Failure to converge: The evaluator shall cause recovery not to converge within the claimed timeout or failure condition and verify that the TOE terminates the session. Both the requirement text and Appendix H require session termination when recovery fails to converge.<h:p/> 
+							<test>Successful recovery behavior: The evaluator shall cause a recoverable divergence condition and verify that, upon successful resynchronization, the TOE performs the claimed post-recovery actions, including replacement of the previous recovery key and any required new session setup behavior before EUD traffic resumes. The PFED Configuration section states that successful resynchronization results in a new session setup transaction and replacement of the previous recovery key before EUD traffic resumes.</test><h:p/> 
+							<test>Failure to converge: The evaluator shall cause recovery not to converge within the claimed timeout or failure condition and verify that the TOE terminates the session. Both the requirement text and the PFED Configuration section require session termination when recovery fails to converge.<h:p/> 
 							Where direct observation of low-level recovery-key state is not practical, the evaluator may rely on observable TOE behavior, protocol traces, supported test interfaces, or developer evidence, sufficient to determine that the claimed recovery-key behavior is implemented.</test><h:p/>
 							<test>PFED Functional Test: Provision two pairs of PFED’s, A1-B1 and A2-B2. Attach EUD’s A and B to A1 and B1, verify the EUD’s can communicate (e.g., ping). Then connect A1 to B2 between the EUD’s. A1 and B2 should fail to establish a session since the session keys are different. Wait five minutes. Verify that EUD’s A and B cannot communicate. Reconnect A1-B1 and wait five minutes. Verify that EUD’s A and B can communicate.</test><h:p/>
 						</testlist>
@@ -7437,7 +7464,7 @@
 					</h:ul></title>
 				<note role="application">
 					The intent of this requirement is to ensure that PFED session keys are refreshed periodically using a constrained and well-defined rekey mechanism, so that active session protection does not rely indefinitely on a single long-lived session key. For PFED, the TOE is required to perform session rekey at a security administrator-configurable interval within the claimed range, to use ML-KEM-1024 only for the rekey operation, and to support rekey either synchronously or asynchronously with respect to EUD traffic, as claimed by the TOE design.<h:p/>
-					The TSS should describe the PFED rekey model in TOE-specific terms and should align that description with Appendix H. Appendix H says that, following session establishment, the TOE enforces periodic rekey operations at configurable intervals between 2 and 30 minutes, that rekey operations may be initiated by either ERD, and that rekey may be performed either asynchronously while EUD traffic continues or synchronously with EUD traffic paused.					
+					The TSS should describe the PFED rekey model in TOE-specific terms and should align that description with the PFED Configuration section. The PFED Configuration section says that, following session establishment, the TOE enforces periodic rekey operations at configurable intervals between 2 and 30 minutes, that rekey operations may be initiated by either ERD, and that rekey may be performed either asynchronously while EUD traffic continues or synchronously with EUD traffic paused.					
 				</note>
 				<aactivity>
 					<TSS>
@@ -7452,7 +7479,7 @@
 						<h:li>Describes when the newly derived session key becomes active.</h:li> 
 						<h:li>Describes how the TOE transitions away from the replaced session key after successful rekey.</h:li> 
 						</h:ul>
-						The evaluator shall determine that the TSS is consistent with the PFED requirement text and Appendix H, including the configurable 2 to 30 minute interval, the use of ML-KEM-1024, the synchronous or asynchronous rekey modes, and the Appendix H statements that the final session key is derived from the current key store and newly derived shared secrets and that the replaced session key is securely destroyed.						
+						The evaluator shall determine that the TSS is consistent with the PFED requirement text and the PFED Configuration section, including the configurable 2 to 30 minute interval, the use of ML-KEM-1024, the synchronous or asynchronous rekey modes, and the PFED Configuration section statements that the final session key is derived from the current key store and newly derived shared secrets and that the replaced session key is securely destroyed.						
 					</TSS>
 					<Guidance>
 						The evaluator shall examine the operational guidance to determine that it:<h:ul>
@@ -7470,8 +7497,8 @@
 						<test>Rekey interval configuration: The evaluator shall configure the PFED rekey interval in accordance with the operational guidance and verify that the TOE accepts only values within the claimed range of 2 to 30 minutes. The evaluator shall also verify that the TOE rejects values outside the claimed range, if configuration validation is exposed by the TOE.</test><h:p/> 
 							<test>Periodic rekey occurrence: The evaluator shall cause a PFED session to be established, configure a rekey interval within the claimed range, and verify that the TOE performs periodic rekey in accordance with that configured interval.</test><h:p/> 
 							<test>ML-KEM-1024-only rekey: The evaluator shall verify, through TOE behavior, supported interfaces, traces, metadata, or developer evidence, that PFED rekey uses ML-KEM-1024 and does not rely on a different algorithm or ML-KEM parameter set to satisfy this SFR. </test><h:p/>
-							<test>Synchronous or asynchronous traffic behavior: If the TOE claims asynchronous rekey, the evaluator shall verify that rekey can occur while EUD traffic continues. If the TOE claims synchronous rekey, the evaluator shall verify that rekey occurs with EUD traffic paused. If both are claimed, the evaluator shall verify both modes. This aligns with Appendix H’s distinction between asynchronous rekey while EUD traffic continues and synchronous rekey with EUD traffic paused.</test><h:p/> 
-							<test>Successful rekey transition: The evaluator shall verify that, following successful rekey, the TOE activates the replacement session key and transitions away from the previous session key in a manner consistent with the TSS. Appendix H states that the final session key is derived from the current key store and newly derived shared secrets and that the replaced session key is securely destroyed. </test><h:p/>
+							<test>Synchronous or asynchronous traffic behavior: If the TOE claims asynchronous rekey, the evaluator shall verify that rekey can occur while EUD traffic continues. If the TOE claims synchronous rekey, the evaluator shall verify that rekey occurs with EUD traffic paused. If both are claimed, the evaluator shall verify both modes. This aligns with the PFED Configuration section’s distinction between asynchronous rekey while EUD traffic continues and synchronous rekey with EUD traffic paused.</test><h:p/> 
+							<test>Successful rekey transition: The evaluator shall verify that, following successful rekey, the TOE activates the replacement session key and transitions away from the previous session key in a manner consistent with the TSS. The PFED Configuration section states that the final session key is derived from the current key store and newly derived shared secrets and that the replaced session key is securely destroyed. </test><h:p/>
 							<test>PFED Functional Test: Provision a pair of PFED’s (A1 and B1). With no EUD’s attached to A1/B1, observe the black transport for a periodic handshake of packets that happens at the configured interval. Watch long enough for at least two expected intervals.
 						Where direct observation of a low-level rekey state is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, protocol traces, or developer evidence sufficient to determine that the claimed PFED rekey behavior is implemented.</test><h:p/>
 						</testlist>
@@ -7519,9 +7546,9 @@
 					</title>
 				</ext-comp-def-title>
 				<note role="application">
-					If the protected storage is implemented in software that is protected as required by FCS_STG_EXT.2, the ST author is expected to select 
-					"<h:i>software-based</h:i>." If "<h:i>software-based</h:i>" is selected, the ST author is expected to select "<h:i>software-based key storage</h:i>" in FCS_STG_EXT.2 and 
-					also claim FCS_STG_EXT.3.<h:p/>
+					If the protected storage is implemented in software that is protected as required by the "<h:i>software-based key storage</h:i>" selection in FCS_STG_EXT.2,
+					the ST author is expected to select "<h:i>software-based</h:i>, and vice versa." If "<h:i>software-based</h:i>" is selected, the ST author is expected to
+					claim FCS_STG_EXT.3.<h:p/>
 					If this SFR is included in the ST, then FCS_CKM.6 must also be claimed.
 				</note>
 			</f-element>
@@ -7549,7 +7576,7 @@
 					</title>
 				</ext-comp-def-title>					
 				<note role="application">
-					If "<h:i>causing the TOE to generate keys and secrets</h:i>" is selected in FCS_STG_EXT.1.2, then the 
+					If "<h:i>causing the TOE to generate...</h:i>" is selected in FCS_STG_EXT.1.2, then the 
 					ST must include at least one of FCS_CKM.1/AKG or FCS_CKM.1/SKG depending on the value of the 
 					internal selection.
 				</note>
@@ -7623,6 +7650,7 @@
 						operations are treated in the same manner. The devices used with the tooling may
 						need to be non-production devices in order to enable the execution of testing and gathering of
 						evidence.<h:p/>
+						The evaluator shall perform the following tests
 						<testlist>
 							<test>
 								The evaluator shall import or generate keys and secrets of each supported type
@@ -7636,8 +7664,8 @@
 									<h:li>For RSA, the secret shall be used to sign data.</h:li>
 									<h:li>For ECDSA, the secret shall be used to sign data.</h:li></h:ul>
 								The evaluator shall verify that the tenant software is able to access and 
-								use the key/secret as described. 
-							</test><h:p/>
+								use the key/secret as described.<h:p/> 
+							</test>
 							<test>The evaluator shall destroy keys and secrets of each supported type according to the operational guidance. The evaluator shall write, or the
 								developer shall provide access to, tenant software that destroys an imported or generated key and secret. The evaluator shall verify that the 
 								tenant software is able to cause the deletion of only keys that were created or imported on its behalf.
@@ -7833,7 +7861,7 @@
 						<Tests>
 							The evaluator shall perform the following tests.
 							<testlist>
-							<test>Traffic blocked before credential provision: The evaluator shall place the TOE in a pre-bring-up state and verify that the TOE prevents traffic flow before the required PIN or CIK credential is supplied. This aligns with the requirement text and Appendix H’s statement that no traffic flows until activation credentials are provided. </test><h:p/>
+							<test>Traffic blocked before credential provision: The evaluator shall place the TOE in a pre-bring-up state and verify that the TOE prevents traffic flow before the required PIN or CIK credential is supplied. This aligns with the requirement text and the PFED Configuration section’s statement that no traffic flows until activation credentials are provided. </test><h:p/>
 								<test>Traffic remains blocked until session setup and authentication complete: After providing the required PIN or CIK credential, the evaluator shall verify that the TOE continues to prevent traffic flow until session setup and authentication complete. This aligns with the requirement text and the PFED mutual-authentication requirement elsewhere in the PP.</test><h:p/> 
 								<test>Traffic permitted after successful bring-up: The evaluator shall provide the required credential and cause session setup and authentication to complete successfully, then verify that the TOE permits traffic flow only after those conditions have been satisfied.</test><h:p/> 
 								<test>Failure handling: The evaluator shall attempt bring-up with missing, invalid, or incomplete credential provision, and separately with unsuccessful session setup or authentication, and verify that the TOE continues to prevent traffic flow in each case.</test><h:p/>
@@ -7963,7 +7991,7 @@
 						The intent of this requirement is for the TOE to enforce an information flow control Security Function Policy (SFP) by making
 							permit or
 						deny decisions based on defined security attributes of subjects and information. For a retransmission device, this requirement focuses
-						on the decision function itself: the TOE is expected to evaluate security-relevant attributes associated with TOE-controlled subjects,
+						on the decision function itself. The TOE is expected to evaluate security-relevant attributes associated with TOE-controlled subjects,
 						information, and operations, and to permit or deny information flow only in accordance with the configured or defined policy rules. The
 						ST author specifies security attributes associated with subjects and information (e.g., interfaces, VLAN identifiers, session state,
 						cryptographic context), and the conditions governing whether flows are permitted or denied. Flow evaluation is expected to occur prior
@@ -7972,7 +8000,7 @@
 						For CU, the intent of this requirement is to ensure that the CU enforces its information flow control policy by making permit and deny
 						decisions using specific subject and information security attributes for packet flows between the trusted side of the TOE and the
 						untrusted black transport network side. The CU-specific decision function companion to the CU subset information flow control
-						requirement, identifies the attributes used in policy decisions, requires explicit permit logic, requires deny behavior for packets that							do not match an allow rule, and requires TSF mediation of all covered flows. The ST author should identify the CU information flow	
+						requirement, identifies the attributes used in policy decisions, requires explicit permit logic, deny behavior for packets that							do not match an allow rule, and TSF mediation of all covered flows. The ST author should identify the CU information flow	
 						control policy and use the listed subject and information security attributes as the basis for policy decisions.<h:p/>
 	
 	For HWS-only, the intent of this requirement is to ensure that in the HWS-ERD configuration, the TSF enforces a narrowly defined information flow control policy on communications between the EU and CU using domain- and path-based attributes. This requirement is about the HWS architectural information flow function between the EU and CU. It is narrower than a general packet-policy rule set and should be read as enforcing domain separation and a single permitted communications path in the HWS-ERD design.<h:p/>
@@ -7981,16 +8009,16 @@
 								payload from an outgoing EU to CU frame persists and the payload from an incoming CU to EU frame persists after the immediate processing							of that frame. The CU can act as a secondary firewall to enforce the egress of specific EU frame types.<h:p/>		
 						
 						If the TOE claims CU only, the ST author should select the following. <h:ul>
-							<h:li>"CU Information Flow Control Policy" and the lists for "Subject Security Attributes" and "Information Security Attributes" in
-								FDP_IFF.1.1</h:li>
-							<h:li>"the Untrusted Interface and the Trusted Interface" and "for each operation..." in FDP_IFF.1.2</h:li>
-							<h:li>"denial of..." in FDP_IFF.1.3</h:li>
-							<h:li>"ensure" and "between an untrusted... in FDP_IFF.1.4</h:li>
+							<h:li>"<h:i>CU Information Flow Control Policy</h:i>" and the lists for "<h:i>Subject Security Attributes</h:i>" and "<h:i>Information Security
+								Attributes</h:i>" in FDP_IFF.1.1</h:li>
+							<h:li>"<h:i>the untrusted interface and the trusted interface</h:i>" and the assignment "<h:i>for each operation...</h:i>" in FDP_IFF.1.2</h:li>
+							<h:li>"<h:i>denial of...</h:i>" in FDP_IFF.1.3</h:li>
+							<h:li>"<h:i>ensure</h:i>" and "<h:i>between an untrusted...</h:i>" in FDP_IFF.1.4</h:li>
 						</h:ul><h:br/>
 						If the TOE claims HWS only, the ST author should select the following.<h:ul>
-							<h:li>"the information flow control policy" and the list under "For "information flow control policy"" in FDP_IFF.1.1</h:li>
-							<h:li>"subjects only if all... and the list beginning with "Information exchange between..." in FDP_IFF.1.2</h:li>
-							<h:li>"following additional information..." in FDP_IFF.1.3</h:li>
+							<h:li>"<h:i>the information flow control policy</h:i>" and the list under "<h:i>For "information flow control policy</h:i>" in FDP_IFF.1.1</h:li>
+							<h:li>"<h:i>subjects only if all...</h:i>" and the assignment "<h:i>list of subjects and information...</h:i>" in FDP_IFF.1.2</h:li>
+							<h:li>"<h:i>following additional information...</h:i>" in FDP_IFF.1.3</h:li>
 						</h:ul>				
 						
 					</note>
@@ -8007,7 +8035,7 @@
 							<h:li>Describes the explicit denial rules enforced by the TOE under FDP_IFF.1.5.</h:li>
 							</h:ul>
 							The evaluator shall examine the TSS to ensure that the security attributes named in the ST are attributes the TOE can actually
-							evaluate and enforce, and that the described permit and deny logic is specific enough to support repeatable testing.
+							evaluate and enforce, and that the described permit and deny logic is specific enough to support repeatable testing.<h:p/>
 						
 						<h:b>For CU-only</h:b><h:br/>
 							The evaluator shall examine the TSS to determine that it:<h:ul>
@@ -8072,12 +8100,9 @@
 									generated by the TOE.</h:li> 
 								<h:li>Describes any policy-management behavior relevant to maintaining the explicitly configured allow rules.</h:li>
 							</h:ul>
-							
-							<h:b>For HWS-only</h:b><h:br/>
-							
 						</Guidance>
 						<Tests>
-							The evaluator shall perform the following tests.
+							The evaluator shall perform the following tests
 							<testlist>
 								<test> [CU-only] Permit rule enforcement: The evaluator shall configure one or more explicit allow rules using the claimed CU policy attributes and generate packets whose ingress interface, egress interface, source address, destination address, protocol, and ports, if applicable, satisfy those rules. The evaluator shall verify that the TOE permits the information flow between the untrusted interface and the trusted interface only when the claimed attribute relationships hold.</test><h:p/>
 								<test>[CU-only] Deny on no allow-rule match: The evaluator shall generate packets received on an untrusted black transport network interface and destined for a trusted interface that do not match any explicitly configured allow rule. The evaluator shall verify that the TOE denies the information flow, as required by FDP_IFF.1.3.</test><h:p/>
@@ -8129,7 +8154,7 @@
 								<h:li>Describes how the TOE ensures that the EU does not respond to invalid packets received from the CU or EUD. </h:li>
 								<h:li>Describes any distinctions among covered PFED interfaces or modes, if more than one is claimed. </h:li>
 							</h:ul>
-							The evaluator shall determine that the TSS is consistent with the posted PFED component text and Appendix H, including single expected fixed-offset packet acceptance, pre-stack dropping of malformed or unexpected packets, and non-response by the EU to invalid packets from the CU or EUD.
+							The evaluator shall determine that the TSS is consistent with the posted PFED component text and the PFED Configuration section, including single expected fixed-offset packet acceptance, pre-stack dropping of malformed or unexpected packets, and non-response by the EU to invalid packets from the CU or EUD.
 							
 						</TSS>
 						<Guidance/>
@@ -8358,10 +8383,10 @@
 					<title>The TSF shall provide protected storage for the Trust Anchor Database. </title>
 					<aactivity>
 						<TSS>The evaluator shall ensure the TSS describes the Trust Anchor Database
-							implemented that contain certificates used to meet the requirements of this PP. This
+							implemented that contains certificates used to meet the requirements of this PP. This
 							description shall contain information pertaining to how certificates are loaded into
-							the store, and how the store is protected from unauthorized access (for example,
-							UNIX permissions) in accordance with the permissions established in FMT_SMF_EXT.1
+							the store and how the store is protected from unauthorized access (for example,
+							UNIX permissions) in accordance with the permissions established in FMT_SMF.1
 							and FMT_MOF_EXT.1.1.
 						</TSS>
 						<Guidance/>
@@ -8661,7 +8686,7 @@
 						</title>
 					</ext-comp-def-title>	
 					<note role="application">						
-						While some corporate policies require passwords of 14 characters or better, the use of a Root
+						While some corporate policies require passwords of 14 characters or more, the use of a Root
 						Encryption Key for DAR protection and key storage protection and the anti-hammer requirement (FIA_TRT_EXT.1)
 						addresses the threat of attackers with physical access using much smaller and less complex
 						passwords.<h:p/>
@@ -8669,7 +8694,7 @@
 						or another assigned character set containing at least 52 characters. The assigned character
 						set must be well defined: either according to an international encoding standard (such as
 						Unicode) or defined in the assignment by the ST author. The ST author also selects the special
-						characters that are supported by TOE; they may optionally list additional special characters
+						characters that are supported by the TOE; they may optionally list additional special characters
 						supported using the assignment.
 					</note>
 					<aactivity>
@@ -8757,7 +8782,7 @@
 						</title>
 					<note role="application">
 						The intent of this requirement is to ensure that any pre-shared key used by the TOE in the PFED design is constrained to the temporary bootstrap phase only and is not used as a general-purpose or long-lived session authentication mechanism.<h:p/>
-						For this requirement, the TOE shall support a PSK exclusively for tunnel-0 bootstrap. This is consistent with Appendix H.3.1, which states that initial bonding is performed during provisioning using a temporary secure tunnel, tunnel-0, established using a PSK, and with Appendix H.3.2, which states that after successful ML-KEM-1024 completion, tunnel-0 is terminated and the PSK is cryptographically destroyed. <h:p/>
+						For this requirement, the TOE shall support a PSK exclusively for tunnel-0 bootstrap. This is consistent with the PFED Configuration section, which states that initial bonding is performed during provisioning using a temporary secure tunnel, tunnel-0, established using a PSK, and with the PFED Configuration section, which states that after successful ML-KEM-1024 completion, tunnel-0 is terminated and the PSK is cryptographically destroyed. <h:p/>
 						This PSK can be referred to as PSK0. It is required simply to allow communication to exist between the EUs. As described elsewhere in the document, once the EU pair completes provisioning it is destroyed. It is only needed to complete the authenticated key exchange that occurs inside tunnel-0. <h:p/>
 						
 					</note>
@@ -8776,7 +8801,7 @@
 								<h:li>Describes how the TOE ensures that the PSK is not used for post-bootstrap operational PFED sessions. </h:li>
 								<h:li>Describes the event that ends PSK usage and the TOE behavior associated with that transition.</h:li> 
 							</h:ul>
-							The evaluator shall determine that the TSS is consistent with the PFED appendix, which states that tunnel-0 uses a PSK for initial bonding and that, after successful ML-KEM-1024 completion, tunnel-0 is terminated and the PSK is cryptographically destroyed.
+							The evaluator shall determine that the TSS is consistent with the PFED Configuration section, which states that tunnel-0 uses a PSK for initial bonding and that, after successful ML-KEM-1024 completion, tunnel-0 is terminated and the PSK is cryptographically destroyed.
 							
 						</TSS>
 						<Guidance>
@@ -8792,9 +8817,9 @@
 						<Tests>
 							The evaluator shall perform the following tests.
 							<testlist>
-								<test> PSK use for tunnel-0 bootstrap: The evaluator shall configure or provision the TOE for PFED bootstrap and verify that the TOE supports use of the PSK to establish tunnel-0 for the bootstrap phase. This aligns with Appendix H.3.1. </test><h:p/>
+								<test> PSK use for tunnel-0 bootstrap: The evaluator shall configure or provision the TOE for PFED bootstrap and verify that the TOE supports use of the PSK to establish tunnel-0 for the bootstrap phase. This aligns with the PFED Configuration section. </test><h:p/>
 								<test>  Exclusive bootstrap use: The evaluator shall verify that the TOE does not rely on the PSK to satisfy post-bootstrap session establishment or ordinary operational PFED session use. The TOE shall use the PSK only for tunnel-0 bootstrap, consistent with the TSS and guidance. </test><h:p/>
-								<test> Transition away from PSK use: The evaluator shall cause the TOE to complete the post-bootstrap transition described in the TSS and verify behavior consistent with Appendix H.3.2, namely that tunnel-0 is terminated and PSK use ends after successful ML-KEM-1024 completion. </test><h:p/>
+								<test> Transition away from PSK use: The evaluator shall cause the TOE to complete the post-bootstrap transition described in the TSS and verify behavior consistent with the PFED Configuration section, namely that tunnel-0 is terminated and PSK use ends after successful ML-KEM-1024 completion. </test><h:p/>
 								Where direct observation of low-level PSK lifecycle behavior is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, traces, or developer evidence sufficient to determine that PSK support is limited to the tunnel-0 bootstrap role.
 							</testlist>	
 						</Tests>
@@ -8990,7 +9015,7 @@
 							<testlist>
 								<test>ML-DSA-87 mutual-authentication mechanism supported: The evaluator shall invoke or otherwise cause the TOE to perform the
 									claimed PFED mutual-authentication function and verify that the TOE supports cryptographic mutual authentication using
-									ML-DSA-87, consistent with the TSS and guidance. This aligns with the posted PFED appendix session-setup
+									ML-DSA-87, consistent with the TSS and guidance. This aligns with the posted PFED Configuration section session-setup
 									section.</test> 
 								<test>Additional user-activation mechanism supported: If the TOE claims an additional user-activation mechanism, the
 									evaluator shall verify that the TOE supports the selected mechanism, namely password, PIN, or CIK, consistent with the TSS
@@ -9193,10 +9218,10 @@
 						any other TSF-mediated actions on behalf of that user. </title>
 					<note role="application">The security relevant actions allowed by unauthorized users in
 						locked state must be listed. At a minimum the actions that correspond to the functions
-						available to the user in FMT_SMF_EXT.1 and are allowed by unauthorized users in locked
+						available to the user in FMT_SMF.1 and are allowed by unauthorized users in a locked
 						state should be listed. For example, if the user can enable/disable the camera per
-						function <xref to="mf-audioVisual"/> of FMT_SMF_EXT.1 and unauthorized users can
-						take a picture when the device is in locked state, this action must be listed. </note>
+						function <xref to="mf-audioVisual"/> of FMT_SMF.1 and unauthorized users can
+						take a picture when the device is in a locked state, this action must be listed. </note>
 					<aactivity>
 						<TSS>The evaluator shall verify that the TSS describes the actions allowed by
 							unauthorized users in the locked state.</TSS>
@@ -9695,7 +9720,7 @@
 					<Tests>
 						The evaluator shall test each management function included in the ST 
 			            to demonstrate that the function can be performed only by the roles 
-						indicated in <xref to="t-manfunc"/> and the result of the function is demonstrated. 
+						indicated in <xref to="t-manfunc"/> and that the result of the function is demonstrated. 
 					</Tests>
 				</aactivity>			   
 			</f-element>
@@ -9706,7 +9731,7 @@
       		<depends on="pfed"/>
       		<f-element id="fmt-smf-1e1">
       			<title>
-      				The TSF shall be capable of performing the following management functions:[<h:i><h:ul>
+      				The TSF shall be capable of performing the following management functions: [<h:i><h:ul>
       					<h:li>Provisioning</h:li>
       					<h:li>Session setup</h:li>
       					<h:li>Rekey configuration</h:li>
@@ -9729,7 +9754,7 @@
       						<h:li>Identifies the interfaces, roles, or mechanisms through which each of the claimed PFED management functions is performed. </h:li>  
       						<h:li>If the TOE distributes these management functions across multiple components, identifies which TOE component performs each function. </h:li> 
       					</h:ul> 
-      					The evaluator shall determine that the TSS is consistent with the posted PFED appendix structure, which includes provisioning, session setup, rekey operations and scheduling, and logging/audit as distinct PFED lifecycle areas.
+      					The evaluator shall determine that the TSS is consistent with the posted PFED Configuration section structure, which includes provisioning, session setup, rekey operations and scheduling, and logging/audit as distinct PFED lifecycle areas.
       					
       				</TSS>
       				<Guidance>
@@ -9776,7 +9801,7 @@
       				software. The user role is considered to exist even if no humans normally interact with a TOE.<h:p/>
       				An administrator is a privileged user that must be authenticated by the TOE in order 
       				to administer the TOE. This role is distinct from OS or VS administrators, who are
-      				may are authenticated to tenant software and are considered to be users in the context of the TOE.				
+      				authenticated to tenant software and are considered to be users in the context of the TOE.				
       			</note>
       			<aactivity>
       				<TSS/>
@@ -9817,6 +9842,7 @@
     					The operational guidance associated with this requirement is assessed in the subsequent test EAs.
     				</Guidance>
     				<Tests>
+    					The evaluator shall perform the following tests
     					<testlist>
     						<test>
     							The evaluator shall attempt to get network traffic to flow through the TOE while the TOE is being initialized. 
@@ -9829,8 +9855,7 @@
     							flow of network packets that would be permitted by the ruleset should be sourced and directed to a host. The evaluator
     							shall use a packet sniffer to verify none of the generated network traffic is permitted through the TOE during initialization
     							and is only permitted once initialization is complete.
-    						</test><h:p/>
-    						Note: The remaining testing associated with application of the ruleset is addressed in the subsequent test EAs.
+    						</test><h:p/>    						
     					</testlist>
     				</Tests>
     			</aactivity>
@@ -9876,7 +9901,7 @@
     			</note>
     			<aactivity level="element">
     				<no-tests>
-    					There are no EAs specified for this element. Definition of packet filtering policy, association of operations with packet filtering
+    					There are no EAs specified for this element. Definitions for packet filtering policy, association of operations with packet filtering
     					rules, and association of these rules to network interfaces is described collectively under FPF_RUL_EXT.1.4.
     				</no-tests>
     			</aactivity>
@@ -9891,7 +9916,7 @@
     			</note>
     			<aactivity level="element">
     				<no-tests>
-    					There are no EAs specified for this element. Definition of packet filtering policy, association of operations with packet filtering
+    					There are no EAs specified for this element. Definitions for packet filtering policy, association of operations with packet filtering
     					rules, and association of these rules to network interfaces is described collectively under FPF_RUL_EXT.1.4.
     				</no-tests>
     			</aactivity>
@@ -9903,7 +9928,7 @@
     			<note role="application">
     				This element identifies where rules can be assigned. Specifically, a conforming TOE must be able to assign filtering rules specific
     				to each of its available and identifiable distinct network interfaces that handle layer 3 and 4 network traffic. Identifiable means
-    				the interface is unique and identifiable within the TOE, and does not necessarily require the interface to be visible from the network
+    				the interface is unique and easily recognized within the TOE, and does not necessarily require the interface to be visible from the network
     				perspective (e.g., does not need to have an IP address assigned to it). A distinct network interface is one or more physical connections
     				that share a common logical path into the TOE. For example, the TOE might have a small form-factor pluggable (SFP) port supporting SFP 
     				modules that expose a number of physical network ports, but since a common driver is used for all external ports they can be treated as 
@@ -9965,6 +9990,7 @@
     					TOE evaluation.
     				</Guidance>
     				<Tests>
+    					The evaluator shall perform the following tests
     					<testlist>
     						<test>
     							The evaluator shall use the instructions in the operational guidance to test that packet filter rules can be created that permit, 
@@ -10014,24 +10040,25 @@
     			</ext-comp-def-title>
     			
     			<note role="application">
-    				This element requires that an administrator is able to define the order in which configured filtering rules are precessed for matches.
+    				This element requires that an administrator is able to define the order in which configured filtering rules are processed for matches.
     			</note>
     			<aactivity level="element">
     				<TSS>
     					The evaluator shall verify that the TSS describes the algorithm applied to incoming packets, including the processing of 
-    					default rules, determination of whether a packet is part of an established session, and application of administrator defined 
-    					and ordered ruleset.
+    					default rules, determination of whether a packet is part of an established session, and application of administrator-defined 
+    					and ordered rulesets.
     				</TSS>
     				<Guidance>
     					The evaluator shall verify that the operational guidance describes how the order of packet filtering rules is determined and
     					provides the necessary instructions so that an administrator can configure the order of rule processing.
     				</Guidance>
     				<Tests>
+    					The evaluator shall perform the following tests
     					<testlist>
     						<test>
     							The evaluator shall devise two equal packet filtering rules with alternate operations – permit and discard. The rules
     							should then be deployed in two distinct orders and in each case the evaluator shall ensure that the first rule is enforced
-    							in both cases by generating applicable packets and using packet capture and logs for 
+    							in both cases by generating applicable packets and using packet capture and logs for confirmation.
     						</test><h:p/>
     						<test>
     							The evaluator shall repeat the procedure above, except that the two rules should be devised where one is a subset of the
@@ -10063,6 +10090,7 @@
 						guidance describes the range of IPv4 and IPv6 protocols supported by the TOE.
 					</Guidance>
     				<Tests>
+    					The evaluator shall perform the following tests
     					<testlist>
     						<test>
     							The evaluator shall configure the TOE to permit and log each supported IPv4 Transport Layer Protocol (see RFC Values for 
@@ -10451,7 +10479,7 @@
     				</TSS>
     				<Guidance/>
     				<Tests>
-    					The evaluator shall perform the following test:
+    					The evaluator shall perform the fol
     					<testlist>
     						<test> 
     							The evaluator shall use forensic tools to search storage media
@@ -10485,43 +10513,11 @@
     		<f-element id="fel-cpu-med">
     			<title>The TSF shall prevent code executing on any baseband processor (BP) from
     				accessing application processor (AP) resources except when mediated by the AP.</title>
-    			<note role="application"> These resources include:<h:br/>
-    				<h:ul>
-    					<h:li>Volatile and non-volatile memory</h:li>
-    					<h:li>Control of and data from integrated and non-integrated peripherals (e.g., USB
-    						controllers, touch screen controllers, LCD controller, codecs)</h:li>
-    					<h:li>Control of and data from integrated and non-integrated I/O sensors (e.g.
-    						camera, light, microphone, GPS, accelerometers, geomagnetic field
-    						sensors)</h:li>
-    				</h:ul>
-    				Mobile devices are becoming increasingly complex having an application
-    				processor that runs an operating system and user applications and separate
-    				baseband processors that handle cellular and other wireless network connectivity. <h:p/>
-    				<h:ul>
-    					<h:li>The application processor within most modern Mobile Devices is a system on a
-    						chip (SoC) that integrates, for example, CPU/GPU cores and memory interface
-    						electronics into a single, power-efficient package.</h:li>
-    					<h:li>Baseband processors are becoming increasingly complex themselves delivering
-    						voice encoding alongside multiple independent radios (LTE, Wi-Fi, Bluetooth, FM,
-    						GPS) in a single package containing multiple CPUs and DSPs.</h:li>
-    				</h:ul>
-    				Thus, the baseband processors in these requirements include such
-    				integrated SoCs and include any radio processors (integrated or not) on the Mobile
-    				Device. <h:p/> All other requirements mostly, except where noted, apply to
-    				firmware/software on the application processor, but future requirements (notably, all
-    				Integrity, Access Control, and Anti-Exploitation requirements) will apply to
-    				application processors and baseband processors. </note>
+    			<note role="application"> <comment>App Note and EAs need to be completed. The information that was included came from the mobile device PP.</comment></note>
     			<aactivity>
-    				<TSS>The evaluator shall ensure that the TSS section of the ST describes at a high
-    					level how the processors on the Mobile Device interact, including which bus
-    					protocols they use to communicate, any other devices operating on that bus
-    					(peripherals and sensors), and identification of any shared resources. The evaluator
-    					shall verify that the design described in the TSS does not permit any BPs from
-    					accessing any of the peripherals and sensors or from accessing main memory (volatile
-    					and non-volatile) used by the AP. In particular, the evaluator shall ensure that the
-    					design prevents modification of executable memory of the AP by the BP.</TSS>
-    				<Guidance>There are no guidance evaluation activities for this component.</Guidance>
-    				<Tests>There are no test evaluation activities for this component.</Tests>
+    				<TSS>TBD</TSS>
+    				<Guidance>TBD</Guidance>
+    				<Tests>TBD</Tests>
     			</aactivity>
     		</f-element>
     		<audit-event/>
@@ -10568,15 +10564,15 @@
     						<h:li>Describes the session reconnect behavior or reconnection state entered by the TOE after such detection. </h:li>
     						<h:li>If more than one liveness-detection mechanism is claimed, distinguishes the TOE behavior for each sufficiently to support testing. </h:li>
     					</h:ul>
-    					The evaluator shall determine that the TSS is consistent with the posted PFED appendix text stating that the TOE uses RFC 3706 DPD or keep-alive beacons and transitions to session setup after dead peer detection.
+    					The evaluator shall determine that the TSS is consistent with the posted PFED Configuration section text stating that the TOE uses RFC 3706 DPD or keep-alive beacons and transitions to session setup after dead peer detection.
     					
     				</TSS>
     				<Guidance/>
     				<Tests>
     					The evaluator shall perform the following tests.
     					<testlist>
-    						<test> Peer failure detection: The evaluator shall cause peer failure or loss of liveness in the claimed TOE context and verify that the TOE detects the failure using the claimed mechanism, namely RFC 3706 or keep-alive beacons, consistent with the TSS and guidance. The PFED appendix expressly permits either mechanism.</test><h:p/>
-    						<test>Reconnect trigger on failure detection: Following peer-failure detection, the evaluator shall verify that the TOE triggers session reconnect behavior in accordance with the TSS and guidance. Where the TOE describes this as transition to a session setup state, the evaluator shall verify that behavior. The posted PFED appendix states that the TOE transitions to session setup after dead-peer detection.</test><h:p/> 
+    						<test> Peer failure detection: The evaluator shall cause peer failure or loss of liveness in the claimed TOE context and verify that the TOE detects the failure using the claimed mechanism, namely RFC 3706 or keep-alive beacons, consistent with the TSS and guidance. The PFED Configuration section expressly permits either mechanism.</test><h:p/>
+    						<test>Reconnect trigger on failure detection: Following peer-failure detection, the evaluator shall verify that the TOE triggers session reconnect behavior in accordance with the TSS and guidance. Where the TOE describes this as transition to a session setup state, the evaluator shall verify that behavior. The posted PFED Configuration section states that the TOE transitions to session setup after dead-peer detection.</test><h:p/> 
     						<test>Disconnect-notification handling: If the TOE distinguishes a disconnect notification from ordinary liveness failure, the evaluator shall cause that condition and verify that the TOE triggers session reconnect behavior as described in the TSS and guidance.</test><h:p/>
     						<test>Claimed mechanism coverage: If the TOE claims both RFC 3706 and keep-alive beacons, the evaluator shall verify both mechanisms. If only one is claimed, the evaluator shall verify that the TOE relies on that claimed mechanism to satisfy this SFR.</test><h:p/>
     						<test>PFED Functional Test: Establish a pair of communicating PFEDs A1 and B1 with respective EUD A and EUD B. A1 is a server PFED and B1 is a client PFED. Sniff the black transport. While A is sending data to B, disconnect B1. Eventually A1 should stop sending EUD traffic and revert to a passive server mode listening for a client session initiation. Reconnect B1 and observe a session setup and then EUD traffic resuming. Next disconnect A1 (the server). Eventually B1 (the client) should revert to initiating a session. This should look like a periodic beacon. Reconnect A1, and B1 should complete a session setup and EUD traffic should then be visible on the black transport.</test><h:p/></testlist> 
@@ -10633,7 +10629,7 @@
     						<h:li>For recovery failure, describes the failure-to-converge condition and the criteria that trigger session termination. </h:li> 
     						<h:li>For provisioning failure, describes how the TOE handles incomplete or failed provisioning so that no insecure partially provisioned session remains active. </h:li>
     					</h:ul> 
-    					The evaluator shall determine that the TSS is consistent with the posted PFED appendix, including recovery termination on failure to converge and dead-peer handling in the PFED lifecycle.
+    					The evaluator shall determine that the TSS is consistent with the posted PFED Configuration section, including recovery termination on failure to converge and dead-peer handling in the PFED lifecycle.
     				</TSS>
     				<Guidance>
     					The evaluator shall verify that the guidance documentation describes the error state that results from a 
@@ -10750,7 +10746,7 @@
     					The evaluator shall induce one or more initialization errors or failures described in the TSS and verify that the TOE either:<h:ul>
     						<h:li>halts, or</h:li>
     						<h:li>completes initialization only with the claimed reduced functionality, signaling of an error state, or other claimed actions.</h:li>
-    					</h:ul>The evaluator shall verify that the observed behavior is consistent with the TSS and does not result in operation inconsistent with the claimed secure state.</test><h:p/>
+    					</h:ul>The evaluator shall verify that the observed behavior is consistent with the TSS and does not result in operation inconsistent with the claimed secure state.<h:p/></test>
     						<test>Restriction of TSF interaction during initialization: 
     					The evaluator shall examine available interfaces and observable TOE behavior during initialization and verify that the initialization function interacts with the TSF only through the defined methods identified in the TSS. The evaluator shall verify that unrestricted or normal operational TSF services are not made available before the secure initial state is established, except as explicitly claimed in the ST for reduced-functionality or error-state handling.</test><h:p/>
     					</testlist>
@@ -10825,7 +10821,7 @@
     				“EU and CU do not share computation resources” means the TOE does not rely on shared execution environments, shared processing contexts, or equivalent shared computation infrastructure across the EU/CU boundary. <h:p/>
     				“EU interfaces are non-addressable and stateless” means the interfaces exposed by the EU for this PFED path are not independently addressable as conventional network endpoints and do not maintain externally reachable session state inconsistent with the claimed isolation model. <h:p/>
     				“Network namespaces are isolated” means the TOE prevents shared network namespace behavior across the EU/CU boundary that would undermine the claimed separation. <h:p/>
-    				“Only a connectionless bus is shared” should be read consistently with Appendix H.12, which says only a stateless, connectionless bus is shared between the EU and CU and the EUD and EU. 
+    				“Only a connectionless bus is shared” should be read consistently with the PFED Configuration section, which says only a stateless, connectionless bus is shared between the EU and CU and the EUD and EU. 
     				
     			</note>
     			<aactivity>
@@ -10848,7 +10844,7 @@
     						<test> No shared computation resources: The evaluator shall verify, through TOE behavior, supported interfaces, configuration evidence, or developer evidence, that the EU and CU do not share computation resources in a manner inconsistent with the TSS.</test><h:p/>
     						<test> EU interfaces non-addressable and stateless: The evaluator shall verify that the EU interfaces relevant to the PFED design are non-addressable and stateless as described in the TSS and guidance. </test><h:p/>
     						<test> Network namespace isolation: The evaluator shall verify that the TOE enforces isolated network namespaces between EU and CU consistent with the TSS and guidance. </test><h:p/>
-    						<test> Only a connectionless bus is shared: The evaluator shall verify that the only shared intercomponent path between the EU and CU is the claimed connectionless bus, consistent with the component text and Appendix H.12. </test><h:p/> 
+    						<test> Only a connectionless bus is shared: The evaluator shall verify that the only shared intercomponent path between the EU and CU is the claimed connectionless bus, consistent with the component text and the PFED Configuration section. </test><h:p/> 
     						<test> No alternate shared path: The evaluator shall verify that no additional shared channel, stateful shared service, or alternate communication path exists between the EU and CU beyond the claimed shared bus. </test><h:p/>
     						<test> PFED Functional Test: To show isolation of network namespace: provision a pair of PFED’s A1 and B1 and attach EUD A and B to them respectively. Assign the IPs of the EUDs to the same subnet as the CUs. For example, CU1 and A = 192.168.0.1 and CU2 and B == 192.168.0.2. Attach EUD C to the network switch that CU1 and CU2 communicate. Assign C == 192.168.0.3. Attach a sniffer on the wire between A and A1, B and B1, and to the switch. From C, ping 192.168.0.2. You should not see ICMP or reply emerge to EUD B. And you should see ICMP between CU2 and C. Similarly, from EUD A, ping 192.168.0.2. You should only see ICMP on the sniffer between B1 and B and A1 and A. And finally, from either A or B attempt to ping C at 192.168.0.3 and it should fail. </test><h:p/>
     					</testlist>
@@ -10890,6 +10886,7 @@
     				</TSS>
     				<Guidance/>
     				<Tests>
+    					The evaluator shall perform the following test
     					<testlist>
     						<test>
     							<h:b>Evaluation Activity Note:</h:b> The following test requires the developer to provide access to a test platform that provides 
@@ -10975,7 +10972,7 @@
     				the purposes of this requirement, key material refers to keys, passwords, and other
     				material that is used to derive keys. </note>
     			<aactivity>
-    				<TSS>The evaluator shall consult the TSS section of the ST in performing the Evaluation
+    				<TSS><comment>This needs to be evaluated to reference retransmission device. It looks like a copy and paste from GPOS or MDF.</comment>The evaluator shall consult the TSS section of the ST in performing the Evaluation
     					Activities for this requirement. The evaluator shall ensure that the TSS describes
     					the TOE security boundary. The cryptographic module may very well be a particular
     					kernel module, the Operating System, the Application Processor, or up to the entire
@@ -11060,9 +11057,9 @@
     					</TSS>
     				<Guidance/>
     				<Tests>
-    					<h:b>Evaluation Activity Note:</h:b> The following test require the developer to
+    					<h:b>Evaluation Activity Note:</h:b> The following test requires the developer to
     					provide access to a test platform that provides the evaluator with tools that are
-    					typically not found on consumer Mobile Device products. <testlist>
+    					typically not found on consumer Mobile Device products <testlist>
     						<test>The evaluator shall use a tool provided by the developer to modify files and
     							processes in the system that correspond to critical failures specified in the
     							second list. The evaluator shall verify that creating these critical failures
@@ -11091,7 +11088,7 @@
     				tampering with the TSF's devices or TSF's elements has occurred. 
     			</title>
     			<note role="application">    				
-    				The audit event "Detection of intrusion" should be claimed if the TOE is capable of generating
+    				The audit event "<h:i>Detection of intrusion</h:i>" should be claimed if the TOE is capable of generating
     				an audit event in circumstances where an intrusion is detected.
     			</note>
     			<aactivity>
@@ -11155,7 +11152,7 @@
     					or administrators that it has detected tampering.
     				</Guidance>
     				<Tests>
-    					The evaluator shall perform the following tests:
+    					The evaluator shall perform the following tests
     					<testlist>
     						<test>
     							The evaluator shall verify that attempts to open the TOE enclosure  
@@ -11296,9 +11293,9 @@
     				firmware version that may have a security weakness. It is expected that vendors will increase
     				security version numbers with each new update package.<h:p/>
     				For FPT_RBP_EXT.1.1 the purpose is to verify that the new package has a security version
-    				number equal to or larger than the security version number of currently installed firmware
+    				number equal to or larger than the security version number of the currently installed firmware
     				package.<h:p/>
-    				The administrator guidance would include instructions for the administrator to configure the
+    				The administrator guidance should include instructions for the administrator to configure the
     				rollback prevention mechanism, if appropriate.
     			</note>
     			
@@ -11313,7 +11310,7 @@
     				</Guidance>
     				
     				<Tests>
-    					The evaluator shall perform the following test:
+    					The evaluator shall perform the following test
     					<testlist>
     						<test>
     							The evaluator shall try installing a lower security version number upgrade (either by just modifying the
@@ -11351,6 +11348,100 @@
 				<audit>There are no auditable events foreseen.</audit>
 				<dependencies>No dependencies.</dependencies>
 				
+				<f-element>
+					<title>
+						The TOE shall enter a secure recovery state upon detection of: <selectables>
+							<selectable>dead peer</selectable>
+							<selectable>session key divergence</selectable>
+							<selectable>failed rekey or recovery transaction</selectable>
+						</selectables>.
+					</title>
+				</f-element>
+				
+			</f-component>
+			
+			<f-component name="Automated Recovery" cc-id="fpt_rcv.2">
+				<f-element>
+					<title>
+						When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
+						maintenance mode where the ability to return to a secure state is provided.
+					</title>
+				</f-element>
+				<f-element>
+					<title>For <assignable>list of failures/service discontinues</assignable>, the TSF shall ensure the return of the TOE to a secure state using automated procedures.</title>
+					
+					<note role="application">
+						The intent of this requirement is to ensure that when the TOE cannot automatically recover from specified failures or service discontinuities, it does not resume or continue normal operation in an uncontrolled state. Instead, the TOE should enter a maintenance mode that preserves the ability to return the TOE to a secure state.<h:p/>
+						The ST author should identify the failures or service discontinuities from which automated recovery is not possible. These should be limited to conditions relevant to the claimed TOE design and operational use. Examples may include the following. <h:ul>
+							<h:li>Persistent boot or integrity-check failures</h:li>
+							<h:li>Unrecoverable cryptographic subsystem errors</h:li>
+							<h:li>Repeated failure of required internal health checks</h:li>
+							<h:li>Corruption of critical TSF data</h:li>
+							<h:li>Failure of required protected communications between TOE components</h:li>
+							<h:li>Exhaustion or corruption of required initialization state, or</h:li>
+							<h:li>Other service discontinuities that prevent automatic restoration of the TOE to a secure operational condition</h:li>
+						</h:ul>.
+						“<h:i>Maintenance mode</h:i>” in this requirement is a constrained TOE state in which normal security-relevant operational services are not provided, but the TOE preserves the ability to perform the actions necessary to restore a secure state.    				
+					</note>
+					<aactivity>
+						<TSS>
+							The evaluator shall examine the TSS to determine that it:<h:ul>
+								<h:li>Identifies the failures or service discontinuities from which automated recovery is not possible.</h:li>
+								<h:li>Describes how the TOE detects each such failure or discontinuity.</h:li>
+								<h:li>Describes the conditions under which the TOE enters maintenance mode.</h:li>
+								<h:li>Describes the maintenance mode provided by the TOE, including the functionality that remains available and the functionality that is not available while in that mode.</h:li>
+								<h:li>Describes how maintenance mode preserves the ability to return the TOE to a secure state. </h:li>
+								<h:li>Describes the process or mechanisms by which the TOE exits maintenance mode and returns to a secure state.</h:li>
+								<h:li>Describes any differences in TOE behavior for different claimed failure or discontinuity conditions.</h:li>
+								<h:li>Describes how the TOE prevents normal operational use or insecure service continuation while in maintenance mode.</h:li>
+							</h:ul>
+							The evaluator shall determine that the TSS description is sufficient to show that maintenance mode is a controlled state intended for secure restoration and not simply degraded normal operation.    					
+						</TSS>
+						<Guidance>
+							The evaluator shall examine the operational guidance to determine that it:<h:ul>
+								<h:li>Describes the failures or service discontinuities that may cause the TOE to enter maintenance mode. </h:li>
+								<h:li>Describes how an administrator can determine that the TOE has entered maintenance mode. </h:li>
+								<h:li>Describes the functionality available to the administrator while the TOE is in maintenance mode.</h:li>
+								<h:li>Describes the steps required to restore the TOE to a secure state and return it to normal operation.</h:li> 
+								<h:li>Describes any restrictions, cautions, or prerequisites applicable while the TOE is in maintenance mode.</h:li> 
+								<h:li>Describes any audit records, status indications, alerts, or logs associated with entry into maintenance mode, recovery actions, and return to service, if such records or indications are provided by the TOE.</h:li>
+							</h:ul>
+						</Guidance>
+						<Tests>
+							Where inducing a specific low-level failure is not practical on production hardware or software, the
+							evaluator may use developer-supported test mechanisms or representative test configurations sufficient to demonstrate the claimed behavior. The evaluator shall perform the following tests 
+							<testlist>
+								<test>
+									Entry into maintenance mode when automated recovery is not possible: For one or more claimed failures or service discontinuities from which
+									automated recovery is not possible, the evaluator shall induce the condition and verify that the TOE enters maintenance mode.
+								</test><h:p/>
+								<test>
+									Maintenance mode restricts normal operation: After the TOE enters maintenance mode, the evaluator shall verify that normal operational
+									functionality that would be inconsistent with the TOE being in a secure state is not available, and that the TOE behavior is consistent with the
+									TSS and guidance description of maintenance mode.
+								</test><h:p/>
+								<test>
+									Maintenance mode provides a path to secure restoration: While the TOE is in maintenance mode, the evaluator shall verify that the TOE provides
+									the claimed ability to return to a secure state, such as secure recovery, trusted restoration, reinitialization, administrator-guided
+									remediation, or other claimed mechanism.
+								</test><h:p/>
+								<test>
+									Return from maintenance mode to secure state: The evaluator shall perform the documented recovery steps and verify that the TOE can return from
+									maintenance mode to the claimed secure operational state in accordance with the TSS and guidance.</test><h:p/>
+							</testlist>
+						</Tests>
+					</aactivity>
+				</f-element>
+				<audit-event>
+					<audit-event-descr><h:ul>
+						<h:li>Entry into maintenance mode due to a failure or service discontinuity from which automated recovery is not possible</h:li>
+						<h:li>If audited by the TOE, attempt to return the TOE to a secure state from maintenance mode</h:li>
+						<h:li>If audited by the TOE, successful return to a secure state</h:li>
+					</h:ul>
+					</audit-event-descr>
+					<audit-event-info>Failure/discontinuity type if available, recovery action if available, state entered, and result</audit-event-info>
+				</audit-event>
+				
 			</f-component>
 			
 			
@@ -11361,7 +11452,7 @@
     	<f-component name="Recovery Behavior" cc-id="fpt_rcv_ext.1" iteration="PFED" status="feat-based">
     		<depends on="pfed"/>
     		
-    		<f-element id="fpt-rcv-ext-pfed-1e1">
+    		<f-element id="fpt-rcv-ext-1e1">
     			<title>
     				The TOE shall enter a secure recovery state upon detection of: <selectables>
     					<selectable>dead peer</selectable>
@@ -11371,7 +11462,7 @@
     			</title>    			
     		</f-element>
     		
-    		<f-element id="fpt-rcv-ext-pfed-1e2">
+    		<f-element id="fpt-rcv-ext-1e2">
     			<title>
     				During recovery, the TOE shall suppress all EUD traffic.
     			</title>
@@ -11399,21 +11490,21 @@
     						<h:li>Describes the TOE behavior while in the secure recovery state, including how it preserves security for the affected PFED session. </h:li>
     						<h:li>Describes how the TOE suppresses all EUD traffic while in the secure recovery state. </h:li>
     						<h:li>Describes the event or condition that marks exit from the secure recovery state. </h:li> 
-    						<h:li>Describes the relationship, if any, between the secure recovery state and the session setup state referenced in Appendix H. </h:li>
+    						<h:li>Describes the relationship, if any, between the secure recovery state and the session setup state referenced in the PFED Configuration section. </h:li>
     						<h:li>Describes any distinctions among secure recovery behavior for dead peer detection, session key divergence, failed rekey, and failed recovery.</h:li> 
     					</h:ul>
-    					The evaluator shall determine that the TSS is consistent with the posted PFED appendix, including H.8 Session Key Recovery and H.10 Dead Peer Detection and Persona Enforcement, which establish the PFED recovery, reconnect, and EUD-traffic suppression model.
+    					The evaluator shall determine that the TSS is consistent with the posted PFED Configuration section, including H.8 Session Key Recovery and H.10 Dead Peer Detection and Persona Enforcement, which establish the PFED recovery, reconnect, and EUD-traffic suppression model.
     					
     				</TSS>
     				<Guidance/>
     				<Tests>
     					The evaluator shall perform the following tests.
     					<testlist>
-    						<test> Dead peer causes secure recovery state: The evaluator shall cause a dead-peer condition in the claimed PFED context and verify that the TOE enters the secure recovery state. If the TOE expresses that recovery state as or through transition to session setup, the evaluator shall verify that behavior is consistent with the TSS and guidance. The posted PFED appendix states that the TOE transitions to session setup after dead-peer detection. </test><h:p/>
+    						<test> Dead peer causes secure recovery state: The evaluator shall cause a dead-peer condition in the claimed PFED context and verify that the TOE enters the secure recovery state. If the TOE expresses that recovery state as or through transition to session setup, the evaluator shall verify that behavior is consistent with the TSS and guidance. The posted PFED Configuration section states that the TOE transitions to session setup after dead-peer detection. </test><h:p/>
     						<test> Session key divergence causes secure recovery state: The evaluator shall cause or simulate session key divergence in the claimed PFED context and verify that the TOE enters the secure recovery state. </test><h:p/>
     						<test> Failed rekey causes secure recovery state: The evaluator shall cause a PFED rekey transaction to fail and verify that the TOE enters the secure recovery state. </test><h:p/>
     						<test> Failed recovery transaction causes secure recovery state: The evaluator shall cause a PFED recovery transaction to fail and verify that the TOE enters the secure recovery state. </test><h:p/>
-    						<test> EUD traffic suppression during recovery: For one or more of the above recovery-entry conditions, the evaluator shall verify that the TOE suppresses all EUD traffic while recovery is active. This should be consistent with the posted PFED appendix, which states that EUD traffic is suppressed during recovery. </test><h:p/>
+    						<test> EUD traffic suppression during recovery: For one or more of the above recovery-entry conditions, the evaluator shall verify that the TOE suppresses all EUD traffic while recovery is active. This should be consistent with the posted PFED Configuration section, which states that EUD traffic is suppressed during recovery. </test><h:p/>
     					</testlist>
     					These tests may be combined where appropriate.
     					
@@ -11426,80 +11517,7 @@
     		
     	</f-component>
     	
-    	<f-component name="Automated Recovery" cc-id="fpt_rcv.2">
-    		<f-element>
-    			<title>
-    				When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
-    				maintenance mode where the ability to return to a secure state is provided.
-    			</title>
-    		</f-element>
-    		<f-element>
-    			<title>For <assignable>list of failures/service discontinues</assignable>, the TSF shall ensure the return of the TOE to a secure state using automated procedures.</title>
-    		
-    		<note role="application">
-    				The intent of this requirement is to ensure that when the TOE cannot automatically recover from specified failures or service discontinuities, it does not resume or continue normal operation in an uncontrolled state. Instead, the TOE should enter a maintenance mode that preserves the ability to return the TOE to a secure state.<h:p/>
-    				The ST author should identify the failures or service discontinuities from which automated recovery is not possible. These should be limited to conditions relevant to the claimed TOE design and operational use. Examples may include persistent boot or integrity-check failures, unrecoverable cryptographic subsystem errors, repeated failure of required internal health checks, corruption of critical TSF data, failure of required protected communications between TOE components, exhaustion or corruption of required initialization state, or other service discontinuities that prevent automatic restoration of the TOE to a secure operational condition. “Maintenance mode” in this requirement is a constrained TOE state in which normal security-relevant operational services are not provided, but the TOE preserves the ability to perform the actions necessary to restore a secure state.    				
-    			</note>
-    			<aactivity>
-    				<TSS>
-    					The evaluator shall examine the TSS to determine that it:<h:ul>
-    						<h:li>Identifies the failures or service discontinuities from which automated recovery is not possible.</h:li>
-    						<h:li>Describes how the TOE detects each such failure or discontinuity.</h:li>
-    						<h:li>Describes the conditions under which the TOE enters maintenance mode.</h:li>
-    						<h:li>Describes the maintenance mode provided by the TOE, including the functionality that remains available and the functionality that is not available while in that mode.</h:li>
-    						<h:li>Describes how maintenance mode preserves the ability to return the TOE to a secure state. </h:li>
-    						<h:li>Describes the process or mechanisms by which the TOE exits maintenance mode and returns to a secure state.</h:li>
-    						<h:li>Describes any differences in TOE behavior for different claimed failure or discontinuity conditions.</h:li>
-    						<h:li>Describes how the TOE prevents normal operational use or insecure service continuation while in maintenance mode.</h:li>
-    					</h:ul>
-    					The evaluator shall determine that the TSS description is sufficient to show that maintenance mode is a controlled state intended for secure restoration and not simply degraded normal operation.    					
-    				</TSS>
-    				<Guidance>
-    					The evaluator shall examine the operational guidance to determine that it:<h:ul>
-    						<h:li>Describes the failures or service discontinuities that may cause the TOE to enter maintenance mode. </h:li>
-    						<h:li>Describes how an administrator can determine that the TOE has entered maintenance mode. </h:li>
-    						<h:li>Describes the functionality available to the administrator while the TOE is in maintenance mode.</h:li>
-    						<h:li>Describes the steps required to restore the TOE to a secure state and return it to normal operation.</h:li> 
-    						<h:li>Describes any restrictions, cautions, or prerequisites applicable while the TOE is in maintenance mode.</h:li> 
-    						<h:li>Describes any audit records, status indications, alerts, or logs associated with entry into maintenance mode, recovery actions, and return to service, if such records or indications are provided by the TOE.</h:li>
-    					</h:ul>
-    				</Guidance>
-    				<Tests>
-    					The evaluator shall perform the following tests. Where inducing a specific low-level failure is not practical on production hardware or software, the
-    					evaluator may use developer-supported test mechanisms or representative test configurations sufficient to demonstrate the claimed behavior.
-    					<testlist>
-    						<test>
-    							Entry into maintenance mode when automated recovery is not possible: For one or more claimed failures or service discontinuities from which
-    							automated recovery is not possible, the evaluator shall induce the condition and verify that the TOE enters maintenance mode.
-    						</test><h:p/>
-    						<test>
-    							Maintenance mode restricts normal operation: After the TOE enters maintenance mode, the evaluator shall verify that normal operational
-    							functionality that would be inconsistent with the TOE being in a secure state is not available, and that the TOE behavior is consistent with the
-    							TSS and guidance description of maintenance mode.
-    						</test><h:p/>
-    						<test>
-    							Maintenance mode provides a path to secure restoration: While the TOE is in maintenance mode, the evaluator shall verify that the TOE provides
-    							the claimed ability to return to a secure state, such as secure recovery, trusted restoration, reinitialization, administrator-guided
-    							remediation, or other claimed mechanism.
-    						</test><h:p/>
-    						<test>
-    							Return from maintenance mode to secure state: The evaluator shall perform the documented recovery steps and verify that the TOE can return from
-    							maintenance mode to the claimed secure operational state in accordance with the TSS and guidance.</test><h:p/>
-    					</testlist>
-    				</Tests>
-    			</aactivity>
-    		</f-element>
-    		<audit-event>
-    			<audit-event-descr><h:ul>
-    				<h:li>Entry into maintenance mode due to a failure or service discontinuity from which automated recovery is not possible</h:li>
-    				<h:li>If audited by the TOE, attempt to return the TOE to a secure state from maintenance mode</h:li>
-    				<h:li>If audited by the TOE, successful return to a secure state</h:li>
-    			</h:ul>
-    			</audit-event-descr>
-    			<audit-event-info>Failure/discontinuity type if available, recovery action if available, state entered, and result</audit-event-info>
-    		</audit-event>
-    		
-    	</f-component>
+    	
     	
     	<ext-comp-def title="Platform Integrity" fam-id="FPT_ROT_EXT">
     		<fam-behavior>This family defines requirements for platform firmware and hardware integrity.</fam-behavior>
@@ -11527,20 +11545,20 @@
     				</title>
     			</ext-comp-def-title>	
     			<note role="application">
-    				Roots of Trust are components that constitute a set of unconditionally trusted functions. The above are acceptable
+    				Roots of trust are components that constitute a set of unconditionally trusted functions. The above are acceptable
     				roots of trust for platform firmware integrity.<h:p/>
     				The ST author must select the root of trust used to ensure the integrity of the first platform firmware that executes. The integrity
     				of subsequently executed platform firmware must be traceable back to this root or to some other root as specified in FPT_ROT_EXT.2.
     				This SFR should be iterated for additional TOE roots (for example, a management controller or firmware executed from 
     				an add-in card).<h:p/>
-    				An "on-platform dedicated security component" could be, for example, a TPM or other secure element
+    				An "<h:i>on-platform dedicated security component</h:i>" could be, for example, a TPM or other secure element
     				that provides security services to the platform such as measurement or secure storage.<h:p/>
     				Selection of "<h:i>a separate management controller...</h:i>" implies the existence of an administrator role.
     			</note>
     			<aactivity>
     				<TSS>The evaluator shall verify that the TSS describes the Root of Trust on which initial integrity 
     					of platform firmware is anchored, consistent with the selection above. The description shall
-    					include means by which the Root of Trust is protected from modification.
+    					include means by which the root of trust is protected from modification.
     				</TSS>
     				<Guidance/>
     				<Tests/>
@@ -11587,12 +11605,12 @@
     			</ext-comp-def-title>
     			<note role="application">
     				This requirement specifies the means to extend the initial integrity
-    				of platform firmware established by FPT_ROT_EXT.1.1 to subsequently executed
+    				of platform firmware established by FPT_ROT_EXT.1.1 to subsequently execute
     				platform firmware and data located in mutable storage.
     				(Integrity of code and data written to immutable storage is assured).<h:p/>
     				Otherwise, integrity must be extended through cryptographic means: either through hashes
     				or digital signatures computed and verified by firmware that is trusted because it has  
-    				previously had its integrity verified or is itself a Root of Trust. Verification can be performed
+    				previously had its integrity verified or is itself a root of trust. Verification can be performed
     				by TOE components such as management controllers or non-TOE trusted entities such as remote verifiers.<h:p/>
     				If "<h:i>computation and verification of a hash by trusted code/data</h:i>" is selected, then FCS_COP.1/Hash must be claimed.<h:p/>
     				If "<h:i>verification of a digital signature by trusted code/data</h:i>" is selected, then FCS_COP.1/SigVer must be claimed.					
@@ -11640,10 +11658,10 @@
     				example, by blinking lights, beep codes, screen indications, or local logging.<h:p/>
     				If "<h:i>administrator</h:i>" is selected anywhere in FPT_ROT_EXT.2.2, or if "<h:i>in accordance with administrator-configurable
     				policy</h:i>" is selected, then all administrator authentication requirements must be included in the ST
-    				(FIA_UIA_EXT.1, FIA_UAU.5, FIA_PMG_EXT.1, FIA_AFL_EXT.1, FIA_UAU.7).<h:p/>
+    				(FIA_AFL_EXT.1, FIA_PMG_EXT.1, FIA_UAU.5, FIA_UAU.7, FIA_UIA_EXT.1).<h:p/>
     				If "<h:i>generating an audit event</h:i>" is selected, then FAU_GEN.1, FAU_SAR.1, FAU_STG.1, FAU_STG.2, and FAU_STG.5 
-    				must be claimed in the ST. This selection should be made only if the TOE is capable of generating an audit event, e.g.
-    				if the TOE is a server that includes a management controller.<h:p/> 
+    				must be claimed in the ST. This selection should be made only if the TOE is capable of generating an audit event (e.g., if the TOE is a server that includes
+    				a management controller).<h:p/> 
     				If "<h:i>Initiate a recovery process as specified in FPT_RVR_EXT.1</h:i>" is selected, then FPT_RVR_EXT.1 must be included in the ST.<h:p/>
     				If "<h:i>in accordance with administrator-configurable policy</h:i>" is selected, then management function 
     				<xref to="mf-config-boot-integrity-failure-actions"/> must be claimed in FMT_SMF.1.
@@ -11739,7 +11757,7 @@
     					conditions under which the recovery mechanism is initiated (if configurable).
     				</Guidance>
     				<Tests>
-    					The evaluator shall perform the following tests:
+    					The evaluator shall perform the following tests
     					<testlist>
     						<test>To test this requirement, the evaluator shall trigger the recovery process
     							either by forcing an update error or a boot integrity failure and observing that 
@@ -11832,7 +11850,7 @@
     				</TSS>
     				<Guidance/>
     				<Tests>
-    					The evaluator shall perform the following tests.
+    					The evaluator shall perform the following tests
     					<testlist>
     						<test> Distinct processor enforcement: The evaluator shall verify, through TOE behavior, supported interfaces, platform evidence, or developer evidence, that the EU executes on a processor physically distinct from the processor used by the CU. </test><h:p/>
     						<test>Distinct memory enforcement: The evaluator shall verify that the EU and CU use physically distinct volatile and non-volatile memory resources. </test><h:p/>
@@ -11888,7 +11906,7 @@
     					support this requirement.
     				</Guidance>
     				<Tests>
-    					The evaluator shall perform the following test:
+    					The evaluator shall perform the following test
     					<testlist>
     						<test>
     							The evaluator shall assume each of the non-administrator
@@ -11927,7 +11945,7 @@
     					administrator on any mechanisms for configuring the time source.
     				</Guidance>
     				<Tests>
-    					The evaluator shall perform the following tests:<h:p/>
+    					The evaluator shall perform the following test.<h:p/>
     					[conditional] If the TSF provides a mechanism to manually set the time, the
     					evaluator shall use the guidance documentation to set the time. The evaluator shall
     					then use an available interface to observe that the time is reported correctly.
@@ -11993,7 +12011,7 @@
     						<h:li>Describes how the TOE handles an attempted second transaction while one is already active. </h:li> 
     						<h:li>Describes how the TOE returns to a secure or usable state after transaction completion, abort, or timeout. </h:li>
     					</h:ul>
-    					The evaluator shall determine that the TSS is consistent with the PFED lifecycle operations described in Appendix H and that the TOE’s transaction model prevents concurrency and nesting while bounding active transaction lifetime.
+    					The evaluator shall determine that the TSS is consistent with the PFED lifecycle operations described in the PFED Configuration section and that the TOE’s transaction model prevents concurrency and nesting while bounding active transaction lifetime.
     					
     				</TSS>
     				<Guidance/>
@@ -12102,7 +12120,7 @@
     						<h:li>Describes the TOE behavior when a covered self-test fails. </h:li>
     						<h:li>Describes how the TOE ensures that the covered cryptographic functions and hardware root of trust are not treated as operationally available before the required initialization self-tests complete successfully. </h:li>
     					</h:ul>
-    					The evaluator shall determine that the TSS is consistent with the PFED appendix’s Hardware Root of Trust section and the presence of the TSF testing and self-test notification extended components.
+    					The evaluator shall determine that the TSS is consistent with the PFED Configuration section’s Hardware Root of Trust section and the presence of the TSF testing and self-test notification extended components.
     					
     				</TSS>
     				<Guidance/>
@@ -12177,7 +12195,7 @@
     					procedures conducted by the TSF (e.g., rather than saying "memory is tested", a
     					description similar to "memory is tested by writing a value to each memory location
     					and reading it back to ensure it is identical to what was written" shall be used).
-    					The TSS must include any error states that they TSF may enter when self-tests fail,
+    					The TSS must include any error states that the TSF may enter when self-tests fail,
     					and the conditions and actions necessary to exit the error states and resume normal
     					operation. The evaluator shall verify that the TSS indicates these self-tests are
     					run at start-up automatically, and do not involve any inputs from or actions by the
@@ -12717,7 +12735,7 @@
 	    	<f-component name="TSF-Initiated Termination" cc-id="fta_ssl.3">
 	    		<f-element>
 	    			<title>
-	    				The TSF shall terminate a remote interactive session after a <h:b>security
+	    				The TSF shall terminate <h:b>a remote</h:b> interactive session after a <h:b>security
 	    					administrator-configurable</h:b> <assignable>time interval of <h:b>session</h:b> inactivity</assignable>.</title>
 	    			
 	    		<note role="application">
@@ -12741,7 +12759,7 @@
 	    				</Guidance>
 	    				<Tests>
 	    					The evaluator shall perform the following tests for each claimed remote interactive administrative session type, or for a representative set where
-	    					the TSS and guidance show that the same mechanism is used.
+	    					the TSS and guidance show that the same mechanism is used
 	    					<testlist>
 	    						<test>
 	    							Timeout configuration: The evaluator shall configure the inactivity timeout for a remote interactive administrative session in accordance
@@ -12786,7 +12804,7 @@
 	    				</Guidance>
 	    				<Tests>
 	    					The evaluator shall perform the following tests for each claimed administrator interactive session type, or for a representative set where the TSS
-	    					and guidance show that the same mechanism is used.
+	    					and guidance show that the same mechanism is used
 	    					<testlist>
 	    						<test>Administrator-initiated session termination: The evaluator shall establish an administrator interactive session and invoke the documented mechanism to terminate that session. The evaluator shall verify that the TOE terminates the session.</test><h:p/>
 	    						<test>Terminated session cannot continue to be used: Following administrator-initiated termination of the session, the evaluator shall verify that the prior session can no longer be used as an authenticated interactive session without establishing a new authenticated session.</test><h:p/>
@@ -12856,9 +12874,10 @@
 	    					that the TSS describes the information allowed to be displayed to unauthorized
 	    					users.</Guidance>
 	    				<Tests>
+	    					The evaluator shall perform the following tests
 	    					<testlist>
 	    						<test>The evaluator shall configure the TSF to transition to the locked state
-	    							after a time of inactivity (FMT_SMF_EXT.1) according to the AGD guidance. The
+	    							after a time of inactivity (FMT_SMF.1) according to the AGD guidance. The
 	    							evaluator shall wait until the TSF locks and verify that the display is cleared
 	    							or overwritten and that the only actions allowed in the locked state are
 	    							unlocking the session and those actions specified in FIA_UAU_EXT.2.</test><h:p/>
@@ -12881,13 +12900,14 @@
 	    			<note role="application">This requirement may be met with the configuration of either
 	    				text or an image containing the text of the desired message. The TSF must minimally
 	    				display this information at startup, but may also display the information at every
-	    				unlock. The banner is configured according to FMT_SMF_EXT.1 function <xref
+	    				unlock. The banner is configured according to FMT_SMF.1 function<xref
 	    					to="mf-unlockBanner"/>.</note>
 	    			<aactivity>
 	    				<TSS> The TSS shall describe when the banner is displayed.</TSS>
 	    				<Guidance>There are no guidance evaluation activities for this component.</Guidance>
-	    				<Tests> The evaluator shall also perform the following test: <testlist>
-	    					<test>The evaluator follows the operational guidance to configure a notice and
+	    				<Tests> The evaluator shall also perform the following test
+	    					<testlist>
+	    					<test>The evaluator shall follow the operational guidance to configure a notice and
 	    						consent warning message. The evaluator shall then start up or unlock the TSF.
 	    						The evaluator shall verify that the notice and consent warning message is
 	    						displayed in each instance described in the TSS.</test><h:p/>
@@ -12965,7 +12985,7 @@
       					<h:li>Describes how the TOE protects PFED channel data from disclosure. </h:li>
       					<h:li>Describes how the TOE protects PFED channel data from modification. </h:li> 
       					<h:li>Describes the PFED session or tunnel state or states in which the trusted channel exists. </h:li>
-      					<h:li>Describes how the TOE’s PFED trusted channel claim is consistent with the PFED specification in Appendix H and the PFED SFRs
+      					<h:li>Describes how the TOE’s PFED trusted channel claim is consistent with the PFED specification in the PFED Configuration section and the PFED SFRs
       						claimed in the ST. </h:li>
       				</h:ul>
       				The evaluator shall determine that the TSS is consistent with the PFED tunnel and session model, mutual authentication, and protected
@@ -12983,7 +13003,7 @@
       				</h:ul>
       			</Guidance>
       			<Tests>
-      				The evaluator shall perform the following tests for each claimed trusted-channel mechanism, or for a representative set where the TSS and guidance show that the same mechanism is used.
+      				The evaluator shall perform the following tests for each claimed trusted-channel mechanism, or for a representative set where the TSS and guidance show that the same mechanism is used
       				<testlist>
       				<test>Trusted-channel establishment to each claimed endpoint type: The evaluator shall configure the TOE to communicate with each trusted authorized IT entity type identified in the TSS and shall verify that the TOE establishes the selected trusted channel for the claimed capability or capabilities. Where protocol-specific evaluation activities already exist for the selected mechanism, those activities may satisfy or contribute to this test.</test><h:p/>
       					<test>Test 2: TOE or peer initiation behavior: The evaluator shall verify that communication via the trusted channel can be initiated only by the party or parties selected in FTP_ITC.1.2. If the ST claims TOE initiation, the evaluator shall verify TOE-initiated trusted-channel establishment for at least one claimed service. If the ST claims authorized-IT-entity initiation, the evaluator shall verify that behavior as well.</test><h:p/>
@@ -12997,13 +13017,13 @@
       				the PP-Module for MACsec Ethernet Encryption.<h:p/>
       				
       				<h:b>For PFED</h:b><h:br/>
-      				The evaluator shall perform the following tests.
+      				The evaluator shall perform the following tests
       				<testlist>
-      					<test>Establishment of PFED trusted channel: The evaluator shall configure or provision the TOE in accordance with the operational guidance and verify that the TOE establishes the claimed PFED trusted channel with a PFED peer consistent with the TSS and guidance. This test shall be consistent with the PFED specification in Appendix H and the claimed PFED SFR set. </test><h:p/>
+      					<test>Establishment of PFED trusted channel: The evaluator shall configure or provision the TOE in accordance with the operational guidance and verify that the TOE establishes the claimed PFED trusted channel with a PFED peer consistent with the TSS and guidance. This test shall be consistent with the PFED specification in PFED Configuration section and the claimed PFED SFR set. </test><h:p/>
       					<test>Logical distinction from other channels: The evaluator shall verify that the PFED trusted channel is logically distinct from other communication channels in the manner described in the TSS and guidance. </test><h:p/>
-      					<test>Endpoint identification: The evaluator shall verify that the TOE provides assured identification of the PFED trusted-channel endpoints, consistent with the PFED mutual-authentication model described in the TSS and Appendix H. Appendix H.6 describes mutual authentication between ERDs using ML-DSA-87 as part of session setup. </test><h:p/>  
-      					<test>Protection from disclosure and modification: The evaluator shall verify that PFED channel data is protected from disclosure and modification in a manner consistent with the TSS and the PFED cryptographic protections described in Appendix H. </test><h:p/>
-      					<test>Channel failure or disruption behavior: The evaluator shall cause a PFED trusted-channel failure, interruption, or loss of peer liveness and verify that the TOE behaves consistently with the TSS and the related PFED dead-peer, rekey, and recovery behavior claimed elsewhere in the ST. Appendix H includes dead-peer detection and recovery behavior for PFED sessions. </test><h:p/> 
+      					<test>Endpoint identification: The evaluator shall verify that the TOE provides assured identification of the PFED trusted-channel endpoints, consistent with the PFED mutual-authentication model described in the TSS and PFED Configuration section. The PFED Configuration section describes mutual authentication between ERDs using ML-DSA-87 as part of session setup. </test><h:p/>  
+      					<test>Protection from disclosure and modification: The evaluator shall verify that PFED channel data is protected from disclosure and modification in a manner consistent with the TSS and the PFED cryptographic protections described in PFED Configuration section. </test><h:p/>
+      					<test>Channel failure or disruption behavior: The evaluator shall cause a PFED trusted-channel failure, interruption, or loss of peer liveness and verify that the TOE behaves consistently with the TSS and the related PFED dead-peer, rekey, and recovery behavior claimed elsewhere in the ST. The PFED Configuration section includes dead-peer detection and recovery behavior for PFED sessions. </test><h:p/> 
       				</testlist>
       				Where direct observation of low-level channel internals is not practical, the evaluator may rely on observable TOE behavior, packet traces, supported test interfaces, or developer evidence sufficient to determine that the claimed PFED trusted channel is established and provides the claimed protections.
       			</Tests>
