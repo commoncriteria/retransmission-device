@@ -1256,15 +1256,6 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FIA_UAU.2/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Mandatory when PFED-triggered EU authentication before PFED action.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
 					<h:td>FIA_UAU.5</h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center">N/A</h:td>
@@ -1418,10 +1409,10 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FPT_HRT.1/PFED</h:td>
+					<h:td>FPT_HRT_EXT.1</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">IMP</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td>Mandatory when PFED-triggered EU use of hardware root of trust.</h:td>
 				</h:tr>
@@ -1433,15 +1424,6 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td>Base TSF initialization.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
-					<h:td>FPT_ISO_EXT.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">IMP</h:td>
-					<h:td>Mandatory when PFED-triggered EU/CU isolation; HWS boundary requirement.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -7816,7 +7798,6 @@
 					</h:ul>
 				</audit>
 				<dependencies>
-					FIA_UAU.2 Mutual Authentication Before Any Action<h:p/>
 					FIA_UAU.5 Multiple Authentication Mechanisms<h:p/>
 					No other dependencies
 				</dependencies>
@@ -7882,9 +7863,11 @@
 			<f-component name="Complete Information Flow Control" cc-id="fdp_ifc.2">
 				<f-element id="fdp-ifc-2e1">
 					<title>
-						The TSF shall enforce the <assignable>information flow control SFP</assignable> on <assignable>list of
-						subjects and information</assignable> and all operations that cause that information to flow to and from
-						subjects covered by the SFP.
+						The TSF shall enforce the [<h:i>RD Information Flow Control SFP</h:i>] on [<h:i><h:ul>
+							<h:li>network traffic received, processed, routed, filtered, retransmitted, or dropped by the CU,</h:li>
+							<h:li>information flows between the EU and CU in an HWS-ERD,</h:li>
+							<h:li>PFED control, bootstrap, recovery, rekey, and EUD traffic flows when PFED is claimed</h:li>
+						</h:ul></h:i>] and all operations that cause that information to flow to and from subjects covered by the SFP.
 					</title>
 				</f-element>
 				<f-element id="fdp-ifc-2e2">
@@ -7917,75 +7900,75 @@
 				
 			<f-component name="Information Flow Control Functions" cc-id="fdp_iff.1">
 				<f-element id="fdp-iff-1e1">
-					<title> <comment>We need to make this extended and define all information that goes along with that.</comment><h:br/>
-						The TSF shall enforce the <selectables>
-							<selectable>CU information flow control policy</selectable>
-							<selectable>information flow control policy</selectable>
-						</selectables> based on the following types of subject and
-						information security attributes: <selectables linebreak="yes">
-							<selectable>For "CU information flow control policy":<h:ul>
-								<h:li>Subject Security Attributes<h:ul>
-									<h:li>Ingress interface identifier</h:li>
-									<h:li>Egress interface identifier</h:li>
-							</h:ul></h:li>
-								<h:li>Information Security Attributes<h:ul>
-									<h:li>Source IP address</h:li>
-									<h:li>Destination IP address</h:li>
-									<h:li>IP protocol type</h:li>
-									<h:li>Source transport-layer port (if applicable)</h:li>
-									<h:li>Destination transport-layer port (if applicable)</h:li>	
-								</h:ul></h:li></h:ul></selectable>
-							<selectable>For "information flow control policy":<h:ul>
-								<h:li>The source domain (EU or CU)</h:li>
-								<h:li>The destination domain (EU or CU)</h:li>
-								<h:li>The communication interface (dedicated wired interface)</h:li>
+					<title>
+						The TSF shall enforce the [<h:i>RD Information Flow Control SFP</h:i>]
+						 based on the following types of subject and information security attributes.<selectables linebreak="yes">
+							<selectable>For CU traffic flows:<h:ul>
+								<h:li>Ingress interface</h:li>
+								<h:li>Egress interface</h:li>
+								<h:li>Configured interface role</h:li>
+								<h:li>Source address</h:li>
+								<h:li>Destination address</h:li>
+								<h:li>Protocol</h:li>
+								<h:li>Port</h:li>
+								<h:li>VLAN or Ethernet type if applicable</h:li>
+								<h:li>Traffic class</h:li>
+								</h:ul></selectable>
+							<selectable>For HWS-ERD EU/CU flows:<h:ul>
+								<h:li>Source security domain</h:li>
+								<h:li>Destination security domain</h:li>
+								<h:li>Dedicated EU/CU interface identity</h:li>
+								<h:li>Permitted inter-component flow type</h:li>
 							</h:ul>
 							</selectable>
+							<selectable>For PFED flows:<h:ul>
+								<h:li>PFED packet type</h:li>
+								<h:li>Expected packet field location</h:li>
+								<h:li>PFED peer/session association</h:li>
+								<h:li>PFED lifecycle state</h:li>
+								<h:li>PFED transaction state</h:li>
+								<h:li>PFED tunnel state</h:li>
+								<h:li>Traffic direction</h:li>
+								<h:li>Whether the packet is PFED control, bootstrap, recover, rekey, or EUD traffic</h:li>
+							</h:ul>.</selectable>
 						</selectables>
 						</title>
 				</f-element>
 				<f-element id="fdp-iff-1e2">
-					<title>The TSF shall permit an information flow between <h:b><selectables choose-one-of="yes" linebreak="yes">
-						<selectable>a controlled subject and controlled information</selectable>
-						<selectable>the untrusted interface and the trusted interface</selectable>
-						<selectable>subjects only if all of the following rules are satisfied: <h:ul>
-							<h:li>Information exchange between the EU and CU occurs exclusively over the dedicated wired interface.</h:li>
-							<h:li>No logical or physical shared memory exists between the EU and CU.</h:li>
-							<h:li>The EU and CU execute on independent processors.</h:li>
-							<h:li>The EU and CU access only their own dedicated memory resources.</h:li>
-							<h:li>No alternate communication path exists between the EU and CU.</h:li>
-						</h:ul>
-						</selectable>
-					</selectables></h:b> via a controlled operation if the following rules hold: <selectables linebreak="yes">
-						<selectable><assignable>list of subjects and information controlled under the indicated SFP, and for each, the security
-							attributes</assignable></selectable>	
-						<selectable><assignable>for each operation, the security attribute-based relationship that hold between subject and information
-							security attributes</assignable></selectable>						
-						</selectables>.</title>
+					<title>The TSF shall permit an information flow between a controlled subject and controlled information via a controlled operation if the following rules
+						hold: [<h:i><h:ul>
+							<h:li>The flow matches an administrator-configured CU forwarding/filtering rule and is permitted by the selected encryption/transport option.</h:li>
+							<h:li>For HWS-ERD EU/CU flows, the flow occurs only over the dedicated EU/CU interface and is of a flow type authorized for the EU/CU
+								boundary.</h:li>
+							<h:li>For PFED flows, the packet is a valid PFED packet for the claimed PFED lifecycle state, peer/session association, traffic direction, and active								transaction state.</h:li>							
+						</h:ul></h:i>]
+					</title>
 				</f-element>
 				<f-element id="fdp-iff-1e3">
-					<title>The TSF shall enforce the <selectables linebreak="yes">
-						<selectable>denial of information flow between an untrusted black transport network interface and a trusted interface if the packet 
-							does not match an explicitly configured allow rule</selectable>
-						<selectable>following additional information flow control rules: [<h:i>None</h:i>]</selectable>
-						</selectables>.</title>
+					<title>The TSF shall enforce the <h:b>following additional information flow control rules:</h:b> [<h:i><h:ul>
+						<h:li>PFED packets that are malformed, unexpected for the current PFED lifecycle state, received from an unauthorized direction, or inconsistent with 
+							the active transaction state shall be rejected before they can affect ordinary forwarding of EUD traffic.</h:li>
+						<h:li>EUD traffic shall not be permitted over a PFED path until the PFED trusted channel and cryptographic state required by the selected PFED SFRs 
+							have been established.</h:li>
+						<h:li>Information flows that require Layer-2 cryptographic continuity shall be handled in accordance with FDP_PBR_EXT.1 cryptographic-continuity rules
+							and shall not be subjected to a protocol break that disrupts the selected cryptographic mechanism.</h:li>
+					</h:ul></h:i>]						
+					</title>
 				</f-element>
 				<f-element id="fdp-iff-1e4">
-					<title>The TSF shall explicitly <h:b><selectables>
-						<selectable>authorize</selectable>
-						<selectable>ensure</selectable>						
-					</selectables></h:b> an information flow based on the following rules:<selectables>
-						<selectable><assignable>rules, based on security attributes, that explicitly authorize information flows</assignable></selectable>
-						<selectable>between untrusted interfaces and are mediated by the TSF and are subject to the CU Information Flow Control
-							Policy</selectable>
-					</selectables>.
+					<title>The TSF shall explicitly authorize an information flow based on the following rules: <assignable>rules, based on security attributes, that explicitly
+						authorize information flows</assignable>.						
 					</title>
 				</f-element>
 				<f-element id="fdp-iff-1e5">
-					<title>The TSF shall explicitly deny an information flow based on the following rules:<selectables>
-						<selectable>Any information flow not explicitly permitted in FDP_IFF.1.2</selectable>
-						<selectable><assignable>rules, based on security attributes, that explicitly deny information flows</assignable></selectable>
-					</selectables>.
+					<title>The TSF shall explicitly deny an information flow based on the following rules: [<h:i><h:ul>
+						<h:li>No permit rule matches the flow.</h:li>
+						<h:li>The flow attempts to bypass the dedicated EU/CU interface in an HWS-ERD.</h:li>
+						<h:li>The flow attempts to use PFED EUD traffic before PFED peer authentication, key establishment, transaction completion, or recovery prerequisites 
+							are satisfied.</h:li>
+						<h:li>The flow attempts to initiate a nested or concurrent PFED transaction contrary to FPT_TRAN_EXT.1.</h:li>
+						<h:li>The flow would disrupt MACsec or PFED cryptographic continuity where that continuity is required by the selected trusted channel method.</h:li>
+					</h:ul></h:i>
 					</title>
 					<note role="application">
 						The intent of this requirement is for the TOE to enforce an information flow control Security Function Policy (SFP) by making
@@ -8261,10 +8244,9 @@
 				</fam-behavior>
 			</ext-comp-def>
 			
-			<f-component name="Layer-2 Protocol Break" cc-id="fdp_pbr_ext.1" status="feat-based">
-				<depends on="cu-functionality"/>
+			<f-component name="Traffic-Boundary Handling and Layer-2 Protocol Break" cc-id="fdp_pbr_ext.1" status="feat-based">
 				<depends on="hws-erd"/>
-				<consistency-rationale></consistency-rationale>
+				<consistency-rationale/>
 				<comp-lev> requires the TSF to ensure and manage the use of a Layer-2 protocol break.</comp-lev>
 				<management>The following actions could be considered for the management functions in FMT:<h:ul>
 					<h:li>Ability to configure or manage the routing and forwarding behavior that determines when traffic is forwarded between an untrusted black transport network interface and a trusted interface. </h:li>
@@ -8287,40 +8269,82 @@
 				
 				<f-element id="fdp-pbr-ext-1e1">
 					<title>
-						The TSF shall ensure that all traffic forwarded between an untrusted black transport network interface and a trusted interface undergoes							a Layer-2 protocol break.
+						The TSF shall enforce the selected traffic-boundary handling policy for each forwarded traffic class identified in the ST.
 					</title>
 				</f-element>
 				
 				<f-element id="fdp-pbr-ext-1e2">
 					<title>
-						The TSF shall perform a Layer-2 protocol break when forwarding traffic that is not protected by Ethernet-layer cryptographic mechanisms
-						across a trust boundary by:<h:ul>
-							<h:li>Removing the complete incoming Layer-2 header and associated Layer-2 control information (decapsulation); and</h:li>
-							<h:li>Constructing and applying a new Layer-2 header (encapsulation) prior to transmission on the egress interface</h:li>
-						</h:ul>
+						For traffic that is not protected by an Ethernet-layer cryptographic mechanism and is not required by the selected encryption option to preserve Layer-2
+						cryptographic continuity, the TSF shall perform a Layer-2 protocol break by removing the incoming Layer-2 header and associated Layer-2 control
+						information and constructing and applying a new Layer-2 header (encapsulation) prior to transmission on the egress interface.
 					</title>
 				</f-element>
 				
 				<f-element id="fdp-pbr-ext-1e3">
 					<title>
-						The TSF shall prevent transparent Layer-2 bridging between untrusted black transport network interfaces and trusted interfaces.
+						The TSF shall prevent transparent Layer-2 bridging for traffic to which FDP_PBR_EXT.1.2 applies.
 					</title>
 				</f-element>
 				<f-element id="fdp-pbr-ext-1e4">
-					<title>The TSF shall forward Ethernet frames that contain cryptographic protections applied by a trusted component without:<h:ul>
-						<h:li>Removing, modifying, or replacing the protected Layer-2 header</h:li>
-						<h:li>Terminating, decrypting, inspecting, or re-origination cryptographic protection</h:li>
-						<h:li>Disrupting cryptographic continuity across the trust boundary.</h:li>
-					</h:ul></title>
+					<title>
+						For traffic protected by MACsec or PFED, the TSF shall forward only those frames permitted by the applicable information-flow SFP without acting as a
+						cryptographic endpoint and without altering, terminating, decrypting, re-originating, or otherwise disrupting the cryptographic protection required by
+						the selected method.
+					</title>
 				</f-element>
 				<f-element id="fdp-pbr-ext-1e5">
-					<title>The TSF shall not act as a cryptographic endpoint for user data traffic and shall not terminate, decrypt, or re-originate cryptographic protection for traffic transmitted between trusted components and untrusted black transport networks.</title>
-				
-				<note role="application">A Layer-2 protocol break is the stripping (decapsulation) and replacement (encapsulation) of Layer-2 headers when
-						forwarding traffic between interfaces, preventing transparent bridging across trust boundaries. The ST author describes how protocol break is implemented.<h:p/>
-					The intent of this requirement is to ensure that the CU does not behave as a transparent Layer-2 bridge when forwarding traffic between trusted interfaces and untrusted black transport network interfaces. For traffic that is not protected by Ethernet-layer cryptographic mechanisms, the TOE must perform a Layer-2 protocol break by removing the incoming Layer-2 header and associated control information and constructing a new Layer-2 header for the egress interface.<h:p/>
-					FDP_PBR_EXT.1.1 and FDP_PBR_EXT.1.2 should therefore be read together. The first establishes the policy that all forwarded traffic across the relevant trust boundary undergoes a Layer-2 protocol break. The second explains what that means operationally for traffic that is not already protected at Ethernet layer: Full Layer-2 decapsulation of the incoming header and control information, followed by fresh Layer-2 encapsulation for transmission on the egress interface. The TSS should identify the relevant interfaces and describe the forwarding path in TOE-specific terms. <h:p/>
-					FDP_PBR_EXT.1.3 makes the transparent-bridging prohibition explicit. The TOE is not allowed to simply relay Layer-2 frames unchanged between trusted and untrusted black-side interfaces. Instead, forwarding across the trust boundary must either use the required protocol-break behavior for unprotected traffic or preserve the protected frame as required by FDP_PBR_EXT.1.4 and FDP_PBR_EXT.1.5.					
+					<title>The TSF shall drop traffic that cannot be forwarded in accordance with either the protocol-break rule in FDP_PBR_EXT.1.2 or the
+						cryptographic-continuity rule in FDP_PBR_EXT.1.4.</title>
+				</f-element>
+				<f-element id="fdp-pbr-ext-1e6">
+					<title>
+						The TSF shall distinguish in the TSS between traffic classes handled under Layer-2 protocol-break rules and traffic classes handled under Ethernet-layer
+						cryptographic-continuity rules.
+					</title>
+					
+				<note role="application">
+					MACsec implementations shall not be required to claim PFED-specific SFRs solely because MACsec, like PFED, protects Ethernet-layer traffic. PFED-specific
+					requirements for PFED packet parsing, PFED transaction control, PFED rekey, PFED tunnel-0 bootstrap, PFED hardware-root behavior, and PFED
+					non-addressable/stateless EU interface behavior apply only when PFED is claimed.
+					
+					<h:table>
+						<h:tr style="text-align: center">
+							<h:th>Selected Method</h:th>
+							<h:th>Trusted Channel SFR Selection</h:th>
+							<h:th>Protocol-Break Treatment</h:th>
+							<h:th>PFED-Specific SFRs?</h:th>
+							
+						</h:tr>
+						
+						<h:tr>
+							<h:td>IPsec</h:td>
+							<h:td>FTP_ITC.1/IPsec or selected IPsec package</h:td>
+							<h:td>L2 break may apply because IPsec does not require preserving a MACsec/PFED protected Ethernet frame</h:td>
+							<h:td>No</h:td>
+						</h:tr>
+						
+						<h:tr>
+							<h:td>MACsec</h:td>
+							<h:td>FTP_ITC.1 with MACsec selection and MACsec module</h:td>
+							<h:td>No L2 break that terminates, decrypts, re-originates, or alters the MACsec-protected cryptographic frame continuity</h:td>
+							<h:td>No</h:td>
+						</h:tr>
+						
+						<h:tr>
+							<h:td>PFED</h:td>
+							<h:td>FTP_ITC.1 with PFED selection and PFED SFR set</h:td>
+							<h:td>No L2 break that disrupts PFED protected-frame continuity; PFED parsing/transaction/rekey rules apply</h:td>
+							<h:td>Yes</h:td>
+						</h:tr>
+						
+						<h:tr>
+							<h:td>WLAN</h:td>
+							<h:td>FTP_ITC.1/WLAN or selected WLAN package</h:td>
+							<h:td>Define by WLAN package and TOE boundary</h:td>
+							<h:td>No, unless TOE also claims PFED</h:td>
+						</h:tr>
+					</h:table>
 					</note>
 					
 					<aactivity>
@@ -8868,57 +8892,7 @@
 			<audit-event/>
 		</f-component>
 			
-			<f-component name="Mutual Authentication Before Any Action" cc-id="fia_uau.2" iteration="PFED" status="feat-based">
-				<depends on="pfed"/>
-				<f-element id="fia-uau-pfed-2e1">
-					<title>
-						The TSF shall enforce mutual authentication between EU peers using ML-DSA-87 prior to permitting EUD traffic.				
-					</title>
-					<note role="application">
-						The intent of this requirement is to ensure that the TOE does not permit protected PFED end-user traffic until the EU peers have successfully authenticated one another using the PFED-defined mutual-authentication mechanism. For this requirement, the TOE shall enforce mutual authentication between EU peers using ML-DSA-87 prior to permitting EUD traffic.<h:p/>
-						Because EU’s cryptographically bond at provisioning, this creates a unique security association between each EU and continuous mutual authentication after provisioning is not absolutely required. An initial PSK can serve as PSK0 and act as authentication when:<h:ul>
-							<h:li>It is unique to the EU pair</h:li>
-							<h:li>It is delivered to each EU over a trusted path. </h:li>
-						</h:ul>
-						If the EU pair provisions over an untrusted channel, then mutual authentication by ML-DSA is required. This is analogous to the difference between a factory provision, where both ends of a pair are known and get provisioned in a trusted facility, and a field provision where the path between EU’s can be influenced by an adversary in the middle. It is safest, but redundant, to mutually authenticate the key exchange when any EU-to-EU session is established after the pair has been provisioned with mutual authentication. For ML-DSA-based authentication this SFR implies that each EU must have an ML-DSA-87 key pair serving only as an identity and a method to publish the public part of that ID key pair. There also must be a way to import the public of a peer EU ID key before mutual authentication occurs with that peer EU.
-						
-					</note>
-					<aactivity>
-						<TSS>
-							The evaluator shall examine the TSS to determine that it:<h:ul>
-								<h:li>Describes the PFED session setup process relevant to this requirement. </h:li>
-								<h:li>Identifies the EU peers that participate in the mutual-authentication exchange. </h:li>
-								<h:li>States that the TOE enforces mutual authentication between EU peers using ML-DSA-87. </h:li>
-								<h:li>Describes how ML-DSA-87 is used in the TOE’s mutual-authentication process. </h:li>
-								<h:li>Describes what constitutes successful completion of mutual authentication. </h:li>
-								<h:li>Describes how the TOE prevents EUD traffic from being permitted prior to successful completion of mutual authentication. </h:li>
-								<h:li>Describes TOE behavior when mutual authentication fails or does not complete. </h:li>
-								<h:li>If applicable, describes how this authentication step relates to other required session-setup steps, including the mandatory PFED rekey, while still making clear that this requirement specifically addresses the authentication portion. </h:li>
-							</h:ul>
-							
-						</TSS>
-						<Guidance/>
-						<Tests>
-							<testlist>
-								<test>Successful mutual authentication before EUD traffic: The evaluator shall cause the TOE to perform PFED session setup and verify that the TOE completes mutual authentication between EU peers using ML-DSA-87 before permitting EUD traffic. This test shall confirm that EUD traffic is not released prior to successful completion of the authentication step.</test><h:p/> 
-								<test>Authentication failure blocks EUD traffic: The evaluator shall cause the mutual-authentication step to fail or remain incomplete and verify that the TOE does not permit EUD traffic. </test><h:p/>
-									<test>Mutual, not unilateral, authentication: The evaluator shall verify that the TOE requires successful authentication of both EU peers and does not treat one-way or partial authentication success as sufficient to permit EUD traffic. </test><h:p/>
-										<test>ML-DSA-87 use in the authentication step: The evaluator shall verify, through TOE behavior, supported test interfaces, traces, metadata, or developer evidence, that the TOE uses ML-DSA-87 for the PFED mutual-authentication step claimed under this requirement. </test><h:p/>
-											<test>PFED Functional Test: Use a pair of unprovisioned PFEDS A1 and B1. Import B1’s public ID (P-IDB1) into A1 and import A1’s public (P-IDA1) into B1. Then attempt to provision. This should succeed. Reset A1 and B1 to an unprovisioned state. Import B1’s public ID (P-IDB1) into A1 and generate and import a random public (P-IDR) into B1. Then attempt to provision. This should fail.<h:p/>
-												Similarly, for PSK, use a pair of unprovisioned PFEDS A1 and B1 and install PSK0 P1 in both. Then attempt to provision. This should succeed. Reset A1 and B1 to an unprovisioned state and install P1 in A1 and PSK0 P2 in B1. Then attempt to provision. This should fail. </test><h:p/>
-							</testlist>
-							Where direct observation of low-level authentication processing is not practical, the evaluator may rely on observable TOE behavior, protocol traces, supported test interfaces, or developer evidence sufficient to determine that the claimed authentication mechanism and traffic-gating behavior are implemented.
-							
-						</Tests>
-					</aactivity>
-				</f-element>
-				<audit-event table="feat-based">
-					<audit-event-descr><h:ul>
-						<h:li>Successful PFED mutual authentication, if audited</h:li>
-						<h:li>Failed PFED mutual authentication</h:li>
-					</h:ul></audit-event-descr>
-				</audit-event>				
-			</f-component>
+			
 			
 			<f-component name="Multiple Authentication Mechanisms" cc-id="fia_uau.5" status="sel-based">
 				<depends on-sel="sfr-fmt-smr-1"></depends>
@@ -10660,13 +10634,71 @@
     		</audit-event>
     	</f-component>
     
-    	<f-component name="Hardware Root of Trust" cc-id="fpt_hrt.1" iteration="PFED" status="feat-based">
-    		<depends on="pfed"/>
-    		<f-element id="fpt-hrt-1e1">
+			<ext-comp-def title="Hardware Root of Trust" fam-id="FPT_HRT_EXT">
+				<fam-behavior>This family defines requirements for use of a hardware-protected, platform-bound root key to authorize access to subordinate TSF keying
+					material.</fam-behavior>
+			</ext-comp-def>
+			
+			<f-component name="Hardware Root of Trust" cc-id="fpt_hrt_ext.1" status="sel-based">
+				<depends id="pfed"/>
+				<comp-lev> the TSF to maintain a non-exportable hardware-protected root key, bind its use to the evaluated platform, restrict its use to unwrapping or
+					authorizing access to subordinate TSF keys, and deny subordinate-key access when the binding condition is not satisfied.</comp-lev>
+				<management>
+					The following actions could be considered for the management functions in FMT:<h:ul>
+						<h:li>Authorized reprovisioning, rebinding, or zeroization of the hardware root of trust, if supported.</h:li>
+						<h:li>Review of hardware-root status, if exposed by the TOE.</h:li>						
+					</h:ul>    					
+				</management>
+				<audit>
+					The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
+						<h:li>Failure to validate the hardware-root binding</h:li>
+						<h:li>Failure to unwrap or authorize subordinate keying material because the binding condition is not satisfied</h:li>
+						<h:li>Authorized reprovisioning, rebinding, or zeroization of the hardware root of trust, if supported</h:li>
+					</h:ul>  
+					
+				</audit>
+				<dependencies>
+					FCS_STG_EXT.2 Encrypted Cryptographic Key Storage<h:p/>
+					FCS_COP.1 Cryptographic Operations<h:p/>
+					FCS_CKM.6 Timing and Event of Cryptographic Key Destruction<h:p/>
+					[FPT_TST.1 TSF Self-Test or<h:p/>
+					FPT_TST_EXT.1 TSF Testing]<h:p/>
+					FPT_ROT_EXT.1 Platform Integrity Root					
+				</dependencies>                                                     
+    		<f-element id="fpt-hrt-ext-1e1">
     			<title>
-    				The TSF shall store a root key within a TPM 2.0 bound to a physical property of the platform and used only to unwrap other keys.				
+    				The TSF shall maintain a hardware-protected root key in <selectables>
+    					<selectable>TPM 2.0</selectable>
+    					<selectable><assignable>equivalent hardware security module</assignable></selectable>
+    				</selectables>
+    				such that the root key cannot be exported from the hardware in plaintext.		
     			</title>
-    			<note role="application">
+    		</f-element>
+				<f-element id="fpt-hrt-ext-1e2">
+					<title>
+						The TSF shall bind use of the hardware-protected root key to <assignable>evaluated platform property, TPM PCR policy, device identity, secure-boot
+							measurement, or equivalent hardware-enforced binding condition</assignable>.
+					</title>
+				</f-element>
+				<f-element id="fpt-hrt-ext-1e3">
+					<title>
+						The TSF shall use the hardware-protected root key only to unwrap or authorize access to subordinate TSF keying material used for <assignable>PFED
+							provisioning, PFED session protection, subordinate key-encryption keys, or other TSF key classes</assignable> and shall not use the
+						hardware-protected root key directly as a traffic-encryption key, MAC key, signing key, key-agreement key, or general-purpose data-protection key.
+					</title>
+				</f-element>
+				<f-element id="fpt-hrt-ext-1e4">
+					<title>
+						The TSF shall deny access to subordinate TSF keying material protected by the hardware-protected root key when the binding condition in FPT_HRT_EXT.1.2
+						is not satisfied.
+					</title>
+				</f-element>
+				<f-element id="fpt-hrt-ext-1e5">
+					<title>
+						The TSF shall verify availability and binding of the hardware-protected root key during initialization before PFED trusted-channel operation is
+						permitted.
+					</title>				
+				<note role="application">
     				The intent of this requirement is to ensure that the TOE anchors key protection in a hardware root of trust implemented by a TPM 2.0, such that the root key is bound to the physical platform and is not available for general cryptographic use. This SFR addresses the use of a hardware root of trust to establish confidence in the TOE environment.<h:p/>
     				“Bound to a physical property of the platform” means that the protection of the root key depends on platform-specific hardware characteristics or a TPM-resident binding that ties use of the key to the intended platform instance. The ST author should describe the relevant binding in TOE terms without disclosing sensitive implementation details that would weaken security.<h:p/>
     				“Used only to unwrap other keys” means the root key is not used directly as a traffic-encryption key, message-authentication key, signing key, general-purpose data-protection key, or for any purpose other than protecting access to subordinate keying material. The subordinate keys unwrapped by the root key may then be used by other TOE functions according to their respective SFRs.    				
@@ -10762,97 +10794,6 @@
     			<audit-event-info>Result, state entered, affected property or element if available, and reason for failure if available</audit-event-info>
     		</audit-event>
     		
-    	</f-component>
-    	
-    	<ext-comp-def title="EU and CU Isolation" fam-id="FPT_ISO_EXT">
-    		<fam-behavior>This family defines requirements for ensuring compliance to the sent requirement.</fam-behavior>
-    	</ext-comp-def>
-    	
-    	<f-component name="Isolation" cc-id="fpt_iso_ext.1" status="invisible">
-    		<comp-lev> requires the TSF to ensure the use of EU and CU.</comp-lev>
-    		<management>
-    			The following actions could be considered for the management functions in FMT:<h:ul>
-    				<h:li>Ability to configure or verify the deployment mode or TOE configuration that enforces PFED EU/CU isolation. </h:li>
-    				<h:li>Ability to manage or verify interface exposure such that EU interfaces remain non-addressable and stateless in the claimed operational configuration.
-    				</h:li>
-    				<h:li>Ability to manage or verify network-namespace isolation where such configuration is exposed by the TOE. </h:li>
-    				<h:li>Ability to manage or verify the allowed intercomponent communication path such that only the claimed connectionless bus is shared. </h:li>
-    			</h:ul>    			
-    		</management>
-    		<audit>
-    			The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
-    				<h:li>Changes to configuration affecting EU/CU isolation properties. </h:li>
-    				<h:li>Detection of an attempt to violate network-namespace isolation, if such detection is exposed by the TOE. </h:li>
-    				<h:li>Detection of an attempt to use a communication path other than the shared connectionless bus between EU and CU, if such detection is exposed by the
-    					TOE. </h:li>
-    			</h:ul>    			
-    		</audit>
-    		<dependencies>FMT_SMF.1 Specification of Management Functions<h:p/>
-    			FAU_GEN.1 Audit Data Generation<h:p/>
-    			No other dependencies    		
-    		</dependencies>
-    		<f-element>
-    				<title>The TSF shall ensure:<h:ul>
-    					<h:li>EU and CU do not share computation resources</h:li>
-    					<h:li>EU interfaces are non-addressable and stateless</h:li>
-    					<h:li>Network namespaces are isolated</h:li>
-    					<h:li>Only a connectionless bus is shared</h:li>
-    				</h:ul>
-    				</title>
-    			</f-element>
-    	</f-component>
-    	
-    	<f-component name="EU and CU Isolation" cc-id="fpt_iso_ext.1" iteration="PFED" status="feat-based">
-    		<depends on="pfed"/>
-    		
-    		<consistency-rationale/>
-    		<f-element id="fpt-iso_ext-1e1">
-    			<title>
-    				The TSF shall ensure:<h:ul>
-    					<h:li>EU and CU do not share computation resources</h:li>
-    					<h:li>EU interfaces are non-addressable and stateless</h:li>
-    					<h:li>Network namespaces are isolated.</h:li>
-    					<h:li>Only a connectionless bus is shared</h:li>
-    				</h:ul>.				
-    			</title>
-    			
-    			<note role="application">
-    				The intent of this requirement is to ensure that the PFED TOE maintains strict architectural separation between the EU and CU so that the communication unit cannot become an alternate computation or state-sharing environment for the encryption unit, and so that intercomponent interaction is narrowly constrained to the intended minimal communication path.<h:p/>
-    				“EU and CU do not share computation resources” means the TOE does not rely on shared execution environments, shared processing contexts, or equivalent shared computation infrastructure across the EU/CU boundary. <h:p/>
-    				“EU interfaces are non-addressable and stateless” means the interfaces exposed by the EU for this PFED path are not independently addressable as conventional network endpoints and do not maintain externally reachable session state inconsistent with the claimed isolation model. <h:p/>
-    				“Network namespaces are isolated” means the TOE prevents shared network namespace behavior across the EU/CU boundary that would undermine the claimed separation. <h:p/>
-    				“Only a connectionless bus is shared” should be read consistently with the PFED Configuration section, which says only a stateless, connectionless bus is shared between the EU and CU and the EUD and EU. 
-    				
-    			</note>
-    			<aactivity>
-    				<TSS>
-    					The evaluator shall examine the TSS to determine that it:<h:ul>
-    						<h:li>Identifies the EU and CU components participating in the PFED architecture. </h:li>
-    						<h:li>Describes how the TOE ensures that the EU and CU do not share computation resources. </h:li> 
-    						<h:li>Describes the EU interfaces relevant to this requirement and explains how they are non-addressable and stateless. </h:li>
-    						<h:li>Describes the network namespace isolation used by the TOE and how it preserves separation between EU and CU. </h:li>
-    						<h:li>Identifies the shared connectionless bus used between the EU and CU. </h:li>
-    						<h:li>Describes how the TOE ensures that only the connectionless bus is shared. </h:li>
-    						<h:li>Describes how the TOE prevents alternate shared communication or computation paths between the EU and CU. </h:li>
-    					</h:ul>
-    					
-    				</TSS>
-    				<Guidance/>
-    				<Tests>
-    					The evaluator shall perform the following tests.
-    					<testlist>
-    						<test> No shared computation resources: The evaluator shall verify, through TOE behavior, supported interfaces, configuration evidence, or developer evidence, that the EU and CU do not share computation resources in a manner inconsistent with the TSS.</test><h:p/>
-    						<test> EU interfaces non-addressable and stateless: The evaluator shall verify that the EU interfaces relevant to the PFED design are non-addressable and stateless as described in the TSS and guidance. </test><h:p/>
-    						<test> Network namespace isolation: The evaluator shall verify that the TOE enforces isolated network namespaces between EU and CU consistent with the TSS and guidance. </test><h:p/>
-    						<test> Only a connectionless bus is shared: The evaluator shall verify that the only shared intercomponent path between the EU and CU is the claimed connectionless bus, consistent with the component text and the PFED Configuration section. </test><h:p/> 
-    						<test> No alternate shared path: The evaluator shall verify that no additional shared channel, stateful shared service, or alternate communication path exists between the EU and CU beyond the claimed shared bus. </test><h:p/>
-    						<test> PFED Functional Test: To show isolation of network namespace: provision a pair of PFED’s A1 and B1 and attach EUD A and B to them respectively. Assign the IPs of the EUDs to the same subnet as the CUs. For example, CU1 and A = 192.168.0.1 and CU2 and B == 192.168.0.2. Attach EUD C to the network switch that CU1 and CU2 communicate. Assign C == 192.168.0.3. Attach a sniffer on the wire between A and A1, B and B1, and to the switch. From C, ping 192.168.0.2. You should not see ICMP or reply emerge to EUD B. And you should see ICMP between CU2 and C. Similarly, from EUD A, ping 192.168.0.2. You should only see ICMP on the sniffer between B1 and B and A1 and A. And finally, from either A or B attempt to ping C at 192.168.0.3 and it should fail. </test><h:p/>
-    					</testlist>
-    					Where direct observation of low-level platform behavior is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, architectural evidence, or developer evidence sufficient to determine that the claimed PFED isolation model is implemented.    					
-    				</Tests>
-    			</aactivity>
-    		</f-element>
-    		<audit-event table="feat-based"/>
     	</f-component>
     	
     	
@@ -11809,23 +11750,42 @@
     		
     		<f-element id="fpt-sep-ext-1e1">
     			<title>
-    				The TSF shall maintain a security domain for the Encryption Unit (EU) and a separate security domain for the Communication Unit (CU) within the
-    				TOE.			
+    				The TSF shall maintain separate security domains for the EU and CU such that TSF functions executed by the EU are separated from TSF functions executed by
+    				the CU.			
     			</title>
     		</f-element>
     		<f-element id="fpt-sep-ext-1e2">
     			<title>
-    				The TSF shall enforce separation between the EU and CU such that: <h:ul>
-    					<h:li>The EU executes on a processor that is physically distinct from the processor used by the CU</h:li>
-    					<h:li>The EU uses dedicated volatile and non-volatile memory resources that are physically distinct from those used by the CU</h:li>
-    					<h:li>Independent execution environments</h:li>
-    					<h:li>No shared memory exists between the EU and CU</h:li>
-    					<h:li>Direct memory access from the EU to CU memory is not possible</h:li>
-    					<h:li>Direct memory access from the CU to EU memory is not possible</h:li>
-    					<h:li>All communication between the EU and CU is restricted to a dedicated wired interface that is part of the TSF boundary</h:li>
-    				</h:ul>    				
-    			</title>    		
-    			<note role="application">
+    				The TSF shall implement the EU and CU using physically distinct processors, physically distinct volatile and non-volatile memory, and independent execution
+    				environments.
+    			</title> 
+    		</f-element>
+    		<f-element id="fpt-sep-ext-1e3">
+    			<title>
+    				The TSF shall prevent shared memory, direct memory access, or shared computation resources between the EU and CU.
+    			</title>
+    		</f-element>
+    		<f-element id="fpt-sep-ext-1e4">
+    			<title>
+    				The TSF shall restrict all EU/CU communication to <assignable>the dedicated wired interface or equivalent dedicated intercomponent interface</assignable>
+    				within the TSF boundary and shall prevent alternate EU/CU communication paths.
+    			</title>
+    		</f-element>
+    		<f-element id="fpt-sep-ext-1e5">
+    			<title>
+    				The TSF shall implement each dedicated EU/CU payload interface in accordance with <selectables choose-one-of="yes">
+    					<selectable>the IPsec gateway interface profile, in which the EU is the IPsec/IKE endpoint; the EU/CU interface carries outer IP traffic;
+    						traffic is controlled by the selected IPsec PP-Module and applicable packet-filtering requirements; and the CU routes the outer IP
+    						packets without terminating the IPsec Security Associations</selectable>    				
+    				<selectable>the MACsec interface profile, in which the EU is the MACsec and key-agreement endpoint; the EU/CU interface exposes no IP or
+    						higher-layer endpoint; only frame classes authorized by the selected MACsec PP-Module and FDP_IFF.1 are permitted; and the CU preserves
+    						the complete MACsec-protected MPDU and permitted control frames</selectable>
+    				<selectable>the PFED interface profile, in which the EU/CU interface is non-addressable above Layer 2, connectionless; exposes no
+    						higher-layer endpoint; and accepts only PFED information flows authorized by FDP_IFF.1</selectable>
+    					</selectables>
+    			</title>
+    		
+    		<note role="application">
     				The intent of this requirement is to ensure that the TOE enforces hardware-backed separation between the EU and CU as distinct security domains within the TOE, so that compromise, malfunction, or misuse of one subsystem does not collapse the security boundary of the other.<h:p/>
     				FPT_SEP_EXT.1.1 establishes the domain model: The TOE maintains one security domain for the EU and a separate security domain for the CU. The TSS should describe those domains in TOE-specific terms and identify which TOE resources belong to each. FPT_SEP_EXT.1.2 then defines the required separation properties.<h:p/>
     				“Independent execution environments” means the TOE does not rely on a shared execution context between EU and CU that would undermine domain separation. <h:p/> 
@@ -11846,18 +11806,22 @@
     					<h:li>Identifies the dedicated wired interface used for all EU/CU communication. </h:li>
     					<h:li>Describes how the TOE ensures that all EU/CU communication is restricted to that dedicated wired interface and that no alternate communication path exists.</h:li>
     					</h:ul>
-    					
+    					The evaluator shall examine the TSS to determine that it describes the EU/CU hardware separation, memory separation, execution-environment separation,
+    					EU/CU communication path, PFED non-addressable/stateless EU interface behavior, namespace isolation, and absence of alternate EU/CU paths.
     				</TSS>
     				<Guidance/>
     				<Tests>
     					The evaluator shall perform the following tests
     					<testlist>
-    						<test> Distinct processor enforcement: The evaluator shall verify, through TOE behavior, supported interfaces, platform evidence, or developer evidence, that the EU executes on a processor physically distinct from the processor used by the CU. </test><h:p/>
+    						<test>Distinct processor enforcement: The evaluator shall verify, through TOE behavior, supported interfaces, platform evidence, or developer evidence, that the EU executes on a processor physically distinct from the processor used by the CU. </test><h:p/>
     						<test>Distinct memory enforcement: The evaluator shall verify that the EU and CU use physically distinct volatile and non-volatile memory resources. </test><h:p/>
     						<test>No shared memory: The evaluator shall verify that no shared memory exists between the EU and CU. </test><h:p/>
     						<test>DMA isolation: The evaluator shall verify that direct memory access from the EU to CU memory is not possible and that direct memory access from the CU to EU memory is not possible. </test><h:p/>
     						<test>Dedicated wired interface restriction: The evaluator shall verify that all communication between the EU and CU is restricted to the claimed dedicated wired interface that is part of the TSF boundary. </test><h:p/>
     						<test>No alternate communication path: The evaluator shall verify that no additional communication path exists between the EU and CU beyond the claimed dedicated wired interface.</test><h:p/>
+    						<test>[Conditional] EU interfaces non-addressable and stateless: The evaluator shall verify that the EU interfaces relevant to the PFED design are non-addressable and stateless as described in the TSS and guidance.</test>
+    						<test>[Conditional] Network namespace isolation: The evaluator shall verify that the TOE enforces isolated network namespaces between EU and CU consistent with the TSS and guidance.</test>
+    						<test>[Conditional] No alternate shared path: The evaluator shall verify that no additional shared channel, stateful shared service, or alternate communication path exists between the EU and CU beyond the claimed shared bus.</test>
     					</testlist>
     					Where direct observation of low-level hardware behavior is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, architectural evidence, or developer evidence sufficient to determine that the claimed separation model is implemented.
     					
@@ -11956,29 +11920,35 @@
     	</f-component>
     	
     	<ext-comp-def title="Transaction Control" fam-id="FPT_TRAN_EXT">
-    		<fam-behavior>This family defines requirements for controlling transactions.</fam-behavior>
+    		<fam-behavior>This family defines requirements for controlling PFED lifecycle transactions so that security-state-changing PFED operations are serialized, bounded,
+    			and resolved to a known secure state.</fam-behavior>
     	</ext-comp-def>
     	
     	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" status="invisible">
     		
     	<consistency-rationale/>
-    		<comp-lev>requires that the TSF allow only one transaction at a time.</comp-lev>
+    		<comp-lev>requires the TSF to identify PFED transactions, prevent concurrent or nested PFED transactions, enforce a reaper timer, and clean up PFED state before
+    			subsequent transactions are permitted.</comp-lev>
     		<management>The following actions could be considered for the management functions in FMT:<h:ul>
-    			<h:li>Ability to configure or verify the transaction-control policy that limits the TOE to one active PFED transaction at a time. </h:li>
-    			<h:li>Ability to configure or verify the reaper-timer value or timer policy, where such configuration is exposed by the TOE. </h:li>
-    			<h:li>Ability to manage or observe the operational state associated with transaction timeout, cleanup, or restart behavior. </h:li>
-    			<h:li>Ability to initiate or re-initiate the next permitted PFED transaction after completion, timeout, or abort of the current transaction, where such control is exposed by the TOE. </h:li>
+    			<h:li>Configuration of the transaction timeout/reaper interval, if configurable.</h:li>
+    			<h:li>Initiation or cancellation of administrator-initiated PFED lifecycle transactions, if supported.</h:li>
+    			<h:li>Review of transaction status, if exposed by the TOE.</h:li>    			
     		</h:ul>
     		</management>
     		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
-    			<h:li>Start of a PFED transaction, if audited by the TOE. </h:li> 
-    			<h:li>Rejection of an attempted nested or concurrent PFED transaction. </h:li> 
-    			<h:li>Expiration of the reaper timer and the resulting transaction cleanup, abort, or restart behavior, if audited by the TOE. </h:li>
-    		</h:ul>
+    			<h:li>Initiation, successful completion, failure, abortion, or timeout of a PFED transaction.</h:li> 
+    			<h:li>Attempted nested or concurrent PFED transaction.</h:li> 
+    			<h:li>Reaper-timer expiration and resulting TOE action.</h:li>
+    			<h:li>Transition to recovery or fail-secure state caused by transaction failure.</h:li>
+    		</h:ul><h:br/>
+    			No audit record shall include secret keying material.
     		</audit>
-    		<dependencies>FMT_SMF.1 Specification of Management Functions<h:p/>
-    			FAU_GEN.1 Audit Data Generation<h:p/>
-    			No other dependencies
+    		<dependencies>FTP_ITC.1<h:p/>
+    			FCS_CKM.5<h:p/>
+    			FCS_REKEY_EXT.1 (if rekey is treated as a PFED transaction)<h:p/>
+    			[FPT_FLS.1 or
+    			FPT_RCV_EXT.1 (if selected as an expiration/failure action]<h:p/>
+    			FAU_GEN.1 (if auditable PFED transaction events are claimed)
     		</dependencies>
     	<f-element>
     			<title>The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.</title>
@@ -11990,9 +11960,56 @@
     		
     		<f-element id="fdp-tran-ext-1e1">
     			<title>
-    				The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.	
+    				The TSF shall treat the following PFED operations as PFED transactions:<selectables>
+    					<selectable>PFED provisioning</selectable>
+    					<selectable>tunnel-0 establishment</selectable>
+    					<selectable>tunnel-0 termination</selectable>
+    					<selectable>PFED mutual authentication</selectable>
+    					<selectable>PFED session establishment</selectable>
+    					<selectable>PFED rekey</selectable>
+    					<selectable>PFED recovery</selectable>
+    					<selectable>PFED dead-peer or reconnect processing</selectable>
+    					<selectable>PFED persona transition</selectable>
+    					<selectable><assignable>other PFED lifecycle operations</assignable></selectable>    					
+    				</selectables>	
     			</title>
-    			<note role="application">
+    		</f-element>
+    		<f-element id="fdp-tran-ext-1e2">
+    			<title>The TSF shall ensure that no more than one PFED transaction is active <selectables>
+    				<selectable>per PFED peer association</selectable>
+    				<selectable>per PFED session</selectable>
+    				<selectable>per TOE</selectable>
+    			</selectables> at any time.</title>
+    		</f-element>
+    		<f-element id="fdp-tran-ext-1e3">
+    			<title>
+    				The TSF shall prevent an active PFED transaction from initiating another PFED transaction before the active transaction has completed, aborted, failed, or
+    				been reaped.
+    			</title>
+    		</f-element>
+    		<f-element id="fdp-tran-ext-1e4">
+    			<title>
+    				The TSF shall start a reaper timer when a PFED transaction begins and shall stop or disable the reaper timer only when the transaction completes, aborts,
+    				fails, or transitions to the recovery or fail-secure state selected in FPT_TRAN_EXT.1.5.
+    			</title>
+    		</f-element>
+    		<f-element id="fdp-tran-ext-1e5">
+    			<title>
+    				Upon expiration of the reaper timer, the TSF shall <selectables>    					
+    					<selectable>abort the active transaction and return the affected PFED association to an idle state</selectable>
+    					<selectable>terminate the affected PFED session</selectable>
+    					<selectable>enter the recovery state specified by FPT_RCV_EXT.1</selectable>
+    					<selectable>enter the fail-secure state specified by FPT_FLS.1</selectable>
+    					</selectables>
+    				and shall not permit EUD traffic using keying material, peer state, or control state from the incomplete transaction.    				
+    			</title>
+    		</f-element>
+    		<f-element id="fdp-tran-ext-1e6">
+    			<title>
+    				The TSF shall permit a subsequent PFED transaction only after cryptographic state, protocol state, and transaction state from the completed, aborted, 
+    				failed, or reaped transaction have been cleaned up in accordance with the applicable PFED SFRs.
+    			</title>    		
+    		<note role="application">
     				The intent of this requirement is to ensure that PFED transaction processing remains serialized, bounded, and fail-safe so that the TOE does not enter ambiguous or conflicting security states due to overlapping lifecycle operations.<h:p/>
     				The EU transactions must be atomic. For example, if the EU pair is in a key recovery transaction and a timeout for rekey happens, the rekey transaction does not start until the current recovery transaction completes or restarts the session. When a transaction begins, a transaction reaper timer must also start so that if the transaction gets into an endless or fails, the reaper guarantees the EU either restarts the session or stops altogether. When the transaction completes, the reaper is disabled.
     				
@@ -12926,45 +12943,59 @@
       <f-component name="Inter-TSF Trusted Channel" cc-id="ftp_itc.1">
       	<f-element id="ftp-itc-1e1">
       		<title> 
-      			The TSF shall <h:b>be capable of using <selectables>
+      			The TSF shall provide a communication channel between itself and <h:b><selectables>
+      				<selectable>a MACsec peer</selectable>
+      				<selectable>a PFED peer</selectable>
+      				<selectable>an IPsec peer</selectable>
+      				<selectable>a WLAN peer</selectable>
+      				<selectable>a trusted administrative IT entity</selectable>
+      				<selectable><assignable>other trusted IT entities</assignable></selectable>
+      			</selectables> using <selectables>
+      			<selectable>MACsec in accordance with the PP-Module for MACsec Ethernet Encryption</selectable>
+      				<selectable>PFED in accordance with FCS_COP.1/PFEDSigGen, FCS_COP.1/PFEDSigVer, FCS_COP.1/PFEDKeyEncap, FCS_CKM.5, FCS_CKM.6, FCS_REKEY_EXT.1, and
+      					FPT_TRAN_EXT.1</selectable>
       				<selectable>IPsec</selectable>
-      				<selectable>MACsec</selectable>
-      				<selectable id="selpfed">PFED in accordance with PFED SFRs</selectable>
       				<selectable>WLAN</selectable>
-      			</selectables> to </h:b>provide a <h:b>trusted</h:b> communication channel between itself and <h:s>another trusted</h:s> <selectables>
-      				<selectable><h:b>authorized</h:b> IT <h:b>entities
-      				supporting the following capabilities: audit server, <selectables>
-      				<selectable>authentication server</selectable>
-      				<selectable><assignable>other capabilities</assignable></selectable>
-      				<selectable>no other capabilities</selectable>
-      			</selectables></h:b></selectable>
-      				<selectable><h:b>a MACsec peer</h:b></selectable>
-      				<selectable><h:b>a PFED peer</h:b></selectable>
-      			</selectables> <h:s>product</h:s> that is logically distinct from other communication channels and provides assured
-      			identification of its end points and protection of the channel data from <h:b>disclosure and detection of modification of the channel
-      				data</h:b>.
+      				<selectable>HTTPS</selectable>
+      				<selectable><assignable>other protocol</assignable></selectable>
+      			</selectables></h:b> that is logically distinct from other communication channels and provides assured identification of its endpoints and protection of channel
+      			data from modification or disclosure.      			
       		</title>
       	</f-element>
       	<f-element id="ftp-itc-1e2">
       		<title>
       			The TSF shall permit <selectables>
       				<selectable>the TSF</selectable>
-      				<selectable><h:b>the authorised IT entities</h:b></selectable>
+      				<selectable>another trusted IT product</selectable>
+      				<selectable><h:b>a MACsec peer</h:b></selectable>
+      				<selectable><h:b>a PFED peer</h:b></selectable>
+      				<selectable><h:b>a trusted administrative IT entity</h:b></selectable>
       			</selectables> to initiate communication via the trusted channel.
       		</title>
       	</f-element>
       	<f-element id="ftp-itc-1e3">
       		<title>
-      			The TSF shall initiate communication via the trusted channel for <assignable>list of <h:b>services for which the TSF is able to initiate
-      			communications</h:b></assignable>.
+      			The TSF shall initiate communication via the trusted channel for <selectables>
+      				<selectable>PFED provisioning</selectable>
+      				<selectable>PFED tunnel-0 bootstrap</selectable>
+      				<selectable>PFED mutual authentication</selectable>
+      				<selectable>PFED session establishment</selectable>
+      				<selectable>PFED rekey</selectable>
+      				<selectable>PFED recovery</selectable>
+      				<selectable>MACsec-protected data-in-transit communications</selectable>
+      				<selectable>trusted administrative communications</selectable>
+      				<selectable><assignable>other functions</assignable></selectable>
+      			</selectables>      			
       		</title>
       		<note role="application">
-      			The intent of this requirement is for the TOE to establish and use a trusted communication channel, as selected, between itself and another trusted authorized IT entity for the specific capabilities identified in the ST. The trusted channel must be logically distinct from other communication channels and must provide assured identification of its endpoints, protection of channel data from disclosure, and detection of modification of channel data.<h:p/>
-      			The ST author should select the trusted-channel mechanism used by the TOE from the choices provided in FTP_ITC.1.1 and shall identify the trusted authorized IT entities and the capabilities supported over that channel. In this PP, those capabilities include at least an audit server and may also include an authentication server or other specifically identified capabilities, as claimed in the ST. Where the selected trusted-channel mechanism has its own detailed PP, PP-Module, Functional Package, or appendix-defined behavior, the ST author should ensure that the FTP_ITC.1 claim is aligned with those more detailed requirements. 
-      			
+      			For PFED, the “assured identification of its endpoints” property in FTP_ITC.1.1 is satisfied by successful PFED peer mutual authentication using the PFED
+      			credential and signature mechanisms selected in the ST. The TOE shall not permit PFED-protected EUD traffic until the PFED peer association, key establishment,
+      			and transaction prerequisites required by the selected PFED SFRs have completed. This requirement addresses PFED peer authentication; it does not define
+      			administrator, operator, or end-user authentication under the FIA user-authentication model.      			
       		</note>
       		<aactivity>
       			<TSS>
+      				<h:br/>
       				The evaluator shall examine the TSS to determine that it:<h:ul>
       					<h:li>Identifies the trusted-channel mechanism selected in FTP_ITC.1.1. </h:li>
       					<h:li>Identifies the trusted authorized IT entities with which the TOE establishes the trusted channel.</h:li>
