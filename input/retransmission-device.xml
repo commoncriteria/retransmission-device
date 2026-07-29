@@ -3859,7 +3859,7 @@
 			<management/>
 			<audit>
 				The following actions should be auditable if FAU_GEN Security audit data generation is
-				included in the PP, PP-Module, functional package or ST:<h:ul>
+				included in the PP, PP-Module, functional package, or ST:<h:ul>
 					<h:li>minimal: Success and failure of the activity;</h:li>
 					<h:li>basic: The object attributes, and object values excluding any sensitive information.</h:li>
 				</h:ul>
@@ -6818,7 +6818,7 @@
 			<comp-lev> requires the TSF to implement the HTTPS protocol in accordance with the specified standard, using TLS, and notifying the application if
 				invalid.</comp-lev>			
 			<management>There are no management activities foreseen.</management>
-			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
+			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or ST:<h:ul>
 					<h:li>Failure to establish an HTTPS Session</h:li>
 				</h:ul></audit>
 			<dependencies>No dependencies.
@@ -7791,7 +7791,7 @@
 					</h:ul>
 				</management>
 				<audit>
-					The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
+					The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or ST:<h:ul>
 						<h:li>Provision of PIN or CIK credentials for secure bring-up.</h:li> 
 						<h:li>Successful completion of session setup and authentication resulting in release of traffic gating.</h:li> 
 						<h:li>Failure of secure bring-up due to missing or invalid activation credentials, or failure of session setup or authentication.</h:li>
@@ -7902,7 +7902,7 @@
 				<f-element id="fdp-iff-1e1">
 					<title>
 						The TSF shall enforce the [<h:i>RD Information Flow Control SFP</h:i>]
-						 based on the following types of subject and information security attributes.<selectables linebreak="yes">
+						 based on the following types of subject and information security attributes. <selectables linebreak="yes">
 							<selectable>For CU traffic flows:<h:ul>
 								<h:li>Ingress interface</h:li>
 								<h:li>Egress interface</h:li>
@@ -7930,8 +7930,8 @@
 								<h:li>PFED tunnel state</h:li>
 								<h:li>Traffic direction</h:li>
 								<h:li>Whether the packet is PFED control, bootstrap, recover, rekey, or EUD traffic</h:li>
-							</h:ul>.</selectable>
-						</selectables>
+							</h:ul></selectable>
+						</selectables>.
 						</title>
 				</f-element>
 				<f-element id="fdp-iff-1e2">
@@ -8174,7 +8174,7 @@
 				<comp-lev> requires the TSF to choose a method for importing keys and key material.</comp-lev>
 				<management>There are no management activities foreseen.</management>
 					<audit>The following actions should be auditable if FAU_GEN Security audit data generation is
-						included in the PP, PP-Module, functional package or ST:<h:br/><h:ul>
+						included in the PP, PP-Module, functional package, or ST:<h:br/><h:ul>
 							<h:li>Initiation of the trusted channel.</h:li>
 							<h:li>Termination of the trusted channel.</h:li>
 							<h:li>Failures of the trusted path functions.</h:li>
@@ -8255,7 +8255,7 @@
 					<h:li>Ability to configure or manage the drop behavior for traffic that cannot be forwarded in accordance with the protocol-break and cryptographic-continuity requirements. </h:li>
 				</h:ul>
 				</management>
-				<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
+				<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or ST:<h:ul>
 					<h:li>Changes to forwarding, routing, or related policy that affect protocol-break enforcement across the trust boundary. </h:li>
 					<h:li>Dropping of traffic that cannot be routed or forwarded in accordance with the protocol-break or cryptographic-continuity requirements. </h:li>
 					<h:li>Detection of attempts to forward traffic in a manner that would violate the required protocol-break behavior or transparent-bridging prohibition, if such detection is exposed by the TOE. </h:li>
@@ -8276,8 +8276,11 @@
 				<f-element id="fdp-pbr-ext-1e2">
 					<title>
 						For traffic that is not protected by an Ethernet-layer cryptographic mechanism and is not required by the selected encryption option to preserve Layer-2
-						cryptographic continuity, the TSF shall perform a Layer-2 protocol break by removing the incoming Layer-2 header and associated Layer-2 control
-						information and constructing and applying a new Layer-2 header (encapsulation) prior to transmission on the egress interface.
+						cryptographic continuity, the TSF shall perform a Layer-2 protocol break by <h:ul>
+							<h:li>removing the incoming Layer-2 header and associated Layer-2 control information and</h:li>
+							<h:li>constructing and applying a new Layer-2 header (encapsulation) prior to transmission on the egress interface</h:li>
+						</h:ul>
+						
 					</title>
 				</f-element>
 				
@@ -8395,7 +8398,7 @@
 				<comp-lev> requires the TSF to be able to label, encrypt, store, and decrypt sensitive data and keys.</comp-lev>
 				<management>There are no management activities foreseen.
 				</management>
-				<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:
+				<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or ST:
 					<h:ul>
 						<h:li>Failure to encrypt/decrypt data.</h:li>
 					</h:ul></audit>
@@ -8441,7 +8444,7 @@
 				<management>The following actions could be considered for the management functions in FMT:
 					<h:ul><h:li>Ability to set parameters for allowable number of authentication failures.</h:li></h:ul></management>
 				<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included
-					in the PP, PP-Module, functional package or ST:
+					in the PP, PP-Module, functional package, or ST:
 					<h:ul><h:li>Failed attempt at administrator authentication.</h:li></h:ul></audit>
 				<dependencies>FCS_CKM.6 Timing and Event of Cryptographic Key Destruction<h:br/>
 					FIA_SMF.1 Specification of Management Functions
@@ -9171,7 +9174,7 @@
 						<h:li>Enabling/disabling bypass of local user authentication.</h:li>
 					</h:ul>
 				</management>
-				<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:
+				<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or ST:
 					<h:ul>
 						<h:li>Action performed before authentication</h:li>
 					</h:ul>
@@ -9222,7 +9225,7 @@
 					are authenticated prior to authorizing these actions to be performed.</comp-lev>
 				<management/>
 				<audit>The following actions should be auditable if FAU_GEN Security audit data 
-					generation is included in the PP, PP-Module, functional package or ST:
+					generation is included in the PP, PP-Module, functional package, or ST:
 					<h:ol type="a">
 						<h:li>All use of the authentication mechanism.</h:li>
 					</h:ol>
@@ -10650,7 +10653,7 @@
 					</h:ul>    					
 				</management>
 				<audit>
-					The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
+					The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or ST:<h:ul>
 						<h:li>Failure to validate the hardware-root binding</h:li>
 						<h:li>Failure to unwrap or authorize subordinate keying material because the binding condition is not satisfied</h:li>
 						<h:li>Authorized reprovisioning, rebinding, or zeroization of the hardware root of trust, if supported</h:li>
@@ -10969,7 +10972,7 @@
     		<comp-lev> requires the TSF to become non-operational when certain failures occur.</comp-lev>
     		<management>There are no management activities foreseen.</management>
     		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included
-    			in the PP, PP-Module, functional package or ST:
+    			in the PP, PP-Module, functional package, or ST:
     			<h:ul>
     				<h:li>Measurement of TSF software.</h:li>
     			</h:ul>
@@ -11515,7 +11518,7 @@
     		<management>The following actions could be considered for the management functions in FMT:<h:ul>
     			<h:li>Configuration of action to take on integrity failure.</h:li></h:ul></management>
     		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included
-    			in the PP, PP-Module, functional package or ST:<h:ul><h:li>Failure of integrity verification.</h:li></h:ul></audit>
+    			in the PP, PP-Module, functional package, or ST:<h:ul><h:li>Failure of integrity verification.</h:li></h:ul></audit>
     		<dependencies>FPT_ROT_EXT.1 Platform Integrity Root</dependencies>
     		<f-element id="fpt-rot-ext-2e1">
     			<title>The integrity of all mutable platform firmware outside of the platform integrity root specified in FPT_ROT_EXT.1 shall be verified 
@@ -11721,7 +11724,7 @@
     			subsystem does not permit direct compromise of the other.</fam-behavior>
     	</ext-comp-def>
 	
-    	<f-component name="TSF Domain Separation" cc-id="fpt_sep_ext.1" status="feat-based">
+    	<f-component name="Hardware and Logical Separation of EU and CU" cc-id="fpt_sep_ext.1" status="feat-based">
     		<depends on="hws-erd"/>
     		<consistency-rationale/>    			
     		
@@ -11736,7 +11739,7 @@
     			
     		</management>
     		<audit>
-    			The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
+    			The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or ST:<h:ul>
     				<h:li>Changes to TOE configuration affecting EU/CU separation properties. </h:li>
     				<h:li>Detection of an attempted violation of the required EU/CU separation properties, if such detection is exposed by the TOE. </h:li>
     				<h:li>Detection of an attempted use of a non-permitted communication path between the EU and CU, if such detection is exposed by the TOE. </h:li>
@@ -11773,7 +11776,7 @@
     		</f-element>
     		<f-element id="fpt-sep-ext-1e5">
     			<title>
-    				The TSF shall implement each dedicated EU/CU payload interface in accordance with <selectables choose-one-of="yes">
+    				The TSF shall implement each dedicated EU/CU payload interface in accordance with <selectables choose-one-of="yes" linebreak="yes">
     					<selectable>the IPsec gateway interface profile, in which the EU is the IPsec/IKE endpoint; the EU/CU interface carries outer IP traffic;
     						traffic is controlled by the selected IPsec PP-Module and applicable packet-filtering requirements; and the CU routes the outer IP
     						packets without terminating the IPsec Security Associations</selectable>    				
@@ -11927,7 +11930,7 @@
     	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" status="invisible">
     		
     	<consistency-rationale/>
-    		<comp-lev>requires the TSF to identify PFED transactions, prevent concurrent or nested PFED transactions, enforce a reaper timer, and clean up PFED state before
+    		<comp-lev>requires the TSF to identify PFED transactions, prevent concurrent or nested PFED transactions, enforce a reaper timer, and clean up the PFED state before
     			subsequent transactions are permitted.</comp-lev>
     		<management>The following actions could be considered for the management functions in FMT:<h:ul>
     			<h:li>Configuration of the transaction timeout/reaper interval, if configurable.</h:li>
@@ -11935,7 +11938,7 @@
     			<h:li>Review of transaction status, if exposed by the TOE.</h:li>    			
     		</h:ul>
     		</management>
-    		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package or ST:<h:ul>
+    		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or ST:<h:ul>
     			<h:li>Initiation, successful completion, failure, abortion, or timeout of a PFED transaction.</h:li> 
     			<h:li>Attempted nested or concurrent PFED transaction.</h:li> 
     			<h:li>Reaper-timer expiration and resulting TOE action.</h:li>
@@ -11943,12 +11946,13 @@
     		</h:ul><h:br/>
     			No audit record shall include secret keying material.
     		</audit>
-    		<dependencies>FTP_ITC.1<h:p/>
-    			FCS_CKM.5<h:p/>
-    			FCS_REKEY_EXT.1 (if rekey is treated as a PFED transaction)<h:p/>
-    			[FPT_FLS.1 or
-    			FPT_RCV_EXT.1 (if selected as an expiration/failure action]<h:p/>
-    			FAU_GEN.1 (if auditable PFED transaction events are claimed)
+    		<dependencies>FTP_ITC.1 Inter-TSF Trusted Channel<h:p/>
+    			FCS_CKM.5 Cryptographic Key Derivation<h:p/>
+    			FCS_CKM.6 Timing and Event of Cryptographic Key Destruction<h:p/>
+    			FCS_REKEY_EXT.1 Periodic Rekey (if rekey is treated as a PFED transaction)<h:p/>
+    			[FPT_FLS.1 Failure with Preservation of Secure State or
+    			FPT_RCV_EXT.1 Recovery Behavior (if selected as an expiration/failure action]<h:p/>
+    			FAU_GEN.1 Audit Data Generation (if auditable PFED transaction events are claimed)
     		</dependencies>
     	<f-element>
     			<title>The TSF shall allow only one transaction at a time, prohibit nesting, and enforce a reaper timer.</title>
@@ -11960,7 +11964,7 @@
     		
     		<f-element id="fdp-tran-ext-1e1">
     			<title>
-    				The TSF shall treat the following PFED operations as PFED transactions:<selectables>
+    				The TSF shall treat the following PFED operations as PFED transactions: <selectables>
     					<selectable>PFED provisioning</selectable>
     					<selectable>tunnel-0 establishment</selectable>
     					<selectable>tunnel-0 termination</selectable>
@@ -12174,7 +12178,7 @@
     		<management>There are no management activities foreseen.</management>
     		<audit>
     			The following actions should be auditable if FAU_GEN Security audit data generation is included
-    			in the PP, PP-Module, functional package or ST:<h:ul>
+    			in the PP, PP-Module, functional package, or ST:<h:ul>
     				<h:li>Initiation of self-test.</h:li>
     				<h:li>Failure of self-test.</h:li>
     			</h:ul>
@@ -12323,7 +12327,7 @@
 			<management>The following actions could be considered for the management functions in FMT:<h:ul>
 				<h:li>Configuration of action to take on an update failure.</h:li></h:ul></management>
     		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included
-    			in the PP, PP-Module, functional package or ST:<h:ul><h:li>Failure of update authentication/integrity check/rollback</h:li>
+    			in the PP, PP-Module, functional package, or ST:<h:ul><h:li>Failure of update authentication/integrity check/rollback</h:li>
 				<h:li>Failure of update operation</h:li>
 				<h:li>Success of update operation</h:li></h:ul></audit>
 			<dependencies>FCS_COP.1 Cryptographic Operations</dependencies>
@@ -12510,7 +12514,7 @@
 			<management>The following actions could be considered for the management functions in FMT:<h:ul>
 				<h:li>Configuration of action to take on an update failure.</h:li></h:ul></management>
 			<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included
-				in the PP, PP-Module, functional package or ST:<h:ul><h:li>Failure of update authentication/integrity check/rollback</h:li>
+				in the PP, PP-Module, functional package, or ST:<h:ul><h:li>Failure of update authentication/integrity check/rollback</h:li>
 				<h:li>Failure of update operation</h:li>
 				<h:li>Success of update operation</h:li></h:ul></audit>
 			<dependencies>FPT_ROT_EXT.2 Platform Integrity Extension</dependencies>
@@ -13093,7 +13097,7 @@
     			</h:ol>
     		</management>
     		<audit>The following actions should be auditable if FAU_GEN Security audit data
-    			generation is included in the PP, PP-Module, functional package or ST:
+    			generation is included in the PP, PP-Module, functional package, or ST:
     			<h:ol type="a">
     				<h:li>Initiation of the trusted channel.</h:li>
     				<h:li>Termination of the trusted channel.</h:li>
