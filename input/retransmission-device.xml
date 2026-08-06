@@ -8785,7 +8785,7 @@
 				<note role="application">
 					Generated PSKs are expected to be shared between components via an out-of-band mechanism.
 				</note>
-				<aactivity>
+				<aactivity> <comment>Need to complete EAs</comment>
 					<TSS/>
 					<Guidance/>
 					<Tests/>
@@ -10432,10 +10432,7 @@
     		</f-element>
     		<f-element>
     			<title>The TSF shall prevent the reading of plaintext administrative passwords.</title>
-    			<note role="application">
-    				This requirement is applicable only if the TOE provides its own password-based
-    				authentication mechanism. Thus it is included in the ST only if "<h:i>password-based
-    				authentication mechanism</h:i>" is selected in FIA_UAU_EXT.1.1.<h:p/>
+    			<note role="application">    				
     				The intent of the requirement is that raw password authentication data are not
     				stored in the clear, and that no user or administrator is able to read the plaintext
     				password through normal interfaces. An all-powerful administrator 
@@ -10870,8 +10867,8 @@
     				value derived from passwords. Thus, the TOE cannot store plaintext password hashes for
     				comparison purposes before protected data is decrypted, and the TOE should use key
     				derivation and decryption to verify the Password Authentication Factor.
-    				<h:p/> If "<h:i>hybrid</h:i>" is selected in FIA_UAU.5.1, keying
-    				material also refers to the PIN/password used as part of the hybrid authentication. </note>
+    				 
+    			</note>
     			<aactivity>
     				<TSS>The evaluator shall consult the TSS section of the ST in performing the Evaluation
     					Activities for this requirement. <h:p/> 
@@ -11927,24 +11924,23 @@
     			and resolved to a known secure state.</fam-behavior>
     	</ext-comp-def>
     	
-    	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" status="invisible">
-    		
+    	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" status="invisible">    		
     	<consistency-rationale/>
-    		<comp-lev>requires the TSF to identify PFED transactions, prevent concurrent or nested PFED transactions, enforce a reaper timer, and clean up the PFED state before
-    			subsequent transactions are permitted.</comp-lev>
+    		<comp-lev>requires the TSF to identify PFED transactions, prevent concurrent or nested PFED transactions, enforce a reaper timer, and clean up the PFED
+    			state before subsequent transactions are permitted.</comp-lev>
     		<management>The following actions could be considered for the management functions in FMT:<h:ul>
     			<h:li>Configuration of the transaction timeout/reaper interval, if configurable.</h:li>
     			<h:li>Initiation or cancellation of administrator-initiated PFED lifecycle transactions, if supported.</h:li>
     			<h:li>Review of transaction status, if exposed by the TOE.</h:li>    			
     		</h:ul>
     		</management>
-    		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or ST:<h:ul>
+    		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or
+    			ST:<h:ul>
     			<h:li>Initiation, successful completion, failure, abortion, or timeout of a PFED transaction.</h:li> 
     			<h:li>Attempted nested or concurrent PFED transaction.</h:li> 
     			<h:li>Reaper-timer expiration and resulting TOE action.</h:li>
     			<h:li>Transition to recovery or fail-secure state caused by transaction failure.</h:li>
     		</h:ul><h:br/>
-    			No audit record shall include secret keying material.
     		</audit>
     		<dependencies>FTP_ITC.1 Inter-TSF Trusted Channel<h:p/>
     			FCS_CKM.5 Cryptographic Key Derivation<h:p/>
@@ -11960,8 +11956,7 @@
     	</f-component>
     	
     	<f-component name="Transaction Control" cc-id="fpt_tran_ext.1" iteration="PFED" status="feat-based">
-    		<depends on="pfed"/>
-    		
+    		<depends on="pfed"/>    		    		
     		<f-element id="fdp-tran-ext-1e1">
     			<title>
     				The TSF shall treat the following PFED operations as PFED transactions: <selectables>
@@ -11987,14 +11982,14 @@
     		</f-element>
     		<f-element id="fdp-tran-ext-1e3">
     			<title>
-    				The TSF shall prevent an active PFED transaction from initiating another PFED transaction before the active transaction has completed, aborted, failed, or
-    				been reaped.
+    				The TSF shall prevent an active PFED transaction from initiating another PFED transaction before the active transaction has completed, aborted,
+    				failed, or been reaped.
     			</title>
     		</f-element>
     		<f-element id="fdp-tran-ext-1e4">
     			<title>
-    				The TSF shall start a reaper timer when a PFED transaction begins and shall stop or disable the reaper timer only when the transaction completes, aborts,
-    				fails, or transitions to the recovery or fail-secure state selected in FPT_TRAN_EXT.1.5.
+    				The TSF shall start a reaper timer when a PFED transaction begins and shall stop or disable the reaper timer only when the transaction
+    				completes, aborts, fails, or transitions to the recovery or fail-secure state selected in FPT_TRAN_EXT.1.5.
     			</title>
     		</f-element>
     		<f-element id="fdp-tran-ext-1e5">
@@ -12010,13 +12005,16 @@
     		</f-element>
     		<f-element id="fdp-tran-ext-1e6">
     			<title>
-    				The TSF shall permit a subsequent PFED transaction only after cryptographic state, protocol state, and transaction state from the completed, aborted, 
-    				failed, or reaped transaction have been cleaned up in accordance with the applicable PFED SFRs.
+    				The TSF shall permit a subsequent PFED transaction only after cryptographic state, protocol state, and transaction state from the completed, 
+    				aborted, failed, or reaped transaction have been cleaned up in accordance with the applicable PFED SFRs.
     			</title>    		
     		<note role="application">
-    				The intent of this requirement is to ensure that PFED transaction processing remains serialized, bounded, and fail-safe so that the TOE does not enter ambiguous or conflicting security states due to overlapping lifecycle operations.<h:p/>
-    				The EU transactions must be atomic. For example, if the EU pair is in a key recovery transaction and a timeout for rekey happens, the rekey transaction does not start until the current recovery transaction completes or restarts the session. When a transaction begins, a transaction reaper timer must also start so that if the transaction gets into an endless or fails, the reaper guarantees the EU either restarts the session or stops altogether. When the transaction completes, the reaper is disabled.
-    				
+    				The intent of this requirement is to ensure that PFED transaction processing remains serialized, bounded, and fail-safe so that the TOE does
+    				not enter ambiguous or conflicting security states due to overlapping lifecycle operations.<h:p/>
+    				The EU transactions must be atomic. For example, if the EU pair is in a key recovery transaction and a timeout for rekey happens, the rekey
+    				transaction does not start until the current recovery transaction completes or restarts the session. When a transaction begins, a transaction
+    				reaper timer must also start so that if the transaction gets into an endless or fails, the reaper guarantees the EU either restarts the session
+    				or stops altogether. When the transaction completes, the reaper is disabled.    				
     			</note>
     			<aactivity>
     				<TSS>
@@ -12028,31 +12026,37 @@
     						<h:li>Describes what starts the reaper timer. </h:li> 
     						<h:li>Describes what stops or satisfies the reaper timer. </h:li> 
     						<h:li>Describes the TOE action taken when the reaper timer expires. </h:li> 
-    						<h:li>Describes any distinctions among transaction types, if different PFED transactions have different timeout or control behavior. </h:li> 
+    						<h:li>Describes any distinctions among transaction types, if different PFED transactions have different timeout or control behavior.
+    						</h:li> 
     						<h:li>Describes how the TOE handles an attempted second transaction while one is already active. </h:li> 
     						<h:li>Describes how the TOE returns to a secure or usable state after transaction completion, abort, or timeout. </h:li>
     					</h:ul>
-    					The evaluator shall determine that the TSS is consistent with the PFED lifecycle operations described in the PFED Configuration section and that the TOE’s transaction model prevents concurrency and nesting while bounding active transaction lifetime.
-    					
+    					The evaluator shall determine that the TSS is consistent with the PFED lifecycle operations described in the PFED Configuration section 
+    					and that the TOE’s transaction model prevents concurrency and nesting while bounding active transaction lifetime.    					
     				</TSS>
     				<Guidance/>
     				<Tests>
     					The evaluator shall perform the following tests.
     					<testlist>
-    						<test> One transaction at a time: The evaluator shall cause the TOE to begin one PFED transaction and then attempt to begin a second PFED transaction before the first has completed. The evaluator shall verify that the TOE does not allow both transactions to proceed concurrently. </test><h:p/>
-    						<test> No nested transactions: The evaluator shall attempt to invoke a PFED transaction while another PFED transaction is active in a way that would constitute nesting and verify that the TOE prohibits the nested transaction. </test><h:p/>
-    						<test> Reaper timer enforcement: The evaluator shall cause a PFED transaction to remain incomplete past the claimed timeout condition and verify that the TOE enforces the reaper timer behavior described in the TSS and guidance. </test><h:p/>
-    						<test> Post-timeout behavior: After reaper-timer expiration, the evaluator shall verify that the TOE performs the claimed timeout action, such as cleanup, abort, return to an idle state, or secure recovery behavior, and does not leave the timed-out transaction active indefinitely. </test><h:p/>
-    						<test> Transaction sequencing after completion or timeout: The evaluator shall verify that, once an active transaction has completed or been reaped, the TOE can then permit the next PFED transaction in accordance with the TSS and guidance. </test><h:p/>
+    						<test> One transaction at a time: The evaluator shall cause the TOE to begin one PFED transaction and then attempt to begin a second
+    							PFED transaction before the first has completed. The evaluator shall verify that the TOE does not allow both transactions to 
+    							proceed concurrently. </test>
+    						<test> No nested transactions: The evaluator shall attempt to invoke a PFED transaction while another PFED transaction is active in a
+    							way that would constitute nesting and verify that the TOE prohibits the nested transaction. </test>
+    						<test> Reaper timer enforcement: The evaluator shall cause a PFED transaction to remain incomplete past the claimed timeout condition
+    							and verify that the TOE enforces the reaper timer behavior described in the TSS and guidance. </test>
+    						<test> Post-timeout behavior: After reaper-timer expiration, the evaluator shall verify that the TOE performs the claimed timeout
+    							action, such as cleanup, abort, return to an idle state, or secure recovery behavior, and does not leave the timed-out transaction
+    							active indefinitely. </test>
+    						<test> Transaction sequencing after completion or timeout: The evaluator shall verify that, once an active transaction has completed or
+    							been reaped, the TOE can then permit the next PFED transaction in accordance with the TSS and guidance. </test>
     					</testlist>
-    					These tests may be combined where appropriate. The purpose of this evaluation is to confirm that PFED transaction processing is serialized, non-nestable, and bounded by timeout control.
-    					
+    					These tests may be combined where appropriate. The purpose of this evaluation is to confirm that PFED transaction processing is serialized,
+    					non-nestable, and bounded by timeout control.    					
     				</Tests>
     			</aactivity>
     		</f-element>
     		<audit-event table="feat-based"/>
-    		
-    		
     	</f-component>
 	      
     	<f-component cc-id="fpt_tst.1" name="TSF Self-Test">
