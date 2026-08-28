@@ -1822,17 +1822,13 @@
 			</threat>
 			
 			<threat name="T.NETWORK_ACCESS">
-				<description>Devices located outside the protected network may seek to exercise services located on the protected network that are intended to only be accessed 
-					from inside the protected network or only accessed by entities using an authenticated path into the protected network. </description>
+				<description>An unauthenticated attacker on the black transport network may inject traffic that the TOE forwards across the red/black boundary, thereby reaching an EUD, a trusted network, or a TOE management interface that is intended to be reachable only from inside the protected enclave or only over an authenticated path. Failure of the TOE's interface filtering, information-flow, or protocol-break enforcement may result in unauthorized access to services and resources on the trusted side.</description>
 				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale>Mitigates the threat by filtering traffic to disallow unauthorized access.</rationale>
 				
 			</threat>	
 			
 			<threat name="T.NETWORK_ATTACK">
-				<description>An attacker is positioned on a communications channel or elsewhere on the network infrastructure. Attackers may initiate communications with the
-					TOE or alter communications between the TOE and other endpoints in order to compromise the TOE. An attacker from off the TOE can attempt to compromise the
-					TOE through a network interface connected to an active TOE component, such as a management subsystem. These attacks include malicious software update of any
-					applications or system software on the device. An attacker is actively interacting with or altering network traffic to compromise the TOE. </description>
+				<description>An attacker may obtain administrative privilege on the CU or EU by masquerading as an administrator, guessing or capturing credentials, exploiting weak authentication, or reaching one component's management interface from the other. Holding administrative privilege, the attacker could disable or relax filtering and isolation policy, weaken or disable cryptographic protection of EUD traffic, cause plaintext to be emitted on a black interface, read or replace key material, or suppress audit. </description>
 				<addressed-by>FAU_GEN.1</addressed-by><rationale>Mitigates the threat by maintaining an audit trail of potential malicious activity.
 				</rationale>
 				<addressed-by>FAU_SAR.1</addressed-by><rationale>Mitigates the threat by providing a mechanism to read the audit trail.
@@ -2073,7 +2069,7 @@
 			</threat>	
 			
 			<threat name="T.UNAUTHORIZED_PLATFORM_ADMINISTRATOR">
-    			<description>An attacker might be able to attain platform administrator status by defeating or bypassing authentication measures.</description>				
+				<description>An attacker may obtain administrative privilege on the CU or EU by masquerading as an administrator, guessing or capturing credentials, exploiting weak authentication, or reaching one component's management interface from the other. Holding administrative privilege, the attacker could disable or relax filtering and isolation policy, weaken or disable cryptographic protection of EUD traffic, cause plaintext to be emitted on a black interface, read or replace key material, or suppress audit.</description>				
 				<addressed-by>FIA_PMG_EXT.1</addressed-by><rationale>Mitigates the threat by enforcing password complexity requirements to prevent credentials from being easily guessed.</rationale>
 				<addressed-by>FIA_TRT_EXT.1</addressed-by><rationale>Mitigates the threat by throttling authentication to prevent access via brute force.</rationale>
 				<addressed-by>FPT_STM.1</addressed-by><rationale>Mitigates the threat by ensuring that time-based authentication throttling or lockout is accurately enforced.</rationale>
@@ -10730,7 +10726,54 @@
     		<f-element>
     			<title>The TOE initialization function shall ensure that certain properties hold on certain elements 
     				immediately before establishing the TSF in a secure initial state, as specified in Table 2: 
-    				Properties and assignments</title>
+    				
+    				<h:table>
+    					<h:tr style="text-align: center">
+    						<h:th>ID</h:th>
+    						<h:th>Properties</h:th>
+    						<h:th>Elements</h:th>
+    						<h:th>Applicability</h:th>
+    					</h:tr>
+    					
+    					<h:tr style="text-align: center">
+    						<h:td>1</h:td>
+    						<h:td>Correct operation/success</h:td>
+    						<h:td>Cryptographic module, DRBG and entropy source, and other TSF self-test subjects</h:td>
+    						<h:td style="text-align: center">All</h:td>    						
+    					</h:tr>
+    					<h:tr style="text-align: center">
+    						<h:td>2</h:td>
+    						<h:td>Authenticity, integrity and correct version</h:td>
+    						<h:td>TSF firmware and software</h:td>
+    						<h:td style="text-align: center">All</h:td>  						
+    					</h:tr>
+    					<h:tr style="text-align: center">
+    						<h:td>3</h:td>
+    						<h:td>Integrity, correct value</h:td>
+    						<h:td>Configuration data implementing the packet filtering ruleset and the information flow control SFP, including network interface role 
+    							assignments</h:td>
+    						<h:td style="text-align: center">All</h:td>
+    					</h:tr>
+    					<h:tr style="text-align: center">
+    						<h:td>4</h:td>
+    						<h:td>Integrity, correct value</h:td>
+    						<h:td>X.509 trust anchor store and other credentials used to verify update authenticity and peer identity</h:td>
+    						<h:td style="text-align: center">All</h:td>
+    					</h:tr>
+    					<h:tr style="text-align: center">
+    						<h:td>5</h:td>
+    						<h:td>Availability, platform binding</h:td>
+    						<h:td>Hardware-protected Root Key</h:td>
+    						<h:td style="text-align: center">PFED</h:td>
+    					</h:tr>
+    					<h:tr style="text-align: center">
+    						<h:td>6</h:td>
+    						<h:td>Correct value</h:td>
+    						<h:td>Provisioning state record and tunnel-0 pre-shared key state</h:td>
+    						<h:td style="text-align: center">PFED</h:td>
+    					</h:tr>
+    				</h:table>
+    			</title>
     		</f-element>
     		<f-element>
     			<title>
@@ -11277,7 +11320,12 @@
 					</aactivity>
 				</f-element>
 				<audit-event>
-					<audit-event-descr>TBD</audit-event-descr>
+					<audit-event-descr><h:ul>
+					<h:li>Entry into maintenance mode</h:li>
+					<h:li>Successful and failed manual recovery</h:li>
+					<h:li>Exit from maintenance mode</h:li>
+					</h:ul>
+					</audit-event-descr>
 				</audit-event>
 			</f-component>
 			
@@ -12283,9 +12331,7 @@
     			</ext-comp-def-title>
     			<note role="application">
     				The purpose of the platform firmware update mechanism is to ensure the authenticity and integrity of
-    				platform firmware updates. <h:p/>
-    				If platform firmware is immutable (not updateable by any non-destructive means), then the ST author selects 
-    				"<h:i>no mechanism for platform firmware update</h:i>."<h:p/>
+    				platform firmware updates. <h:p/>    				
     				If the platform implements an update mechanism that does not require physical presence at the platform, and 
     				that authenticates firmware updates prior to installing them, then the ST author selects 
     				"<h:i>an authenticated platform firmware update mechanism...</h:i>" and includes FPT_TUD_EXT.2 
@@ -12299,12 +12345,6 @@
     			</note>
     			<aactivity>
     				<TSS>
-    					If the ST author selects "<h:i>no provision for platform firmware update</h:i>," then the 
-    					evaluator shall examine the TSS to ensure that it explains all ways of modifying platform 
-    					firmware in the absence of any provided mechanism. For example, breaking open the case
-    					and prying a chip off the motherboard and then reprogramming the chip. The purpose of this
-    					activity is to ensure that the TOE does not implement a local update mechanism that does not
-    					meet the requirements of FPT_TUD_EXT.4.<h:p/>
     					This requirement is met if the platform implements no means for updating platform firmware
     					and the TSS describes a method for updating or replacing platform firmware that involves
     					potentially destroying or damaging the TOE or some of its components.<h:p/>
@@ -13215,7 +13255,17 @@
     			identification of its end points, protects channel data from disclosure, and detects modification
     			of the channel data. 
     		</title>
-    		
+    	</f-element>
+			
+			<f-element>
+				<title>The TSF shall permit [<h:i>the TSF, another trusted IT product</h:i>] to initiate communication via the trusted channel.</title>
+			</f-element>
+			
+			<f-element>
+				<title>The TSF shall initiate communication via the trusted channel for <assignable>list of
+					functions for which a trusted channel is required</assignable>.</title>
+			
+			
     		<note role="application"> 
     			The intent of the mandatory portion of the above requirement is to use the cryptographic protocols identified in the requirement to establish and
     			maintain a trusted channel between the TOE and a VPN Gateway, or other trusted IT product.<h:p/>
