@@ -257,7 +257,6 @@ output/retransmission-device-release-linkable.html: teardown
 output/retransmission-device-release-linkable.html: unauthorised
 output/retransmission-device-release-linkable.html: uninstantiating
 output/retransmission-device-release-linkable.html: unobscured
-output/retransmission-device-release-linkable.html: updateable
 output/retransmission-device-release-linkable.html: v1
 output/retransmission-device-release-linkable.html: v2
 output/retransmission-device-release-linkable.html: wirelessly
@@ -493,7 +492,6 @@ output/retransmission-device-release.html: teardown
 output/retransmission-device-release.html: unauthorised
 output/retransmission-device-release.html: uninstantiating
 output/retransmission-device-release.html: unobscured
-output/retransmission-device-release.html: updateable
 output/retransmission-device-release.html: v1
 output/retransmission-device-release.html: v2
 output/retransmission-device-release.html: wirelessly
@@ -724,7 +722,6 @@ output/retransmission-device.html: teardown
 output/retransmission-device.html: unauthorised
 output/retransmission-device.html: uninstantiating
 output/retransmission-device.html: unobscured
-output/retransmission-device.html: updateable
 output/retransmission-device.html: v1
 output/retransmission-device.html: v2
 output/retransmission-device.html: wirelessly
