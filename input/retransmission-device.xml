@@ -1118,15 +1118,6 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FCS_REKEY_EXT.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td>Mandatory when PFED-triggered; EU performs PFED periodic rekey.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
 					<h:td>FCS_STG_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">N/A</h:td>
@@ -1758,6 +1749,15 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
+					<h:td>FTP_PRO.1</h:td>
+					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center">N/A</h:td>
+					<h:td><comment>Need to complete this cell</comment></h:td>
+				</h:tr>
+				
+				<h:tr style="text-align: center">
 					<h:td>FTP_TRP.1</h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center">N/A</h:td>
@@ -1820,8 +1820,6 @@
 					protected network or if devices on the protected network can communicate with those external devices, then the data contained in the communications may be
 					susceptible to a loss of integrity or confidentiality.</description>
 				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale>Mitigates the threat by filtering traffic from outside the protected network.</rationale>
-				<addressed-by>FCS_REKEY_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by rekeying ensuring session keys are fresh and reduces the window for 
-					integrity compromise.</rationale>
 				
 				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by transmitting data over a secure connection protected from unauthorized
 					disclosure.</rationale>		
@@ -1928,8 +1926,7 @@
 				<addressed-by>FCS_REC_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by requiring that recovery keys are derived using HKDF tied to the current 
 					session key and refreshed at the same rate as session keys, ensuring that even if recovery messages are observed, key material remains
 					confidential.</rationale>
-				<addressed-by>FCS_REKEY_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by frequent rekeying reducing exposure of session keys to passive
-					attackers.</rationale>
+				
 				
 				<addressed-by>FCS_CKM.1/AKG (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring the generation of strong keys used for trusted communications.
 				</rationale>
@@ -2226,8 +2223,21 @@
 	<!-- 5.1 Security Functional Requirements -->
 	<sec:SFRs title="Security Functional Requirements">
 		<section id="ss-audit-table" title="Auditable Events for Mandatory SFRs">
-			<audit-table id="t-audit-mandatory" table="mandatory"/>
+			<audit-table id="at-mandatory" table="mandatory"/>
 		</section>
+		
+		<section id="sec-obj-audit-table" title="Auditable Events for Objective SFRs">
+			<audit-table id="at-objective" table="objective"/>
+		</section>
+		
+		<section id="sec-imp-audit-table" title="Auditable Events for Implementation-Dependent SFRs">
+			<audit-table id="at-feat-based" table="feat-based"/>
+		</section>
+		
+		<section id="sec-sel-audit-table" title="Auditable Events for Selection-Based SFRs">
+			<audit-table id="at-sel-based" table="sel-based"/>
+		</section>
+		
 		
 	<!-- 5.1.1 Security Audit (FAU) -->
 		<section title="Class FAU: Security Audit" id="fau">
@@ -7330,9 +7340,6 @@
 			<fam-behavior>This family defines requirements for session key recovery.</fam-behavior>
 		</ext-comp-def>
 		
-		<ext-comp-def title="Periodic Rekey" fam-id="FCS_REKEY_EXT">
-			<fam-behavior>This family defines requirements for session rekeying.</fam-behavior>
-		</ext-comp-def>		
 		
 		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1" status="invisible">
 			<comp-lev>requires the TSF to perform session rekey under specific circumstances.</comp-lev>
@@ -11911,7 +11918,6 @@
     		<dependencies>FTP_ITC.1 Inter-TSF Trusted Channel<h:p/>
     			FCS_CKM.5 Cryptographic Key Derivation<h:p/>
     			FCS_CKM.6 Timing and Event of Cryptographic Key Destruction<h:p/>
-    			FCS_REKEY_EXT.1 Periodic Rekey (if rekey is treated as a PFED transaction)<h:p/>
     			[FPT_FLS.1 Failure with Preservation of Secure State or
     			FPT_RCV_EXT.1 Recovery Behavior (if selected as an expiration/failure action]<h:p/>
     			FAU_GEN.1 Audit Data Generation (if auditable PFED transaction events are claimed)
@@ -12934,7 +12940,7 @@
       				<selectable><assignable>other trusted IT entities</assignable></selectable>
       			</selectables> using <selectables>
       			<selectable>MACsec in accordance with the PP-Module for MACsec Ethernet Encryption</selectable>
-      				<selectable>PFED in accordance with FCS_COP.1/PFEDSigGen, FCS_COP.1/PFEDSigVer, FCS_COP.1/PFEDKeyEncap, FCS_CKM.5, FCS_CKM.6, FCS_REKEY_EXT.1, and
+      				<selectable>PFED in accordance with FCS_COP.1/PFEDSigGen, FCS_COP.1/PFEDSigVer, FCS_COP.1/PFEDKeyEncap, FCS_CKM.5, FCS_CKM.6, and
       					FPT_TRAN_EXT.1</selectable>
       				<selectable>IPsec</selectable>
       				<selectable>WLAN</selectable>
@@ -13349,9 +13355,10 @@
     	</f-component>
 			
 			<f-component name="Trusted Channel Protocol" cc-id="ftp_pro.1" status="sel-based">
-				<depends on-sel="ftp_itc.1"/>
+				<depends on="ftp_itc.1"/>
 				<f-element id="ftp-pro-1e1">
 					<title>
+						<comment>Need to add threat mappings</comment>
 						The TSF shall implement <assignable>trusted channel protocol</assignable> acting as <assignable>
 							defined protocol role(s)</assignable> in accordance with: <assignable>list of standards</assignable>.
 					</title>					
