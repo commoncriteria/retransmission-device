@@ -56,6 +56,12 @@
 		</git>
 		<url>https://www.niap-ccevs.org/static_html/protection-profile/511/Functional%20Package%20for%20X.509_v1.0.html</url>
 	</include-pkg>
+
+ <pp-preferences>
+    <!--          <pp-pref name="display-audit-with-sfrs">0</pp-pref>   -->
+    <audit-events-in-sfrs/>
+  </pp-preferences>
+	
 	<!-- 1.0 Introduction -->
 	<sec:Introduction>
 
