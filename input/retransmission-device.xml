@@ -2226,21 +2226,8 @@
 	<!-- 5.1 Security Functional Requirements -->
 	<sec:SFRs title="Security Functional Requirements">
 		<section id="ss-audit-table" title="Auditable Events for Mandatory SFRs">
-			<audit-table id="at-mandatory" table="mandatory"/>
+			<audit-table id="t-audit-mandatory" table="mandatory"/>
 		</section>
-		
-		<section id="sec-obj-audit-table" title="Auditable Events for Objective SFRs">
-			<audit-table id="at-objective" table="objective"/>
-		</section>
-		
-		<section id="sec-imp-audit-table" title="Auditable Events for Implementation-Dependent SFRs">
-			<audit-table id="at-feat-based" table="feat-based"/>
-		</section>
-		
-		<section id="sec-sel-audit-table" title="Auditable Events for Selection-Based SFRs">
-			<audit-table id="at-sel-based" table="sel-based"/>
-		</section>
-		
 		
 	<!-- 5.1.1 Security Audit (FAU) -->
 		<section title="Class FAU: Security Audit" id="fau">
