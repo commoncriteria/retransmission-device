@@ -241,7 +241,6 @@ output/retransmission-device-release-linkable.html: pluggable
 output/retransmission-device-release-linkable.html: pseudocode
 output/retransmission-device-release-linkable.html: reauthenticate
 output/retransmission-device-release-linkable.html: reinitialization
-output/retransmission-device-release-linkable.html: rekeying
 output/retransmission-device-release-linkable.html: reprovisioning
 output/retransmission-device-release-linkable.html: routable
 output/retransmission-device-release-linkable.html: ruleset
@@ -475,7 +474,6 @@ output/retransmission-device-release.html: pool’
 output/retransmission-device-release.html: pseudocode
 output/retransmission-device-release.html: reauthenticate
 output/retransmission-device-release.html: reinitialization
-output/retransmission-device-release.html: rekeying
 output/retransmission-device-release.html: reprovisioning
 output/retransmission-device-release.html: routable
 output/retransmission-device-release.html: ruleset
@@ -704,7 +702,6 @@ output/retransmission-device.html: pool’
 output/retransmission-device.html: pseudocode
 output/retransmission-device.html: reauthenticate
 output/retransmission-device.html: reinitialization
-output/retransmission-device.html: rekeying
 output/retransmission-device.html: reprovisioning
 output/retransmission-device.html: routable
 output/retransmission-device.html: ruleset
