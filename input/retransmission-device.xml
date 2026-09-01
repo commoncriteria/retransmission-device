@@ -12933,7 +12933,7 @@
       		<title> 
       			The TSF shall provide a communication channel between itself and <h:b><selectables>
       				<selectable>a MACsec peer</selectable>
-      				<selectable>a PFED peer</selectable>
+      				<selectable id="pfed-peer">a PFED peer</selectable>
       				<selectable>an IPsec peer</selectable>
       				<selectable>a WLAN peer</selectable>
       				<selectable>a trusted administrative IT entity</selectable>
@@ -13355,10 +13355,10 @@
     	</f-component>
 			
 			<f-component name="Trusted Channel Protocol" cc-id="ftp_pro.1" status="sel-based">
-				<depends on="ftp_itc.1"/>
+				<depends on-sel="pfed-peer"/>
 				<f-element id="ftp-pro-1e1">
 					<title>
-						<comment>Need to add threat mappings</comment>
+						<comment>Need to add threat mappings</comment><h:p/>
 						The TSF shall implement <assignable>trusted channel protocol</assignable> acting as <assignable>
 							defined protocol role(s)</assignable> in accordance with: <assignable>list of standards</assignable>.
 					</title>					
