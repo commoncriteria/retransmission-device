@@ -11568,8 +11568,7 @@
     			<title>
     				The TSF shall permit a subsequent PFED transaction only after cryptographic state, protocol state, and transaction state from the completed, 
     				aborted, failed, or reaped transaction have been cleaned up in accordance with the applicable PFED SFRs.
-    			</title>    		
-    		<note role="application"/>
+    			</title> 
     			<aactivity>
     				<TSS>
     					The evaluator shall verify that the TSS defines the start event, terminal events, active-state indicator, maximum simultaneous transaction limit, reaper
