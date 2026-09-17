@@ -1672,7 +1672,7 @@
   
 	<!-- 2.0 Conformance Claims -->
 	<sec:Conformance_Claims boilerplate="no">
-		<CClaimsInfo cc-version="cc-2022r1" cc-errata="v1.0" cc-approach="direct-rationale" display="no">
+		<CClaimsInfo cc-version="cc-2022r1" cc-errata="v1.0" cc-approach="direct-rationale" display="yes">
 			<cc-st-conf>exact</cc-st-conf>       
 			<cc-pt2-conf>extended</cc-pt2-conf>
 			<cc-pt3-conf>extended</cc-pt3-conf>
@@ -1704,7 +1704,7 @@
 				</FP-cc-ref>
 				
 				<FP-cc-ref conf="conformant">
-					<cc-doc-ref id="x509">
+					<cc-doc-ref id="X509">
 						<git>
 							<url>https://github.com/commoncriteria/x509</url>
 							<branch>release-1.0</branch>
