@@ -1068,10 +1068,10 @@ xsltStylePreCompute: unknown xsl:apply-template
 * Warning: Detected an empty _p_ element./PP[1]""/appendix[3]"This appe"/h:p[1]""
 Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[2]""/cc-doc-ref[1]""
 Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[1]""/cc-doc-ref[1]""
-Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[3]""/cc-doc-ref[1]""
+ Failed to find a reference to x509.
 Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[2]""/cc-doc-ref[1]""
 Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[1]""/cc-doc-ref[1]""
-Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[3]""/cc-doc-ref[1]""
+ Failed to find a reference to x509.
  Failed to find a reference to mf-audioVisual.
  Failed to find a reference to pkg-x509.
  Failed to find a reference to pkg-x509.
@@ -1082,5 +1082,5 @@ Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CCl
  Failed to find a reference to xmss-test-cases.
 Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[2]""/cc-doc-ref[1]""
 Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[2]""/cc-doc-ref[1]""
-Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[3]""/cc-doc-ref[1]""
+ Failed to find a reference to x509.
 Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[1]""/cc-doc-ref[1]""

@@ -2236,7 +2236,54 @@ The following sections list Common Criteria and technology terms used in this do
 			
 		
   <h1 class="indexable" data-level="1" id="Conformance_Claims">2 Conformance Claims</h1>
+		<dl><dt>Conformance Statement</dt><p></p><dd>An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim exact conformance 
+		 to this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.</dd><p></p><dd>The evaluation methods used for evaluating the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are a combination of the workunits 
+			defined in <a href="#bibCEM">[CEM]</a> as well as the Evaluation Activities for ensuring that individual <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> 
+			and <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr> have a sufficient level of supporting evidence in the Security Target and guidance 
+			documentation and have been sufficiently tested by the laboratory as part of completing 
+			<a href="#ATE_IND.1">ATE_IND.1</a>. Any functional packages this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> claims similarly contain their own Evaluation 
+			Activities that are used in this same manner.
+			</dd><dt>CC Conformance Claims</dt><p></p><dd>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is conformant to 
+			Part 2 (extended) 
 			
+			
+			and Part 3 (extended)
+			
+				of Common Criteria <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1 as corrected and interpreted in <a href="#bibERRv10">[ERR]</a>, Version 1.0.
+			</dd><dt>PP Claim</dt><p></p><dd>
+					This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not claim conformance to 
+					any Protection Profile.
+				</dd><p></p><dd>The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a 
+					<abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>:
+					<ul><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for MACsec Ethernet Encryption, Version 2.0</li><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for VPN Client, Version 3.0</li><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for WLAN Clients, Version 2.0</li></ul></dd><dt>Package Claim</dt><p></p><dd><ul><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is 
+					
+						
+							https://github.com/commoncriteria/ssh
+							release-2.0
+						
+						https://www.niap-ccevs.org/api/file/get_public_file/?file_id=34027
+					 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is 
+					
+						
+							https://github.com/commoncriteria/tls
+							release-2.1
+						
+						https://www.niap-ccevs.org/static_html/protection-profile/519/PKG_TLS_V2.1.html
+					 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> is 
+					
+						
+							https://github.com/commoncriteria/x509
+							release-1.0
+						
+						https://www.niap-ccevs.org/static_html/protection-profile/511/Functional%20Package%20for%20X.509_v1.0.html
+					 conformant.</li><li>This <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> does not conform to any 
+						assurance packages.</li></ul></dd><p></p><dd>
+		The functional packages to which the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> conforms may include <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that are not mandatory 
+		to claim for the sake of conformance. An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> that claims one or more of these functional 
+		packages may include any non-mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that are appropriate to claim based on the 
+		capabilities of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and on any triggers for their inclusion based inherently on the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> 
+		selections made. 
+	</dd></dl>	
 		
 	<h1 class="indexable" data-level="1" id="Security_Problem_Definition">3 Security Problem Definition</h1>
 		The security problem is described in terms
@@ -2451,7 +2498,7 @@ The following sections list Common Criteria and technology terms used in this do
 	 					<li>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_1">Specifically defined auditable event in <a onclick="showTarget('at-objective')" href="#at-objective" class="at-objective-ref">Table  <span class="counter">3</span></a> 
 	 							for Objective requirements</span></li><li style=""><span class="selectable-content" id="_s_2">Specifically defined auditable event in <a onclick="showTarget('at-feat-based')" href="#at-feat-based" class="at-feat-based-ref">Table  <span class="counter">4</span></a> 
 	 							for Implementation-Dependent requirements</span></li><li style=""><span class="selectable-content" id="_s_3">Specifically defined auditable event in <a onclick="showTarget('at-sel-based')" href="#at-sel-based" class="at-sel-based-ref">Table  <span class="counter">5</span></a> 
-	 							for Selection-Based requirements</span></li><li style=""><span class="selectable-content" id="_s_4">Additional information defined in the audit table for the </span></li><li style=""><span class="selectable-content" id="_s_5">Additional information defined in the audit table for the </span></li><li style=""><span class="selectable-content" id="_s_6">Additional information defined in the audit table for the </span></li><li style=""><span class="selectable-content" id="_s_7">no additional auditable events</span></li></ul>].</li>
+	 							for Selection-Based requirements</span></li><li style=""><span class="selectable-content" id="_s_4">Additional information defined in the audit table for the </span></li><li style=""><span class="selectable-content" id="_s_5">Additional information defined in the audit table for the </span></li><li style=""><span class="selectable-content" id="_s_6">Additional information defined in the audit table for the <a href="#x509" class="dynref" data-format=""></a></span></li><li style=""><span class="selectable-content" id="_s_7">no additional auditable events</span></li></ul>].</li>
 	 				</ol>]
 	 			<div class="appnote"><span class="note-header">Application
       Note:
@@ -2503,7 +2550,7 @@ The following sections list Common Criteria and technology terms used in this do
 	 					<li>The outcome (success or failure) of the event</li>
 	 					<li>[For each auditable event type, based on the auditable event definitions of the functional components included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional
 	 						package or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, <span class="refinement">Additional information defined in <a onclick="showTarget('at-mandatory')" href="#at-mandatory" class="at-mandatory-ref">Table  <span class="counter">2</span></a></span>]</li>
-	 					<li><span class="refinement">[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_8">Additional information defined in <a onclick="showTarget('at-objective')" href="#at-objective" class="at-objective-ref">Table  <span class="counter">3</span></a> for Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_9">Additional information defined in <a onclick="showTarget('at-feat-based')" href="#at-feat-based" class="at-feat-based-ref">Table  <span class="counter">4</span></a> for Implementation-Dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_10">Additional information defined in <a onclick="showTarget('at-sel-based')" href="#at-sel-based" class="at-sel-based-ref">Table  <span class="counter">5</span></a> for Selection-Based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_11">Additional information defined in the audit table for the </span></li><li style=""><span class="selectable-content" id="_s_12">Additional information defined in the audit table for the </span></li><li style=""><span class="selectable-content" id="_s_13">Additional information defined in the audit table for the </span></li><li style=""><span class="selectable-content" id="_s_14">no other information</span></li></ul>].</span></li>
+	 					<li><span class="refinement">[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_8">Additional information defined in <a onclick="showTarget('at-objective')" href="#at-objective" class="at-objective-ref">Table  <span class="counter">3</span></a> for Objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_9">Additional information defined in <a onclick="showTarget('at-feat-based')" href="#at-feat-based" class="at-feat-based-ref">Table  <span class="counter">4</span></a> for Implementation-Dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_10">Additional information defined in <a onclick="showTarget('at-sel-based')" href="#at-sel-based" class="at-sel-based-ref">Table  <span class="counter">5</span></a> for Selection-Based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></span></li><li style=""><span class="selectable-content" id="_s_11">Additional information defined in the audit table for the </span></li><li style=""><span class="selectable-content" id="_s_12">Additional information defined in the audit table for the </span></li><li style=""><span class="selectable-content" id="_s_13">Additional information defined in the audit table for the <a href="#x509" class="dynref" data-format=""></a></span></li><li style=""><span class="selectable-content" id="_s_14">no other information</span></li></ul>].</span></li>
 	 					<li><b>For <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr>, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall generate audit records for the following events.<ul>
 	 						<li>Provisioning</li>
 	 						<li>Session setup and termination</li>
@@ -11444,7 +11491,7 @@ The following sections list Common Criteria and technology terms used in this do
 						The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> must support a password authentication factor and may optionally implement a biometric authentication factor.<p></p>
 						The password authentication factor is configured according to <a href="#FIA_PMG_EXT.1">FIA_PMG_EXT.1</a>.<p></p>
 						If "<i>certificate-based authentication</i>" is selected, then the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must include FIA_X509_EXT.1 and FIA_X509_EXT.2
-						from .<p></p>
+						from <a href="#x509" class="dynref" data-format=""></a>.<p></p>
 						If "<i>public key-based authentication</i>" is selected, then the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim the .<p></p>
 						
 						If "<i>support for cryptographic mutual authentication using ML-DSA-87...</i>" is selected, the intent is to ensure that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports a
