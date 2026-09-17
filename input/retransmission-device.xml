@@ -1654,7 +1654,7 @@
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center">N/A</h:td>
-					<h:td><comment>Need to complete this cell</comment></h:td>
+					<h:td>Mandatory when PFED is selected in FTP_ITC.1; defines the PFED trusted channel protocol between paired HWS-ERD EUs.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1742,13 +1742,13 @@
 			
 			<threat name="T.DATA_INTEGRITY">
 				<description>Devices on a protected network may be exposed to threats presented by devices located outside the protected network that may attempt to modify the 
-					data without authorization or determine the contents of secure communication. If known malicious external devices are able to communicate with devices on the
-					protected network or if devices on the protected network can communicate with those external devices, then the data contained in the communications may be
-					susceptible to a loss of integrity or confidentiality.</description>
-				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale>Mitigates the threat by filtering traffic from outside the protected network.</rationale>
-				
+					data without authorization or determine the contents of secure communication. If known malicious external devices are able to communicate with devices on 
+					the protected network or if devices on the protected network can communicate with those external devices, then the data contained in the communications may
+					be susceptible to a loss of integrity or confidentiality.</description>
+				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale>Mitigates the threat by filtering traffic from outside the protected network.</rationale>				
 				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by transmitting data over a secure connection protected from unauthorized
 					disclosure.</rationale>		
+				<addressed-by>FTP_PRO.1 (sel-based)</addressed-by><rationale>Mitigates the threat by defining the PFED trusted channel protocol, whose AES-GCM-256 protection provides integrity and confidentiality for data exchanged between paired EUs.</rationale>
 			</threat>
 			
 			<threat name="T.NETWORK_ACCESS">
@@ -1797,7 +1797,7 @@
 				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by implementing AEAD functions used for trusted communications.</rationale>
 				<addressed-by>FCS_COP.1/CMAC (sel-based)</addressed-by><rationale>Mitigates the threat by implementing CMAC functions used for trusted communications.</rationale>
 				<addressed-by>FCS_COP.1/Hash (sel-based)</addressed-by><rationale>Mitigates the threat by implementing hash functions used for trusted communications.</rationale>
-				<addressed-by>FCS_COP.1/KeyedHash (sel-based)</addressed-by><rationale><comment>TBD</comment></rationale>
+				<addressed-by>FCS_COP.1/KeyedHash (sel-based)</addressed-by><rationale>Mitigates the threat by implementing keyed-hash message authentication functions used to protect the integrity and authenticity of trusted communications.</rationale>
 				<addressed-by>FCS_COP.1/SigGen (sel-based)</addressed-by><rationale>Mitigates the threat by implementing signature generation functions used for trusted
 					communications.</rationale>
 				<addressed-by>FCS_COP.1/SigVer (sel-based)</addressed-by><rationale>Mitigates the threat by implementing signature verification functions used for trusted
@@ -1830,12 +1830,10 @@
 					unauthorized activities. If malicious external devices are able to communicate with devices on the protected network, or if devices on the protected network
 					can establish communications with those external devices (e.g., as a result of nonexistent or insufficient data encryption that exposes the data in transit
 					to rogue elements), then those internal devices may be susceptible to the unauthorized disclosure of information.</description>
-				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale></rationale>
+				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale>Mitigates the threat by filtering traffic between the protected and external networks so that only authroized flows are permitted, preventing unauthorized disclosure of information to external devices.</rationale>
 				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat by executing self tests in a specified, repeatable manner.</rationale>
 				<addressed-by>FPT_TST_EXT.1</addressed-by><rationale>Mitigates the threat by executing self tests in a specified, repeatable manner.</rationale>
-				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ceasing operations of the TSF if a test or security failure is detected, preventing a
-					failure in traffic filtering.</rationale>
-				
+				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ceasing operations of the TSF if a test or security failure is detected, preventing a failure in traffic filtering.</rationale>
 			</threat>
 			
 			<threat name="T.NETWORK_EAVESDROP">
@@ -1848,8 +1846,6 @@
 				<addressed-by>FCS_REC_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by requiring that recovery keys are derived using HKDF tied to the current 
 					session key and refreshed at the same rate as session keys, ensuring that even if recovery messages are observed, key material remains
 					confidential.</rationale>
-				
-				
 				<addressed-by>FCS_CKM.1/AKG (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring the generation of strong keys used for trusted communications.
 				</rationale>
 				<addressed-by>FCS_CKM.1/SKG (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring the generation of strong keys used for trusted communications.</rationale>
@@ -1867,6 +1863,7 @@
 				<addressed-by>FCS_HTTPS_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing a secure protocol (HTTPS) for trusted communications.</rationale>
 				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
 					insecure keys.</rationale>
+				<addressed-by>FTP_PRO.1 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing a defined PFED trusted channel lprotocol with mutually authenticated endpoints.</rationale>
 			</threat>		
 				
 			<threat name="T.PERSISTENT_PRESENCE">
@@ -1948,6 +1945,7 @@
 					receiver.</description>
 				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by using a specified protocol to encapsulate and encrypt channel
 					data.</rationale>
+				<addressed-by>FTP_PRO.1 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing PFED protocol rules, including AES-GCM anti-replay protection, so that captured packets replayed later are rejected by the peer EU.</rationale>
 			</threat>
 			
 			<threat name="T.SECURITY_FUNCTIONALITY_FAILURE">
@@ -2163,7 +2161,7 @@
 	 							for Selection-Based requirements</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
-	 						<selectable>Additional information defined in the audit table for the <xref to="x509"/></selectable>
+	 						<selectable>Additional information defined in the audit table for the <xref to="X509"/></selectable>
 	 						<selectable exclusive="yes">no additional auditable events</selectable>
 	 					</selectables>.</h:li>
 	 				</h:ol>]
@@ -2226,7 +2224,7 @@
 	 						<selectable>Additional information defined in <xref to="at-sel-based"/> for Selection-Based SFRs</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
-	 						<selectable>Additional information defined in the audit table for the <xref to="x509"/></selectable>
+	 						<selectable>Additional information defined in the audit table for the <xref to="X509"/></selectable>
 	 						<selectable exclusive="yes">no other information</selectable>
 	 					</selectables>.</refinement></h:li>
 	 					<h:li><h:b>For PFED, the TOE shall generate audit records for the following events.<h:ul>
@@ -2497,7 +2495,7 @@
 	 		</f-element>
 	 		<audit-event>
 	 			<audit-event-descr>
-	 				On failure of logging function, capture record of failure, and record upon restart of logging function.
+	 				On failure of logging function, capture record of failure, and record upon restart of logging function
 	 			</audit-event-descr>
 	 			<audit-event-info>None</audit-event-info>
 	 		</audit-event>
@@ -2582,7 +2580,7 @@
 	 		</f-element>
 	 		<audit-event>
 	 			<audit-event-descr>
-	 				Audit trail full. Overwrite of audit records is commencing.
+	 				Audit trail full. Overwrite of audit records is commencing
 	 			</audit-event-descr>
 	 			<audit-event-info>None</audit-event-info>
 	 		</audit-event>
@@ -3350,9 +3348,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-        	<audit-event table="sel-based">
-        		<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-        	</audit-event>
+        	<audit-event table="sel-based"/>
         </f-component>
 		
 		<f-component name="Cryptographic Key Generation - Asymmetric Key" cc-id="fcs_ckm.1" iteration="PFEDAKG" status="feat-based">
@@ -3528,9 +3524,7 @@
 					</Tests>				
 				</aactivity>
 			</f-element>
-			<audit-event table="sel-based">
-				<audit-event-descr><comment>Needs to be completed.</comment></audit-event-descr>
-			</audit-event>			
+			<audit-event table="sel-based"/>
 		</f-component>
 
 		<!-- FCS_CKM.2 -->
@@ -3583,9 +3577,7 @@
 					</Tests>
 				</aactivity>
 			</f-element>
-        	<audit-event table="sel-based">
-        		<audit-event-descr>Needs to be completed.</audit-event-descr>
-        	</audit-event>
+        	<audit-event table="sel-based"/>
         </f-component>
 		
 		<f-component name="Cryptographic Key Distribution" cc-id="fcs_ckm.2" iteration="PFED" status="feat-based">
@@ -7419,7 +7411,10 @@
 						</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event/>
+				<audit-event table="feat-based">
+					<audit-event-descr>Failure to establish an IPsecSA</audit-event-descr>
+					<audit-event-info>Reason for failure</audit-event-info>
+				</audit-event>
 			</f-component>
 			
 				<ext-comp-def fam-id="FDP_ITC_EXT" title="Key/Credential Import">
@@ -8150,7 +8145,7 @@
 						The TSF must support a password authentication factor and may optionally implement a biometric authentication factor.<h:p/>
 						The password authentication factor is configured according to FIA_PMG_EXT.1.<h:p/>
 						If "<h:i>certificate-based authentication</h:i>" is selected, then the ST must include FIA_X509_EXT.1 and FIA_X509_EXT.2
-						from <xref to="x509"/>.<h:p/>
+						from <xref to="X509"/>.<h:p/>
 						If "<h:i>public key-based authentication</h:i>" is selected, then the ST must claim the <xref to="ssh"/>.<h:p/>
 						
 						If "<h:i>support for cryptographic mutual authentication using ML-DSA-87...</h:i>" is selected, the intent is to ensure that the TOE supports a
@@ -8530,7 +8525,7 @@
 				</f-element>
 				<audit-event>
 					<audit-event-descr>Unsuccessful use of the user identification mechanism</audit-event-descr>
-					<audit-event-info>User identity provides, if any, and origin of the attempt (e.g., local console or management interface, or remote IP address.</audit-event-info>
+					<audit-event-info>User identity provides, if any, an origin of the attempt (e.g., local console or management interface, or remote IP address)</audit-event-info>
 				</audit-event>
 			</f-component>
 		</section>
@@ -8756,9 +8751,7 @@
 							OP.Import and OP.Create operations on objects OB.P_SDO, OB.T_SDO.</Tests>
 					</aactivity>
 				</f-element>
-				<audit-event>
-					<audit-event-descr>TBD</audit-event-descr>
-				</audit-event>
+				<audit-event/>
 			</f-component>
       	
 		<f-component id="sfr-fmt-smf-1" cc-id="fmt_smf.1" name="Specification of Management Functions">
@@ -12670,7 +12663,13 @@
     			<audit-event-info>Trusted channel protocol, non-TOE endpoint of connection</audit-event-info>
 		</audit-event> 
       	<audit-event>
-    			<audit-event-descr><comment>Needs to be completed for PFED</comment></audit-event-descr>
+    			<audit-event-descr>For PFED trusted channels:<h:ul>
+    				<h:li>Successful completion of PFED session setup</h:li>
+    				<h:li>PFED session termination</h:li>
+    				<h:li>Completion or failure of a PFED rekey transaction</h:li>
+    				<h:li>Initiation, successful completion, or timeout of a PFED session key recovery transaction</h:li>
+    			</h:ul></audit-event-descr>
+      		<audit-event-info>Transaction type, initiating EU+CU identity (per FAU_GEN.2/PFED), peer EU identity, and result</audit-event-info>
     		</audit-event>
       </f-component>   	
     	
@@ -12715,7 +12714,6 @@
 				<depends on-sel="pfed-peer"/>
 				<f-element id="ftp-pro-1e1">
 					<title>
-						<comment>Need to add threat mappings</comment><h:p/>
 						The TSF shall implement <assignable>trusted channel protocol</assignable> acting as <assignable>
 							defined protocol role(s)</assignable> in accordance with: <assignable>list of standards</assignable>.
 					</title>					
@@ -12771,6 +12769,59 @@
 						<Tests/>
 					</aactivity>
 				</f-element>
+				<audit-event table="sel-based">
+					<audit-event-descr>Failure of the trusted channel establishment</audit-event-descr>
+					<audit-event-info>Identification of the initiator and target of failed trusted channel establishment</audit-event-info>
+				</audit-event>
+				<audit-event table="sel-based">
+					<audit-event-descr>All attempted uses of the trusted channel</audit-event-descr>
+					<audit-event-info>Identification of the initiator and target of all trusted channel attempts</audit-event-info>
+				</audit-event>
+			</f-component>
+			
+			<f-component name="Trusted Channel Establishment" cc-id="ftp_pro.2" status="sel-based">
+				<f-element id="ftp-pro-2e1">
+					<title>The TSF shall establish a shared secret with its peer using one of the following
+						mechanisms: <assignable>list of key establishment mechanisms</assignable>.</title>
+				</f-element>
+				<f-element id="ftp-pro-2e2">
+					<title>The TSF shall authenticate <selectables>
+						<selectable>its peer</selectable>
+						<selectable>itself to its peer</selectable>
+					</selectables> using one of the following
+						mechanisms: <assignable>list of authentication mechanisms</assignable> and according to the
+						following rules: <assignable>list of rules for carrying out the authentication</assignable>.</title>
+				</f-element>
+				<f-element id="ftp-pro-2e3">
+					<title>The TSF shall use <assignable>key derivation function</assignable> to derive the following
+						cryptographic keys from a shared secret: <assignable>list of cryptographic keys</assignable>.</title>
+				</f-element>
+				<audit-event table="sel-based">
+					<audit-event-descr>Authentication failures during channel establishment</audit-event-descr>
+				</audit-event>
+				<audit-event table="sel-based">
+					<audit-event-descr>All authentication attemps</audit-event-descr>
+				</audit-event>
+			</f-component>
+			
+			<f-component name="Trusted Channel Data Protection" cc-id="ftp_pro.3" status="sel-based">
+				<f-element id="ftp-pro-3e1">
+					<title>The TSF shall protect data in transit from unauthorised disclosure using one of the
+						following mechanisms: <assignable>list of encryption mechanisms</assignable>.</title>
+				</f-element>
+				<f-element id="ftp-pro-3e2">
+					<title>The TSF shall protect data in transit from <selectables>
+						<selectable>modification</selectable>
+						<selectable>deletion</selectable>
+						<selectable>insertion</selectable>
+						<selectable>replay</selectable>						
+						<selectable><assignable>other</assignable></selectable>
+					</selectables> using one of the following mechanisms: <assignable>list of
+						integrity protection mechanisms</assignable>.</title>
+				</f-element>
+				<audit-event>
+					<audit-event-descr>Failures when attempting to verify channel properties in FTP_PRO.3.2</audit-event-descr>
+				</audit-event>
 			</f-component>
 			
     	<f-component name="Trusted Path" cc-id="ftp_trp.1" status="sel-based">
@@ -13750,7 +13801,7 @@
 
 	
   <appendix id="valguide" title="Validation Guidelines">
-    <comment>Needs to be completed.</comment>
+    
   </appendix>
 	
 	<appendix id="impsatreq" title="Implicitly Satisfied Requirements">
@@ -13760,11 +13811,6 @@
 		
 		This information benefits systems engineering activities which call for inclusion of particular security controls. Evaluation against the PP provides evidence that these			controls are present and have been evaluated.		
 	</appendix>
-	
-	<appendix id="usecase" title="Use Case Templates">
-		<comment>Needs to be completed.</comment>
-	</appendix>
-	
 	<bibliography>
 	  <cc-entry/>
       <entry id="bibOMB">
