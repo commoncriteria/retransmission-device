@@ -126,6 +126,7 @@ output/retransmission-device-release-linkable.html: IGRP
 output/retransmission-device-release-linkable.html: IOMMUs
 output/retransmission-device-release-linkable.html: IPLT
 output/retransmission-device-release-linkable.html: IPX
+output/retransmission-device-release-linkable.html: IPsecSA
 output/retransmission-device-release-linkable.html: Internetworking
 output/retransmission-device-release-linkable.html: Internodal
 output/retransmission-device-release-linkable.html: Ipsilon
@@ -202,7 +203,6 @@ output/retransmission-device-release-linkable.html: SoC
 output/retransmission-device-release-linkable.html: SoCs
 output/retransmission-device-release-linkable.html: SpectraLink
 output/retransmission-device-release-linkable.html: Subclause
-output/retransmission-device-release-linkable.html: TBD
 output/retransmission-device-release-linkable.html: TCF
 output/retransmission-device-release-linkable.html: TP
 output/retransmission-device-release-linkable.html: TTP
@@ -218,6 +218,8 @@ output/retransmission-device-release-linkable.html: Wi
 output/retransmission-device-release-linkable.html: Winternitz
 output/retransmission-device-release-linkable.html: XMSS
 output/retransmission-device-release-linkable.html: XTP
+output/retransmission-device-release-linkable.html: attemps
+output/retransmission-device-release-linkable.html: authroized
 output/retransmission-device-release-linkable.html: behaviour
 output/retransmission-device-release-linkable.html: cPPs
 output/retransmission-device-release-linkable.html: ciphertexts
@@ -246,6 +248,7 @@ output/retransmission-device-release-linkable.html: lifecycle
 output/retransmission-device-release-linkable.html: liveness
 output/retransmission-device-release-linkable.html: lockscreen
 output/retransmission-device-release-linkable.html: log2
+output/retransmission-device-release-linkable.html: lprotocol
 output/retransmission-device-release-linkable.html: netconf
 output/retransmission-device-release-linkable.html: perfrom
 output/retransmission-device-release-linkable.html: pluggable
@@ -366,6 +369,7 @@ output/retransmission-device-release.html: IGRP
 output/retransmission-device-release.html: IOMMUs
 output/retransmission-device-release.html: IPLT
 output/retransmission-device-release.html: IPX
+output/retransmission-device-release.html: IPsecSA
 output/retransmission-device-release.html: Interface’
 output/retransmission-device-release.html: Internetworking
 output/retransmission-device-release.html: Internodal
@@ -444,7 +448,6 @@ output/retransmission-device-release.html: SoC
 output/retransmission-device-release.html: SoCs
 output/retransmission-device-release.html: SpectraLink
 output/retransmission-device-release.html: Subclause
-output/retransmission-device-release.html: TBD
 output/retransmission-device-release.html: TCF
 output/retransmission-device-release.html: TP
 output/retransmission-device-release.html: TTP
@@ -461,6 +464,8 @@ output/retransmission-device-release.html: Winternitz
 output/retransmission-device-release.html: XMSS
 output/retransmission-device-release.html: XTP
 output/retransmission-device-release.html: actions’
+output/retransmission-device-release.html: attemps
+output/retransmission-device-release.html: authroized
 output/retransmission-device-release.html: behaviour
 output/retransmission-device-release.html: cPPs
 output/retransmission-device-release.html: ciphertexts
@@ -490,6 +495,7 @@ output/retransmission-device-release.html: lifecycle
 output/retransmission-device-release.html: liveness
 output/retransmission-device-release.html: lockscreen
 output/retransmission-device-release.html: log2
+output/retransmission-device-release.html: lprotocol
 output/retransmission-device-release.html: netconf
 output/retransmission-device-release.html: open’
 output/retransmission-device-release.html: pairs’
@@ -692,7 +698,6 @@ output/retransmission-device.html: SoC
 output/retransmission-device.html: SoCs
 output/retransmission-device.html: SpectraLink
 output/retransmission-device.html: Subclause
-output/retransmission-device.html: TBD
 output/retransmission-device.html: TCF
 output/retransmission-device.html: TP
 output/retransmission-device.html: TTP
@@ -709,6 +714,7 @@ output/retransmission-device.html: Winternitz
 output/retransmission-device.html: XMSS
 output/retransmission-device.html: XTP
 output/retransmission-device.html: actions’
+output/retransmission-device.html: authroized
 output/retransmission-device.html: behaviour
 output/retransmission-device.html: cPPs
 output/retransmission-device.html: ciphertexts
@@ -737,6 +743,7 @@ output/retransmission-device.html: lifecycle
 output/retransmission-device.html: liveness
 output/retransmission-device.html: lockscreen
 output/retransmission-device.html: log2
+output/retransmission-device.html: lprotocol
 output/retransmission-device.html: netconf
 output/retransmission-device.html: open’
 output/retransmission-device.html: pairs’
