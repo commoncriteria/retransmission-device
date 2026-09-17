@@ -1,5 +1,3 @@
-compilation error: file transforms/xsl/boilerplates.xsl line 113 element apply-template
-xsltStylePreCompute: unknown xsl:apply-template
 * Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to fcs-stg-ext-1e2-sk from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[3]""/depends[3]""/on-sel[1]""
@@ -1066,11 +1064,7 @@ xsltStylePreCompute: unknown xsl:apply-template
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[14]""/f-component[4]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/h:p[3]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[14]""/f-component[4]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/h:p[4]""
 * Warning: Detected an empty _p_ element./PP[1]""/appendix[3]"This appe"/h:p[1]""
-Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[2]""/cc-doc-ref[1]""
-Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[1]""/cc-doc-ref[1]""
  Failed to find a reference to x509.
-Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[2]""/cc-doc-ref[1]""
-Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[1]""/cc-doc-ref[1]""
  Failed to find a reference to x509.
  Failed to find a reference to mf-audioVisual.
  Failed to find a reference to pkg-x509.
@@ -1080,7 +1074,4 @@ Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CCl
  Failed to find a reference to bibCEM.
  Failed to find a reference to bibCEM.
  Failed to find a reference to xmss-test-cases.
-Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[2]""/cc-doc-ref[1]""
-Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[2]""/cc-doc-ref[1]""
  Failed to find a reference to x509.
-Unable to make an xref for |cc-doc-ref| /PP[1]""/sec:Conformance_Claims[1]""/CClaimsInfo[1]""/cc-pkg-claim[1]""/FP-cc-ref[1]""/cc-doc-ref[1]""
