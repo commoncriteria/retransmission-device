@@ -56,17 +56,8 @@
 	<!-- 1.2.1 Common Criteria Terms -->
 	<!-- 1.2.2 Technical Terms -->
     <tech-terms>
-		<term full="Address Space Layout Randomization" abbr="ASLR">
-            An anti-exploitation feature which loads memory mappings into unpredictable
-            locations. ASLR makes it more difficult for an attacker to redirect control to code
-            that they have introduced into the address space of an application process.</term>
         <term abbr="AES" full="Advanced Encryption Standard"/>
         <term abbr="ANSI" full="American National Standards Institute"/>
-        <term full="Application" abbr="app">
-            Software that runs on a platform and performs tasks on behalf of
-            the user or owner of the platform, as well as its supporting documentation. The 
-            terms TOE and application are interchangeable in this document.
-        </term>
         <term full="Application Programming Interface" abbr="API">
             A specification of routines, data structures, object classes, and variables
             that allows an application to make use of services provided by another software
@@ -80,15 +71,7 @@
         <term abbr="CSA" full="Computer Security Act"/>
     	<term abbr="CU" full="Communication Unit">
     		A retransmission device (RD) component whose primary purpose is to provide network transport and simple isolation for an EUD or EU when communicating with an untrusted transport network. The interconnect between the EUD or EU and the CU is always over a dedicated wired interconnect.</term>
-        <term full="Data Execution Prevention" abbr="DEP">
-            An anti-exploitation feature of modern operating systems executing on
-            modern computer hardware, which enforces a non-execute permission on pages of memory.
-            DEP prevents pages of memory from containing both data and instructions, which makes
-            it more difficult for an attacker to introduce and execute code.</term>
         <term abbr="DES" full="Data Encryption Standard"/>
-        <term full="Developer">
-            An entity that writes application software. For the purposes of this
-            document, vendors and developers are the same.</term>
         <term abbr="DHE" full="Diffie-Hellman Ephemeral"/>
         <term abbr="DMG" full="Apple Disk Image"/>
         <term abbr="DNS" full="Domain Name System"/>
@@ -112,9 +95,8 @@
         <term abbr="HTTP" full="Hypertext Transfer Protocol"/>
         <term abbr="HTTPS" full="Hypertext Transfer Protocol Secure"/>
 		<term abbr="HWS-ERD" full="Hardware Separated Encrypting Retransmission Device">
-			An HWS-ERD will encrypt traffic between two endpoints while maintaining a defined physical 
-			and logical protocol break between the trusted and the untrusted domains. The 
-			protocol break will be both physically and logically enforced.
+			An HWS-ERD will encrypt traffic between two endpoints while maintaining a defined physical and logical protocol break between the trusted and the untrusted domains.
+			A protocol break concerns protocol state crossing the EU/CU boundary; it does not require termination of the protected Layer-2 service presented to the external endpoints. The protocol break will be both physically and locally enforced.
 			</term>
         <term abbr="IANA" full="Internet Assigned Number Authority"/>
 		<term abbr="IC" full="Interconnect"/>
@@ -128,14 +110,6 @@
         <term abbr="ITSEF" full="Information Technology Security Evaluation Facility"/>
         <term abbr="JNI" full="Java Native Interface"/>
         <term abbr="LDAP" full="Lightweight Directory Access Protocol"/>
-		<term full="Mobile Code">
-			Software transmitted from a remote system for
-			execution within a limited execution environment on the local system.
-			Typically, there is no persistent installation and
-			execution begins without the user's consent or even notification.
-			Examples of mobile code technologies include JavaScript, Java applets, Adobe Flash, 
-			and Microsoft Silverlight.
-		</term>
         <term abbr="MIME" full="Multi-purpose Internet Mail Extensions"/>
         <term abbr="MPKG" full="Meta Package"/>
         <term abbr="MSI" full="Microsoft Installer"/>
@@ -145,21 +119,6 @@
         <term abbr="OCSP" full="Online Certificate Status Protocol"/>
         <term abbr="OID" full="Object Identifier"/>
         <term abbr="OMB" full="Office of Management and Budget"/>
-        <term full="Operating System" abbr="OS">
-            Software that manages hardware resources and provides services for
-            applications.</term>
-        <term full="Personally Identifiable Information" abbr="PII">
-            Any information about an individual maintained by an agency, including, but
-            not limited to, education, financial transactions, medical history, and criminal or
-            employment history and information which can be used to distinguish or trace an
-            individual's identity, such as their name, social security number, date and place of
-            birth, mother’s maiden name, biometric records, etc., including any other personal
-            information which is linked or linkable to an individual. <xref to="bibOMB"/></term>
-        <term full="Platform">
-            The environment in which application software runs. 
-            The platform can be an operating system, hardware environment, a software based execution environment, 
-		    or some combination of these.  These types of platforms may also run atop other platforms.
-        </term>
         <term abbr="PDF" full="Portable Document Format"/>
 	    <term abbr="PE" full="Portable Executable"/>
 		<term abbr="PFED" full="Protocol Free Encrypting Device"/>
@@ -175,19 +134,8 @@
         <term abbr="S/MIME" full="Secure/Multi-purpose Internet Mail Extensions"/>
         <term abbr="SSH" full="Secure Shell"/>
         <term abbr="SIP" full="Session Initiation Protocol"/>
-        <term full="Sensitive Data">
-            Sensitive data may include all user or enterprise data or may be
-            specific application data such as emails, messaging, documents,
-            calendar items, and contacts.  Sensitive data must minimally include
-            PII, credentials, and keys.  Sensitive data shall be identified in
-            the application’s TSS by the ST author. 
- 	    </term>
         <term abbr="SP" full="Special Publication"/>
         <term abbr="SWID" full="Software Identification"/>
-        <term full="Stack Cookie">
-            An anti-exploitation feature that places a value on the stack at the start
-            of a function call, and checks that the value is the same at the end of the function
-            call. This is also referred to as Stack Guard, or Stack Canaries.</term>
         <term abbr="SAN" full="Subject Alternative Name"/>
         <term abbr="TLS" full="Transport Layer Security"/>
         <term abbr="UI" full="User Interface"/>
@@ -286,16 +234,10 @@
 				<h:li>Implements one selectable encryption option from the following set.</h:li><h:ul>
 					<h:li>IPsec</h:li>
 					<h:li>MACsec</h:li>
-					<h:li>PFED</h:li>
 					<h:li>WLAN</h:li>
 				</h:ul>
 				<h:li>The interfaces between the EUD and EU shall be via a dedicated wired connection.</h:li>
 				<h:li>In non-WLAN configurations, the interface between the EU and CU (or other device) shall be via a dedicated wired connection.</h:li>
-				<h:li>Implements stateless Layer-2 traffic filtering when MACsec or PFED is selected, limited to Ethernet frame attributes (e.g., 
-						EtherType, source or destination MAC address).</h:li>
-				<h:li>When MACsec or PFED is selected, the EU presents a non-addressable Ethernet interface toward the CU (i.e., no IP address or
-						higher-layer protocol termination is supported on the EU–CU interface).</h:li>
-				<h:li>When PFED encryption is selected, the TOE must consist of the hardware-separated CU and EU (HWS-ERD) configuration.</h:li>
 			</h:ul>
 			As noted, this configuration supports EUs that require connections to untrusted black networks, such as WLAN and tactical radio encryption
 			implementations and functions as a dedicated encryption component for those applications. For these special use cases, some or all of the CU
@@ -330,7 +272,7 @@
 			behavior, provisioning behavior, isolation rules, and operational requirements described in this section.</h:p>
 			<h:p>A TOE claiming PFED as its trusted channel must implement an HWS-ERD, including the EU, CU, and all required SFRs for a combined implementation. All
 			communication between paired ERDs is protected by an AES-based secure session tunnel implemented by the EU. The TOE does not rely on external key management
-			protocols. When MACsec encapsulation is used, the IEEE 802.1X MACsec Key Agreement (MKA) protocol is not implemented or invoked.</h:p>
+			protocols. <comment>Do we still need the following sentence? There is no MACsec functionality discussed elsewhere in the section.</comment>When MACsec encapsulation is used, the IEEE 802.1X MACsec Key Agreement (MKA) protocol is not implemented or invoked.</h:p>
 			<sec:Principles_Behind_HWS-ERD_PFED>
 				<h:p>An HWS-ERD PFED has unique properties that are not normally present in traditional encryption systems. The security function of separating Red and Black
 					within any ERD must work correctly, and to work correctly it must be completely understandable. The separation of functions into an EU and CU allows the
@@ -473,7 +415,7 @@
 			<h:li>The EU accepts only a single, fixed-offset packet signature from the CU.</h:li>
 			<h:li>All unexpected or malformed packets are dropped prior to reaching the EU protocol stack.</h:li>
 			<h:li>The EU does not respond to invalid packets from the CU or EUD.</h:li>
-			<h:li>All packets received from the EUD are encapsulated and forwarded to the peer EU.</h:li>
+			<h:li>Valid packets received from the EUD are encapsulated and forwarded to the peer EU.</h:li>
 			</h:ul>
 			</sec:Traffic_Isolation_and_Interface_Filtering>
 			
@@ -621,7 +563,6 @@
 				<h:li>Black network interfaces</h:li>
 				<h:li>Routing and forwarding firmware and software</h:li>
 				<h:li>Management interfaces</h:li>
-				<h:li>Configuration and key material storage</h:li>
 			</h:ul>
 			The dedicated wired interface between the EU and CU is included within the TOE boundary.<h:b/>
 			
@@ -661,7 +602,9 @@
 	</sec:Use_Cases>
 	
 		<section title="Product Features Mapped to Implementation-Dependent Requirements" id="sec-features">
-			The features enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.
+			<comment>
+				Recommend deleting this entire section as seems unnecessary because Section 1.6 is a duplicate, but makes more sense than this section.
+			</comment>The features enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.<h:br/>
 			<implements>
 				<feature id="ipsec" title="IPsec">
 					<description>A conformant TOE claims to be an EU and implements IPsec for data-in-transit encryption in the EU.						
@@ -672,7 +615,7 @@
 				</description>
 				</feature>
 				<feature id="pfed" title="PFED">
-					<description>A conformant TOE claims to be an EU and implements PFED for data-in-transit encryption in the EU.
+					<description>A conformant TOE claims to be an HWS-ERD and implements PFED for data-in-transit encryption in the EU.
 				</description>
 				</feature>
 				<feature id="wlan" title="WLAN">
@@ -697,8 +640,7 @@
 			M - Mandatory<h:br/>
 			Ob - Objective<h:br/>
 			IMP - Implementation Dependent<h:br/>
-			SB - Selection-Based<h:br/>
-			N/A - Not applicable<h:br/><h:p/>
+			SB - Selection-Based<h:br/> 
 			
 			<h:b>Applicability Meaning</h:b><h:p/> 
 			All - Applies to every TOE<h:br/>
@@ -732,350 +674,350 @@
 				<h:tr style="text-align: center">
 					<h:td>FAU_GEN.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base audit generation. Mandatory for PFED-triggered audit events for the HWS-ERD TOE.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FAU_GEN.2/PFED</h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory for PFED.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FAU_SAR.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Audit review.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FAU_STG.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Audit storage location required for every TOE.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FAU_STG.2</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Protected audit trail storage.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FAU_STG.5</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Audit data loss behavior.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCO_NRO.1</h:td>
 					<h:td style="text-align: center">Ob</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Objective unless a selected protocol requires proof of origin.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCO_NRR.1</h:td>
 					<h:td style="text-align: center">Ob</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Objective unless a selected protocol requires proof of receipt.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.1/AKG</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol-triggered; mandatory for IPsec if asymmetric key generation is used.</h:td>
 				</h:tr>		
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.1/PFEDAKG</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered; EU generates PFED asymmetric keys.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.1/SKG</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol-triggered; required when TOE generates symmetric/session keys; mandatory for PFED.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.2</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol-triggered; IPsec/MACsec/WLAN where TOE establishes or distributes keys.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.2/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory for PFED; EU performs PFED key establishment.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.5/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered; EU performs PFED key derivation.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.6</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU baseline for traffic keys; CU only if CU stores or handles secrets.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.6/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered; EU destroys PFED keys.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM_EXT.7</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol-triggered; IPsec key agreement.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/AEAD</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol-triggered; IPsec/MACsec/WLAN as applicable.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/CMAC</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Required only if selected algorithm suite uses CMAC.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/Hash</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base if used for update/integrity; otherwise, protocol-triggered.</h:td>
 				</h:tr>
 								
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/KeyedHash</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol-triggered; IPsec or selected protocol use.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/KeyEncap</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol-triggered; KEM/hybrid KEM use.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/KeyWrap</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Required only if key wrapping is used.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/SigGen</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base if used for update/auth; otherwise, protocol-triggered.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/SigVer</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base for trusted update verification if applicable; protocol-triggered otherwise.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/SKC</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol/storage-triggered symmetric crypto.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_COP.1/XOF</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Required only if selected algorithm suite uses XOF.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_HTTPS_EXT.1</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Required only if HTTPS is used for admin/update/management.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU baseline when crypto values are generated; CU only if CU generates secrets; mandatory for PFED.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.2</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Entropy-design dependent.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.3</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Entropy-design dependent.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.4</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Entropy-design dependent; if PFED requires this RBG construction, it applies to the EU.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.5</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Entropy-design dependent; if PFED requires this RBG construction, it applies to the EU.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_RBG.6</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Required only if TOE exposes or relies on an RBG service interface.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_REC_EXT.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered; EU performs PFED key recovery.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_STG_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Protected storage for credentials, secrets, config, and audit-supporting data.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_STG_EXT.2</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Required where encrypted persistent key storage is used; applies to EU for PFED if PFED keys are persistently stored.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_STG_EXT.3</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Required where persistent key integrity protection is used; applies to EU for PFED if applicable.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_BRINGUP_EXT.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
 					<h:td>Mandatory when PFED-triggered secure bring-up for the HWS-ERD TOE.</h:td>
 				</h:tr>
@@ -1083,42 +1025,42 @@
 				<h:tr style="text-align: center">
 					<h:td>FDP_IFC.2</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Complete base information-flow control/no bypass.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_IFF.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base information-flow rules.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_IFF.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered EU PFED flow rules.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_ITC_EXT.1</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Required only if TOE imports keys/credentials; applies to EU for PFED key/credential import if applicable.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_PBR_EXT.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center">SB</h:td>
@@ -1128,168 +1070,168 @@
 				<h:tr style="text-align: center">
 					<h:td>FDP_STG_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Required only if TOE stores user/security data beyond transient forwarding.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_AFL_EXT.1</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Administrator authentication failure handling.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_PMG_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Administrator password management.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_PSK_EXT.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Protocol-triggered; IPsec PSK only if selected.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_PSK_EXT.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered EU provisioning/tunnel-0 PSK.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_TRT_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Administrator authentication throttling.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UAU.5</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory only if all TOEs must support multiple administrator authentication mechanisms; otherwise, keep conditional or remove.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UAU.7</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Protected administrator authentication feedback.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UAU_EXT.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol/credential-use dependent.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UAU_EXT.2</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Administrator authentication before security management.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UIA_EXT.1</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Administrator identification and authentication.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UID.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Timing of identification.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FMT_MOF.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Management of security functions behavior.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FMT_MSA.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Management of security attributes.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FMT_MSA.3</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Static attribute initialization.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FMT_SMF.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Specification of management functions.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FMT_SMF.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered EU PFED management functions.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FMT_SMR.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Security roles.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPF_RUL_EXT.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">M</h:td>
@@ -1299,9 +1241,9 @@
 				<h:tr style="text-align: center">
 					<h:td>FPT_APW_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Protection of administrator passwords.</h:td>
 				</h:tr>
 				
@@ -1316,325 +1258,325 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_DPD_EXT.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory for PFED.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_FLS.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol-triggered fail-secure behavior.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_HRT_EXT.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered EU use of hardware root of trust.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_INI.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base TSF initialization.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_JTA_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base JTAG disablement.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_KST_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Baseline for stored keys/secrets.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_KST_EXT.2</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU baseline no key transmission; CU conditional.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_KST_EXT.3</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU baseline no plaintext key export; CU conditional.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_NOT_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base self-test notification.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_PHP.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base passive physical attack detection.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_PHP.2</h:td>
 					<h:td style="text-align: center">Ob</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Objective.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_PHP.3</h:td>
 					<h:td style="text-align: center">Ob</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Objective.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_PPF_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base platform firmware and critical data protection.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_RBP_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base rollback protection.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_RCV.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Manual recovery in maintenance mode.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_RCV_EXT.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered EU cryptographic/session recovery, unless SFR text governs full TOE recovery.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_RCV.2</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Automated recovery.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_ROT_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base platform integrity root.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_ROT_EXT.2</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Platform integrity extension.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_RVR_EXT.1</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Conditional on platform firmware recovery.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_SEP_EXT.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
 					<h:td>HWS hardware-enforced EU/CU separation; PFED inherits this.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_SKP_EXT.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>EU baseline for private/symmetric keys; CU conditional.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_STM.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Conditional on wall-clock timestamps; allow counter-based audit alternative where appropriate.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TRAN_EXT.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered EU protocol transaction control.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TST.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Conditional on crypto/DRBG health testing.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TST.1/PFED</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED-triggered EU cryptographic/protocol self-test.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TST_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base TSF testing.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TUD_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Base TOE firmware update.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TUD_EXT.2</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Conditional on selection in FPT_TUD_EXT.1.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TUD_EXT.3</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Conditional if delayed authentication update is supported.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TUD_EXT.4</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Conditional if secure local update is supported.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTA_SSL.3</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>TSF-initiated administrator session termination.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTA_SSL.4</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Administrator-initiated session termination.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTA_SSL_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Administrator session locking/blocking.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTA_TAB.1</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Default administrator access banner.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTP_ITC.1</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Generic EU trusted channel; prefer protocol-specific iterations. Mandatory when PFED-triggered EU trusted channel for PFED-protected
 						communication.</h:td>
 				</h:tr>
@@ -1642,8 +1584,8 @@
 				<h:tr style="text-align: center">
 					<h:td>FTP_ITP_EXT.1</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td>Physically protected admin path if used; HWS for EU-CU physical channel.</h:td>
 				</h:tr>
@@ -1651,18 +1593,18 @@
 				<h:tr style="text-align: center">
 					<h:td>FTP_PRO.1</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Mandatory when PFED is selected in FTP_ITC.1; defines the PFED trusted channel protocol between paired HWS-ERD EUs.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FTP_TRP.1</h:td>
 					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
-					<h:td style="text-align: center">N/A</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td>Trusted path for administrator access.</h:td>
 				</h:tr>
 			</h:table>
@@ -1752,9 +1694,8 @@
 			</threat>
 			
 			<threat name="T.NETWORK_ACCESS">
-				<description>An unauthenticated attacker on the black transport network may inject traffic that the TOE forwards across the red/black boundary, thereby reaching an EUD, a trusted network, or a TOE management interface that is intended to be reachable only from inside the protected enclave or only over an authenticated path. Failure of the TOE's interface filtering, information-flow, or protocol-break enforcement may result in unauthorized access to services and resources on the trusted side.</description>
-				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale>Mitigates the threat by filtering traffic to disallow unauthorized access.</rationale>
-				
+				<description>An attacker is positioned on a communications channel or elsewhere on the network infrastructure. Attackers may initiate communications with the TOE or alter communications between the TOE and other endpoints in order to compromise the TOE. An attacker from off the TOE can attempt to compromise the TOE through a network interface connected to an active TOE component, such as a management subsystem. These attacks include malicious software update of any applications or system software on the device. An attacker is actively interacting with or altering network traffic to compromise the TOE.</description>
+				<addressed-by>FPF_RUL_EXT.1</addressed-by><rationale>Mitigates the threat by filtering traffic to disallow unauthorized access.</rationale>				
 			</threat>	
 			
 			<threat name="T.NETWORK_ATTACK">
@@ -2931,8 +2872,7 @@
 					</selectables>					
 				</title>
 				<note role="application">					 
-					This SFR must be included in the ST if asymmetric key generation is a service provided by the TOE to tenant software, or if it is
-					used by the TOE itself to support or implement PP-specified security functionality.<h:p/>
+					This SFR must be included in the ST if asymmetric key generation is used by the TOE itself to support or implement PP-specified security functionality..<h:p/>
 					
 					This SFR must also be claimed in the ST if FCS_CKM_EXT.7, FCS_COP.1/KeyEncap, or FCS_COP.1/SigGen is claimed, or if "<h:i>causing the TOE to
 					generate [asymmetric] keys/secrets"</h:i> is selected in FCS_STG_EXT.1.2.<h:p/>
@@ -3362,8 +3302,7 @@
 					</selectables></h:i>] 
 				</title>
 				<note role="application">
-					This SFR must be included in the ST if asymmetric key generation is a service provided by the TOE to tenant software, or if it is used by the TOE itself to
-					support or implement PP-specified security functionality.<h:p/>
+					This SFR must be included in the ST if asymmetric key generation is used by the TOE itself to support or implement PP-specified security functionality..<h:p/>
 					This SFR must also be claimed in the ST if any of FCS_CKM_EXT.7, FCS_COP.1/KeyEncap, or FCS_COP.1/SigGen is claimed, or if "<h:i>causing the TOE 
 					to generate [asymmetric] keys/secrets</h:i>" is selected in FCS_STG_EXT.1.2.<h:p/>
 					If this SFR is included in the ST, then FCS_CKM.6 and FCS_RBG.1 must also be claimed.<h:p/>
@@ -3995,9 +3934,7 @@
 				</ext-comp-def-title>
 				<note role="application">
 					All of the above algorithms with the selectable parameters are CNSA 1.0 compliant.<h:p/>
-					This SFR must be included in the ST if key agreement or transport is a service provided by the TOE to 
-					tenant software, or if they are used by the TOE itself to support or implement PP-specified security 
-					functionality. <h:p/> 
+					This SFR must be included in the ST if key agreement or transport is used by the TOE itself to support or implement PP-specified security functionality. <h:p/> 
 					If this SFR is claimed, then FCS_CKM.1/AKG, FCS_CKM.1/SKG or both must be claimed as well as FCS_CKM.6.<h:p/>
 					This SFR has dependencies on FCS_COP.1/Hash and FCS_COP.1/XOF only if ML-KEM is selected.<h:p/>
 					This component must be included in the ST if the TOE implements any of the following features: IPsec.
@@ -5134,9 +5071,7 @@
 					</selectables>
 				</title>
 				<note role="application">			
-					This SFR must be included in the ST if digital signature generation is a service provided by the TOE to 
-					tenant software, or if digital signature generation is used by the TOE itself to support or implement 
-					PP-specified security functionality.<h:p/> 
+					This SFR must be included in the ST if digital signature generation is agreement or transport is used by the TOE itself to support or implement PP-specified security functionality.<h:p/> 
 					Specifically, this SFR must be included if "<h:i>A digital signature of the stored key in accordance with FCS_COP.1/SigGen
 					using an asymmetric key that is protected in accordance with FCS_STG_EXT.2</h:i>" is selected in FCS_STG_EXT.3.<h:p/>
 					If this SFR is included in the ST, then FCS_COP.1/Hash and FCS_RBG.1 must also be claimed.
@@ -5640,9 +5575,7 @@
 					</selectables>
 				</title>
 				<note role="application">
-					This SFR must be included in the ST if digital signature verification is a service provided by 
-					the TOE to tenant software, or if digital signature verification is used by the TOE itself to 
-					support or implement PP-specified security functionality.<h:p/> 
+					This SFR must be included in the ST if digital signature verification is used by the TOE itself to support or implement PP-specified security functionality..<h:p/> 
 					Specifically, this SFR must be included if the ST author chooses "<h:i>implement an authenticated platform
 					firmware update mechanism as described in FPT_TUD_EXT.2</h:i>" or "<h:i>implement a delayed-authentication platform
 					firmware update mechanism as described in FPT_TUD_EXT.3</h:i>" in FPT_TUD_EXT.1; or if the ST author 
@@ -6000,9 +5933,7 @@
 					</selectables>
 				</title>
 				<note role="application">
-					This SFR must be included in the ST if symmetric-key cryptography is a service provided by the TOE 
-					to tenant software, or if the TOE itself uses SKC to support or implement PP-specified security 
-					functionality.<h:p/> 
+					This SFR must be included in the ST if symmetric-key cryptography is used by the TOE itself to support or implement PP-specified security functionality..<h:p/> 
 					Specifically, this SFR must be included if the ST includes FCS_IPSEC_EXT.1 or FCS_STG_EXT.2, or includes
 					any of the following selections: <h:ul>
 						<h:li>"<h:i>CTR_DRBG (AES)</h:i>" in FCS_RBG.1</h:li>
@@ -6860,8 +6791,7 @@
 					</title>
 				</ext-comp-def-title>
 				<note role="application">
-					This SFR should be included in the ST if the TOE provides protected storage as a service for tenant software, or if it stores keys or other persistent
-					secrets for its own use.<h:p/>
+					This SFR should be included in the ST if the TOE stores keys or other persistent secrets for its own use.<h:p/>
 					This SFR must be claimed if the TOE includes a dedicated security component that provides storage services, such as a TPM.<h:p/>
 					If the protected storage is implemented in software that is protected as required by FCS_STG_EXT.2, the ST author is expected to select "software-based." If
 					"software-based" is selected, the ST author is expected to select "software-based key storage" in FCS_STG_EXT.2 and also claim FCS_STG_EXT.3.<h:p/>
@@ -6918,7 +6848,6 @@
 						explicitly authorized by <selectables>
 							<selectable>the user</selectable>
 							<selectable>the administrator</selectable>
-							<selectable>a common application developer</selectable>
 						</selectables>.
 					</title>
 					
@@ -6936,7 +6865,6 @@
 					explicitly authorized by <selectables>
 						<selectable>the user</selectable>
 						<selectable>the administrator</selectable>
-						<selectable>a common application developer</selectable>
 					</selectables>.
 				</title>
 				
@@ -8472,8 +8400,7 @@
 					<note role="application">
 						This SFR is included in the ST if the "<h:i>administrator</h:i>" role is selected
 						in FMT_SMR.1.<h:p/>
-						Ordinary unprivileged users of the platform need not authenticate to the platform, though they
-						may well have to authenticate themselves to tenant software such as an Operating System. <h:p/>
+						Ordinary unprivileged users of the platform need not authenticate to the platform. <h:p/>
 						The TSF-mediated management functions are listed in the management functions table 
 						(<xref to="t-manfunc"/>) in FMT_SMF.1.  
 					</note>
@@ -9164,8 +9091,7 @@
       				authenticate themselves to the TOE, though they may be authenticated by tenant
       				software. The user role is considered to exist even if no humans normally interact with a TOE.<h:p/>
       				An administrator is a privileged user that must be authenticated by the TOE in order 
-      				to administer the TOE. This role is distinct from OS or VS administrators, who are
-      				authenticated to tenant software and are considered to be users in the context of the TOE.				
+      				to administer the TOE. 				
       			</note>
       			<aactivity>
       				<no-tests>Documentation and testing for roles is covered in the Evaluation Activities for FMT_SMF.1.</no-tests>      				
@@ -11225,8 +11151,7 @@
     			subsystem does not permit direct compromise of the other.</fam-behavior>
     	</ext-comp-def>
 	
-    	<f-component name="Hardware and Logical Separation of EU and CU" cc-id="fpt_sep_ext.1" status="feat-based">
-    		<depends on="hws-erd"/>
+    	<f-component name="Hardware and Logical Separation of EU and CU" cc-id="fpt_sep_ext.1">
     		<consistency-rationale/>    			
     		
     		<comp-lev>requires the TSF to maintain separation between security domains for the EU and CU.</comp-lev>
@@ -11370,16 +11295,13 @@
     				checking the order of events and determining the actual local time when events
     				occurred. The required level of accuracy is determined by the administrator.<h:p/>
     				The TOE depends on time and date information that may be provided by a local
-    				real-time clock managed by the Security Administrator, obtained from one or more
-    				NTP servers, or received from the underlying virtualization system. The
+    				real-time clock managed by the Security Administrator or obtained from one or more
+    				NTP servers. The
     				corresponding options are selected in FPT_STM_EXT.1.2. Automatic
     				synchronization with an NTP server is recommended but not required. When the
     				TOE communicates with an NTP server, the inclusion of FCS_NTP_EXT.1 in the ST is
     				expected. The ST author describes in the TSS how the TOE receives external time
-    				and date information and how this information is maintained. For a Case 1 vND,
-    				the virtualization system can act as an external time source. For a Case 2 vND, the
-    				virtualization system is part of the TOE, so the time is typically set by a Security
-    				Administrator or synchronized with an NTP server.<h:p/>
+    				and date information and how this information is maintained. +<h:p/>
     				The term “reliable time stamps” refers to the strict use of the provided time and
     				date information and to the logging of all discontinuous changes to the time
     				settings, including information about the old and new time values. With this
@@ -11400,11 +11322,6 @@
     					that makes use of time. The TSS provides a description of how the time is
     					maintained and considered reliable in the context of each of the time related
     					functions.<h:p/>
-    					If "obtain time from the underlying virtualization system" is selected, the
-    					evaluator shall examine the TSS to ensure that it identifies the Virtualization
-    					System (VS) interface the TOE uses to obtain time. If there is a delay between
-    					updates to the time on the VS and updating the time on the TOE, the TSS shall
-    					identify the maximum possible delay.
     				</TSS>
     				<Guidance>
     					The evaluator shall examine the guidance documentation to ensure it
@@ -11652,7 +11569,7 @@
     	<f-component name="TSF Self-Test" cc-id="fpt_tst.1" iteration="PFED" status="feat-based">
     		<depends on="pfed"/>
     		<f-element id="fpt-tst-1e1">
-    			<title><comment>Need to either refine or replace this and the non-iterated version with a single extended SFR for simplicity.</comment><h:br/>
+    			<title>
     				The TSF shall <h:b>perform self-tests of cryptographic functions and hardware root of trust during initialization</h:b>.				
     			</title>
     		</f-element>
@@ -13026,7 +12943,7 @@
 			<a-element type="D">
 				<title>The developer shall provide operational user guidance.</title>
 				<note role="application">The operational user guidance does not have to be contained in a
-					single document. Guidance to users, administrators and application developers can be
+					single document. Guidance to users and administrators can be
 					spread among documents or web pages. Where appropriate, the guidance documentation is
 					expressed in the eXtensible Configuration Checklist Description Format (XCCDF) to
 					support security automation. Rather than repeat information here, the developer should
@@ -13474,10 +13391,6 @@
 			<a-element type="D">
 				<title>The developer shall provide a description in the TSS of how timely
 					security updates are made to the TOE.</title>
-				<note>
-					Application developers must support updates to their products for purposes of
-					fixing security vulnerabilities.
-				</note>
 			</a-element>
 			<a-element type="D">
 				<title>
