@@ -1383,7 +1383,7 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_RCV.2</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -10684,7 +10684,7 @@
     	</f-component>
 			
 			<f-component name="Manual Recovery" cc-id="fpt_rcv.1" status="sel-based">
-				<depends on-sel="sfr-fpt-rcv.1"/>
+				<depends on="fmt-smf-1"/>
 				<f-element id="fpt-rcv-1e1">
 					<title>
 						After <assignable>list of failures/service discontinuities</assignable> the TSF shall enter a maintenance mode where the ability to return to a secure 						state is provided.</title>
@@ -10745,7 +10745,7 @@
 			</f-component>
 			
 			<f-component name="Automated Recovery" cc-id="fpt_rcv.2" status="sel-based">
-				<depends on-sel="sfr-fpt-rcv.2"/>
+				<depends on="fmt-smf-1"/>
 				<f-element>
 					<title>
 						When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
