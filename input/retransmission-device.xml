@@ -584,7 +584,7 @@
 	
 		<section title="Product Features Mapped to Implementation-Dependent Requirements" id="sec-features">
 			<comment>
-				Recommend deleting this entire section as seems unnecessary because Section 1.6 is a duplicate, but makes more sense than this section.
+				Recommend deleting this entire section as it seems unnecessary because Section 1.6 is a duplicate, but makes more sense than this section.
 			</comment>The features enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.<h:br/>
 			<implements>
 				<feature id="ipsec" title="IPsec">
@@ -1437,7 +1437,7 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_STM.1</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1455,10 +1455,10 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_TST.1</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center">M</h:td>
 					<h:td>Conditional on crypto/DRBG health testing.</h:td>
 				</h:tr>
 				
@@ -1466,8 +1466,8 @@
 					<h:td>FPT_TST.1/PFED</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">IMP</h:td>
 					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center">IMP</h:td>
 					<h:td>Mandatory when PFED-triggered EU cryptographic/protocol self-test.</h:td>
 				</h:tr>
 				
@@ -1694,8 +1694,6 @@
 				<addressed-by>FMT_SMF.1</addressed-by><rationale>Mitigates the threat by providing a list of specific management functions.</rationale>
 				<addressed-by>FMT_SMR.1</addressed-by><rationale>Mitigates the threat by defining the management roles which can be used to grant access to management 
 					functions.</rationale>
-				<addressed-by>FPT_STM.1</addressed-by><rationale>Mitigates the threat by ensuring that audit data indicating a potential attack is accurately
-					timestamped.</rationale>
 				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat of a network attack by implementing a mechanism to detect when the DRBG may be failing to
 					generate secure cryptographic keys.</rationale>
 				<addressed-by>FTA_TAB.1</addressed-by><rationale>Mitigated the threat by providing actionable consequences for misuse of the TSF.</rationale>				
@@ -1745,6 +1743,9 @@
 				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
 					insecure keys.</rationale>
 				<addressed-by>FTP_ITP_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by using a physically protected channel to protect data in transit.</rationale>
+				
+				<addressed-by>FPT_STM.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that audit data indicating a potential attack is accurately
+					timestamped.</rationale>
 				<addressed-by>FTP_TRP.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that remote administration only uses trusted channels.</rationale>				
 			</threat>	
 			
@@ -1788,25 +1789,6 @@
 				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
 					insecure keys.</rationale>
 				<addressed-by>FTP_PRO.1 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing a defined PFED trusted channel lprotocol with mutually authenticated endpoints.</rationale>
-			</threat>		
-				
-			<threat name="T.PERSISTENT_PRESENCE">
-				<description>Persistent presence on a device by an attacker implies that the device has lost integrity and cannot regain it. The device has likely lost this
-					integrity due to some other threat vector, yet the continued access by an attacker constitutes an ongoing threat in itself. In this case, the device and 
-					its data may be controlled by an adversary as well as by its legitimate owner.</description>				
-				<addressed-by>FMT_MOF.1</addressed-by><rationale>Mitigates the threat by permitting management functions to be used only by authorized users.</rationale>
-				<addressed-by>FMT_SMF.1</addressed-by><rationale>Mitigates the threat by defining the management functions that are supported by the TOE.</rationale>
-				<addressed-by>FPT_NOT_EXT.1</addressed-by><rationale>Mitigate the threat by having the TOE enter a secure failure state when self-test integrity failures
-					occur.</rationale>
-				<addressed-by>FPT_ROT_EXT.1</addressed-by><rationale>Mitigates the threat by providing platform integrity to prevent intrusion of a persistent presence on the
-					platform.</rationale>
-				<addressed-by>FPT_TST_EXT.1</addressed-by><rationale>Mitigates the threat by performing self-tests to verify the integrity of the TSF.</rationale>
-				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by implementing mechanisms to detect integrity violations of TSF data.</rationale>
-				<addressed-by>FCS_COP.1/KeyWrap (sel-based)</addressed-by><rationale>Mitigates the threat by implementing mechanisms to detect integrity violations of TSF data.</rationale>
-				<addressed-by>FCS_STG_EXT.2 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing access control on key data to prevent its unauthorized
-					disclosure.</rationale>
-				<addressed-by>FCS_STG_EXT.3 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing integrity protection on stored TSF data.</rationale>
-				<addressed-by>FPT_RVR_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat with firmware recovery mechanism in case of failure.</rationale>				
 			</threat>	
 			
 			<threat name="T.PHYSICAL_ACCESS">
@@ -1901,21 +1883,16 @@
 					cannot perform secure functions using that DRBG.</rationale>						
 			</threat>
 			
-			<threat name="T.SIDE_CHANNEL_LEAKAGE">
-				<description>An attacker running in a tenant context might be able to leverage physical effects caused by the operation of the TOE to derive sensitive
-					information about other tenants or the TOE.</description>
-				<addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>Mitigates the threat of side channel leakage by providing trusted updates that are known to mitigate side channel attacks.</rationale>
-			</threat>	
-			
 			<threat name="T.UNAUTHORIZED_PLATFORM_ADMINISTRATOR">
 				<description>An attacker may obtain administrative privilege on the CU or EU by masquerading as an administrator, guessing or capturing credentials, exploiting weak authentication, or reaching one component's management interface from the other. Holding administrative privilege, the attacker could disable or relax filtering and isolation policy, weaken or disable cryptographic protection of EUD traffic, cause plaintext to be emitted on a black interface, read or replace key material, or suppress audit.</description>				
 				<addressed-by>FIA_PMG_EXT.1</addressed-by><rationale>Mitigates the threat by enforcing password complexity requirements to prevent credentials from being easily guessed.</rationale>
 				<addressed-by>FIA_TRT_EXT.1</addressed-by><rationale>Mitigates the threat by throttling authentication to prevent access via brute force.</rationale>
-				<addressed-by>FPT_STM.1</addressed-by><rationale>Mitigates the threat by ensuring that time-based authentication throttling or lockout is accurately enforced.</rationale>
 				<addressed-by>FIA_AFL_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by limiting further authentication attempts once a failure threshold of a critical authentication mechanism has been
 					reached.</rationale>
 				<addressed-by>FIA_UAU.5 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing multiple authentication mechanisms for accessing the TSF.</rationale>
 				<addressed-by>FIA_UAU.7 (sel-based)</addressed-by><rationale>Mitigates the threat by preventing disclosure of authentication data during authentication attempts.</rationale>
+				<addressed-by>FPT_STM.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that time-based authentication throttling or lockout is accurately enforced.</rationale>
+				
     		</threat>	
     	
     		<threat name="T.UNAUTHORIZED_RECONFIGURATION">
@@ -6755,6 +6732,7 @@
 			<dependencies>FCS_CKM.6 Timing and Event of Cryptographic Key Destruction</dependencies>
 			<f-element id="fcs-stg-ext-1e1">
 				<title>
+					<comment>This should potentially be deleted as FPT_SKP_EXT.1 is already in the PP and covers this information.</comment><h:br/>
 					The TSF shall provide 
 					<selectables>
 						<selectable>mutable hardware-based</selectable>
@@ -6809,11 +6787,7 @@
 			<f-element id="fcs-stg-ext-1e3">
 				<title>
 					The TSF shall be capable of destroying keys and secrets in the protected storage
-					upon request of 
-					<selectables>
-						<selectable>a client application</selectable>
-						<selectable>an administrator</selectable>
-					</selectables>.
+					upon request of [<h:i>an administrator</h:i>].
 				</title>
 				<ext-comp-def-title><title>
 					The TSF shall be capable of destroying keys and secrets in the protected storage
@@ -6823,11 +6797,7 @@
 				
 				<f-element id="fcs-stg-ext-1e4">
 					<title>
-						The TSF shall have the capability to allow only the application that imported the key or secret the use of the key or secret. Exceptions may only be
-						explicitly authorized by <selectables>
-							<selectable>the user</selectable>
-							<selectable>the administrator</selectable>
-						</selectables>.
+						The TSF shall allow only the <h:b>administrator</h:b> that imported the key or secret the use of the key or secret. 
 					</title>
 					
 					<ext-comp-def-title>
@@ -7529,7 +7499,8 @@
 				</dependencies>				
 				
 				<f-element id="fel-trust-anchor">
-					<title>The TSF shall provide protected storage for the Trust Anchor Database. </title>
+					<title><comment>This should potentially be deleted as FPT_SKP_EXT.1 is already in the PP and covers this information.</comment><h:br/>
+						The TSF shall provide protected storage for the Trust Anchor Database. </title>
 					<aactivity>
 						<TSS>The evaluator shall ensure the TSS describes the Trust Anchor Database
 							implemented that contains certificates used to meet the requirements of this PP. This
@@ -8414,7 +8385,6 @@
 				</f-element>
 				<f-element>
 					<title>The TSF shall require each user to be successfully identified before allowing any TSF-mediated actions on behalf of that user.</title>
-					<note>This requirement defines the timing of user capabilities on the enterprise server.</note>
 					<aactivity>
 						<TSS>The evaluator shall examine the TSS to determine that it describes the list of actions that are performed on behalf of the administrator prior to identification of the administrator.</TSS>
 						<Guidance>The evaluator shall examine the guidance documentation to determine that any necessary preparatory steps for creating and configuring administrator accounts are described.</Guidance>
@@ -8445,7 +8415,7 @@
       					indicated in <xref to="t-manfunc"/></h:i>]. 
       			</title>
       			<note role="application"> There are two roles defined in this PP: Administrator and user
-      				(see FIA_SMR.1). Administrators can perform most management functions on the platform, and only
+      				(see FMT_SMR.1). Administrators can perform most management functions on the platform, and only
       				administrators are required to authenticate themselves to the platform.<h:p/>
       				Users have a limited ability to select responses to certain events
       				as specified in the Management Functions table in FMT_SMF.1.<h:p/>
@@ -8677,7 +8647,7 @@
 						<!-- 1 -->
 						<management-function id="mf-admin-platform">	
 							<text>
-								Ability to administer the platform
+								Ability to administer the TOE.
 								<selectables>
 									<selectable>locally</selectable>
 									<selectable id="sel-smf-remote-admin">remotely</selectable>
@@ -8701,11 +8671,10 @@
 							<text>
 								Ability to configure and manage the audit functionality and audit data.
 							</text>
-							<O ref="A"/>
+							<M ref="A"/>
 							<X ref="U"/>
                             <app-note>
-								Management of audit data includes the ability to delete it.<h:p/>
-								This function must be claimed if FAU_GEN.1 is claimed in the ST.
+								Management of audit data includes the ability to delete it.								
 							</app-note>  
 						</management-function>
 
@@ -8715,10 +8684,10 @@
 							<text>
 								Ability to configure name/address of audit/logging server to which to send audit/logging records.
 							</text>
-							<O ref="A"/>
+							<M ref="A"/>
 							<X ref="U"/>
                             <app-note>
-								This function must be claimed if FAU_STG.1 is claimed in the ST.
+								None.
 							</app-note>
 						</management-function>
 
@@ -8831,7 +8800,7 @@
 							<O ref="A"/>
 							<X ref="U"/>
                             <app-note>
-								This function must be claimed if FIA_X509_EXT.1 is claimed in the ST (i.e., the TOE claims conformance to <xref to="pkg-x509"/>. <h:p/>
+								This function must be claimed if FIA_X509_EXT.1 is claimed in the ST (i.e., the TOE claims conformance to <xref to="X509"/>. <h:p/>
 								If TOE does not support configuration of certificate revocation checking methods,
 								then the administrator option should be denied.
 							</app-note>
@@ -8863,7 +8832,6 @@
 							<X ref="U"/>
                             <app-note>
                             	This function must be claimed if FCS_IPSEC_EXT.1 is claimed in the ST.<h:p/>
-								This function is mandatory when function <xref to="mf-admin-platform"/> remote administrator is selected.
 							</app-note>
 						</management-function>
 
@@ -8993,7 +8961,7 @@
 						</management-function>
 						
 						<!-- 22 -->
-						<management-function id="mf-key-import-export">
+						<management-function id="mf-man-rec">
 							<depends on-sfr="sfr-fpt-rcv.1"/>
 							<text>
 								Perform manual recovery operations when the device is in a failure or recovery state.
@@ -9006,7 +8974,7 @@
 						</management-function>
 						
 						<!-- 23 -->
-						<management-function id="mf-key-import-export">
+						<management-function id="mf-auto-rec">
 							<depends on-sfr="sfr-fpt-rcv.2"/>
 							<text>
 								Perform manage/configure automated recovery operations when the device is in a failure or recovery state.
@@ -9015,6 +8983,19 @@
 							<X ref="U"/>
 							<app-note>
 								This function must be claimed if FPT_RCV.2 is claimed in the ST.
+							</app-note>
+						</management-function>
+						
+						<!-- 24 -->
+						<management-function id="mf-manage-clock">
+							<depends on-sfr="sfr-fpt-stm.1"/>
+							<text>
+								Manage the TOE clock.
+							</text>
+							<O ref="A"/>
+							<X ref="U"/>
+							<app-note>
+								This function must be claimed if FPT_STM.1 is claimed in the ST.
 							</app-note>
 						</management-function>
 					</management-function-set>]
@@ -9119,8 +9100,7 @@
       			<note role="application">
       				If "<h:i>administrator</h:i>" is selected, then the user authentication SFRs in FIA must be claimed.<h:p/>
       				A user is a human who interacts with the TOE through a user interface. Users do not
-      				authenticate themselves to the TOE, though they may be authenticated by tenant
-      				software. The user role is considered to exist even if no humans normally interact with a TOE.<h:p/>
+      				authenticate themselves to the TOE, and the user role is considered to exist even if no humans normally interact with a TOE.<h:p/>
       				An administrator is a privileged user that must be authenticated by the TOE in order 
       				to administer the TOE. 				
       			</note>
@@ -10130,13 +10110,13 @@
     						<h:td>Integrity, correct value</h:td>
     						<h:td>Configuration data implementing the packet filtering ruleset and the information flow control SFP, including network interface role 
     							assignments</h:td>
-    						<h:td style="text-align: center">All</h:td>
+    						<h:td style="text-align: center">CU, HWS-ERD</h:td>
     					</h:tr>
     					<h:tr style="text-align: center">
     						<h:td>4</h:td>
     						<h:td>Integrity, correct value</h:td>
     						<h:td>X.509 trust anchor store and other credentials used to verify update authenticity and peer identity</h:td>
-    						<h:td style="text-align: center">All</h:td>
+    						<h:td style="text-align: center">IPsec or TLS</h:td>
     					</h:tr>
     					<h:tr style="text-align: center">
     						<h:td>5</h:td>
@@ -10684,7 +10664,7 @@
     	</f-component>
 			
 			<f-component name="Manual Recovery" cc-id="fpt_rcv.1" status="sel-based">
-				<depends on="fmt-smf-1"/>
+				<depends on-sel="mf-man-rec"/>
 				<f-element id="fpt-rcv-1e1">
 					<title>
 						After <assignable>list of failures/service discontinuities</assignable> the TSF shall enter a maintenance mode where the ability to return to a secure 						state is provided.</title>
@@ -10745,7 +10725,7 @@
 			</f-component>
 			
 			<f-component name="Automated Recovery" cc-id="fpt_rcv.2" status="sel-based">
-				<depends on="fmt-smf-1"/>
+				<depends on-sel="mf-auto-rec"/>
 				<f-element>
 					<title>
 						When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
@@ -11322,13 +11302,15 @@
     		<audit-event/>
     	</f-component>
     	
-    	<f-component id="sfr-fpt-stm-1" cc-id="fpt_stm.1" name="Reliable Time Stamps">
+    	<f-component id="sfr-fpt-stm-1" cc-id="fpt_stm.1" name="Reliable Time Stamps" status="sel-based">
+    		<depends on-sfr="sfr-fmt-smf-1"></depends>
     		<f-element id="fpt-stm-1e1">
     			<title>The TSF shall be able to provide reliable time stamps.</title>
     			<note role="application">
     				Reliable time stamps are expected to be used with other TSF, e.g., for the generation of audit data that enables the security administrator to investigate incidents by checking the order of events and determining the actual local time when events occurred. The required level of accuracy is determined by the administrator.  The TOE depends on time and date information that may be provided by a local real-time clock managed by the security administrator
     				
-    				The term “reliable time stamps” refers to the strict use of the provided time and date information and to the logging of all discontinuous changes to the time settings, including information about the old and new time values. With this information, the real time for all audit data can be determined. All discontinuous time changes, whether initiated by an administrator or an automated process, are expected to be audited. No audit is needed when time is changed through kernel or system facilities—such as daytime—that do not introduce discontinuities.
+    				The term “reliable time stamps” refers to the strict use of the provided time and date information and to the logging of all discontinuous changes to the time settings, including information about the old and new time values. With this information, the real time for all audit data can be determined. All discontinuous time changes, whether initiated by an administrator or an automated process, are expected to be audited. No audit is needed when time is changed through kernel or system facilities—such as daytime—that do not introduce discontinuities.<h:p/>
+    				This SFR must be claimed if <xref to="mf-manage-clock"/> is selected in FMT_SMF.1.
     			</note>
     			<aactivity>
     				<TSS>
@@ -11786,11 +11768,11 @@
     		<f-element id="fpt-tud-ext-1e1">
     			<title>The TSF shall implement
     				<selectables linebreak="yes">
-    					<selectable id="sel-tud1-auth-update">an authenticated platform firmware update mechanism as 
+    					<selectable id="sel-tud1-auth-update">an authenticated firmware update mechanism as 
     						described in FPT_TUD_EXT.2</selectable>
-    					<selectable id="sel-tud1-unauth-update">a delayed-authentication platform firmware update mechanism as described in
+    					<selectable id="sel-tud1-unauth-update">a delayed-authentication firmware update mechanism as described in
     						FPT_TUD_EXT.3</selectable>					
-    					<selectable id="sel-tud1-local-update">a secure local platform firmware update mechanism
+    					<selectable id="sel-tud1-local-update">a secure local firmware update mechanism
     						described in FPT_TUD_EXT.4</selectable>
     				</selectables>.
     			</title>
@@ -11799,18 +11781,18 @@
     				</title>
     			</ext-comp-def-title>
     			<note role="application">
-    				The purpose of the platform firmware update mechanism is to ensure the authenticity and integrity of
-    				platform firmware updates. If platform firmware is immutable (not updateable by any non-destructive means), then the ST author selects "no mechanism for platform firmware update."<h:p/>    				
-    				If the platform implements an update mechanism that does not require physical presence at the platform, and 
+    				The purpose of the firmware update mechanism is to ensure the authenticity and integrity of device firmware updates. If firmware is immutable (not 
+    				updateable by any non-destructive means), then the ST author selects "no mechanism for firmware update."<h:p/>    				
+    				If the TOE implements an update mechanism that does not require physical presence at the platform, and 
     				that authenticates firmware updates prior to installing them, then the ST author selects 
-    				"<h:i>an authenticated platform firmware update mechanism...</h:i>" and includes FPT_TUD_EXT.2 
+    				"<h:i>an authenticated firmware update mechanism...</h:i>" and includes FPT_TUD_EXT.2 
     				and FCS_COP.1/SigVer in the ST.<h:p/>
-    				If the platform implements an update mechanism that does not require physical presence at the
-    				platform, and that does not authenticate firmware updates prior to installing them,
-    				then the ST author selects "<h:i>a delayed-authentication platform firmware update mechanism...</h:i>" and 
+    				If the TOE implements an update mechanism that does not require physical presence at the
+    				device, and that does not authenticate firmware updates prior to installing them,
+    				then the ST author selects "<h:i>a delayed-authentication firmware update mechanism...</h:i>" and 
     				includes FPT_TUD_EXT.3 and FCS_COP.1/SigVer in the ST.<h:p/>
-    				If platform firmware is modifiable only through a local update requiring physical presence at the platform,
-    				then the ST author must select "<h:i>a secure local platform firmware update mechanism...</h:i>" and include FPT_TUD_EXT.4 in the ST.
+    				If TOE firmware is modifiable only through a local update requiring physical presence at the device,
+    				then the ST author must select "<h:i>a secure local firmware update mechanism...</h:i>" and include FPT_TUD_EXT.4 in the ST.
     			</note>
     			<aactivity>
     				<TSS>
@@ -11844,7 +11826,7 @@
     	<f-component id="sfr-fpt-tud-ext-2" cc-id="fpt_tud_ext.2" name="Platform Firmware Authenticated Update Mechanism" status="sel-based">
 			<depends on-sel="sel-tud1-auth-update"/>  <!-- FPT_TUD_EXT.1 -->
 			<consistency-rationale/>
-			<comp-lev>specifies the requirements for authenticated update of platform firmware.</comp-lev>
+			<comp-lev>specifies the requirements for authenticated update of firmware.</comp-lev>
 			<management>The following actions could be considered for the management functions in FMT:<h:ul>
 				<h:li>Configuration of action to take on an update failure.</h:li></h:ul></management>
     		<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included
@@ -11853,7 +11835,7 @@
 				<h:li>Success of update operation</h:li></h:ul></audit>
 			<dependencies>FCS_COP.1 Cryptographic Operations</dependencies>
 			<f-element id="fpt-tud-ext-2e1">
-				<title>The TSF shall authenticate the source of all platform firmware updates using a 
+				<title>The TSF shall authenticate the source of all device firmware updates using a 
 					digital signature algorithm specified in FCS_COP.1<h:b>/SigVer</h:b> and using a key store 
 					that contains 
 					<selectables>
@@ -11862,7 +11844,7 @@
 					</selectables>.
 				</title>
 				<ext-comp-def-title>
-				<title>The TSF shall authenticate the source of all platform firmware updates using a 
+				<title>The TSF shall authenticate the source of all device firmware updates using a 
 					digital signature algorithm specified in FCS_COP.1 and using a key store 
 					that contains 
 					<selectables>
@@ -11878,7 +11860,7 @@
 					The TSF shall allow installation of updates only if the digital signature has been
 					successfully verified as specified in FCS_COP.1<h:b>/SigVer</h:b> and 
 					<selectables>
-						<selectable>the version number of the platform firmware update is more recent than 
+						<selectable>the version number of the device firmware update is more recent than 
 							the version number of the current installed platform firmware</selectable>
 						<selectable exclusive="yes">no other conditions</selectable>
 					</selectables>.
@@ -11898,7 +11880,7 @@
 			</f-element>
 			<f-element id="fpt-tud-ext-2e3">
 				<title>
-					The TSF shall include a platform firmware version identifier that is accessible by the update mechanism and
+					The TSF shall include a device firmware version identifier that is accessible by the update mechanism and
 					includes information that enables the update mechanism to determine the relative order of updates.
 				</title>
 			</f-element>
@@ -11914,8 +11896,8 @@
 			</f-element>
 			<f-element id="fpt-tud-ext-2e5">  
 				<title>
-					The TOE shall take the following actions if a platform firmware integrity, authenticity, 
-					or rollback-prevention check fails, or a platform firmware update fails for any other reason: 
+					The TOE shall take the following actions if a device firmware integrity, authenticity, 
+					or rollback-prevention check fails, or a device firmware update fails for any other reason: 
 					<h:ul>
 						<h:li>Do not install the update,</h:li>
 					</h:ul>and
@@ -11937,7 +11919,7 @@
 				</title>
 				<ext-comp-def-title>
 				<title>
-					The TOE shall take the following actions if a platform firmware integrity, authenticity, 
+					The TOE shall take the following actions if a device firmware integrity, authenticity, 
 					or rollback-prevention check fails, or a platform firmware update fails for any other reason: 
 					<h:ul>
 						<h:li>Do not install the update,</h:li>
@@ -11956,11 +11938,11 @@
 				</title>
 				</ext-comp-def-title>
 				<note role="application">					
-					This SFR must be included in the ST if "<h:i>an authenticated platform firmware update mechanism as described in FPT_TUD_EXT.2</h:i>" is selected in
+					This SFR must be included in the ST if "<h:i>an authenticated device firmware update mechanism as described in FPT_TUD_EXT.2</h:i>" is selected in
 					FPT_TUD_EXT.1.1.
 					The ST must include FCS_COP.1/Hash if "<h:i>hash value of the public key</h:i>" is selected.
 					If "<h:i>Initiate recovery as specified in FPT_RVR_EXT.1</h:i>" is selected, then FPT_RVR_EXT.1 must be included in the ST.<h:p/>
-					The platform firmware authenticated update mechanism employs digital signatures to ensure the authenticity of the
+					The device firmware authenticated update mechanism employs digital signatures to ensure the authenticity of the
 					firmware update image. The TSF includes a signature verification algorithm and a key
 					store containing the public key needed to verify the signature on the firmware update image. <h:p/>
 					A hash of the public key may be stored if a copy of the public key is provided with firmware
@@ -11979,25 +11961,25 @@
 				<aactivity>
 					<h:p/><TSS>
 						The evaluator shall ensure that the TSS includes a comprehensive description of how the 
-						authentication of platform firmware updates is implemented by the TSF. The TSS should cover the 
+						authentication of device firmware updates is implemented by the TSF. The TSS should cover the 
 						initialization process and the activities that are performed to ensure that the
 						digital signature of the update image is verified before modification of the firmware. <h:p/>
-						The evaluator shall examine the TSF to ensure that it describes the platform firmware version identifier
+						The evaluator shall examine the TSF to ensure that it describes the device firmware version identifier
 						and explains its meaning and encoding.<h:p/>
 						The evaluator shall also ensure that the TSS describes the actions taken by the TSF is 
 						an update image fails authentication.
 					</TSS>
 					<Guidance>
 						The evaluator shall examine the AGD to ensure that it describes the process for 
-						updating the platform firmware.<h:p/>
+						updating the device firmware.<h:p/>
 						The evaluator shall examine the AGD to ensure that it documents the observable indications
-						of update success or failure, and that it describes how to access the platform firmware version indicators.
+						of update success or failure, and that it describes how to access the device firmware version indicators.
 					</Guidance>
 					<Tests>
 						The evaluator shall perform the following tests<h:p/>
 						<testlist>
-							<test>The evaluator determines the current version of the platform firmware, and obtains or 
-								produces a valid, authentic, and permissible update image of platform firmware. The evaluator 
+							<test>The evaluator determines the current version of the device firmware, and obtains or 
+								produces a valid, authentic, and permissible update image of device firmware. The evaluator 
 								initiates an update using this image through the process described in the operational guidance.
 								After the process is complete, the evaluator checks the current firmware version to ensure
 								that the new firmware version matches that of the update.</test><h:p/>
@@ -12360,7 +12342,7 @@
 	    			</fam-behavior>
 	    	</ext-comp-def>
 	    	
-	    	<f-component cc-id="fta_ssl_ext.1" name="TSF- and TSF-initiated Session Blocking">
+	    	<f-component cc-id="fta_ssl_ext.1" name="TSF-Initiated Session Blocking">
 	    		
 	    		<comp-lev> requires the TSF to manage the transition to a locked state and what operations can be performed. </comp-lev>
 	    		<management>The following actions could be considered for the management functions in FMT:
