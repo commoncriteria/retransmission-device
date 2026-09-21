@@ -7486,7 +7486,8 @@
 			</ext-comp-def>
 			
 			<f-component cc-id="fdp_stg_ext.1" name="User Data Storage" status="sel-based">
-				<depends on-sel="sfr-fdp-stg-ext.1"/>
+				<depends on-sel="mf-stg-user-data"/>
+				<depends on-sel="mf-stg-sec-data"/>
 				<comp-lev> requires the TSF to be able to label, encrypt, store, and decrypt sensitive data and keys.</comp-lev>
 				<management>There are no management activities foreseen.
 				</management>
@@ -7501,6 +7502,7 @@
 				<f-element id="fel-trust-anchor">
 					<title><comment>This should potentially be deleted as FPT_SKP_EXT.1 is already in the PP and covers this information.</comment><h:br/>
 						The TSF shall provide protected storage for the Trust Anchor Database. </title>
+					<note role="application">This SFR should be included if Function <xref to="mf-stg-user-data"/> or <xref to="mf-stg-sec-data"/> is selected in FMT_SMF.1.</note>
 					<aactivity>
 						<TSS>The evaluator shall ensure the TSS describes the Trust Anchor Database
 							implemented that contains certificates used to meet the requirements of this PP. This
@@ -8948,7 +8950,7 @@
 						</management-function>
 						
 						<!-- 21 -->
-						<management-function id="stg-sec-data">
+						<management-function id="mf-stg-sec-data">
 							<depends on-sfr="sfr-fdp-stg-ext.1"/>
 							<text>
 								Ability to manage the storage of security data.
@@ -10665,6 +10667,7 @@
 			
 			<f-component name="Manual Recovery" cc-id="fpt_rcv.1" status="sel-based">
 				<depends on-sel="mf-man-rec"/>
+				<depends on-sfr="sfr-fmt-smf-1"/>
 				<f-element id="fpt-rcv-1e1">
 					<title>
 						After <assignable>list of failures/service discontinuities</assignable> the TSF shall enter a maintenance mode where the ability to return to a secure 						state is provided.</title>
