@@ -31,8 +31,6 @@
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[20]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to ftp-itc-ext-1e1 from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[21]""/depends[3]""/on-sel[1]""
-* Error: Detected dangling id-reference to sfr-fdp-stg-ext.1 from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[7]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to sfr-ftp-trp-1 from attribute
         on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[5]""/depends[1]""/on-sfr[1]""
 * Error: Detected dangling id-reference to sfr-fia-trt-ext-1 from attribute
