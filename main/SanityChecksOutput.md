@@ -63,10 +63,8 @@
         on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[22]""/depends[1]""/on-sfr[1]""
 * Error: Detected dangling id-reference to sfr-fpt-rcv.2 from attribute
         on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[23]""/depends[1]""/on-sfr[1]""
-* Error: Detected dangling id-reference to fmt-smf-1 from attribute
-        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[17]""/depends[1]""/on[1]""
-* Error: Detected dangling id-reference to fmt-smf-1 from attribute
-        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[18]""/depends[1]""/on[1]""
+* Error: Detected dangling id-reference to sfr-fpt-stm.1 from attribute
+        on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[24]""/depends[1]""/on-sfr[1]""
 * Error: Detected dangling id-reference to windows from attribute
         ref/PP[1]""/sec:req[1]""/section[1]""/section[6]"For the c"/a-component[1]""/a-element[5]""/aactivity[1]""/h:div[1]""/depends[1]""/ref[1]""
 * Error: Detected dangling id-reference to linux from attribute
@@ -141,6 +139,8 @@
           /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[22]""/depends[1]""
 * Warning: Potentially illegal 'depends' element.
           /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[23]""/depends[1]""
+* Warning: Potentially illegal 'depends' element.
+          /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[24]""/depends[1]""
 * Error: Detected multiple elements with an id of 'pfed'.
 * Error: Detected multiple elements with an id of 'sel-exp-skg-256'.
 * Error: Detected multiple elements with an id of 'sel-exp-skg-256'.
@@ -148,9 +148,6 @@
 * Error: Detected multiple elements with an id of 'fia-psk-ext-1e2'.
 * Error: Detected multiple elements with an id of 'fia-psk-ext-1e1'.
 * Error: Detected multiple elements with an id of 'fia-psk-ext-1e2'.
-* Error: Detected multiple elements with an id of 'mf-key-import-export'.
-* Error: Detected multiple elements with an id of 'mf-key-import-export'.
-* Error: Detected multiple elements with an id of 'mf-key-import-export'.
 * Error: Detected multiple elements with an id of 'pfed'.
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[2]""
@@ -855,7 +852,6 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[1]""/app-note[1]"Administr"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[1]""/app-note[1]"Administr"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[1]""/app-note[1]"Administr"/h:p[3]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[2]""/app-note[1]"Managemen"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[5]""/app-note[1]"This func"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[6]""/app-note[1]"This func"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[8]""/app-note[1]"This func"/h:p[1]""
@@ -999,6 +995,7 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[24]""/f-element[5]""/note[1]"Operating"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[24]""/f-element[5]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[24]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[26]""/f-element[1]""/note[1]"Reliable "/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[26]""/f-element[1]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[26]""/f-element[1]""/aactivity[1]""/Guidance[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[26]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/h:p[1]""
@@ -1103,7 +1100,6 @@
  Failed to find a reference to at-feat-based.
  Failed to find a reference to at-sel-based.
  Failed to find a reference to mf-audioVisual.
- Failed to find a reference to pkg-x509.
  Failed to find a reference to pkg-x509.
  Failed to find a reference to mf-unlockBanner.
  Failed to find a reference to bibCEM.
