@@ -68,29 +68,21 @@
         <term abbr="CMS" full="Cryptographic Message Syntax"/>
         <term abbr="CN" full="Common Names"/>
         <term abbr="CRL" full="Certificate Revocation List"/>
-        <term abbr="CSA" full="Computer Security Act"/>
     	<term abbr="CU" full="Communication Unit">
     		A retransmission device (RD) component whose primary purpose is to provide network transport and simple isolation for an EUD or EU when communicating with an untrusted transport network. The interconnect between the EUD or EU and the CU is always over a dedicated wired interconnect.</term>
         <term abbr="DES" full="Data Encryption Standard"/>
         <term abbr="DHE" full="Diffie-Hellman Ephemeral"/>
-        <term abbr="DMG" full="Apple Disk Image"/>
         <term abbr="DNS" full="Domain Name System"/>
-        <term abbr="DPAPI" full="Data Protection Application Programming Interface"/>
         <term abbr="DRBG" full="Deterministic Random Bit Generator"/>
         <term abbr="DSS" full="Digital Signature Standard"/>
-        <term abbr="DT" full="Date/Time Vector"/>
         <term abbr="DTLS" full="Datagram Transport Layer Security"/>
         <term abbr="EAP" full="Extensible Authentication Protocol"/>
         <term abbr="ECDHE" full="Elliptic Curve Diffie-Hellman Ephemeral"/>
         <term abbr="ECDSA" full="Elliptic Curve Digital Signature Algorithm"/>
-        <term abbr="EMET" full="Enhanced Mitigation Experience Toolkit"/>
-        <term abbr="EST" full="Enrollment over Secure Transport"/>
-		<term abbr="EUD" full="End-User Device"/>
-        <term abbr="FIPS" full="Federal Information Processing Standards"/>
-        <term abbr="ELF" full="Executable and Linkable Format"/>
+		<term abbr="EUD" full="End-User Device"/>       
 		<term abbr="EU" full="Encryption Unit">
 			A retransmission device component whose primary purpose is to provide an independent layer of encryption for an EUD on top of the existing network transport.</term>
-        <term abbr="GPS" full="Global Positioning System"/>
+         <term abbr="FIPS" full="Federal Information Processing Standards"/><term abbr="GPS" full="Global Positioning System"/>
         <term abbr="HMAC" full="Hash-based Message Authentication Code"/>
         <term abbr="HTTP" full="Hypertext Transfer Protocol"/>
         <term abbr="HTTPS" full="Hypertext Transfer Protocol Secure"/>
@@ -98,21 +90,14 @@
 			An HWS-ERD will encrypt traffic between two endpoints while maintaining a defined physical and logical protocol break between the trusted and the untrusted domains.
 			A protocol break concerns protocol state crossing the EU/CU boundary; it does not require termination of the protected Layer-2 service presented to the external endpoints. The protocol break will be both physically and locally enforced.
 			</term>
-        <term abbr="IANA" full="Internet Assigned Number Authority"/>
 		<term abbr="IC" full="Interconnect"/>
         <term abbr="IEC" full="International Electrotechnical Commission"/>
         <term abbr="IETF" full="Internet Engineering Task Force"/>
         <term abbr="IP" full="Internet Protocol"/>
-        <term abbr="IPA" full="iOS Package archive"/>
         <term abbr="IR" full="Intermediate Integer"/>
         <term abbr="ISO" full="International Organization for Standardization"/>
         <term abbr="IT" full="Information Technology"/>
         <term abbr="ITSEF" full="Information Technology Security Evaluation Facility"/>
-        <term abbr="JNI" full="Java Native Interface"/>
-        <term abbr="LDAP" full="Lightweight Directory Access Protocol"/>
-        <term abbr="MIME" full="Multi-purpose Internet Mail Extensions"/>
-        <term abbr="MPKG" full="Meta Package"/>
-        <term abbr="MSI" full="Microsoft Installer"/>
         <term abbr="NFC" full="Near Field Communication"/>
         <term abbr="NIAP" full="National Information Assurance Partnership"/>
         <term abbr="NIST" full="National Institute of Standards and Technology"/>
@@ -120,7 +105,6 @@
         <term abbr="OID" full="Object Identifier"/>
         <term abbr="OMB" full="Office of Management and Budget"/>
         <term abbr="PDF" full="Portable Document Format"/>
-	    <term abbr="PE" full="Portable Executable"/>
 		<term abbr="PFED" full="Protocol Free Encrypting Device"/>
         <term abbr="PID" full="Process Identifier"/>
         <term abbr="PKG" full="Package file"/>
@@ -129,13 +113,10 @@
         <term abbr="RFC" full="Request for Comment"/>
         <term abbr="RNG" full="Random Number Generator"/>
         <term abbr="RNGVS" full="Random Number Generator Validation System"/>
-        <term abbr="SE" full="Security Enhancements"/>
         <term abbr="SHA" full="Secure Hash Algorithm"/>
-        <term abbr="S/MIME" full="Secure/Multi-purpose Internet Mail Extensions"/>
         <term abbr="SSH" full="Secure Shell"/>
         <term abbr="SIP" full="Session Initiation Protocol"/>
         <term abbr="SP" full="Special Publication"/>
-        <term abbr="SWID" full="Software Identification"/>
         <term abbr="SAN" full="Subject Alternative Name"/>
         <term abbr="TLS" full="Transport Layer Security"/>
         <term abbr="UI" full="User Interface"/>
@@ -988,7 +969,7 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_STG_EXT.1</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1069,7 +1050,7 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FDP_STG_EXT.1</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1384,7 +1365,7 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_RCV.1</h:td>
-					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1709,7 +1690,7 @@
 				<addressed-by>FAU_STG.2</addressed-by><rationale>Mitigates the threat by preventing audit records indicating a potential attack from being destroyed.</rationale>						
 				<addressed-by>FAU_STG.5</addressed-by><rationale>Mitigates the threat by ensuring that exhaustion of audit storage does not prevent audit data indicating a
 					potential attack from being generated.</rationale>
-				<addressed-by>FDP_STG_EXT.1</addressed-by><rationale>Mitigate the threat by protecting the X.509 certificates used for trusted communications.</rationale>
+				
 				<addressed-by>FMT_SMF.1</addressed-by><rationale>Mitigates the threat by providing a list of specific management functions.</rationale>
 				<addressed-by>FMT_SMR.1</addressed-by><rationale>Mitigates the threat by defining the management roles which can be used to grant access to management 
 					functions.</rationale>
@@ -1760,6 +1741,7 @@
 					of strong cryptographic keys.</rationale>
 				<addressed-by>FCS_RBG.6 (sel-based)</addressed-by><rationale>Mitigates the threat by providing a secure DRBG service for third-party applications running on the TOE which
 					may use this service to generate their own cryptographic keys for trusted communications.</rationale>
+				<addressed-by>FDP_STG_EXT.1 (sel-based)</addressed-by><rationale>Mitigate the threat by protecting the X.509 certificates used for trusted communications.</rationale>
 				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
 					insecure keys.</rationale>
 				<addressed-by>FTP_ITP_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by using a physically protected channel to protect data in transit.</rationale>
@@ -1781,7 +1763,7 @@
 				<description>An attacker is positioned on a communications channel or elsewhere on the network infrastructure. Attackers may monitor and gain access to data
 					exchanged between the TOE and other endpoints, resulting in modification or disclosure of sensitive communications. An attacker is listening to
 					communications to extract sensitive information.</description>
-				<addressed-by>FDP_STG_EXT.1</addressed-by><rationale>Mitigate the threat by protecting the X.509 certificates used for trusted communications.</rationale>
+				
 				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat by implementing a mechanism to detect when the DRBG may be failing to generate secure
 					cryptographic keys.</rationale>
 				<addressed-by>FCS_REC_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates the threat by requiring that recovery keys are derived using HKDF tied to the current 
@@ -1802,6 +1784,7 @@
 				<addressed-by>FCS_COP.1/SigVer (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that secure digital signature algorithms are used for trusted
 					communications.</rationale>
 				<addressed-by>FCS_HTTPS_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing a secure protocol (HTTPS) for trusted communications.</rationale>
+				<addressed-by>FDP_STG_EXT.1 (sel-based)</addressed-by><rationale>Mitigate the threat by protecting the X.509 certificates used for trusted communications.</rationale>
 				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
 					insecure keys.</rationale>
 				<addressed-by>FTP_PRO.1 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing a defined PFED trusted channel lprotocol with mutually authenticated endpoints.</rationale>
@@ -1827,11 +1810,7 @@
 			</threat>	
 			
 			<threat name="T.PHYSICAL_ACCESS">
-				<description>An attacker with physical access may attempt to access user data on the mobile device, including credentials. These physical access threats may 
-					involve attacks that attempt to access the device through external hardware ports, to impersonate the user authentication mechanisms through its user
-					interface, or through direct and possibly destructive access to its storage media. An attacker with physical access might also be able to compromise TOE
-					integrity, subvert TOE protections, or access tenant data through hardware attacks such as probing, physical manipulation, fault-injection, side-channel
-					analysis, environmental stress, or activating disabled features or pre-delivery services.</description>
+				<description>An attacker with physical access may attempt to access protected data (such as pre-shared keys) on the retransmission device. These physical access threats may involve attacks that attempt to access the device through external hardware ports, to impersonate the user authentication mechanisms through its user interface, or through direct and possibly destructive access to its storage media. An attacker with physical access might also be able to compromise TOE integrity, subvert TOE protections, or access protected TOE data through hardware attacks such as probing, physical manipulation, fault-injection, side-channel analysis, environmental stress, or activating disabled features or pre-delivery services.</description>
 				<addressed-by>FCS_STG_EXT.1</addressed-by><rationale>Mitigates the threat by implementing a secure key storage for keys used to protect data at rest and data in
 					transit.</rationale>
 				<addressed-by>FIA_PMG_EXT.1</addressed-by><rationale>Mitigates the threat by defining strong password characteristics.</rationale>
@@ -2041,7 +2020,7 @@
 		functionality. These track with the assumptions about the environment. 
 		<SOEs>
 			<SOE name="OE.CONFIG">
-				<description>TOE administrators will configure the mobile device security functions correctly to create the intended security policy.</description>
+				<description>TOE administrators will configure the retransmission device security functions correctly to create the intended security policy.</description>
 			</SOE>
 			
 			<SOE name="OE.NOTIFY">
@@ -6686,7 +6665,7 @@
 		</ext-comp-def>
 		
 		
-		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1" status="invisible">
+		<f-component name="PFED Session Rekey and Key Recovery" cc-id="fcs_rec_ext.1" status="invisible">
 			<comp-lev>requires the TSF to perform session rekey under specific circumstances.</comp-lev>
 			<management>There are no management activities foreseen.</management>
 			<audit>There are no auditable events foreseen.</audit>
@@ -6704,7 +6683,7 @@
 				</f-element>
 		</f-component>
 		
-		<f-component name="Key Recovery" cc-id="fcs_rec_ext.1" iteration="PFED" status="feat-based">
+			<f-component name="PFED Session Rekey and Key Recovery" cc-id="fcs_rec_ext.1" iteration="PFED" status="feat-based">
 			<depends on="pfed"/>			
 			<f-element>
 				<title>
@@ -7536,8 +7515,8 @@
 				</fam-behavior>
 			</ext-comp-def>
 			
-			<f-component cc-id="fdp_stg_ext.1" name="User Data Storage">
-				
+			<f-component cc-id="fdp_stg_ext.1" name="User Data Storage" status="sel-based">
+				<depends on-sel="sfr-fdp-stg-ext.1"/>
 				<comp-lev> requires the TSF to be able to label, encrypt, store, and decrypt sensitive data and keys.</comp-lev>
 				<management>There are no management activities foreseen.
 				</management>
@@ -8289,7 +8268,7 @@
 							FDP_DAR_EXT.2. <h:p/>
 							<h:b>Evaluation Activity Note:</h:b> The following tests require the developer to
 							provide access to a test platform that provides the evaluator with tools that are
-							typically not found on consumer Mobile Device products<h:p/>
+							typically not found on consumer retransmission device products<h:p/>
 							<testlist>
 								<test>The evaluator shall enable encryption of protected data and require user
 									authentication according to the AGD guidance. The evaluator shall write, or the
@@ -8984,6 +8963,58 @@
 							<X ref="U"/>
                             <app-note>
 								This function must be claimed if FCS_STG_EXT.1 is claimed in the ST.
+							</app-note>
+						</management-function>
+						
+						<!-- 20 -->
+						<management-function id="mf-stg-user-data">
+							<depends on-sfr="sfr-fdp-stg-ext.1"/>
+							<text>
+								Ability to manage the storage of user data.
+							</text>
+							<O ref="A"/>
+							<X ref="U"/>
+							<app-note>
+								This function must be claimed if FDP_STG_EXT.1 is claimed in the ST.
+							</app-note>
+						</management-function>
+						
+						<!-- 21 -->
+						<management-function id="stg-sec-data">
+							<depends on-sfr="sfr-fdp-stg-ext.1"/>
+							<text>
+								Ability to manage the storage of security data.
+							</text>
+							<O ref="A"/>
+							<X ref="U"/>
+							<app-note>
+								This function must be claimed if FDP_STG_EXT.1 is claimed in the ST.
+							</app-note>
+						</management-function>
+						
+						<!-- 22 -->
+						<management-function id="mf-key-import-export">
+							<depends on-sfr="sfr-fpt-rcv.1"/>
+							<text>
+								Perform manual recovery operations when the device is in a failure or recovery state.
+							</text>
+							<O ref="A"/>
+							<X ref="U"/>
+							<app-note>
+								This function must be claimed if FPT_RCV.1 is claimed in the ST.
+							</app-note>
+						</management-function>
+						
+						<!-- 23 -->
+						<management-function id="mf-key-import-export">
+							<depends on-sfr="sfr-fpt-rcv.2"/>
+							<text>
+								Perform manage/configure automated recovery operations when the device is in a failure or recovery state.
+							</text>
+							<O ref="A"/>
+							<X ref="U"/>
+							<app-note>
+								This function must be claimed if FPT_RCV.2 is claimed in the ST.
 							</app-note>
 						</management-function>
 					</management-function-set>]
@@ -9797,11 +9828,11 @@
     						camera, light, microphone, GPS, accelerometers, geomagnetic field
     						sensors)</h:li>
     				</h:ul>
-    				<h:br/> Mobile devices are becoming increasingly complex having an application
+    				<h:br/> Retransmission devices are becoming increasingly complex having an application
     				processor that runs an operating system and user applications and separate
     				baseband processors that handle cellular and other wireless network connectivity. <h:br/><h:br/>
     				<h:ul>
-    					<h:li>The application processor within most modern Mobile Devices is a system on a
+    					<h:li>The application processor within most modern retransmission devices is a system on a
     						chip (SoC) that integrates, for example, CPU/GPU cores and memory interface
     						electronics into a single, power-efficient package.</h:li>
     					<h:li>Baseband processors are becoming increasingly complex themselves delivering
@@ -9815,7 +9846,7 @@
     				Integrity, Access Control, and Anti-Exploitation requirements) will apply to
     				application processors and baseband processors.</note>
     			<aactivity>
-    				<TSS>The evaluator shall ensure that the TSS section of the ST describes at a high level how the processors on the Mobile Device interact, including which bus protocols they use to communicate, any other devices operating on that bus (peripherals and sensors), and identification of any shared resources. The evaluator shall verify that the design described in the TSS does not permit any BPs from accessing any of the peripherals and sensors or from accessing main memory (volatile and non-volatile) used by the AP. In particular, the evaluator shall ensure that the design prevents modification of executable memory of the AP by the BP.</TSS>
+    				<TSS>The evaluator shall ensure that the TSS section of the ST describes at a high level how the processors on the retransmission device interact, including which bus protocols they use to communicate, any other devices operating on that bus (peripherals and sensors), and identification of any shared resources. The evaluator shall verify that the design described in the TSS does not permit any BPs from accessing any of the peripherals and sensors or from accessing main memory (volatile and non-volatile) used by the AP. In particular, the evaluator shall ensure that the design prevents modification of executable memory of the AP by the BP.</TSS>
     				<Guidance/>
     				<Tests/>
     			</aactivity>
@@ -10300,8 +10331,8 @@
     				<TSS>The evaluator shall consult the TSS section of the ST in performing the Evaluation
     					Activities for this requirement. The evaluator shall ensure that the TSS describes
     					the TOE security boundary. The cryptographic module may very well be a particular
-    					kernel module, the Operating System, the Application Processor, or up to the entire
-    					Mobile Device. <h:p/> In performing their review, the evaluator shall
+    					kernel module, the operating system, the application processor, or up to the entire
+    					retransmission device. <h:p/> In performing their review, the evaluator shall
     					determine that the TSS contains a description of the activities that happen on
     					power-up and password authentication relating to the decryption of DEKs, stored
     					keys, and data. <h:p/> The evaluator shall ensure that the TSS describes
@@ -10384,7 +10415,7 @@
     				<Tests>
     					<h:b>Evaluation Activity Note:</h:b> The following test requires the developer to
     					provide access to a test platform that provides the evaluator with tools that are
-    					typically not found on consumer Mobile Device products. The evaluator shall perform the following test<h:p/> <testlist>
+    					typically not found on consumer retransmission device products. The evaluator shall perform the following test<h:p/> <testlist>
     						<test>The evaluator shall use a tool provided by the developer to modify files and
     							processes in the system that correspond to critical failures specified in the
     							second list. The evaluator shall verify that creating these critical failures
@@ -10652,7 +10683,8 @@
     		<audit-event/>
     	</f-component>
 			
-			<f-component name="Manual Recovery" cc-id="fpt_rcv.1">
+			<f-component name="Manual Recovery" cc-id="fpt_rcv.1" status="sel-based">
+				<depends on-sel="sfr-fpt-rcv.1"/>
 				<f-element id="fpt-rcv-1e1">
 					<title>
 						After <assignable>list of failures/service discontinuities</assignable> the TSF shall enter a maintenance mode where the ability to return to a secure 						state is provided.</title>
@@ -10661,7 +10693,8 @@
 						the secure operational state defined in the ST. A condition that the TOE resolves without administrator action belongs under FPT_RCV.2 or another
 						automatic-recovery requirement. <h:p/>
 						Maintenance mode is not normal operation. The ST shall name the functions permitted for recovery and the traffic, trusted-channel, cryptographic, or
-						management functions that remain disabled until recovery completes.						
+						management functions that remain disabled until recovery completes.<h:p/>
+						This SFR must be included if <xref to="sfr-fpt-rcv.1"/> is selected in FMT_SMF.1,
 					</note>
 					<aactivity>
 						<TSS>
@@ -10711,27 +10744,8 @@
 				</audit-event>
 			</f-component>
 			
-			<f-component name="Recovery Behavior" cc-id="fpt_rcv_ext.1" status="invisible">
-				
-				<consistency-rationale/>
-				<comp-lev>require using a secure recovery state.</comp-lev>
-				<management>There are no management activities foreseen.</management>
-				<audit>There are no auditable events foreseen.</audit>
-				<dependencies>No dependencies.</dependencies>
-				
-				<f-element>
-					<title>
-						The TOE shall enter a secure recovery state upon detection of: <selectables>
-							<selectable>dead peer</selectable>
-							<selectable>session key divergence</selectable>
-							<selectable>failed rekey or recovery transaction</selectable>
-						</selectables>.
-					</title>
-				</f-element>
-				
-			</f-component>
-			
-			<f-component name="Automated Recovery" cc-id="fpt_rcv.2">
+			<f-component name="Automated Recovery" cc-id="fpt_rcv.2" status="sel-based">
+				<depends on-sel="sfr-fpt-rcv.2"/>
 				<f-element>
 					<title>
 						When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
@@ -10752,7 +10766,8 @@
 							<h:li>Exhaustion or corruption of required initialization state, or</h:li>
 							<h:li>Other service discontinuities that prevent automatic restoration of the TOE to a secure operational condition.</h:li>
 						</h:ul>
-						“<h:i>Maintenance mode</h:i>” in this requirement is a constrained TOE state in which normal security-relevant operational services are not provided, but the TOE preserves the ability to perform the actions necessary to restore a secure state.    				
+						“<h:i>Maintenance mode</h:i>” in this requirement is a constrained TOE state in which normal security-relevant operational services are not provided, but the TOE preserves the ability to perform the actions necessary to restore a secure state.<h:p/>
+						This SFR must be included if <xref to="sfr-fpt-rcv.2"/> is selected in FMT_SMF.1,
 					</note>
 					<aactivity>
 						<TSS>
@@ -10814,6 +10829,27 @@
 				</audit-event>
 				
 			</f-component>
+			<f-component name="Recovery Behavior" cc-id="fpt_rcv_ext.1" status="invisible">
+				
+				<consistency-rationale/>
+				<comp-lev>require using a secure recovery state.</comp-lev>
+				<management>There are no management activities foreseen.</management>
+				<audit>There are no auditable events foreseen.</audit>
+				<dependencies>No dependencies.</dependencies>
+				
+				<f-element>
+					<title>
+						The TOE shall enter a secure recovery state upon detection of: <selectables>
+							<selectable>dead peer</selectable>
+							<selectable>session key divergence</selectable>
+							<selectable>failed rekey or recovery transaction</selectable>
+						</selectables>.
+					</title>
+				</f-element>
+				
+			</f-component>
+			
+			
 			
 			
 			<ext-comp-def title="Recovery Behavior" fam-id="FPT_RCV_EXT">
@@ -11290,31 +11326,9 @@
     		<f-element id="fpt-stm-1e1">
     			<title>The TSF shall be able to provide reliable time stamps.</title>
     			<note role="application">
-    				Reliable time stamps are expected to be used with other TSF, e.g., for the generation
-    				of audit data that enables the security administrator to investigate incidents by
-    				checking the order of events and determining the actual local time when events
-    				occurred. The required level of accuracy is determined by the administrator.<h:p/>
-    				The TOE depends on time and date information that may be provided by a local
-    				real-time clock managed by the Security Administrator or obtained from one or more
-    				NTP servers. The
-    				corresponding options are selected in FPT_STM_EXT.1.2. Automatic
-    				synchronization with an NTP server is recommended but not required. When the
-    				TOE communicates with an NTP server, the inclusion of FCS_NTP_EXT.1 in the ST is
-    				expected. The ST author describes in the TSS how the TOE receives external time
-    				and date information and how this information is maintained. +<h:p/>
-    				The term “reliable time stamps” refers to the strict use of the provided time and
-    				date information and to the logging of all discontinuous changes to the time
-    				settings, including information about the old and new time values. With this
-    				information, the real time for all audit data can be determined. All discontinuous
-    				time changes, whether initiated by an Administrator or an automated process, are
-    				expected to be audited. No audit is needed when time is changed through kernel or
-    				system facilities—such as daytime (3)—that do not introduce discontinuities.<h:p/>
-    				For distributed TOEs, the Security Administrator is expected to maintain
-    				synchronization between the time settings of different TOE components. All
-    				components should either remain synchronized (for example, by internal
-    				synchronization or by using a common NTP source) or have a known and
-    				documented offset for each component pair, including those synchronized to
-    				different time zones.
+    				Reliable time stamps are expected to be used with other TSF, e.g., for the generation of audit data that enables the security administrator to investigate incidents by checking the order of events and determining the actual local time when events occurred. The required level of accuracy is determined by the administrator.  The TOE depends on time and date information that may be provided by a local real-time clock managed by the security administrator
+    				
+    				The term “reliable time stamps” refers to the strict use of the provided time and date information and to the logging of all discontinuous changes to the time settings, including information about the old and new time values. With this information, the real time for all audit data can be determined. All discontinuous time changes, whether initiated by an administrator or an automated process, are expected to be audited. No audit is needed when time is changed through kernel or system facilities—such as daytime—that do not introduce discontinuities.
     			</note>
     			<aactivity>
     				<TSS>
