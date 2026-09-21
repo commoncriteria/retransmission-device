@@ -10666,8 +10666,7 @@
     	</f-component>
 			
 			<f-component name="Manual Recovery" cc-id="fpt_rcv.1" status="sel-based">
-				<depends on-sel="mf-man-rec"/>
-				<depends on-sfr="sfr-fmt-smf-1"/>
+				<depends on-id="mf-man-rec"/>
 				<f-element id="fpt-rcv-1e1">
 					<title>
 						After <assignable>list of failures/service discontinuities</assignable> the TSF shall enter a maintenance mode where the ability to return to a secure 						state is provided.</title>
@@ -10728,7 +10727,7 @@
 			</f-component>
 			
 			<f-component name="Automated Recovery" cc-id="fpt_rcv.2" status="sel-based">
-				<depends on-sel="mf-auto-rec"/>
+				<depends on-id="mf-auto-rec"/>
 				<f-element>
 					<title>
 						When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
