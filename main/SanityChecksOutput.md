@@ -59,8 +59,6 @@
         on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[22]""/depends[1]""/on-sfr[1]""
 * Error: Detected dangling id-reference to sfr-fpt-stm.1 from attribute
         on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[23]""/depends[1]""/on-sfr[1]""
-* Error: Detected dangling id-reference to sel-fpt-rcv-1-manual from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[17]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to windows from attribute
         ref/PP[1]""/sec:req[1]""/section[1]""/section[6]"For the c"/a-component[1]""/a-element[5]""/aactivity[1]""/h:div[1]""/depends[1]""/ref[1]""
 * Error: Detected dangling id-reference to linux from attribute

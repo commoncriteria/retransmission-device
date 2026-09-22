@@ -8172,7 +8172,7 @@ The following sections list Common Criteria and technology terms used in this do
 <tr id="mf-initiate-update"><td>16</td><td style="text-align:left">
 								Ability to initiate the update process.
 							</td><td><div class="tooltipped">O<span class="tooltiptext">Optional/Conditional</span></div></td><td><div class="tooltipped">O<span class="tooltiptext">Optional/Conditional</span></div></td><td style="text-align:left"><p>
-								This function must be claimed if something other than "<i>no mechanism for platform firmware update</i>"
+								This function must be claimed if something other than "<i>no mechanism for <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update</i>"
 								is selected in <a href="#FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</a>.
 							</p></td></tr>
 <tr id="mf-determine-update-failure-action"><td>17</td><td style="text-align:left">
@@ -8206,7 +8206,7 @@ The following sections list Common Criteria and technology terms used in this do
 								This function must be claimed if <a href="#FDP_STG_EXT.1">FDP_STG_EXT.1</a> is claimed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.
 							</p></td></tr>
 <tr id="mf-rec-method"><td>22</td><td style="text-align:left">
-								Configure [<b>selection</b>: <span class="selectable-content" id="sel-fpt-rcv-1-auto">automated</span>, <span class="selectable-content" id="sel-fpt-rcv-2-manual">manual</span>] recovery methods for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
+								Configure [<b>selection</b>: <span class="selectable-content" id="sel-fpt-rcv-2-auto">automated</span>, <span class="selectable-content" id="sel-fpt-rcv-1-manual">manual</span>] recovery methods for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
 							</td><td><div class="tooltipped">M<span class="tooltiptext">Mandatory</span></div></td><td><div class="tooltipped">X<span class="tooltiptext">Not permitted</span></div></td><td style="text-align:left"><p>
 								If "<i>manual</i>" is selected, then the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim <a href="#FPT_RCV.1">FPT_RCV.1</a>. If "<i>automated</i>" is selected, then the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim <a href="#FPT_RCV.2">FPT_RCV.2</a>.
 							</p></td></tr>
@@ -9649,7 +9649,7 @@ The following sections list Common Criteria and technology terms used in this do
     				</div></div></div></div></div>
 			
 			<div class="comp" id="FPT_RCV.1"><h4>FPT_RCV.1 Manual Recovery</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
-	  .
+	  <a href="#FMT_SMF.1.1">FMT_SMF.1.1</a>.
       </i></b></div>
 				
 				<div class="element"><div class="reqid" id="FPT_RCV.1.1"><a href="#FPT_RCV.1.1" class="abbr">FPT_RCV.1.1</a></div><div class="reqdesc">
@@ -10449,13 +10449,13 @@ The following sections list Common Criteria and technology terms used in this do
     				
     				
     			<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
-    					If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "no mechanism for platform firmware update," then the evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that it explains all ways of modifying platform firmware in the absence of any provided mechanism. For example, breaking open the case and prying a chip off the motherboard and then reprogramming the chip. The purpose of this activity is to ensure that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not implement a local update mechanism that does not meet the requirements of <a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a>.<p></p>
-    					This requirement is met if the platform implements no means for updating platform firmware and the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes a method for updating or replacing platform firmware that involves destroying or damaging the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or some of its components.<p></p>
-    					If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "<i>an authenticated platform firmware update mechanism...</i>," then this requirement is 
+    					If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "no mechanism for <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update," then the evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that it explains all ways of modifying <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware in the absence of any provided mechanism. For example, breaking open the case and prying a chip off the motherboard and then reprogramming the chip. The purpose of this activity is to ensure that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not implement a local update mechanism that does not meet the requirements of <a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a>.<p></p>
+    					This requirement is met if the platform implements no means for updating <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware and the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes a method for updating or replacing platform firmware that involves destroying or damaging the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or some of its components.<p></p>
+    					If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "<i>an authenticated <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update mechanism...</i>," then this requirement is 
     					satisfied if <a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a> is satisfied. <p></p>
-    					If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "<i>a delayed-authentication platform firmware update mechanism...</i>," then this requirement is 
+    					If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "<i>a delayed-authentication <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update mechanism...</i>," then this requirement is 
     					satisfied if <a href="#FPT_TUD_EXT.3">FPT_TUD_EXT.3</a> is satisfied. <p></p>
-    					If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "<i>a secure local platform firmware update mechanism...</i>," then this requirement is 
+    					If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author selects "<i>a secure local <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update mechanism...</i>," then this requirement is 
     					satisfied if <a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a> is satisfied.
     				</div></div><div class="eacategory">Guidance</div><div class="ea">
 			There are no additional Guidance evaluation activities for this component.<br/></div><div class="eacategory">Tests</div><div class="ea">
@@ -10463,7 +10463,7 @@ The following sections list Common Criteria and technology terms used in this do
     	
 		
     	
-    	<div class="comp" id="FPT_TUD_EXT.2"><h4>FPT_TUD_EXT.2 Platform Firmware Authenticated Update Mechanism</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+			<div class="comp" id="FPT_TUD_EXT.2"><h4>FPT_TUD_EXT.2 TOE Firmware Authenticated Update Mechanism</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</a>.
       </i></b></div>
 			  
@@ -10472,7 +10472,7 @@ The following sections list Common Criteria and technology terms used in this do
 			
     		
 			
-			<div class="element"><div class="reqid" id="FPT_TUD_EXT.2.1"><a href="#FPT_TUD_EXT.2.1" class="abbr">FPT_TUD_EXT.2.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall authenticate the source of all device firmware updates using a 
+			<div class="element"><div class="reqid" id="FPT_TUD_EXT.2.1"><a href="#FPT_TUD_EXT.2.1" class="abbr">FPT_TUD_EXT.2.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall authenticate the source of all <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware updates using a 
 					digital signature algorithm specified in FCS_COP.1<b>/SigVer</b> and using a key store 
 					that contains 
 					[<b>selection</b>: <span class="selectable-content" id="_s_540">the public key</span>, <span class="selectable-content" id="sel-tud2-hash">hash value of the public key</span>].
@@ -10480,17 +10480,17 @@ The following sections list Common Criteria and technology terms used in this do
 			<div class="element"><div class="reqid" id="FPT_TUD_EXT.2.2"><a href="#FPT_TUD_EXT.2.2" class="abbr">FPT_TUD_EXT.2.2</a></div><div class="reqdesc">
 					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow installation of updates only if the digital signature has been
 					successfully verified as specified in FCS_COP.1<b>/SigVer</b> and 
-					[<b>selection</b>: <span class="selectable-content" id="_s_544">the version number of the device firmware update is more recent than 
-							the version number of the current installed platform firmware</span>, <span class="selectable-content" id="_s_545">no other conditions</span>].
+					[<b>selection</b>: <span class="selectable-content" id="_s_544">the version number of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update is more recent than 
+							the version number of the current installed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware</span>, <span class="selectable-content" id="_s_545">no other conditions</span>].
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
 					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should select "<i>the version number...</i>" if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports rollback prevention. That is, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>
-					does not allow "update" to an older version of the platform firmware. In general, rollback should be permitted
+					does not allow "update" to an older version of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware. In general, rollback should be permitted
 					only through a secure local update mechanism at the express direction of an physically present administrator or user.
 				</span></div></div></div>
 			<div class="element"><div class="reqid" id="FPT_TUD_EXT.2.3"><a href="#FPT_TUD_EXT.2.3" class="abbr">FPT_TUD_EXT.2.3</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include a device firmware version identifier that is accessible by the update mechanism and
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware version identifier that is accessible by the update mechanism and
 					includes information that enables the update mechanism to determine the relative order of updates.
 				</div></div>
 			<div class="element"><div class="reqid" id="FPT_TUD_EXT.2.4"><a href="#FPT_TUD_EXT.2.4" class="abbr">FPT_TUD_EXT.2.4</a></div><div class="reqdesc">
@@ -10503,8 +10503,8 @@ The following sections list Common Criteria and technology terms used in this do
 					beep code, an updated version number on a splash screen, or simple failure to continue functioning.
 				</span></div></div></div>
 			<div class="element"><div class="reqid" id="FPT_TUD_EXT.2.5"><a href="#FPT_TUD_EXT.2.5" class="abbr">FPT_TUD_EXT.2.5</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall take the following actions if a device firmware integrity, authenticity, 
-					or rollback-prevention check fails, or a device firmware update fails for any other reason: 
+					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall take the following actions if a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware integrity, authenticity, 
+					or rollback-prevention check fails, or a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update fails for any other reason: 
 					<ul>
 						<li>Do not install the update,</li>
 					</ul>and
@@ -10514,11 +10514,11 @@ The following sections list Common Criteria and technology terms used in this do
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">					
-					This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if "<i>an authenticated device firmware update mechanism as described in <a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a></i>" is selected in
+					This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if "<i>an authenticated <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update mechanism as described in <a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a></i>" is selected in
 					<a href="#FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</a>.
 					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must include <a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a> if "<i>hash value of the public key</i>" is selected.
 					If "<i>Initiate recovery as specified in <a href="#FPT_RVR_EXT.1">FPT_RVR_EXT.1</a></i>" is selected, then <a href="#FPT_RVR_EXT.1">FPT_RVR_EXT.1</a> must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.<p></p>
-					The device firmware authenticated update mechanism employs digital signatures to ensure the authenticity of the
+					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware authenticated update mechanism employs digital signatures to ensure the authenticity of the
 					firmware update image. The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> includes a signature verification algorithm and a key
 					store containing the public key needed to verify the signature on the firmware update image. <p></p>
 					A hash of the public key may be stored if a copy of the public key is provided with firmware
@@ -10569,36 +10569,36 @@ The following sections list Common Criteria and technology terms used in this do
 								firmware. The update must fail.</li></ul></span>
 					</div></div></div></div></div>
 		
+			
 		
-		
-		<div class="comp" id="FPT_TUD_EXT.3"><h4>FPT_TUD_EXT.3 Platform Firmware Delayed-Authentication Update Mechanism</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+			<div class="comp" id="FPT_TUD_EXT.3"><h4>FPT_TUD_EXT.3 TOE Firmware Delayed-Authentication Update Mechanism</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</a>.
       </i></b></div>
 			   
 			
-			
+				
 			
 			
 			
 			<div class="element"><div class="reqid" id="FPT_TUD_EXT.3.1"><a href="#FPT_TUD_EXT.3.1" class="abbr">FPT_TUD_EXT.3.1</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow execution or use of platform firmware updates only if new platform firmware
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow execution or use of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware updates only if new <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware
 					is integrity- and authenticity-checked using the mechanism described in <a href="#FPT_ROT_EXT.2">FPT_ROT_EXT.2</a> prior to its
 					execution or use, and
-					[<b>selection</b>: <span class="selectable-content" id="_s_562">the version number of the platform firmware update is more recent than 
-							the version number of the previously installed platform firmware</span>, <span class="selectable-content" id="_s_563">no other conditions</span>].
+					[<b>selection</b>: <span class="selectable-content" id="_s_562">the version number of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update is more recent than 
+							the version number of the previously installed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware</span>, <span class="selectable-content" id="_s_563">no other conditions</span>].
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
 					This update mechanism does not require an integrity or authenticity check prior to installation, but the
-					newly installed platform firmware must have its integrity and authenticity verified prior to 
+					newly installed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware must have its integrity and authenticity verified prior to 
 					being executed or used. This update mechanism takes advantage of the existing <a href="#FPT_ROT_EXT.2">FPT_ROT_EXT.2</a>
 					requirement to avoid having to verify the integrity and authenticity of an update package
 					at install time.<p></p>
-					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should select "<i>the version number of the platform firmware update is more recent than 
-					the version number of the previously installed platform firmware</i>" if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports rollback prevention.
+					The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should select "<i>the version number of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update is more recent than 
+						the version number of the previously installed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware</i>" if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports rollback prevention.
 				</span></div></div></div>
 			<div class="element"><div class="reqid" id="FPT_TUD_EXT.3.2"><a href="#FPT_TUD_EXT.3.2" class="abbr">FPT_TUD_EXT.3.2</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include an observable platform firmware version identifier that is accessible by the
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include an observable <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware version identifier that is accessible by the
 					update mechanism and includes information that enables the update mechanism to determine the relative
 					order of updates.
 				</div></div>
@@ -10612,17 +10612,17 @@ The following sections list Common Criteria and technology terms used in this do
 					beep code, an updated version number on a splash screen, or simple failure to continue functioning.
 				</span></div></div></div>
 			<div class="element"><div class="reqid" id="FPT_TUD_EXT.3.4"><a href="#FPT_TUD_EXT.3.4" class="abbr">FPT_TUD_EXT.3.4</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall take the following actions if a platform firmware update integrity, authentication, or
-					rollback-prevention check fails, or a platform firmware update fails for any other reason:
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall take the following actions if a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update integrity, authentication, or
+					rollback-prevention check fails, or a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update fails for any other reason:
 					[<b>selection</b><b>, choose one of</b>: <ul><li style=""><span class="selectable-content" id="_s_564">Halt</span></li><li style=""><span class="selectable-content" id="_s_565">Stop all execution and shut down</span></li><li style=""><span class="selectable-content" id="sel-tud3-recovery">Initiate a recovery process as specified in <a href="#FPT_RVR_EXT.1">FPT_RVR_EXT.1</a></span></li></ul>]<br/>
 					[<b>selection</b><b>, choose one of</b>: <ul><li style=""><span class="selectable-content" id="_s_567">automatically</span></li><li style=""><span class="selectable-content" id="sel-tud3-admin-config">in accordance with administrator-configurable policy</span></li><li style=""><span class="selectable-content" id="_s_569">by express determination of a user</span></li></ul>].
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-					This requirement must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if "<i>implement a delayed-authentication platform firmware
+					This requirement must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if "<i>implement a delayed-authentication <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware
 					update mechanism as described in <a href="#FPT_TUD_EXT.3">FPT_TUD_EXT.3</a></i>" is selected in <a href="#FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</a>.<p></p>
 					If "<i>Initiate recovery as specified in <a href="#FPT_RVR_EXT.1">FPT_RVR_EXT.1</a></i>" is selected, then <a href="#FPT_RVR_EXT.1">FPT_RVR_EXT.1</a> must be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>.<p></p>
-					The platform firmware unauthenticated update mechanism installs platform firmware updates without
+					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware unauthenticated update mechanism installs <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware updates without
 					first checking their integrity or authenticity. Instead, this mechanism either invokes a 
 					special authentication/integrity check on the firmware <i>in situ</i> after install or relies on the
 					firmware checks required by <a href="#FPT_ROT_EXT.2">FPT_ROT_EXT.2</a> to ensure the integrity and authenticity of the update 
@@ -10630,7 +10630,7 @@ The following sections list Common Criteria and technology terms used in this do
 					updated firmware is executed or used.<p></p>
 					Likewise, if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements rollback prevention, this check must be made before the newly installed
 					firmware is executed.<p></p>
-					In the selection "by express determination of a user," the "user" could be more properly expressed as 
+					In the selection "<i>by express determination of a user</i>," the "user" could be more properly expressed as 
 					the "operator." It can be either a user or an administrator, but the distinction is not important in the
 					context of this requirement.
 				</span></div></div></div>
@@ -10643,22 +10643,22 @@ The following sections list Common Criteria and technology terms used in this do
 					
 				<div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
 						The evaluator shall ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> includes a comprehensive description of how the 
-						authentication of platform firmware updates is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> should cover the 
+						authentication of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware updates is implemented by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> should cover the 
 						initialization process and the activities that are performed to ensure that the
 						digital signature of the update image is verified before it is executed or used. <p></p>
-						The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to ensure that it describes the platform firmware version identifier
+						The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to ensure that it describes the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware version identifier
 						and explains its meaning and encoding.<p></p>
 						The evaluator shall also ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the actions taken by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> if 
 						an update image fails authentication, integrity, or rollback-prevention checks.
 					</div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
 						The evaluator shall examine the AGD to ensure that it describes the process for 
-						updating the platform firmware.<p></p>
+						updating the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware.<p></p>
 						The evaluator shall examine the AGD to ensure that it documents the observable indications
-						of update success or failure, and that it describes how to access the platform firmware version indicators.
+						of update success or failure, and that it describes how to access the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware version indicators.
 					</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
 						The evaluator shall perform the following tests<p></p>
-						<span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_155" class="defined" href="#_t_155">Test FPT_TUD_EXT.3:1</a>The evaluator determines the current version of the platform firmware, and obtains or 
-								produces a valid, authentic, and permissible update image of platform firmware. The evaluator 
+						<span class="testlist-"><p></p><p></p><p></p><p></p><ul><li class="test-"><a id="_t_155" class="defined" href="#_t_155">Test FPT_TUD_EXT.3:1</a>The evaluator determines the current version of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware, and obtains or 
+								produces a valid, authentic, and permissible update image of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware. The evaluator 
 								initiates an update using this image through the process described in the operational guidance.
 								After the process is complete, the evaluator checks the current firmware version to ensure
 								that the new firmware version matches that of the update.</li><li class="test-"><a id="_t_156" class="defined" href="#_t_156">Test FPT_TUD_EXT.3:2</a>The evaluator performs the same test, this time using a inauthentic update image. The update code
@@ -10668,14 +10668,14 @@ The following sections list Common Criteria and technology terms used in this do
 								firmware. The update code must fail to execute.</li></ul></span>
 					</div></div></div></div></div>
 		
-			
-		<div class="comp" id="FPT_TUD_EXT.4"><h4>FPT_TUD_EXT.4 Secure Local Platform Firmware Update Mechanism</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+				
+			<div class="comp" id="FPT_TUD_EXT.4"><h4>FPT_TUD_EXT.4 Secure Local TOE Firmware Update Mechanism</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
 	  <a href="#FPT_RVR_EXT.1.1">FPT_RVR_EXT.1.1</a>, <a href="#FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</a>.
       </i></b></div>
 			   
 			    
 			
-			
+				
 			
 			
 			
@@ -10689,20 +10689,20 @@ The following sections list Common Criteria and technology terms used in this do
 				<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-					This requirement pertains to platform firmware update mechanisms that do not use the 
+					This requirement pertains to <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update mechanisms that do not use the 
 					authentication-based update mechanism described in <a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a> or the delayed-authentication
 					described in <a href="#FPT_TUD_EXT.3">FPT_TUD_EXT.3</a>. The secure local update 
 					mechanism ensures the authenticity and integrity of the firmware update image by requiring a
 					user to be physically present at the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. An assertion of physical presence can take the form, for example, of
 					requiring entry of a password at a boot screen, unlocking of a physical lock (e.g., a motherboard
-					jumper), or inserting a <abbr class="dyn-abbr"><a href="#abbr_USB">USB</a></abbr> cable before permitting platform firmware to be updated. <p></p>
+					jumper), or inserting a <abbr class="dyn-abbr"><a href="#abbr_USB">USB</a></abbr> cable before permitting <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware to be updated. <p></p>
 					There is no requirement that the local update mechanism support rollback prevention.<p></p>
 					The local update mechanism must be a designed mechanism. If update can be accomplished only
 					through the physical removal and replacement of a part, then that is not a secure local
-					update mechanism, and "make no provision for platform firmware update" should be selected in <a href="#FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</a>.<p></p>
+					update mechanism, and "make no provision for <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update" should be selected in <a href="#FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</a>.<p></p>
 				</span></div></div></div>
 				<div class="element"><div class="reqid" id="FPT_TUD_EXT.4.3"><a href="#FPT_TUD_EXT.4.3" class="abbr">FPT_TUD_EXT.4.3</a></div><div class="reqdesc">
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include a platform firmware version identifier that is accessible by the update mechanism or
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware version identifier that is accessible by the update mechanism or
 					to the user who asserts physical presence.
 				</div></div>
 			<div class="element"><div class="reqid" id="FPT_TUD_EXT.4.4"><a href="#FPT_TUD_EXT.4.4" class="abbr">FPT_TUD_EXT.4.4</a></div><div class="reqdesc">
@@ -10712,7 +10712,7 @@ The following sections list Common Criteria and technology terms used in this do
     </span><span class="note">
 					The requirement included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if "<i>the secure local update mechanism described in <a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a></i>" 
 					is selected in <a href="#FPT_RVR_EXT.1.1">FPT_RVR_EXT.1.1</a> or 
-					"<i> a secure local platform firmware update mechanism described in <a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a></i>" is selected
+					"<i> a secure local <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update mechanism described in <a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a></i>" is selected
 					in <a href="#FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</a>.<p></p>					
 					For success, this indication should include the version number of the newly installed firmware. 
 					Notification of failure could be through a beep code, an indication on a splash screen, or simple failure to 
@@ -10732,9 +10732,9 @@ The following sections list Common Criteria and technology terms used in this do
 				</div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> 
 					The evaluator shall perform the following tests<p></p>
 					<span class="testlist-"><ul><li class="test-"><a id="_t_159" class="defined" href="#_t_159">Test FPT_TUD_EXT.4:1</a>The evaluator tests the secure local update by following the instructions provided in the operational 
-					guidance to update the platform firmware image. The update must succeed.<p></p>
+							guidance to update the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware image. The update must succeed.<p></p>
 						</li><li class="test-"><a id="_t_160" class="defined" href="#_t_160">Test FPT_TUD_EXT.4:2</a>
-							The evaluator next tries to update the platform firmware image without 
+							The evaluator next tries to update the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware image without 
 							first asserting physical presence. The update must fail or be not possible.
 						</li></ul></span>
 					</div></div></div></div></div>
@@ -11170,13 +11170,50 @@ The following sections list Common Criteria and technology terms used in this do
 					resources, including sensitive data, system functions, security-critical components.
 					
 				</td></tr>
-<tr class="major-row"><td rowspan="3"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a></td><td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a></td><td>Mitigates the threat by filtering traffic from outside the protected network.</td></tr>
+<tr class="major-row"><td rowspan="14"><a href="#T.DATA_INTEGRITY">T.DATA_​INTEGRITY</a></td><td><a href="#FDP_IFC.2">FDP_IFC.2</a></td><td>Mitigates this threat by placing all <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, and <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> control, bootstrap, recovery, rekey, and <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> flows under the RD information-flow control SFP, including flows available during startup, maintenance, recovery, diagnostics, and incomplete configuration. This ensures there is no uncontrolled path around the detailed flow rules. 
+				</td></tr>
+<tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td>Mitigates this threat by permitting only flows that match the configured interface, domain, peer, session, lifecycle, transaction, and traffic-direction attributes. It rejects malformed or out-of-state <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> traffic, unauthorized directions, alternate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> paths, nested or concurrent transactions, and <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic attempted before authentication, key establishment, transaction completion, or recovery prerequisites are satisfied. 
+				</td></tr>
+<tr><td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td><td>Mitigates this threat by requiring <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8784-compatible IPsec PSKs and, when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generates the PSK, a 256-bit value generated by the approved <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>. The PSK supplies a strong additional authentication and key-establishment factor for IPsec channels protecting against unauthorized establishment, disclosure, and modification.
+				</td></tr>
+<tr><td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a></td><td>Mitigates the threat by filtering traffic from outside the protected network.</td></tr>
 <tr><td><a href="#FTP_ITC.1">FTP_ITC.1</a></td><td>Mitigates the threat by transmitting data over a secure connection protected from unauthorized
 					disclosure.</td></tr>
-<tr><td><a href="#FTP_PRO.1">FTP_PRO.1</a> (sel-based)</td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> trusted channel protocol, whose <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM-256 protection provides integrity and confidentiality for data exchanged between paired EUs.</td></tr>
-<tr class="major-row"><td rowspan="1"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a></td><td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a></td><td>Mitigates the threat by filtering traffic to disallow unauthorized access.</td></tr>
-<tr class="major-row"><td rowspan="38"><a href="#T.NETWORK_ATTACK">T.NETWORK_​ATTACK</a></td><td><a href="#FAU_GEN.1">FAU_GEN.1</a></td><td>Mitigates the threat by maintaining an audit trail of potential malicious activity.
+<tr><td><a href="#FCS_CKM.1/PFEDAKG">FCS_CKM.1/PFEDAKG</a> (impl-dep)</td><td>Mitigates this threat by generating approved ML-KEM-1024 and ML-DSA-87 asymmetric key pairs used to establish <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> keying material and authenticate <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> operations, thereby supporting rejection of unauthorized peers and the confidentiality and integrity protection of <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> communications.</td></tr>
+<tr><td><a href="#FCS_CKM.2/PFED">FCS_CKM.2/PFED</a> (impl-dep)</td><td>Mitigates this threat by limiting <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> key establishment to defined key-encapsulation or encrypted-channel methods and by requiring establishment of the protected <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session keying state before <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic is permitted. This provides the shared keying material needed for authenticated and confidentiality- and integrity-protected <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> channels. </td></tr>
+<tr><td><a href="#FCS_CKM.5/PFED">FCS_CKM.5/PFED</a> (impl-dep)</td><td>Mitigates this threat by deriving all <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session and recovery keys using an approved HKDF from protected key-store material, newly derived shared secrets, and hardware-based entropy. This prevents use of inadequately derived or unrelated keying material and supplies appropriately strong keys for <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> confidentiality and integrity protection. </td></tr>
+<tr><td><a href="#FPT_RCV.1">FPT_RCV.1</a>/<abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> (impl-dep)</td><td>Mitigates this threat by entering a secure recovery state following dead-peer detection, session-key divergence, failed rekey, or failed recovery, and suppressing all <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic while <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session or key state is stale, divergent, incomplete, or uncertain. </td></tr>
+<tr><td>FPT_TRAN_EXT.1 (impl-dep)</td><td>Mitigates this threat by serializing <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> lifecycle transactions, prohibiting nested or overlapping transactions within the selected scope, enforcing a reaper timer, preventing <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic from using incomplete transaction state, and requiring cleanup of cryptographic, protocol, and transaction state before another transaction is permitted. This prevents an attacker or failed exchange from leaving <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> in an ambiguous or partially updated security state. 
 				</td></tr>
+<tr><td><a href="#FDP_PBR_EXT.1">FDP_PBR_EXT.1</a> (sel-based)</td><td>Mitigates this threat by preventing transparent Layer-2 bridging for unprotected traffic, constructing a new Layer-2 encapsulation across the trust boundary, preserving the complete cryptographic continuity of MACsec- or <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr>-protected frames, and dropping traffic that cannot be safely forwarded under either policy.
+				</td></tr>
+<tr><td><a href="#FTP_PRO.1">FTP_PRO.1</a> (sel-based)</td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> trusted channel protocol, whose <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM-256 protection provides integrity and confidentiality for data exchanged between paired EUs.</td></tr>
+<tr><td><a href="#FTP_PRO.2">FTP_PRO.2</a> (sel-based)</td><td>Mitigates this threat by establishing a shared secret with the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> peer, authenticating the required endpoint or endpoints according to the defined <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> rules, and deriving the trusted-channel cryptographic keys from the shared secret using the assigned KDF. This prevents establishment with an unauthenticated peer and supplies the keying material required for channel confidentiality and integrity. 
+				</td></tr>
+<tr><td><a href="#FTP_PRO.3">FTP_PRO.3</a> (sel-based)</td><td>Mitigates this threat by encrypting <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> data in transit against unauthorized disclosure and integrity-protecting it against the selected modification, deletion, insertion, and replay attacks.
+				</td></tr>
+<tr class="major-row"><td rowspan="13"><a href="#T.NETWORK_ACCESS">T.NETWORK_​ACCESS</a></td><td><a href="#FDP_IFC.2">FDP_IFC.2</a></td><td>Mitigates this threat by placing all <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, and <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> control, bootstrap, recovery, rekey, and <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> flows under the RD information-flow control SFP, including flows available during startup, maintenance, recovery, diagnostics, and incomplete configuration. This ensures there is no uncontrolled path around the detailed flow rules. 
+				</td></tr>
+<tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td>Mitigates this threat by permitting only flows that match the configured interface, domain, peer, session, lifecycle, transaction, and traffic-direction attributes. It rejects malformed or out-of-state <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> traffic, unauthorized directions, alternate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> paths, nested or concurrent transactions, and <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic attempted before authentication, key establishment, transaction completion, or recovery prerequisites are satisfied. 
+				</td></tr>
+<tr><td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td><td>Mitigates this threat by requiring <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8784-compatible IPsec PSKs and, when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generates the PSK, a 256-bit value generated by the approved <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>. The PSK supplies a strong additional authentication and key-establishment factor for IPsec channels protecting against unauthorized establishment, disclosure, and modification.
+				</td></tr>
+<tr><td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a></td><td>Mitigates the threat by filtering traffic to disallow unauthorized access.</td></tr>
+<tr><td><a href="#FCO_NRO.1">FCO_NRO.1</a> (objective)</td><td>Mitigates this threat by providing verifiable evidence that binds the originator’s attributes and identified information fields to transmitted information, permitting forged or misattributed origin claims to be detected.</td></tr>
+<tr><td><a href="#FCO_NRR.1">FCO_NRR.1</a> (objective)</td><td>Mitigates this threat by providing verifiable evidence that binds receipt, recipient attributes, and identified information fields, permitting substituted, falsely acknowledged, or misassociated messages to be detected. </td></tr>
+<tr><td><a href="#FCS_CKM.1/PFEDAKG">FCS_CKM.1/PFEDAKG</a> (impl-dep)</td><td>Mitigates this threat by generating approved ML-KEM-1024 and ML-DSA-87 asymmetric key pairs used to establish <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> keying material and authenticate <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> operations, thereby supporting rejection of unauthorized peers and the confidentiality and integrity protection of <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> communications.</td></tr>
+<tr><td><a href="#FCS_CKM.2/PFED">FCS_CKM.2/PFED</a> (impl-dep)</td><td>Mitigates this threat by limiting <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> key establishment to defined key-encapsulation or encrypted-channel methods and by requiring establishment of the protected <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session keying state before <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic is permitted. This provides the shared keying material needed for authenticated and confidentiality- and integrity-protected <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> channels. </td></tr>
+<tr><td><a href="#FDP_BRINGUP_EXT.1">FDP_BRINGUP_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by keeping the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> silent until the required PIN or CIK activation credential has been supplied and <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session setup and authentication have completed. This prevents unauthenticated network access, pre-session disclosure of <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic, and operational use following physical possession without the required activation credential. 
+				</td></tr>
+<tr><td><a href="#FPT_SEP_EXT.1">FPT_SEP_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by implementing the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> as separate security domains with physically distinct processors and memory, no shared memory or DMA, a dedicated intercomponent interface, and no alternate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> communication path. This limits the scope of compromise of the black-facing or transport component, prevents direct access to <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> plaintext and key resources, and prevents one component from reaching the other component’s management or security functions through an unintended path. 
+				</td></tr>
+<tr><td>FPT_TRAN_EXT.1 (impl-dep)</td><td>Mitigates this threat by serializing <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> lifecycle transactions, prohibiting nested or overlapping transactions within the selected scope, enforcing a reaper timer, preventing <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic from using incomplete transaction state, and requiring cleanup of cryptographic, protocol, and transaction state before another transaction is permitted. This prevents an attacker or failed exchange from leaving <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> in an ambiguous or partially updated security state. 
+				</td></tr>
+<tr><td><a href="#FDP_PBR_EXT.1">FDP_PBR_EXT.1</a> (sel-based)</td><td>Mitigates this threat by preventing transparent Layer-2 bridging for unprotected traffic, constructing a new Layer-2 encapsulation across the trust boundary, preserving the complete cryptographic continuity of MACsec- or <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr>-protected frames, and dropping traffic that cannot be safely forwarded under either policy.
+				</td></tr>
+<tr><td><a href="#FTP_PRO.2">FTP_PRO.2</a> (sel-based)</td><td>Mitigates this threat by establishing a shared secret with the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> peer, authenticating the required endpoint or endpoints according to the defined <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> rules, and deriving the trusted-channel cryptographic keys from the shared secret using the assigned KDF. This prevents establishment with an unauthenticated peer and supplies the keying material required for channel confidentiality and integrity. 
+				</td></tr>
+<tr class="major-row"><td rowspan="48"><a href="#T.NETWORK_ATTACK">T.NETWORK_​ATTACK</a></td><td><a href="#FAU_GEN.1">FAU_GEN.1</a></td><td>Mitigates the threat by generating an audit trail for administrative actions, platform startup and shutdown, key-management actions, trusted-channel events, and other security-relevant successes and failures, enabling malicious activity and unauthorized configuration changes to be detected and reconstructed.</td></tr>
 <tr><td><a href="#FAU_SAR.1">FAU_SAR.1</a></td><td>Mitigates the threat by providing a mechanism to read the audit trail.
 				</td></tr>
 <tr><td><a href="#FAU_STG.1">FAU_STG.1</a></td><td>Mitigates the threat by using an external server to preserve audit data that may provide evidence of an
@@ -11184,12 +11221,28 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FAU_STG.2">FAU_STG.2</a></td><td>Mitigates the threat by preventing audit records indicating a potential attack from being destroyed.</td></tr>
 <tr><td><a href="#FAU_STG.5">FAU_STG.5</a></td><td>Mitigates the threat by ensuring that exhaustion of audit storage does not prevent audit data indicating a
 					potential attack from being generated.</td></tr>
+<tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td>Mitigates this threat by permitting only flows that match the configured interface, domain, peer, session, lifecycle, transaction, and traffic-direction attributes. It rejects malformed or out-of-state <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> traffic, unauthorized directions, alternate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> paths, nested or concurrent transactions, and <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic attempted before authentication, key establishment, transaction completion, or recovery prerequisites are satisfied. 
+				</td></tr>
+<tr><td><a href="#FIA_UID.1">FIA_UID.1</a></td><td>Mitigates this threat by requiring an administrator or other user to be identified before <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-mediated actions are performed on that user’s behalf. Identification enables role enforcement and attribution before management or configuration actions occur. This is a supporting mapping: identification must be combined with authentication and role restrictions to prevent impersonation. 
+				</td></tr>
 <tr><td><a href="#FMT_SMF.1">FMT_SMF.1</a></td><td>Mitigates the threat by providing a list of specific management functions.</td></tr>
 <tr><td><a href="#FMT_SMR.1">FMT_SMR.1</a></td><td>Mitigates the threat by defining the management roles which can be used to grant access to management 
 					functions.</td></tr>
+<tr><td><a href="#FPT_APW_EXT.1">FPT_APW_EXT.1</a></td><td>Mitigates this threat by storing administrative passwords only in non-plaintext form and preventing plaintext administrative passwords from being read through normal interfaces, thereby reducing the possibility that an attacker can capture credentials and use them to impersonate an administrator. 
+				</td></tr>
+<tr><td><a href="#FPT_SKP_EXT.1">FPT_SKP_EXT.1</a></td><td>Mitigates this threat by preventing any user or subject from reading pre-shared keys, symmetric keys, or private keys, thereby preventing an attacker who obtains logical or physical access from extracting the cryptographic material used to protect trusted communications. 
+				</td></tr>
 <tr><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat of a network attack by implementing a mechanism to detect when the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> may be failing to
 					generate secure cryptographic keys.</td></tr>
+<tr><td><a href="#FTA_SSL.3">FTA_SSL.3</a></td><td>Mitigates this threat by automatically terminating an inactive interactive administrative session, reducing the opportunity for an attacker to take over an abandoned authenticated session and use it to perform administrative or configuration actions.
+				</td></tr>
+<tr><td><a href="#FTA_SSL.4">FTA_SSL.4</a></td><td>Mitigates this threat by allowing an administrator to explicitly terminate the administrator’s own local or remote interactive session, eliminating residual authenticated session state when administrative work is complete. 
+				</td></tr>
+<tr><td><a href="#FTA_SSL_EXT.1">FTA_SSL_EXT.1</a></td><td>Mitigates this threat by locking or terminating unattended local administrative sessions, allowing administrator- or user-initiated locking, obscuring previously displayed information, disabling continued administrative activity, and requiring reauthentication before the session can be resumed. 
+				</td></tr>
 <tr><td><a href="#FTA_TAB.1">FTA_TAB.1</a></td><td>Mitigated the threat by providing actionable consequences for misuse of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
+<tr><td><a href="#FTP_ITC.1">FTP_ITC.1</a></td><td>Mitigates the threat by implementing a specified protocol as a means to protect data in transit.  </td></tr>
+<tr><td><a href="#FAU_GEN.2/PFED">FAU_GEN.2/PFED</a> (impl-dep)</td><td>Mitigates this threat by associating applicable <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning, session, rekey, recovery, and termination audit records with the initiating <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> identity, allowing malicious or unauthorized <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> actions to be attributed to the responsible <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or peer identity.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.7">FCS_CKM_EXT.7</a> (impl-dep)</td><td>Mitigates the threat by implementing key agreement functions used for trusted communications.</td></tr>
 <tr><td><a href="#FCS_REC_EXT.1/PFED">FCS_REC_EXT.1/PFED</a> (impl-dep)</td><td>Mitigates this threat by suppressing <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic during recovery, ensures sequential derivation of
 					recovery keys, and terminates sessions on failure to converge.</td></tr>
@@ -11197,7 +11250,10 @@ The following sections list Common Criteria and technology terms used in this do
 					preventing protocol-based attacks.</td></tr>
 <tr><td><a href="#FIA_PSK_EXT.1/PFED">FIA_PSK_EXT.1/PFED</a> (impl-dep)</td><td>Mitigates this threat by use is limited to tunnel-0 bootstrap, preventing attackers from exploiting 
 					PSK in other sessions.</td></tr>
-<tr><td><a href="#FTP_ITC.1">FTP_ITC.1</a></td><td>Mitigates the threat by implementing a specified protocol as a means to protect data in transit.  </td></tr>
+<tr><td><a href="#FMT_SMF.1/PFED">FMT_SMF.1/PFED</a> (impl-dep)</td><td>Mitigates this threat by identifying <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning, session setup, rekey configuration, and log management as explicit <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> management functions. This allows the accompanying identification, authentication, role, access-control, and audit requirements to govern all security-relevant <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> lifecycle management operations.
+				</td></tr>
+<tr><td><a href="#FPT_SEP_EXT.1">FPT_SEP_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by implementing the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> as separate security domains with physically distinct processors and memory, no shared memory or DMA, a dedicated intercomponent interface, and no alternate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> communication path. This limits the scope of compromise of the black-facing or transport component, prevents direct access to <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> plaintext and key resources, and prevents one component from reaching the other component’s management or security functions through an unintended path. 
+				</td></tr>
 <tr><td><a href="#FCS_CKM.1/AKG">FCS_CKM.1/AKG</a> (sel-based)</td><td>Mitigates the threat by generating strong cryptographic asymmetric keys to protect data in
 					transit.</td></tr>
 <tr><td><a href="#FCS_CKM.1/SKG">FCS_CKM.1/SKG</a> (sel-based)</td><td>Mitigates the threat by generating strong cryptographic symmetric keys to protect data in
@@ -11237,12 +11293,33 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FPT_STM.1">FPT_STM.1</a> (sel-based)</td><td>Mitigates the threat by ensuring that audit data indicating a potential attack is accurately
 					timestamped.</td></tr>
 <tr><td><a href="#FTP_TRP.1">FTP_TRP.1</a> (sel-based)</td><td>Mitigates the threat by ensuring that remote administration only uses trusted channels.</td></tr>
-<tr class="major-row"><td rowspan="4"><a href="#T.NETWORK_DISCLOSURE">T.NETWORK_​DISCLOSURE</a></td><td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a></td><td>Mitigates the threat by filtering traffic between the protected and external networks so that only authroized flows are permitted, preventing unauthorized disclosure of information to external devices.</td></tr>
+<tr class="major-row"><td rowspan="12"><a href="#T.NETWORK_DISCLOSURE">T.NETWORK_​DISCLOSURE</a></td><td><a href="#FDP_IFC.2">FDP_IFC.2</a></td><td>Mitigates this threat by placing all <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, and <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> control, bootstrap, recovery, rekey, and <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> flows under the RD information-flow control SFP, including flows available during startup, maintenance, recovery, diagnostics, and incomplete configuration. This ensures there is no uncontrolled path around the detailed flow rules. 
+				</td></tr>
+<tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td>Mitigates this threat by permitting only flows that match the configured interface, domain, peer, session, lifecycle, transaction, and traffic-direction attributes. It rejects malformed or out-of-state <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> traffic, unauthorized directions, alternate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> paths, nested or concurrent transactions, and <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic attempted before authentication, key establishment, transaction completion, or recovery prerequisites are satisfied. 
+				</td></tr>
+<tr><td><a href="#FPF_RUL_EXT.1">FPF_RUL_EXT.1</a></td><td>Mitigates the threat by filtering traffic between the protected and external networks so that only authroized flows are permitted, preventing unauthorized disclosure of information to external devices.</td></tr>
 <tr><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat by executing self tests in a specified, repeatable manner.</td></tr>
 <tr><td><a href="#FPT_TST_EXT.1">FPT_TST_EXT.1</a></td><td>Mitigates the threat by executing self tests in a specified, repeatable manner.</td></tr>
+<tr><td><a href="#FDP_BRINGUP_EXT.1">FDP_BRINGUP_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by keeping the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> silent until the required PIN or CIK activation credential has been supplied and <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session setup and authentication have completed. This prevents unauthenticated network access, pre-session disclosure of <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic, and operational use following physical possession without the required activation credential. 
+				</td></tr>
+<tr><td><a href="#FPT_DPD_EXT.1">FPT_DPD_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by detecting loss of peer liveness, triggering <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> reconnection or session re-establishment, and stopping further <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic until a new valid session has been established. This prevents continued forwarding through a failed, disconnected, or uncertain protected-channel state.
+				</td></tr>
+<tr><td><a href="#FPT_RCV.1">FPT_RCV.1</a>/<abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> (impl-dep)</td><td>Mitigates this threat by entering a secure recovery state following dead-peer detection, session-key divergence, failed rekey, or failed recovery, and suppressing all <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic while <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session or key state is stale, divergent, incomplete, or uncertain. </td></tr>
+<tr><td><a href="#FPT_SEP_EXT.1">FPT_SEP_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by implementing the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> as separate security domains with physically distinct processors and memory, no shared memory or DMA, a dedicated intercomponent interface, and no alternate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> communication path. This limits the scope of compromise of the black-facing or transport component, prevents direct access to <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> plaintext and key resources, and prevents one component from reaching the other component’s management or security functions through an unintended path. 
+				</td></tr>
+<tr><td><a href="#FDP_PBR_EXT.1">FDP_PBR_EXT.1</a> (sel-based)</td><td>Mitigates this threat by preventing transparent Layer-2 bridging for unprotected traffic, constructing a new Layer-2 encapsulation across the trust boundary, preserving the complete cryptographic continuity of MACsec- or <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr>-protected frames, and dropping traffic that cannot be safely forwarded under either policy.
+				</td></tr>
 <tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a> (sel-based)</td><td>Mitigates the threat by ceasing operations of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> if a test or security failure is detected, preventing a failure in traffic filtering.</td></tr>
-<tr class="major-row"><td rowspan="14"><a href="#T.NETWORK_EAVESDROP">T.NETWORK_​EAVESDROP</a></td><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat by implementing a mechanism to detect when the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> may be failing to generate secure
+<tr><td><a href="#FTP_PRO.3">FTP_PRO.3</a> (sel-based)</td><td>Mitigates this threat by encrypting <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> data in transit against unauthorized disclosure and integrity-protecting it against the selected modification, deletion, insertion, and replay attacks.
+				</td></tr>
+<tr class="major-row"><td rowspan="21"><a href="#T.NETWORK_EAVESDROP">T.NETWORK_​EAVESDROP</a></td><td><a href="#FIA_PSK_EXT.1">FIA_PSK_EXT.1</a></td><td>Mitigates this threat by requiring <abbr class="dyn-abbr"><a href="#abbr_RFC">RFC</a></abbr> 8784-compatible IPsec PSKs and, when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generates the PSK, a 256-bit value generated by the approved <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>. The PSK supplies a strong additional authentication and key-establishment factor for IPsec channels protecting against unauthorized establishment, disclosure, and modification.
+				</td></tr>
+<tr><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat by implementing a mechanism to detect when the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> may be failing to generate secure
 					cryptographic keys.</td></tr>
+<tr><td><a href="#FCS_CKM.1/PFEDAKG">FCS_CKM.1/PFEDAKG</a> (impl-dep)</td><td>Mitigates this threat by generating approved ML-KEM-1024 and ML-DSA-87 asymmetric key pairs used to establish <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> keying material and authenticate <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> operations, thereby supporting rejection of unauthorized peers and the confidentiality and integrity protection of <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> communications.</td></tr>
+<tr><td><a href="#FCS_CKM.2/PFED">FCS_CKM.2/PFED</a> (impl-dep)</td><td>Mitigates this threat by limiting <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> key establishment to defined key-encapsulation or encrypted-channel methods and by requiring establishment of the protected <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session keying state before <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic is permitted. This provides the shared keying material needed for authenticated and confidentiality- and integrity-protected <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> channels. </td></tr>
+<tr><td><a href="#FCS_CKM.5/PFED">FCS_CKM.5/PFED</a> (impl-dep)</td><td>Mitigates this threat by deriving all <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session and recovery keys using an approved HKDF from protected key-store material, newly derived shared secrets, and hardware-based entropy. This prevents use of inadequately derived or unrelated keying material and supplies appropriately strong keys for <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> confidentiality and integrity protection. </td></tr>
+<tr><td><a href="#FCS_CKM.6/PFED">FCS_CKM.6/PFED</a> (impl-dep)</td><td>Mitigates this threat by immediately destroying the tunnel-0 PSK, superseded session keys, and obsolete recovery keys after their security purpose has ended. This limits recovery of historical key material following physical capture or later compromise and prevents continued operation using obsolete <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> keying state. </td></tr>
 <tr><td><a href="#FCS_REC_EXT.1/PFED">FCS_REC_EXT.1/PFED</a> (impl-dep)</td><td>Mitigates the threat by requiring that recovery keys are derived using HKDF tied to the current 
 					session key and refreshed at the same rate as session keys, ensuring that even if recovery messages are observed, key material remains
 					confidential.</td></tr>
@@ -11265,13 +11342,19 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a> (sel-based)</td><td>Mitigates the threat by ensuring that a malfunctioning <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> function cannot be used to generate potentially
 					insecure keys.</td></tr>
 <tr><td><a href="#FTP_PRO.1">FTP_PRO.1</a> (sel-based)</td><td>Mitigates the threat by enforcing a defined <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> trusted channel lprotocol with mutually authenticated endpoints.</td></tr>
-<tr class="major-row"><td rowspan="28"><a href="#T.PHYSICAL_ACCESS">T.PHYSICAL_​ACCESS</a></td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Mitigates the threat by implementing a secure key storage for keys used to protect data at rest and data in
+<tr><td><a href="#FTP_PRO.2">FTP_PRO.2</a> (sel-based)</td><td>Mitigates this threat by establishing a shared secret with the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> peer, authenticating the required endpoint or endpoints according to the defined <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> rules, and deriving the trusted-channel cryptographic keys from the shared secret using the assigned KDF. This prevents establishment with an unauthenticated peer and supplies the keying material required for channel confidentiality and integrity. 
+				</td></tr>
+<tr><td><a href="#FTP_PRO.3">FTP_PRO.3</a> (sel-based)</td><td>Mitigates this threat by encrypting <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> data in transit against unauthorized disclosure and integrity-protecting it against the selected modification, deletion, insertion, and replay attacks.
+				</td></tr>
+<tr class="major-row"><td rowspan="34"><a href="#T.PHYSICAL_ACCESS">T.PHYSICAL_​ACCESS</a></td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Mitigates the threat by implementing a secure key storage for keys used to protect data at rest and data in
 					transit.</td></tr>
 <tr><td><a href="#FIA_PMG_EXT.1">FIA_PMG_EXT.1</a></td><td>Mitigates the threat by defining strong password characteristics.</td></tr>
 <tr><td><a href="#FIA_TRT_EXT.1">FIA_TRT_EXT.1</a></td><td>Mitigates the threat by limiting the extent to which brute force authentication attempts to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can be
 					made.</td></tr>
 <tr><td><a href="#FIA_UAU_EXT.2">FIA_UAU_EXT.2</a></td><td>Mitigates the threat by requiring successful authentication before allowing the user to take action on the
 					<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
+<tr><td><a href="#FPT_APW_EXT.1">FPT_APW_EXT.1</a></td><td>Mitigates this threat by storing administrative passwords only in non-plaintext form and preventing plaintext administrative passwords from being read through normal interfaces, thereby reducing the possibility that an attacker can capture credentials and use them to impersonate an administrator. 
+				</td></tr>
 <tr><td><a href="#FPT_JTA_EXT.1">FPT_JTA_EXT.1</a></td><td>Mitigates the threat by specifying the mechanism used to control access to JTAG.
 				</td></tr>
 <tr><td><a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a></td><td>Mitigates the threat by ensuring plaintext key material is not stored in readable non-volatile memory.
@@ -11281,10 +11364,19 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FPT_KST_EXT.3">FPT_KST_EXT.3</a></td><td>Mitigates the threat of physical access by ensuring <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> users cannot export plaintext keys.
 				</td></tr>
 <tr><td><a href="#FPT_PHP.1">FPT_PHP.1</a></td><td>Mitigates the threat by passively detecting physical tampering.</td></tr>
+<tr><td><a href="#FPT_SKP_EXT.1">FPT_SKP_EXT.1</a></td><td>Mitigates this threat by preventing any user or subject from reading pre-shared keys, symmetric keys, or private keys, thereby preventing an attacker who obtains logical or physical access from extracting the cryptographic material used to protect trusted communications. 
+				</td></tr>
 <tr><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat by implementing a mechanism to detect when the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> may be failing to generate secure
 					cryptographic keys.</td></tr>
+<tr><td><a href="#FTA_SSL_EXT.1">FTA_SSL_EXT.1</a></td><td>Mitigates this threat by locking or terminating unattended local administrative sessions, allowing administrator- or user-initiated locking, obscuring previously displayed information, disabling continued administrative activity, and requiring reauthentication before the session can be resumed. 
+				</td></tr>
 <tr><td><a href="#FPT_PHP.2">FPT_PHP.2</a> (objective)</td><td>Mitigates the threat by providing methods to detect and report physical tampering.</td></tr>
 <tr><td><a href="#FPT_PHP.3">FPT_PHP.3</a> (objective)</td><td>Mitigates the threat by resisting physical tampering.</td></tr>
+<tr><td><a href="#FCS_CKM.6/PFED">FCS_CKM.6/PFED</a> (impl-dep)</td><td>Mitigates this threat by immediately destroying the tunnel-0 PSK, superseded session keys, and obsolete recovery keys after their security purpose has ended. This limits recovery of historical key material following physical capture or later compromise and prevents continued operation using obsolete <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> keying state. </td></tr>
+<tr><td><a href="#FDP_BRINGUP_EXT.1">FDP_BRINGUP_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by keeping the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> silent until the required PIN or CIK activation credential has been supplied and <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session setup and authentication have completed. This prevents unauthenticated network access, pre-session disclosure of <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic, and operational use following physical possession without the required activation credential. 
+				</td></tr>
+<tr><td><a href="#FPT_HRT_EXT.1">FPT_HRT_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by maintaining a non-exportable hardware-protected root key, binding its use to an evaluated platform property, denying access to subordinate keying material when the binding is not satisfied, and verifying the root and binding before <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> trusted-channel operation. This limits key extraction or relocation and prevents <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> operation when its hardware trust anchor is unavailable or no longer bound to the authorized platform state. 
+				</td></tr>
 <tr><td><a href="#FCS_CKM.2">FCS_CKM.2</a> (sel-based)</td><td>Mitigates the threat by implementing secure methods to perform key distribution for trusted
 					communications.</td></tr>
 <tr><td><a href="#FCS_CKM.6">FCS_CKM.6</a> (sel-based)</td><td>Mitigates the threat by ensuring that keys used for trusted communications are destroyed in a secure
@@ -11310,12 +11402,32 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FIA_UAU_EXT.1">FIA_UAU_EXT.1</a> (sel-based)</td><td>Mitigates the threat by preventing decryption prior to proper authorization to the device.</td></tr>
 <tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a> (sel-based)</td><td>Mitigate the threat by ensuring that a malfunctioning <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> function cannot be used to generate potentially
 					insecure keys.</td></tr>
-<tr class="major-row"><td rowspan="2"><a href="#T.REPLAY_ATTACK">T.REPLAY_​ATTACK</a></td><td><a href="#FTP_ITC.1">FTP_ITC.1</a></td><td>Mitigates the threat by using a specified protocol to encapsulate and encrypt channel
+<tr class="major-row"><td rowspan="5"><a href="#T.REPLAY_ATTACK">T.REPLAY_​ATTACK</a></td><td><a href="#FTP_ITC.1">FTP_ITC.1</a></td><td>Mitigates the threat by using a specified protocol to encapsulate and encrypt channel
 					data.</td></tr>
+<tr><td><a href="#FCO_NRO.1">FCO_NRO.1</a> (objective)</td><td>Mitigates this threat by providing verifiable evidence that binds the originator’s attributes and identified information fields to transmitted information, permitting forged or misattributed origin claims to be detected.</td></tr>
+<tr><td><a href="#FCO_NRR.1">FCO_NRR.1</a> (objective)</td><td>Mitigates this threat by providing verifiable evidence that binds receipt, recipient attributes, and identified information fields, permitting substituted, falsely acknowledged, or misassociated messages to be detected. </td></tr>
 <tr><td><a href="#FTP_PRO.1">FTP_PRO.1</a> (sel-based)</td><td>Mitigates the threat by enforcing <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> protocol rules, including <abbr class="dyn-abbr"><a href="#abbr_AES">AES</a></abbr>-GCM anti-replay protection, so that captured packets replayed later are rejected by the peer <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>.</td></tr>
-<tr class="major-row"><td rowspan="17"><a href="#T.SECURITY_FUNCTIONALITY_FAILURE">T.SECURITY_​FUNCTIONALITY_​FAILURE</a></td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Mitigates the threat by generating keys and secrets and storing them in a secure manner, as well as
+<tr><td><a href="#FTP_PRO.3">FTP_PRO.3</a> (sel-based)</td><td>Mitigates this threat by encrypting <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> data in transit against unauthorized disclosure and integrity-protecting it against the selected modification, deletion, insertion, and replay attacks.
+				</td></tr>
+<tr class="major-row"><td rowspan="27"><a href="#T.SECURITY_FUNCTIONALITY_FAILURE">T.SECURITY_​FUNCTIONALITY_​FAILURE</a></td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Mitigates the threat by generating keys and secrets and storing them in a secure manner, as well as
 					destroying them on request.</td></tr>
+<tr><td><a href="#FPT_INI.1">FPT_INI.1</a></td><td>Mitigates this threat by using a self-protected initialization function to verify cryptographic operation, firmware and software authenticity, integrity and version, filtering and information-flow configuration, trust anchors, hardware-root binding, and <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning state before establishing the secure initial state. Initialization failures cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to halt or enter a defined reduced-functionality or error state. 
+				</td></tr>
+<tr><td><a href="#FPT_RCV.1">FPT_RCV.1</a></td><td>Mitigates this threat by placing the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in a constrained maintenance mode after assigned failures, disabling affected normal forwarding, trusted-channel, cryptographic, or management functions, and permitting return to normal operation only after the documented manual recovery procedure restores the defined secure state.
+				</td></tr>
+<tr><td><a href="#FPT_RCV.2">FPT_RCV.2</a></td><td>Mitigates this threat by automatically returning the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to a secure state following assigned failures and, where automatic recovery is not possible, entering a constrained maintenance mode rather than continuing normal operation in an uncontrolled state.
+				</td></tr>
 <tr><td><a href="#FPT_TST.1">FPT_TST.1</a></td><td>Mitigates the threat by using self-tests to ensure correct operation of the <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>.</td></tr>
+<tr><td><a href="#FCS_CKM.5/PFED">FCS_CKM.5/PFED</a> (impl-dep)</td><td>Mitigates this threat by deriving all <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session and recovery keys using an approved HKDF from protected key-store material, newly derived shared secrets, and hardware-based entropy. This prevents use of inadequately derived or unrelated keying material and supplies appropriately strong keys for <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> confidentiality and integrity protection. </td></tr>
+<tr><td><a href="#FCS_CKM.6/PFED">FCS_CKM.6/PFED</a> (impl-dep)</td><td>Mitigates this threat by immediately destroying the tunnel-0 PSK, superseded session keys, and obsolete recovery keys after their security purpose has ended. This limits recovery of historical key material following physical capture or later compromise and prevents continued operation using obsolete <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> keying state. </td></tr>
+<tr><td><a href="#FPT_DPD_EXT.1">FPT_DPD_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by detecting loss of peer liveness, triggering <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> reconnection or session re-establishment, and stopping further <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic until a new valid session has been established. This prevents continued forwarding through a failed, disconnected, or uncertain protected-channel state.
+				</td></tr>
+<tr><td><a href="#FPT_HRT_EXT.1">FPT_HRT_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by maintaining a non-exportable hardware-protected root key, binding its use to an evaluated platform property, denying access to subordinate keying material when the binding is not satisfied, and verifying the root and binding before <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> trusted-channel operation. This limits key extraction or relocation and prevents <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> operation when its hardware trust anchor is unavailable or no longer bound to the authorized platform state. 
+				</td></tr>
+<tr><td><a href="#FPT_RCV.1">FPT_RCV.1</a>/<abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> (impl-dep)</td><td>Mitigates this threat by entering a secure recovery state following dead-peer detection, session-key divergence, failed rekey, or failed recovery, and suppressing all <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic while <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> session or key state is stale, divergent, incomplete, or uncertain. </td></tr>
+<tr><td>FPT_TRAN_EXT.1 (impl-dep)</td><td>Mitigates this threat by serializing <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> lifecycle transactions, prohibiting nested or overlapping transactions within the selected scope, enforcing a reaper timer, preventing <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic from using incomplete transaction state, and requiring cleanup of cryptographic, protocol, and transaction state before another transaction is permitted. This prevents an attacker or failed exchange from leaving <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> in an ambiguous or partially updated security state. 
+				</td></tr>
+<tr><td><a href="#FPT_TST.1/PFED">FPT_TST.1/PFED</a> (impl-dep)</td><td>Mitigates this threat by testing the <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> cryptographic functions and hardware root of trust during initialization and by preventing those functions from being treated as operational before their tests complete successfully.</td></tr>
 <tr><td><a href="#FCS_CKM.6">FCS_CKM.6</a> (sel-based)</td><td>Mitigates the threat by using appropriate key destruction methods to protect the confidentiality of credential
 					data.</td></tr>
 <tr><td><a href="#FCS_COP.1/AEAD">FCS_COP.1/AEAD</a> (sel-based)</td><td>Mitigates the threat by implementing AEAD functions used for trusted
@@ -11341,19 +11453,59 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FDP_ITC_EXT.1">FDP_ITC_EXT.1</a> (sel-based)</td><td>Mitigates the threat by importing keys and credentials in a secure fashion.</td></tr>
 <tr><td><a href="#FPT_FLS.1">FPT_FLS.1</a> (sel-based)</td><td>Mitigates the threat by ensuring a <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr> self-test failure causes the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to enter an error state where it 
 					cannot perform secure functions using that <abbr class="dyn-abbr"><a href="#abbr_DRBG">DRBG</a></abbr>.</td></tr>
-<tr class="major-row"><td rowspan="6"><a href="#T.UNAUTHORIZED_PLATFORM_ADMINISTRATOR">T.UNAUTHORIZED_​PLATFORM_​ADMINISTRATOR</a></td><td><a href="#FIA_PMG_EXT.1">FIA_PMG_EXT.1</a></td><td>Mitigates the threat by enforcing password complexity requirements to prevent credentials from being easily guessed.</td></tr>
+<tr class="major-row"><td rowspan="17"><a href="#T.UNAUTHORIZED_PLATFORM_ADMINISTRATOR">T.UNAUTHORIZED_​PLATFORM_​ADMINISTRATOR</a></td><td><a href="#FAU_GEN.1">FAU_GEN.1</a></td><td>Mitigates the threat by generating an audit trail for administrative actions, platform startup and shutdown, key-management actions, trusted-channel events, and other security-relevant successes and failures, enabling malicious activity and unauthorized configuration changes to be detected and reconstructed.</td></tr>
+<tr><td><a href="#FDP_IFF.1">FDP_IFF.1</a></td><td>Mitigates this threat by permitting only flows that match the configured interface, domain, peer, session, lifecycle, transaction, and traffic-direction attributes. It rejects malformed or out-of-state <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> traffic, unauthorized directions, alternate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> paths, nested or concurrent transactions, and <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic attempted before authentication, key establishment, transaction completion, or recovery prerequisites are satisfied. 
+				</td></tr>
+<tr><td><a href="#FIA_PMG_EXT.1">FIA_PMG_EXT.1</a></td><td>Mitigates the threat by enforcing password complexity requirements to prevent credentials from being easily guessed.</td></tr>
 <tr><td><a href="#FIA_TRT_EXT.1">FIA_TRT_EXT.1</a></td><td>Mitigates the threat by throttling authentication to prevent access via brute force.</td></tr>
+<tr><td><a href="#FIA_UID.1">FIA_UID.1</a></td><td>Mitigates this threat by requiring an administrator or other user to be identified before <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-mediated actions are performed on that user’s behalf. Identification enables role enforcement and attribution before management or configuration actions occur. This is a supporting mapping: identification must be combined with authentication and role restrictions to prevent impersonation. 
+				</td></tr>
+<tr><td><a href="#FPT_APW_EXT.1">FPT_APW_EXT.1</a></td><td>Mitigates this threat by storing administrative passwords only in non-plaintext form and preventing plaintext administrative passwords from being read through normal interfaces, thereby reducing the possibility that an attacker can capture credentials and use them to impersonate an administrator. 
+				</td></tr>
+<tr><td><a href="#FPT_SKP_EXT.1">FPT_SKP_EXT.1</a></td><td>Mitigates this threat by preventing any user or subject from reading pre-shared keys, symmetric keys, or private keys, thereby preventing an attacker who obtains logical or physical access from extracting the cryptographic material used to protect trusted communications. 
+				</td></tr>
+<tr><td><a href="#FTA_SSL.3">FTA_SSL.3</a></td><td>Mitigates this threat by automatically terminating an inactive interactive administrative session, reducing the opportunity for an attacker to take over an abandoned authenticated session and use it to perform administrative or configuration actions.
+				</td></tr>
+<tr><td><a href="#FTA_SSL.4">FTA_SSL.4</a></td><td>Mitigates this threat by allowing an administrator to explicitly terminate the administrator’s own local or remote interactive session, eliminating residual authenticated session state when administrative work is complete. 
+				</td></tr>
+<tr><td><a href="#FTA_SSL_EXT.1">FTA_SSL_EXT.1</a></td><td>Mitigates this threat by locking or terminating unattended local administrative sessions, allowing administrator- or user-initiated locking, obscuring previously displayed information, disabling continued administrative activity, and requiring reauthentication before the session can be resumed. 
+				</td></tr>
+<tr><td><a href="#FAU_GEN.2/PFED">FAU_GEN.2/PFED</a> (impl-dep)</td><td>Mitigates this threat by associating applicable <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning, session, rekey, recovery, and termination audit records with the initiating <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> identity, allowing malicious or unauthorized <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> actions to be attributed to the responsible <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or peer identity.</td></tr>
+<tr><td><a href="#FMT_SMF.1/PFED">FMT_SMF.1/PFED</a> (impl-dep)</td><td>Mitigates this threat by identifying <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning, session setup, rekey configuration, and log management as explicit <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> management functions. This allows the accompanying identification, authentication, role, access-control, and audit requirements to govern all security-relevant <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> lifecycle management operations.
+				</td></tr>
+<tr><td><a href="#FPT_SEP_EXT.1">FPT_SEP_EXT.1</a> (impl-dep)</td><td>Mitigates this threat by implementing the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> as separate security domains with physically distinct processors and memory, no shared memory or DMA, a dedicated intercomponent interface, and no alternate <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> communication path. This limits the scope of compromise of the black-facing or transport component, prevents direct access to <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> plaintext and key resources, and prevents one component from reaching the other component’s management or security functions through an unintended path. 
+				</td></tr>
 <tr><td><a href="#FIA_AFL_EXT.1">FIA_AFL_EXT.1</a> (sel-based)</td><td>Mitigates the threat by limiting further authentication attempts once a failure threshold of a critical authentication mechanism has been
 					reached.</td></tr>
 <tr><td><a href="#FIA_UAU.5">FIA_UAU.5</a> (sel-based)</td><td>Mitigates the threat by implementing multiple authentication mechanisms for accessing the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
 <tr><td><a href="#FIA_UAU.7">FIA_UAU.7</a> (sel-based)</td><td>Mitigates the threat by preventing disclosure of authentication data during authentication attempts.</td></tr>
 <tr><td><a href="#FPT_STM.1">FPT_STM.1</a> (sel-based)</td><td>Mitigates the threat by ensuring that time-based authentication throttling or lockout is accurately enforced.</td></tr>
-<tr class="major-row"><td rowspan="5"><a href="#T.UNAUTHORIZED_RECONFIGURATION">T.UNAUTHORIZED_​RECONFIGURATION</a></td><td><a href="#FMT_MOF.1">FMT_MOF.1</a></td><td>Mitigates the threat by permitting management functions to be used only by authorized users.</td></tr>
+<tr class="major-row"><td rowspan="15"><a href="#T.UNAUTHORIZED_RECONFIGURATION">T.UNAUTHORIZED_​RECONFIGURATION</a></td><td><a href="#FAU_GEN.1">FAU_GEN.1</a></td><td>Mitigates the threat by generating an audit trail for administrative actions, platform startup and shutdown, key-management actions, trusted-channel events, and other security-relevant successes and failures, enabling malicious activity and unauthorized configuration changes to be detected and reconstructed.</td></tr>
+<tr><td><a href="#FIA_UID.1">FIA_UID.1</a></td><td>Mitigates this threat by requiring an administrator or other user to be identified before <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>-mediated actions are performed on that user’s behalf. Identification enables role enforcement and attribution before management or configuration actions occur. This is a supporting mapping: identification must be combined with authentication and role restrictions to prevent impersonation. 
+    			</td></tr>
+<tr><td><a href="#FMT_MOF.1">FMT_MOF.1</a></td><td>Mitigates the threat by permitting management functions to be used only by authorized users.</td></tr>
+<tr><td><a href="#FMT_MSA.1">FMT_MSA.1</a></td><td>Mitigates this threat by restricting modification of security attributes used by the applicable access-control or information-flow SFP to authorized identified roles, preventing unauthorized alteration of the attributes that control <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> access and forwarding behavior.
+    			</td></tr>
+<tr><td><a href="#FMT_MSA.3">FMT_MSA.3</a></td><td>Mitigates this threat by providing defined default values for SFP security attributes and permitting only authorized identified roles to override those values when controlled information or objects are created. This prevents the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> from entering an uncontrolled or permissive initial configuration. 
+    			</td></tr>
 <tr><td><a href="#FMT_SMF.1">FMT_SMF.1</a></td><td>Mitigates the threat by specifying the management functions implemented by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
 <tr><td><a href="#FMT_SMR.1">FMT_SMR.1</a></td><td>Mitigates the threat by defining the management roles which can be used to grant access to management functions.    				</td></tr>
+<tr><td><a href="#FPT_INI.1">FPT_INI.1</a></td><td>Mitigates this threat by using a self-protected initialization function to verify cryptographic operation, firmware and software authenticity, integrity and version, filtering and information-flow configuration, trust anchors, hardware-root binding, and <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning state before establishing the secure initial state. Initialization failures cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to halt or enter a defined reduced-functionality or error state. 
+    			</td></tr>
+<tr><td><a href="#FTA_SSL.3">FTA_SSL.3</a></td><td>Mitigates this threat by automatically terminating an inactive interactive administrative session, reducing the opportunity for an attacker to take over an abandoned authenticated session and use it to perform administrative or configuration actions.
+    			</td></tr>
+<tr><td><a href="#FTA_SSL.4">FTA_SSL.4</a></td><td>Mitigates this threat by allowing an administrator to explicitly terminate the administrator’s own local or remote interactive session, eliminating residual authenticated session state when administrative work is complete. 
+    			</td></tr>
+<tr><td><a href="#FTA_SSL_EXT.1">FTA_SSL_EXT.1</a></td><td>Mitigates this threat by locking or terminating unattended local administrative sessions, allowing administrator- or user-initiated locking, obscuring previously displayed information, disabling continued administrative activity, and requiring reauthentication before the session can be resumed. 
+    			</td></tr>
+<tr><td><a href="#FAU_GEN.2/PFED">FAU_GEN.2/PFED</a> (impl-dep)</td><td>Mitigates this threat by associating applicable <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning, session, rekey, recovery, and termination audit records with the initiating <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> identity, allowing malicious or unauthorized <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> actions to be attributed to the responsible <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or peer identity.</td></tr>
+<tr><td><a href="#FMT_SMF.1/PFED">FMT_SMF.1/PFED</a> (impl-dep)</td><td>Mitigates this threat by identifying <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning, session setup, rekey configuration, and log management as explicit <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> management functions. This allows the accompanying identification, authentication, role, access-control, and audit requirements to govern all security-relevant <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> lifecycle management operations.
+    			</td></tr>
 <tr><td><a href="#FIA_UIA_EXT.1">FIA_UIA_EXT.1</a> (sel-based)</td><td>Mitigates the threat by preventing the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> from being modified by an unauthenticated subject.</td></tr>
 <tr><td></td><td></td></tr>
-<tr class="major-row"><td rowspan="9"><a href="#T.UPDATE_COMPROMISE">T.UPDATE_​COMPROMISE</a></td><td><a href="#FPT_PPF_EXT.1">FPT_PPF_EXT.1</a></td><td>Mitigates the threat by using the official update process to be the only method to modify platform firmware.</td></tr>
+<tr class="major-row"><td rowspan="10"><a href="#T.UPDATE_COMPROMISE">T.UPDATE_​COMPROMISE</a></td><td><a href="#FPT_INI.1">FPT_INI.1</a></td><td>Mitigates this threat by using a self-protected initialization function to verify cryptographic operation, firmware and software authenticity, integrity and version, filtering and information-flow configuration, trust anchors, hardware-root binding, and <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning state before establishing the secure initial state. Initialization failures cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to halt or enter a defined reduced-functionality or error state. 
+    			</td></tr>
+<tr><td><a href="#FPT_PPF_EXT.1">FPT_PPF_EXT.1</a></td><td>Mitigates the threat by using the official update process to be the only method to modify platform firmware.</td></tr>
 <tr><td><a href="#FPT_RBP_EXT.1">FPT_RBP_EXT.1</a></td><td>Mitigates this threat by protecting against a malicious or inadvertent downgrade of the software/firmware to an earlier version that may have security
     				flaws not present in the more recent version.</td></tr>
 <tr><td><a href="#FPT_ROT_EXT.2">FPT_ROT_EXT.2</a></td><td>Mitigates the threat by providing a means to attest the validity of updates.</td></tr>
@@ -12413,23 +12565,23 @@ The following sections list Common Criteria and technology terms used in this do
 	    This family defines requirements for applying updates to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
 	  </div><h4>Component Leveling</h4><svg style="max-height: 90px;"><text x="4" fill="black" font-size="15" y="64">FPT_TUD_EXT</text><rect x="2" y="51" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="57" x2="231" y2="17" stroke="black"></line><text x="234" fill="black" font-size="15" y="44">2</text><rect x="232" y="31" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="57" x2="231" y2="37" stroke="black"></line><text x="234" fill="black" font-size="15" y="64">3</text><rect x="232" y="51" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="57" x2="231" y2="57" stroke="black"></line><text x="234" fill="black" font-size="15" y="84">4</text><rect x="232" y="71" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="57" x2="231" y2="77" stroke="black"></line></svg><p><a href="#FPT_TUD_EXT.1">FPT_TUD_EXT.1</a>,
              <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Firmware Update,
-             requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> support update of platform firmware.</p><p><a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a>,
-             Platform Firmware Authenticated Update Mechanism,
+             requires that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> support update of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware.</p><p><a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a>,
+             <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Firmware Authenticated Update Mechanism,
              specifies the requirements for authenticated update of firmware.</p><p><a href="#FPT_TUD_EXT.3">FPT_TUD_EXT.3</a>,
-             Platform Firmware Delayed-Authentication Update Mechanism,
-             specifies the requirements for delayed-authentication update of platform firmware.</p><p><a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a>,
-             Secure Local Platform Firmware Update Mechanism,
-             specifies the requirements for secure local update of platform firmware.</p><h4>Management: FPT_TUD_EXT.1</h4><p>The following actions could be considered for the management functions in FMT:<ul>
-    			<li>Initiation of the update process.</li></ul></p><h4>Audit: FPT_TUD_EXT.1</h4><p>There are no audit events foreseen.</p><h4>FPT_TUD_EXT.1 TOE Firmware Update</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a> Platform Firmware Authenticated Update Mechanism<br/>
-    			<a href="#FPT_TUD_EXT.3">FPT_TUD_EXT.3</a> Platform Firmware Delayed-Authentication Update Mechanism<br/>
-    			<a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a> Secure Local Platform Firmware Update Mechanism
+             <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Firmware Delayed-Authentication Update Mechanism,
+             specifies the requirements for delayed-authentication update of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware.</p><p><a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a>,
+             Secure Local <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Firmware Update Mechanism,
+             specifies the requirements for secure local update of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware.</p><h4>Management: FPT_TUD_EXT.1</h4><p>The following actions could be considered for the management functions in FMT:<ul>
+    			<li>Initiation of the update process.</li></ul></p><h4>Audit: FPT_TUD_EXT.1</h4><p>There are no audit events foreseen.</p><h4>FPT_TUD_EXT.1 TOE Firmware Update</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FPT_TUD_EXT.2">FPT_TUD_EXT.2</a> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Firmware Authenticated Update Mechanism<br/>
+    			<a href="#FPT_TUD_EXT.3">FPT_TUD_EXT.3</a> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Firmware Delayed-Authentication Update Mechanism<br/>
+    			<a href="#FPT_TUD_EXT.4">FPT_TUD_EXT.4</a> Secure Local <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Firmware Update Mechanism
     		</td></tr></table><h4 id="ext-comp-FPT_TUD_EXT.1.1">FPT_TUD_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement [<b>assignment</b>: 
      <span class="assignable-content">update mechanism</span>].
     				</div><h4>Management: FPT_TUD_EXT.2</h4><p>The following actions could be considered for the management functions in FMT:<ul>
 				<li>Configuration of action to take on an update failure.</li></ul></p><h4>Audit: FPT_TUD_EXT.2</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included
     			in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package, or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:<ul><li>Failure of update authentication/integrity check/rollback</li>
 				<li>Failure of update operation</li>
-				<li>Success of update operation</li></ul></p><h4>FPT_TUD_EXT.2 Platform Firmware Authenticated Update Mechanism</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operations</td></tr></table><h4 id="ext-comp-FPT_TUD_EXT.2.1">FPT_TUD_EXT.2.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall authenticate the source of all device firmware updates using a 
+				<li>Success of update operation</li></ul></p><h4>FPT_TUD_EXT.2 TOE Firmware Authenticated Update Mechanism</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operations</td></tr></table><h4 id="ext-comp-FPT_TUD_EXT.2.1">FPT_TUD_EXT.2.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall authenticate the source of all <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware updates using a 
 					digital signature algorithm specified in FCS_COP.1 and using a key store 
 					that contains 
 					[<b>selection</b>: <span class="selectable-content" id="_s_542">the public key</span>, <span class="selectable-content" id="_s_543">hash value of the public key</span>].
@@ -12439,13 +12591,13 @@ The following sections list Common Criteria and technology terms used in this do
 					[<b>assignment</b>: 
      <span class="assignable-content">additional constraints on updates</span>].
 				<h4 id="ext-comp-FPT_TUD_EXT.2.3">FPT_TUD_EXT.2.3</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include a device firmware version identifier that is accessible by the update mechanism and
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware version identifier that is accessible by the update mechanism and
 					includes information that enables the update mechanism to determine the relative order of updates.
 				<h4 id="ext-comp-FPT_TUD_EXT.2.4">FPT_TUD_EXT.2.4</h4>
 					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide an observable indication of the success or failure of the update operation.
 				<h4 id="ext-comp-FPT_TUD_EXT.2.5">FPT_TUD_EXT.2.5</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall take the following actions if a device firmware integrity, authenticity, 
-					or rollback-prevention check fails, or a platform firmware update fails for any other reason: 
+					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall take the following actions if a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware integrity, authenticity, 
+					or rollback-prevention check fails, or a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update fails for any other reason: 
 					<ul>
 						<li>Do not install the update,</li>
 					</ul>and
@@ -12455,30 +12607,30 @@ The following sections list Common Criteria and technology terms used in this do
 				<li>Configuration of action to take on an update failure.</li></ul></p><h4>Audit: FPT_TUD_EXT.3</h4><p>The following actions should be auditable if FAU_GEN Security audit data generation is included
 				in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package, or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>:<ul><li>Failure of update authentication/integrity check/rollback</li>
 				<li>Failure of update operation</li>
-				<li>Success of update operation</li></ul></p><h4>FPT_TUD_EXT.3 Platform Firmware Delayed-Authentication Update Mechanism</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FPT_ROT_EXT.2">FPT_ROT_EXT.2</a> Platform Integrity Extension</td></tr></table><h4 id="ext-comp-FPT_TUD_EXT.3.1">FPT_TUD_EXT.3.1</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow execution or use of platform firmware updates only if new platform firmware
+				<li>Success of update operation</li></ul></p><h4>FPT_TUD_EXT.3 TOE Firmware Delayed-Authentication Update Mechanism</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FPT_ROT_EXT.2">FPT_ROT_EXT.2</a> Platform Integrity Extension</td></tr></table><h4 id="ext-comp-FPT_TUD_EXT.3.1">FPT_TUD_EXT.3.1</h4>
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow execution or use of <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware updates only if new <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware
 					is integrity- and authenticity-checked using the mechanism described in <a href="#FPT_ROT_EXT.2">FPT_ROT_EXT.2</a> prior to its
 					execution or use, and [<b>assignment</b>: 
      <span class="assignable-content">additional constraints on update</span>].
 				<h4 id="ext-comp-FPT_TUD_EXT.3.2">FPT_TUD_EXT.3.2</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include an observable platform firmware version identifier that is accessible by the
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include an observable <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware version identifier that is accessible by the
 					update mechanism and includes information that enables the update mechanism to determine the relative
 					order of updates.
 				<h4 id="ext-comp-FPT_TUD_EXT.3.3">FPT_TUD_EXT.3.3</h4>
 					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide an observable indication of the success or failure of the update operation.
 				<h4 id="ext-comp-FPT_TUD_EXT.3.4">FPT_TUD_EXT.3.4</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall take the following actions if a platform firmware update integrity, authentication, or
-					rollback-prevention check fails, or a platform firmware update fails for any other reason:
+					The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall take the following actions if a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update integrity, authentication, or
+					rollback-prevention check fails, or a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware update fails for any other reason:
 					[<b>selection</b><b>, choose one of</b>: <ul><li style=""><span class="selectable-content" id="_s_570">Halt</span></li><li style=""><span class="selectable-content" id="_s_571">Stop all execution and shut down</span></li><li style=""><span class="selectable-content" id="_s_572">Initiate a recovery process as specified in <a href="#FPT_RVR_EXT.1">FPT_RVR_EXT.1</a></span></li></ul>]<br/>
 					[<b>selection</b><b>, choose one of</b>: <ul><li style=""><span class="selectable-content" id="_s_573">automatically</span></li><li style=""><span class="selectable-content" id="_s_574">in accordance with administrator-configurable policy</span></li><li style=""><span class="selectable-content" id="_s_575">by express determination of a user</span></li></ul>].
-				</div><h4>Management: FPT_TUD_EXT.4</h4><p>There are no management functions foreseen.</p><h4>Audit: FPT_TUD_EXT.4</h4><p>There are no audit events foreseen.</p><h4>FPT_TUD_EXT.4 Secure Local Platform Firmware Update Mechanism</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies.</td></tr></table><h4 id="ext-comp-FPT_TUD_EXT.4.1">FPT_TUD_EXT.4.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a secure local update mechanism that requires an assertion of physical access to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
+				</div><h4>Management: FPT_TUD_EXT.4</h4><p>There are no management functions foreseen.</p><h4>Audit: FPT_TUD_EXT.4</h4><p>There are no audit events foreseen.</p><h4>FPT_TUD_EXT.4 Secure Local TOE Firmware Update Mechanism</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>No dependencies.</td></tr></table><h4 id="ext-comp-FPT_TUD_EXT.4.1">FPT_TUD_EXT.4.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide a secure local update mechanism that requires an assertion of physical access to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
 					before installation of an update.
 				<h4 id="ext-comp-FPT_TUD_EXT.4.2">FPT_TUD_EXT.4.2</h4>
 					A user shall assert physical presence to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> through: 
 					[<b>assignment</b>: 
      <span class="assignable-content">method for asserting physical presence</span>].
 				<h4 id="ext-comp-FPT_TUD_EXT.4.3">FPT_TUD_EXT.4.3</h4>
-					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include a platform firmware version identifier that is accessible by the update mechanism or
+					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> firmware version identifier that is accessible by the update mechanism or
 					to the user who asserts physical presence.
 				<h4 id="ext-comp-FPT_TUD_EXT.4.4">FPT_TUD_EXT.4.4</h4>
 					The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide an observable indication of the success or failure of the update operation.
