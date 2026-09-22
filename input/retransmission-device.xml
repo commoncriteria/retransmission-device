@@ -6203,7 +6203,7 @@
 		</ext-comp-def>
 		
 		<f-component cc-id="fcs_https_ext.1" name="HTTPS Protocol" status="sel-based">
-			<depends on-sel="sel-itc-tls-https"/>
+			<depends on-sel="tls-prot-https"/>
 			
 			<comp-lev> requires the TSF to implement the HTTPS protocol in accordance with the specified standard, using TLS, and notifying the application if
 				invalid.</comp-lev>			
@@ -6226,8 +6226,9 @@
 						<assignable>specification that defines TLS implementation requirements</assignable>.</title>
 				</ext-comp-def-title>
 				<note role="application"> 
-					This SFR is included in the ST if the ST author selects "<h:i>TLS/HTTPS</h:i>" in FTP_TRP.1.<h:p/>
+					This SFR is included in the ST if the ST author selects "<h:i>TLS-protected HTTPS as specified in FCS_HTTPS_EXT.1</h:i>" in FTP_TRP.1.<h:p/>
 					If this SFR is included in the ST, then the <xref to="tls"/> must also be claimed.
+					
 				</note>
 				<aactivity>
 					
@@ -8963,32 +8964,22 @@
 						</management-function>
 						
 						<!-- 22 -->
-						<management-function id="mf-man-rec">
+						<management-function id="mf-rec-method">
 							<depends on-sfr="sfr-fpt-rcv.1"/>
 							<text>
-								Perform manual recovery operations when the device is in a failure or recovery state.
+								Configure <selectables>
+									<selectable id="sel-fpt-rcv-1-auto">automated</selectable>
+									<selectable id="sel-fpt-rcv-2-manual">manual</selectable>
+								</selectables> recovery methods for the TOE.
 							</text>
-							<O ref="A"/>
+							<M ref="A"/>
 							<X ref="U"/>
 							<app-note>
-								This function must be claimed if FPT_RCV.1 is claimed in the ST.
+								If "<h:i>manual</h:i>" is selected, then the ST must claim FPT_RCV.1. If "<h:i>automated</h:i>" is selected, then the ST must claim FPT_RCV.2.
 							</app-note>
 						</management-function>
 						
 						<!-- 23 -->
-						<management-function id="mf-auto-rec">
-							<depends on-sfr="sfr-fpt-rcv.2"/>
-							<text>
-								Perform manage/configure automated recovery operations when the device is in a failure or recovery state.
-							</text>
-							<O ref="A"/>
-							<X ref="U"/>
-							<app-note>
-								This function must be claimed if FPT_RCV.2 is claimed in the ST.
-							</app-note>
-						</management-function>
-						
-						<!-- 24 -->
 						<management-function id="mf-manage-clock">
 							<depends on-sfr="sfr-fpt-stm.1"/>
 							<text>
@@ -10666,7 +10657,7 @@
     	</f-component>
 			
 			<f-component name="Manual Recovery" cc-id="fpt_rcv.1" status="sel-based">
-				<depends on-id="mf-man-rec"/>
+				<depends on-sel="sel-fpt-rcv-1-manual"/>
 				<f-element id="fpt-rcv-1e1">
 					<title>
 						After <assignable>list of failures/service discontinuities</assignable> the TSF shall enter a maintenance mode where the ability to return to a secure 						state is provided.</title>
@@ -10676,7 +10667,7 @@
 						automatic-recovery requirement. <h:p/>
 						Maintenance mode is not normal operation. The ST shall name the functions permitted for recovery and the traffic, trusted-channel, cryptographic, or
 						management functions that remain disabled until recovery completes.<h:p/>
-						This SFR must be included if <xref to="sfr-fpt-rcv.1"/> is selected in FMT_SMF.1,
+						This SFR must be included if "<h:i>manual</h:i>" is selected in Function 22 in FMT_SMF.1.
 					</note>
 					<aactivity>
 						<TSS>
@@ -10727,7 +10718,7 @@
 			</f-component>
 			
 			<f-component name="Automated Recovery" cc-id="fpt_rcv.2" status="sel-based">
-				<depends on-id="mf-auto-rec"/>
+				<depends on-sel="sel-fpt-rcv-1-auto"/>
 				<f-element>
 					<title>
 						When automated recovery from <assignable>list of failures or service discontinuities</assignable> is not possible, the TSF shall enter a 
@@ -10749,7 +10740,7 @@
 							<h:li>Other service discontinuities that prevent automatic restoration of the TOE to a secure operational condition.</h:li>
 						</h:ul>
 						“<h:i>Maintenance mode</h:i>” in this requirement is a constrained TOE state in which normal security-relevant operational services are not provided, but the TOE preserves the ability to perform the actions necessary to restore a secure state.<h:p/>
-						This SFR must be included if <xref to="sfr-fpt-rcv.2"/> is selected in FMT_SMF.1,
+						This SFR must be included if "<h:i>automated</h:i>" is selected in Function 22 in FMT_SMF.1.
 					</note>
 					<aactivity>
 						<TSS>
@@ -12467,7 +12458,6 @@
       					<h:li>EAP-TLS in accordance with the [PP-Module for Wireless LAN Clients, version 2.0]</h:li>
       					<h:li>Mutually authenticated TLS in accordance with [Functional Package for Transport Layer Security (TLS), version 2.1]</h:li>
       				</h:ul></selectable>
-      				<selectable>HTTPS</selectable>
       				<selectable><assignable>other protocol</assignable></selectable>
       			</selectables></h:b> that is logically distinct from other communication channels and provides assured identification of its endpoints and protection of channel
       			data from modification or disclosure.      			
@@ -12502,7 +12492,7 @@
       			and transaction prerequisites required by the selected PFED SFRs have completed. This requirement addresses PFED peer authentication; it does not define
       			administrator, operator, or end-user authentication under the FIA user-authentication model.<h:p/>
       			
-      			This SFR must be claimed in the ST if "PFED" is selected in FTP_ITC.1. 
+      			This SFR must be claimed in the ST if "<h:i>a PFED peer</h:i>" is selected in FTP_ITC.1.1. 
       			
       		</note>
       		<aactivity>
@@ -12744,7 +12734,10 @@
     		<depends on-sel="sel-smf-remote-admin"/>    		
     		<f-element id="ftp-trp-1e1">
     			<title>
-    				The TSF shall <h:b>use a trusted channel as specified in FTP_TRP.1 to</h:b> provide a <h:b>trusted</h:b> communication path between itself
+    				The TSF shall <selectables>
+    					<selectable id="trusted-channel">use a trusted channel as specified in FTP_ITC.1</selectable>
+    					<selectable id="tls-prot-https">TLS-protected HTTPS as specified in FCS_HTTPS_EXT.1</selectable>
+    				</selectables> <h:b>to</h:b> provide a <h:b>trusted</h:b> communication path between itself
     				and [<h:i>remote</h:i>] <h:b>administrators</h:b> that is logically distinct from other communication paths and provides assured identification
     				of its endpoints and protection of the communicated data from [<h:i>modification, disclosure</h:i>].
     			</title>
@@ -12761,7 +12754,7 @@
     			</title>
     			<note role="application">
     				This SFR is included in the ST if "<h:i>remotely</h:i>" is selected in Management Function 1 of FMT_SMF.1.1.<h:p/>
-    				Protocols used to implement the remote administration trusted channel must be selected in FTP_TRP.1.<h:p/>
+    				Protocols used to implement the remote administration trusted channel must be selected in FTP_ITC.1.<h:p/>
     				This requirement ensures that authorized remote administrators initiate all communication with the TOE via a trusted path, and that all
     				communications with the TOE by remote administrators is performed over this path. The data passed in this trusted communication channel are
     				encrypted as defined by the protocol chosen in the first selection in FTP_TRP.1.    				
