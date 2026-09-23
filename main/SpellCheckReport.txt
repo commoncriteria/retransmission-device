@@ -218,7 +218,6 @@ output/retransmission-device-release-linkable.html: Wi
 output/retransmission-device-release-linkable.html: Winternitz
 output/retransmission-device-release-linkable.html: XMSS
 output/retransmission-device-release-linkable.html: XTP
-output/retransmission-device-release-linkable.html: attemps
 output/retransmission-device-release-linkable.html: authroized
 output/retransmission-device-release-linkable.html: behaviour
 output/retransmission-device-release-linkable.html: cPPs
@@ -466,7 +465,6 @@ output/retransmission-device-release.html: Winternitz
 output/retransmission-device-release.html: XMSS
 output/retransmission-device-release.html: XTP
 output/retransmission-device-release.html: actions’
-output/retransmission-device-release.html: attemps
 output/retransmission-device-release.html: authroized
 output/retransmission-device-release.html: behaviour
 output/retransmission-device-release.html: cPPs
