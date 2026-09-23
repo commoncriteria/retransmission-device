@@ -1581,6 +1581,24 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
+					<h:td>FTP_PRO.2</h:td>
+					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td>Mandatory when PFED is selected in FTP_ITC.1; defines the PFED trusted channel protocol between paired HWS-ERD EUs.</h:td>
+				</h:tr>
+				
+				<h:tr style="text-align: center">
+					<h:td>FTP_PRO.3</h:td>
+					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td>Mandatory when PFED is selected in FTP_ITC.1; defines the PFED trusted channel protocol between paired HWS-ERD EUs.</h:td>
+				</h:tr>
+				
+				<h:tr style="text-align: center">
 					<h:td>FTP_TRP.1</h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center"></h:td>
@@ -12818,9 +12836,64 @@
 					</note>
 					<aactivity>
 						Evaluation of this SFR is performed in conjunction with the evaluation activities in FTP_ITC.1.
-						<TSS/>
-						<Guidance/>
-						<Tests/>
+						<TSS>
+							The evaluator shall examine the TSS to determine that it does the following.<h:ul>
+								<h:li>Identifies the PFED protocol specification and version used to complete FTP_PRO.1.1 through FTP_PRO.1.6.</h:li>
+								<h:li>Identifies each role implemented by the TOE, including the session-setup client and server personas and the initiator and responder roles applicable to each PFED transaction.</h:li>
+								<h:li>Identifies the purposes for which the PFED channel is used, including provisioning, session establishment, transaction protection, and EUD data protection, as applicable.</h:li>
+								<h:li>Describes the PFED states, permitted message sequences, and conditions for transition between those states.</h:li>
+								<h:li>Identifies the party permitted to initiate each transaction and distinguishes session initiation from transactions that either peer may initiate.</h:li>
+								<h:li>Identifies the fixed protocol options and each supported protocol configuration.</h:li>
+								<h:li>Describes how the TOE rejects an unsupported protocol version, configuration, role transition, or message sequence.</h:li>
+								<h:li>Identifies the point at which the PFED session becomes operational and EUD traffic is permitted.</h:li>
+							</h:ul>
+							The evaluator shall verify that this description is consistent with the assignments and selections made in FTP_PRO.1.1 through FTP_PRO.1.6 and with the PFED architecture described in Section 1.3.
+						</TSS>
+						<Guidance>
+							The evaluator shall examine the operational guidance to determine that it describes how to do the following.<h:ul>
+								<h:li>Provision or configure a PFED peer association.</h:li>
+								<h:li>Configure the TOE in each claimed session persona.</h:li>
+								<h:li>Select each supported protocol configuration.</h:li>
+								<h:li>Cause each TOE-initiated transaction to occur.</h:li>
+								<h:li>Recognize successful establishment, failed establishment, and an operational PFED session.</h:li>
+								<h:li>Return the TOE to a state from which the applicable establishment or role test can be repeated.</h:li>
+							</h:ul>
+						</Guidance>
+						<Tests>
+							The evaluator shall perform the following tests
+							<testlist>
+								<test>
+									For each session persona claimed by the TOE, the evaluator shall configure a conforming PFED peer in the complementary persona and establish
+									an operational PFED session.<h:p/>
+									When the TOE is configured as the client persona, the evaluator shall verify that the TOE initiates session setup. When the TOE is configured
+									as the server persona, the evaluator shall verify that the TOE waits for and correctly responds to peer initiation.<h:p/>
+									The evaluator shall use packet captures and/or tool outputs to verify the following.<h:ul>
+									<h:li>The protocol version and configuration are those selected in the ST</h:li>
+										<h:li>The observed message sequence and role behavior conform to the PFED protocol specification</h:li>
+										<h:li>The TOE does not enter the operational state before the required establishment transactions complete</h:li>
+										<h:li>After establishment, known EUD traffic can be transferred correctly in both directions</h:li>
+									</h:ul>
+									This test may be combined with FTP_PRO.2:1 and may satisfy the corresponding establishment and endpoint-identification activities under
+									FTP_ITC.1.
+								</test>
+								<test>
+									The evaluator shall cause the TOE to initiate a PFED rekey transaction and shall verify that the peer responds and that the transaction
+									completes as specified. The evaluator shall then cause the peer to initiate a rekey transaction and shall verify that the TOE responds and
+									that the transaction completes as specified.<h:p/>
+									Following each transaction, the evaluator shall verify that the peers share an operational channel and that known EUD traffic is correctly
+									transferred in both directions.<h:p/>
+									Where dead-peer, reconnect, or recovery initiation is already tested under FPT_DPD_EXT.1, FCS_REC_EXT.1/PFED, FPT_RCV_EXT.1/PFED, or
+									FPT_TRAN_EXT.1/PFED, the evaluator may cite those results rather than repeat the transaction under this component.
+								</test>
+								<test>
+									The evaluator shall configure the peer to propose one protocol version or security-relevant configuration not claimed in the ST, or to send a
+									protocol message that is validly encoded but not permitted in the TOE’s current state or persona.<h:p/>
+									The evaluator shall verify that the TOE does not transition to an operational session using the unsupported configuration or invalid sequence
+									and does not permit EUD traffic as a result of that exchange.<h:p/>
+									One representative unsupported-configuration or invalid-state case is sufficient unless the TSS identifies different rejection mechanisms.
+								</test>
+							</testlist>
+						</Tests>
 					</aactivity>
 				</f-element>
 				<audit-event table="sel-based">
@@ -12834,6 +12907,7 @@
 			</f-component>
 			
 			<f-component name="Trusted Channel Establishment" cc-id="ftp_pro.2" status="sel-based">
+				<depends on-sel="pfed-peer"/>
 				<f-element id="ftp-pro-2e1">
 					<title>The TSF shall establish a shared secret with its peer using one of the following
 						mechanisms: <assignable>list of key establishment mechanisms</assignable>.</title>
@@ -12849,16 +12923,100 @@
 				<f-element id="ftp-pro-2e3">
 					<title>The TSF shall use <assignable>key derivation function</assignable> to derive the following
 						cryptographic keys from a shared secret: <assignable>list of cryptographic keys</assignable>.</title>
+					<aactivity>
+						<TSS>
+							The evaluator shall examine the TSS to determine that it describes each PFED establishment phase in a table or equivalent structured form. For each phase, the description shall identify the following.<h:ul>
+								<h:li>The starting and terminal protocol states</h:li>
+								<h:li>The permitted initiator and responder</h:li>
+								<h:li>The credentials and existing key material used</h:li>
+								<h:li>The key-establishment mechanism</h:li>
+								<h:li>The authentication mechanism and authentication direction</h:li>
+								<h:li>The KDF inputs and outputs</h:li>
+								<h:li>The resulting keys and their direction or purpose</h:li>
+								<h:li>The event at which the resulting keys become active</h:li>
+								<h:li>The behavior following establishment or authentication failure</h:li>								
+							</h:ul>
+							The evaluator shall verify that the TSS describes both initial provisioning and operational session setup, including the following.<h:ul>
+								<h:li>Tunnel-0 protection using the provisioning PSK</h:li>
+								<h:li>ML-KEM-1024 establishment of the tunnel-1 shared secret</h:li>
+								<h:li>Exchange and binding of ML-DSA-87 public keys</h:li>
+								<h:li>Mutual ML-DSA-87 authentication</h:li>
+								<h:li>Mandatory ML-KEM-1024 session rekey</h:li>
+								<h:li>HKDF derivation and directional assignment of session and recovery keys</h:li>
+							</h:ul>
+							The evaluator shall verify that the KDF description is consistent with FCS_CKM.5/PFED and that the key-establishment description is consistent with
+							FCS_CKM.2/PFED.
+						</TSS>
+						<Guidance>
+							The evaluator shall examine the operational guidance to determine that it describes the following.<h:ul>
+								<h:li>Provisioning or entering the tunnel-0 PSK</h:li>
+								<h:li>Preparing the peer for initial bonding</h:li>
+								<h:li>Establishing or importing the expected peer identity and ML-DSA-87 public key binding</h:li>
+								<h:li>Selecting each supported HKDF or protocol configuration</h:li>
+								<h:li>Determining whether provisioning, authentication, and session establishment succeeded</h:li>
+								<h:li>Using a fresh pair, supported reset mechanism, or evaluator test configuration to repeat initial-provisioning tests</h:li>
+						</h:ul>
+						</Guidance>
+						<Tests>
+							<testlist>
+								<test>
+									Using a fresh or reset TOE and a conforming PFED peer, the evaluator shall provision matching tunnel-0 PSKs and perform the complete initial
+									PFED establishment process.
+									The evaluator shall verify, using observable TOE behavior, packet captures and/or tool outputs that:<h:ol>
+										<h:li>Tunnel-0 is established using the provisioning PSK.</h:li>
+										<h:li>The peers complete the claimed ML-KEM-1024 transaction.</h:li>
+										<h:li>The TOE transitions from tunnel-0 to tunnel-1.</h:li>
+										<h:li>The peers complete the claimed long-term key exchange, authentication, and required operational rekey.</h:li>
+										<h:li>The TOE does not permit EUD traffic before all required provisioning and session-establishment steps complete.</h:li>
+										<h:li>After completion, known EUD traffic is correctly transferred in both directions.</h:li>
+									</h:ol>
+									Successful transfer in both directions shall demonstrate that the peers derived compatible transmit and receive keying material and assigned 
+									the directional keys consistently.<h:p/> 
+									This test need be performed only once for initial pair provisioning and may be combined with FTP_PRO.1:1 and the positive tests for
+									FCS_CKM.2/PFED.
+								</test>
+								<test>
+									The evaluator shall configure a fresh or reset TOE and peer with non-matching tunnel-0 PSKs and attempt initial establishment.<h:p/>
+									The evaluator shall verify that the TOE does not successfully complete tunnel-0 establishment or transition to an operationally provisioned
+									association and does not permit EUD traffic.<h:p/>
+									If the PFED protocol uses explicit PSK-based authentication messages, the evaluator shall verify that failure occurs as specified by the
+									protocol. Otherwise, failure to establish mutually usable tunnel-0 protection is sufficient.
+								</test>
+								<test>
+									Using an otherwise valid provisioned association, the evaluator shall cause the peer to present an ML-DSA-87 authentication value generated by
+									a key not bound to the expected peer identity or an otherwise invalid ML-DSA-87 signature.
+									The evaluator shall verify the following.<h:ul>
+									<h:li>The TOE does not authenticate the peer</h:li>
+									<h:li>The session does not transition to the operational state</h:li>
+									<h:li>The TOE does not accept the mandatory rekey as completing a valid session setup</h:li>
+									<h:li>EUD traffic remains suppressed</h:li>
+									</h:ul>
+									The successful establishment performed in FTP_PRO.2:1 shall also demonstrate that a conforming peer can authenticate the TOE using the TOE’s
+									claimed ML-DSA-87 identity.
+								</test>
+								<test>
+									For each distinct HKDF configuration selected in the ST, the evaluator shall cause a successful session establishment or rekey using that
+									configuration and shall verify that known EUD traffic can be transferred correctly in both directions after the derived keys become
+									active.<h:p/>
+									Where the TOE supports both SHA-384 and SHA-512 as separately selectable PFED protocol configurations, the test shall be repeated once for
+									each selected configuration. Where the hash is fixed for the evaluated configuration, no additional repetition is required.<h:p/>
+									Successful bidirectional protected communication, together with the applicable FCS_CKM.5/PFED evaluation, is sufficient to demonstrate
+									interoperable KDF output mapping. 
+								</test>
+							</testlist>
+						</Tests>
+					</aactivity>
 				</f-element>
 				<audit-event table="sel-based">
 					<audit-event-descr>Authentication failures during channel establishment</audit-event-descr>
 				</audit-event>
 				<audit-event table="sel-based">
-					<audit-event-descr>All authentication attemps</audit-event-descr>
+					<audit-event-descr>All authentication attempts</audit-event-descr>
 				</audit-event>
 			</f-component>
 			
 			<f-component name="Trusted Channel Data Protection" cc-id="ftp_pro.3" status="sel-based">
+				<depends on-sel="pfed-peer"/>
 				<f-element id="ftp-pro-3e1">
 					<title>The TSF shall protect data in transit from unauthorised disclosure using one of the
 						following mechanisms: <assignable>list of encryption mechanisms</assignable>.</title>
@@ -12871,7 +13029,71 @@
 						<selectable>replay</selectable>						
 						<selectable><assignable>other</assignable></selectable>
 					</selectables> using one of the following mechanisms: <assignable>list of
-						integrity protection mechanisms</assignable>.</title>
+						integrity protection mechanisms</assignable>.
+					</title>
+					<note role="application">
+						If the TOE cannot distinguish a suppressed or deliberately withheld packet from ordinary transport loss, "<h:i>deletion</h:i> shall not be selected in
+						FTP_PRO.3.2.
+					</note>
+					<aactivity>
+						<TSS>
+							The evaluator shall examine the TSS to determine that it:<h:ul>
+								<h:li>Identifies AES-GCM-256 as the PFED encryption and authenticated-integrity mechanism.</h:li>
+								<h:li>Describes the PFED protected-frame format and identifies encrypted and authenticated fields.</h:li>
+								<h:li>Describes the nonce, IV, packet-number, or equivalent construction and how uniqueness is maintained for each key.</h:li>
+								<h:li>Describes how channel identifiers, labels, protocol state, or other context are cryptographically bound to a protected frame.</h:li>
+								<h:li>Describes the association of transmit and receive keys with each PFED channel and direction.</h:li>
+								<h:li>Describes replay detection, including any replay window and the treatment of duplicate, stale, or out-of-window packet numbers.</h:li>
+								<h:li>Describes the treatment of frames protected under a superseded key following rekey.</h:li>
+								<h:li>Describes the behavior following an AES-GCM authentication or replay-checking failure.</h:li>
+							</h:ul>
+							If “deletion” is selected in FTP_PRO.3.2, the evaluator shall also verify that the TSS identifies the protocol mechanism used to detect deletion and
+							the resulting TOE behavior.
+						</TSS>
+						<Guidance>
+							If any replay window, protected-channel option, or security-relevant packet-processing parameter is configurable, the evaluator shall verify that the
+							operational guidance describes how to place it in the evaluated configuration.<h:p/>
+							If no such parameter is configurable, there are no additional guidance evaluation activities for this component.
+						</Guidance>
+						<Tests>
+							<testlist>
+								<test>
+									The evaluator shall establish an operational PFED channel and transmit known EUD payloads in each direction. The test payloads shall contain
+									recognizable and repeated values sufficient to permit their identification in a packet capture if transmitted without protection.
+										The evaluator shall verify that:<h:ul>
+										<h:li>The receiving EUD receives the original payload correctly</h:li>
+										<h:li>The known plaintext is not present as plaintext in the corresponding protected traffic captured between the paired EUs</h:li>
+										<h:li>Correct transfer succeeds in both directions</h:li>
+									</h:ul>
+									This test may satisfy the PFED disclosure-protection activity under FTP_ITC.1.
+								</test>
+								<test>
+									The evaluator shall capture a valid PFED-protected frame destined for the TOE, modify one bit in the ciphertext, authenticated header, 
+									channel label, or authentication tag, and inject the modified frame toward the TOE.
+									The evaluator shall verify that the TOE:<h:ul>
+									<h:li>Rejects the modified or injected frame</h:li>
+									<h:li>Does not deliver its payload to the EUD</h:li>
+									<h:li>Does not use the frame to advance a PFED transaction</h:li>
+									<h:li>Does not produce a protocol response to the invalid frame, except for any required local audit processing</h:li>
+									</h:ul>
+									The injection of the altered frame may be used to satisfy both the modification and insertion selections. If the channel identifier or label
+									is carried as authenticated additional data, modification of that field is the preferred form of this test.
+								</test>
+								<test>
+									The evaluator shall capture a valid PFED-protected frame accepted by the TOE and replay the same frame during the same key epoch. The
+									evaluator shall verify that the replayed frame is rejected and that its payload is not delivered to the EUD.<h:p/>
+									The evaluator shall then complete a successful rekey. After the protocol-defined retirement point for the prior key, the evaluator shall
+									replay a protected frame captured before the rekey and verify that it is rejected and is not delivered to the EUD.<h:p/>
+									The second part of this test may be combined with FTP_PRO.1:2, FCS_CKM.6/PFED, or another existing rekey activity.
+								</test>
+								<test>
+									This test is performed only if “deletion” is selected in FTP_PRO.3.2.<h:p/>
+									The evaluator shall suppress a protected packet or protocol message whose absence the TSS states will be detected. The evaluator shall verify
+									that the TOE detects the missing packet or message, and performs the response specified in the TSS and PFED protocol specification.
+								</test>
+							</testlist>
+						</Tests>
+					</aactivity>
 				</f-element>
 				<audit-event>
 					<audit-event-descr>Failures when attempting to verify channel properties in FTP_PRO.3.2</audit-event-descr>
@@ -12889,8 +13111,7 @@
     				</selectables> <h:b>to</h:b> provide a <h:b>trusted</h:b> communication path between itself
     				and [<h:i>remote</h:i>] <h:b>administrators</h:b> that is logically distinct from other communication paths and provides assured identification
     				of its endpoints and protection of the communicated data from [<h:i>modification, disclosure</h:i>].
-    			</title>
-    			
+    			</title>    			
     		</f-element>
     		<f-element id="ftp-trp-1e2">
     			<title>
