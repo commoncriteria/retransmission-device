@@ -1619,8 +1619,26 @@
 			<cc-pt3-conf>extended</cc-pt3-conf>
 			<cc-pp-conf/>
 			<cc-pp-config-with>       
-				<Mod-cc-ref>PP-Module for MACsec Ethernet Encryption, Version 2.0</Mod-cc-ref>
-				<Mod-cc-ref>PP-Module for VPN Client, Version 3.0</Mod-cc-ref>
+				<Mod-cc-ref>
+					<!-- PP-Module for MACsec Ethernet Encryption, version 2.0 -->
+					<cc-doc-ref id="MACsec">
+						<git>
+							<url>https://github.com/commoncriteria/MACsec</url>
+							<branch>release-2.0</branch>
+						</git>
+						<url>https://www.niap-ccevs.org/protectionprofiles/541</url>
+					</cc-doc-ref>
+				</Mod-cc-ref>
+				<Mod-cc-ref>
+					<!-- PP-Module for VPN Client, Version 3.0 -->
+					<cc-doc-ref id="vpnclient">
+						<git>
+							<url>https://github.com/commoncriteria/vpnclient</url>
+							<branch>release-3.0</branch>
+						</git>
+						<url>https://www.niap-ccevs.org/protectionprofiles/522</url>
+					</cc-doc-ref>		
+				</Mod-cc-ref>
 				<Mod-cc-ref>PP-Module for WLAN Clients, Version 2.0</Mod-cc-ref>
 			</cc-pp-config-with>
 			<cc-pkg-claim>
@@ -1630,7 +1648,7 @@
 							<url>https://github.com/commoncriteria/ssh</url>
 							<branch>release-2.0</branch>
 						</git>
-						<url>https://www.niap-ccevs.org/api/file/get_public_file/?file_id=34027</url>
+				<url>https://www.niap-ccevs.org/protectionprofiles/515</url>
 					</cc-doc-ref>
 				</FP-cc-ref>
 				
@@ -1640,7 +1658,7 @@
 							<url>https://github.com/commoncriteria/tls</url>
 							<branch>release-2.1</branch>
 						</git>
-						<url>https://www.niap-ccevs.org/static_html/protection-profile/519/PKG_TLS_V2.1.html</url>
+						<url>https://www.niap-ccevs.org/protectionprofiles/519</url>
 					</cc-doc-ref>
 				</FP-cc-ref>
 				
@@ -1650,7 +1668,7 @@
 							<url>https://github.com/commoncriteria/X509</url>
 							<branch>release-1.0</branch>
 						</git>
-						<url>https://www.niap-ccevs.org/static_html/protection-profile/511/Functional%20Package%20for%20X.509_v1.0.html</url>
+						<url>https://www.niap-ccevs.org/protectionprofiles/511</url>
 					</cc-doc-ref>
 				</FP-cc-ref>		
 			</cc-pkg-claim>
