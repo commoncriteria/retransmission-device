@@ -253,7 +253,8 @@
 			behavior, provisioning behavior, isolation rules, and operational requirements described in this section.</h:p>
 			<h:p>A TOE claiming PFED as its trusted channel must implement an HWS-ERD, including the EU, CU, and all required SFRs for a combined implementation. All
 			communication between paired ERDs is protected by an AES-based secure session tunnel implemented by the EU. The TOE does not rely on external key management
-			protocols. <comment>Do we still need the following sentence? There is no MACsec functionality discussed elsewhere in the section.</comment>When MACsec encapsulation is used, the IEEE 802.1X MACsec Key Agreement (MKA) protocol is not implemented or invoked.</h:p>
+			protocols.</h:p>
+			For a PFED implementation, FDP_IFF.1/PFED defines the fixed information-flow policy enforced by the EU on the IC3 interface. The EU is not required to provide administrator-configurable packet-filter rules for that interface. FPF_RUL_EXT.1 applies to the CU when included in the ST, and applies to the EU only when the EU implements an additional configurable Layer 2 and/or Layer 3 filtering capability outside the fixed PFED flow.<h:p/>
 			<sec:Principles_Behind_HWS-ERD_PFED>
 				<h:p>An HWS-ERD PFED has unique properties that are not normally present in traditional encryption systems. The security function of separating Red and Black
 					within any ERD must work correctly, and to work correctly it must be completely understandable. The separation of functions into an EU and CU allows the
@@ -401,8 +402,8 @@
 			</sec:Traffic_Isolation_and_Interface_Filtering>
 			
 			<sec:Dead_Peer_Detection_and_Persona_Enforcement>
-				<h:p>Each EU implements dead peer detection using either RFC 3706 mechanisms or a keep-alive beacon.</h:p>
-				<h:p>When a dead peer is detected, the TOE transitions to a session setup state.</h:p>
+				<h:p>Each EU detects loss of its peer using a traffic-based keep-alive or a periodic heartbeat. When a dead peer is detected, the EU takes its EUD offline and
+					returns to session setup.</h:p>
 			The TOE enforces EU persona roles as follows.<h:ul>
 				<h:li>A client persona initiates session setup.</h:li>
 				<h:li>A server persona waits for session initiation.</h:li>
@@ -416,7 +417,7 @@
 				<h:li>Stored on persistent storage</h:li>
 				<h:li>Record the execution of provisioning, session setup, session termination, rekey, and key recovery</h:li>
 				<h:li>Size-limited and rotated</h:li>
-				<h:li>Conform to RFC 3194, RFC 5424, or an equivalent syslog standard</h:li>
+				<h:li>Conform to RFC 5424</h:li>
 				<h:li>May be streamed via a console interface or retrieved using a vendor-defined mechanism</h:li>
 			</h:ul>
 			
@@ -582,37 +583,6 @@
     	</usecases>
 	</sec:Use_Cases>
 	
-		<section title="Product Features Mapped to Implementation-Dependent Requirements" id="sec-features">
-			<comment>
-				Recommend deleting this entire section as it seems unnecessary because Section 1.6 is a duplicate, but makes more sense than this section.
-			</comment>The features enumerated below, if implemented by the TOE, require that additional SFRs be claimed in the ST.<h:br/>
-			<implements>
-				<feature id="ipsec" title="IPsec">
-					<description>A conformant TOE claims to be an EU and implements IPsec for data-in-transit encryption in the EU.						
-				</description>
-				</feature>
-				<feature id="macsec" title="MACsec">
-					<description>A conformant TOE claims to be an EU and implements MACsec for data-in-transit encryption in the EU.
-				</description>
-				</feature>
-				<feature id="pfed" title="PFED">
-					<description>A conformant TOE claims to be an HWS-ERD and implements PFED for data-in-transit encryption in the EU.
-				</description>
-				</feature>
-				<feature id="wlan" title="WLAN">
-					<description>A conformant TOE claims to be an EU and implements WLAN for data-in-transit encryption in the EU.
-				</description>
-				</feature>
-				<feature id="cu-functionality" title="CU Functionality">
-					<description>A conformant TOE claims to be a CU. This includes the TOE claiming to be only a CU or claiming to be a CU as part of an HWS-ERD configuration.
-					</description>
-				</feature>
-				<feature id="hws-erd" title="Hardware-Separated Encrypting Retransmission Device (HWS-ERD)">
-					<description>A conformant TOE claims to be both a CU and an EU, and includes physical and logical separation between the EU and CU components in the
-						enclosure or solution.</description>
-				</feature>
-			</implements>
-		</section>
 		
 		<section id="sfrappl" title="SFR Applicability">
 			The following table depicts how each SFR is applicable to CU and EU.<h:p/>
@@ -1059,7 +1029,7 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_AFL_EXT.1</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1104,7 +1074,7 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UAU.5</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1113,7 +1083,7 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UAU.7</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1140,7 +1110,7 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FIA_UIA_EXT.1</h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1214,9 +1184,9 @@
 					<h:td>FPF_RUL_EXT.1</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center">IMP</h:td>
 					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center">M</h:td>
-					<h:td>CU packet filtering; EU only if EU performs L2/L3 filtering.</h:td>
+					<h:td>CU packet filtering; EU only if EU performs L2/L3 filtering; HWS only CU side</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1910,9 +1880,13 @@
 				<description>An attacker with physical access may attempt to access protected data (such as pre-shared keys) on the retransmission device. These physical access threats may involve attacks that attempt to access the device through external hardware ports, to impersonate the user authentication mechanisms through its user interface, or through direct and possibly destructive access to its storage media. An attacker with physical access might also be able to compromise TOE integrity, subvert TOE protections, or access protected TOE data through hardware attacks such as probing, physical manipulation, fault-injection, side-channel analysis, environmental stress, or activating disabled features or pre-delivery services.</description>
 				<addressed-by>FCS_STG_EXT.1</addressed-by><rationale>Mitigates the threat by implementing a secure key storage for keys used to protect data at rest and data in
 					transit.</rationale>
+				<addressed-by>FIA_AFL_EXT.1</addressed-by><rationale>Mitigates the threat by limiting the extent to which brute force authentication attempts to the
+					TOE can be made.</rationale>
 				<addressed-by>FIA_PMG_EXT.1</addressed-by><rationale>Mitigates the threat by defining strong password characteristics.</rationale>
 				<addressed-by>FIA_TRT_EXT.1</addressed-by><rationale>Mitigates the threat by limiting the extent to which brute force authentication attempts to the TOE can be
 					made.</rationale>
+				<addressed-by>FIA_UAU.5</addressed-by><rationale>Mitigates the threat by defining the supported authentication mechanisms.</rationale>
+				<addressed-by>FIA_UAU.7</addressed-by><rationale>Mitigates the threat by providing only limited information during authentication.</rationale>
 				<addressed-by>FIA_UAU_EXT.2</addressed-by><rationale>Mitigates the threat by requiring successful authentication before allowing the user to take action on the
 					TOE.</rationale>
 				<addressed-by>FPT_APW_EXT.1</addressed-by><rationale>Mitigates this threat by storing administrative passwords only in non-plaintext form and preventing plaintext administrative passwords from being read through normal interfaces, thereby reducing the possibility that an attacker can capture credentials and use them to impersonate an administrator. 
@@ -1957,10 +1931,6 @@
 					DRBG.</rationale>
 				<addressed-by>FCS_STG_EXT.2 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing confidentiality for key storage.</rationale>
 				<addressed-by>FCS_STG_EXT.3 (sel-based)</addressed-by><rationale>Mitigate the threat by enforcing integrity for key storage.</rationale>
-				<addressed-by>FIA_AFL_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by limiting the extent to which brute force authentication attempts to the TOE can be
-					made.</rationale>
-				<addressed-by>FIA_UAU.5 (sel-based)</addressed-by><rationale>Mitigates the threat by defining the supported authentication mechanisms.</rationale>
-				<addressed-by>FIA_UAU.7 (sel-based)</addressed-by><rationale>Mitigates the threat by providing only limited information during authentication.</rationale>
 				<addressed-by>FIA_UAU_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by preventing decryption prior to proper authorization to the device.</rationale>
 				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigate the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
 					insecure keys.</rationale>
@@ -2034,8 +2004,11 @@
 				<addressed-by>FAU_GEN.1</addressed-by><rationale>Mitigates the threat by generating an audit trail for administrative actions, platform startup and shutdown, key-management actions, trusted-channel events, and other security-relevant successes and failures, enabling malicious activity and unauthorized configuration changes to be detected and reconstructed.</rationale>
 				<addressed-by>FDP_IFF.1</addressed-by><rationale>Mitigates this threat by permitting only flows that match the configured interface, domain, peer, session, lifecycle, transaction, and traffic-direction attributes. It rejects malformed or out-of-state PFED traffic, unauthorized directions, alternate EU/CU paths, nested or concurrent transactions, and EUD traffic attempted before authentication, key establishment, transaction completion, or recovery prerequisites are satisfied. 
 				</rationale>
+				<addressed-by>FIA_AFL_EXT.1</addressed-by><rationale>Mitigates the threat by limiting further authentication attempts once a failure threshold of a critical authentication mechanism has been reached.</rationale>
 				<addressed-by>FIA_PMG_EXT.1</addressed-by><rationale>Mitigates the threat by enforcing password complexity requirements to prevent credentials from being easily guessed.</rationale>
 				<addressed-by>FIA_TRT_EXT.1</addressed-by><rationale>Mitigates the threat by throttling authentication to prevent access via brute force.</rationale>
+				<addressed-by>FIA_UAU.5</addressed-by><rationale>Mitigates the threat by implementing multiple authentication mechanisms for accessing the TSF.</rationale>
+				<addressed-by>FIA_UAU.7</addressed-by><rationale>Mitigates the threat by preventing disclosure of authentication data during authentication attempts.</rationale>
 				<addressed-by>FIA_UID.1</addressed-by><rationale>Mitigates this threat by requiring an administrator or other user to be identified before TSF-mediated actions are performed on that user’s behalf. Identification enables role enforcement and attribution before management or configuration actions occur. This is a supporting mapping: identification must be combined with authentication and role restrictions to prevent impersonation. 
 				</rationale>
 				<addressed-by>FPT_APW_EXT.1</addressed-by><rationale>Mitigates this threat by storing administrative passwords only in non-plaintext form and preventing plaintext administrative passwords from being read through normal interfaces, thereby reducing the possibility that an attacker can capture credentials and use them to impersonate an administrator. 
@@ -2053,10 +2026,6 @@
 				</rationale>
 				<addressed-by>FPT_SEP_EXT.1 (impl-dep)</addressed-by><rationale>Mitigates this threat by implementing the EU and CU as separate security domains with physically distinct processors and memory, no shared memory or DMA, a dedicated intercomponent interface, and no alternate EU/CU communication path. This limits the scope of compromise of the black-facing or transport component, prevents direct access to EU plaintext and key resources, and prevents one component from reaching the other component’s management or security functions through an unintended path. 
 				</rationale>
-				<addressed-by>FIA_AFL_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by limiting further authentication attempts once a failure threshold of a critical authentication mechanism has been
-					reached.</rationale>
-				<addressed-by>FIA_UAU.5 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing multiple authentication mechanisms for accessing the TSF.</rationale>
-				<addressed-by>FIA_UAU.7 (sel-based)</addressed-by><rationale>Mitigates the threat by preventing disclosure of authentication data during authentication attempts.</rationale>
 				<addressed-by>FPT_STM.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that time-based authentication throttling or lockout is accurately enforced.</rationale>
 				
     		</threat>	
@@ -2065,6 +2034,7 @@
     			<description>An attacker might be able to modify the configuration of the TOE and alter its functionality. This might include activating dormant subsystems,
     			disabling hardware assists, or altering boot-time behaviors.</description>    			
     			<addressed-by>FAU_GEN.1</addressed-by><rationale>Mitigates the threat by generating an audit trail for administrative actions, platform startup and shutdown, key-management actions, trusted-channel events, and other security-relevant successes and failures, enabling malicious activity and unauthorized configuration changes to be detected and reconstructed.</rationale>
+    			<addressed-by>FIA_UIA_EXT.1</addressed-by><rationale>Mitigates the threat by preventing the TSF from being modified by an unauthenticated subject.</rationale>
     			<addressed-by>FIA_UID.1</addressed-by><rationale>Mitigates this threat by requiring an administrator or other user to be identified before TSF-mediated actions are performed on that user’s behalf. Identification enables role enforcement and attribution before management or configuration actions occur. This is a supporting mapping: identification must be combined with authentication and role restrictions to prevent impersonation. 
     			</rationale>
     			<addressed-by>FMT_MOF.1</addressed-by><rationale>Mitigates the threat by permitting management functions to be used only by authorized users.</rationale>
@@ -2085,7 +2055,6 @@
     			<addressed-by>FAU_GEN.2/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by associating applicable PFED provisioning, session, rekey, recovery, and termination audit records with the initiating EU+CU identity, allowing malicious or unauthorized PFED actions to be attributed to the responsible TOE or peer identity.</rationale>
     			<addressed-by>FMT_SMF.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by identifying PFED provisioning, session setup, rekey configuration, and log management as explicit TSF management functions. This allows the accompanying identification, authentication, role, access-control, and audit requirements to govern all security-relevant PFED lifecycle management operations.
     			</rationale>
-    			<addressed-by>FIA_UIA_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by preventing the TSF from being modified by an unauthenticated subject.</rationale>
     			<addressed-by></addressed-by><rationale></rationale>
     		</threat>
 			    	
@@ -7716,8 +7685,7 @@
 					authorization to access TSF data occur.</fam-behavior>
 			</ext-comp-def>
 			
-			<f-component id="sfr-fia-afl-ext-1" cc-id="fia_afl_ext.1" name="Authentication Failure Handling" status="sel-based">				
-				<depends on-sel="sel-fmt-smr-1-admin"/>  <!-- FMT_SMR.1 Admin Role -->
+			<f-component id="sfr-fia-afl-ext-1" cc-id="fia_afl_ext.1" name="Authentication Failure Handling">	
 				<consistency-rationale/>
 				<comp-lev>requires the TSF to monitor authorization attempts, including counting and limiting the number of 
 					attempts at failed or passed authorizations. This extended component permits considerably
@@ -7747,8 +7715,6 @@
 						</title>
 					</ext-comp-def-title>
 					<note role="application">
-						This SFR is included in the ST if the "<h:i>administrator</h:i>" role is selected
-						in FMT_SMR.1.<h:p/>
 						If this SFR is included in the ST, then FCS_CKM.6 must also be claimed.<h:p/>
 						This SFR specifies the actions to be taken in the event of multiple authentication failures.<h:p/>
 						This requirement applies to both critical and non-critical authentication mechanisms. The difference 
@@ -8055,7 +8021,8 @@
 			<f-component name="Pre-Shared Key Composition" cc-id="fia_psk_ext.1">	
 			<f-element id="fia-psk-ext-1e1">
 				<title>
-					The TSF shall be able to use pre-shared keys that conform to RFC 8784 for IPsec</title>
+					The TSF shall be able to use pre-shared keys of at least 256 bits for <assignable>protocols or functions</assignable> that meet the following: <assignable>additional PSK composition and use requirements</assignable>.
+				</title>
 			</f-element>
 			<f-element id="fia-psk-ext-1e2">
 				<title>The TSF shall be able to <selectables>
@@ -8193,8 +8160,7 @@
 			
 			
 			
-			<f-component name="Multiple Authentication Mechanisms" cc-id="fia_uau.5" status="sel-based">
-				<depends on-sel="sfr-fmt-smr-1"></depends>
+			<f-component name="Multiple Authentication Mechanisms" cc-id="fia_uau.5">
 				<f-element id="fia-uau-5e1">
 					<title>The TSF shall provide [<h:i>password and </h:i><selectables>
 						<selectable>certificate-based authentication</selectable>
@@ -8206,7 +8172,6 @@
 					</selectables>] to support user authentication. 
 					</title>
 					<note role="application">
-						This SFR is included in the ST if "<h:i>administrator</h:i>"  is selected in FMT_SMR.1.<h:p/>
 						A "<h:i>user</h:i>" in the context of this SFR is an administrator.<h:p/>
 						The TSF must support a password authentication factor and may optionally implement a biometric authentication factor.<h:p/>
 						The password authentication factor is configured according to FIA_PMG_EXT.1.<h:p/>
@@ -8316,16 +8281,13 @@
 				</audit-event>
 			</f-component>
 		
-			<f-component id="sfr-fia-uau-7" cc-id="fia_uau.7" name="Protected Authentication Feedback" status="sel-based">
-				<depends on-sel="sel-fmt-smr-1-admin"/>  <!-- FMT_SMR.1 Admin Role -->
+			<f-component id="sfr-fia-uau-7" cc-id="fia_uau.7" name="Protected Authentication Feedback">
 				<f-element id="fia-uau-7e1">
 					<title>
 						The TSF shall provide only [<h:i>obscured feedback</h:i>] to the user
 						while the authentication is in progress. 
 					</title>
 					<note role="application">
-						This SFR is included in the ST if the "<h:i>administrator</h:i>" role is selected
-						in FMT_SMR.1.<h:p/>
 						This requirement applies to all authentication mechanisms specified in FIA_UAU.5.1 that provide 
 						feedback to a user or administrator during authentication.<h:p/>
 						For authentication mechanisms that require the user or administrator to enter a
@@ -8516,8 +8478,7 @@
 			<fam-behavior>This family defines requirements for authenticating administrators.</fam-behavior>
 		</ext-comp-def>
 			
-			<f-component id="sfr-fia-uia-ext-1" cc-id="fia_uia_ext.1" name="Administrator Authentication" status="sel-based"> 
-				<depends on-sel="sfr-fmt-smr-1"/>  
+			<f-component id="sfr-fia-uia-ext-1" cc-id="fia_uia_ext.1" name="Administrator Authentication"> 
 				<consistency-rationale/>
 				<comp-lev>requires the TSF to ensure that all subjects attempting to perform TSF-mediated actions
 					are authenticated prior to authorizing these actions to be performed.</comp-lev>
@@ -8536,8 +8497,6 @@
 						function to be performed by that administrator.
 					</title>
 					<note role="application">
-						This SFR is included in the ST if the "<h:i>administrator</h:i>" role is selected
-						in FMT_SMR.1.<h:p/>
 						Ordinary unprivileged users of the platform need not authenticate to the platform. <h:p/>
 						The TSF-mediated management functions are listed in the management functions table 
 						(<xref to="t-manfunc"/>) in FMT_SMF.1.  
@@ -8841,7 +8800,7 @@
 									<selectable id="sel-smf-remote-admin">remotely</selectable>
 								</selectables>.
 							</text>
-							<O ref="A"/>
+							<M ref="A"/>
 							<X ref="U"/>
 							<app-note>
 								Administration is considered “local” if the administrator is physically present at the TOE.<h:p/>
@@ -9267,16 +9226,12 @@
       	
       	<f-component cc-id="fmt_smr.1" id="sfr-fmt-smr-1" name="Security Roles">
       		<f-element id="fmt-smr-1e1">
-      			<title>The TSF shall maintain the roles [<h:i>user</h:i> and 
-      				<selectables>
-      					<selectable id="sel-fmt-smr-1-admin">administrator</selectable>
-      					<selectable exclusive="yes">no other roles</selectable>
-      				</selectables>].</title>
+      			<title>The TSF shall maintain the roles [<h:i>user and administrator</h:i>].
+      			</title>
       		</f-element>
       		<f-element id="fmt-smr-1e2">
       			<title>The TSF shall be able to associate users with roles.</title>
       			<note role="application">
-      				If "<h:i>administrator</h:i>" is selected, then the user authentication SFRs in FIA must be claimed.<h:p/>
       				A user is a human who interacts with the TOE through a user interface. Users do not
       				authenticate themselves to the TOE, and the user role is considered to exist even if no humans normally interact with a TOE.<h:p/>
       				An administrator is a privileged user that must be authenticated by the TOE in order 
@@ -10024,48 +9979,49 @@
     		<management>There are no management activities foreseen.</management>
     		<audit>There are no auditable events foreseen.</audit>
     		<dependencies>No dependencies.</dependencies>
-    		<f-element id="fdp-dpd-ext-2e1">
+    		<f-element id="fdp-dpd-ext-1e1">
     			<title>
-    				The TSF shall detect peer failure using: <selectables>
-    					<selectable>RFC 3706 mechanisms or keep-alive beacons</selectable>
-    					<selectable>trigger session reconnect upon failure or disconnect notification</selectable>
-    					<selectable><assignable>other method of detecting dead peers</assignable></selectable>
+    				The TSF shall detect loss of the peer EU using: <selectables>
+    					<selectable>traffic-based detection in which a keep-alive is sent only when no traffic has been received from the peer within <assignable>idle
+    						interval</assignable></selectable>
+    					<selectable>a periodic keep-alive heartbeat sent every <assignable>interval</assignable></selectable>
+    					<selectable><assignable>other peer-liveness mechanism</assignable></selectable>
     				</selectables>.
     			</title>
-    			<note role="application">
-    				The intent of this requirement is to ensure that the TOE detects loss of peer liveness and responds by attempting to restore the protected session state rather than continuing operation against a failed or disconnected peer. “Trigger session reconnect upon failure or disconnect notification” means the TOE initiates or enters the TOE-defined reconnection or session re-establishment behavior upon peer failure or disconnect notification.<h:p/>
-    				A peer can become disconnected for several reasons, if restarted due to a timed event, the link between the pair was severed, one EU lost power, an adversary is manipulating the data in transit, etc. We cannot depend on an EU to know its peer EU is going offline. A PFED pair operates at both the link layer and the IP layer. The EUs are link-layer oriented and the CUs are IP-layer oriented. The EUs manage the link status, and they must be able to detect when the peer EU is no longer online in order to stop any further EUD traffic until the EU’s restart a new session tunnel.
-    				If the TOE is an EU+CU implementing PFED, the expectation is that the combined TOE will choose a persona during session bring-up, and must select both options. A TOE that is in client persona will initiate all connections; such TOEs will trigger session reconnect upon failure or disconnect notification. A TOE that is in server persona will wait for session establishment, and will trigger session reconnect keep-alive beacons or use mechanisms defined in RFC 3706. For TOEs that do not implement PFED, the ST author will select the appropriate dead peer detection mechanism.
-    				
+    		</f-element>
+    		<f-element>
+    			<title>
+    				The TSF shall declare the peer dead when no response is received within <assignable>response timeout or number of missed keep-alives</assignable>.
+    			</title>
+    		</f-element>
+    		<f-element>
+    			<title>
+    				Upon declaring the peer dead, the TSF shall stop forwarding EUD traffic and return to the offline state until a new session 
+    				setup with the peer completes.
+    			</title>
+    		<note role="application">
+    			Traffic-based detection means that each EU runs a timer. If traffic has been received from the peer since the last check, the timer resets and no keep-alive is sent. If no traffic has been received, the EU sends a keep-alive and waits for a response. A periodic heartbeat is an acceptable alternative. Keep-alives are sent within the PFED session and are subject to FDP_IFF.1/PFED. DPD is not a confidentiality or integrity mechanism, its purpose is to make sure the EUD is taken offline when the peer or link is lost. The client and server persona behavior on restart is defined in 1.3.2.4.10.
     			</note>
     			<aactivity>
     				<TSS>
     					The evaluator shall examine the TSS to determine that it:<h:ul>
-    						<h:li>Describes the peer-failure detection mechanism used by the TOE.</h:li> 
-    						<h:li>States whether the TOE uses: <h:ul>
-    							<h:li>RFC 3706 mechanisms, </h:li>  
-    							<h:li>keep-alive beacons, </h:li>
-    							<h:li>or both. </h:li>  
-    						</h:ul></h:li>
-    						<h:li>Describes how the TOE determines that peer failure has occurred. </h:li>
-    						<h:li>Describes how the TOE determines that a disconnect notification has occurred, if distinct from peer failure detection. </h:li>
-    						<h:li>Describes the TOE action taken when peer failure or disconnect notification is detected. </h:li>
-    						<h:li>Describes the session reconnect behavior or reconnection state entered by the TOE after such detection. </h:li>
-    						<h:li>If more than one liveness-detection mechanism is claimed, distinguishes the TOE behavior for each sufficiently to support testing. </h:li>
+    						<h:li>Describes the peer-liveness mechanism claimed in FPT_DPD_EXT.1.1: traffic-based detection, a periodic keep-alive heartbeat, or another mechanism.</h:li> 
+    						<h:li>For traffic-based detection, describes how the TOE decides whether traffic has been received from the peer since the last check, and when a keep-alive is sent.</h:li>
+    						<h:li>States the idle or heartbeat interval and the response timeout (or number of missed keep-alives), or their permitted ranges if configurable. Also states the resulting maximum time from loss of the peer until the peer is declared dead.</h:li>
+    						<h:li>States that keep-alives and their responses are sent within the PFED session and are subject to FDP_IFF.1/PFED.</h:li>
+    						<h:li>Describes how the TOE stops forwarding EUD traffic and terminates the session when the peer is declared dead.</h:li>
+    						<h:li>Describes the client-persona and server-persona behavior after the peer is declared dead. The client initiates session setup and the server waits for the client.</h:li>
+    						<h:li>States that EUD traffic resumes only after a session setup transaction, including mutual authentication and the mandatory rekey has completed.</h:li>
     					</h:ul>
-    					The evaluator shall determine that the TSS is consistent with the posted PFED Configuration section text stating that the TOE uses RFC 3706 DPD or keep-alive beacons and transitions to session setup after dead peer detection.
-    					
     				</TSS>
     				<Guidance/>
     				<Tests>
-    					The evaluator shall perform the following tests<h:p/>
+    					The evaluator shall configure two TOE EUs, A1 (server persona) and B1 (client persona), with EUD A and EUD B, and shall perform the following tests<h:p/>
     					<testlist>
-    						<test> Peer failure detection: The evaluator shall cause peer failure or loss of liveness in the claimed TOE context and verify that the TOE detects the failure using the claimed mechanism, namely RFC 3706 or keep-alive beacons, consistent with the TSS and guidance. The PFED Configuration section expressly permits either mechanism.</test><h:p/>
-    						<test>Reconnect trigger on failure detection: Following peer-failure detection, the evaluator shall verify that the TOE triggers session reconnect behavior in accordance with the TSS and guidance. Where the TOE describes this as transition to a session setup state, the evaluator shall verify that behavior. The posted PFED Configuration section states that the TOE transitions to session setup after dead-peer detection.</test><h:p/> 
-    						<test>Disconnect-notification handling: If the TOE distinguishes a disconnect notification from ordinary liveness failure, the evaluator shall cause that condition and verify that the TOE triggers session reconnect behavior as described in the TSS and guidance.</test><h:p/>
-    						<test>Claimed mechanism coverage: If the TOE claims both RFC 3706 and keep-alive beacons, the evaluator shall verify both mechanisms. If only one is claimed, the evaluator shall verify that the TOE relies on that claimed mechanism to satisfy this SFR.</test><h:p/>
-    						<test>PFED Functional Test: Establish a pair of communicating PFEDs A1 and B1 with respective EUD A and EUD B. A1 is a server PFED and B1 is a client PFED. Sniff the black transport. While A is sending data to B, disconnect B1. Eventually A1 should stop sending EUD traffic and revert to a passive server mode listening for a client session initiation. Reconnect B1 and observe a session setup and then EUD traffic resuming. Next disconnect A1 (the server). Eventually B1 (the client) should revert to initiating a session. This should look like a periodic beacon. Reconnect A1, and B1 should complete a session setup and EUD traffic should then be visible on the black transport.</test><h:p/></testlist> 
-    						Where direct observation of low-level liveness-detection behavior is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, traces, or developer evidence sufficient to determine that the claimed detection mechanism and reconnect trigger are implemented.
+    						<test>Peer loss: The evaluator shall establish a session and verify that EUD traffic passes. The evaluator shall then disconnect the cable between A1 and B1. The evaluator shall verify that, within the time stated in the TSS, both EUs stop passing EUD traffic. The evaluator shall then reconnect the cable and verify that EUD traffic resumes only after a new session setup completes.</test><h:p/>
+    						<test>Idle link: The evaluator shall establish a session, pass no EUD traffic for longer than the stated interval, and verify that the session remains up.</test><h:p/> 
+    					</testlist> 
+    						
     				</Tests>
     			</aactivity>
     		</f-element>
@@ -11345,7 +11301,8 @@
     			subsystem does not permit direct compromise of the other.</fam-behavior>
     	</ext-comp-def>
 	
-    	<f-component name="Hardware and Logical Separation of EU and CU" cc-id="fpt_sep_ext.1">
+    	<f-component name="Hardware and Logical Separation of EU and CU" cc-id="fpt_sep_ext.1" status="feat-based">
+    		<depends on="hws-erd"/>
     		<consistency-rationale/>    			
     		
     		<comp-lev>requires the TSF to maintain separation between security domains for the EU and CU.</comp-lev>
@@ -11849,7 +11806,7 @@
     				functionality includes the cryptographic operations in FCS_COP, the key generation
     				functions in FCS_CKM, and the random bit generation in FCS_RBG.1.</note>
     			<aactivity>
-    				<TSS>The evaluator shall examine the TSS to ensure that it details each of the selftests that are identified by the SFR; this description should include an outline of
+    				<TSS>The evaluator shall examine the TSS to ensure that it details each of the self-tests that are identified by the SFR; this description should include an outline of
     					what the tests are actually doing (e.g., rather than saying "memory is tested", a
     					description similar to "memory is tested by writing a value to each memory
     					location and reading it back to ensure it is identical to what was written" shall
