@@ -777,7 +777,7 @@
 					<h:td>FCS_CKM_EXT.7</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">IMP</h:td>
+					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol-triggered; IPsec key agreement.</h:td>
 				</h:tr>
@@ -1726,7 +1726,6 @@
 				</rationale>
 				<addressed-by>FTA_TAB.1</addressed-by><rationale>Mitigated the threat by providing actionable consequences for misuse of the TSF.</rationale>				
 				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by implementing a specified protocol as a means to protect data in transit.  </rationale>							<addressed-by>FAU_GEN.2/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by associating applicable PFED provisioning, session, rekey, recovery, and termination audit records with the initiating EU+CU identity, allowing malicious or unauthorized PFED actions to be attributed to the responsible TOE or peer identity.</rationale>
-				<addressed-by>FCS_CKM_EXT.7 (impl-dep)</addressed-by><rationale>Mitigates the threat by implementing key agreement functions used for trusted communications.</rationale>
 				<addressed-by>FCS_REC_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by suppressing EUD traffic during recovery, ensures sequential derivation of
 					recovery keys, and terminates sessions on failure to converge.</rationale>
 				
@@ -1745,6 +1744,7 @@
 				<addressed-by>FCS_CKM.2 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing key establishment to negotiate trusted channels to protect data in 
 					transit.</rationale>	
 				<addressed-by>FCS_CKM.6 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing key destruction to prevent the compromise of trusted channels.</rationale>
+				<addressed-by>FCS_CKM_EXT.7 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing key agreement functions used for trusted communications.</rationale>
 				<addressed-by>FCS_COP.1/AEAD (sel-based)</addressed-by><rationale>Mitigates the threat by implementing AEAD functions used for trusted communications.</rationale>
 				<addressed-by>FCS_COP.1/CMAC (sel-based)</addressed-by><rationale>Mitigates the threat by implementing CMAC functions used for trusted communications.</rationale>
 				<addressed-by>FCS_COP.1/Hash (sel-based)</addressed-by><rationale>Mitigates the threat by implementing hash functions used for trusted communications.</rationale>
@@ -3910,7 +3910,7 @@
 		</f-component>
 		
 		<!-- FCS_CKM_EXT.7 Cryptographic Key Agreement -->
-		<f-component id="sfr-fcs-ckm-ext-7" cc-id="fcs_ckm_ext.7" name="Cryptographic Key Agreement" status="feat-based">
+		<f-component id="sfr-fcs-ckm-ext-7" cc-id="fcs_ckm_ext.7" name="Cryptographic Key Agreement" status="sel-based">
 			<depends on-sel="ipsec-peer"/>
 			<depends><optional/></depends>
 						
