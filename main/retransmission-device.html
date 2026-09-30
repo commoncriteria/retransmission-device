@@ -1355,7 +1355,7 @@ The following sections list Common Criteria and technology terms used in this do
 					<td><a href="#FCS_CKM_EXT.7">FCS_CKM_EXT.7</a></td>
 					<td style="text-align: center"></td>
 					<td style="text-align: center"></td>
-					<td style="text-align: center">IMP</td>
+					<td style="text-align: center">SB</td>
 					<td style="text-align: center"></td>
 					<td><abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr> protocol-triggered; IPsec key agreement.</td>
 				</tr>
@@ -3829,11 +3829,9 @@ The following sections list Common Criteria and technology terms used in this do
 					</div></div></div></div></div>
 		
 		
-		<div class="comp" id="FCS_CKM_EXT.7"><h4>FCS_CKM_EXT.7 Cryptographic Key Agreement</h4><div class="statustag"><i><b>This is an implementation-based component.
-                Its inclusion in depends on whether the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements one or more of the following features:
-                <ul><li><a href="#ipsec-peer"></a></li></ul>
-                as described in Appendix A.3: Implementation-based Requirements.
-               <p>This component may also be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> as if optional.</p></b></i></div>
+		<div class="comp" id="FCS_CKM_EXT.7"><h4>FCS_CKM_EXT.7 Cryptographic Key Agreement</h4><div class="statustag"><b><i>This is a selection-based component. Its inclusion depends upon selection from
+	  <a href="#FTP_ITC.1.1">FTP_ITC.1.1</a>.
+      <p>This component may also be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> as if optional.</p></i></b></div>
 			
 			
 						
@@ -11115,7 +11113,6 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FTA_TAB.1">FTA_TAB.1</a></td><td>Mitigated the threat by providing actionable consequences for misuse of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr>
 <tr><td><a href="#FTP_ITC.1">FTP_ITC.1</a></td><td>Mitigates the threat by implementing a specified protocol as a means to protect data in transit.  </td></tr>
 <tr><td><a href="#FAU_GEN.2/PFED">FAU_GEN.2/PFED</a> (impl-dep)</td><td>Mitigates this threat by associating applicable <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> provisioning, session, rekey, recovery, and termination audit records with the initiating <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>+<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> identity, allowing malicious or unauthorized <abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> actions to be attributed to the responsible <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or peer identity.</td></tr>
-<tr><td><a href="#FCS_CKM_EXT.7">FCS_CKM_EXT.7</a> (impl-dep)</td><td>Mitigates the threat by implementing key agreement functions used for trusted communications.</td></tr>
 <tr><td><a href="#FCS_REC_EXT.1/PFED">FCS_REC_EXT.1/PFED</a> (impl-dep)</td><td>Mitigates this threat by suppressing <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> traffic during recovery, ensures sequential derivation of
 					recovery keys, and terminates sessions on failure to converge.</td></tr>
 <tr><td><a href="#FDP_IFF.1/PFED">FDP_IFF.1/PFED</a> (impl-dep)</td><td>Mitigates this threat by only expected packets are processed; malformed or injected packets are dropped,
@@ -11133,6 +11130,7 @@ The following sections list Common Criteria and technology terms used in this do
 <tr><td><a href="#FCS_CKM.2">FCS_CKM.2</a> (sel-based)</td><td>Mitigates the threat by implementing key establishment to negotiate trusted channels to protect data in 
 					transit.</td></tr>
 <tr><td><a href="#FCS_CKM.6">FCS_CKM.6</a> (sel-based)</td><td>Mitigates the threat by implementing key destruction to prevent the compromise of trusted channels.</td></tr>
+<tr><td><a href="#FCS_CKM_EXT.7">FCS_CKM_EXT.7</a> (sel-based)</td><td>Mitigates the threat by implementing key agreement functions used for trusted communications.</td></tr>
 <tr><td><a href="#FCS_COP.1/AEAD">FCS_COP.1/AEAD</a> (sel-based)</td><td>Mitigates the threat by implementing AEAD functions used for trusted communications.</td></tr>
 <tr><td><a href="#FCS_COP.1/CMAC">FCS_COP.1/CMAC</a> (sel-based)</td><td>Mitigates the threat by implementing CMAC functions used for trusted communications.</td></tr>
 <tr><td><a href="#FCS_COP.1/Hash">FCS_COP.1/Hash</a> (sel-based)</td><td>Mitigates the threat by implementing hash functions used for trusted communications.</td></tr>
