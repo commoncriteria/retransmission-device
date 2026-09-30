@@ -1,36 +1,29 @@
-* Warning: This document still has at least one comment.
 * Error: Detected dangling id-reference to ipsec from attribute
         on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[1]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
         on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[1]""/depends[5]""/on[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
         on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/depends[2]""/on[1]""
-* Error: Detected dangling id-reference to fcs-stg-ext-1e2-sk from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/depends[3]""/on-sel[1]""
 * Error: Detected dangling id-reference to wlan from attribute
         on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[4]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to sfr-ftp-itc-ext-admin-1 from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[4]""/depends[2]""/on-sel[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
         on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[4]""/depends[5]""/on[1]""
-* Error: Detected dangling id-reference to ipsec from attribute
-        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[9]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to  from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[10]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to ftp-itc-ext-1e1 from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[10]""/depends[2]""/on-sel[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
-        on-incl/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[10]""/depends[4]""/on-incl[1]""
-* Error: Detected dangling id-reference to  from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[11]""/depends[1]""/on-sel[1]""
+        on-incl/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[10]""/depends[3]""/on-incl[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
-        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[13]""/depends[3]""/on[1]""
+        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[13]""/depends[2]""/on[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
         on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[14]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
         on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[15]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to sel-fdp-itc-ext-1e2-kw from attribute
-        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[15]""/depends[4]""/on-sel[1]""
+        on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[15]""/depends[3]""/on-sel[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
         on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[16]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to sel-fdp-itc-ext-1e2-sig from attribute
@@ -40,15 +33,11 @@
 * Error: Detected dangling id-reference to ftp-itc-ext-1e1 from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[18]""/depends[2]""/on-sel[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
-        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[18]""/depends[4]""/on[1]""
+        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[18]""/depends[3]""/on[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
         on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[21]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to ftp-itc-ext-1e1 from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[21]""/depends[3]""/on-sel[1]""
-* Error: Detected dangling id-reference to ipsec from attribute
-        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[30]""/depends[1]""/on[1]""
-* Error: Detected dangling id-reference to hws-erd from attribute
-        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[6]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to sel-fmt-smr-1-admin from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[6]""/f-component[9]""/depends[1]""/on-sel[1]""
 * Error: Detected dangling id-reference to sfr-ftp-trp-1 from attribute
@@ -71,20 +60,12 @@
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[18]""/O[1]""/depends[2]""/on-sel[1]""
 * Error: Detected dangling id-reference to sel-rot3-user-det from attribute
         on-sel/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[18]""/O[2]""/depends[2]""/on-sel[1]""
-* Error: Detected dangling id-reference to sfr-fcs-stg-ext.1 from attribute
-        on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[19]""/depends[1]""/on-sfr[1]""
-* Error: Detected dangling id-reference to sfr-fdp-stg-ext.1 from attribute
-        on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[20]""/depends[1]""/on-sfr[1]""
-* Error: Detected dangling id-reference to sfr-fdp-stg-ext.1 from attribute
-        on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[21]""/depends[1]""/on-sfr[1]""
 * Error: Detected dangling id-reference to sfr-fpt-rcv.1 from attribute
-        on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[22]""/depends[1]""/on-sfr[1]""
+        on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[19]""/depends[1]""/on-sfr[1]""
 * Error: Detected dangling id-reference to sfr-fpt-stm.1 from attribute
-        on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[23]""/depends[1]""/on-sfr[1]""
+        on-sfr/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[20]""/depends[1]""/on-sfr[1]""
 * Error: Detected dangling id-reference to ipsec from attribute
         on-/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[4]""/depends[4]""/on-[1]""
-* Error: Detected dangling id-reference to hws-erd from attribute
-        on/PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[24]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to windows from attribute
         ref/PP[1]""/sec:req[1]""/section[1]""/section[6]"For the c"/a-component[1]""/a-element[5]""/aactivity[1]""/h:div[1]""/depends[1]""/ref[1]""
 * Error: Detected dangling id-reference to linux from attribute
@@ -153,12 +134,6 @@
           /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[19]""/depends[1]""
 * Warning: Potentially illegal 'depends' element.
           /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[20]""/depends[1]""
-* Warning: Potentially illegal 'depends' element.
-          /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[21]""/depends[1]""
-* Warning: Potentially illegal 'depends' element.
-          /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[22]""/depends[1]""
-* Warning: Potentially illegal 'depends' element.
-          /PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[7]""/f-component[4]""/f-element[1]""/title[1]"The TSF s"/management-function-set[1]""/management-function[23]""/depends[1]""
 * Error: Detected multiple elements with an id of 'sel-exp-skg-256'.
 * Error: Detected multiple elements with an id of 'sel-exp-skg-256'.
 * Error: Detected multiple elements with an id of 'fia-psk-ext-1e1'.
@@ -179,6 +154,9 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Configurations[1]""/sec:PFED_Configuration[1]""/h:p[3]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Logical_Boundary[1]"The logic"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[1]""/sec:TOE_Physical_Boundary[1]"The TOE p"/sec:HWS-ERD_Physical_Boundary[1]"The TOE i"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]""/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]""/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]""/usecases[1]""/usecase[4]""/description[1]"The TOE c"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The follo"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The follo"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The follo"/h:p[3]""
@@ -315,7 +293,6 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/f-element[1]""/title[1]"The TSF s"/selectables[1]""/tabularize[1]""/reqtext[3]"The follo"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/f-element[1]""/title[1]"The TSF s"/selectables[1]""/tabularize[1]""/reqtext[3]"The follo"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/f-element[1]""/note[1]"This SFR "/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/f-element[1]""/note[1]"This SFR "/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/f-element[1]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/f-element[1]""/aactivity[1]""/TSS[1]"The evalu"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[3]""/f-element[1]""/aactivity[1]""/Tests[1]"The follo"/h:p[1]""
@@ -519,7 +496,6 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[16]""/f-element[1]""/title[1]"The TSF s"/selectables[1]""/selectable[6]""/col[3]"Private k"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[16]""/f-element[1]""/title[1]"The TSF s"/selectables[1]""/selectable[6]""/col[4]"RFC 8391 "/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[16]""/f-element[1]""/note[1]"This SFR "/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[16]""/f-element[1]""/note[1]"This SFR "/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[16]""/f-element[1]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[16]""/f-element[1]""/aactivity[1]""/TSS[1]"The evalu"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[16]""/f-element[1]""/aactivity[1]""/Tests[1]"The follo"/h:p[1]""
@@ -640,7 +616,6 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[18]""/f-element[1]""/title[1]"The TSF s"/selectables[1]""/selectable[2]""/col[4]"[AES]"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[18]""/f-element[1]""/title[1]"The TSF s"/selectables[1]""/selectable[3]""/col[4]"[AES]"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[18]""/f-element[1]""/note[1]"This SFR "/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[18]""/f-element[1]""/note[1]"This SFR "/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[18]""/f-element[1]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[18]""/f-element[1]""/aactivity[1]""/Tests[1]"The follo"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[18]""/f-element[1]""/aactivity[1]""/Tests[1]"The follo"/h:p[2]""
@@ -741,15 +716,6 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[28]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/test[6]"Failure t"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[28]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/h:p[6]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[28]""/f-element[1]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/h:p[7]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[29]""/f-element[1]""/note[1]"This SFR "/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[29]""/f-element[1]""/note[1]"This SFR "/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[29]""/f-element[1]""/note[1]"This SFR "/h:p[3]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[29]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[29]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[29]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[29]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/test[2]"The evalu"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[29]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[4]""/f-component[31]""/f-element[2]""/note[1]"This SFR "/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/dependencies[1]"FIA_UAU.5"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[1]""/note[1]"The inten"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[1]""/f-element[1]""/note[1]"The inten"/h:p[2]""
@@ -778,7 +744,6 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[5]""/dependencies[1]"FTP_ITP_E"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[5]""/dependencies[1]"FTP_ITP_E"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[5]""/dependencies[1]"FTP_ITP_E"/h:p[3]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[5]""/f-element[2]""/note[1]"This SFR "/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/ext-comp-def[3]""/fam-behavior[1]"This fami"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/ext-comp-def[3]""/fam-behavior[1]"This fami"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[5]""/f-component[6]""/dependencies[1]"FMT_SMF.1"/h:p[1]""
@@ -925,11 +890,11 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[4]""/f-element[1]""/aactivity[1]""/Tests[1]""/testlist[1]""/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[4]""/f-element[1]""/aactivity[1]""/Tests[1]""/testlist[1]""/h:p[3]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[4]""/f-element[1]""/aactivity[1]""/Tests[1]""/testlist[1]""/h:p[4]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/dependencies[1]"FCS_STG_E"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/dependencies[1]"FCS_STG_E"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/dependencies[1]"FCS_STG_E"/h:p[3]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/dependencies[1]"FCS_STG_E"/h:p[4]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/dependencies[1]"FCS_STG_E"/h:p[5]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/dependencies[1]"FCS_COP.1"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/dependencies[1]"FCS_COP.1"/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/dependencies[1]"FCS_COP.1"/h:p[3]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/dependencies[1]"FCS_COP.1"/h:p[4]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/dependencies[1]"FCS_COP.1"/h:p[5]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/f-element[5]""/aactivity[1]""/TSS[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[5]""/f-element[5]""/aactivity[1]""/Tests[1]"The evalu"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[9]""/f-component[6]""/f-element[4]""/aactivity[1]""/Tests[1]"Where dir"/h:p[1]""

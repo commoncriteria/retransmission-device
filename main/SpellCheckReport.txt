@@ -65,7 +65,6 @@ output/retransmission-device-release-linkable.html: AAR
 output/retransmission-device-release-linkable.html: ACK
 output/retransmission-device-release-linkable.html: AESAVS
 output/retransmission-device-release-linkable.html: AFTs
-output/retransmission-device-release-linkable.html: AKs
 output/retransmission-device-release-linkable.html: ARIS
 output/retransmission-device-release-linkable.html: AuthData
 output/retransmission-device-release-linkable.html: B1
@@ -131,7 +130,6 @@ output/retransmission-device-release-linkable.html: Internodal
 output/retransmission-device-release-linkable.html: Ipsilon
 output/retransmission-device-release-linkable.html: JTAG
 output/retransmission-device-release-linkable.html: KDF
-output/retransmission-device-release-linkable.html: KMD
 output/retransmission-device-release-linkable.html: KeyGen
 output/retransmission-device-release-linkable.html: KeySbox
 output/retransmission-device-release-linkable.html: Kryptolan
@@ -189,7 +187,6 @@ output/retransmission-device-release-linkable.html: SHA3
 output/retransmission-device-release-linkable.html: SHAKE128
 output/retransmission-device-release-linkable.html: SHAKE256
 output/retransmission-device-release-linkable.html: SIPP
-output/retransmission-device-release-linkable.html: SKs
 output/retransmission-device-release-linkable.html: SP800
 output/retransmission-device-release-linkable.html: SPD
 output/retransmission-device-release-linkable.html: SRAM
@@ -221,7 +218,6 @@ output/retransmission-device-release-linkable.html: behaviour
 output/retransmission-device-release-linkable.html: cPPs
 output/retransmission-device-release-linkable.html: ciphertexts
 output/retransmission-device-release-linkable.html: codecs
-output/retransmission-device-release-linkable.html: config
 output/retransmission-device-release-linkable.html: configurability
 output/retransmission-device-release-linkable.html: connectionless
 output/retransmission-device-release-linkable.html: crypto
@@ -305,7 +301,6 @@ output/retransmission-device-release.html: AAR
 output/retransmission-device-release.html: ACK
 output/retransmission-device-release.html: AESAVS
 output/retransmission-device-release.html: AFTs
-output/retransmission-device-release.html: AKs
 output/retransmission-device-release.html: ARIS
 output/retransmission-device-release.html: AuthData
 output/retransmission-device-release.html: B1
@@ -372,7 +367,6 @@ output/retransmission-device-release.html: Internodal
 output/retransmission-device-release.html: Ipsilon
 output/retransmission-device-release.html: JTAG
 output/retransmission-device-release.html: KDF
-output/retransmission-device-release.html: KMD
 output/retransmission-device-release.html: KeyGen
 output/retransmission-device-release.html: KeySbox
 output/retransmission-device-release.html: Kryptolan
@@ -431,7 +425,6 @@ output/retransmission-device-release.html: SHA3
 output/retransmission-device-release.html: SHAKE128
 output/retransmission-device-release.html: SHAKE256
 output/retransmission-device-release.html: SIPP
-output/retransmission-device-release.html: SKs
 output/retransmission-device-release.html: SP800
 output/retransmission-device-release.html: SPD
 output/retransmission-device-release.html: SRAM
@@ -464,7 +457,6 @@ output/retransmission-device-release.html: behaviour
 output/retransmission-device-release.html: cPPs
 output/retransmission-device-release.html: ciphertexts
 output/retransmission-device-release.html: codecs
-output/retransmission-device-release.html: config
 output/retransmission-device-release.html: configurability
 output/retransmission-device-release.html: connectionless
 output/retransmission-device-release.html: crypto
@@ -553,7 +545,6 @@ output/retransmission-device.html: AAR
 output/retransmission-device.html: ACK
 output/retransmission-device.html: AESAVS
 output/retransmission-device.html: AFTs
-output/retransmission-device.html: AKs
 output/retransmission-device.html: ARIS
 output/retransmission-device.html: AuthData
 output/retransmission-device.html: B1
@@ -619,7 +610,6 @@ output/retransmission-device.html: Internodal
 output/retransmission-device.html: Ipsilon
 output/retransmission-device.html: JTAG
 output/retransmission-device.html: KDF
-output/retransmission-device.html: KMD
 output/retransmission-device.html: KeyGen
 output/retransmission-device.html: KeySbox
 output/retransmission-device.html: Kryptolan
@@ -678,7 +668,6 @@ output/retransmission-device.html: SHA3
 output/retransmission-device.html: SHAKE128
 output/retransmission-device.html: SHAKE256
 output/retransmission-device.html: SIPP
-output/retransmission-device.html: SKs
 output/retransmission-device.html: SP800
 output/retransmission-device.html: SPD
 output/retransmission-device.html: SRAM
@@ -711,7 +700,6 @@ output/retransmission-device.html: behaviour
 output/retransmission-device.html: cPPs
 output/retransmission-device.html: ciphertexts
 output/retransmission-device.html: codecs
-output/retransmission-device.html: config
 output/retransmission-device.html: configurability
 output/retransmission-device.html: connectionless
 output/retransmission-device.html: crypto
