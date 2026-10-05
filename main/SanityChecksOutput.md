@@ -173,35 +173,35 @@
 * Error: Detected multiple elements with an id of 'fia-psk-ext-1e1'.
 * Error: Detected multiple elements with an id of 'fia-psk-ext-1e2'.
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[2]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[2]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[3]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[3]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[2]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[2]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[3]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[3]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[4]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[4]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[5]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[5]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[6]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[6]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[7]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[7]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[8]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[8]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[9]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[9]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[10]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[10]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[11]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[11]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
-	  /PP[1]""/sec:Introduction[1]""/section[3]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[12]""/config[1]""/ref-id[1]"dummy-ref"
+	  /PP[1]""/sec:Introduction[1]""/section[2]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[12]""/config[1]""/ref-id[1]"dummy-ref"
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[3]""
@@ -219,11 +219,11 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]""/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]""/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/sec:Use_Cases[1]""/usecases[1]""/usecase[4]""/description[1]"The TOE c"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The follo"/h:p[1]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The follo"/h:p[2]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The follo"/h:p[3]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The follo"/h:p[4]""
-* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[2]"The follo"/h:p[5]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[3]"The follo"/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[3]"The follo"/h:p[2]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[3]"The follo"/h:p[3]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[3]"The follo"/h:p[4]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:Introduction[1]""/section[3]"The follo"/h:p[5]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[1]""/f-element[1]""/note[1]"If the li"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[1]""/f-element[1]""/note[1]"If the li"/h:p[2]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[2]""/f-component[1]""/f-element[1]""/note[1]"If the li"/h:p[3]""
