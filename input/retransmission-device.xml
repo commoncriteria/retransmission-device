@@ -589,6 +589,136 @@
     	</usecases>
 	</sec:Use_Cases>
 	
+		<section title="Package Usage" id="package-usage">
+			This section contains selections and assignments that are required when the listed Functional Packages are claimed by this PP. 
+			<package-usage-list>
+				
+				<package-usage ref="tls">
+					<usage id="usage-tls-protocols" title="TLS Protocol Claims required in FCS_TLS_EXT.1">
+						<description>To support FTP_ITC_EXT.1, the ST author shall claim support for TLS as a client. If If and only if the TOE may be administered remotely via HTTPS, the ST author shall claim support for TLS as a server.</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-tls-support-mutual-auth" title="TLS Client Claims required in FCS_TLSC_EXT.1">
+						<description>If TLS is selected as the WLAN trusted-channel implementation method, the ST author shall claim support for mutual authentication in FCS_TLSC_EXT.1.1.</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-neces-claim" title="Necessity of claiming FCS_TLSC_EXT.2">
+						<description>Because support for TLS client mutual authentication is required, the ST author shall claim FCS_TLSC_EXT.2.</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>					
+				</package-usage>
+				
+				<package-usage ref="X509">
+					<usage id="usage-x509-validation" title="Certificate Validation and Assertion Required in FIA_XCU_EXT.1.1">
+						<description>
+							The ST author shall select the options to verify and assert certificate identities.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>   
+						</config>
+					</usage>
+					<usage id="usage-cert-revoc" title="Certificate Revocation in FIA_X509_EXT.2">
+						<description>
+							The ST author must not select options that permit unverified/unvalidated certificates to be accepted.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>   
+						</config>
+					</usage>
+					<usage id="usage-cert-req" title="Certificate Requests in FIA_X509_EXT.3">
+						<description>
+							Because the RD PP does not define FIA_ESTC_EXT.1, FIA_CMCC_EXT.1, or FIA_CMPC_EXT.1, only RFC 2986 (PKCS-10) is a valid choice.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>   
+						</config>
+					</usage>
+					<usage id="no-plat-prov-funct" title="No Platform-Provided Functionality Claims Permitted">
+						<description>Because the TOE is a stand-alone device, and must be logically isolated from the RED and BLACK networks on either side of it, the ST author shall not claim platform-provided functionality. In other words, any applicable SFRs shall select the option to implement or provide the functionality, rather than rely on a platform. These may include one or more of the following, depending on the TOE, but apply to all package requirements that have such a selection:
+							<h:ul>
+								<h:li>FIA_X509_EXT.1</h:li>
+								<h:li>FIA_X509_EXT.2</h:li>
+								<h:li>FIA_X509_EXT.3</h:li>
+							</h:ul>
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>   
+						</config>
+					</usage>
+					<usage id="usage-x509-notca" title="No CA Claims Permitted">
+						<description>
+							The ST author shall select the option to request a certificate from an external CA in FIA_XCU_EXT.2.1 and shall not select any options elsewhere in the package that involve claiming the ability to be a CA. 
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-revocation-sigalgs" title="Limitations on Signature Algorithms in FIA_X509_EXT.1.1">
+						<description>
+							The TOE must use appropriate cryptographic algorithms that conform to CNSA standards. Thus, the ST author shall select to use no other algorithms outside of those defined in RFC 8603 for certificate or CRL signatures. Additionally, the ST author shall not select to use ECDSA with SHA-512 signatures for OCSP responses, and shall select to use no other algorithms for OCSP responses.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-extensions" title="Required Extension Processing for FIA_X509_EXT.1.2">
+						<description>
+							The ST author shall select the options to process the basicConstraints and extendedKeyUsage extensions. Other extensions may be selected as appropriate without restriction.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-revocation-methods" title="CRL or OCSP-Based Revocation Required for FIA_X509_EXT.1.3 ">
+						<description>
+							The ST author shall select only from options involving CRL or OCSP in FIA_X509_EXT.1.3.
+						</description> 
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-revocation-connections" title="Connections to CRL or OCSP Servers Required for FIA_X509_EXT.1.4">
+						<description>
+							The ST author shall not select options related to not obtaining revocation status information. Revocation information must be obtained from a network connection via a supported CRL or OCSP function; CA retrieval or local status selections shall not be chosen.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-eku-values" title="Restrictions on Acceptable Key Usage Values for FIA_X509_EXT.1.5">
+						<description>
+							The ST author shall not select the option to pass certificate information to supported functions and shall select the option to verify certificates by evaluating the extendedKeyUsage field in the leaf certificate. Additionally, the ST author shall not select the option to validate certificates against any rules for S/MIME certificates.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-functions" title="Restrictions on Acceptable Functions for FIA_X509_EXT.2.1">
+						<description>
+							The ST author shall not select options that involve the S/MIME protocols. 
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-acquisition-purposes" title="Restrictions on Acceptable Purposes for Certificate Acquisition for FIA_XCU_EXT.2.1">
+						<description>
+							The ST author shall not select options that involve the S/MIME protocols.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					
+				</package-usage>
+			</package-usage-list>
+		</section>
 		
 		<section id="sfrappl" title="SFR Applicability">
 			The following table depicts how each SFR is applicable to CU and EU.<h:p/>
@@ -1531,136 +1661,7 @@
 			</h:table>
 		</section>
 		
-		<section title="Package Usage" id="package-usage">
-			This section contains selections and assignments that are required when the listed Functional Packages are claimed by this PP. 
-			<package-usage-list>
-				
-				<package-usage ref="tls">
-					<usage id="usage-tls-protocols" title="TLS Protocol Claims required in FCS_TLS_EXT.1">
-						<description>To support FTP_ITC_EXT.1, the ST author shall claim support for TLS as a client. If If and only if the TOE may be administered remotely via HTTPS, the ST author shall claim support for TLS as a server.</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>
-					<usage id="usage-tls-support-mutual-auth" title="TLS Client Claims required in FCS_TLSC_EXT.1">
-						<description>If TLS is selected as the WLAN trusted-channel implementation method, the ST author shall claim support for mutual authentication in FCS_TLSC_EXT.1.1.</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>
-					<usage id="usage-neces-claim" title="Necessity of claiming FCS_TLSC_EXT.2">
-						<description>Because support for TLS client mutual authentication is required, the ST author shall claim FCS_TLSC_EXT.2.</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>					
-				</package-usage>
-				
-				<package-usage ref="X509">
-					<usage id="usage-x509-validation" title="Certificate Validation and Assertion Required in FIA_XCU_EXT.1.1">
-						<description>
-							The ST author shall select the options to verify and assert certificate identities.
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>   
-						</config>
-					</usage>
-					<usage id="usage-cert-revoc" title="Certificate Revocation in FIA_X509_EXT.2">
-						<description>
-							The ST author must not select options that permit unverified/unvalidated certificates to be accepted.
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>   
-						</config>
-					</usage>
-					<usage id="usage-cert-req" title="Certificate Requests in FIA_X509_EXT.3">
-						<description>
-							Because the RD PP does not define FIA_ESTC_EXT.1, FIA_CMCC_EXT.1, or FIA_CMPC_EXT.1, only RFC 2986 (PKCS-10) is a valid choice.
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>   
-						</config>
-					</usage>
-					<usage id="no-plat-prov-funct" title="No Platform-Provided Functionality Claims Permitted">
-						<description>Because the TOE is a stand-alone device, and must be logically isolated from the RED and BLACK networks on either side of it, the ST author shall not claim platform-provided functionality. In other words, any applicable SFRs shall select the option to implement or provide the functionality, rather than rely on a platform. These may include one or more of the following, depending on the TOE, but apply to all package requirements that have such a selection:
-							<h:ul>
-								<h:li>FIA_X509_EXT.1</h:li>
-								<h:li>FIA_X509_EXT.2</h:li>
-								<h:li>FIA_X509_EXT.3</h:li>
-							</h:ul>
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>   
-						</config>
-					</usage>
-					<usage id="usage-x509-notca" title="No CA Claims Permitted">
-						<description>
-							The ST author shall select the option to request a certificate from an external CA in FIA_XCU_EXT.2.1 and shall not select any options elsewhere in the package that involve claiming the ability to be a CA. 
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>
-					<usage id="usage-x509-revocation-sigalgs" title="Limitations on Signature Algorithms in FIA_X509_EXT.1.1">
-						<description>
-							The TOE must use appropriate cryptographic algorithms that conform to CNSA standards. Thus, the ST author shall select to use no other algorithms outside of those defined in RFC 8603 for certificate or CRL signatures. Additionally, the ST author shall not select to use ECDSA with SHA-512 signatures for OCSP responses, and shall select to use no other algorithms for OCSP responses.
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>
-					<usage id="usage-x509-extensions" title="Required Extension Processing for FIA_X509_EXT.1.2">
-						<description>
-							The ST author shall select the options to process the basicConstraints and extendedKeyUsage extensions. Other extensions may be selected as appropriate without restriction.
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>
-					<usage id="usage-x509-revocation-methods" title="CRL or OCSP-Based Revocation Required for FIA_X509_EXT.1.3 ">
-						<description>
-							The ST author shall select only from options involving CRL or OCSP in FIA_X509_EXT.1.3.
-						</description> 
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>
-					<usage id="usage-x509-revocation-connections" title="Connections to CRL or OCSP Servers Required for FIA_X509_EXT.1.4">
-						<description>
-							The ST author shall not select options related to not obtaining revocation status information. Revocation information must be obtained from a network connection via a supported CRL or OCSP function; CA retrieval or local status selections shall not be chosen.
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>
-					<usage id="usage-x509-eku-values" title="Restrictions on Acceptable Key Usage Values for FIA_X509_EXT.1.5">
-						<description>
-							The ST author shall not select the option to pass certificate information to supported functions and shall select the option to verify certificates by evaluating the extendedKeyUsage field in the leaf certificate. Additionally, the ST author shall not select the option to validate certificates against any rules for S/MIME certificates.
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>
-					<usage id="usage-x509-functions" title="Restrictions on Acceptable Functions for FIA_X509_EXT.2.1">
-						<description>
-							The ST author shall not select options that involve the S/MIME protocols. 
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>
-					<usage id="usage-x509-acquisition-purposes" title="Restrictions on Acceptable Purposes for Certificate Acquisition for FIA_XCU_EXT.2.1">
-						<description>
-							The ST author shall not select options that involve the S/MIME protocols.
-						</description>
-						<config>
-							<ref-id>dummy-ref-id</ref-id>
-						</config>
-					</usage>
-					
-				</package-usage>
-			</package-usage-list>
-		</section>
+		
   </sec:Introduction>
   
 	<!-- 2.0 Conformance Claims -->
