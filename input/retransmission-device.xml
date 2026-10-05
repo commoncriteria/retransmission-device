@@ -1187,7 +1187,7 @@
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td></h:td>
+					<h:td>Requires a user to authenticate to the TOE in order to use its trusted communication functions.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
