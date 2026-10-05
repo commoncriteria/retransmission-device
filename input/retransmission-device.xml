@@ -595,7 +595,7 @@
 				
 				<package-usage ref="tls">
 					<usage id="usage-tls-protocols" title="TLS Protocol Claims required in FCS_TLS_EXT.1">
-						<description>To support FTP_ITC_EXT.1, the ST author shall claim support for TLS as a client. If If and only if the TOE may be administered remotely via HTTPS, the ST author shall claim support for TLS as a server.</description>
+						<description>To support FTP_ITC.1, the ST author shall claim support for TLS as a client. If and only if the TOE may be administered remotely via HTTPS, the ST author shall claim support for TLS as a server.</description>
 						<config>
 							<ref-id>dummy-ref-id</ref-id>
 						</config>
@@ -1185,9 +1185,9 @@
 					<h:td>FIA_UAU_EXT.1</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">SB</h:td>
+					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td>EU protocol/credential-use dependent.</h:td>
+					<h:td></h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -2258,9 +2258,9 @@
 	 			<title>The TSF shall be able to generate audit data of the following auditable events:
 	 				<h:ol type="a">
 	 					<h:li>Start-up and shutdown of the audit functions</h:li>
-	 					<h:b><h:li>All administrative actions</h:li>
-	 					<h:li>Start-up, shutdown, and reboot of the platform</h:li></h:b>
-	 					[<h:li>Specifically defined auditable events in <xref to="at-mandatory"/></h:li>
+	 					[<h:li>All administrative actions</h:li>
+	 					<h:li>Start-up, shutdown, and reboot of the platform</h:li>
+	 					<h:li>Specifically defined auditable events in <xref to="at-mandatory"/></h:li>
 	 					<h:li><selectables linebreak="yes">
 	 						<selectable>Specifically defined auditable event in <xref to="at-objective"/> 
 	 							for Objective requirements</selectable>
@@ -2324,8 +2324,8 @@
 	 					<h:li>Type of event</h:li>
 	 					<h:li>Subject <h:b>and object</h:b> identity (if applicable)</h:li>
 	 					<h:li>The outcome (success or failure) of the event</h:li>
-	 					<h:li>[<h:i>For each auditable event type, based on the auditable event definitions of the functional components included in the PP, PP-Module, functional
-	 						package or ST, <refinement>Additional information defined in <xref to="at-mandatory"/></refinement></h:i>]</h:li>
+	 					<h:li>For each auditable event type, based on the auditable event definitions of the functional components included in the PP, PP-Module, functional
+	 						package or ST, [<h:i><refinement>Additional information defined in <xref to="at-mandatory"/></refinement></h:i>]</h:li>
 	 					<h:li><refinement><selectables linebreak="yes">
 	 						<selectable>Additional information defined in <xref to="at-objective"/> for Objective SFRs</selectable>
 	 						<selectable>Additional information defined in <xref to="at-feat-based"/> for Implementation-Dependent SFRs</selectable>	 						
@@ -2340,7 +2340,7 @@
 	 						<h:li>Rekey</h:li>
 	 						<h:li>Key recovery</h:li>
 	 					</h:ul></h:b></h:li>
-	 				</h:ol>
+	 				</h:ol>.
 	 			</title>		
 	 			<note role="application">
 	 				The ST author replaces the cross-reference to the table of audit events with an
@@ -2540,12 +2540,12 @@
 	 		
 	 		<consistency-rationale/>
 	 		<f-element id="fau-stg-1e1">
-	 			<title>The TSF shall be able to [<h:i><selectables>
-	 				<selectable>store audit data on the TOE itself</selectable>
-	 				<selectable>transmit audit data to an external IT entity using a trusted 
-	 					channel in accordance with FTP_TRP.1</selectable>
-	 				<selectable>protect stored audit records from unauthorized modification and deletion.</selectable>
-	 				</selectables></h:i>]  
+	 			<title>The TSF shall be able to store generated audit data on the <selectables>
+	 				<selectable>TOE itself</selectable>
+	 				<selectable>transmit the generated audit data to an external IT entity using a trusted 
+	 					channel according to <h:b>FTP_TRP.1</h:b></selectable>
+	 				<selectable>protect stored audit records from unauthorized modification and deletion</selectable>
+	 				</selectables>.
 	 			</title>
 	 			<note role="application">
 	 				The ST author selects "<h:i>transmit audit data to an external...</h:i>" and includes FTP_TRP.1 in the ST if the TOE offloads
@@ -2601,7 +2601,7 @@
 	 			</aactivity>
 	 		</f-element>
 	 		<audit-event>
-	 			<audit-event-descr>
+	 			<audit-event-descr>f
 	 				On failure of logging function, capture record of failure, and record upon restart of logging function
 	 			</audit-event-descr>
 	 			<audit-event-info>None</audit-event-info>
@@ -3683,10 +3683,10 @@
 			<f-element >
 				<title>
 					The TSF shall <h:b>perform cryptographic key establishment</h:b> in accordance with a specified cryptographic key <h:b>establishment</h:b>
-					method: [<selectables>
+					method: [<h:i><selectables>
 						<selectable>key encapsulation</selectable>
 						<selectable>encrypted channel</selectable>
-					</selectables>].
+					</selectables></h:i>].
 				</title>
 				<note role="application">
 					The intent of this requirement is to ensure that the TOE performs PFED cryptographic key establishment only by one of the claimed and defined methods: key encapsulation or encrypted channel. The ST author should select the method or methods actually implemented by the TOE for PFED key establishment.<h:p/>
@@ -3818,7 +3818,7 @@
 							<selectable>a block erase</selectable>
 						</selectables></h:li>
 						<h:li>For non-volatile memory other than EEPROM and flash, the destruction shall be executed by a single direct overwrite with a random pattern that 
-							is changed before each write.</h:li></h:ul></h:i>]
+							is changed before each write</h:li></h:ul></h:i>].
 				</title>
 				<note role="application">	
 						The purpose of key destruction is "To remove all traces of a cryptographic key so that it cannot be recovered by either physical or electronic means."
@@ -5649,8 +5649,8 @@
 							</selectables></col>
 							<col><selectables>
 									<selectable>ISO/IEC 14888-3:2018 (Subclause 6.6)</selectable>
-									<selectable>FIPS PUB 186-5 (Section 6.4.2) </selectable>
-								</selectables>[ECDSA]<h:p/>
+									<selectable>FIPS PUB 186-5 (Section 6.4.2)</selectable>
+								</selectables> [ECDSA]<h:p/>
 									NIST SP-800 186 (Section 4) [NIST Curves]
 							</col>
 						</selectable>
@@ -7068,7 +7068,7 @@
 					</title>
 				</f-element>
 				<f-element id="fdp-iff-1e3">
-					<title>The TSF shall enforce the <h:b>following additional information flow control rules:</h:b> [<h:i><h:ul>
+					<title>The TSF shall enforce the [<h:i><h:b>following</h:b> additional information flow control rules: <h:ul>
 						<h:li>PFED packets that are malformed, unexpected for the current PFED lifecycle state, received from an unauthorized direction, or inconsistent with 
 							the active transaction state shall be rejected before they can affect ordinary forwarding of EUD traffic.</h:li>
 						<h:li>EUD traffic shall not be permitted over a PFED path until the PFED trusted channel and cryptographic state required by the selected PFED SFRs 
@@ -7163,7 +7163,7 @@
 							FTP_ITP_EXT.1</selectable>
 							<selectable>key distribution mechanisms as specified in 
 							FCS_CKM.2</selectable>
-						</selectables> 
+						</selectables>.
 						</title>
 						<ext-comp-def-title>
 							<title>The TSF shall support importing keys/key material using <assignable>import method</assignable>.</title>
@@ -8291,7 +8291,7 @@
 						default values for security attributes that are used to enforce the SFP.</title>
 				</f-element>
 				<f-element>
-					<title>The TSF shall allow the [<h:i>the authorized identified roles</h:i>] to specify alternative iniital values to override the default values
+					<title>The TSF shall allow the [<h:i>the authorized identified roles</h:i>] to specify alternative initial values to override the default values
 						when an object or information is created.
 						<h:table>
 							<h:tr style="text-align: center">
@@ -8448,7 +8448,7 @@
 							<M ref="A"/>
 							<X ref="U"/>
                             <app-note>
-								Management of audit data may includes the ability to delete it, if supported.								
+								Management of audit data may include the ability to delete it, if supported.								
 							</app-note>  
 						</management-function>
 
@@ -8897,7 +8897,7 @@
     					<h:li>UDP (RFC 768)<h:ul>
     						<h:li>source port</h:li>
     						<h:li>destination port</h:li></h:ul></h:li>  					    					
-    				</h:ul></h:i>]    				
+    				</h:ul></h:i>].    				
     			</title>    	
     			
     			<ext-comp-def-title>
@@ -10105,7 +10105,7 @@
     					<selectable>
     						<assignable>other failures</assignable></selectable>
     				</selectables></h:li>
-    			</h:ul>
+    			</h:ul>.
     			</title>
     			<aactivity>
     				<TSS>The evaluator shall verify that the TSS describes critical failures that may
@@ -10948,7 +10948,7 @@
     						the complete MACsec-protected MPDU and permitted control frames</selectable>
     				<selectable>the PFED interface profile, in which the EU/CU interface is non-addressable above Layer 2, connectionless; exposes no
     						higher-layer endpoint; and accepts only PFED information flows authorized by FDP_IFF.1</selectable>
-    					</selectables>
+    					</selectables>.
     			</title>
     		
     		<note role="application">
@@ -12390,8 +12390,8 @@
 							<h:li><selectables>
 								<selectable><assignable>other rules</assignable></selectable>
 								<selectable>no other rules</selectable>
-							</selectables>]</h:li>
-						</h:ul></h:i>.
+							</selectables></h:li>
+						</h:ul></h:i>].
 					</title>
 				</f-element>
 				
@@ -12508,7 +12508,7 @@
 						<selectable>itself to its peer</selectable>
 					</selectables> using one of the following
 						mechanisms: [<h:i>ML-DSA-87 digital signatures using the key pair generated in accordance with FCS_CKM.1/PFEDAKG</h:i>] and according to the
-						following rules: <selectables>
+						following rules: <selectables linebreak="yes">
 							<selectable>The peer public key used for verification is the ML-DSA-87 public key securely exchanged with that peer during tunnel-1 provisioning</selectable>
 							<selectable>At least one authentication transaction is completed during provisioning</selectable>
 							<selectable>Authentication is performed as part of every session setup, before the mandatory ML-KEM-1024 rekey is accepted as completing session setup</selectable>
@@ -12646,8 +12646,7 @@
 						</TSS>
 						<Guidance>
 							If any replay window, protected-channel option, or security-relevant packet-processing parameter is configurable, the evaluator shall verify that the
-							operational guidance describes how to place it in the evaluated configuration.<h:p/>
-							If no such parameter is configurable, there are no additional guidance evaluation activities for this component.
+							operational guidance describes how to place it in the evaluated configuration.
 						</Guidance>
 						<Tests>
 							<testlist>
