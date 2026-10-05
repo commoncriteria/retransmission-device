@@ -114,7 +114,6 @@
         <term abbr="RNG" full="Random Number Generator"/>
         <term abbr="RNGVS" full="Random Number Generator Validation System"/>
         <term abbr="SHA" full="Secure Hash Algorithm"/>
-        <term abbr="SSH" full="Secure Shell"/>
         <term abbr="SIP" full="Session Initiation Protocol"/>
         <term abbr="SP" full="Special Publication"/>
         <term abbr="SAN" full="Subject Alternative Name"/>
@@ -254,7 +253,7 @@
 			<h:p>A TOE claiming PFED as its trusted channel must implement an HWS-ERD, including the EU, CU, and all required SFRs for a combined implementation. All
 			communication between paired ERDs is protected by an AES-based secure session tunnel implemented by the EU. The TOE does not rely on external key management
 			protocols.</h:p>
-			For a PFED implementation, FDP_IFF.1/PFED defines the fixed information-flow policy enforced by the EU on the IC3 interface. The EU is not required to provide administrator-configurable packet-filter rules for that interface. FPF_RUL_EXT.1 applies to the CU when included in the ST, and applies to the EU only when the EU implements an additional configurable Layer 2 and/or Layer 3 filtering capability outside the fixed PFED flow.<h:p/>
+			For a PFED implementation, FDP_IFF.1 defines the fixed information-flow policy enforced by the EU on the IC3 interface. The EU is not required to provide administrator-configurable packet-filter rules for that interface. FPF_RUL_EXT.1 applies to the CU when included in the ST, and applies to the EU only when the EU implements an additional configurable Layer 2 and/or Layer 3 filtering capability outside the fixed PFED flow.<h:p/>
 			<sec:Principles_Behind_HWS-ERD_PFED>
 				<h:p>An HWS-ERD PFED has unique properties that are not normally present in traditional encryption systems. The security function of separating Red and Black
 					within any ERD must work correctly, and to work correctly it must be completely understandable. The separation of functions into an EU and CU allows the
@@ -887,16 +886,7 @@
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td>EU baseline when crypto values are generated; CU only if CU generates secrets; mandatory for PFED.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
-					<h:td>FCS_RBG.2</h:td>
-					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td>Entropy-design dependent.</h:td>
+					<h:td>Inclusion of this SFR is selection-based on whether the EU, CU, or HWS-ERD implements its own cryptographic functionality.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -972,15 +962,6 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FDP_IFF.1/PFED</h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">IMP</h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td>Mandatory when PFED-triggered EU PFED flow rules.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
 					<h:td>FDP_ITC_EXT.1</h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center"></h:td>
@@ -992,7 +973,7 @@
 				<h:tr style="text-align: center">
 					<h:td>FDP_PBR_EXT.1</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">IMP</h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">IMP</h:td>
 					<h:td style="text-align: center">IMP</h:td>
 					<h:td>CU/HWS protocol break; EU only if EU enforces protocol break behavior.</h:td>
@@ -1044,6 +1025,15 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
+					<h:td>FIA_UAU.1</h:td>
+					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td>Administrator authentication before security management.</h:td>
+				</h:tr>				
+				
+				<h:tr style="text-align: center">
 					<h:td>FIA_UAU.5</h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1068,15 +1058,6 @@
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td>EU protocol/credential-use dependent.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
-					<h:td>FIA_UAU_EXT.2</h:td>
-					<h:td style="text-align: center">M</h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td>Administrator authentication before security management.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1193,16 +1174,16 @@
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">SB</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td>EU protocol-triggered fail-secure behavior.</h:td>
+					<h:td>This SFR is required whenever FCS_RBG.1 is included in the ST.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
 					<h:td>FPT_HRT_EXT.1</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td>Mandatory when PFED-triggered EU use of hardware root of trust.</h:td>
+					<h:td style="text-align: center">IMP</h:td>
+					<h:td style="text-align: center">IMP</h:td>
+					<h:td>Mandatory when PFEDis selected in FPT_ITC.</h:td>
 				</h:tr>
 				
 				<h:tr style="text-align: center">
@@ -1548,7 +1529,137 @@
 					<h:td>Trusted path for administrator access.</h:td>
 				</h:tr>
 			</h:table>
-			
+		</section>
+		
+		<section title="Package Usage" id="package-usage">
+			This section contains selections and assignments that are required when the listed Functional Packages are claimed by this PP. 
+			<package-usage-list>
+				
+				<package-usage ref="tls">
+					<usage id="usage-tls-protocols" title="TLS Protocol Claims required in FCS_TLS_EXT.1">
+						<description>To support FTP_ITC_EXT.1, the ST author shall claim support for TLS as a client. If If and only if the TOE may be administered remotely via HTTPS, the ST author shall claim support for TLS as a server.</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-tls-support-mutual-auth" title="TLS Client Claims required in FCS_TLSC_EXT.1">
+						<description>If TLS is selected as the WLAN trusted-channel implementation method, the ST author shall claim support for mutual authentication in FCS_TLSC_EXT.1.1.</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-neces-claim" title="Necessity of claiming FCS_TLSC_EXT.2">
+						<description>Because support for TLS client mutual authentication is required, the ST author shall claim FCS_TLSC_EXT.2.</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>					
+				</package-usage>
+				
+				<package-usage ref="X509">
+					<usage id="usage-x509-validation" title="Certificate Validation and Assertion Required in FIA_XCU_EXT.1.1">
+						<description>
+							The ST author shall select the options to verify and assert certificate identities.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>   
+						</config>
+					</usage>
+					<usage id="usage-cert-revoc" title="Certificate Revocation in FIA_X509_EXT.2">
+						<description>
+							The ST author must not select options that permit unverified/unvalidated certificates to be accepted.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>   
+						</config>
+					</usage>
+					<usage id="usage-cert-req" title="Certificate Requests in FIA_X509_EXT.3">
+						<description>
+							Because the RD PP does not define FIA_ESTC_EXT.1, FIA_CMCC_EXT.1, or FIA_CMPC_EXT.1, only RFC 2986 (PKCS-10) is a valid choice.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>   
+						</config>
+					</usage>
+					<usage id="no-plat-prov-funct" title="No Platform-Provided Functionality Claims Permitted">
+						<description>Because the TOE is a stand-alone device, and must be logically isolated from the RED and BLACK networks on either side of it, the ST author shall not claim platform-provided functionality. In other words, any applicable SFRs shall select the option to implement or provide the functionality, rather than rely on a platform. These may include one or more of the following, depending on the TOE, but apply to all package requirements that have such a selection:
+							<h:ul>
+								<h:li>FIA_X509_EXT.1</h:li>
+								<h:li>FIA_X509_EXT.2</h:li>
+								<h:li>FIA_X509_EXT.3</h:li>
+							</h:ul>
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>   
+						</config>
+					</usage>
+					<usage id="usage-x509-notca" title="No CA Claims Permitted">
+						<description>
+							The ST author shall select the option to request a certificate from an external CA in FIA_XCU_EXT.2.1 and shall not select any options elsewhere in the package that involve claiming the ability to be a CA. 
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-revocation-sigalgs" title="Limitations on Signature Algorithms in FIA_X509_EXT.1.1">
+						<description>
+							The TOE must use appropriate cryptographic algorithms that conform to CNSA standards. Thus, the ST author shall select to use no other algorithms outside of those defined in RFC 8603 for certificate or CRL signatures. Additionally, the ST author shall not select to use ECDSA with SHA-512 signatures for OCSP responses, and shall select to use no other algorithms for OCSP responses.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-extensions" title="Required Extension Processing for FIA_X509_EXT.1.2">
+						<description>
+							The ST author shall select the options to process the basicConstraints and extendedKeyUsage extensions. Other extensions may be selected as appropriate without restriction.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-revocation-methods" title="CRL or OCSP-Based Revocation Required for FIA_X509_EXT.1.3 ">
+						<description>
+							The ST author shall select only from options involving CRL or OCSP in FIA_X509_EXT.1.3.
+						</description> 
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-revocation-connections" title="Connections to CRL or OCSP Servers Required for FIA_X509_EXT.1.4">
+						<description>
+							The ST author shall not select options related to not obtaining revocation status information. Revocation information must be obtained from a network connection via a supported CRL or OCSP function; CA retrieval or local status selections shall not be chosen.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-eku-values" title="Restrictions on Acceptable Key Usage Values for FIA_X509_EXT.1.5">
+						<description>
+							The ST author shall not select the option to pass certificate information to supported functions and shall select the option to verify certificates by evaluating the extendedKeyUsage field in the leaf certificate. Additionally, the ST author shall not select the option to validate certificates against any rules for S/MIME certificates.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-functions" title="Restrictions on Acceptable Functions for FIA_X509_EXT.2.1">
+						<description>
+							The ST author shall not select options that involve the S/MIME protocols. 
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					<usage id="usage-x509-acquisition-purposes" title="Restrictions on Acceptable Purposes for Certificate Acquisition for FIA_XCU_EXT.2.1">
+						<description>
+							The ST author shall not select options that involve the S/MIME protocols.
+						</description>
+						<config>
+							<ref-id>dummy-ref-id</ref-id>
+						</config>
+					</usage>
+					
+				</package-usage>
+			</package-usage-list>
 		</section>
   </sec:Introduction>
   
@@ -1583,16 +1694,6 @@
 				<Mod-cc-ref>PP-Module for WLAN Clients, Version 2.0</Mod-cc-ref>
 			</cc-pp-config-with>
 			<cc-pkg-claim>
-				<FP-cc-ref conf="conformant">
-					<cc-doc-ref id="ssh">
-						<git>
-							<url>https://github.com/commoncriteria/ssh</url>
-							<branch>release-2.0</branch>
-						</git>
-				<url>https://www.niap-ccevs.org/protectionprofiles/515</url>
-					</cc-doc-ref>
-				</FP-cc-ref>
-				
 				<FP-cc-ref conf="conformant">
 					<cc-doc-ref id="tls">
 						<git>
@@ -1728,9 +1829,6 @@
 				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by implementing a specified protocol as a means to protect data in transit.  </rationale>							<addressed-by>FAU_GEN.2/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by associating applicable PFED provisioning, session, rekey, recovery, and termination audit records with the initiating EU+CU identity, allowing malicious or unauthorized PFED actions to be attributed to the responsible TOE or peer identity.</rationale>
 				<addressed-by>FCS_REC_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by suppressing EUD traffic during recovery, ensures sequential derivation of
 					recovery keys, and terminates sessions on failure to converge.</rationale>
-				
-				<addressed-by>FDP_IFF.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by only expected packets are processed; malformed or injected packets are dropped,
-					preventing protocol-based attacks.</rationale>
 				<addressed-by>FIA_PSK_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by use is limited to tunnel-0 bootstrap, preventing attackers from exploiting 
 					PSK in other sessions.</rationale>		
 				<addressed-by>FMT_SMF.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by identifying PFED provisioning, session setup, rekey configuration, and log management as explicit TSF management functions. This allows the accompanying identification, authentication, role, access-control, and audit requirements to govern all security-relevant PFED lifecycle management operations.
@@ -1760,8 +1858,6 @@
 				<addressed-by>FCS_HTTPS_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing HTTPS as a means to protect data in transit.</rationale>
 				<addressed-by>FCS_RBG.1 (sel-based)</addressed-by><rationale>Mitigated the threat by ensuring that keys used for trusted communications are generated using a secure
 					DRBG.</rationale>
-				<addressed-by>FCS_RBG.2 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that the TOE's DRBG is seeded with sufficient entropy to ensure the generation
-					of strong cryptographic keys.</rationale>
 				<addressed-by>FCS_RBG.3 (sel-based)</addressed-by><rationale>Mitigate the threat by ensuring that the TOE's DRBG is seeded with sufficient entropy to ensure the generation
 					of strong cryptographic keys.</rationale>
 				<addressed-by>FCS_RBG.4 (sel-based)</addressed-by><rationale>Mitigates the threat of a network attack by ensuring that the TOE's DRBG is seeded with sufficient entropy to
@@ -1838,7 +1934,7 @@
 				<addressed-by>FCS_HTTPS_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing a secure protocol (HTTPS) for trusted communications.</rationale>
 				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
 					insecure keys.</rationale>
-				<addressed-by>FTP_PRO.1 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing a defined PFED trusted channel lprotocol with mutually authenticated endpoints.</rationale>
+				<addressed-by>FTP_PRO.1 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing a defined PFED trusted channel protocol with mutually authenticated endpoints.</rationale>
 				<addressed-by>FTP_PRO.2 (sel-based)</addressed-by><rationale>Mitigates this threat by establishing a shared secret with the PFED peer, authenticating the required endpoint or endpoints according to the defined PFED rules, and deriving the trusted-channel cryptographic keys from the shared secret using the assigned KDF. This prevents establishment with an unauthenticated peer and supplies the keying material required for channel confidentiality and integrity. 
 				</rationale>
 				<addressed-by>FTP_PRO.3 (sel-based)</addressed-by><rationale>Mitigates this threat by encrypting PFED data in transit against unauthorized disclosure and integrity-protecting it against the selected modification, deletion, insertion, and replay attacks.
@@ -1852,10 +1948,11 @@
 				<addressed-by>FIA_PMG_EXT.1</addressed-by><rationale>Mitigates the threat by defining strong password characteristics.</rationale>
 				<addressed-by>FIA_TRT_EXT.1</addressed-by><rationale>Mitigates the threat by limiting the extent to which brute force authentication attempts to the TOE can be
 					made.</rationale>
+				<addressed-by>FIA_UAU.1</addressed-by><rationale>Mitigates the threat by requiring successful authentication before allowing the user to take action on the
+					TOE.</rationale>
 				<addressed-by>FIA_UAU.5</addressed-by><rationale>Mitigates the threat by defining the supported authentication mechanisms.</rationale>
 				<addressed-by>FIA_UAU.7</addressed-by><rationale>Mitigates the threat by providing only limited information during authentication.</rationale>
-				<addressed-by>FIA_UAU_EXT.2</addressed-by><rationale>Mitigates the threat by requiring successful authentication before allowing the user to take action on the
-					TOE.</rationale>
+				<addressed-by>FIA_UAU_EXT.1</addressed-by><rationale>Mitigates the threat by preventing decryption prior to proper authorization to the device.</rationale>
 				<addressed-by>FPT_APW_EXT.1</addressed-by><rationale>Mitigates this threat by storing administrative passwords only in non-plaintext form and preventing plaintext administrative passwords from being read through normal interfaces, thereby reducing the possibility that an attacker can capture credentials and use them to impersonate an administrator. 
 				</rationale>
 				<addressed-by>FPT_JTA_EXT.1</addressed-by><rationale>Mitigates the threat by specifying the mechanism used to control access to JTAG.
@@ -1896,7 +1993,6 @@
 				</rationale>
 				<addressed-by>FCS_RBG.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that keys used for protected storage are generated using a secure
 					DRBG.</rationale>
-				<addressed-by>FIA_UAU_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by preventing decryption prior to proper authorization to the device.</rationale>
 				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigate the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
 					insecure keys.</rationale>
 			</threat>	
@@ -1950,8 +2046,6 @@
 				<addressed-by>FCS_COP.1/SigVer (sel-based)</addressed-by><rationale>Mitigates the threat by generating digital signatures with strong encryption.</rationale>
 				<addressed-by>FCS_COP.1/SKC (sel-based)</addressed-by><rationale>Mitigates the threat by establishing strong symmetric-key cryptography.</rationale>
 				<addressed-by>FCS_RBG.1 (sel-based)</addressed-by><rationale>Mitigates the threat by performing random-bit generation with sufficient complexity.</rationale>
-				<addressed-by>FCS_RBG.2 (sel-based)</addressed-by><rationale>Mitigates the threat by using an external seed source to ensure sufficiently strong random-bit
-					generation.</rationale>
 				<addressed-by>FCS_RBG.3 (sel-based)</addressed-by><rationale>Mitigates the threat by using an internal seed source to ensure sufficiently strong random-bit
 					generation.</rationale>
 				<addressed-by>FCS_RBG.4 (sel-based)</addressed-by><rationale>Mitigates the threat by using multiple internal seed sources to ensure sufficiently strong
@@ -2174,7 +2268,6 @@
 	 						<selectable>Specifically defined auditable event in <xref to="at-sel-based"/> 
 	 							for Selection-Based requirements</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
-	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="X509"/></selectable>
 	 						<selectable exclusive="yes">no additional auditable events</selectable>
 	 					</selectables>.</h:li>
@@ -2230,14 +2323,13 @@
 	 					<h:li>Type of event</h:li>
 	 					<h:li>Subject <h:b>and object</h:b> identity (if applicable)</h:li>
 	 					<h:li>The outcome (success or failure) of the event</h:li>
-	 					<h:li>[For each auditable event type, based on the auditable event definitions of the functional components included in the PP, PP-Module, functional
-	 						package or ST, <refinement>Additional information defined in <xref to="at-mandatory"/></refinement>]</h:li>
+	 					<h:li>[<h:i>For each auditable event type, based on the auditable event definitions of the functional components included in the PP, PP-Module, functional
+	 						package or ST, <refinement>Additional information defined in <xref to="at-mandatory"/></refinement></h:i>]</h:li>
 	 					<h:li><refinement><selectables linebreak="yes">
 	 						<selectable>Additional information defined in <xref to="at-objective"/> for Objective SFRs</selectable>
 	 						<selectable>Additional information defined in <xref to="at-feat-based"/> for Implementation-Dependent SFRs</selectable>	 						
 	 						<selectable>Additional information defined in <xref to="at-sel-based"/> for Selection-Based SFRs</selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="tls"/></selectable>
-	 						<selectable>Additional information defined in the audit table for the <xref to="ssh"/></selectable>
 	 						<selectable>Additional information defined in the audit table for the <xref to="X509"/></selectable>
 	 						<selectable exclusive="yes">no other information</selectable>
 	 					</selectables>.</refinement></h:li>
@@ -2344,22 +2436,22 @@
 	 					Note that the testing here can be accomplished in conjunction with the testing of
 	 					the security mechanisms directly.<h:p/>
 	 					
-	 					<h:b>For PFED</h:b><h:br/>
+	 					
 	 					The evaluator shall perform the following tests<h:p/>
 	 					<testlist>
 	 						<test>
-	 							Provisioning audit generation: The evaluator shall cause PFED provisioning to occur and verify that the TOE generates an audit
-	 							record for the 	provisioning event.
+	 							[Conditional on PFED] Provisioning audit generation: The evaluator shall cause PFED provisioning to occur and verify that the TOE generates an
+	 							audit record for the provisioning event.
 	 						</test><h:p/>
 	 						<test>
-	 							Session setup and termination audit generation: The evaluator shall cause a PFED session to be established and terminated, and	 									then verify 	the TOE generates audit records for session setup and session termination.
+	 							[Conditional on PFED] Session setup and termination audit generation: The evaluator shall cause a PFED session to be established and terminated, and	 									then verify 	the TOE generates audit records for session setup and session termination.
 	 						</test><h:p/>
-	 						<test>Rekey audit generation: The evaluator shall cause a PFED rekey event to occur and verify the TOE generates an audit record for 								the rekey event.
+	 						<test>[Conditional on PFED] Rekey audit generation: The evaluator shall cause a PFED rekey event to occur and verify the TOE generates an audit record for 								the rekey event.
 	 						</test><h:p/>
-	 						<test>Key recovery audit generation: The evaluator shall cause a PFED key recovery event to occur and verify the TOE generates an
+	 						<test>[Conditional on PFED] Key recovery audit generation: The evaluator shall cause a PFED key recovery event to occur and verify the TOE generates an
 	 							audit record for the key recovery event.
 	 						</test><h:p/>
-	 						<test>Audit record review: The evaluator shall review the generated audit records and verify the records can be distinguished by
+	 						<test>[Conditional on PFED] Audit record review: The evaluator shall review the generated audit records and verify the records can be distinguished by
 	 							event type and are consistent with the TSS and guidance.
 	 						</test><h:p/>
 	 			</testlist>		
@@ -2494,13 +2586,13 @@
 	 					evaluator’s choice designed to generate audit data to be transferred to the audit server. The evaluator shall observe that these
 	 					data are not able to be viewed in the clear during this transfer, and that they are successfully received by the audit server. 
 	 					The evaluator shall record the particular software (name, version) used on the audit server during testing.</test>
-	 						<test>[conditional on PFED] Stored audit record generation and persistence: The evaluator shall cause one or more PFED auditable events to occur and verify 								that corresponding audit records are stored in the PFED audit storage described in the TSS and guidance.</test>
+	 						<test>[Conditional on PFED] Stored audit record generation and persistence: The evaluator shall cause one or more PFED auditable events to occur and verify 								that corresponding audit records are stored in the PFED audit storage described in the TSS and guidance.</test>
 	 						
-	 						<test>[conditional on PFED] Protection against unauthorized modification: Using available interfaces and roles, the evaluator shall attempt to modify
+	 						<test>[Conditional on PFED] Protection against unauthorized modification: Using available interfaces and roles, the evaluator shall attempt to modify
 	 							stored PFED audit records in a manner not authorized by the TOE. The evaluator shall verify that the TOE prevents the
 	 							unauthorized modification.</test>
 	 						
-	 						<test>[conditional on PFED] Protection against unauthorized deletion: Using available interfaces and roles, the evaluator shall attempt to delete stored
+	 						<test>[Conditional on PFED] Protection against unauthorized deletion: Using available interfaces and roles, the evaluator shall attempt to delete stored
 	 							PFED audit records in a manner not authorized by the TOE. The evaluator shall verify that the TOE prevents the unauthorized
 	 							deletion.</test>	 						
 	 					</testlist>
@@ -2533,7 +2625,6 @@
 	 				an administrator.<h:p/>
 	 				Notwithstanding this requirement, audit records may be overwritten if local audit record storage is full
 	 				in accordance with FAU_STG.5.<h:p/>	 
-	 				This SFR must be included in the ST if FAU_GEN.1 is claimed.
 	 			</note>
 	 			<aactivity>
 	 				<TSS>
@@ -2573,7 +2664,6 @@
 	 				The TSF shall [<h:i>overwrite the oldest stored audit records</h:i>] <h:b>and</h:b> [<h:i>notify the administrator/user</h:i>] if the audit data storage is
 	 				full.
 	 			</title>	
-	 			<note role="application">This SFR must be included in the ST if FAU_GEN.1 is claimed.</note>
 	 			<aactivity>
 	 				<TSS>
 	 					The evaluator shall examine the TSS to ensure that it describes the size limits on the 
@@ -2945,7 +3035,7 @@
 					</selectables>					
 				</title>
 				<note role="application">					 
-					This SFR must be included in the ST if asymmetric key generation is used by the TOE itself to support or implement PP-specified security functionality..<h:p/>
+					This SFR must be included in the ST if asymmetric key generation is used by the TOE itself to support or implement PP-specified security functionality.<h:p/>
 					
 					This SFR must also be claimed in the ST if FCS_CKM_EXT.7, FCS_COP.1/KeyEncap, or FCS_COP.1/SigGen is claimed.<h:p/>
 					
@@ -5632,7 +5722,7 @@
 					</selectables>
 				</title>
 				<note role="application">
-					This SFR must be included in the ST if digital signature verification is used by the TOE itself to support or implement PP-specified security functionality..<h:p/> 
+					This SFR must be included in the ST if digital signature verification is used by the TOE itself to support or implement PP-specified security functionality.<h:p/> 
 					Specifically, this SFR must be included if the ST author chooses "<h:i>implement an authenticated platform
 					firmware update mechanism as described in FPT_TUD_EXT.2</h:i>" or "<h:i>implement a delayed-authentication platform
 					firmware update mechanism as described in FPT_TUD_EXT.3</h:i>" in FPT_TUD_EXT.1; or if the ST author 
@@ -6417,7 +6507,6 @@
 							source</assignable> </selectable>
 						<selectable id="sel-drbg-multiple-sources"><h:b>multiple TSF <h:b>entropy</h:b> sources <assignable>name of
 							entropy sources</assignable></h:b> </selectable>
-						<selectable id="sel-drbg-external-seed">TSF interface for seeding</selectable>
 					</selectables>
 					for <h:b>initialization and reseeding</h:b>.
 				</title>
@@ -6429,8 +6518,7 @@
 						two or more separate DRBGs that are seeded in separate manners, this SFR should be iterated for each DRBG.
 						If multiple distinct entropy sources exist such that each DRBG only uses one of them, then each iteration
 						would select "<h:i>TSF entropy source</h:i>;" "<h:i>multiple TSF entropy sources</h:i>" is only selected if a single DRBG uses
-						multiple entropy sources for its seed. The ST author selects "<h:i>TSF interface for seeding</h:i>" if entropy source
-						data is generated outside the TOE boundary.
+						multiple entropy sources for its seed. 
 					</h:p>			
 				</note>
 			</f-element>
@@ -6582,31 +6670,6 @@
 			</audit-event>
 		</f-component>
 		
-		
-		
-		<f-component cc-id="fcs_rbg.2" name="Random Bit Generation (External Seeding)"  status="sel-based">
-			<depends on-sel="sel-drbg-external-seed"/>
-			<f-element id="fe1-rbg-seed">
-				<title>
-					The TSF shall be able to accept a minimum input of <assignable>minimum input length greater than zero</assignable>
-					from a TSF interface for obtaining entropy.
-				</title>
-				<note role="application">
-					This requirement is claimed when a DRBG is seeded with entropy from one or more noise source that is outside the TOE boundary. In the typical retransmission device use cases, this would likely only occur when the entropy source is a dedicated security component that is integrated with the TOE, or the TOE obtains entropy from the end user device on the red side of the TOE. Typically the entropy produced by an environmental noise source is conditioned such that the input length has full entropy and is therefore usable as the seed. However, if this is not the case, it should be noted what the minimum entropy rate of the noise source is so that the TSF can collect a sufficiently large sample of noise data to be conditioned into a seed value.
-				</note>
-			<aactivity>
-				<h:p>
-					The evaluator shall examine the entropy documentation required by FCS_RBG.1.2 to verify that it identifies, for each DRBG function implemented by the TOE, the TSF external interface that is used to seed the TOE's DRBG. The evaluator shall verify that this includes the amount of sampled data and the min-entropy rate of the sampled data such that it can be determined that the TSF can derive a seed from it that has the claimed amount of min-entropy. If the TSF uses an entropy source that can be assumed to have full entropy, the seed is the output data from the entropy source. If the TSF uses an entropy source where the min-entropy of the data is less than 1:1, the evaluator shall verify that the entropy documentation identifies how large the collected data sample is and how TSF derives this data into a seed that has the claimed min-entropy.
-				</h:p>
-				<TSS/>
-				<Guidance/>
-				<Tests/>
-			</aactivity>
-			</f-element>
-			<audit-event table="sel-based"/>
-			
-		</f-component>
-
         <f-component cc-id="fcs_rbg.3" name="Random Bit Generation (Internal Seeding - Single Source)" status="sel-based">
         	<depends on-sel="sel-drbg-internal-seed"/>
           <f-element id="fel-rbg-seed-int-sing">
@@ -6708,7 +6771,7 @@
 				</title> 
 				<note role="application">
 					This SFR must be included in the ST if the TOE provides an entropy source accessible to the EUD on the red network.<h:p/>
-					This requirement ensures that the TOE makes available entropy to the EUD if requested..
+					This requirement ensures that the TOE makes available entropy to the EUD if requested.
 				</note>
 				<aactivity>
 					<TSS>
@@ -7073,55 +7136,6 @@
 				</audit-event>				
 			</f-component>
 			
-			<f-component name="Simple Security Attributes" cc-id="fdp_iff.1" iteration="PFED">
-				<f-element>
-					<title>The TSF shall enforce packet filtering such that:<h:ul>
-						<h:li>Only a single expected packet type is accepted at fixed offsets</h:li>
-						<h:li>All malformed, unexpected, or out-of-context packets are dropped pre-stack</h:li>
-						<h:li>The EU does not respond to invalid packets from the CU or EUD</h:li>.
-					</h:ul></title>
-					<note role="application">
-						The intent of this requirement is to ensure that the PFED TOE enforces a narrowly constrained packet acceptance model on the EU-facing path, such that only the one expected packet form is accepted, and all other traffic is rejected before it can reach normal protocol processing.<h:p/>
-						For this requirement, “Only a single expected packet type is accepted at fixed offsets” means the TOE uses a narrowly defined packet-format expectation for the relevant interface path and does not admit alternate packet structures, alternate packet signatures, or packets whose relevant identifying fields are not located at the required offsets.<h:p/>
-						“All malformed, unexpected, or out-of-context packets are dropped pre-stack” means the TOE rejects malformed, unexpected, or out-of-context packets before those packets reach the EU protocol stack or equivalent higher-layer packet processing path.<h:p/>
-						“The EU does not respond to invalid packets from the CU or EUD” means the TOE does not emit a protocol, error, or other functional response when presented with invalid input on the covered path.<h:p/>
-						The EU in principle acts as a non-configurable firewall to the CU with an allowlist of one. The EU interface to the EUD does not process the contents of the payload of any packet when the crypto is active. It forwards everything.
-					</note>
-					<aactivity>
-						<TSS>
-							The evaluator shall examine the TSS to determine that it:<h:ul>
-							<h:li>Identifies the interface, interfaces, or TOE processing path to which this PFED packet-filtering behavior applies.</h:li>
-								<h:li>Describes the single expected packet type accepted by the TOE.</h:li>
-								<h:li>Describes the fixed offsets or equivalent fixed-position parsing constraints used to recognize that expected packet type.</h:li>
-								<h:li>Describes how the TOE distinguishes malformed, unexpected, or out-of-context packets from the expected packet type.</h:li>
-								<h:li>Describes where in the TOE processing path invalid packets are dropped and shows that this occurs prior to the EU protocol stack or
-									equivalent higher-layer packet processing.</h:li>
-								<h:li>Describes how the TOE ensures that the EU does not respond to invalid packets received from the CU or EUD.</h:li>
-								<h:li>Describes any distinctions among covered PFED interfaces or modes, if more than one is claimed.</h:li>
-							The evaluator shall determine that the TSS is consistent with the posted PFED component text and the PFED Configuration section, including single expected fixed-offset packet acceptance, pre-stack dropping of malformed or unexpected packets, and non-response by the EU to invalid packets from the CU or EUD.
-						</h:ul>
-						</TSS>
-						<Guidance/>
-						<Tests>
-							The evaluator shall perform the following tests<h:p/>
-							<testlist>
-								<test>Acceptance of only the expected packet type: The evaluator shall present the TOE with a packet matching the claimed expected packet type at the claimed fixed offsets and verify that the TOE accepts that packet for the intended PFED processing path.</test>
-								<test>Rejection of malformed, unexpected, or out-of-context packets: The evaluator shall present malformed packets, unexpected packet types, and out-of-context packets on the covered interface or path and verify that the TOE drops them.</test>
-								<test>Pre-stack rejection behavior: The evaluator shall verify, through TOE behavior, supported test interfaces, traces, or developer evidence that rejected packets are dropped prior to reaching the EU protocol stack or equivalent higher-layer packet processing path.</test>
-								<test>Non-response to invalid packets: The evaluator shall present invalid packets from the CU and the EUD, as applicable to the TOE design, and verify that the EU does not respond to those invalid packets.</test>
-								<test>Fixed-offset enforcement: The evaluator shall vary the location of the expected identifying packet fields or signature away from the claimed fixed offsets and verify that the TOE rejects the packet.</test>
-								<test>PFED Functional Test: Provision a pair of PFED’s (A1 and B1). Attach EUD’s A and B to A1 and B1 respectively and set their interfaces to promiscuous mode and non-addressable. A is the sender and B is the receiver. Attach a network sniffer to the interconnect between the EUD’s and the EU (S1 and S2). From A, send an exhaustive span of packets and watch both S1 and S2. There should be no response on S1 and everything that was received by A1 should appear on S2 and B.</test>
-							</testlist>
-							These tests may be combined where appropriate. The purpose of this evaluation is to confirm that the PFED path implements the claimed one-expected-packet allowlist model, fail-closed discard before protocol-stack handling, and non-response to invalid CU/EUD input.
-						</Tests>
-					</aactivity>
-				</f-element>
-				<audit-event table="feat-based">
-					<audit-event-descr>Failure to establish an IPsecSA</audit-event-descr>
-					<audit-event-info>Reason for failure</audit-event-info>
-				</audit-event>
-			</f-component>
-			
 				<ext-comp-def fam-id="FDP_ITC_EXT" title="Key/Credential Import">
 				<fam-behavior>
 					This family defines requirements for supporting and integrity of importing keys and key
@@ -7438,6 +7452,7 @@
 								attempts for <assignable>a period of time greater than zero seconds</assignable></selectable>
 							<selectable>exclude the current administrator from further authentication
 								attempts for <assignable>a period of time greater than the minimum boot time of the system</assignable></selectable>
+							<selectable>perform no additional action if relying on public key authentication</selectable>
 						</selectables>.
 					</title>
 					<ext-comp-def-title>
@@ -7453,6 +7468,9 @@
 						Wipe is performed in accordance with FCS_CKM.6. Protected data is all non-TSF data, 
 						including all user or enterprise data. Some or all of this data may be considered sensitive
 						data as well.<h:p/>
+						The option of "<h:i>perform no additional action if relying on public key authentication</h:i>" is appropriate for public key-based authentication mechanisms where the key strength and algorithms are selected from FCS_COP.1.1/SigGen Table 18. 
+						
+						
 						If the TOE implements multiple authentication factor interfaces (for example, a DAR decryption
 						interface, a lockscreen interface, an auxiliary boot mode interface), this element applies
 						to all available interfaces.
@@ -7500,7 +7518,7 @@
 							selected in FIA_UAU.5.1, and configure a maximum number of unsuccessful authentication
 							attempts for each mechanism
 							<testlist>
-								<test>The evaluator shall for each authentication mechanism make 
+								<test>[conditional] If "perform no additional action if relying on public key authentication" is not selected under FIA_AFL_EXT.1.5, the evaluator shall for each authentication mechanism make 
 									unsuccessful authentication attempts until the maximum is exceeded and verify that
 									the number of failures corresponds to the configured maximum and that no further 
 									authentication attempts can be made using that mechanism.
@@ -7523,6 +7541,9 @@
 									FIA_AFL_EXT.1.5 the evaluator shall verify that the user/administrator can make no further 
 									authentication attempts until the specified time period has expired.
 								</test><h:p/>
+								<test>
+									Test FIA_AFL_EXT.1.5: [conditional] If the mechanism is critical and "perform no additional action if relying on public key authentication" has been selected as a response to unsuccessful authentication attempts, then the evaluator shall create random credentials for use in subjecting the authentication interface to multiple unsuccessful authentication attempts. This interface must remain functional for the duration of the test and may not be deactivated by the TOE. The evaluator shall conduct this test for a duration or number of attempts of their choosing with a minimum duration of 30 seconds or 30 attempts.
+								</test>
 							</testlist>
 						</Tests>
 					</aactivity>
@@ -7790,14 +7811,14 @@
 			
 			<f-component name="Multiple Authentication Mechanisms" cc-id="fia_uau.5">
 				<f-element id="fia-uau-5e1">
-					<title>The TSF shall provide [<h:i>password and </h:i><selectables>
+					<title>The TSF shall provide [<h:i>password and <selectables>
 						<selectable>certificate-based authentication</selectable>
 						<selectable>public key-based authentication</selectable>
 						<selectable>biometric authentication</selectable>
 						<selectable>support for cryptographic mutual authentication using ML-DSA-87 and user activation using <assignable>password, PIN, or
 							CIK</assignable></selectable>							
 						<selectable>no other mechanism</selectable>
-					</selectables>] to support user authentication. 
+					</selectables></h:i>] to support user authentication. 
 					</title>
 					<note role="application">
 						A "<h:i>user</h:i>" in the context of this SFR is an administrator.<h:p/>
@@ -7805,8 +7826,6 @@
 						The password authentication factor is configured according to FIA_PMG_EXT.1.<h:p/>
 						If "<h:i>certificate-based authentication</h:i>" is selected, then the ST must include FIA_X509_EXT.1 and FIA_X509_EXT.2
 						from <xref to="X509"/>.<h:p/>
-						If "<h:i>public key-based authentication</h:i>" is selected, then the ST must claim the <xref to="ssh"/>.<h:p/>
-						
 						If "<h:i>support for cryptographic mutual authentication using ML-DSA-87...</h:i>" is selected, the intent is to ensure that the TOE supports a
 						PFED authentication model consisting of both a cryptographic peer-authentication mechanism and, where claimed, an additional
 						user-activation mechanism. <h:p/>
@@ -7878,22 +7897,21 @@
 									For each authentication mechanism rule, the evaluator shall ensure that the authentication mechanism behaves accordingly.
 								</test>
 							</testlist>
-							<h:b>For PFED</h:b>
 							The evaluator shall perform the following tests<h:p/>
 							<testlist>
-								<test>ML-DSA-87 mutual-authentication mechanism supported: The evaluator shall invoke or otherwise cause the TOE to perform the
+								<test>[Conditional on PFED] ML-DSA-87 mutual-authentication mechanism supported: The evaluator shall invoke or otherwise cause the TOE to perform the
 									claimed PFED mutual-authentication function and verify that the TOE supports cryptographic mutual authentication using
 									ML-DSA-87, consistent with the TSS and guidance. This aligns with the posted PFED Configuration section session-setup
 									section.</test> 
-								<test>Additional user-activation mechanism supported: If the TOE claims an additional user-activation mechanism, the
+								<test>[Conditional on PFED] Additional user-activation mechanism supported: If the TOE claims an additional user-activation mechanism, the
 									evaluator shall verify that the TOE supports the selected mechanism, namely password, PIN, or CIK, consistent with the TSS
 									and guidance. This aligns with the posted PFED bring-up and multi-factor activation section.</test>
-								<test>No unclaimed additional mechanism relied upon: If the ST selects no other mechanism, the evaluator shall verify that the
+								<test>[Conditional on PFED] No unclaimed additional mechanism relied upon: If the ST selects no other mechanism, the evaluator shall verify that the
 									TOE does not rely on an additional claimed user-activation mechanism to satisfy this SFR.</test>
-								<test>Claimed mechanism set consistency: If both the cryptographic mutual-authentication mechanism and a user-activation
+								<test>[Conditional on PFED] Claimed mechanism set consistency: If both the cryptographic mutual-authentication mechanism and a user-activation
 									mechanism are claimed, the evaluator shall verify that the TOE supports both mechanisms in the PFED roles or phases
 									described in the TSS. </test>
-								<test>PFED Functional Test: Provision a pair of PFEDS A1 and B1. This will also create the credential needed by the user to
+								<test>[Conditional on PFED] PFED Functional Test: Provision a pair of PFEDS A1 and B1. This will also create the credential needed by the user to
 									authenticate. Attempt to use the authentication method (password, PIN, CIK, etc) to complete a session. This should
 									succeed. Then attempt to use an incorrect value (password, PIN, CIK, etc). This should fail. </test>
 							</testlist>
@@ -7928,7 +7946,7 @@
 						well as output data from these biometric algorithms, is considered sensitive and must be kept
 						secret. Where applicable, the TSF must not reveal or make public the reasons for
 						authentication failure.<h:p/>
-						In the cases of SSH- or X.509-based authentication, the TSF must likewise not display sensitive
+						In the cases of X.509-based authentication, the TSF must likewise not display sensitive
 						information regarding the authentication factors that could aid an adversary in spoofing or
 						circumventing the authentication protocols.
 					</note>
@@ -7962,7 +7980,7 @@
 									for example, if the sensor is unclean or the biometric sample was removed too
 									quickly. However, specifics regarding why the presented biometric sample failed
 									authentication shall not be revealed to the user.
-									[conditional] For each SSH- or X.509-based authentication mechanism, the evaluator shall
+									[conditional] For each X.509-based authentication mechanism, the evaluator shall
 									examine whether the TSF displays sensitive information during the authentication process
 									for both successful and failed authentication attempts.
 								</test><h:p/>
@@ -7978,8 +7996,7 @@
 				</fam-behavior>
 			</ext-comp-def>
 		
-			<f-component cc-id="fia_uau_ext.1" name="Authentication for Cryptographic Operation" status="sel-based">
-				<depends on-sel="sel-fmt-smr-1-admin"/>
+			<f-component cc-id="fia_uau_ext.1" name="Authentication for Cryptographic Operation">
 				<comp-lev> requires the TSF enforce data-at-rest protection until successful authentication has occurred. </comp-lev>
 				<management>There are no management activities foreseen.</management>
 				<audit>There are no auditable events foreseen.</audit>
@@ -8003,7 +8020,7 @@
 					<note role="application">The intent of this requirement is to prevent decryption of
 						protected data before the user has authorized to the device using the Password
 						Authentication Factor. The password authentication factor is also required in order
-						derive the key used to decrypt sensitive data, which includes software-based secure
+						to derive the key used to decrypt sensitive data, which includes software-based secure
 						key storage. </note>
 					<aactivity>
 						<TSS>The evaluator shall verify that the TSS section of the ST describes the process
@@ -8052,46 +8069,28 @@
 				<audit-event table="sel-based"/>
 			</f-component>
 		
-			<f-component cc-id="fia_uau_ext.2" name="Timing of Authentication">
-				
-				<comp-lev> requires the TSF to prevent a subject’s use of TOE until the user is authenticated.</comp-lev>
-				<management>The following actions could be considered for the management functions in FMT:
-					<h:ul>
-						<h:li>Enabling/disabling display TSF notifications while in the locked state.</h:li>
-						<h:li>Enabling/disabling bypass of local user authentication.</h:li>
-					</h:ul>
-				</management>
-				<audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP, PP-Module, functional package, or ST:
-					<h:ul>
-						<h:li>Action performed before authentication</h:li>
-					</h:ul>
-				</audit>
-				<dependencies>No dependencies.
-				</dependencies>
-				
+			<f-component cc-id="fia_uau.1" name="Timing of Authentication">				
 				<f-element id="fel-before-auth-what">
 					<title>The TSF shall allow <selectables>
 						<selectable>
 							<assignable>list of actions</assignable></selectable>
-						<selectable> no actions</selectable>
+						<selectable>no actions</selectable>
 					</selectables> on behalf of the user to be performed before the user is authenticated.
 					</title>
 				</f-element>
 				<f-element id="fel-auth-before-what">
 					<title>The TSF shall require each user to be successfully authenticated before allowing
 						any other TSF-mediated actions on behalf of that user. </title>
-					<note role="application">The security relevant actions allowed by unauthorized users in
-						locked state must be listed. At a minimum the actions that correspond to the functions
-						available to the user in FMT_SMF.1 and are allowed by unauthorized users in a locked
-						state should be listed. For example, if the user can enable/disable the camera per
+					<note role="application">The security relevant actions allowed by unauthorized users must be listed. At a minimum the actions that correspond to the
+						functions available to the user in FMT_SMF.1 and are allowed by unauthorized users. For example, if the user can enable/disable the camera per
 						function <xref to="mf-audioVisual"/> of FMT_SMF.1 and unauthorized users can
-						take a picture when the device is in a locked state, this action must be listed. </note>
+						take a picture, this action must be listed. </note>
 					<aactivity>
 						<TSS>The evaluator shall verify that the TSS describes the actions allowed by
-							unauthorized users in the locked state.</TSS>
+							unauthenticated users.</TSS>
 						<Guidance/>
 						<Tests>The evaluator shall attempt to perform some actions not listed in the selection
-							while the device is in the locked state and verify that those actions do not
+							and verify that those actions do not
 							succeed. </Tests>
 					</aactivity>
 				</f-element>
@@ -8131,7 +8130,7 @@
 					<aactivity>
 						<TSS>
 							The evaluator shall examine the TSS to determine that it describes the logon
-							process for each logon method (local, remote (HTTPS, SSH, etc.)) supported for the platform. 
+							process for each logon method (local, remote (HTTPS, etc.)) supported for the platform. 
 							This description shall contain information pertaining to the credentials allowed/used, any 
 							protocol transactions that take place, and what constitutes a “successful logon.” 
 						</TSS>
@@ -8240,7 +8239,7 @@
 							</h:tr>
 							
 							<h:tr>
-								<h:td>SDO_Conf</h:td>
+								<h:td>SDO.Conf</h:td>
 								<h:td>[selection: <h:i>ADM-R, MFGADM-R, CApp-R</h:i>] roles that are authorized to modify the confidential SDE list</h:td>
 							</h:tr>
 							
@@ -8291,7 +8290,7 @@
 						default values for security attributes that are used to enforce the SFP.</title>
 				</f-element>
 				<f-element>
-					<title>The TSF shall allow the [<h:i>the authorized identified roles</h:i>] to specify alternative inital values to override the default values
+					<title>The TSF shall allow the [<h:i>the authorized identified roles</h:i>] to specify alternative iniital values to override the default values
 						when an object or information is created.
 						<h:table>
 							<h:tr style="text-align: center">
@@ -8448,7 +8447,7 @@
 							<M ref="A"/>
 							<X ref="U"/>
                             <app-note>
-								Management of audit data includes the ability to delete it.								
+								Management of audit data may includes the ability to delete it, if supported.								
 							</app-note>  
 						</management-function>
 
@@ -8528,7 +8527,6 @@
 							<O ref="A"/>
 							<X ref="U"/>
                             <app-note>
-								This function must be claimed if FIA_PMG_EXT.1 is claimed in the ST.<h:p/>
 								If password length and complexity are not configurable, then the administrator 
 								option should be denied.
 							</app-note>
@@ -8559,7 +8557,6 @@
 							<O ref="A"/>
 							<X ref="U"/>
                             <app-note>
-								This function must be claimed if FIA_UAU.5 is claimed in the ST. <h:p/> 
 								If authentication methods are not configurable, then the administrator 
 								option should be denied.
 							</app-note>
@@ -9006,7 +9003,7 @@
     					The evaluator shall verify that the operational guidance indicates that each rule can identify the following actions: permit,
     					discard, and log.<h:p/>
     					The evaluator shall verify that the operational guidance explains how rules are associated with distinct network interfaces.<h:p/>
-    					The guidance may describe the other protocols contained within the ST (e.g., IPsec, IKE, potentially HTTPS, SSH, and TLS) that
+    					The guidance may describe the other protocols contained within the ST (e.g., IPsec, IKE, potentially HTTPS and TLS) that
     					are processed by the TOE. The evaluator shall ensure that it is made clear what protocols were not considered as part of the 
     					TOE evaluation.
     				</Guidance>
@@ -9588,7 +9585,7 @@
     				setup with the peer completes.
     			</title>
     		<note role="application">
-    			Traffic-based detection means that each EU runs a timer. If traffic has been received from the peer since the last check, the timer resets and no keep-alive is sent. If no traffic has been received, the EU sends a keep-alive and waits for a response. A periodic heartbeat is an acceptable alternative. Keep-alives are sent within the PFED session and are subject to FDP_IFF.1/PFED. DPD is not a confidentiality or integrity mechanism, its purpose is to make sure the EUD is taken offline when the peer or link is lost. The client and server persona behavior on restart is defined in 1.3.2.4.10.
+    			Traffic-based detection means that each EU runs a timer. If traffic has been received from the peer since the last check, the timer resets and no keep-alive is sent. If no traffic has been received, the EU sends a keep-alive and waits for a response. A periodic heartbeat is an acceptable alternative. Keep-alives are sent within the PFED session and are subject to FDP_IFF.1. DPD is not a confidentiality or integrity mechanism, its purpose is to make sure the EUD is taken offline when the peer or link is lost. The client and server persona behavior on restart is defined in 1.3.2.4.10.
     			</note>
     			<aactivity>
     				<TSS>
@@ -9596,7 +9593,7 @@
     						<h:li>Describes the peer-liveness mechanism claimed in FPT_DPD_EXT.1.1: traffic-based detection, a periodic keep-alive heartbeat, or another mechanism.</h:li> 
     						<h:li>For traffic-based detection, describes how the TOE decides whether traffic has been received from the peer since the last check, and when a keep-alive is sent.</h:li>
     						<h:li>States the idle or heartbeat interval and the response timeout (or number of missed keep-alives), or their permitted ranges if configurable. Also states the resulting maximum time from loss of the peer until the peer is declared dead.</h:li>
-    						<h:li>States that keep-alives and their responses are sent within the PFED session and are subject to FDP_IFF.1/PFED.</h:li>
+    						<h:li>States that keep-alives and their responses are sent within the PFED session and are subject to FDP_IFF.1.</h:li>
     						<h:li>Describes how the TOE stops forwarding EUD traffic and terminates the session when the peer is declared dead.</h:li>
     						<h:li>Describes the client-persona and server-persona behavior after the peer is declared dead. The client initiates session setup and the server waits for the client.</h:li>
     						<h:li>States that EUD traffic resumes only after a session setup transaction, including mutual authentication and the mandatory rekey has completed.</h:li>
@@ -9670,13 +9667,12 @@
     					resolve the error state.
     				</Guidance>
     				<Tests>
-    					<h:b>For PFED</h:b>
     					The evaluator shall perform the following tests<h:p/>
     					<testlist>
-    						<test> Dead peer detected: The evaluator shall cause a dead-peer condition in the claimed PFED context and verify that the TOE preserves a secure state by terminating the affected session. If the TOE transitions to session setup following dead-peer detection, the evaluator shall verify that the prior session is no longer active for protected traffic use.</test><h:p/>
-    						<test> Recovery failure: The evaluator shall cause PFED recovery not to converge in accordance with the claimed recovery-failure condition and verify that the TOE terminates the affected session. </test><h:p/> 
-    						<test> Provisioning failure: The evaluator shall cause PFED provisioning to fail and verify that the TOE terminates the affected bootstrap, provisional, or session state so that no protected operational session remains active. </test><h:p/>
-    						<test> Secure-state preservation: For one or more of the above failure cases, the evaluator shall verify that after termination the TOE does not continue to permit traffic or otherwise behave as though the affected PFED session remains valid. </test><h:p/>
+    						<test>[Conditional on PFED] Dead peer detected: The evaluator shall cause a dead-peer condition in the claimed PFED context and verify that the TOE preserves a secure state by terminating the affected session. If the TOE transitions to session setup following dead-peer detection, the evaluator shall verify that the prior session is no longer active for protected traffic use.</test><h:p/>
+    						<test>[Conditional on PFED] Recovery failure: The evaluator shall cause PFED recovery not to converge in accordance with the claimed recovery-failure condition and verify that the TOE terminates the affected session. </test><h:p/> 
+    						<test>[Conditional on PFED] Provisioning failure: The evaluator shall cause PFED provisioning to fail and verify that the TOE terminates the affected bootstrap, provisional, or session state so that no protected operational session remains active. </test><h:p/>
+    						<test>[Conditional on PFED] Secure-state preservation: For one or more of the above failure cases, the evaluator shall verify that after termination the TOE does not continue to permit traffic or otherwise behave as though the affected PFED session remains valid. </test><h:p/>
     					</testlist>
     					These tests may be combined where appropriate.
     				</Tests>
@@ -9698,8 +9694,9 @@
 					material.</fam-behavior>
 			</ext-comp-def>
 			
-			<f-component name="Hardware Root of Trust" cc-id="fpt_hrt_ext.1" status="sel-based">
-				<depends id="pfed"/>
+			<f-component name="Hardware Root of Trust" cc-id="fpt_hrt_ext.1" status="feat-based">
+				<depends on="uc-ded-eu-ret-dev-cu-only"/>
+				<depends on="uc-hw-sep-enc-ret-dev-hws-red"/>
 				<comp-lev> the TSF to maintain a non-exportable hardware-protected root key, bind its use to the evaluated platform, restrict its use to unwrapping or
 					authorizing access to subordinate TSF keys, and deny subordinate-key access when the binding condition is not satisfied.</comp-lev>
 				<management>
@@ -9769,7 +9766,7 @@
     					provisioning, replacement, recovery, and verification procedures. 
     				</Guidance>
     				<Tests>
-    					The evaluator shall perfrom the following tests<h:p/>
+    					The evaluator shall perform the following tests<h:p/>
     					<testlist>
     						<test>
     							<h:b>Supported-Interface Non-Export</h:b>: Using every documented administrative, backup, diagnostic, and key-management interface available in
@@ -12120,12 +12117,12 @@
 	    							after a time of inactivity (FMT_SMF.1) according to the AGD guidance. The
 	    							evaluator shall wait until the TSF locks and verify that the display is cleared
 	    							or overwritten and that the only actions allowed in the locked state are
-	    							unlocking the session and those actions specified in FIA_UAU_EXT.2.</test><h:p/>
+	    							unlocking the session and those actions specified in FIA_UAU.1.</test><h:p/>
 	    						<test>The evaluator shall command the TSF to transition to the locked state
 	    							according to the AGD guidance as both the user and the administrator. The
 	    							evaluator shall wait until the TSF locks and verify that the display is cleared
 	    							or overwritten and that the only actions allowed in the locked state are
-	    							unlocking the session and those actions specified in FIA_UAU_EXT.2.</test><h:p/>
+	    							unlocking the session and those actions specified in FIA_UAU.1.</test><h:p/>
 	    					</testlist>
 	    				</Tests>
 	    			</aactivity>
@@ -12274,11 +12271,11 @@
       					<test>Test 4: Logical distinction from other communication channels: The evaluator shall examine the TOE behavior and, where appropriate, observe communications to verify that trusted-channel traffic is separated from other communication channels in the manner described in the TSS and is not exposed as unprotected ordinary traffic.</test><h:p/>
       				One or more of these tests may be combined where appropriate.<h:p/>
       				<test>[conditional on MACsec]: The evaluator shall apply the test activities for FCS_MACSEC_EXT.1, FCS_MACSEC_EXT.2, FCS_MACSEC_EXT.3, and FCS_MACSEC_EXT.4 as defined in the PP-Module for MACsec Ethernet Encryption.</test>
-      					<test>[conditional for PFED]:Establishment of PFED trusted channel: The evaluator shall configure or provision the TOE in accordance with the operational guidance and verify that the TOE establishes the claimed PFED trusted channel with a PFED peer consistent with the TSS and guidance. This test shall be consistent with the PFED specification in PFED Configuration section and the claimed PFED SFR set. </test><h:p/>
-      					<test>[conditional for PFED]:Logical distinction from other channels: The evaluator shall verify that the PFED trusted channel is logically distinct from other communication channels in the manner described in the TSS and guidance. </test><h:p/>
-      					<test>[conditional for PFED]:Endpoint identification: The evaluator shall verify that the TOE provides assured identification of the PFED trusted-channel endpoints, consistent with the PFED mutual-authentication model described in the TSS and PFED Configuration section. The PFED Configuration section describes mutual authentication between ERDs using ML-DSA-87 as part of session setup. </test><h:p/>  
-      					<test>[conditional for PFED]:Protection from disclosure and modification: The evaluator shall verify that PFED channel data is protected from disclosure and modification in a manner consistent with the TSS and the PFED cryptographic protections described in PFED Configuration section. </test><h:p/>
-      					<test>[conditional for PFED]:Channel failure or disruption behavior: The evaluator shall cause a PFED trusted-channel failure, interruption, or loss of peer liveness and verify that the TOE behaves consistently with the TSS and the related PFED dead-peer, rekey, and recovery behavior claimed elsewhere in the ST. The PFED Configuration section includes dead-peer detection and recovery behavior for PFED sessions. </test><h:p/> 
+      					<test>[Conditional on PFED]:Establishment of PFED trusted channel: The evaluator shall configure or provision the TOE in accordance with the operational guidance and verify that the TOE establishes the claimed PFED trusted channel with a PFED peer consistent with the TSS and guidance. This test shall be consistent with the PFED specification in PFED Configuration section and the claimed PFED SFR set. </test><h:p/>
+      					<test>[Conditional on PFED]:Logical distinction from other channels: The evaluator shall verify that the PFED trusted channel is logically distinct from other communication channels in the manner described in the TSS and guidance. </test><h:p/>
+      					<test>[Conditional on PFED]:Endpoint identification: The evaluator shall verify that the TOE provides assured identification of the PFED trusted-channel endpoints, consistent with the PFED mutual-authentication model described in the TSS and PFED Configuration section. The PFED Configuration section describes mutual authentication between ERDs using ML-DSA-87 as part of session setup. </test><h:p/>  
+      					<test>[Conditional on PFED]:Protection from disclosure and modification: The evaluator shall verify that PFED channel data is protected from disclosure and modification in a manner consistent with the TSS and the PFED cryptographic protections described in PFED Configuration section. </test><h:p/>
+      					<test>[Conditional on PFED]:Channel failure or disruption behavior: The evaluator shall cause a PFED trusted-channel failure, interruption, or loss of peer liveness and verify that the TOE behaves consistently with the TSS and the related PFED dead-peer, rekey, and recovery behavior claimed elsewhere in the ST. The PFED Configuration section includes dead-peer detection and recovery behavior for PFED sessions. </test><h:p/> 
       				</testlist>
       				Where direct observation of low-level channel internals is not practical, the evaluator may rely on observable TOE behavior, packet traces, supported test interfaces, or developer evidence sufficient to determine that the claimed PFED trusted channel is established and provides the claimed protections.     				
       				
@@ -12349,15 +12346,16 @@
 				<depends on-sel="pfed-peer"/>
 				<f-element id="ftp-pro-1e1">
 					<title>
-						The TSF shall implement <assignable>trusted channel protocol</assignable> acting as <assignable>
-							defined protocol role(s)</assignable> in accordance with: <assignable>list of standards</assignable>.
+						The TSF shall implement [<h:i>PFED</h:i>] acting as <selectables>
+							<selectable>a client persona that initiates session setup</selectable>
+							<selectable>a server persona that waits for session initiation</selectable>
+							</selectables> in accordance with: [<h:i>section 1.3.2.4 in this PP</h:i>].
 					</title>					
 				</f-element>
 				
 				<f-element id="ftp-pro-1e2">
 					<title>
-						The TSF shall enforce usage of the trusted channel for <assignable>purpose(s) of the
-							trusted channel</assignable> in accordance with: <assignable>list of standards</assignable>.
+						The TSF shall enforce usage of the trusted channel for [<h:i>protection of all EUD user data exchanged between paired EUs, EU pair provisioning (tunnel-0 and tunnel-1), session setup and mutual authentication, rekey, session key recover, and dead peer detection</h:i>] in accordance with: [<h:i>section 1.3.2.4 in this PP</h:i>].
 					</title>
 				</f-element>
 				
@@ -12373,8 +12371,26 @@
 				
 				<f-element id="ftp-pro-1e4">
 					<title>
-						The TSF shall enforce the following rules for the trusted channel: <assignable>rules
-						governing operation and use of the trusted channel and/or its protocol</assignable>.
+						The TSF shall enforce the following rules for the trusted channel: [<h:i><h:ul>
+							
+							<h:li>EUD traffic is gated as specified in FDP_BRINGUP_EXT.1; in addition, no EUD traffic is permitted until EU pair provisioning has completed.</h:li>
+							<h:li>Until session setup completes, all non-transaction packets received from the CU are dropped.</h:li>
+							<h:li>During tunnel-0, only HELLO, HELLO-ACK, and a single ML-KEM-1024 key encapsulation transaction are accepted; all other packets are dropped before protocol stack processing.</h:li>
+							<h:li>The tunnel-0 pre-shared key is used as specified in FIA_PSK_EXT.1/PFED and destroyed as specified in FCS_CKM.6/PFED; tunnel-0 is terminated and tunnel-1 is established upon successful completion of the ML-KEM-1024 transaction specified in FTP_PRO.2.1.</h:li>
+							<h:li>Only the client persona initiates session setup; the server persona waits for session initiation.</h:li>
+							<h:li>Session setup consists of peer authentication as specified in FTP_PRO.2.2 followed by the mandatory ML-KEM-1024 rekey specified in FTP_PRO.2.1; the session does not become operational until both complete.</h:li>
+							<h:li>Periodic rekey is enforced at an administrator-configured interval between 2 and 30 minutes; superseded keys are destroyed as specified in FCS_CKM.6/PFED.</h:li>
+							<h:li>Dead peer detection and response are performed as specified in FPT_DPD_EXT.1.</h:li>
+							<h:li>Session key recovery is performed as specified in FCS_REC_EXT.1/PFED and FPT_RCV_EXT.1/PFED; upon successful resynchronization, a new session setup is performed before EUD traffic resumes.</h:li>
+							<h:li>PFED operations are controlled as transactions as specified in FPT_TRAN_EXT.1/PFED.</h:li>
+							<h:li>The EU accepts only a single, fixed-offset packet signature from the CU; all unexpected or malformed packets are dropped before reaching the EU protocol stack, and the EU does not respond to invalid packets from the CU or the EUD.</h:li>
+							<h:li>Each channel is a unique cryptographic bond between two EUs; channel labels are authenticated as specified in FTP_PRO.3.2.</h:li>
+							<h:li>Plaintext key material is protected as specified in FPT_KST_EXT.2 and FPT_KST_EXT.3, and no mechanism is provided to export cryptographic keys in any form; channel recovery outside the recovery transaction is performed only by reprovisioning or ERD replacement.</h:li> 
+							<h:li><selectables>
+								<selectable><assignable>other rules</assignable></selectable>
+								<selectable>no other rules</selectable>
+							</selectables>]</h:li>
+						</h:ul></h:i>.
 					</title>
 				</f-element>
 				
@@ -12388,14 +12404,21 @@
 				<f-element id="ftp-pro-1e6">
 					<title>
 						The TSF shall negotiate one of the following protocol configurations with its peer:
-						<assignable>list of configurations and reference to standards in which each is defined</assignable>.
+						[<h:i><h:ul>
+							<h:li>AES-GCM with a 256-bit key for all session traffic (FCS_COP.1/AEAD)</h:li>
+							<h:li>ML-KEM-1024 for all key establishment after tunnel-0 (FCS_CKM.2/PFED)</h:li>
+							<h:li>ML-DSA-87 exclusively for peer mutual authentication (FCS_CKM.1/PFEDAKG)</h:li>
+							<h:li>HKDF for derivation of all session, recovery, and operational keys (FCS_CKM.5/PFED)</h:li>
+						</h:ul></h:i>].
 					</title>
 					<note role="Application">
 						The intent of this requirement is to define the channel and cryptographic operations used by the TOE when PFED is the selected trusted channel between
 						HWS-ERD implementation RD TOEs. The ST author must include this SFR when PFED is selected in FTP_ITC.1.<h:p/>
 						
+						For FTP_PRO.1.3, the ST author shall select "<h:i>itself</h:i>" if "<h:i>a client persona that initiates session setup</h:i>" is selected in 
+						FTP_PRO.1.1. The ST author shall select "<h:i>its peer</h:i>" if "<h:i>a server persona that waits for session initiation</h:i>" in FTP_PRO.1.1.<h:p/>
 						For FTP_PRO.1 elements, the ST author shall assign PFED as the trusted channel protocol, populating the remaining selections according to the PFED
-						operations in the introduction of this document.  
+						operations in the introduction of this document. 
 					</note>
 					<aactivity>
 						Evaluation of this SFR is performed in conjunction with the evaluation activities in FTP_ITC.1.
@@ -12473,19 +12496,27 @@
 				<depends on-sel="pfed-peer"/>
 				<f-element id="ftp-pro-2e1">
 					<title>The TSF shall establish a shared secret with its peer using one of the following
-						mechanisms: <assignable>list of key establishment mechanisms</assignable>.</title>
+						mechanisms: <selectables>
+							<selectable>A pre-shared key used only to establish tunnel-0 as specified in FIA_PSK_EXT.1/PFED</selectable>
+							<selectable>ML-KEM-1024 key encapsulation as specified in FCS_CKM.2/PFED for tunnel-1 establishment, the mandatory session-setup rekey, and periodic rekey</selectable>
+						</selectables>.</title>
 				</f-element>
 				<f-element id="ftp-pro-2e2">
 					<title>The TSF shall authenticate <selectables>
 						<selectable>its peer</selectable>
 						<selectable>itself to its peer</selectable>
 					</selectables> using one of the following
-						mechanisms: <assignable>list of authentication mechanisms</assignable> and according to the
-						following rules: <assignable>list of rules for carrying out the authentication</assignable>.</title>
+						mechanisms: [<h:i>ML-DSA-87 digital signatures using the key pair generated in accordance with FCS_CKM.1/PFEDAKG</h:i>] and according to the
+						following rules: <selectables>
+							<selectable>The peer public key used for verification is the ML-DSA-87 public key securely exchanged with that peer during tunnel-1 provisioning</selectable>
+							<selectable>At least one authentication transaction is completed during provisioning</selectable>
+							<selectable>Authentication is performed as part of every session setup, before the mandatory ML-KEM-1024 rekey is accepted as completing session setup</selectable>
+							<selectable>Failure of authentication prevents the session from becoming operational, and EUD traffic remains suppressed</selectable>
+						</selectables>.</title>
 				</f-element>
 				<f-element id="ftp-pro-2e3">
-					<title>The TSF shall use <assignable>key derivation function</assignable> to derive the following
-						cryptographic keys from a shared secret: <assignable>list of cryptographic keys</assignable>.</title>
+					<title>The TSF shall use [<h:i>HKDF as specified in FCS_CKM.5/PFED</h:i>] to derive the following
+						cryptographic keys from a shared secret: [<h:i>tunnel-1 session keys, transmit (TX) session key, receive (RX) session key, Recovery Key 1, and Recovery Key 2</h:i>].</title>
 					<aactivity>
 						<TSS>
 							The evaluator shall examine the TSS to determine that it describes each PFED establishment phase in a table or equivalent structured form. For each phase, the description shall identify the following.<h:ul>
@@ -12582,7 +12613,7 @@
 				<depends on-sel="pfed-peer"/>
 				<f-element id="ftp-pro-3e1">
 					<title>The TSF shall protect data in transit from unauthorised disclosure using one of the
-						following mechanisms: <assignable>list of encryption mechanisms</assignable>.</title>
+						following mechanisms: [<h:i>AES-GCM with a 256-bit key as specified in FCS_COP.1/AEAD</h:i>].</title>
 				</f-element>
 				<f-element id="ftp-pro-3e2">
 					<title>The TSF shall protect data in transit from <selectables>
@@ -12591,8 +12622,7 @@
 						<selectable>insertion</selectable>
 						<selectable>replay</selectable>						
 						<selectable><assignable>other</assignable></selectable>
-					</selectables> using one of the following mechanisms: <assignable>list of
-						integrity protection mechanisms</assignable>.
+					</selectables> using one of the following mechanisms: [<h:i>AES-GCM-256 authenticated encryption, including authentication of any channel label</h:i>].
 					</title>
 					<note role="application">
 						If the TOE cannot distinguish a suppressed or deliberately withheld packet from ordinary transport loss, "<h:i>deletion</h:i> shall not be selected in
@@ -12787,7 +12817,7 @@
 			specification describes the TSFIs. It is not necessary
 			to have a formal or complete specification of these interfaces. Additionally, because
             TOEs conforming to this PP will necessarily have interfaces to the
-			Operational Environment that are not directly invocable by TOE users, 
+			Operational Environment that are not directly invokable by TOE users, 
 			there is little point specifying that such interfaces be described in and of themselves 
 			since only indirect testing of such interfaces may be possible. For this PP, the 
 			activities for this family should focus on understanding the interfaces presented in the 
@@ -13436,7 +13466,7 @@
 					This also includes the configuration of the
 					cryptographic engine to be used. The cryptographic algorithms implemented by this
 					engine are those specified by this PP and used by the cryptographic protocols being
-					evaluated (e.g., SSH). The test plan identifies high-level test objectives
+					evaluated. The test plan identifies high-level test objectives
 					as well as the test procedures to be followed to achieve those objectives. These
 					procedures include expected results. 
 				</h:p><h:p>
@@ -13636,10 +13666,6 @@
   
   </appendix>
 
-	
-  <appendix id="valguide" title="Validation Guidelines">
-    
-  </appendix>
 	
 	<appendix id="impsatreq" title="Implicitly Satisfied Requirements">
 		This appendix lists requirements that should be considered satisfied by products successfully evaluated against this PP. These requirements are not featured explicitly
