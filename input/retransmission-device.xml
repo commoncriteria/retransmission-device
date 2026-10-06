@@ -254,6 +254,12 @@
 			communication between paired ERDs is protected by an AES-based secure session tunnel implemented by the EU. The TOE does not rely on external key management
 			protocols.</h:p>
 			For a PFED implementation, FDP_IFF.1 defines the fixed information-flow policy enforced by the EU on the IC3 interface. The EU is not required to provide administrator-configurable packet-filter rules for that interface. FPF_RUL_EXT.1 applies to the CU when included in the ST, and applies to the EU only when the EU implements an additional configurable Layer 2 and/or Layer 3 filtering capability outside the fixed PFED flow.<h:p/>
+			PFED is under patent protection and licensing terms can be discussed with NSA office of Research and Technology Transfer.
+			National Security Agency
+			ATTN: Technology Transfer Program
+			9800 Savage Rd., Suite 6843
+			Fort George G. Meade, MD 20755-6843
+			
 			<sec:Principles_Behind_HWS-ERD_PFED>
 				<h:p>An HWS-ERD PFED has unique properties that are not normally present in traditional encryption systems. The security function of separating Red and Black
 					within any ERD must work correctly, and to work correctly it must be completely understandable. The separation of functions into an EU and CU allows the
