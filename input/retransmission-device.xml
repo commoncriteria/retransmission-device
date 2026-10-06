@@ -1047,15 +1047,6 @@
 				</h:tr>
 				
 				<h:tr style="text-align: center">
-					<h:td>FCS_RBG.6</h:td>
-					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center">SB</h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td>Required only if TOE exposes or relies on an RBG service interface.</h:td>
-				</h:tr>
-				
-				<h:tr style="text-align: center">
 					<h:td>FCS_REC_EXT.1/PFED</h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
@@ -1865,8 +1856,6 @@
 					ensure the generation of strong cryptographic keys.</rationale>
 				<addressed-by>FCS_RBG.5 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that the TOE's DRBG is seeded with sufficient entropy to ensure the generation
 					of strong cryptographic keys.</rationale>
-				<addressed-by>FCS_RBG.6 (sel-based)</addressed-by><rationale>Mitigates the threat by providing a secure DRBG service for third-party applications running on the TOE which
-					may use this service to generate their own cryptographic keys for trusted communications.</rationale>
 				<addressed-by>FPT_FLS.1 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that a malfunctioning DRBG function cannot be used to generate potentially
 					insecure keys.</rationale>
 				<addressed-by>FTP_ITP_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by using a physically protected channel to protect data in transit.</rationale>
@@ -2542,7 +2531,7 @@
 	 		<f-element id="fau-stg-1e1">
 	 			<title>The TSF shall be able to store generated audit data on the <selectables>
 	 				<selectable>TOE itself</selectable>
-	 				<selectable>transmit the generated audit data to an external IT entity using a trusted 
+	 				<selectable id="transmit-external">transmit the generated audit data to an external IT entity using a trusted 
 	 					channel according to <h:b>FTP_TRP.1</h:b></selectable>
 	 				<selectable>protect stored audit records from unauthorized modification and deletion</selectable>
 	 				</selectables>.
@@ -6758,41 +6747,6 @@
 			
 		</f-component>  
 		
-		<!-- FCS_RBG.6 Random Bit Generation Service -->
-		<f-component id="sfr-fcs-rbg-6" cc-id="fcs_rbg.6" name="Random Bit Generation Service" status="sel-based">	
-			<depends><optional/></depends>
-			<f-element id="fcs-rbg-6e1">
-				<title>
-					The TSF shall provide a <selectables>
-						<selectable>hardware</selectable>
-						<selectable>software</selectable>
-						<selectable><assignable>other interface type</assignable></selectable> </selectables>
-					interface to make the DRBG output, as specified in FCS_RBG.1 Random Bit Generation (RBG), 
-					available as a service to entities outside of the TOE.
-				</title> 
-				<note role="application">
-					This SFR must be included in the ST if the TOE provides an entropy source accessible to the EUD on the red network.<h:p/>
-					This requirement ensures that the TOE makes available entropy to the EUD if requested.
-				</note>
-				<aactivity>
-					<TSS>
-						The evaluator shall examine the TSS to verify that it describes how the DRBG output is made
-						available to entities outside the TOE.
-					</TSS>
-					<Guidance>
-						The evaluator shall examine the guidance to verify that it describes how to configure and use the
-						claimed interfaces so that DRBG output is available to entities outside of the TOE.
-					</Guidance>
-					<Tests>
-						The evaluator shall perform the following test<h:p/>
-						<testlist>
-							<test>The evaluator shall invoke the entropy sources from tenant software and verify that the tenant acquires values from the interface.</test>
-						</testlist>
-					</Tests>
-				</aactivity>
-			</f-element>
-			<audit-event table="sel-based"/>
-		</f-component>
 		
 		<ext-comp-def title="Key Recovery" fam-id="FCS_REC_EXT">
 			<fam-behavior>This family defines requirements for session key recovery.</fam-behavior>
@@ -8458,10 +8412,10 @@
 							<text>
 								Ability to configure name/address of audit/logging server to which to send audit/logging records.
 							</text>
-							<M ref="A"/>
+							<O ref="A"/>
 							<X ref="U"/>
                             <app-note>
-								None.
+                            	This function must be claimed if <xref to="transmit-external"/> is selected in FAU_STG.1.1.
 							</app-note>
 						</management-function>
 
@@ -8471,7 +8425,7 @@
 							<text>
 								Ability to review audit records.
 							</text>
-							<O ref="A"/>
+							<M ref="A"/>
 							<X ref="U"/>
                             <app-note>
 								This function must be claimed if FAU_SAR.1 is claimed in the ST.
@@ -8512,7 +8466,7 @@
 							<text>
 								Ability to set parameters for allowable number of authentication failures.
 							</text>
-							<O ref="A"/>
+							<M ref="A"/>
 							<X ref="U"/>
                             <app-note>
 								This function must be claimed if FIA_AFL_EXT.1 is claimed in the ST.
