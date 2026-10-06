@@ -16,7 +16,7 @@
       <PPTitle>Protection Profile for Retransmission Device</PPTitle>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2025-05-15</PPPubDate>
+      <PPPubDate>2026-10-06</PPPubDate>
       <Keywords>retransmission</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -24,7 +24,7 @@
   <RevisionHistory>
     <entry>
     <version>v 1.0</version>
-      <date>2024-12-30</date>
+      <date>2026-10-06</date>
       <subject>Initial release</subject>
     </entry>
   </RevisionHistory>	
