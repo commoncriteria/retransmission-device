@@ -249,9 +249,9 @@
 		
 		<sec:PFED_Configuration>
 			PFED is under patent protection and licensing terms can be discussed with NSA office of Research and Technology Transfer.<h:p/>
-			<h:center>National Security Agency</h:center><h:br/>
-			<h:center>ATTN: Technology Transfer Program</h:center><h:br/>
-			<h:center>9800 Savage Rd., Suite 6843</h:center><h:br/>
+			<h:center>National Security Agency</h:center>
+			<h:center>ATTN: Technology Transfer Program</h:center>
+			<h:center>9800 Savage Rd., Suite 6843</h:center>
 			<h:center>Fort George G. Meade, MD 20755-6843</h:center><h:p/>
 			<h:p>A TOE that claims Protocol Free Encrypting Device (PFED) functionality implements PFED as a specialized form of the HWS-ERD configuration. A PFED-conformant TOE				therefore consists of the hardware-separated EU and CU configuration described in Section 1.3.2.3, with the additional PFED-specific properties, cryptographic
 			behavior, provisioning behavior, isolation rules, and operational requirements described in this section.</h:p>
