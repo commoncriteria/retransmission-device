@@ -857,9 +857,9 @@
 				
 				<h:tr style="text-align: center">
 					<h:td>FCS_CKM.1/SKG</h:td>
-					<h:td style="text-align: center"></h:td>
-					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center">M</h:td>
+					<h:td style="text-align: center"></h:td>
+					<h:td style="text-align: center"></h:td>
 					<h:td style="text-align: center"></h:td>
 					<h:td>Required by TOEs to satisfy the protected key storage requirement (FPT_KST_EXT.1), and used by certain trusted channel selections in FTP_ITC.1.</h:td>
 				</h:tr>
