@@ -274,7 +274,7 @@
 		</sec:HWS-ERD_Configuration>
 		
 		<sec:PFED_Configuration>
-			PFED is under patent protection and licensing terms can be discussed with NSA office of Research and Technology Transfer.<h:p/>
+			PFED is under patent protection and licensing terms can be discussed with NSA office of Research and Technology Transfer. This licensing notice is informative. It does not change the conformance requirements of this PP, which are expressed independently of product, vendor or licensing model.<h:p/>
 			<h:center>National Security Agency</h:center>
 			<h:center>ATTN: Technology Transfer Program</h:center>
 			<h:center>9800 Savage Rd., Suite 6843</h:center>
@@ -561,9 +561,8 @@
 		<sec:EU-Only_Physical_Boundary>
 			The TOE includes the following.<h:ul>
 				<h:li>Encryption hardware platform</h:li>
-				<h:li>Untrusted network interfaces for special use cases as noted above</h:li>
-				<h:li>Trusted EUD or network (wired) interfaces</h:li>
-				<h:li>Wired interface to CU (non-WLAN configuration)</h:li>
+				<h:li>Trusted (red) interface: wired interface to the EUD or trusted network</h:li>
+				<h:li>Black interfaces: wired interface to a CU, and for Use Case 4, a WLAN interface</h:li>
 				<h:li>Cryptographic modules</h:li>
 				<h:li>Firmware and software implementing encryption and tunnel establishment</h:li>
 				<h:li>Management interfaces</h:li>
@@ -580,7 +579,7 @@
 			<h:li>The other device is an EU-only TOE.</h:li> 
 			<h:li>The outer device is an HWS-ERD, as seen in Figure 5.</h:li>
 			</h:ul>			
-			<figure entity="images/Optional deployment two EUs in series" title="Optional deployment: Two EUs in Series (Outer Device an EU-only TOE or an HWS-ERD" id="optdepltwoeu"/>
+			<figure entity="images/Optional deployment two EUs in series.png" title="Optional deployment: Two EUs in Series (Outer Device an EU-only TOE or an HWS-ERD" id="optdepltwoeu"/>
 		</sec:EU-Only_Physical_Boundary>
 		
 		<sec:HWS-ERD_Physical_Boundary>
@@ -9375,33 +9374,9 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     		<f-element id="fel-cpu-med">
     			<title>The TSF shall prevent code executing on any baseband processor (BP) from
     				accessing application processor (AP) resources except when mediated by the AP.</title>
-    			<note role="application"> These resources include:<h:br/>
-    				<h:ul>
-    					<h:li>Volatile and non-volatile memory</h:li>
-    					
-    					<h:li>Control of and data from integrated and non-integrated peripherals (e.g. USB
-    						controllers, touch screen controllers, LCD controller, codecs)</h:li>
-    					<h:li>Control of and data from integrated and non-integrated I/O sensors (e.g.
-    						camera, light, microphone, GPS, accelerometers, geomagnetic field
-    						sensors)</h:li>
-    				</h:ul>
-    				<h:br/> Retransmission devices are becoming increasingly complex having an application
-    				processor that runs an operating system and user applications and separate
-    				baseband processors that handle cellular and other wireless network connectivity. <h:br/><h:br/>
-    				<h:ul>
-    					<h:li>The application processor within most modern retransmission devices is a system on a
-    						chip (SoC) that integrates, for example, CPU/GPU cores and memory interface
-    						electronics into a single, power-efficient package.</h:li>
-    					<h:li>Baseband processors are becoming increasingly complex themselves delivering
-    						voice encoding alongside multiple independent radios (LTE, Wi-Fi, Bluetooth, FM,
-    						GPS) in a single package containing multiple CPUs and DSPs.</h:li>
-    				</h:ul>
-    				<h:br/> Thus, the baseband processors in these requirements include such
-    				integrated SoCs and include any radio processors (integrated or not) on the mobile
-    				device. <h:br/><h:br/> All other requirements mostly, except where noted, apply to
-    				firmware/software on the application processor, but future requirements (notably, all
-    				Integrity, Access Control, and Anti-Exploitation requirements) will apply to
-    				application processors and baseband processors.</note>
+    			<note role="application"> 
+    				These resources include volatile and non-volatile memory, the EU/CU interfaces, management ports, and any other interface controller within the TOE boundary. A baseband processor (BP) is any processor that runs firmware handling a WLAN or cellular radio interface, including the processor in a Wi-Fi module. The application processor (AP) is the processor that runs the TSF served by the radio: the CU's processor or, in an EU-only TOE that claims Use Case 4, the EU's processor. The BP processes untrusted radio-frequency input. This requirement ensures that a compromise of the BP cannot give it access to TOE memory or interfaces except through the AP, which mediates every such access.
+    			</note>
     			<aactivity>
     				<TSS>The evaluator shall examine the TSS to determine that it identifies each BP in the TOE, describes the interface between each BP and the AP, and describes the mechanism (for example, an IOMMU, a memory protection unit, or a message-only interface) that prevents the BP from accessing AP memory and peripherals except as mediated by the AP.<h:p/>
     					The TSS shall also identify any other devices operating on the bus between the BP and the AP and any resources the BP shares with the AP and describe how the mechanism prevents the BP from reaching AP memory through them. The evaluator shall verify that the design described in the TSS does not permit any BPs from accessing any of the peripherals or from accessing main memory (volatile and non-volatile) used by the AP. In particular, the evaluator shall ensure that the design prevents modification of executable memory of the AP by the BP.
@@ -13335,7 +13310,9 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
         penetration tools are created and uniformly distributed to the evaluation labs, the
         evaluator will not be expected to test for these vulnerabilities in the TOE. The labs will be expected to comment on the likelihood of these vulnerabilities given
         the documentation provided by the vendor. This information will be used in the development
-        of penetration testing tools and for the development of future protection profiles.
+        of penetration testing tools and for the development of future protection profiles.<h:p/>
+    	
+    	The TOE does not protect EUD application content already compromised inside the EUD.
 		
         <a-component cc-id="ava_van.1" name="Vulnerability Survey (AVA_VAN.1)">
 			<a-element type="D">
