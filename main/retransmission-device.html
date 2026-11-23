@@ -867,7 +867,7 @@ The following sections list Common Criteria and technology terms used in this do
 		
 		
 		<h4 class="indexable" data-level="4" id="PFED_Configuration">1.3.2.4 PFED Configuration</h4>
-			<abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> is under patent protection and licensing terms can be discussed with NSA office of Research and Technology Transfer.<p></p>
+			<abbr class="dyn-abbr"><a href="#abbr_PFED">PFED</a></abbr> is under patent protection and licensing terms can be discussed with NSA office of Research and Technology Transfer. This licensing notice is informative. It does not change the conformance requirements of this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, which are expressed independently of product, vendor or licensing model.<p></p>
 			<center>National Security Agency</center>
 			<center>ATTN: Technology Transfer Program</center>
 			<center>9800 Savage Rd., Suite 6843</center>
@@ -1154,9 +1154,8 @@ The following sections list Common Criteria and technology terms used in this do
 		<h4 class="indexable" data-level="4" id="EU-Only_Physical_Boundary">1.3.4.2 EU-Only Physical Boundary</h4>
 			The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes the following.<ul>
 				<li>Encryption hardware platform</li>
-				<li>Untrusted network interfaces for special use cases as noted above</li>
-				<li>Trusted <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or network (wired) interfaces</li>
-				<li>Wired interface to <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> (non-WLAN configuration)</li>
+				<li>Trusted (red) interface: wired interface to the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> or trusted network</li>
+				<li>Black interfaces: wired interface to a <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>, and for Use Case 4, a WLAN interface</li>
 				<li>Cryptographic modules</li>
 				<li>Firmware and software implementing encryption and tunnel establishment</li>
 				<li>Management interfaces</li>
@@ -1173,7 +1172,7 @@ The following sections list Common Criteria and technology terms used in this do
 			<li>The other device is an <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-only <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</li> 
 			<li>The outer device is an <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr>, as seen in Figure 5.</li>
 			</ul>			
-			<div class="figure" id="figure-optdepltwoeu"><img id="optdepltwoeu" src="images/Optional deployment two EUs in series" width="" height=""></img><br/><span class="ctr" data-myid="optdepltwoeu" data-counter-type="ct-figure">Figure <span class="counter">5</span></span>:
+			<div class="figure" id="figure-optdepltwoeu"><img id="optdepltwoeu" src="images/Optional deployment two EUs in series.png" width="" height=""></img><br/><span class="ctr" data-myid="optdepltwoeu" data-counter-type="ct-figure">Figure <span class="counter">5</span></span>:
       Optional deployment: Two EUs in Series (Outer Device an <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-only <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or an <abbr class="dyn-abbr"><a href="#abbr_HWS-ERD">HWS-ERD</a></abbr></div>
 		
 		
@@ -8423,33 +8422,9 @@ The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> states where filte
     		<div class="element"><div class="reqid" id="FPT_BBD_EXT.1.1"><a href="#FPT_BBD_EXT.1.1" class="abbr">FPT_BBD_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall prevent code executing on any baseband processor (BP) from
     				accessing application processor (AP) resources except when mediated by the AP.<div class="appnote"><span class="note-header">Application
       Note:
-    </span><span class="note"> These resources include:<br/>
-    				<ul>
-    					<li>Volatile and non-volatile memory</li>
-    					
-    					<li>Control of and data from integrated and non-integrated peripherals (e.g. <abbr class="dyn-abbr"><a href="#abbr_USB">USB</a></abbr>
-    						controllers, touch screen controllers, LCD controller, codecs)</li>
-    					<li>Control of and data from integrated and non-integrated I/O sensors (e.g.
-    						camera, light, microphone, <abbr class="dyn-abbr"><a href="#abbr_GPS">GPS</a></abbr>, accelerometers, geomagnetic field
-    						sensors)</li>
-    				</ul>
-    				<br/> Retransmission devices are becoming increasingly complex having an application
-    				processor that runs an operating system and user applications and separate
-    				baseband processors that handle cellular and other wireless network connectivity. <br/><br/>
-    				<ul>
-    					<li>The application processor within most modern retransmission devices is a system on a
-    						chip (SoC) that integrates, for example, CPU/GPU cores and memory interface
-    						electronics into a single, power-efficient package.</li>
-    					<li>Baseband processors are becoming increasingly complex themselves delivering
-    						voice encoding alongside multiple independent radios (LTE, Wi-Fi, Bluetooth, FM,
-    						<abbr class="dyn-abbr"><a href="#abbr_GPS">GPS</a></abbr>) in a single package containing multiple CPUs and DSPs.</li>
-    				</ul>
-    				<br/> Thus, the baseband processors in these requirements include such
-    				integrated SoCs and include any radio processors (integrated or not) on the mobile
-    				device. <br/><br/> All other requirements mostly, except where noted, apply to
-    				firmware/software on the application processor, but future requirements (notably, all
-    				Integrity, Access Control, and Anti-Exploitation requirements) will apply to
-    				application processors and baseband processors.</span></div></div></div>
+    </span><span class="note"> 
+    				These resources include volatile and non-volatile memory, the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>/<abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr> interfaces, management ports, and any other interface controller within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary. A baseband processor (BP) is any processor that runs firmware handling a WLAN or cellular radio interface, including the processor in a Wi-Fi module. The application processor (AP) is the processor that runs the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> served by the radio: the <abbr class="dyn-abbr"><a href="#abbr_CU">CU</a></abbr>'s processor or, in an <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>-only <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that claims Use Case 4, the <abbr class="dyn-abbr"><a href="#abbr_EU">EU</a></abbr>'s processor. The BP processes untrusted radio-frequency input. This requirement ensures that a compromise of the BP cannot give it access to <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> memory or interfaces except through the AP, which mediates every such access.
+    			</span></div></div></div>
     		
     	<div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FPT_BBD_EXT.1">FPT_BBD_EXT.1</a></div>
     				
@@ -11557,7 +11532,9 @@ The <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> states where filte
         penetration tools are created and uniformly distributed to the evaluation labs, the
         evaluator will not be expected to test for these vulnerabilities in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The labs will be expected to comment on the likelihood of these vulnerabilities given
         the documentation provided by the vendor. This information will be used in the development
-        of penetration testing tools and for the development of future protection profiles.
+        of penetration testing tools and for the development of future protection profiles.<p></p>
+    	
+    	The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not protect <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr> application content already compromised inside the <abbr class="dyn-abbr"><a href="#abbr_EUD">EUD</a></abbr>.
 		
         <div class="comp" id="AVA_VAN.1"><h4>AVA_VAN.1 Vulnerability Survey (AVA_VAN.1)</h4>
 				

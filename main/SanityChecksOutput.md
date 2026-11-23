@@ -1052,6 +1052,7 @@
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/sec:SFRs[1]""/section[11]""/f-component[6]""/f-element[3]""/aactivity[1]""/Tests[1]"The evalu"/testlist[1]""/h:p[4]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/section[1]""/section[3]"The guida"/a-component[1]""/a-element[9]""/aactivity[1]""/h:p[5]""
 * Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/section[1]""/section[3]"The guida"/a-component[2]""/a-element[5]""/aactivity[1]""/h:p[1]""
+* Warning: Detected an empty _p_ element./PP[1]""/sec:req[1]""/section[1]""/section[6]"For the c"/h:p[1]""
 * Warning: Detected an empty _p_ element./PP[1]""/appendix[2]"This appe"/h:p[1]""
  Failed to find a reference to at-mandatory.
  Failed to find a reference to at-objective.
