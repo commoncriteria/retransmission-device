@@ -58,11 +58,13 @@
     <tech-terms>
         <term abbr="AES" full="Advanced Encryption Standard"/>
         <term abbr="ANSI" full="American National Standards Institute"/>
+    	<term abbr="AP" full="Application Processor"/>
         <term full="Application Programming Interface" abbr="API">
             A specification of routines, data structures, object classes, and variables
             that allows an application to make use of services provided by another software
             component, such as a library. APIs are often provided for a set of libraries included
             with the platform.</term>
+    	<term abbr="BP" full="Baseband Processor"/>
     		<term abbr="CIK" full="Crypto Ignition Key">
     			A removable token or stored value that must be presented to the TOE before its cryptographic functions are activated.
     		</term>    
@@ -96,11 +98,13 @@
 		<term abbr="IC" full="Interconnect"/>
         <term abbr="IEC" full="International Electrotechnical Commission"/>
         <term abbr="IETF" full="Internet Engineering Task Force"/>
+    	<term abbr="IOMMU" full="Input-Output Memory Management Unit"></term>
         <term abbr="IP" full="Internet Protocol"/>
         <term abbr="IR" full="Intermediate Integer"/>
         <term abbr="ISO" full="International Organization for Standardization"/>
         <term abbr="IT" full="Information Technology"/>
         <term abbr="ITSEF" full="Information Technology Security Evaluation Facility"/>
+    	<term abbr="MPDU" full="MACsec Protocol Data Units"></term>
         <term abbr="NFC" full="Near Field Communication"/>
         <term abbr="NIAP" full="National Information Assurance Partnership"/>
         <term abbr="NIST" full="National Institute of Standards and Technology"/>
@@ -325,7 +329,7 @@
 						key was somehow compromised.</h:p>
 				<h:p>The CU includes a packet filter, but it is embedded in a complex environment that the EU cannot rely on to be active or
 					correct. The PFED EU's isolation and confidentiality argument therefore does not depend on correct CU packet filtering. The CU
-					filtering and isolation SFRs that apply to an HWS-ERD are still evaluated, as defense in depth. Changes to CU routing, addressing, or black transport do not require the EU pair to be re-provisioned, provided the EU configuration and the PFED channel are unchanged.</h:p>
+					filtering and isolation SFRs that apply to an HWS-ERD are still evaluated, as defense in depth. Changes to CU routing, addressing, or black transport do not require the EU pair to be reprovisioned, provided the EU configuration and the PFED channel are unchanged.</h:p>
 						<h:p>A packet that emerges from the EU may be labeled, where the label is also cryptographically authenticated. A CU must
 							maintain the label between each EU. This may be considered a channel. There may be more than one channel in an 
 							HWS-ERD PFED. Each channel is a unique cryptographic bond between two EUs. When a channel is established, one EU acts
@@ -466,7 +470,7 @@
 			<sec:Platform_and_Operational_Environment_Enforcement>
 			The TOE enforces platform separation such that the following is true:<h:ul>
 			<h:li>The EU and CU do not share computation infrastructure.</h:li>
-			<h:li>The EU and cu are connected only by the dedicated intercomponent link specified in FPT_SKP_EXT.1.4.</h:li>
+			<h:li>The EU and CU are connected only by the dedicated intercomponent link specified in FPT_SKP_EXT.1.4.</h:li>
 			<h:li>The link is stateless and connectionless, carries framed messages only, and gives the CU no access to EU memory.</h:li>
 			<h:li>Only the EU acts as bus master on the link.</h:li>
 			</h:ul>
@@ -575,10 +579,10 @@
 				<h:li>Black transport networks</h:li>
 			</h:ul>
 			
-			Each device is a separate TOE, providing inner and outer layers of encryption.<h:ul type="a">
+			Each device is a separate TOE, providing inner and outer layers of encryption.<h:ol type="">
 			<h:li>The other device is an EU-only TOE.</h:li> 
 			<h:li>The outer device is an HWS-ERD, as seen in Figure 5.</h:li>
-			</h:ul>			
+			</h:ol>			
 			<figure entity="images/Optional deployment two EUs in series.png" title="Optional deployment: Two EUs in Series (Outer Device an EU-only TOE or an HWS-ERD" id="optdepltwoeu"/>
 		</sec:EU-Only_Physical_Boundary>
 		
@@ -1737,9 +1741,9 @@
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center">M</h:td>
 					<h:td style="text-align: center"></h:td>
-					<h:td>EU: Mandatory; the data-plane channel (MACsec, VPN Client, WLAN Clients, or PFED). CU: Claimed only when the CU exports
-						audit data, retrieves updates, or is managed remotely through a trusted channel (an audit server, update server, or remote
-						management station).</h:td>
+					<h:td>EU: Mandatory; the data-plane channel (MACsec, VPN Client, WLAN Clients, or PFED). CU: Claimed only when the
+						CU exports audit data, retrieves updates, or is managed remotely through a trusted channel (an audit server,
+						update server, or remote management station).</h:td>
 				</h:tr>
 
 				<h:tr style="text-align: center">
@@ -1891,19 +1895,19 @@
 				<addressed-by>FDP_IFC.2</addressed-by><rationale>Mitigates this threat by placing all CU, EU/CU, and PFED control, bootstrap, recovery, rekey, and EUD flows under the RD information-flow control SFP, including flows available during startup, maintenance, recovery, diagnostics, and incomplete configuration. This ensures there is no uncontrolled path around the detailed flow rules. 
 				</rationale>
 				<addressed-by>FDP_IFF.1</addressed-by><rationale>Mitigates this threat by permitting only flows that match the configured interface, domain, peer, session, lifecycle, transaction, and traffic-direction attributes. It rejects malformed or out-of-state PFED traffic, unauthorized directions, alternate EU/CU paths, nested or concurrent transactions, and EUD traffic attempted before authentication, key establishment, transaction completion, or recovery prerequisites are satisfied. 
-				</rationale>							
-				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by transmitting data over a secure connection protected from unauthorized disclosure.</rationale>		
+				</rationale>	
 				<addressed-by>FCS_CKM.1/PFEDAKG (impl-dep)</addressed-by><rationale>Mitigates this threat by generating approved ML-KEM-1024 and ML-DSA-87 asymmetric key pairs used to establish PFED keying material and authenticate PFED operations, thereby supporting rejection of unauthorized peers and the confidentiality and integrity protection of PFED communications.</rationale>
 				<addressed-by>FCS_CKM.5/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by deriving all PFED session and recovery keys using an approved KDF specified in FCS_CKM.5/PFED from protected key-store material, newly derived shared secrets, and hardware-based entropy. This prevents use of inadequately derived or unrelated keying material and supplies appropriately strong keys for PFED confidentiality and integrity protection. </rationale>
 				<addressed-by>FDP_PBR_EXT.1 (impl-dep)</addressed-by><rationale>Mitigates this threat by preventing transparent Layer-2 bridging for unprotected traffic, constructing a new Layer-2 encapsulation across the trust boundary, preserving the complete cryptographic continuity of MACsec- or PFED-protected frames, and dropping traffic that cannot be safely forwarded under either policy.
 				</rationale>
-				<addressed-by>FIA_PSK_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by requiring a tunnel-0 pre-shared key of at least 256 bits that is used only to establish tunnel-0 and, when the TOE generates it, is generated by the RBG specified in FCS_RBG.1.
+				<addressed-by>FIA_PSK_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by requiring a tunnel-0 pre-shared key of at least 256 bits that is used only to establish tunnel-0 and when the TOE generates it, is generated by the RBG specified in FCS_RBG.1.
 				</rationale>
 				<addressed-by>FPF_RUL_EXT.1 (impl-dep)</addressed-by><rationale>Mitigates the threat by filtering traffic from outside the protected network.</rationale>	
-				<addressed-by>FPT_RCV.1/PFED (impl-dep)</addressed-by>
+				<addressed-by>FPT_RCV_EXT.1/PFED (impl-dep)</addressed-by>
 				<rationale>Mitigates this threat by entering a secure recovery state following dead-peer detection, session-key divergence, failed rekey, or failed recovery, and suppressing all EUD traffic while PFED session or key state is stale, divergent, incomplete, or uncertain. </rationale>
-				<addressed-by>FPT_TRAN_EXT.1 (impl-dep)</addressed-by><rationale>Mitigates this threat by serializing PFED lifecycle transactions, prohibiting nested or overlapping transactions within the selected scope, enforcing a reaper timer, preventing EUD traffic from using incomplete transaction state, and requiring cleanup of cryptographic, protocol, and transaction state before another transaction is permitted. This prevents an attacker or failed exchange from leaving PFED in an ambiguous or partially updated security state. 
-				</rationale>
+				<addressed-by>FPT_TRAN_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by serializing PFED lifecycle transactions, prohibiting nested or overlapping transactions within the selected scope, enforcing a reaper timer, preventing EUD traffic from using incomplete transaction state, and requiring cleanup of cryptographic, protocol, and transaction state before another transaction is permitted. This prevents an attacker or failed exchange from leaving PFED in an ambiguous or partially updated security state. 
+				</rationale>						
+				<addressed-by>FTP_ITC.1 (sel-based)</addressed-by><rationale>Mitigates the threat by transmitting data over a secure connection protected from unauthorized disclosure.</rationale>		
 				<addressed-by>FTP_PRO.1 (sel-based)</addressed-by><rationale>Mitigates the threat by defining the PFED trusted channel protocol, whose AES-GCM-256 protection provides integrity and confidentiality for data exchanged between paired EUs.</rationale>
 				<addressed-by>FTP_PRO.2 (sel-based)</addressed-by><rationale>Mitigates this threat by establishing a shared secret with the PFED peer, authenticating the required endpoint or endpoints according to the defined PFED rules, and deriving the trusted-channel cryptographic keys from the shared secret using the assigned KDF. This prevents establishment with an unauthenticated peer and supplies the keying material required for channel confidentiality and integrity. 
 				</rationale>
@@ -1928,7 +1932,7 @@
 				<addressed-by>FPF_RUL_EXT.1 (impl-dep)</addressed-by><rationale>Mitigates the threat by filtering traffic to disallow unauthorized access.</rationale>	
 				<addressed-by>FPT_SEP_EXT.1 (impl-dep)</addressed-by><rationale>Mitigates this threat by implementing the EU and CU as separate security domains with physically distinct processors and memory, no shared memory or DMA, a dedicated intercomponent interface, and no alternate EU/CU communication path. This limits the scope of compromise of the black-facing or transport component, prevents direct access to EU plaintext and key resources, and prevents one component from reaching the other component’s management or security functions through an unintended path. 
 				</rationale>
-				<addressed-by>FPT_TRAN_EXT.1 (impl-dep)</addressed-by><rationale>Mitigates this threat by serializing PFED lifecycle transactions, prohibiting nested or overlapping transactions within the selected scope, enforcing a reaper timer, preventing EUD traffic from using incomplete transaction state, and requiring cleanup of cryptographic, protocol, and transaction state before another transaction is permitted. This prevents an attacker or failed exchange from leaving PFED in an ambiguous or partially updated security state. 
+				<addressed-by>FPT_TRAN_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by serializing PFED lifecycle transactions, prohibiting nested or overlapping transactions within the selected scope, enforcing a reaper timer, preventing EUD traffic from using incomplete transaction state, and requiring cleanup of cryptographic, protocol, and transaction state before another transaction is permitted. This prevents an attacker or failed exchange from leaving PFED in an ambiguous or partially updated security state. 
 				</rationale>
 				<addressed-by>FTP_PRO.2 (sel-based)</addressed-by><rationale>Mitigates this threat by establishing a shared secret with the PFED peer, authenticating the required endpoint or endpoints according to the defined PFED rules, and deriving the trusted-channel cryptographic keys from the shared secret using the assigned KDF. This prevents establishment with an unauthenticated peer and supplies the keying material required for channel confidentiality and integrity. 
 				</rationale>
@@ -1967,8 +1971,7 @@
 				</rationale>
 				<addressed-by>FTA_SSL_EXT.1</addressed-by><rationale>Mitigates this threat by locking or terminating unattended local administrative sessions, allowing administrator- or user-initiated locking, obscuring previously displayed information, disabling continued administrative activity, and requiring reauthentication before the session can be resumed. 
 				</rationale>
-				<addressed-by>FTA_TAB.1</addressed-by><rationale>Mitigated the threat by providing actionable consequences for misuse of the TSF.</rationale>				
-				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by implementing a specified protocol as a means to protect data in transit.  </rationale>							<addressed-by>FAU_GEN.2/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by associating applicable PFED provisioning, session, rekey, recovery, and termination audit records with the initiating EU+CU identity, allowing malicious or unauthorized PFED actions to be attributed to the responsible TOE or peer identity.</rationale>
+				<addressed-by>FTA_TAB.1</addressed-by><rationale>Mitigated the threat by providing actionable consequences for misuse of the TSF.</rationale>						<addressed-by>FAU_GEN.2/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by associating applicable PFED provisioning, session, rekey, recovery, and termination audit records with the initiating EU+CU identity, allowing malicious or unauthorized PFED actions to be attributed to the responsible TOE or peer identity.</rationale>
 				<addressed-by>FCS_REC_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by suppressing EUD traffic during recovery, ensures sequential derivation of
 					recovery keys, and terminates sessions on failure to converge.</rationale>
 				<addressed-by>FIA_PSK_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by use is limited to tunnel-0 bootstrap, preventing attackers from exploiting 
@@ -2000,7 +2003,8 @@
 				<addressed-by>FCS_RBG.4 (sel-based)</addressed-by><rationale>Mitigates the threat of a network attack by ensuring that the TOE's DRBG is seeded with sufficient entropy to
 					ensure the generation of strong cryptographic keys.</rationale>
 				<addressed-by>FCS_RBG.5 (sel-based)</addressed-by><rationale>Mitigates the threat by ensuring that the TOE's DRBG is seeded with sufficient entropy to ensure the generation
-					of strong cryptographic keys.</rationale>
+					of strong cryptographic keys.</rationale>			
+				<addressed-by>FTP_ITC.1 (sel-based)</addressed-by><rationale>Mitigates the threat by implementing a specified protocol as a means to protect data in transit.  </rationale>		
 				<addressed-by>FTP_ITP_EXT.1 (sel-based)</addressed-by><rationale>Mitigates the threat by using a physically protected channel to protect data in transit.</rationale>
 				
 				
@@ -2130,14 +2134,12 @@
 			
 			<threat name="T.REPLAY_ATTACK">
 				<description>An attacker on the black transport network may capture protected traffic or PFED transactions and later re-inject them in order to disrupt a session, force a state change, or cause the receiver to accept stale data.</description>
-				<addressed-by>FTP_ITC.1</addressed-by><rationale>Mitigates the threat by using a specified protocol to encapsulate and encrypt channel
-					data.</rationale>
 				<addressed-by>FCS_COP.1/AEAD</addressed-by><rationale>Mitigates the threat by authenticating each packet, including its sequence number, so that a modified or replayed packet fails verification.</rationale>
+				<addressed-by>FDP_PBR_EXT.1 (impl-dep)</addressed-by><rationale>Mitigates the threat by forwarding protected frames without terminating them, so the peer endpoint's anti-replay check applies end-to-end.</rationale>
 				<addressed-by>FTP_ITC.1 (sel-based)</addressed-by><rationale>Mitigates the threat by using a trusted channel protocol that rejects replayed messages.</rationale>
 				<addressed-by>FTP_PRO.1 (sel-based)</addressed-by><rationale>Mitigates the threat by enforcing PFED protocol rules, including AES-GCM anti-replay protection, so that captured packets replayed later are rejected by the peer EU.</rationale>
 				<addressed-by>FTP_PRO.3 (sel-based)</addressed-by><rationale>Mitigates this threat by requiring protection of PFED data in transit against replay.
 				</rationale>
-				<addressed-by>FDP_PBR_EXT.1 (impl-dep)</addressed-by><rationale>Mitigates the threat by forwarding protected frames without terminating them, so the peer endpoint's anti-replay check applies end-to-end.</rationale>
 			</threat>
 			
 			<threat name="T.SECURITY_FUNCTIONALITY_FAILURE">
@@ -2150,8 +2152,6 @@
 				<addressed-by>FPT_INI.1</addressed-by><rationale>Mitigates this threat by using a self-protected initialization function to verify cryptographic operation, firmware and software authenticity, integrity and version, filtering and information-flow configuration, trust anchors, hardware-root binding, and PFED provisioning state before establishing the secure initial state. Initialization failures cause the TOE to halt or enter a defined reduced-functionality or error state. 
 				</rationale>
 				<addressed-by>FPT_NOT_EXT.1</addressed-by><rationale>Mitigates the threat by transitioning the TOE to non-operational mode when a self-test or firmware integrity verification fails.</rationale>
-				<addressed-by>FPT_RCV.1</addressed-by><rationale>Mitigates this threat by placing the TOE in a constrained maintenance mode after assigned failures, disabling affected normal forwarding, trusted-channel, cryptographic, or management functions, and permitting return to normal operation only after the documented manual recovery procedure restores the defined secure state.
-				</rationale>
 				<addressed-by>FPT_RCV.2</addressed-by><rationale>Mitigates this threat by automatically returning the TOE to a secure state following assigned failures and, where automatic recovery is not possible, entering a constrained maintenance mode rather than continuing normal operation in an uncontrolled state.
 				</rationale>
 				<addressed-by>FPT_TST.1</addressed-by><rationale>Mitigates the threat by using self-tests to ensure correct operation of the DRBG.</rationale>		
@@ -2160,8 +2160,10 @@
 				
 				<addressed-by>FPT_DPD_EXT.1 (impl-dep)</addressed-by><rationale>Mitigates this threat by detecting loss of peer liveness, triggering PFED reconnection or session re-establishment, and stopping further EUD traffic until a new valid session has been established. This prevents continued forwarding through a failed, disconnected, or uncertain protected-channel state.
 				</rationale>			
-				<addressed-by>FPT_RCV.1/PFED (impl-dep)</addressed-by>
+				<addressed-by>FPT_RCV_EXT.1/PFED (impl-dep)</addressed-by>
 				<rationale>Mitigates this threat by entering a secure recovery state following dead-peer detection, session-key divergence, failed rekey, or failed recovery, and suppressing all EUD traffic while PFED session or key state is stale, divergent, incomplete, or uncertain. </rationale>
+				<addressed-by>FPT_RCV_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by placing the TOE in a constrained maintenance mode after assigned failures, disabling affected normal forwarding, trusted-channel, cryptographic, or management functions, and permitting return to normal operation only after the documented manual recovery procedure restores the defined secure state.
+				</rationale>
 				<addressed-by>FPT_TRAN_EXT.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by serializing PFED lifecycle transactions, prohibiting nested or overlapping transactions within the selected scope, enforcing a reaper timer, preventing EUD traffic from using incomplete transaction state, and requiring cleanup of cryptographic, protocol, and transaction state before another transaction is permitted. This prevents an attacker or failed exchange from leaving PFED in an ambiguous or partially updated security state. 
 				</rationale>
 				<addressed-by>FPT_TST.1/PFED (impl-dep)</addressed-by><rationale>Mitigates this threat by testing the PFED cryptographic functions and hardware root of trust during initialization and by preventing those functions from being treated as operational before their tests complete successfully.</rationale>				
@@ -2252,7 +2254,7 @@
     			<addressed-by>FPT_PPF_EXT.1</addressed-by><rationale>Mitigates the threat by using the official update process to be the only method to modify platform firmware.</rationale>
     			<addressed-by>FPT_RBP_EXT.1</addressed-by><rationale>Mitigates this threat by protecting against a malicious or inadvertent downgrade of the software/firmware to an earlier version that may have security
     				flaws not present in the more recent version.</rationale>
-    			<addressed-by>FPT_ROT_EXT.1/</addressed-by><rationale>Mitigates the threat by rooting the integrity of platform firmware in immutable code, credentials, or a dedicated security component.</rationale>
+    			<addressed-by>FPT_ROT_EXT.1</addressed-by><rationale>Mitigates the threat by rooting the integrity of platform firmware in immutable code, credentials, or a dedicated security component.</rationale>
     			<addressed-by>FPT_ROT_EXT.2</addressed-by><rationale>Mitigates the threat by providing a means to attest the validity of updates.</rationale>
     			<addressed-by>FPT_TUD_EXT.1</addressed-by><rationale>Mitigates this threat by providing authorized users the ability to query the current version of the TOE software/firmware, initiate updates, and verify
     				updates prior to installation using a manufacturer digital signature.</rationale>
@@ -2466,18 +2468,7 @@
 	 				</h:ol>.
 	 			</title>		
 	 			<note role="application">
-	 				The ST author replaces the cross-reference to the table of audit events with an
-	 				appropriate cross-reference for the ST. If the TOE does not implement functionality
-	 				that enables the administrator to configure local audit settings, then item
-	 				FAU_STG_EXT.1 in Table 2 should be considered ‘trivially satisfied’ and the ST
-	 				author should include an explanation that the local audit is not configurable in the
-	 				TSS.<h:p/>
-	 				The date and time information for any audit event should be recorded as part of
-	 				each audit record to ensure the timing of the event can be unambiguously
-	 				determined from the data contained in the audit record. The representation of date
-	 				and time information recorded for each event needs to allow unambiguous
-	 				determination of at least day, month and year information for the date and hours,
-	 				minutes and second information for the time.<h:p/>
+	 				
 	 				Additional audit events will apply to the TOE depending on the optional and
 	 				selection-based requirements adopted from Annex A, Annex B, PP-Module(s), and
 	 				functional package(s). For all SFRs included in the ST, the ST must include the
@@ -2491,6 +2482,7 @@
 	 					For the administrative task of generating/import of, changing, or deleting of
 	 					cryptographic keys as defined in FAU_GEN.1.1c, the TSS shall identify what
 	 					information is logged to identify the relevant key.<h:p/>
+	 					
 	 					For an HWS-ERD TOE, the evaluator shall examine the TSS to ensure that it
 	 					describes which of the overall required auditable events defined in FAU_GEN.1.1
 	 					are generated and recorded by which TOE components. The evaluator shall
@@ -2665,11 +2657,10 @@
 	 		
 	 		<consistency-rationale/>
 	 		<f-element id="fau-stg-1e1">
-	 			<title>The TSF shall be able to store generated audit data on the <selectables>
+	 			<title>The TSF shall be able to <selectables>
 	 				<selectable>store generated audit data on the TOE itself</selectable>
 	 				<selectable id="transmit-external">transmit the generated audit data to an external IT entity using a trusted 
 	 					channel according to <h:b>FTP_ITC.1</h:b></selectable>
-	 				<selectable>protect stored audit records from unauthorized modification and deletion</selectable>
 	 				</selectables>.
 	 			</title>
 	 			<note role="application">
@@ -2963,7 +2954,7 @@
 		</section>
 	
 		<section title="Class FCS: Cryptographic Support" id="fcs">
-			All cryptographic algorithms in this PP are CNSA 1.0 or CNSA 2.0 compliant. CNSA 2.0 algorithms (AES-256, SHA-384 or SHA-512, ML-KEM-1024, ML-DSA-87, LMS and XMSS) are preferred. CNSA 1.0 algorithms (RSA with a modulus of 3072 bits or more, finite-field Diffie-Hellman with 3072-bit or larger groups, and ECDH or ECDSA on P-384) are permitted during the transition to CNSA 2.0.
+			All cryptographic algorithms in this PP are CNSA 1.0 or CNSA 2.0 compliant. CNSA 2.0 algorithms (AES-256, SHA-384 or SHA-512, ML-KEM-1024, ML-DSA-87, LMS, and XMSS) are preferred. CNSA 1.0 algorithms (RSA with a modulus of 3072 bits or more, finite-field Diffie-Hellman with 3072-bit or larger groups, and ECDH or ECDSA on P-384) are permitted during the transition to CNSA 2.0.
 		<!-- FCS_CKM_EXT.1 -->
 		<ext-comp-def fam-id="FCS_CKM_EXT" title="Cryptographic Key Management">
 			<fam-behavior>This family defines requirements for management of cryptographic keys that are not addressed by FCS_CKM in CC Part 2.
@@ -3170,14 +3161,14 @@
 					
 					For Finite Field Cryptography (FFC) DSA, ST authors should consult schemes for guidelines on use. FIPS PUB 186-5 does not approve
 					DSA for digital signature generation but allows DSA for digital signature verification for legacy purposes. “FFC-ERB” or “FFC–RS”
-					may be claimed 	only for generating private and public keys when “DH” is claimed in FCS_CKM_EXT.7.<h:p/>					
+					may be claimed 	only for generating private and public keys when “<h:i>DH</h:i>” is claimed in FCS_CKM_EXT.7.<h:p/>					
 					
-					When generating ECC keys pairs for key agreement and if “ECDH” is claimed in FCS_CKM_EXT.7, then “ECC–ERB” or “ECC–RS” must be
+					When generating ECC keys pairs for key agreement and if “<h:i>ECDH</h:i>” is claimed in FCS_CKM_EXT.7, then “<h:i>ECC–ERB</h:i>” or “<h:i>ECC–RS</h:i>” must be
 					claimed. The sizes of the private key, which is a scalar, and the public key, which is a point on the elliptic curve, are
 					determined by the choice of the curve.<h:p/>					
 					
-					When generating ECC key pairs for digital signature generation and if “ECDSA” is claimed in FCS_COP.1/SigGen, then “ECC–ERB” or
-					“ECC–RS” must be claimed. The sizes of the private key, which is a scalar, and the public key, which is a point on the elliptic
+					When generating ECC key pairs for digital signature generation and if “<h:i>ECDSA</h:i>” is claimed in FCS_COP.1/SigGen, then “<h:i>ECC–ERB</h:i>” or
+					“<h:i>ECC–RS</h:i>” must be claimed. The sizes of the private key, which is a scalar, and the public key, which is a point on the elliptic
 					curve, are determined by the choice of the curve.					
 				</note>
 				<aactivity level="element">
@@ -3593,7 +3584,7 @@
 					generation algorithms and parameter sets required for PFED operations.<h:p/>
 					This SFR must be included in the ST when PFED is claimed. If this SFR is included in the ST, then FCS_CKM.6/PFED and FCS_RBG.1 must also be claimed. The TOE
 					always selects ML-KEM: ML-KEM-1024 key pairs are generated within the EU for each key encapsulation, are ephemeral, and are never exported. The TOE selects
-					ML-DSA only if “generated by the TOE during tunnel-1 provisioning” is selected in FTP_PRO.2.2. If the ML-DSA-87 key pair is injected or imported, the TSS
+					ML-DSA only if “<h:i>generated by the TOE during tunnel-1 provisioning</h:i>” is selected in FTP_PRO.2.2. If the ML-DSA-87 key pair is injected or imported, the TSS
 					describes how the private key is protected from manufacture or import until use (FPT_KST_EXT.1), and import is covered by FDP_ITC_EXT.1.
 				</note>
 				<aactivity>
@@ -3747,17 +3738,14 @@
 					key distribution method [<h:i>key encapsulation</h:i>] that meets the following: [<h:i>none</h:i>].
 				</title>
 				<note role="application">					
-						An IPsec EU that uses ML-KEM-1024 claims this component with "key encapsulation" selected (see FCS_CKM_EXT.7). The PP-Module for WLAN Clients relies on
+						An IPsec EU that uses ML-KEM-1024 claims this component with "<h:i>key encapsulation</h:i>" selected (see FCS_CKM_EXT.7). The PP-Module for WLAN Clients relies on
 						this PP for key establishment, so a WLAN EU claims this component. A MACsec EU does not need it, because the PP-Module for MACsec Ethernet Encryption
 						defines its own key distribution.<h:p/>
 					
 						If "<h:i>key encapsulation</h:i>" is selected, FCS_COP.1/KeyEncap must be claimed, which specifies the
 						relevant list of standards.<h:p/>
-										
-						If "<h:i>key wrapping</h:i>" is selected, FCS_COP.1/KeyWrap must be claimed, which specifies the relevant
-						list of standards.<h:p/>
-										
-						If "<h:i>encrypted channels</h:i>" is selected, the channel used must be one specified in FTP_IC.1.<h:p/>
+					
+						If "<h:i>encrypted channels</h:i>" is selected, the channel used must be one specified in FTP_ITC.1.<h:p/>
 					
 						<h:b>For PFED:</h:b><h:p/>
 						ML-KEM-1024 key encapsulation is the only PFED key distribution method. It is used for tunnel-1 establishment, the mandatory session-setup rekey, and
@@ -3900,10 +3888,11 @@
 						destroying different keying material, all relevant claims should be selected and the TSS should identify which keying material is destroyed by which
 						mechanism.<h:p/>
 						Key storage areas in non-volatile storage can be overwritten with any value that renders the keys unrecoverable. The value used can be all zeroes, all
-						ones, or any other pattern or combination of values significantly different than the value of the key itself. When ‘a value that does not contain any
-						CSP’ is chosen, it means that the TOE uses some other specified data not drawn from a source that may contain keying material or reveal information
+						ones, or any other pattern or combination of values significantly different than the value of the key itself. When "<h:i>a value that does not contain any
+						CSP</h:i>" is chosen, it means that the TOE uses some other specified data not drawn from a source that may contain keying material or reveal information
 						about it or any other TSF-protected data. In other words, the data used for overwriting is carefully selected and not taken from a general ‘pool’ that
-						might contain current or residual data that itself requires confidentiality protection. If multiple copies exist, all copies must be destroyed.
+						might contain current or residual data that itself requires confidentiality protection. If multiple copies exist, all copies must be destroyed.<h:p/>
+					When the TOE is decommissioned, the TSF destroys all secret keys, credentials, certificates, and provisioning artifacts in nonvolatile storage, using the zeroization function in FMT_SMF.1
 				</note>
 				
 				<aactivity>
@@ -4048,10 +4037,14 @@
 						<h:li>teardown of tunnel-0, and</h:li> 
 						<h:li>destruction of the tunnel-0 PSK immediately after teardown of tunnel-0: This test shall be consistent with the PFED Configuration section behavior stating that, after successful ML-KEM-1024 completion, tunnel-0 is terminated and the PSK is cryptographically destroyed.</h:li>
 								</h:ul>
+								Where the TOE is a sealed unit and memory cannot be read on a production unit, the evaluator may perform these tests on an instrumented, production-equivalent unit, or witness the developer performing them. The evaluator also verifies by external test that a destroyed key is not reused after rekey, zeroization, and reboot.
+								
 							</test><h:p/>
 							<test>
 								Replaced session key destruction: The evaluator shall cause a successful PFED rekey operation and verify that the TOE destroys the replaced session key immediately after the successful rekey.
 							</test><h:p/>
+							Where the TOE is a sealed unit and memory cannot be read on a production unit, the evaluator may perform these tests on an instrumented, production-equivalent unit, or witness the developer performing them. The evaluator also verifies by external test that a destroyed key is not reused after rekey, zeroization, and reboot.
+							
 							<test>
 								Obsolete recovery key destruction: The evaluator shall cause a recovery-key replacement event and verify that the TOE destroys the obsolete recovery key immediately after replacement.
 							</test><h:p/>
@@ -4156,7 +4149,7 @@
 					All of the above algorithms with the selectable parameters are CNSA 1.0 compliant.<h:p/>
 					CNSA 2.0 compliance also needs the ML-KEM-1024 key exchange described in this note.<h:p/>
 					This SFR is claimed when IPsec or TLS is selected in FTP_ITC.1.1 or FTP_TRP.1.1. An IPsec EU may also perform an ML-KEM-1024 key exchange as an additional IKEv2 key exchange (RFC 9370) alongside the DH or ECDH exchange claimed here. If it does, "<h:i>key encapsulation</h:i>" is selected in FCS_CKM.2.1 and FCS_COP.1/KeyEncap is claimed.<h:p/> 
-					If this SFR is claimed, FCS_CKM.1/AKG must also be claimed, for the ephemeral key pairs." FCS_CKM.1/SKG and FCS_CKM.6 are mandatory for every TOE (TR-4)
+					If this SFR is claimed, FCS_CKM.1/AKG must also be claimed, for the ephemeral key pairs. FCS_CKM.1/SKG and FCS_CKM.6 are mandatory for every TOE (TR-4).
 				</note>
 				
 				<aactivity>
@@ -4259,6 +4252,7 @@
 		<!-- FCS_COP.1/AEAD Cryptographic Operation – Authenticated Encryption with Associated Data -->	
 		<f-component id="sfr-fcs-cop-1-aead" cc-id="fcs_cop.1" iteration="AEAD" name="Cryptographic Operation – Authenticated Encryption with Associated Data" status="sel-based">
 			<depends on-sel="mutually-auth-tls"/>
+			<depends on-sel="tls-prot-https"/>
 			<depends on="uc-hw-sep-enc-ret-dev-hws-red"/>  
 			<depends on="uc-ded-eu-ret-dev-eu-only"/>
 			<depends><optional/></depends> 
@@ -4865,7 +4859,8 @@
 					</selectables>
 				</title>
 				<note role="application">
-					This SFR is claimed when "<h:i>key encapsulation</h:i>" is selected in FCS_CKM.2.1. For this PP, key encapsulation is used for PFED session establishment (FTP_PRO.2) and, if claimed, for an ML-KEM-1024 additional key exchange in IKEv2 by an IPsec EU (FCS_CKM_EXT.7).
+					This SFR is claimed when "<h:i>key encapsulation</h:i>" is selected in FCS_CKM.2.1.<h:p/>
+					For this PP, key encapsulation is used for PFED session establishment (FTP_PRO.2) and, if claimed, for an ML-KEM-1024 additional key exchange in IKEv2 by an IPsec EU (FCS_CKM_EXT.7).
 				</note>
 				<aactivity>
 					<TSS>The evaluator shall ensure that the TSS documents that the selection of the key size is
@@ -5698,7 +5693,7 @@
 						<selectable id="sel-fcs-cop-sigver-ecdsa">
 							<col>ECDSA</col>
 							<col>ECDSA</col> 
-							<col>Elliptic Curve <h:b><h:i>P-384</h:i></h:b> using hash <selectables>
+							<col>Elliptic Curve [<h:b><h:i>P-384</h:i></h:b>] using hash <selectables>
 								<selectable>SHA-384</selectable>
 								<selectable>SHA-512</selectable>
 							</selectables></col>
@@ -6819,7 +6814,7 @@
 						<h:li>Recovery keys are derived via the KDF specified in FCS_CKM.5/PFED including the current session key and new session key</h:li>
 						<h:li>There must be at least two recovery keys</h:li>
 						<h:li>Only one recovery key can be derived at a time</h:li>
-						<h:li>Upon successful resynchronization, a new session setup transaction, including a rekey, is comp[leted before EUD traffic resumes.</h:li>
+						<h:li>Upon successful resynchronization, a new session setup transaction, including a rekey, is completed before EUD traffic resumes.</h:li>
 						<h:li>Failure to converge causes session termination</h:li>
 					</h:ul>.
 					</title>
@@ -6988,7 +6983,7 @@
 					<title>
 						The TSF shall enforce the [<h:i>RD Information Flow Control SFP</h:i>] on [<h:i><h:ul>
 							<h:li>network traffic received, processed, routed, filtered, retransmitted, or dropped by the CU,</h:li>
-							<h:li>•	traffic between the EUD (red) interface and the black interface of an EU, including traffic protected by the
+							<h:li>traffic between the EUD (red) interface and the black interface of an EU, including traffic protected by the
 								EU's trusted channel</h:li>
 							<h:li>information flows between the EU and CU in an HWS-ERD,</h:li>
 							<h:li>PFED control, bootstrap, recovery, rekey, and EUD traffic flows when PFED is claimed</h:li>
@@ -7091,6 +7086,8 @@
 					<title>The TSF shall permit an information flow between a controlled subject and controlled information via a controlled operation if the following rules
 						hold: [<h:i><h:ul>
 							<h:li>The flow matches an administrator-configured CU forwarding/filtering rule and is permitted by the selected encryption/transport option.</h:li>
+							<h:li>•	For EU flows, plaintext EUD traffic is permitted only between the EUD and the EU's red interface; traffic is permitted on the black
+								interface only after it has been protected by the trusted channel selected in FTP_ITC.1.1 for the associated peer.</h:li>
 							<h:li>For HWS-ERD EU/CU flows, the flow occurs only over the dedicated EU/CU interface and is of a flow type authorized for the EU/CU
 								boundary.</h:li>
 							<h:li>For PFED flows, the packet is a valid PFED packet for the claimed PFED lifecycle state, peer/session association, traffic direction, and active								transaction state.</h:li>							
@@ -7119,7 +7116,7 @@
 						<h:li>The flow would emit plaintext EUD traffic on an EU black interface.</h:li>
 						<h:li>The flow attempts to bypass the dedicated EU/CU interface in an HWS-ERD.</h:li>
 						<h:li>The flow attempts to use PFED EUD traffic before PFED peer authentication, key establishment, transaction completion, or recovery prerequisites are satisfied.</h:li>
-						<h:li>The flow attempts to initiate a nested or concurrent PFED transaction contrary to FPT_TRAN_EXT.1.</h:li>
+						<h:li>The flow attempts to initiate a nested or concurrent PFED transaction contrary to FPT_TRAN_EXT.1/PFED.</h:li>
 						<h:li>The flow would disrupt MACsec or PFED cryptographic continuity where that continuity is required by the selected trusted channel method.</h:li>
 					</h:ul></h:i>]
 					</title>
@@ -7179,7 +7176,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 			</ext-comp-def>
 				
 				<f-component name="Key/Credential Import" cc-id="fdp_itc_ext.1" status="sel-based">
-					<depends on="accept-ext-gen"/>
+					<depends on="ext-gen-psk"/>
 					<depends on-sel="sel-imported"/>
 					<depends><optional/></depends> 
 				<comp-lev> requires the TSF to choose a method for importing keys and key material.</comp-lev>
@@ -7322,7 +7319,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 					For an Ethernet frame already protected by a trusted component, the protected inner Ethernet frame is the object whose cryptographic continuity must be
 					preserved. The TOE may add or remove outer transport encapsulation, including an outer Ethernet header, provided the protected inner frame from its
 					destination address through its integrity value remains unchanged, and the TOE does not act as the cryptographic endpoint.<h:p/>
-					Where MACsec Protocol Data Units (MPDUs) must cross a Layer 3 network, for example a radio network, the CU carries each complete MPDU inside an outer encapsulation ([assignment: Layer 2-over-Layer 3 encapsulation, for example GRE or VXLAN]) without modifying it and removes the outer encapsulation at the far end before delivery to the peer EU. The TSS identifies the encapsulation.
+					Where MACsec Protocol Data Units (MPDUs) must cross a Layer 3 network, for example a radio network, the CU carries each complete MPDU inside an outer encapsulation (for example, Layer 2-over-Layer 3 encapsulation, like GRE or VXLAN]) without modifying it and removes the outer encapsulation at the far end before delivery to the peer EU. The TSS identifies the encapsulation.
 					</note>
 					
 					<aactivity>
@@ -7685,7 +7682,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 			</f-element>
 			<f-element id="fia-psk-ext-1e2">
 				<title>The TSF shall be able to <selectables>
-					<selectable>accept externally generated pre-shared keys</selectable>
+					<selectable id="ext-gen-psk">accept externally generated pre-shared keys</selectable>
 					<selectable>generate 256 bit-based pre-shared keys via FCS_RBG.1</selectable>
 				</selectables>.
 				</title>
@@ -7746,9 +7743,9 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 								<test> PSK use for tunnel-0 bootstrap: The evaluator shall configure or provision the TOE for PFED bootstrap and verify that the TOE supports use of the PSK to establish tunnel-0 for the bootstrap phase. This aligns with the PFED Configuration section. </test><h:p/>
 								<test>  Exclusive bootstrap use: The evaluator shall verify that the TOE does not rely on the PSK to satisfy post-bootstrap session establishment or ordinary operational PFED session use. The TOE shall use the PSK only for tunnel-0 bootstrap, consistent with the TSS and guidance. </test><h:p/>
 								<test> Transition away from PSK use: The evaluator shall cause the TOE to complete the post-bootstrap transition described in the TSS and verify behavior consistent with the PFED Configuration section, namely that tunnel-0 is terminated and PSK use ends after successful ML-KEM-1024 completion. </test><h:p/>
-								Where direct observation of low-level PSK lifecycle behavior is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, traces, or developer evidence sufficient to determine that PSK support is limited to the tunnel-0 bootstrap role.<h:p/>
-								The evaluator shall provision a tunnel-0 PSK of at least 256 bits and confirm that tunnel-0 is established with it. The evaluator shall then attempt to provision a PSK of fewer than 256 bits and confirm that the TOE rejects it.	
+								<test>The evaluator shall provision a tunnel-0 PSK of at least 256 bits and confirm that tunnel-0 is established with it. The evaluator shall then attempt to provision a PSK of fewer than 256 bits and confirm that the TOE rejects it.</test>
 							</testlist>	
+							Where direct observation of low-level PSK lifecycle behavior is not practical, the evaluator may rely on observable TOE behavior, supported test interfaces, traces, or developer evidence sufficient to determine that PSK support is limited to the tunnel-0 bootstrap role.
 						</Tests>
 					</aactivity>
 				</f-element>
@@ -7806,7 +7803,11 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 						<selectable>certificate-based authentication</selectable>
 						<selectable>public key-based authentication</selectable>
 						<selectable>biometric authentication</selectable>
-						<selectable>support for cryptographic mutual authentication using ML-DSA-87 and activation using <assignable>a PIN, a CIK, or a hardware-bound credential</assignable></selectable>							
+						<selectable>support for cryptographic mutual authentication using ML-DSA-87 and activation using <selectables>
+							<selectable>a PIN</selectable>
+							<selectable>a CIK</selectable>
+							<selectable>a hardware-bound credential</selectable>
+							</selectables></selectable>							
 						<selectable>no other mechanism</selectable>
 					</selectables></h:i>] to support user authentication. 
 					</title>
@@ -7996,7 +7997,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 				<comp-lev> requires the TSF enforce data-at-rest protection until successful authentication has occurred. </comp-lev>
 				<management>There are no management activities foreseen.</management>
 				<audit>There are no auditable events foreseen.</audit>
-				<dependencies/>			
+				<dependencies>No dependencies.</dependencies>			
 				
 				<f-element id="fel-auth-before-decrypt">
 					<title>The TSF shall require the user to present the <selectables>
@@ -8016,7 +8017,8 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 					</ext-comp-def-title>
 					
 					<note role="application">The intent of this requirement is to prevent decryption of
-						protected data before the user has authorized to the device using the selected authentication factor. The selected0 authentication factor is also required before the keys stored encrypted under FPT_KST_EXT.1 can be decrypted. </note>
+						protected data before the user has authorized to the device using the selected authentication factor. The selected authentication factor is also required before the keys stored encrypted under FPT_KST_EXT.1 can be decrypted.
+					</note>
 					<aactivity>
 						<TSS>The evaluator shall verify that the TSS describes the process for decrypting protected data and keys at startup. The evaluator shall verify the TSS does the following.<h:ul>
 							<h:li>Identifies the authentication factor or factors selected in FIA_UAU_EXT.1.1 (password, PIN, or CIK), and how 
@@ -8027,11 +8029,11 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 							<h:li>Describes what the TOE does before a valid factor is presented, showing that no protected data or key in that set is decrypted and that no trusted channel is established</h:li>
 							<h:li>Describes the TOE behavior after an invalid factor, consistent with FIA_AFL_EXT.1</h:li>
 							<h:li>If a PIN or CIK is also selected in FDP_BRINGUP_EXT.1.2, states whether that credential and the FIA_UAU_EXT.1 factor are the same presentation or separate ones</h:li>
-						</h:ul>.
+						</h:ul>
 							The evaluator shall verify that the TSS is consistent with the description of key storage required by FPT_KST_EXT.1.
 						</TSS>
 						<Guidance/>
-						<Tests> The current Tests 1 through 3 depend on FDP_DAR_EXT.1 and FDP_DAR_EXT.2, which are not in the PP, and on developer search tools:<h:p/>							
+						<Tests> 						
 							The evaluator shall perform the following tests for each authentication factor selected in FIA_UAU_EXT.1.1:<testlist>
 								<test><h:b>No factor:</h:b> The evaluator shall power on the TOE and not present the factor. The evaluator shall verify that no EUD traffic passes and that no trusted channel is established with a peer.</test>
 								<test><h:b>Valid factor:</h:b> The evaluator shall present a valid factor and verify that the TOE establishes its trusted channel and passes EUD traffic.</test>
@@ -8185,8 +8187,8 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 					<title>
 						The TSF shall enforce the [<h:i>RD Information Flow Control SFP</h:i>] to restrict the ability to [<h:i>modify, delete,</h:i> <assignable>other
 							operations</assignable>] the security attributes [<h:i>packet filtering and forwarding rules, interface role assignments, the trusted channel peer
-								and protocol configuration, and <assignable>other security attributes from FDP_IFF.1.1</assignable></h:i>] to <assignable>the
-									administrator</assignable>.						
+								and protocol configuration, and <assignable>other security attributes from FDP_IFF.1.1</assignable></h:i>] to [<h:i>the
+									administrator</h:i>.						
 					</title>
 					<note>
 						The TSF vendor may pre-install SDOs with default attributes. The ST author explains which attributes may be changed or are prohibited from changing based on the ADM-R and MFGADM-R roles (as applicable). The ST author also distinguishes between authorization values required to use pre-installed SDOs and authorization values required to change the attributes of pre-installed SDOs.
@@ -8219,7 +8221,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 						is created.
 					</title>
 					<note>
-						"Restrictive" means that before any administrator-defined rule exists, the TOE drops all traffic, as required by FPF_RUL_EXT.1.6 and FDP_IFF.1.5. For a
+						"<h:i>Restrictive</h:i>" means that before any administrator-defined rule exists, the TOE drops all traffic, as required by FPF_RUL_EXT.1.6 and FDP_IFF.1.5. For a
 						PFED EU, the flow rules are fixed (FDP_IFF.1, FTP_PRO.1.4), and no attribute in FMT_MSA.1 can make them less restrictive.
 					</note>
 					<aactivity>
@@ -8263,7 +8265,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 								Administration is local if the administrator is physically present and connected through a console or
 								point-to-point management port that cannot be reached from any network. Administration over any network
 								connection, including an Ethernet or USB networking MGMT port, is remote and requires FTP_TRP.1 (HTTPS). The TSS
-								states, for each MGMT interface, whether it is local or remote..
+								states, for each MGMT interface, whether it is local or remote.
 							</app-note>
 						</management-function>
 
@@ -8575,7 +8577,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 					These functions become mandatory or selectable as indicated in the Notes.<h:p/>
 					If function <xref to="mf-admin-platform"/> is not selected, then no other
 					administrative functions may be selected.<h:p/>
-					When the TOE is decommissioned, the TSF destroys all secret keys, credentials, certificates, and provisioning artifacts in nonvolatile storage, using the zeroization function in FMT_SMF.1
+					
 				</note>
 				<aactivity>
 					<TSS>
@@ -8592,6 +8594,9 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 						The evaluator shall test each management function included in the ST 
 			            to demonstrate that the function can be performed only by the roles 
 						indicated in <xref to="t-manfunc"/> and that the result of the function is demonstrated. 
+						<testlist>
+							<test> The evaluator shall attempt to administer the EU from the CU and from the black network, and the CU from the EU, and verify that each attempt is rejected.</test>
+						</testlist>
 					</Tests>
 				</aactivity>			   
 			</f-element>
@@ -8648,7 +8653,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
       						<test>Session setup management capability: The evaluator shall verify that the TOE provides the claimed capability to perform or control PFED session setup in accordance with the TSS and guidance.</test>
       						<test>Rekey configuration management capability: The evaluator shall verify that the TOE provides the claimed capability to configure or manage PFED rekey behavior in accordance with the TSS and guidance.</test>
       						<test>Log management capability: The evaluator shall verify that the TOE provides the claimed capability to manage PFED logs or audit records in accordance with the TSS and guidance.</test>
-      						<test> The evaluator shall attempt to administer the EU from the CU and from the black network, and the CU from the EU, and verify that each attempt is rejected.</test>
+      						
       					</testlist>
       					Where practical, the evaluator should exercise these capabilities through the administrative or TOE-exposed mechanisms described in the guidance. Where a function is automatic but configurable, the evaluator should verify the corresponding management capability through the exposed configuration mechanism.
       					
@@ -9375,7 +9380,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     			<title>The TSF shall prevent code executing on any baseband processor (BP) from
     				accessing application processor (AP) resources except when mediated by the AP.</title>
     			<note role="application"> 
-    				These resources include volatile and non-volatile memory, the EU/CU interfaces, management ports, and any other interface controller within the TOE boundary. A baseband processor (BP) is any processor that runs firmware handling a WLAN or cellular radio interface, including the processor in a Wi-Fi module. The application processor (AP) is the processor that runs the TSF served by the radio: the CU's processor or, in an EU-only TOE that claims Use Case 4, the EU's processor. The BP processes untrusted radio-frequency input. This requirement ensures that a compromise of the BP cannot give it access to TOE memory or interfaces except through the AP, which mediates every such access.
+    				These resources include volatile and non-volatile memory, the EU/CU interfaces, management ports, and any other interface controller within the TOE boundary. A baseband processor (BP) is any processor that runs firmware handling a WLAN or cellular radio interface, including the processor in a Wi-Fi module. The application processor (AP) is the processor that runs the TSF served by the radio: the CU's processor, or in an EU-only TOE that claims Use Case 4, the EU's processor. The BP processes untrusted radio-frequency input. This requirement ensures that a compromise of the BP cannot give it access to TOE memory or interfaces except through the AP, which mediates every such access.
     			</note>
     			<aactivity>
     				<TSS>The evaluator shall examine the TSS to determine that it identifies each BP in the TOE, describes the interface between each BP and the AP, and describes the mechanism (for example, an IOMMU, a memory protection unit, or a message-only interface) that prevents the BP from accessing AP memory and peripherals except as mediated by the AP.<h:p/>
@@ -9397,17 +9402,17 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     		<depends on="pfed"/>
     		
     		<comp-lev> requires the TSF to detect peer failure under specified conditions. </comp-lev>
-    		<management>Configuration of the idle interval, keep-alove interval, and response timeout, if configurable.</management>
+    		<management>Configuration of the idle interval, keep-alive interval, and response timeout, if configurable.</management>
     		<audit><h:ul>
     			<h:li>Peer declared dead</h:li>
     			<h:li>Session setup completed after the peer was declared dead</h:li>
-    		</h:ul>.</audit>
+    		</h:ul></audit>
     		<dependencies>No dependencies.</dependencies>
     		<f-element id="fdp-dpd-ext-1e1">
     			<title>
     				The TSF shall detect loss of the peer EU using: <selectables>
-    					<selectable>traffic-based detection, in which a keep-alive is sent only when no traffic has been received from the peer within <assignable>idle interval</assignable>;</selectable>
-    					<selectable>a periodic keep-alive heartbeat sent every <assignable>interval</assignable>;</selectable>
+    					<selectable>traffic-based detection, in which a keep-alive is sent only when no traffic has been received from the peer within <assignable>idle interval</assignable></selectable>
+    					<selectable>a periodic keep-alive heartbeat sent every <assignable>interval</assignable></selectable>
     					<selectable><assignable>other peer-liveness mechanism</assignable></selectable>
     				</selectables>.
     			</title>
@@ -9432,7 +9437,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     					The evaluator shall examine the TSS to determine that it:<h:ul>
     						<h:li>Describes the peer-liveness mechanism </h:li> 
     						<h:li>States the idle or heartbeat interval and the response timeout (or their configurable ranges), and the resulting maximum time from loss of the peer to declaring the peer dead.</h:li>
-    						<h:li>Describes how the TOE takes its EUD offline by stopping the forwarding of EUD traffic and returns to session setup when the pper is declared dead</h:li>
+    						<h:li>Describes how the TOE takes its EUD offline by stopping the forwarding of EUD traffic and returns to session setup when the peer is declared dead</h:li>
     						<h:li>Describes the client and server persona behavior after the peer is declared dead.</h:li>
     					</h:ul>
     				</TSS>
@@ -9454,7 +9459,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     			<h:li>Session setup completed after the peer was declared dead</h:li>
     			</h:ul>
     			</audit-event-descr>
-    			<audit-event-info>No additional information.</audit-event-info>
+    			<audit-event-info>No additional information</audit-event-info>
     		</audit-event>
     		
     	</f-component>
@@ -9472,12 +9477,13 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     			</title>
     			<note role="application">The intent of this requirement is to ensure that cryptographic services requiring random bit
     				generation cannot be performed if a failure of a self-test defined in FPT_TST.1 occurs.<h:p/>
-    				On failure of authentication, peer validation, key establishment, nonce or replay protection, rekey, entropy, update or internal isolation, the TOE does not forward protected payload in plaintext or over an unapproved fallback. This applies to whichever trusted-channel mechanism is selected in FTP_ITC.1.<h:p/>
+    				On failure of authentication, peer validation, key establishment, nonce or replay protection, rekey, entropy, update, or internal isolation, the TOE does not forward protected payload in plaintext or over an unapproved fallback. This applies to whichever trusted-channel mechanism is selected in FTP_ITC.1.<h:p/>
     				Every TOE selects the self-test failure option. A PFED TOE also selects dead peer detected, recovery failure and provisioning failure. For a self-test failure, preserving a secure state means that no cryptographic service that depends on the failed function is performed. For a dead peer, it means taking the EUD offline by stopping forwarding EUD traffic and returning to session setup (FPT_DPD_EXT.1.3). For a recovery or provisioning failure, it means terminating the session.<h:p/>
+    				For a dead peer, the EU takes its EUD offline by stopping the forwarding of EUD traffic and returns to session setup, and the EUD stays offline until a new session setup completes, as specified in FPT_DPD_EXT.1.3. For a recovery failure, termination follows the failure-to-converge rule in FCS_REC_EXT.1/PFED.
+    				
     			<h:b>For PFED</h:b><h:p/>
     				The intent of this requirement is to ensure that when specified PFED failures occur, the TOE preserves a secure state rather than allowing continued operation with uncertain peer state, incomplete provisioning state, or failed recovery state.<h:p/>
-    				For a dead peer, the EU takes its EUD offline by stopping the forwarding of EUD traffic and returns to session setup, and the EUD stays offline until a new session setup completes, as specified in FPT_DPD_EXT.1.3. For a recovery failure, termination follows the failure-to-converge rule in FCS_REC_EXT.1/PFED.
-    				<h:p/>
+    				
     				For a recovery failure or a provisioning failure, the TOE terminates the affected session or association. These failures can happen due to honest or malicious events. A new session setup begins under the session key held in the active keystore, which is the most recent session key established by a successful rekey and not yet replaced. Session setup then performs ML-DSA-87 mutual authentication and the mandatory ML-KEM-1024 rekey (FTP_PRO.2.1, FTP_PRO.2.2). EUD traffic resumes only under the new session key. The retained key is destroyed when that rekey succeeds, as specified in FCS_CKM.6/PFED.
     				
     			</note>
@@ -10831,7 +10837,8 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     					interface. In that case, the guidance shall identify the exact physical ports/cabling and prohibited alternate connections.
     				</Guidance>
     				<Tests>
-    					The evaluator shall examine the evaluated bill of materials, board and block diagrams, and interconnect documentation, and inspects the externally accessible ports of a production unit. The evaluator opens the enclosure only if this documentation is insufficient to establish the separation claimed in the TSS.
+    					The evaluator shall examine the evaluated bill of materials, board and block diagrams, and interconnect documentation, and inspects the externally accessible ports of a production unit. The evaluator shall open the enclosure only if this documentation is insufficient to establish the separation claimed in the TSS.<h:p/>
+    					Where IC3 is internal to a sealed enclosure and is not accessible on a production unit, the evaluator may perform the IC3 tests on a production-equivalent unit with a developer-provided test fixture or witness a developer demonstration of them. The evaluator shall record any differences from the production configuration and its security impact. The IC1 and IC2 negative tests are always performed on the production configuration.
     				</Tests>
     			</aactivity>
     		</f-element>
@@ -10921,7 +10928,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     			FCS_CKM.5 Cryptographic Key Derivation<h:p/>
     			FCS_CKM.6 Timing and Event of Cryptographic Key Destruction<h:p/>
     			[FPT_FLS.1 Failure with Preservation of Secure State or
-    			FPT_RCV_EXT.1/PFED Recovery Behavior] (if selected as an expiration/failure action in FPT_TRAN_EXT.1.5)<h:p/>
+    			FPT_RCV_EXT.1/PFED Recovery Behavior] (if selected as an expiration/failure action in FPT_TRAN_EXT.1.5/PFED)<h:p/>
     			FAU_GEN.1 Audit Data Generation (if auditable PFED transaction events are claimed)
     		</dependencies>
     	<f-element>
@@ -10963,7 +10970,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     		<f-element id="fdp-tran-ext-1e4">
     			<title>
     				The TSF shall start a reaper timer when a PFED transaction begins and shall stop or disable the reaper timer only when the transaction
-    				completes, aborts, fails, or transitions to the recovery or fail-secure state selected in FPT_TRAN_EXT.1.5.
+    				completes, aborts, fails, or transitions to the recovery or fail-secure state selected in FPT_TRAN_EXT.1.5/PFED.
     			</title>
     		</f-element>
     		<f-element id="fdp-tran-ext-1e5">
@@ -11014,9 +11021,9 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     						<test>
     							<h:b>Timeout Action and EUD Gating</h:b>: 
     							The evaluator shall hold a transaction incomplete until timeout. The evaluator shall verify that the TOE performs the exact action selected in
-    							FPT_TRAN_EXT.1.5. The evaluator shall verify the selected terminal state through the state indicator or protocol outcome identified in the TSS.
+    							FPT_TRAN_EXT.1.5/PFED. The evaluator shall verify the selected terminal state through the state indicator or protocol outcome identified in the TSS.
     						</test>  
-    						<test>The evaluator shall verify serialization, collision handling, timeout, and recovery by external test. Where a timer or key-state transition is not observable externally, the TSS includes a state-transition table and the evaluator witnesses a developer fault-injection test on a production-equivalent unit.</test>
+    						<test>The evaluator shall verify serialization, collision handling, timeout, and recovery by external test. Where a timer or key-state transition is not observable externally, the TSS includes a state-transition table, and the evaluator shall witness a developer fault-injection test on a production-equivalent unit.</test>
     					</testlist>    					
     				</Tests>
     			</aactivity>
@@ -11280,7 +11287,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 	    This family defines requirements for applying updates to the TOE.
 	  </fam-behavior>
 	</ext-comp-def>
-    	<f-component id="sfr-fpt-tud-ext-1" cc-id="fpt_tud_ext.1" name="TOE Firmware Update">
+    	<f-component id="sfr-fpt-tud-ext-1" cc-id="fpt_tud_ext.1" name="TOE Firmware Update">    		
     		<consistency-rationale/>
     		<comp-lev>requires that the TSF support update of TOE firmware.</comp-lev>
     		<management>The following actions could be considered for the management functions in FMT:<h:ul>
@@ -11299,6 +11306,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     						FPT_TUD_EXT.3</selectable>					
     					<selectable id="sel-tud1-local-update">a secure local firmware update mechanism
     						described in FPT_TUD_EXT.4</selectable>
+    					<selectable id="sel-local-means">by local means, retrieved from an update server over a trusted channel as specified in FYTP_ITC.1</selectable>
     				</selectables>.
     			</title>
     			<ext-comp-def-title>
@@ -11548,7 +11556,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 				<title>
 					The TSF shall allow execution or use of TOE firmware updates only if new TOE firmware
 					is integrity- and authenticity-checked using the mechanism described in FPT_ROT_EXT.2 prior to its
-					execution or use, and <h:b>the security version number of the TOE firmware update is equal to or greater than that of the
+					execution or use, and [<h:b>the security version number of the TOE firmware update is equal to or greater than that of the
 						currently installed TOE firmware, as specified in FPT_RBP_EXT.1</h:b>].
 				</title>
 				<ext-comp-def-title>
@@ -11932,7 +11940,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 	    				[<h:i>security administrator-specified advisory notice and consent warning regarding use of the TOE</h:i>] message.</title>
 	    			<note role="application">This requirement may be met with the configuration of either
 	    				text or an image containing the text of the desired message. The TSF must minimally
-	    				display this information at startup, but may also display the information at every
+	    				display this information at startup but may also display the information at every
 	    				unlock. The banner is configured according to FMT_SMF.1 function 22.<xref
 	    					to="mf-unlockBanner"/>.<h:p/>
 	    				This requirement is intended to apply to interactive sessions between a human
@@ -11961,7 +11969,12 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 	    
 		<section title="Class FTP: Trusted Path/Channel" id="ftp">
 	  
-      <f-component name="Inter-TSF Trusted Channel" cc-id="ftp_itc.1">
+      <f-component name="Inter-TSF Trusted Channel" cc-id="ftp_itc.1" status="sel-based">
+      	<depends on-sel="transmit-external"/>
+      	<depends on-sel="trusted-channel"/>
+      	<depends on-sel="sel-local-means"/>
+      	<depends on="uc-hw-sep-enc-ret-dev-hws-red"/>  
+      	<depends on="uc-ded-eu-ret-dev-eu-only"/>
       	<f-element id="ftp-itc-1e1">
       		<title> 
       			The TSF shall provide a communication channel between itself and <h:b><selectables linebreak="yes">
@@ -12123,7 +12136,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
     		<dependencies>No dependencies.</dependencies>          
     		<f-element id="ftp-itp-ext-1e1">
     			<title>
-    				The TSF shall provide a physically protected communication channel between itself and <assignable>list of other IT entities, such as key fill devices or administrator consoles physically connected to the TOE</assignable>.
+    				The TSF shall provide a physically protected communication channel between itself and <assignable>list of IT entities, such as key fill devices or administrator consoles physically connected to the TOE</assignable>.
     			</title>
     			<note role="application">
     				A physically protected channel is a direct physical connection, with no intervening network, between the TOE and the named entity.
@@ -12185,7 +12198,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 							<h:li>Dead peer detection and response are performed as specified in FPT_DPD_EXT.1.</h:li>
 							<h:li>Session key recovery is performed as specified in FCS_REC_EXT.1/PFED and FPT_RCV_EXT.1/PFED; upon successful resynchronization, a new session setup is performed before EUD traffic resumes.</h:li>
 							<h:li>PFED operations are controlled as transactions as specified in FPT_TRAN_EXT.1/PFED.</h:li>
-							<h:li>The EU accepts only a single, fixed-offset packet signature from the CU; all unexpected or malformed packets are dropped before reaching the EU protocol stack, and the EU does not respond to invalid packets from the CU or the EUD.</h:li>
+							<h:li>The EU uses a fixed framing discriminator as an early reject filter, and authenticates and integrity-checks each accepted message as specified in FTP_PRO.3 before it changes any security-relevant state.</h:li>
 							<h:li>Each channel is a unique cryptographic bond between two EUs; channel labels are authenticated as specified in FTP_PRO.3.2.</h:li>
 							<h:li>Plaintext key material is protected as specified in FPT_KST_EXT.2 and FPT_KST_EXT.3, and no mechanism is provided to export cryptographic keys in any form; channel recovery outside the recovery transaction is performed only by reprovisioning or ERD replacement.</h:li> 
 							<h:li><selectables>
@@ -12227,7 +12240,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 						Evaluation of this SFR is performed in conjunction with the evaluation activities in FTP_ITC.1.
 						<TSS>
 							The evaluator shall examine the TSS to determine that it does the following.<h:ul>
-								<h:li>Identifies the PFED protocol version implemented and describes how the implementation meets FTP_PRO.1.1 through FPT_PRO.1.6, and identifies the peer implementations and versions with which the TOE interoperates.</h:li>
+								<h:li>Identifies the PFED protocol version implemented and describes how the implementation meets FTP_PRO.1.1 through FTP_PRO.1.6.</h:li>
 								<h:li>Identifies each role implemented by the TOE, including the session-setup client and server personas and the initiator and responder roles applicable to each PFED transaction.</h:li>
 								<h:li>Identifies the purposes for which the PFED channel is used, including provisioning, session establishment, transaction protection, and EUD data protection, as applicable.</h:li>
 								<h:li>Describes the PFED states, permitted message sequences, and conditions for transition between those states.</h:li>
@@ -12249,6 +12262,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 							</h:ul>
 						</Guidance>
 						<Tests>
+							For protocol states that are encrypted on the wire, the evaluator may use trace output from an instrumented, production-equivalent build provided by the developer, correlated with external packet captures.
 							The evaluator shall perform the following tests
 							<testlist>
 								<test>
@@ -12282,7 +12296,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 									and does not permit EUD traffic as a result of that exchange.<h:p/>
 									One representative unsupported-configuration or invalid-state case is sufficient unless the TSS identifies different rejection mechanisms.
 								</test>
-								For protocol states that are encrypted on the wire, the evaluator may use trace output from an instrumented, production-equivalent build provided by the developer, correlated with external packet captures.
+								
 							</testlist>
 						</Tests>
 					</aactivity>
@@ -12366,6 +12380,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 						</h:ul>
 						</Guidance>
 						<Tests>
+							For protocol states that are encrypted on the wire, the evaluator may use trace output from an instrumented, production-equivalent build provided by the developer, correlated with external packet captures.
 							<testlist>
 								<test>
 									Using a fresh or reset TOE and a PFED peer that implements FTP_PRO.1 through FTP_PRO.3, such as a second instance of the TOE, the evaluator shall provision matching tunnel-0 PSKs and perform the complete initial
@@ -12411,7 +12426,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 									interoperable KDF output mapping. 
 								</test>
 								<test>The evaluator shall provision two EUs with mismatched PSKs and separately substitute a third EU during tunnel-0, and verify in each case that tunnel-1 is not established.</test>
-								For protocol states that are encrypted on the wire, the evaluator may use trace output from an instrumented, production-equivalent build provided by the developer, correlated with external packet captures.
+								
 							</testlist>
 						</Tests>
 					</aactivity>
@@ -12427,20 +12442,15 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 			<f-component name="Trusted Channel Data Protection" cc-id="ftp_pro.3" status="sel-based">
 				<depends on-sel="pfed-peer"/>
 				<f-element id="ftp-pro-3e1">
+					<title>The TSF shall protect data in transit from unauthorized disclosure using one of the following mechanisms: [<h:i>AES-GCM-256 with a 256-bit key as specified in FCS_COP.1/AEAD</h:i>].</title>
+				</f-element>
+				<f-element id="ftp-pro-3e2">
 					<title>The TSF shall protect data in transit from [<h:i>modification, insertion, replay,</h:i> <selectables>
 						<selectable>deletion</selectable>
 						<selectable><assignable>other</assignable></selectable>
 						<selectable>no other</selectable>
-					</selectables>] using one of the following mechanisms: [<h:i>AES-GCM-256 authenticated encryption, including authentication of any channel label and of the per-direction sequence number</h:i>].</title>
-				</f-element>
-				<f-element id="ftp-pro-3e2">
-					<title>The TSF shall protect data in transit from <selectables>
-						<selectable>modification</selectable>
-						<selectable>deletion</selectable>
-						<selectable>insertion</selectable>
-						<selectable>replay</selectable>						
-						<selectable><assignable>other</assignable></selectable>
-					</selectables> using one of the following mechanisms: [<h:i>AES-GCM-256 authenticated encryption, including authentication of any channel label</h:i>].
+					</selectables>]
+					using one of the following mechanisms: [<h:i>AES-GCM-256 authenticated encryption, including authentication of any channel label and of the per-direction sequence number</h:i>].
 					</title>
 					<note role="application">
 						If the TOE cannot distinguish a suppressed or deliberately withheld packet from ordinary transport loss, "<h:i>deletion</h:i> shall not be selected in
@@ -12860,7 +12870,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
 					Unique reference information includes:
 					<h:ul>
 						<h:li>TOE model or part number</h:li>
-						<h:li>Hardware Revision</h:li>
+						<h:li>Hardware revision</h:li>
 						<h:li>Firmware version for each separately updated component (EU, CU, baseband)</h:li>
 						<h:li>Firmware image digest</h:li>
 					</h:ul>
@@ -13477,7 +13487,7 @@ The TSS states where filtering occurs relative to protocol parsing. The evaluato
   (e.g., at startup, continuously, or on-demand), the expected results
   for each health test, and rationale indicating why each test is
   believed to be appropriate for detecting one or more failures in the
-  entropy source.
+  entropy source.<h:p/>
   Where the noise source cannot be accessed on a production unit, health-test failure responses may be demonstrated by the developer using a fault-injection fixture on a production-equivalent unit, with a statement of configuration equivalence.
 </section>
   
